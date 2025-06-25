@@ -1,4 +1,4 @@
-site_name: Algo Wiki
+site_name: 塔尖 wiki
 site_url: https://wsy0655.github.io/algo-wiki/
 repo_url: https://github.com/wsy0655/algo-wiki
 repo_name: GitHub
@@ -6,16 +6,6 @@ repo_name: GitHub
 theme:
   name: material
   language: zh
-  palette:
-    - scheme: default
-      primary: indigo
-      accent: indigo
-    - scheme: slate
-      primary: indigo
-      accent: indigo
-  font:
-    text: Roboto
-    code: Roboto Mono
   features:
     - navigation.tabs
     - navigation.top
@@ -23,36 +13,43 @@ theme:
     - content.code.copy
     - content.tabs.link
     - header.autohide
+    # 不再使用 content.mathjax
 
 nav:
   - 首页: index.md
   - 题解:
-      - 经典算法: docs/经典算法/01数组题解.md
-      - 图论: docs/图论/01图的遍历.md
-      - 数据结构: docs/数据结构/01线段树.md
+      - 经典算法:
+          - 01 数组题解: 经典算法/01数组题解.md
+      - 图论:
+          - 01 图的遍历: 图论/01图的遍历.md
+      - 数据结构:
+          - 01 线段树: 数据结构/01线段树.md
+      - 动态规划:
+          - 最长上升子序列: 动态规划/最长上升子序列.md
+          - 01 背包问题:   动态规划/01背包问题.md
   - 关于: about.md
+
 
 markdown_extensions:
   - admonition
   - codehilite:
       guess_lang: false
+      linenums: false
+  - pymdownx.superfences
+  - pymdownx.highlight
   - toc:
       permalink: true
-  - pymdownx.superfences
-  - pymdownx.betterem:
-      smart_enable: all
-  - pymdownx.highlight
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.tabbed
+  - pymdownx.arithmatex:
+      generic: true
+      inline_syntax: dollar
 
-extra_css:
-  - https://fonts.googleapis.com/css2?family=Roboto&display=swap
-
+# 加载官方 MathJax 脚本即可，不需要任何自定义 JS
 extra_javascript:
-  - https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js
+  # 先加载你的 MathJax 配置
+  - js/mathjax-config.js
+  # 再加载 MathJax
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/wsy0655/algo-wiki
+# 不加载 KaTeX CSS/JS
+# extra_css: …
