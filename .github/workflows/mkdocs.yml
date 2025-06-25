@@ -3,24 +3,32 @@ name: Deploy MkDocs site to GitHub Pages
 on:
   push:
     branches:
-      - master  # 你代码主要分支名称，如果是 main 换成 main
+      - master
+
+permissions:
+  contents: write  # ✅ 允许 workflow 写入 gh-pages 分支
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
 
-      - name: Install dependencies
-        run: pip install mkdocs mkdocs-material
+    - name: Install dependencies
+      run: |
+        pip install mkdocs mkdocs-material
 
-      - name: Build and Deploy
-        run: mkdocs gh-deploy --force
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Deploy to GitHub Pages
+      run: mkdocs gh-deploy --force
+      env:
+        # ✅ 使用 GitHub 自动提供的 token 做身份验证
+        GIT_COMMITTER_NAME: github-actions
+        GIT_COMMITTER_EMAIL: github-actions@github.com
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
