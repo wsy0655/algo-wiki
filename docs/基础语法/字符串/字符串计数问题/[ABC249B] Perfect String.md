@@ -17,20 +17,20 @@
 ### 步骤如下：
 
 1. **遍历字符串**，准备：
-   - 一个布尔标记 `has_upper` 表示是否存在大写字母；
-   - 一个布尔标记 `has_lower` 表示是否存在小写字母；
-   - 一个布尔数组 `vis[128]` 用于记录字符是否出现过（适用于 ASCII 字符）。
+      - 一个布尔标记 `has_upper` 表示是否存在大写字母；
+      - 一个布尔标记 `has_lower` 表示是否存在小写字母；
+      - 一个布尔数组 `vis[128]` 用于记录字符是否出现过（适用于 ASCII 字符）。
 
 2. **遍历每个字符 `c`**：
-   - 如果 `c` 是大写字母（`'A'`~`'Z'`），设置 `has_upper = true`；
-   - 如果 `c` 是小写字母（`'a'`~`'z'`），设置 `has_lower = true`；
-   - 判断字符 `c` 是否已经出现过：
-     - 若已出现，说明字符不唯一，直接输出 `No`；
-     - 否则标记该字符已出现。
+      - 如果 `c` 是大写字母（`'A'`~`'Z'`），设置 `has_upper = true`；
+      - 如果 `c` 是小写字母（`'a'`~`'z'`），设置 `has_lower = true`；
+      - 判断字符 `c` 是否已经出现过：
+          - 若已出现，说明字符不唯一，直接输出 `No`；
+          - 否则标记该字符已出现。
 
 3. 最后判断：
-   - 若同时 `has_upper`、`has_lower` 都为 `true`，且没有重复字符，则输出 `Yes`；
-   - 否则输出 `No`。
+      - 若同时 `has_upper`、`has_lower` 都为 `true`，且没有重复字符，则输出 `Yes`；
+      - 否则输出 `No`。
 
 ---
 
@@ -41,7 +41,7 @@
 - `vis[c] = true` 表示字符 `c` 已经出现；
 - 适用于所有常规可打印字符（ASCII 范围内）；
 - 对于字母类字符也可使用 `vis[26]`，搭配 `c - 'a'` 或 `c - 'A'` 做映射。
-  - 但本题既要存储大写字母又要存储小写字母，因此使用 `vis[128]` 会更方便。直接用 ASCII 码映射即可。
+    - 但本题既要存储大写字母又要存储小写字母，因此使用 `vis[128]` 会更方便。直接用 ASCII 码映射即可。
 
 ---
 
@@ -51,26 +51,31 @@
 #include <iostream>
 using namespace std;
 bool vis[128];
-int main() {
+int main() 
+{
     string s;
     cin >> s;
     bool has_upper = false;
     bool has_lower = false;
-    for (int i = 0; i < s.size(); i++) {
+    for (int i = 0; i < s.size(); i++) 
+    {
         char c = s[i];
-        if (vis[c]) {
-            // 字符重复
-            cout << "No" << endl;
+        if (vis[c]) // 字符重复
+        {
+            cout << "No";
             return 0;
         }
         vis[c] = true;
         if (c >= 'A' && c <= 'Z') has_upper = true;
         if (c >= 'a' && c <= 'z') has_lower = true;
     }
-    if (has_upper && has_lower) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
+    if (has_upper && has_lower) 
+    {
+        cout << "Yes";
+    } 
+    else 
+    {
+        cout << "No";
     }
     return 0;
 }

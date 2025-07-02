@@ -2,8 +2,8 @@
 
 给定一个字符串 $s$，要求统计有多少组满足以下条件的子串组合：
 
-- 子串 $s[l_1, r_1] = \texttt{Genshin}$；
-- 子串 $s[l_2, r_2] = \texttt{player}$；
+- 子串 $s[l_1, r_1] = \text{Genshin}$；
+- 子串 $s[l_2, r_2] = \text{player}$；
 - 满足区间位置条件：$1 \le l_1 \le r_1 < l_2 \le r_2 \le |s|$。
 
 每对满足条件的子串组合算作一个方案，输出总方案数。
@@ -14,8 +14,8 @@
 
 本题目标是统计所有满足：
 
-- $s[l_1, r_1] = \texttt{Genshin}$；
-- $s[l_2, r_2] = \texttt{player}$；
+- $s[l_1, r_1] = \text{Genshin}$；
+- $s[l_2, r_2] = \text{player}$；
 - 并且 $r_1 < l_2$；
 
 的合法组合数量。
