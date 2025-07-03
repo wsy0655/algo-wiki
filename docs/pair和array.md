@@ -1,43 +1,116 @@
-## <center>pair<center/>
+## pair
 
-* `pair` 是一个容器，可以存储两个不同类型的值。例如，`pair<int, string> a` 可以存储一个整数和一个字符串。可以简单理解为系统自带的两个元素的结构体。
-* 获取元素一：`a.first`，获取元素二：`a.second`。
-* `pair` 已经实现了默认的比较方式，即两个 `pair` 比较先按照 `first` 优先，`first` 相同比 `second`。
-* 因此 `pair` 类型可以直接使用 `sort` 函数。（当需要按照 first 优先比较的时候）
+* `pair` 是一个容器，可以存储两个**不同类型**的值。例如：
+
+```cpp
+pair<int, string> a = {1, "hello"};
+```
+
+* 可以简单理解为系统自带的两个元素的结构体。
+* 获取元素：`a.first` 获取第一个值，`a.second` 获取第二个值。
+* `pair` 实现了默认的比较方式，两个 `pair` 会先比较 `first`，若相同则比较 `second`，因此可以直接用于排序。
+
+
+___
+
+**示例：排序 pair 数组**
 
 ```cpp
 pair<int, int> a[N];
-
-for (int i = 1; i <= n; i++)
+for (int i = 1; i <= n; i++) 
 {
     cin >> a[i].first >> a[i].second;
 }
 
-sort(a + 1, a + n + 1); // 直接按 first 优先从小到大排序
-
-sort(a + 1, a + n + 1, greater<>()); // 按照 first 优先从大到小排序
+sort(a + 1, a + n + 1);            // 按 first 从小到大排序
+sort(a + 1, a + n + 1, greater<>()); // 按 first 从大到小排序
 ```
 
-## <center>array<center/>
 
-* `array` 是一个数组容器。例如，`array<int, 3> a` 相当于一个大小为 $3$ 的 `int` 数组，其元素分别为 $a[0],\ a[1],\ a[2]$。
-* `array` 已经实现了默认的比较方式，即两个 `array` 比较先按照下标为 $0$ 的优先，下标为 $0$ 的相同的继续向后比，以此类推。
-* `array` 比 `pair` 更适用于多个元素的情况，但 `array` 要求所有元素类型必须一致。
+**pair 的嵌套**
+
+
+```cpp
+pair<int, pair<string, bool>> a = {1, {"hello", true}};
+cout << a.first << "\n";
+cout << a.second.first << " " << a.second.second;
+```
+
+---
+
+## array
+
+* `array` 是 STL 中的 **定长数组容器**，定义方式为：
+
+```cpp
+array<int, 3> a = {1, 2, 3};
+```
+
+* 相当于一个固定长度为 $3$ 的 `int` 数组，元素访问方式为 `a[0], a[1], a[2]`。
+* `array` 的元素类型必须**完全一致**。
+* `array` 支持默认比较，优先比较第 $0$ 位，依次往后。
+
+___
+
+
+
+**示例：排序 array 数组**
 
 ```cpp
 array<int, 3> a[N];
-for (int i = 1; i <= n; i++)
+for (int i = 1; i <= n; i++) 
 {
     cin >> a[i][0] >> a[i][1] >> a[i][2];
 }
 
-sort(a + 1, a + n + 1); 
-
-sort(a + 1, a + n + 1, greater<>());
+sort(a + 1, a + n + 1);             // 默认升序排序
+sort(a + 1, a + n + 1, greater<>()); // 默认降序排序
 ```
 
-## <center>总结<center/>
+---
 
-是否有自带的支持超过 $2$ 个以上元素且元素类型可以不同的容器？
+## tuple
 
-答：`tuple`（元组），感兴趣可以自学。或者选择 `pair` 套 `pair`。例 `pair<int, pair<char, bool>>`
+* `tuple`（元组）是 STL 中支持多个不同类型元素的容器。
+* 与 `pair` 类似，但可以存储 $2$ 个以上元素。
+* 定义方式：
+
+```cpp
+tuple<int, string, double> t = {1, "abc", 3.14};
+```
+
+* 获取元素使用 `get<下标>(t)`，下标从 $0$ 开始：
+
+```cpp
+cout << get<0>(t) << get<1>(t) << get<2>(t);
+```
+
+* `tuple` 也支持比较与排序（从前往后逐个比较），可以直接 sort。
+
+**示例：排序 tuple 数组**
+
+```cpp
+tuple<int, int, int> a[N];
+for (int i = 1; i <= n; i++) 
+{
+    int x, y, z;
+    cin >> x >> y >> z;
+    a[i] = {x, y, z};
+}
+
+sort(a + 1, a + n + 1); // 默认升序排序
+```
+
+---
+
+## 总结对比
+
+| 容器类型  | 元素数量 | 是否可不同类型 | 支持比较排序 | 特点              |
+| ----- | ---- | ------- | ------ | --------------- |
+| `pair`  | $2$    | ✅       | ✅      | STL 中用于两个值的组合   |
+| `array` | 固定   | ❌       | ✅      | 所有元素类型一致，支持随机访问 |
+| `tuple` | 任意   | ✅       | ✅      | 更通用的多元素容器       |
+
+✅ 若你需要存储多个不同类型的数据，并且数量超过 $2$，推荐使用 `tuple`。
+✅ 若元素数量为 $2$，`pair` 简洁高效。
+✅ 若元素类型一致，且固定长度，可选择 `array`。
