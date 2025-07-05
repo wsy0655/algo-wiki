@@ -16,7 +16,7 @@
 **基本原理**:
 
 $$
-gcd(a, b) = gcd(a, b - a) \quad (a \geq b)
+\gcd(a, b) = \gcd(a, b - a) \quad (a \leq b)
 $$
 
 ### 证明思路
@@ -47,7 +47,7 @@ $$
 ## 渐转相除法
 
 $$
-gcd(a, b) = gcd(b, a \mod b)
+\gcd(a, b) = \gcd(b, a \mod b)
 $$
 
 **理解**
@@ -121,7 +121,7 @@ for (int i = 1; i <= n; i++) m = lcm(m, a[i]);
 
 $$\begin{aligned}
 &\gcd(a_1+x,a_2+x,\ldots,a_n+x)\\
-=& \gcd(a_1,a_2-a_1,a_3-a_2,\ldots,a_n-a_{n-1})
+=& \gcd(a_1+x,a_2-a_1,a_3-a_2,\ldots,a_n-a_{n-1})
 \end{aligned}$$
 
 
