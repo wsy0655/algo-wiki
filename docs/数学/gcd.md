@@ -47,12 +47,12 @@ $$
 ## 辗转相除法（欧几里得算法）
 
 $$
-\gcd(a, b) = \gcd(b, a \mod b)
+\gcd(a, b) = \gcd(b, a \bmod b)
 $$
 
 **理解**
 
-更相减损术是一次减去 $b$，而 $a \mod b$ 是相当于多次减 $b$ 直到余数。
+更相减损术是一次减去 $b$，而 $a \bmod b$ 是相当于多次减 $b$ 直到余数。
 
 **代码实现**
 
@@ -64,8 +64,9 @@ int gcd(int a, int b)
 }
 ```
 
-* **时间复杂度**: $O(\log \max(a,b))$
-* **C++ 自带函数**: `__gcd(a, b)`
+- **时间复杂度**: $O(\log \max(a,b))$
+    - 可以证明 $a\bmod b\leq \lfloor\frac{a}{2}\rfloor$ 当且仅当 $b\leq a$。
+- **C++ 自带函数**: `__gcd(a, b)`
 
 ---
 
