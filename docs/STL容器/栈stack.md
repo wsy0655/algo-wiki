@@ -284,11 +284,10 @@ for (int i = 0; i < s.size(); i++)
 
 **▶ 思路:**
 
-1. 为了让 b\[j] 出现在栈顶，将 a\[i] 按顺序入栈
-2. 如果 `stk.top() == b[j]`，则 pop，同时 j++
-3. 最后 j == n+1 即为合法
+- 为了让 `b[j]` 出现在栈顶，将 `a[i]` 按顺序入栈
+- 如果 `stk.top() == b[j]`，则 `pop`，同时 `j++`
+- 最后 `j == n + 1` 即为合法
 
-模拟栈操作：
 
 ```cpp
 int j = 1;
@@ -301,7 +300,8 @@ for (int i = 1; i <= n; i++)
         j++;
     }
 }
-if (j == n + 1) cout << "YES"; else cout << "NO";
+if (j == n + 1) cout << "YES"; 
+else cout << "NO";
 ```
 
 ---
