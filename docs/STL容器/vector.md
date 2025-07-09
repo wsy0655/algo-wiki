@@ -26,6 +26,14 @@ vector<vector<int>> v3;            // 二维 vector
 vector<pair<int, int>> v4;         // 存储 pair 的 vector
 ```
 
+📦 初始化方法：
+
+```cpp
+vector<int> v = {1, 2, 3}; // 手动赋值
+vector<int> v(n + 1); // 初始化长度为 n + 1 的 vector，元素全部为 0
+vector<int> v(n, 1); // 初始化长度为 n 的 vector，元素全部为 1
+```
+
 📌 **提示：** vector 的内存是连续的，可以与数组互操作，例如传给 `sort()`。
 
 ---
