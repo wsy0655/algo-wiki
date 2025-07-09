@@ -26,7 +26,61 @@ int top = 0; // 栈顶下标，top = 0 表示空栈
 - 获取栈大小：`cout << top;`
 - 清空栈：`top = 0;`
 
+
 ✅ **优点**：可以直接访问任意位置，清空快，效率高。
+
+
+**模板题代码实现**
+
+[点我跳转模板题](http://www.tarjanoj.com/d/tarjan24/p/1105)
+
+
+```cpp
+#include <bits/stdc++.h>
+#define ull unsigned long long
+#define ll long long
+using namespace std;
+ull stk[1000005];
+int main()
+{
+	ios::sync_with_stdio(false);
+	cin.tie(0); // 不要用 endl，换行用 \n 
+    int t;
+    cin >> t;
+    while (t--)
+    {
+    	int n;
+		cin >> n;
+		int top = 0; // 代表栈顶，也起到了多组数据清空栈的作用  
+		for (int i = 1; i <= n; i++)
+		{
+			string op;
+			cin >> op;
+			if (op == "push")
+			{
+				ull x;
+				cin >> x;
+				stk[++top] = x;
+			} 
+			if (op == "pop")
+			{
+				if (top > 0) top--; // 删除栈顶
+				else cout << "Empty\n"; 
+			}
+			if (op == "query")
+			{
+				if (top > 0) cout << stk[top] << "\n";
+				else cout << "Anguei!\n";
+			}
+			if (op == "size")
+			{
+				cout << top << "\n";
+			}
+		} 
+	}
+    return 0;
+}
+```
 
 ---
 
@@ -37,15 +91,75 @@ int top = 0; // 栈顶下标，top = 0 表示空栈
 stack<int> stk;
 ```
 
-| 函数 | 作用 | 示例 |
-|------|------|------|
-| `push(x)` | 入栈 | `stk.push(5);` |
-| `pop()` | 出栈 | `stk.pop();` |
-| `top()` | 获取栈顶元素 | `stk.top();` |
-| `size()` | 获取大小 | `stk.size();` |
-| `empty()` | 判空 | `stk.empty();` |
+| 函数      | 作用         | 示例           | 注意事项                                                 |
+| --------- | ------------ | -------------- | -------------------------------------------------------- |
+| `push(x)` | 入栈         | `stk.push(5);` | 函数无返回值。                                           |
+| `pop()`   | 出栈         | `stk.pop();`   | 函数无返回值。保证栈不为空才能使用，否则 `RE`。          |
+| `top()`   | 获取栈顶元素 | `stk.top();`   | 返回值取决于栈的类型。 保证栈不为空才能使用，否则 `RE`。 |
+| `size()`  | 获取大小     | `stk.size();`  | 返回值为 `unsigned int` 类型。                           |
+| `empty()` | 判空         | `stk.empty();` | 返回值为 `bool`，`true` 代表空，`false` 代表不空。       |
+
+🧹 清空队列：
+
+```cpp
+while (!stk.empty()) stk.pop();
+```
+
+
+**模板题代码实现**
+
+[点我跳转模板题](http://www.tarjanoj.com/d/tarjan24/p/1105)
+
+```cpp
+#include <bits/stdc++.h>
+#define ull unsigned long long
+#define ll long long
+using namespace std;
+
+int main()
+{
+	ios::sync_with_stdio(false);
+	cin.tie(0); // 不要用 endl，换行用 \n 
+    int t;
+    cin >> t;
+    while (t--)
+    {
+    	int n;
+		cin >> n;
+		stack<ull> stk;
+		for (int i = 1; i <= n; i++)
+		{
+			string op;
+			cin >> op;
+			if (op == "push")
+			{
+				ull x;
+				cin >> x;
+				stk.push(x);
+			} 
+			if (op == "pop")
+			{
+				if (!stk.empty()) stk.pop(); // 删除栈顶
+				else cout << "Empty\n"; 
+			}
+			if (op == "query")
+			{
+				if (!stk.empty()) cout << stk.top() << "\n";
+				else cout << "Anguei!\n";
+			}
+			if (op == "size")
+			{
+				cout << stk.size() << "\n";
+			}
+		} 
+	}
+    return 0;
+}
+```
+
 
 🆚 **对比**：
+
 - 数组模拟效率更高；
 - STL 使用更方便、易读；
 - 实战中根据习惯选择即可。
@@ -54,14 +168,14 @@ stack<int> stk;
 
 ## ✅ 栈的应用场景
 
-| 应用场景 | 简介 |  
-|---|---|
-| ✅ **括号匹配** | 判断括号是否成对出现、嵌套是否合法 | 
-| ✅ **表达式求值** | 解析中缀、后缀、前缀表达式 |
-| ✅ **单调栈** | 寻找某一元素左/右第一个比它大/小的元素 | 
-| ✅ **下一个更大元素** | 每个元素右边第一个更大的数 |
-| ✅ **最小栈** | 实现支持 `getMin()` 的栈 | 
-| ✅ **DFS 非递归** | 用栈模拟函数递归过程 | 
+| 应用场景             | 简介                                   |
+| -------------------- | -------------------------------------- |
+| ✅ **括号匹配**       | 判断括号是否成对出现、嵌套是否合法     |
+| ✅ **表达式求值**     | 解析中缀、后缀、前缀表达式             |
+| ✅ **单调栈**         | 寻找某一元素左/右第一个比它大/小的元素 |
+| ✅ **下一个更大元素** | 每个元素右边第一个更大的数             |
+| ✅ **最小栈**         | 实现支持 `getMin()` 的栈               |
+| ✅ **DFS 非递归**     | 用栈模拟函数递归过程                   |
 
 ---
 
@@ -113,7 +227,7 @@ a + b * c * d + (e - f) * (g * h + i)
 => a b c * d * + e f - g h * i + * +
 ```
 
-### 计算逻辑 🧮
+**计算逻辑 🧮**
 
 - 遇到数字入栈；
 - 遇到运算符，取出两个数计算 `b op a`；
@@ -124,7 +238,7 @@ a + b * c * d + (e - f) * (g * h + i)
 
 * 先出栈的是 a，后出的是 b，如 3-2 必须计算 3-2，而不是 2-3
 
-### 代码片段 📜
+**代码片段 📜**
 
 ```cpp
 void eval(char op) 
@@ -163,7 +277,7 @@ for (int i = 0; i < s.size(); i++)
 
 ---
 
-## 🧪 验证栈出栈序列是否合法
+### 🧪 验证栈出栈序列是否合法
 
 
 模拟入栈过程，同时判断是否能按顺序出栈
@@ -192,13 +306,13 @@ if (j == n + 1) cout << "YES"; else cout << "NO";
 
 ## 📚 推荐题单
 
-| 平台 | 题目 | 链接 |
-|------|------|------|
-| 洛谷 | P2201 数列编辑器 | 🔗 https://www.luogu.com.cn/problem/P2201 |
-| Codeforces | 1073B - Vasya and Books | 🔗 https://codeforces.com/problemset/problem/1073/B |
-| Codeforces | 821C - Okabe and Boxes | 🔗 https://codeforces.com/problemset/problem/821/C |
-| Codeforces | 26B - Regular Bracket Sequence | 🔗 https://codeforces.com/problemset/problem/26/B |
-| 上海月赛 | 括号计分 | 🔗 https://iai.sh.cn/problem/679 |
+| 平台       | 题目                           | 链接                                               |
+| ---------- | ------------------------------ | -------------------------------------------------- |
+| 洛谷       | P2201 数列编辑器               | 🔗 https://www.luogu.com.cn/problem/P2201           |
+| Codeforces | 1073B - Vasya and Books        | 🔗 https://codeforces.com/problemset/problem/1073/B |
+| Codeforces | 821C - Okabe and Boxes         | 🔗 https://codeforces.com/problemset/problem/821/C  |
+| Codeforces | 26B - Regular Bracket Sequence | 🔗 https://codeforces.com/problemset/problem/26/B   |
+| 上海月赛   | 括号计分                       | 🔗 https://iai.sh.cn/problem/679                    |
 
 ---
 
