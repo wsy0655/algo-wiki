@@ -292,9 +292,11 @@ for (int i = 0; i < s.size(); i++)
 
 ```cpp
 int j = 1;
-for (int i = 1; i <= n; i++) {
+for (int i = 1; i <= n; i++) 
+{
     stk.push(a[i]);
-    while (!stk.empty() && stk.top() == b[j]) {
+    while (!stk.empty() && stk.top() == b[j]) 
+    {
         stk.pop();
         j++;
     }
