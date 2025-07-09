@@ -61,15 +61,15 @@ set<int> s[100005]; // 100005 个 set
 
 
 
-| 操作    | 示例             | 说明                | 复杂度           |
-| ----- | -------------- | ----------------- | ------------- |
-| 插入 | `s.insert(x);`   | 若 `x` 不存在则插入 | $O(\log n)$ |
-| 存在性   | `s.count(x)`  | 存在返回 1，不存在返回 0    | $O(\log n)$ |
-| 查找   | `s.find(x)`  | 存在返回 迭代器，不存在返回 `s.end()`    | $O(\log n)$ |
-| 删除   | `s.erase(x);` | 删除值为 `x` 的元素，允许不存在 $x$      | $O(\log n)$ |
-| 删除   | `s.erase(it);` | 删除迭代器为 `it` 对应的的元素，要求迭代器必须存在      | $O(\log n)$ |
-| 大小  | `s.size();`   | 返回元素数量            | $O(1)$      |
-| 清空    | `s.clear();`  | 清空所有元素            | $O(n)$      |
+| 操作   | 示例           | 说明                                               | 复杂度      |
+| ------ | -------------- | -------------------------------------------------- | ----------- |
+| 插入   | `s.insert(x);` | 若 `x` 不存在则插入                                | $O(\log n)$ |
+| 存在性 | `s.count(x)`   | 存在返回 1，不存在返回 0                           | $O(\log n)$ |
+| 查找   | `s.find(x)`    | 存在返回 迭代器，不存在返回 `s.end()`              | $O(\log n)$ |
+| 删除   | `s.erase(x);`  | 删除值为 `x` 的元素，允许不存在 $x$                | $O(\log n)$ |
+| 删除   | `s.erase(it);` | 删除迭代器为 `it` 对应的的元素，要求迭代器必须存在 | $O(\log n)$ |
+| 大小   | `s.size();`    | 返回元素数量                                       | $O(1)$      |
+| 清空   | `s.clear();`   | 清空所有元素                                       | $O(n)$      |
 
 ---
 
@@ -127,22 +127,132 @@ for (auto x : s)
 - 获取最小值  
 
     ```cpp
-    auto it = s.begin();
-    if (it != s.end()) 
+    if (!s.empty()) 
     {
-        cout << *it; // 最小值
+        cout << *s.begin(); // 最小值
     }
     ```
     
 - 获取最大值  
 
     ```cpp
-    auto it = s.rbegin();
-    if (it != s.rend()) 
+    // 法一
+    if (!s.empty()) 
     {
+        auto it = s.end();
+        it--;
         cout << *it; // 最小值
     }
+    // 法二
+    if (!s.empty()) 
+    {
+        auto it = s.rbegin();
+        cout << *it;
+    }
     ```
+- 删除最小值
+
+    ```cpp
+    if (!s.empty()) 
+        s.erase(s.begin());
+    ```
+- 删除最大值
+
+    ```cpp
+    if (!s.empty()) 
+    {
+        auto it = s.end();
+        it--;
+        s.erase(it);
+    }
+    ```
+
+#### 复杂类型的使用
+
+以 `set<pair<int, int>> s` 为例：
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    set<pair<int, int>> s;
+    s.insert({1, 2});
+    s.insert({3, 4});
+    s.insert({5, 6});
+
+    s.erase({1, 2}); // 按照值删除
+
+    auto it = s.find({1, 2}); 
+    if (it != s.end()) s.erase(it); // 按照迭代器删除
+    // 遍历 pair<int, int> 类型的 set 
+    for (auto it : s)
+    {
+        cout << it.first << " " << it.second << "\n";	
+    } 
+
+    // 获取最小值
+
+    if (!s.empty())
+    {
+        auto it = s.begin();
+        cout << (*it).first << " " << (*it).second << "\n";
+    } 
+    return 0;
+}
+```
+
+
+
+**模板题代码**
+
+[点我跳转模板题](http://www.tarjanoj.com/d/tarjan24/p/180)
+
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    set<int> s;
+    int q;
+    cin >> q;
+    while (q--)
+    {
+        int op;
+        cin >> op;
+        if (op == 1)
+        {
+            int x;
+            cin >> x;
+            s.insert(x);
+        }
+        if (op == 2)
+        {
+            int x;
+            cin >> x;
+            s.erase(x);
+        }
+        if (op == 3)
+        {
+            int x, y;
+            cin >> x >> y;
+            vector<int> temp;
+            for (auto val : s)
+                if (val >= x && val <= y)
+                    temp.push_back(val);
+            for (auto val : temp)
+                s.erase(val);
+        }
+        if (op == 4)
+        {
+            if (s.empty()) cout << "-1\n";
+            else cout << *s.begin() << "\n"; 
+        }
+    } 
+    return 0;
+}
+```
 
 ### 五、multiset
 
