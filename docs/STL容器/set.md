@@ -150,12 +150,14 @@ for (auto x : s)
         cout << *it;
     }
     ```
+
 - 删除最小值
 
     ```cpp
     if (!s.empty()) 
         s.erase(s.begin());
     ```
+    
 - 删除最大值
 
     ```cpp
