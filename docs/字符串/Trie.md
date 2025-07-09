@@ -1,0 +1,494 @@
+
+
+
+
+
+
+以下是 C++ 中常用的字符串函数及其用法说明，适用于日常算法练习、竞赛编程。
+
+---
+
+
+## 🎉 创建字符串及基础操作
+
+### 创建字符串
+
+* `string s = "hello world";`
+* `string s(10, 'a');` 初始化一个长度为 10 的字符串，每个字符为 'a'
+
+**基本用法**
+
+```cpp
+string s;
+s = "hello";
+cin >> s;        // 输入
+cout << s << endl; // 输出
+int n = s.size();  // 或 s.length()
+```
+
+字符串可以看作 `char` 类型数组，还支持以下操作：
+
+* **拼接字符串：**
+
+```cpp
+string s = "hello";
+string t = "world";
+cout << s + t; // helloworld
+```
+
+* **拼接字符：**
+
+```cpp
+string s = "hello";
+char t = 'w';
+cout << s + t; // hellow
+```
+
+### 遍历字符串
+
+**方法一：使用下标**
+
+```cpp
+for (int i = 0; i < s.size(); i++) 
+{
+    cout << s[i];
+}
+```
+
+**方法二：基于范围的 for 循环**
+
+```cpp
+for (char c : s) 
+{
+    cout << c;
+}
+```
+
+* **修改字符需要使用引用：**
+
+```cpp
+for (char &c : s) 
+{
+    c = 'a';
+}
+```
+
+### 字符串比较
+
+支持运算符 `>, >=, <=, <, !=, ==`
+
+```cpp
+string s = "abc";
+string t = "abd";
+if (s < t) 
+{
+    cout << "s 更小"; // 按照字典序靠左对齐逐位比较
+}
+```
+
+比较规则为字典序（逐位比 ASCII）
+
+
+#### 📚 什么是字典序？
+
+字典序是字符串之间的一种排序方式，就像字典中单词的排列规则。`C++` 中字符串的比较（如 `<`, `>`, `==` 等）默认使用的就是字典序。
+
+**✨ 规则说明**
+
+1. 从字符串的第一个字符开始比较，逐个字符进行。
+2. 若某一位字符不同，则以字符的 ASCII 值大小为比较标准。
+3. 若前缀都相同，较短的字符串更小。
+
+**✅ 示例比较：**
+
+| 字符串 1   | 字符串 2    | 结果        | 理由                          |
+| ------- | -------- | --------- | --------------------------- |
+| `"apple"` | `"banana"` | `"apple"` 小 | `'a'` < `'b'`                   |
+| `"abc"`   | `"abcd"`   | `"abc"` 小   | 前三位相同，`abc` 长度更短              |
+| `"abc"`   | `"abC"`    | `"abC"` 小   | `'C'` 的 ASCII 是 67，小于 'c'(99) |
+| `"a1b2"`  | `"a1b10"`  | `"a1b10"` 大 | 前缀相同，`"2"` < `"10"`             |
+
+**🔢 小贴士：ASCII 大小**
+
+* 数字字符：`'0'` ($48$) $\sim$ `'9'` ($57$)
+* 大写字母：`'A'` ($65$) $\sim$ `'Z'` ($90$)
+* 小写字母：`'a'` ($97$) $\sim$ `'z'` ($122$)
+* 因此：`'A' < 'a'`，`'9' < 'A'`
+
+**🚀 应用场景：**
+
+* 判断两个字符串大小（自动使用字典序）：
+
+  ```cpp
+  if (s1 < s2) {
+      cout << "s1 更小";
+  }
+  ```
+* 给字符串数组排序：
+
+  ```cpp
+  string a[3] = {"banana", "apple", "orange"};
+  sort(a, a + 3);
+  // 结果：["apple", "banana", "orange"]
+  ```
+
+
+### 输入含空格的字符串
+
+**使用 `getline()`：**
+
+```cpp
+string s;
+getline(cin, s);
+```
+
+**使用循环读取多个字符串：**
+
+```cpp
+string s;
+while (cin >> s) 
+{
+    cout << s << endl;
+}
+```
+
+---
+
+## 🔍 查找函数
+
+**`find()`**
+
+* **功能**：查找字符串中某个字符或子串**第一次出现**的位置。
+* **语法**：
+
+  ```cpp
+  string s = "heblb";
+  int pos = s.find("b");
+  // pos = 2
+  if (pos == -1)
+  {
+    cout << "未找到" << endl;
+  }
+  int pos = s.find("hello");
+  if (pos == -1)
+  {
+    cout << "未找到" << endl;
+  }
+  ```
+* **返回值**：若找到，返回首字符的下标；若未找到，返回 `s.npos` 或 $-1$。
+
+**`rfind()`**
+
+* **功能**：查找字符串中某个字符或子串**最后一次出现**的位置。
+* **语法**：
+
+  ```cpp
+  s.rfind("l");
+  ```
+* **返回值**：同 `find()`。
+
+---
+
+## ✂️ 子串提取
+
+**`substr()`**
+
+* **功能**：从字符串中截取指定长度的子串。
+* **语法**：
+
+  ```cpp
+  s.substr(a, b); // 从下标 a 开始，取 b 个字符
+  s.substr(a);    // 从下标 a 开始到末尾
+  ```
+* **示例**：
+
+  ```cpp
+  string s = "hello";
+  string t = s.substr(2, 3); // "llo"
+  string t = s.substr(1);    // "ello"
+  ```
+
+* **打印所有子串**
+
+```cpp
+string s;
+cin >> s;
+int n = s.size();
+for (int i = 0; i < n; i++)
+{
+    for (int j = i; j < n; j++)
+    {
+        // [i, j] 一共有几个字符
+        int len = j - i + 1;
+        string t = s.substr(i, len);
+        cout << t << "\n"; 
+    }
+}
+```
+
+---
+
+## 🔁 反转字符串
+
+**`reverse()`**
+
+* **功能**：反转字符串的全部或部分内容。
+* **语法**：
+
+  ```cpp
+  reverse(s.begin(), s.end());               // 反转整个字符串
+  reverse(s.begin() + l, s.begin() + r + 1); // 反转下标区间 [l, r]
+  ```
+* **注意**：该函数属于 `<algorithm>` 头文件，返回值为 `void`。
+
+该函数是直接修改字符串本身的，没有返回值。
+
+---
+
+## 🔡 字符串排序
+
+**`sort()`**
+
+* **功能**：按 ASCII 值对字符串进行排序。默认从小到大。
+* **语法**：
+
+  ```cpp
+  sort(s.begin(), s.end());                  // 从小到大
+  sort(s.begin(), s.end(), greater<>());    // 从大到小
+  sort(s.begin() + l, s.begin() + r + 1);    // 排序下标区间 [l, r]
+  ```
+* **注意**：该函数属于 `<algorithm>` 头文件，返回值为 `void`。
+
+该函数是直接修改字符串本身的，没有返回值。
+
+---
+
+## 🔠 字符判断与大小写转换
+
+**`islower(char)` / `isupper(char)`**
+
+* **功能**：判断字符是否为小写或大写字母。
+* **返回值**：`true` 或 `false`
+* **示例**：
+
+  ```cpp
+  if (islower(s[i])); // 是否小写
+  if (isupper(s[i])); // 是否大写
+  ```
+
+**`tolower(char)` / `toupper(char)`**
+
+* **功能**：将字符转为小写或大写。
+
+* **返回值**：转换后的字符
+
+* **示例**：
+
+  ```cpp
+  char c = 'A';
+  c = tolower(c); // 'a'
+  ```
+
+
+
+---
+
+## 🔢 类型转换
+
+**`to_string()`**
+
+* **功能**：将数值转换为字符串。
+* **示例**：
+
+  ```cpp
+  int n = 35;
+  string s = to_string(n); // "35"
+  ```
+* **注意**：需要 `C++11` 或更高版本。
+
+**`stoi()`**
+
+* **功能**：将字符串转换为整数（`int`）。
+* **示例**：
+
+  ```cpp
+  string s = "1234";
+  int n = stoi(s); // 1234
+  ```
+
+**`stoll()`**
+
+* **功能**：将字符串转换为长整型（`long long`）。
+* **示例**：
+
+  ```cpp
+  string s = "999999999999";
+  long long n = stoll(s);
+  ```
+
+---
+
+## ✏️ 字符串修改函数
+
+**`replace()`**
+
+* **功能**：替换字符串中指定位置的一段内容。
+* **语法**：
+
+  ```cpp
+  s.replace(pos, len, str);
+  ```
+* **示例**：
+
+  ```cpp
+  string s = "hello";
+  s.replace(1, 3, "ey"); // s 变为 "heylo"
+  ```
+
+**`insert()`**
+
+* **功能**：在指定位置插入字符串。
+* **语法**：
+
+  ```cpp
+  s.insert(pos, str);
+  ```
+* **示例**：
+
+  ```cpp
+  string s = "hlo";
+  s.insert(1, "el"); // s 变为 "hello"
+  ```
+
+**`erase()`**
+
+* **功能**：删除字符串中指定区间的字符。
+* **语法**：
+
+  ```cpp
+  s.erase(pos, len);
+  ```
+* **示例**：
+
+  ```cpp
+  string s = "hello";
+  s.erase(1, 3); // s 变为 "ho"
+  ```
+
+---
+
+## 🧵 字符串流处理：`stringstream`
+
+**`stringstream`**
+
+* **功能**：用于将字符串拆分为单词、读入数字或构造字符串等。
+* **头文件**：`<sstream>`
+
+**常用操作：**
+
+* **定义与赋值**：
+
+  ```cpp
+  stringstream ss("123 abc");
+  ```
+* **读取数字/单词**：
+
+  ```cpp
+  int x;
+  string word;
+  ss >> x >> word; // x = 123, word = "abc"
+  ```
+* **将多个数据拼接为字符串**：
+
+  ```cpp
+  stringstream ss;
+  ss << 123 << " apples";
+  string result = ss.str(); // "123 apples"
+  ```
+* **清空并重新使用**：
+
+  ```cpp
+  ss.str("");
+  ss.clear();
+  ```
+
+**示例：按空格分割字符串**
+
+```cpp
+string s = "this is a test";
+stringstream ss(s);
+string word;
+while (ss >> word) {
+    cout << word << endl;
+}
+```
+
+---
+
+## 🧾 读取整行输入：`getline()`
+
+**`getline()`**
+
+* **功能**：从输入流中读取一整行字符串，包含空格。
+* **语法**：
+
+  ```cpp
+  getline(cin, s);         // 从标准输入读取一整行
+  getline(ss, s);          // 从 stringstream 中读取一行（到换行符为止）
+  ```
+* **使用场景**：当需要读取包含空格的一整行文本，而不是逐个单词时。
+
+**示例 1：标准输入读取一整行**
+
+```cpp
+string s;
+getline(cin, s);
+cout << "你输入的是：" << s << endl;
+```
+
+**示例 2：与 stringstream 配合使用**
+
+```cpp
+string s = "name: Alice\nage: 20";
+stringstream ss(s);
+string line;
+while (getline(ss, line)) {
+    cout << line << endl;
+}
+```
+
+---
+
+
+**示例 3：读入 $n$ 个带空格的字符串**
+
+
+```cpp
+int n;
+cin >> n;
+cin.ignore(); // 清空 cin 留下的换行字符
+for (int i = 1; i <= n; i++)
+{
+    string s;
+    getline(cin, s);
+    cout << s << endl;
+}
+```
+
+
+---
+
+
+
+🎯 **编译建议**：使用支持 C++11 或以上标准的编译器（如 g++ -std=c++11）以确保新特性正常使用。
+
+
+## DEV C++开启 C++14 标准方法
+
+
+- 打开 `DEV C++`
+  - 点击上方工具
+    - 点击编译器选项
+      - 按照下图设置
+     
+![](https://cdn.luogu.com.cn/upload/image_hosting/du9d3amv.png)
