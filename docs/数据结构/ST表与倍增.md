@@ -564,8 +564,12 @@ $$
 
 ```cpp
 // 预处理 r[i]
-for (int i = 1, j = 0; i <= n; i++) {
-    while (j + 1 <= n && x[j + 1] - x[i] <= L) j++;
+for (int i = 1, j = 0; i <= n; i++) 
+{
+    while (j + 1 <= n && x[j + 1] - x[i] <= L) 
+    {
+        j++;
+    }
     f[i][0] = j;
 }
 // 倍增预处理
