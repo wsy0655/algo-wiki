@@ -16,9 +16,9 @@ $$ \begin{aligned}
 ```cpp
 long long a, b, c;
 cin >> a >> b >> c;
-long long sum1 = (1 + a) * a / 2;
-long long sum2 = (1 + b) * b / 2;
-long long sum3 = (1 + c) * c / 2;
+long long sum1 = (1 + a) * a / 2 % mod;
+long long sum2 = (1 + b) * b / 2 % mod;
+long long sum3 = (1 + c) * c / 2 % mod;
 long long ans = sum1 * sum2 % mod * sum3 % mod;
 ```
 
@@ -41,7 +41,7 @@ ___
 string s;
 cin >> s;
 for (char &c : s) c = tolower(c);
-vec<string> a;
+vector<string> a;
 string t;
 for (char c : s)
 {
