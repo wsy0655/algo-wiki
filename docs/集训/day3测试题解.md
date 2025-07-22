@@ -131,54 +131,41 @@ s.rfind("l");
 * **返回值**：同 `find()`。
 
 ```cpp
-#include <bits/stdc++.h>
-using namespace std;
-int main()
+int op;
+cin >> op;
+if (op == 1)
 {
-    ios::sync_with_stdio(false), cin.tie(0);
-    int q;
-    cin >> q;
-    string s;
-    cin >> s;
-    while (q--)
-    {
-        int op;
-        cin >> op;
-        if (op == 1)
-        {
-            string t;
-            cin >> t;
-            s += t;
-            cout << s << "\n";
-        }
-        if (op == 2)
-        {
-            int a, b;
-            cin >> a >> b;
-
-            s = s.substr(a, b);
-            cout << s << "\n";
-        }
-        if (op == 3)
-        {
-            int a;
-            cin >> a;
-            string t;
-            cin >> t;
-            s.insert(a, t);
-            cout << s << "\n";
-        }
-        if (op == 4)
-        {
-            string t;
-            cin >> t;
-            int pos = s.find(t);
-            if (pos == -1) cout << "-1\n";
-            else cout << pos  << "\n";
-        }
-    }
-    return 0;
+    string t;
+    cin >> t;
+    s += t;
+    cout << s << "\n";
 }
+if (op == 2)
+{
+    int a, b;
+    cin >> a >> b;
+
+    s = s.substr(a, b);
+    cout << s << "\n";
+}
+if (op == 3)
+{
+    int a;
+    cin >> a;
+    string t;
+    cin >> t;
+    s.insert(a, t);
+    cout << s << "\n";
+}
+if (op == 4)
+{
+    string t;
+    cin >> t;
+    int pos = s.find(t);
+    if (pos == -1) cout << "-1\n";
+    else cout << pos  << "\n";
+}
+    
 ```
 
 ___
@@ -226,32 +213,21 @@ do
 
 
 ```cpp
-#include <bits/stdc++.h>
-using namespace std;
-
-int main()
+sort(s.begin(), s.end());
+int ans = 0;
+do
 {
-    ios::sync_with_stdio(false), cin.tie(0);
-    string s;
-    cin >> s;
-    sort(s.begin(), s.end());
-    int ans = 0;
-    do
+    int n = s.size();
+    for (int i = 1; i < n; i++)
     {
-        int n = s.size();
-        for (int i = 1; i < n; i++)
+        string l = s.substr(0, i), r = s.substr(i);
+        if (l[0] == '0' || r[0] == '0') 
         {
-            string l = s.substr(0, i), r = s.substr(i);
-            if (l[0] == '0' || r[0] == '0') 
-            {
-                continue;
-            }
-            ans = max(ans, stoi(l) * stoi(r));
+            continue;
         }
-    } while (next_permutation(s.begin(), s.end()));
-    cout << ans;
-    return 0;
-}
+        ans = max(ans, stoi(l) * stoi(r));
+    }
+} while (next_permutation(s.begin(), s.end()));
 ```
 
 
@@ -274,31 +250,21 @@ ____
 
 
 ```cpp
-#include <bits/stdc++.h>
-using namespace std;
-constexpr int N = 8e4 + 5;
-long long n, a[N], ans, r[N], stk[N], top;
-int main()
+for (int i = 1; i <= n; i++) r[i] = n + 1;
+for (int i = 1; i <= n; i++)
 {
-    ios::sync_with_stdio(false), cin.tie(0);
-    cin >> n;
-    for (int i = 1; i <= n; i++) r[i] = n + 1;
-    for (int i = 1; i <= n; i++)
+    cin >> a[i];
+    while (top && a[i] >= a[stk[top]])
     {
-        cin >> a[i];
-        while (top && a[i] >= a[stk[top]])
-        {
-            r[stk[top--]] = i;
-        }
-        stk[++top] = i;
+        r[stk[top--]] = i;
     }
-    for (int i = 1; i <= n; i++)
-    {
-        ans += r[i] - i - 1;
-    }
-    cout << ans;
-    return 0;
+    stk[++top] = i;
 }
+for (int i = 1; i <= n; i++)
+{
+    ans += r[i] - i - 1;
+}
+cout << ans;
 ```
 
 
