@@ -175,7 +175,7 @@ int main()
     {
         int now = i; // 初始位置 i
         for (int j = 1; j <= k; j++) now = x[now];
-        ans[now] = a[i]; // a[i] 最终的位置
+        ans[i] = a[now];
     }
     for (int i = 1; i <= n; i++) cout << ans[i] << " ";
     return 0;
@@ -204,7 +204,7 @@ for (int i = 1; i <= n; i++)
             now = f[now][j];
         }
     }
-    ans[now] = a[i];
+    ans[i] = a[now];
 }
 ```
 
