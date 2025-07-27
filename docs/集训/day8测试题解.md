@@ -319,7 +319,7 @@ int main()
             bel[x].push_back(i); // x 在集合 i 出现过
         }
     }
-    vector<vector<pii>> e(n + m + 1); // 空间要多 n 个给虚拟节点用
+    vector<vector<pii>> e(n + m + 1); // 空间要多 m 个给虚拟节点用
     for (int i = 1; i <= m; i++)
     {
         int vi = n + i;
@@ -339,8 +339,8 @@ int main()
         // }
     }
     deque<int> q;
-    vector<bool> vis(n + m + 1, false);  // 空间要多 n 个给虚拟节点用
-    vector<int> dis(n + m + 1, 1e9);  // 空间要多 n 个给虚拟节点用
+    vector<bool> vis(n + m + 1, false);  // 空间要多 m 个给虚拟节点用
+    vector<int> dis(n + m + 1, 1e9);  // 空间要多 m 个给虚拟节点用
     for (auto j : bel[1]) 
     {
         q.push_back(j); // 拥有元素 1 的集合都入队
