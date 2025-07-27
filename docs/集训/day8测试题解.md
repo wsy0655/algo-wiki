@@ -81,7 +81,7 @@ ___
 
 枚举 $u$ 的邻点 $v$：
 
-- 不用卡片，则 $dis_{v,j}=\min(dis_{v,j},dis_{u,j}+w)
+- 不用卡片，则 $dis_{v,j}=\min(dis_{v,j},dis_{u,j}+w)$
 - 若用卡片，保证 $j>0$，则 $dis_{v,j-1}=\min(dis_{v,j-1},dis_{u,j}+w / 2)$
 
 
