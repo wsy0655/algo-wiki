@@ -6,7 +6,7 @@
 
 
 - 向下取整：$\lfloor x \rfloor$，返回 $\leq x$ 的最大整数。
-    - 例如：$\lfloor 1.5 \rfloor = 1$，$\rfloor -1.5 \rfloor = -2$
+    - 例如：$\lfloor 1.5 \rfloor = 1$，$\lfloor -1.5 \rfloor = -2$
 - 向上取整：$\lceil x \rceil$，返回 $\geq x$ 的最小整数。   
     - 例如：$\lceil 1.5 \rceil = 2$，$\lceil -1.5 \rceil = -1$
 - 向 $0$ 取整：直接抹去小数部分。
@@ -20,7 +20,7 @@
 题目一般讲的模运算或取余某个数字都是按照数学上的模运算定义的。定义 $a \bmod b$ 的结果为 
 
 $$
-a - b \times \lfloor \frac{a}{b} \rfloor
+a \bmod b=a - b \times \lfloor \frac{a}{b} \rfloor
 $$
 
 换算成 `C++` 的代码为：`a % b = a - b * (a / b)`。
@@ -128,7 +128,7 @@ ___
 
 > `x % 10` 获取个位，`x % 100` 获取后两位，`x % 1000` 获取后三位。
 >
-> `x / 10` 删去个数，`x / 100` 删去后两位，`x / 1000` 删去后三位。
+> `x / 10` 删去个位，`x / 100` 删去后两位，`x / 1000` 删去后三位。
 >
 > 以此类推。
 
