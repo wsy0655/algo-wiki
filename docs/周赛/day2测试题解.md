@@ -166,7 +166,7 @@ int n;
 cin >> n;
 for (int i = 1; i <= n; i++)
     cin >> a[i];
-sort(a + 1, a + n + 1, cmp);
+sort(a + 1, a + n + 1);
 int ans = -1e9;
 for (int i = 1; i < n; i++)
     ans = max(ans, a[i] - a[i + 1])
