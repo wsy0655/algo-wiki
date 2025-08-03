@@ -115,6 +115,7 @@ struct node
 {
     string s;
     int p;
+    int id; // 记录输入的编号
 }
 ```
 
@@ -131,7 +132,7 @@ bool cmp(node x, node y)
 ```
 
 
-然后 `sort` 即可，时间复杂度：$O(n\log{n})$。
+然后 `sort` 即可，时间复杂度：$O(n\log{n})$。输出输出编号即可。
 
 
 ___
