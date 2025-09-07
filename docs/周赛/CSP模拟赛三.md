@@ -134,39 +134,67 @@ ___
 - 定义数组 `int sum[3000005]` 预处理休息日个数的前缀和。
 - 维护变量 `cnt` 记录当前日期是第几天。
 - 维护变量 `t` 记录当前是星期几。如果 $t\geq 3$ 则为休息日。
-- 接下来从 $1970-1-1$ 日开始模拟到 $9999-12-31$ 日，每模拟一天，判断当前日期是否是休息日，如果是，则将 `sum[cnt] = sum[cnt] + 1`。
+- 接下来从 $1970-1-1$ 日开始模拟到 $9999-12-31$ 日，每模拟一天，判断当前日期是否是休息日，如果是，则将 `sum[cnt] = sum[cnt - 1] + 1`。
 - 注意闰年对 $2$ 月份带来的影响。
 
 ```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int a[10005][13][32], sum[3000005], cnt;
 int y = 1970, m = 1, d = 1, t = 4;
-while (true)
+int b[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+bool leap(int y)
 {
-    cnt++; // 模拟每一天的编号
-    // t 记录是 星期几
-    sum[cnt] = sum[cnt - 1] + (t >= 3);
-    a[y][m][d] = cnt;
-    if (y == 9999 && m == 12 && d == 31) break;
-    t++;
-    if (t > 7) t = 1;
-    // 天数加 1 后判断是否超过这个月的上限去维护月
-    d++;
-    if (m == 2 && d > day[m] + leap(y))
+    return y % 4 == 0 && y % 100 != 0 || y % 400 == 0;
+}
+int main()
+{
+    ios::sync_with_stdio(false), cin.tie(0);
+    while (true)
     {
-        m++, d = 1;
-        // 月份加 1 后是否需要切换到下一年
-        if (m > 12)
+        cnt++;
+        a[y][m][d] = cnt;
+        sum[cnt] = sum[cnt - 1] + (t >= 3);
+        if (y == 9999 && m == 12 && d == 31) break;
+        t++;
+        if (t > 7) 
+            t = 1; // 回到星期一
+        // 对日期处理
+        d++; // 天数加 1
+        // 天数加 1 可能造成月份加 1
+        if (m == 2)
         {
-            m = 1, y++;
+            if (d > b[2] + leap(y))
+            {
+                d = 1;
+                m++; // 进入到 3 月 1 日
+            }
+        }
+        else
+        {
+            if (d > b[m])
+            {
+                d = 1;
+                m++;
+                if (m > 12)
+                {
+                    y++;
+                    m = 1;
+                }
+            }
         }
     }
-    else if (m != 2 && d > day[m])
+    int T;
+    cin >> T;
+    while (T--)
     {
-        m++, d = 1;
-        if (m > 12)
-        {
-            m = 1, y++;
-        }
+        int x1, y1, z1, x2, y2, z2;
+        cin >> x1 >> y1 >> z1 >> x2 >> y2 >> z2;
+        int l = a[x1][y1][z1], r = a[x2][y2][z2];
+        cout << sum[r] - sum[l - 1] << '\n';
     }
+    return 0;
 }
 ```
 
@@ -252,7 +280,7 @@ ___
 int n, m;
 cin >> n >> m;
 // 先写个子任务 1 和 2 试试
-vectortor<pair<int, int>> ans;
+vector<pair<int, int>> ans;
 for (int i = 2; i <= n - 2; i++)
 {
     ans.push_back({i, i + 1});
@@ -278,7 +306,7 @@ for (auto [p, q] : ans) cout << p << " " << q << "\n";
 ```cpp
 int n, m;
 cin >> n >> m;
-vectortor<pair<int, int>> ans;
+vector<pair<int, int>> ans;
 int now = n;
 // 先把 3 ~ n - 1 都变为 1，变的途中对 n 开方处理。
 for (int i = n - 1; i >= 3; i--)
@@ -328,7 +356,7 @@ $$
 显然 $dis2_j$ 可以排序后，使用 `upper_bound()` 找到最大的 $j$ 使得上式子依然成立。
 
 
-> 特别地：如果 $dis1_t\leq k$ 则随便修，答案直接输出 $\frac{n\cdot(n+1)}{2}$ 即可。
+> 特别地：如果 $dis1_t\leq k$ 则随便修，答案直接输出 $\frac{n\cdot(n-1)}{2}$ 即可。
 
 
 ```cpp
