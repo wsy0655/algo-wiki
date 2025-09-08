@@ -43,44 +43,45 @@ using namespace std;
 ull stk[1000005];
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0); // 不要用 endl，换行用 \n 
+    ios::sync_with_stdio(false);
+    cin.tie(0); // 不要用 endl，换行用 \n 
     int t;
     cin >> t;
     while (t--)
     {
-    	int n;
-		cin >> n;
-		int top = 0; // 代表栈顶，也起到了多组数据清空栈的作用  
-		for (int i = 1; i <= n; i++)
-		{
-			string op;
-			cin >> op;
-			if (op == "push")
-			{
-				ull x;
-				cin >> x;
-				stk[++top] = x;
-			} 
-			if (op == "pop")
-			{
-				if (top > 0) top--; // 删除栈顶
-				else cout << "Empty\n"; 
-			}
-			if (op == "query")
-			{
-				if (top > 0) cout << stk[top] << "\n";
-				else cout << "Anguei!\n";
-			}
-			if (op == "size")
-			{
-				cout << top << "\n";
-			}
-		} 
-	}
+        int n;
+        cin >> n;
+        int top = 0; // 代表栈顶，也起到了多组数据清空栈的作用  
+        for (int i = 1; i <= n; i++)
+        {
+            string op;
+            cin >> op;
+            if (op == "push")
+            {
+                ull x;
+                cin >> x;
+                stk[++top] = x;
+            } 
+            if (op == "pop")
+            {
+                if (top > 0) top--; // 删除栈顶
+                else cout << "Empty\n"; 
+            }
+            if (op == "query")
+            {
+                if (top > 0) cout << stk[top] << "\n";
+                else cout << "Anguei!\n";
+            }
+            if (op == "size")
+            {
+                cout << top << "\n";
+            }
+        } 
+    }
     return 0;
 }
 ```
+
 
 ---
 
@@ -99,7 +100,7 @@ stack<int> stk;
 | `size()`  | 获取大小     | `stk.size();`  | 返回值为 `unsigned int` 类型。                           |
 | `empty()` | 判空         | `stk.empty();` | 返回值为 `bool`，`true` 代表空，`false` 代表不空。       |
 
-🧹 清空队列：
+🧹 清空栈：
 
 ```cpp
 while (!stk.empty()) stk.pop();
@@ -115,47 +116,48 @@ while (!stk.empty()) stk.pop();
 #define ull unsigned long long
 #define ll long long
 using namespace std;
-
+ull stk[1000005];
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(0); // 不要用 endl，换行用 \n 
+    ios::sync_with_stdio(false);
+    cin.tie(0); // 不要用 endl，换行用 \n 
     int t;
     cin >> t;
     while (t--)
     {
-    	int n;
-		cin >> n;
-		stack<ull> stk;
-		for (int i = 1; i <= n; i++)
-		{
-			string op;
-			cin >> op;
-			if (op == "push")
-			{
-				ull x;
-				cin >> x;
-				stk.push(x);
-			} 
-			if (op == "pop")
-			{
-				if (!stk.empty()) stk.pop(); // 删除栈顶
-				else cout << "Empty\n"; 
-			}
-			if (op == "query")
-			{
-				if (!stk.empty()) cout << stk.top() << "\n";
-				else cout << "Anguei!\n";
-			}
-			if (op == "size")
-			{
-				cout << stk.size() << "\n";
-			}
-		} 
-	}
+        int n;
+        cin >> n;
+        int top = 0; // 代表栈顶，也起到了多组数据清空栈的作用  
+        for (int i = 1; i <= n; i++)
+        {
+            string op;
+            cin >> op;
+            if (op == "push")
+            {
+                ull x;
+                cin >> x;
+                stk[++top] = x;
+            } 
+            if (op == "pop")
+            {
+                if (top > 0) top--; // 删除栈顶
+                else cout << "Empty\n"; 
+            }
+            if (op == "query")
+            {
+                if (top > 0) cout << stk[top] << "\n";
+                else cout << "Anguei!\n";
+            }
+            if (op == "size")
+            {
+                cout << top << "\n";
+            }
+        } 
+    }
     return 0;
 }
 ```
+
 
 
 🆚 **对比**：
