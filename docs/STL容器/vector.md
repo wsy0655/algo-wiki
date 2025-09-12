@@ -34,7 +34,6 @@ vector<int> v(n + 1); // 初始化长度为 n + 1 的 vector，元素全部为 0
 vector<int> v(n, 1); // 初始化长度为 n 的 vector，元素全部为 1
 ```
 
-📌 **提示：** vector 的内存是连续的，可以与数组互操作，例如传给 `sort()`。
 
 ---
 
