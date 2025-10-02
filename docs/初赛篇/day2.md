@@ -175,3 +175,103 @@ int main()
 ```
 
 </details>
+
+
+## 分裂
+
+
+
+<details>
+
+<summary>完整代码</summary>
+
+```cpp
+#include <bits/stdc++.h>
+#define int long long
+using namespace std;
+using pii = pair<int, int>;
+template <typename T>
+using vec = vector<T>;
+constexpr int N = 2e5 + 5, mod = 998244353;
+
+signed main()
+{
+    ios::sync_with_stdio(false), cin.tie(0);
+    int L, q;
+    cin >> L >> q;
+    set<pii> s;
+    s.insert({1, L});
+    while (q--)
+    {
+        int op, x;
+        cin >> op >> x;
+        if (op == 1)
+        {
+            auto it = s.upper_bound({x, L + 1});
+            it--;
+            int l = it->first, r = it->second;
+            s.erase(it);
+            s.insert({l, x});
+            s.insert({x + 1, r});
+        }
+        else
+        {
+            auto it = s.upper_bound({x, L + 1});
+            it--;
+            cout << it->second - it->first + 1 << '\n';
+        }
+    }   
+    return 0;
+}
+```
+
+</details>
+
+
+## [ABC228D] Linear Probing
+
+
+<details>
+
+<summary>完整代码</summary>
+
+```cpp
+#include <bits/stdc++.h>
+#define int long long
+using namespace std;
+constexpr int N = 1 << 20;
+int q, fa[N], a[N];
+int find(int x)
+{
+    if (fa[x] == x)
+        return x;
+    return fa[x] = find(fa[x]);
+}
+signed main()
+{
+    ios::sync_with_stdio(false), cin.tie(0);
+    cin >> q;
+    for (int i = 0; i < N; i++)
+        fa[i] = i, a[i] = -1;
+    while (q--)
+    {
+        int op, x;
+        cin >> op >> x;
+        if (op == 1)
+        {
+            int h = x % N;
+            int f = find(h);
+            a[f] = x;
+            fa[f] = find((f + 1) % N);
+        }
+        else
+        {
+            cout << a[x % N] << "\n";
+        }
+    }
+    return 0;
+}
+```
+
+</details>
+
