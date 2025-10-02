@@ -335,27 +335,49 @@ ____
 
 定义：$dp_i$ 表示前 $i$ 个字符划分为若干段的最大分数。
 
-转移：枚举上一段结尾 $j$，其中 $j\in [0,i-1]$，当满足 $[j+1,i]$ 没有重复字符。则可以转移更新：
+转移：枚举当前段的开头位置 $j$，其中 $j\in [1,i]$，当满足 $[j,i]$ 没有重复字符。则可以转移更新：
 
 $$
-dp_i=\max(dp_i,dp_j+a[i-j])
+dp_i=\max(dp_i,dp_{j-1}+a[i-j+1])
 $$
 
-其中 $a[i-j]$ 表示 $[j+1,i]$ 这一段长度的代价。
+其中 $a[i-j+1]$ 表示 $[j,i]$ 这一段长度的代价。$dp_{j-1}$ 表示 $[1,j-1]$ 的最大分数。
 
 
 乍一看复杂度是 $O(n^2)$，但根据鸽笼原理，如果 $[j+1,i]$ 的长度大于 $26$，则必然有一个字母会重复出现。通过这样的优化，总复杂度可以降低为 $O(26n)$。
 
 
-**具体实现**
+```cpp
+#include <bits/stdc++.h>
+#define int long long
+using namespace std;
+constexpr int N = 1e5 + 5;
 
-
-- 枚举所有状态：$i\in [0,n)$
-- 枚举上一段结尾 $j$，为了方便提前结束可以倒序枚举 $j$。
-    - 即：`for (int j = i - 1; j >= 0 && i - j <= 26; j--)`
-- 对于每个状态 $i$ 维护一个 `vector<bool> vis(26)` 来记录每个字母是否已经出现。
-- 当遍历到 $j$ 时，如果 `vis[s[j] - 'a']` 为 `true`，则说明 $[j+1,i]$ 中有重复字母，则无法划分。则可以直接结束。
-- 否则，则将 `vis[s[j] - 'a']` 设为 `true`。
-- 并更新：$dp_i=\max(dp_i,dp_j+a[i-j])$
+signed main()
+{
+    ios::sync_with_stdio(false), cin.tie(0);
+    int n;
+	cin >> n;
+	string s;
+	cin >> s;
+	s = " " + s;
+	vector<int> a(n + 1);
+	for (int i = 1; i <= n; i++)
+		cin >> a[i]; 
+	vector<int> dp(n + 1); 
+	for (int i = 1; i <= n; i++)
+	{
+		vector<bool> vis(26);
+		for (int j = i; j >= 1 && i - j + 1 <= 26; j--)
+		{
+			if (vis[s[j] - 'a']) break;
+			vis[s[j] - 'a'] = true;
+			dp[i] = max(dp[i], dp[j - 1] + a[i - j + 1]);
+		}
+	}
+	cout << dp[n];
+    return 0;
+}
+```
 
 
