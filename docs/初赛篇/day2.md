@@ -275,3 +275,65 @@ signed main()
 
 </details>
 
+
+## [eJOI2020 Day1] Fountain
+
+
+<details>
+
+<summary>完整代码</summary>
+
+
+```cpp
+#include <bits/stdc++.h>
+#define int long long
+using namespace std;
+constexpr int N = 1e5 + 5;
+int n, q, d[N], c[N], stk[N], top;
+int f[N][17], g[N][17];
+signed main()
+{
+    ios::sync_with_stdio(false), cin.tie(0);
+    cin >> n >> q;
+    for (int i = 1; i <= n; i++) cin >> d[i] >> c[i];
+    // 这个题留到地面输出 0，不用初始化 n + 1 
+    for (int i = 1; i <= n; i++)
+    {
+    	while (top && d[i] > d[stk[top]]) 
+    	{
+    		f[stk[top]][0] = i; // 栈顶右边大于自己的是 i 
+			g[stk[top]][0] = c[i]; // 栈顶右边大于自己的盘子的容量是 c[i] 
+			top--; 
+		}
+		stk[++top] = i; 
+	}
+	for (int j = 1; j <= 16; j++)
+	{
+		for (int i = 1; i <= n; i++)
+		{
+			f[i][j] = f[f[i][j - 1]][j - 1];
+			g[i][j] = g[i][j - 1] + g[f[i][j - 1]][j - 1];
+		}
+	}
+	while (q--)
+	{
+		int r, v;
+		cin >> r >> v;
+		v -= c[r];
+        for (int j = 16; j >= 0; j--)
+        {
+            if (v > g[r][j]) // 不能写等于，严格大于才有多余的水流向后面
+            {
+                v -= g[r][j];
+                r = f[r][j];
+            }
+        }
+        if (v > 0) r = f[r][0];
+        cout << r << "\n";
+	}
+    return 0;
+}
+```
+
+</details>
+
