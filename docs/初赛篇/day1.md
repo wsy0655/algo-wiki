@@ -1,4 +1,4 @@
-## [蓝桥杯 2024 国 Java A] 栈
+## [ABC410F] Balanced Rectangles
 
 
 使用了 `unordered_map` 常数较大，导致 TLE。
