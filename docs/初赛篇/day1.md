@@ -424,17 +424,3 @@ int main()
 </details>
 
 
-## 
-
-
-<details>
-
-<summary>完整代码</summary>
-
-
-```cpp
-
-```
-
-</details>
-
