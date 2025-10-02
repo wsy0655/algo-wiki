@@ -132,19 +132,19 @@ ____
 
 ```cpp
 #include <bits/stdc++.h>
+#define int long long
 using namespace std;
-using ll = long long;
-using pii = pair<ll, ll>;
-const int N = 1e5 + 5, mod = 998244353;
-ll n, k, dep[N], ans, mx;
+using pii = pair<int, int>;
+constexpr int N = 1e5 + 5;
+int n, k, dep[N], ans, mx;
 priority_queue<pii, vector<pii>, greater<pii>> q;
-int main()
+signed main()
 {
     ios::sync_with_stdio(false), cin.tie(0);
     cin >> n >> k;
     for (int i = 1; i <= n; i++)
     {
-        ll x;
+        int x;
         cin >> x;
         q.push({x, 1}); // 初始深度为 1
     }
@@ -155,12 +155,12 @@ int main()
             q.push({0, 1});
         }
     }
-    while (q.size() >= k)
+    while (q.size() > 1)
     {
-        ll sum = 0, mx_h = 0;
+        int sum = 0, mx_h = 0;
         for (int i = 1; i <= k; i++)
         {
-            auto [w, h] = q.top();
+            auto [w, h] = q.top(); // C++17 语法，考场禁用！
             q.pop();
             mx_h = max(mx_h, h);
             sum += w;
