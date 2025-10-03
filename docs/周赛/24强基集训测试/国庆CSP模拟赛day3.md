@@ -236,10 +236,10 @@ ___
 
 ```cpp
 long long mn = 1e18;
-for (int i = 0; i < y; i++)
+for (int i = 1; i <= y; i++)
 {
     long long mx = 0;
-    for (int j = 0; j < z; j++)
+    for (int j = 1; j <= z; j++)
     {
         mx = max(mx, abs(a[1] + b[i] + c[j] - p));
     }
@@ -259,13 +259,13 @@ ___
 
 ```cpp
 int ans = 0;
-for (int i = 0; i < x; i++)
+for (int i = 1; i <= x; i++)
 {
     int mn = 1e18;
-    for (int j = 0; j < y; j++)
+    for (int j = 1; j <= y; j++)
     {
         int mx = 0;
-        for (int k = 0; k < z; k++)
+        for (int k = 1; k <= z; k++)
         {
             mx = max(mx, abs(a[i] + b[j] + c[k] - p));
         }
@@ -291,6 +291,21 @@ ___
 
 
 
+```cpp
+int ans = 0;
+for (int i = 1; i <= x; i++)
+{
+    int mn = 1e18;
+    for (int j = 1; j <= y; j++)
+    {
+        int mx = max(abs(a[i] + b[j] + mxc - p), abs(a[i] + b[j] + mnc - p));
+        mn = min(mn, mx);
+    }
+    ans = max(ans, mn);
+}
+cout << ans;
+```
+
 ___
 
 
@@ -300,6 +315,81 @@ ___
 
 说白了就是不枚举 $j$ 也把答案求出来。
 
+
+当枚举 $i$ 以后，设 $f(j)=\max(|a_i+b_j+\max(c_k)-p|,a_i+b_j+\min(c_k)-p)$。
+
+定义 $L=a_i+\max(c_k)-p$，$R=a_i+\min(c_k)-p$。
+
+则 $f(j)=\max(|L+b_j|,|R+b_j|)$。其中 $j\in[1, y]$，我们需要求出 $f(j)$ 函数的最小值，然后在针对枚举的每一个 $i$ 去求最大值即可。
+
+
+子任务 $4$ 实际就是通过枚举 $j$ 找到了函数 $f(j)$ 的最小值而已。
+
+
+**如何快速找到函数 $f(j)$ 的最小值呢？**
+
+变形函数得到 $f(j)=\max(|b_j-(-L)|,|b_j-(-R)|)$。思考 $|a-b|$ 这个绝对值算式的几何意义：就是数轴上点 $a\to b$ 的距离。
+
+因此 $f(j)$ 函数的几何意义就是 $b_j$ 离 $-L$ 和 $-R$ 的距离中较大的那个。
+
+
+**结论：**
+
+- 要让它尽量小，就把 $j$ 放在两点的“切中位置”。
+- **直观证明**：在中点处两项相等，此时最大者被“压平”到最小；一旦离开中点，远端那一项会变大，从而 $\max(\cdot)$ 增大。
+
+
+**具体实现**
+
+由于在实际题目中 $b_j$ 都是整数，因此求出 $\text{mid}=\lfloor \dfrac{-(L+R)}{2}\rfloor$。
+
+
+使用 `lower_bound` 求出刚好大于等于 $\text{mid}$ 的 $j$。比较 $f(j),f(j-1)$ 二者哪个函数值最小，选最小的那个作为答案即可。
+
+
+最终时间复杂度：$O(x\log{y})$。
+
+
+```cpp
+int x, y, z, p, a[N], b[N], c[N];
+int f(int L, int R, int j)
+{
+    return max(abs(L + b[j]), abs(R + b[j]));
+}
+signed main()
+{
+    cin >> x >> y >> z >> p;
+    for (int i = 1; i <= x; i++)
+        cin >> a[i];
+    for (int i = 1; i <= y; i++)
+        cin >> b[i];
+    for (int i = 1; i <= z; i++)
+        cin >> c[i];
+    sort(b + 1, b + y + 1);
+    sort(c + 1, c + z + 1);
+    int mxc = c[z];
+    int mnc = c[1];
+    int ans = 0;
+    for (int i = 1; i <= x; i++)
+    {
+        int L = a[i] - p + mxc, R = a[i] - p + mnc;
+        int mid = -(L + R) / 2;
+        int pos = lower_bound(b + 1, b + y + 1, mid) - b;
+        int mn = 1e18;
+        if (pos != y + 1)
+        {
+            mn = min(mn, f(L, R, pos));
+        }
+        if (pos != 1)
+        {
+            mn = min(mn, f(L, R, pos - 1));
+        }
+        ans = max(ans, mn);
+    }
+    cout << ans;
+    return 0;
+}
+```
 
 
 
