@@ -58,14 +58,14 @@ while (x % 2 == 0)
     cnt <<= 1;
     x >>= 1;
 }
-a[i] = {cnt, x};  // x 现在就是奇数 v
+a[i] = {cnt, x};  // a[i].cnt 代表块数，a[i].v 代表单块大小
 ```
 
 随后对「块数」做前缀和 `pre[i] = pre[i - 1] + a[i].cnt`。
 
 **回答查询**：
 
-做法：在前缀和 `pre` 上用 `lower_bound` 找到第一个使 `pre[pos] >= t` 的下标 `pos`，答案即为 `a[pos].v`。
+做法：在前缀和 `pre` 上用 `lower_bound` 找到第一个使 `pre[pos] >= x` 的下标 `pos`，答案即为 `a[pos].v`。
 
 - 预处理复杂度：每个 $x$ 只要把因子 $2$ 除光，整体 $O(n\log x)$；
 - 查询复杂度：每次二分 $O(\log n)$，故总 $O(n\log x + q\log n)$。
@@ -137,9 +137,12 @@ int main()
     {
         cin >> a[i];
         for (int j = 0; j < 30; ++j) 
-            sum[i][j] = sum[i - 1][j] + ((a[i] >> j & 1) ? (1 << j) : 0);
+            if (a[i] >> j & 1)
+                sum[i][j] = sum[i - 1][j] + (1 << j);
+            else
+                sum[i][j] = sum[i - 1][j];
     }
-    long long mask = 0;  // 累积全局 OR
+    int mask = 0;  // 累计全局 OR
     while (q--) 
     {
         int op; 
