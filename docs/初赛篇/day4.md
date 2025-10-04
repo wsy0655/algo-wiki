@@ -469,3 +469,168 @@ int main()
 </details>
 
 
+
+## [COCI2009-2010#7] SVEMIR
+
+<details>
+
+<summary>满分代码</summary>
+
+
+```cpp
+#include <bits/stdc++.h>
+#define ll long long
+#define inf 0x3f3f3f3f
+#define pb push_back
+#define fi first
+#define se second
+#define re register
+using namespace std;
+typedef pair<ll, ll> pi;
+const int N = 1e5 + 5;
+int n, fa[N];
+ll ans;
+struct edge
+{
+    ll u, v, w;
+    bool operator < (const edge&x) const
+    {
+        return w < x.w;
+    }
+};
+vector<edge> e;
+struct Node
+{
+    int x, y, z, id;
+} node[N];
+bool cmp1(Node a, Node b) { return a.x < b.x; }
+bool cmp2(Node a, Node b) { return a.y < b.y; }
+bool cmp3(Node a, Node b) { return a.z < b.z; }
+ll find(int x)
+{
+    if (x != fa[x])
+    {
+        return fa[x] = find(fa[x]);
+    }
+    return fa[x];
+}
+void join(int x, int y)
+{
+    x = find(x), y = find(y);
+    fa[x] = y;
+    return ;
+}
+int main()
+{
+
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cin >> n;
+    for (int i = 1; i <= n; i++) fa[i] = i;
+    for (int i = 1; i <= n; i++)
+    {
+        cin >> node[i].x >> node[i].y >> node[i].z;
+        node[i].id = i;
+    }
+    sort(node + 1, node + n + 1, cmp1);
+    for (int i = 2; i <= n; i++) e.pb({node[i].id, node[i - 1].id, node[i].x - node[i - 1].x});
+    sort(node + 1, node + n + 1, cmp2);
+    for (int i = 2; i <= n; i++) e.pb({node[i].id, node[i - 1].id, node[i].y - node[i - 1].y});
+    sort(node + 1, node + n + 1, cmp3);
+    for (int i = 2; i <= n; i++) e.pb({node[i].id, node[i - 1].id, node[i].z - node[i - 1].z});
+    sort(e.begin(), e.end());
+    int num = 0;
+    for (int i = 0; i < e.size(); i++)
+    {
+        int u = e[i].u, v = e[i].v;
+        ll w = e[i].w;
+        if (find(u) != find(v))
+        {
+            join(u, v);
+            num++;
+            ans += w;
+            if (num == n - 1) break;
+        }
+    }
+    cout << ans;
+    return 0;
+}
+```
+
+</details>
+
+
+
+
+## [ABC364F] Range Connect MST
+
+
+<details>
+
+<summary>满分代码</summary>
+
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+using i64 = long long;
+using pii = pair<int, int>;
+using pli = pair<i64, int>;
+template <typename T>
+using vec = vector<T>;
+struct dsu
+{
+    int n;
+    vec<int> p, siz;
+    dsu(int n)
+    {
+        this->n = n;
+        p.assign(n + 1, 0), siz.assign(n + 1, 1);
+        iota(p.begin(), p.end(), 0);
+    }
+    int find(int x)
+    {
+        return x == p[x] ? x : p[x] = find(p[x]);
+    }
+    void merge(int x, int y)
+    {
+        x = find(x), y = find(y);
+        if (x == y) return;
+        if (siz[x] > siz[y]) swap(x, y);
+        p[x] = y;
+        siz[y] += siz[x];
+    }
+    int sz(int x) { return siz[find(x)]; }
+};
+int main()
+{
+    ios::sync_with_stdio(false), cin.tie(0);
+    int n, q;
+    cin >> n >> q;
+    vec<array<int, 3>> que(q);
+    for (int i = 0; i < q; i++)
+    {
+        cin >> que[i][1] >> que[i][2] >> que[i][0];
+    }
+    sort(que.begin(), que.end());
+    i64 ans = 0, num = 0;
+    dsu d(n + 1); 
+    for (auto [c, l, r] : que)
+    {
+        ans += c; 
+        for (int i = d.find(l); i < r; i = d.find(i + 1))
+        {
+            ans += c;
+            num++;
+            d.p[i] = i + 1;
+        }
+    }
+    if (num != n - 1) cout << -1;
+    else cout << ans;
+    return 0;
+}
+```
+
+</details>
+
+
