@@ -359,7 +359,7 @@ ____
 转移自然是枚举上一个段的结尾 $j$，其中 $j\in[0,i-1]$，那么有
 
 $$
-dp_i=\sum\limits_{j=1}^i dp_{j-1} + \prod\limits_{j=1}^i a_j \cdot g[j-1]\cdot [a_i=a_j]
+dp_i=\bigl(\sum\limits_{j=1}^i dp_{j-1} + \prod\limits_{k=j}^i a_j \cdot g[j-1]\bigr)\cdot [a_i=a_j]
 $$
 
 其中 $g[j-1]$ 表示 $[1,j-1]$ 的划分方案数有多少种。区间 $[1,j-1]$ 的每一种划分方案都可以拼接上区间 $[i,j]$ 的乘积的贡献。
