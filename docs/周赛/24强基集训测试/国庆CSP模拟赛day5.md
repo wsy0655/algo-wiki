@@ -29,13 +29,13 @@
 * 若 $a\bmod b=0$，左边为 $\frac{a}{b}$，右边为 $\left\lfloor \frac{a}{b}+\frac{b-1}{b} \right\rfloor=\frac{a}{b}$，成立。
 * 若 $a\bmod b>0$，左边为 $\lfloor \frac{a}{b}\rfloor+1$。又因 $\lfloor \tfrac{a}{b}\rfloor=\lfloor \tfrac{a-1}{b}\rfloor$，右边
   
-  \[
-  \left\lfloor \frac{a-1+b}{b}\right\rfloor
-  =\left\lfloor \frac{a-1}{b}+1\right\rfloor
-  =\lfloor \tfrac{a}{b}\rfloor+1,
-  \]
+\[
+\left\lfloor \frac{a-1+b}{b}\right\rfloor
+=\left\lfloor \frac{a-1}{b}+1\right\rfloor
+=\lfloor \tfrac{a}{b}\rfloor+1,
+\]
 
-  亦成立。
+亦成立。
 
 **实现注意**
 
