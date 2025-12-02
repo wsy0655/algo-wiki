@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::ranges::generate_random</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_algorithm_ranges_generate_random skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::ranges::</span>generate_random</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-algorithm.html">algorithm</a>&lrm; | <a href="cpp-algorithm-ranges.html">ranges</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-random.html">&lt;random&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl-h">
+<td>
+<div>&#35843;&#29992;&#31614;&#21517;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx26">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> R, <span class="kw1">class</span> G <span class="sy1">&gt;</span><br /></span>
+<p>&nbsp; &nbsp; requires <a href="cpp-ranges-output_range.html"><span class="kw2903">ranges::<span class="me2">output_range</span></span></a><span class="sy1">&lt;</span>R, <a href="cpp-types-result_of.html"><span class="kw3219">std::<span class="me2">invoke_result_t</span></span></a><span class="sy1">&lt;</span>G<span class="sy3">&amp;</span><span class="sy1">&gt;&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="cpp-numeric-random-uniform_random_bit_generator.html"><span class="kw3184">std::<span class="me2">uniform_random_bit_generator</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-remove_cvref.html"><span class="kw2644">std::<span class="me2">remove_cvref_t</span></span></a><span class="sy1">&lt;</span>G<span class="sy1">&gt;&gt;</span><br />
+<span class="kw4">constexpr</span> <a href="cpp-ranges-borrowed_iterator_t.html"><span class="kw2855">ranges::<span class="me2">borrowed_iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span><br /></p>
+&nbsp; &nbsp; generate_random<span class="br0">(</span> R<span class="sy3">&amp;&amp;</span> r, G<span class="sy3">&amp;&amp;</span> g <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx26">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> G, <a href="cpp-iterator-output_iterator.html"><span class="kw2865">std::<span class="me2">output_iterator</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-result_of.html"><span class="kw3219">std::<span class="me2">invoke_result_t</span></span></a><span class="sy1">&lt;</span>G<span class="sy3">&amp;</span><span class="sy1">&gt;&gt;</span> O,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-iterator-sentinel_for.html"><span class="kw2862">std::<span class="me2">sentinel_for</span></span></a><span class="sy1">&lt;</span>O<span class="sy1">&gt;</span> S <span class="sy1">&gt;</span><br />
+&nbsp; &nbsp; requires <a href="cpp-numeric-random-uniform_random_bit_generator.html"><span class="kw3184">std::<span class="me2">uniform_random_bit_generator</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-remove_cvref.html"><span class="kw2644">std::<span class="me2">remove_cvref_t</span></span></a><span class="sy1">&lt;</span>G<span class="sy1">&gt;&gt;</span><br />
+<span class="kw4">constexpr</span> O<br /></p>
+&nbsp; &nbsp; generate_random<span class="br0">(</span> O first, S last, G<span class="sy3">&amp;&amp;</span> g <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx26">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> R, <span class="kw1">class</span> G, <span class="kw1">class</span> D <span class="sy1">&gt;</span><br /></span>
+<p>&nbsp; &nbsp; requires <a href="cpp-ranges-output_range.html"><span class="kw2903">ranges::<span class="me2">output_range</span></span></a><span class="sy1">&lt;</span>R, <a href="cpp-types-result_of.html"><span class="kw3219">std::<span class="me2">invoke_result_t</span></span></a><span class="sy1">&lt;</span>D<span class="sy3">&amp;</span>, G<span class="sy3">&amp;</span><span class="sy1">&gt;&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="cpp-concepts-invocable.html"><span class="kw2958">std::<span class="me2">invocable</span></span></a><span class="sy1">&lt;</span>D<span class="sy3">&amp;</span>, G<span class="sy3">&amp;</span><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="cpp-numeric-random-uniform_random_bit_generator.html"><span class="kw3184">std::<span class="me2">uniform_random_bit_generator</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-remove_cvref.html"><span class="kw2644">std::<span class="me2">remove_cvref_t</span></span></a><span class="sy1">&lt;</span>G<span class="sy1">&gt;&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="cpp-types-is_arithmetic.html"><span class="kw490">std::<span class="me2">is_arithmetic_v</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-result_of.html"><span class="kw3219">std::<span class="me2">invoke_result_t</span></span></a><span class="sy1">&lt;</span>D<span class="sy3">&amp;</span>, G<span class="sy3">&amp;</span><span class="sy1">&gt;&gt;</span><br />
+<span class="kw4">constexpr</span> <a href="cpp-ranges-borrowed_iterator_t.html"><span class="kw2855">ranges::<span class="me2">borrowed_iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span><br /></p>
+&nbsp; &nbsp; generate_random<span class="br0">(</span> R<span class="sy3">&amp;&amp;</span> r, G<span class="sy3">&amp;&amp;</span> g, D<span class="sy3">&amp;&amp;</span> d <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx26">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> G, <span class="kw1">class</span> D, <a href="cpp-iterator-output_iterator.html"><span class="kw2865">std::<span class="me2">output_iterator</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-result_of.html"><span class="kw3219">std::<span class="me2">invoke_result_t</span></span></a><span class="sy1">&lt;</span>D<span class="sy3">&amp;</span>, G<span class="sy3">&amp;</span><span class="sy1">&gt;&gt;</span> O,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-iterator-sentinel_for.html"><span class="kw2862">std::<span class="me2">sentinel_for</span></span></a><span class="sy1">&lt;</span>O<span class="sy1">&gt;</span> S <span class="sy1">&gt;</span><br />
+&nbsp; &nbsp; requires <a href="cpp-concepts-invocable.html"><span class="kw2958">std::<span class="me2">invocable</span></span></a><span class="sy1">&lt;</span>D<span class="sy3">&amp;</span>, G<span class="sy3">&amp;</span><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="cpp-numeric-random-uniform_random_bit_generator.html"><span class="kw3184">std::<span class="me2">uniform_random_bit_generator</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-remove_cvref.html"><span class="kw2644">std::<span class="me2">remove_cvref_t</span></span></a><span class="sy1">&lt;</span>G<span class="sy1">&gt;&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="cpp-types-is_arithmetic.html"><span class="kw490">std::<span class="me2">is_arithmetic_v</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-result_of.html"><span class="kw3219">std::<span class="me2">invoke_result_t</span></span></a><span class="sy1">&lt;</span>D<span class="sy3">&amp;</span>, G<span class="sy3">&amp;</span><span class="sy1">&gt;&gt;</span><br />
+<span class="kw4">constexpr</span> O<br /></p>
+&nbsp; &nbsp; generate_random<span class="br0">(</span> O first, S last, G<span class="sy3">&amp;&amp;</span> g, D<span class="sy3">&amp;&amp;</span> d <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(4)</td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#23581;&#35797;&#29992;&#38543;&#26426;&#25968;&#29983;&#25104;&#22120;&#25110;&#20998;&#24067;&#30340; <code>generate_random</code> &#25104;&#21592;&#20989;&#25968;&#29983;&#25104;&#38543;&#26426;&#25968;&#65292;&#36825;&#34987;&#26399;&#26395;&#26356;&#20026;&#39640;&#25928;&#12290;&#22914;&#26524;&#27809;&#26377;&#21487;&#29992;&#30340; <code>generate_random</code> &#25104;&#21592;&#20989;&#25968;&#21017;&#22238;&#33853;&#21040;&#29983;&#25104;&#36880;&#20010;&#20803;&#32032;&#12290;</p>
+<p>&#23545; <span class="t-v">(1)</span> &#25110; <span class="t-v">(3)</span> &#20998;&#21035;&#20196;&#21518;&#22791;&#25805;&#20316;&#20026;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-algorithm-ranges-generate.html"><span class="kw2993">ranges::<span class="me2">generate</span></span></a><span class="br0">(</span><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span><span class="br0">(</span>r<span class="br0">)</span>, <a href="cpp-utility-functional-ref.html"><span class="kw1071">std::<span class="me2">ref</span></span></a><span class="br0">(</span>g<span class="br0">)</span><span class="br0">)</span></span></span> &#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-algorithm-ranges-generate.html"><span class="kw2993">ranges::<span class="me2">generate</span></span></a><span class="br0">(</span><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span><span class="br0">(</span>r<span class="br0">)</span>, <span class="br0">[</span><span class="sy3">&amp;</span>d, <span class="sy3">&amp;</span>g<span class="br0">]</span> <span class="br0">{</span> <span class="kw1">return</span> <a href="cpp-utility-functional-invoke.html"><span class="kw1063">std::<span class="me2">invoke</span></span></a><span class="br0">(</span>d, g<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="br0">)</span></span></span>&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">g.<span class="me1">generate_random</span><span class="br0">(</span><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span><span class="br0">(</span>r<span class="br0">)</span><span class="br0">)</span></span></span> &#33391;&#26500;&#21017;&#25191;&#34892;&#27492;&#34920;&#36798;&#24335;&#12290;</div>
+<div class="t-li1"><span class="t-li"></span> &#21542;&#21017;&#65292;&#20196; <span class="t-c"><span class="mw-geshi cpp source-cpp">I</span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-result_of.html"><span class="kw3219">std::<span class="me2">invoke_result_t</span></span></a><span class="sy1">&lt;</span>G<span class="sy3">&amp;</span><span class="sy1">&gt;</span></span></span>&#12290;&#33509; <code>R</code> &#23454;&#29616; <a href="cpp-ranges-sized_range.html"><code>sized_range</code></a>&#65292;&#21017;&#36890;&#36807;&#26410;&#25351;&#23450;&#27425;&#25968;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">g<span class="br0">(</span><span class="br0">)</span></span></span> &#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp">g.<span class="me1">generate_random</span><span class="br0">(</span>s<span class="br0">)</span></span></span> &#35843;&#29992;&#65292;&#23545; <span class="t-c"><span class="mw-geshi cpp source-cpp">r</span></span> &#22635;&#20805; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-ranges-size.html"><span class="kw3100">ranges::<span class="me2">size</span></span></a><span class="br0">(</span>r<span class="br0">)</span></span></span> &#20010; <span class="t-c"><span class="mw-geshi cpp source-cpp">I</span></span> &#31867;&#22411;&#20540;&#65292;&#22914;&#26524;&#21518;&#32773;&#20110;&#23545;&#20540; <code>N</code> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-container-span.html"><span class="kw2631">std::<span class="me2">span</span></span></a><span class="sy1">&lt;</span>I, N<span class="sy1">&gt;</span></span></span> &#31867;&#22411;&#30340;&#23545;&#35937; <span class="t-c"><span class="mw-geshi cpp source-cpp">s</span></span> &#33391;&#26500;&#12290;</div>
+<div class="t-li1"><span class="t-li"></span> &#21542;&#21017;&#36827;&#34892;&#21518;&#22791;&#25805;&#20316;&#12290;</div>
+<div class="t-li1"><span class="t-li">3)</span> &#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">d.<span class="me1">generate_random</span><span class="br0">(</span><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span><span class="br0">(</span>r<span class="br0">)</span>, g<span class="br0">)</span></span></span> &#33391;&#26500;&#21017;&#25191;&#34892;&#27492;&#34920;&#36798;&#24335;&#12290;</div>
+<div class="t-li1"><span class="t-li"></span> &#21542;&#21017;&#65292;&#20196; <span class="t-c"><span class="mw-geshi cpp source-cpp">I</span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-result_of.html"><span class="kw3219">std::<span class="me2">invoke_result_t</span></span></a><span class="sy1">&lt;</span>D<span class="sy3">&amp;</span>, G<span class="sy3">&amp;</span><span class="sy1">&gt;</span></span></span>&#12290;&#33509; <code>R</code> &#23454;&#29616; <a href="cpp-ranges-sized_range.html"><code>sized_range</code></a>&#65292;&#21017;&#36890;&#36807;&#26410;&#25351;&#23450;&#27425;&#25968;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-functional-invoke.html"><span class="kw1063">std::<span class="me2">invoke</span></span></a><span class="br0">(</span>d, g<span class="br0">)</span></span></span> &#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp">d.<span class="me1">generate_random</span><span class="br0">(</span>s, g<span class="br0">)</span></span></span> &#35843;&#29992;&#65292;&#23545; <span class="t-c"><span class="mw-geshi cpp source-cpp">r</span></span> &#22635;&#20805; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-ranges-size.html"><span class="kw3100">ranges::<span class="me2">size</span></span></a><span class="br0">(</span>r<span class="br0">)</span></span></span> &#20010; <span class="t-c"><span class="mw-geshi cpp source-cpp">I</span></span> &#31867;&#22411;&#20540;&#65292;&#22914;&#26524;&#21518;&#32773;&#20110;&#23545;&#20540; <code>N</code> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-container-span.html"><span class="kw2631">std::<span class="me2">span</span></span></a><span class="sy1">&lt;</span>I, N<span class="sy1">&gt;</span></span></span> &#31867;&#22411;&#30340;&#23545;&#35937; <span class="t-c"><span class="mw-geshi cpp source-cpp">s</span></span> &#33391;&#26500;&#12290;</div>
+<div class="t-li1"><span class="t-li"></span> &#21542;&#21017;&#36827;&#34892;&#21518;&#22791;&#25805;&#20316;&#12290;</div>
+<div class="t-li1"><span class="t-li">2,4)</span> &#20998;&#21035;&#31561;&#20215;&#20110; <span class="t-v">(1,3)</span>&#65292;&#20854;&#20013; <span class="t-c"><span class="mw-geshi cpp source-cpp">r</span></span> &#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-ranges-subrange.html"><span class="kw2910">ranges::<span class="me2">subrange</span></span></a><span class="sy1">&lt;</span>O, S<span class="sy1">&gt;</span><span class="br0">(</span>std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>first<span class="br0">)</span>, last<span class="br0">)</span></span></span> &#33719;&#24471;&#12290;</div>
+<p>&#22914;&#26524; <span class="t-v">(1)</span> &#25110; <span class="t-v">(3)</span> &#30340;&#25928;&#26524;&#19982;&#23545;&#24212;&#21518;&#22791;&#25805;&#20316;&#30340;&#25928;&#26524;&#19981;&#31561;&#20215;&#65292;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<p><code>N</code> &#33021;&#22312;&#19981;&#21516;&#35843;&#29992;&#26377;&#21035;&#12290;&#23454;&#29616;&#21487;&#20197;&#23545;&#36739;&#30701;&#30340;&#33539;&#22260;&#36873;&#25321;&#36739;&#23567;&#30340;&#20540;&#12290;</p>
+<p>&#27492;&#39029;&#38754;&#19978;&#25551;&#36848;&#30340;&#20989;&#25968;&#24335;&#23454;&#20307;&#26159;<i><a href="cpp-algorithm-ranges.html#.E7.AE.97.E6.B3.95.E5.87.BD.E6.95.B0.E5.AF.B9.E8.B1.A1">&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;</a></i>&#65288;&#38750;&#27491;&#24335;&#22320;&#31216;&#20026; <i>niebloid</i>&#65289;&#65292;&#21363;&#65306;</p>
+<ul>
+<li>&#35843;&#29992;&#23427;&#20204;&#20013;&#30340;&#20219;&#20309;&#19968;&#20010;&#26102;&#19981;&#33021;&#26174;&#24335;&#25351;&#23450;&#27169;&#26495;&#23454;&#21442;&#12290;</li>
+<li>&#23427;&#20204;&#37117;&#19981;&#23545;<a href="cpp-language-adl.html">&#23454;&#21442;&#20381;&#36182;&#26597;&#25214;</a>&#21487;&#35265;&#12290;</li>
+<li>&#22312;&#36890;&#36807;&#20989;&#25968;&#35843;&#29992;&#36816;&#31639;&#31526;&#24038;&#20391;&#30340;&#21517;&#23383;&#36827;&#34892;<a href="cpp-language-unqualified_lookup.html">&#26080;&#38480;&#23450;&#26597;&#25214;</a>&#65292;&#25214;&#21040;&#23427;&#20204;&#20043;&#19968;&#26102;&#65292;&#31105;&#27490;<a href="cpp-language-adl.html">&#23454;&#21442;&#20381;&#36182;&#26597;&#25214;</a>&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>first, last</td>
+<td>-</td>
+<td>&#35201;&#20889;&#20837;&#38543;&#26426;&#25968;&#30340;&#20803;&#32032;<a href="cpp-iterator.html#.E8.8C.83.E5.9B.B4">&#33539;&#22260;</a>&#30340;&#36845;&#20195;&#22120;-&#21736;&#20301;&#23545;</td>
+</tr>
+<tr class="t-par">
+<td>r</td>
+<td>-</td>
+<td>&#35201;&#20889;&#20837;&#38543;&#26426;&#25968;&#30340; <a href="cpp-ranges-range.html"><code>range</code></a></td>
+</tr>
+<tr class="t-par">
+<td>g</td>
+<td>-</td>
+<td>&#22343;&#21248;&#38543;&#26426;&#20301;&#29983;&#25104;&#22120;</td>
+</tr>
+<tr class="t-par">
+<td>d</td>
+<td>-</td>
+<td>&#38543;&#26426;&#25968;&#20998;&#24067;&#23545;&#35937;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#22312; <code>std::ranges::generate_random</code> &#26631;&#20934;&#21270;&#26102;&#65292;&#26631;&#20934;&#24211;&#20013;&#23578;&#26410;&#26377;&#25552;&#20379; <code>generate_random</code> &#25104;&#21592;&#20989;&#25968;&#30340;&#38543;&#26426;&#25968;&#29983;&#25104;&#22120;&#25110;&#20998;&#24067;&#12290;</p>
+<p><code>std::ranges::generate_random</code> &#22312;&#19982;&#21253;&#35013;&#24213;&#23618;&#21521;&#37327;&#21270; API &#30340;&#29992;&#25143;&#23450;&#20041;&#38543;&#26426;&#25968;&#29983;&#25104;&#22120;&#19968;&#21516;&#20351;&#29992;&#26102;&#20250;&#26356;&#39640;&#25928;&#12290;</p>
+<table class="wikitable ftm-begin">
+<tr>
+<th><a href="cpp-utility-feature_test.html">&#21151;&#33021;&#29305;&#24615;&#27979;&#35797;</a>&#23439;</th>
+<th><abbr title="&#37319;&#32435;&#35813;&#29305;&#24615;&#30340;&#24180;/&#26376;&#12290;&#27599;&#20010;&#20540;&#19979;&#38754;&#30340;&#38142;&#25509;&#25351;&#21521;&#32534;&#35793;&#26399;&#25903;&#25345;&#39029;&#38754;&#20013;&#32473;&#23450;&#21151;&#33021;&#29305;&#24615;&#30340;&#26465;&#30446;&#12290;">&#20540;</abbr></th>
+<th><abbr title="&#24341;&#20837;&#35813;&#29305;&#24615;&#30340;&#26631;&#20934;&#65307;DR &#24847;&#20026;&#38024;&#23545;&#35813;&#20462;&#35746;&#29256;&#30340;&#32570;&#38519;&#25253;&#21578;">&#26631;&#20934;</abbr></th>
+<th>&#21151;&#33021;&#29305;&#24615;</th>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lib_ranges_generate_random"><code>__cpp_lib_ranges_generate_random</code></a></td>
+<td><a href="cpp-compiler_support-26.html#cpp_lib_ranges_generate_random_202403L"><code>202403L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++26)</span></td>
+<td><code>std::ranges::generate_random</code></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;algorithm&gt;</span>
+<span class="co2">#include &lt;iomanip&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;random&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-numeric-random.html"><span class="kw1499">std::<span class="me2">default_random_engine</span></span></a> eng<span class="sy4">;</span>
+    std<span class="sy4">::</span><span class="me2">default_random_engine</span><span class="sy4">::</span><span class="me2">result_type</span> rs<span class="br0">[</span><span class="nu0">16</span><span class="br0">]</span><span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">generate_random</span><span class="br0">(</span>rs, eng<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-left.html"><span class="kw1783">std::<span class="me2">left</span></span></a><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> i<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span> <span class="kw4">auto</span> n <span class="sy4">:</span> rs<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-setw.html"><span class="kw1801">std::<span class="me2">setw</span></span></a><span class="br0">(</span><span class="nu0">11</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> n <span class="sy1">&lt;&lt;</span> <span class="br0">(</span><span class="sy2">++</span>i <span class="sy2">%</span> <span class="nu0">4</span> <span class="sy4">?</span> <span class="st0">&#39; &#39;</span> <span class="sy4">:</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">16807       282475249   1622650073  984943658 
+1144108930  470211272   101027544   1457850878
+1458777923  2007237709  823564440   1115438165
+1784484492  74243042    114807987   1137522503</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-generate.html"><span class="t-lines"><span>ranges::generate</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#23558;&#20989;&#25968;&#32467;&#26524;&#20445;&#23384;&#21040;&#33539;&#22260;&#20013;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-uniform_random_bit_generator.html"><span class="t-lines"><span>uniform_random_bit_generator</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#25351;&#23450;&#31867;&#22411;&#20855;&#22791;&#20316;&#20026;&#22343;&#21248;&#38543;&#26426;&#20301;&#29983;&#25104;&#22120;&#30340;&#36164;&#26684;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#27010;&#24565;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

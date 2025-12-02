@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::scoped_lock&lt;MutexTypes...&gt;::scoped_lock</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_thread_scoped_lock_scoped_lock skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::scoped_lock&lt;MutexTypes...&gt;::</span>scoped_lock</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-thread.html">thread</a>&lrm; | <a href="cpp-thread-scoped_lock.html">scoped lock</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">explicit</span> scoped_lock<span class="br0">(</span> MutexTypes<span class="sy3">&amp;</span>... <span class="me1">m</span> <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp">scoped_lock<span class="br0">(</span> <a href="cpp-thread-lock_tag.html"><span class="kw2166">std::<span class="me2">adopt_lock_t</span></span></a>, MutexTypes<span class="sy3">&amp;</span>... <span class="me1">m</span> <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp">scoped_lock<span class="br0">(</span> <span class="kw4">const</span> scoped_lock<span class="sy3">&amp;</span> <span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span></span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#21462;&#24471;&#21508;&#32473;&#23450;&#20114;&#26021;&#20307; <span class="t-c"><span class="mw-geshi cpp source-cpp">m</span></span> &#30340;&#25152;&#26377;&#26435;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">sizeof...<span class="br0">(</span>MutexTypes<span class="br0">)</span> <span class="sy1">==</span> <span class="nu0">0</span></span></span> &#21017;&#19981;&#20570;&#20219;&#20309;&#20107;&#12290;&#21542;&#21017;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">sizeof...<span class="br0">(</span>MutexTypes<span class="br0">)</span> <span class="sy1">==</span> <span class="nu0">1</span></span></span>&#65292;&#21017;&#30456;&#24403;&#20110;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">m.<span class="me1">lock</span><span class="br0">(</span><span class="br0">)</span></span></span>&#12290;&#21542;&#21017;&#65292;&#30456;&#24403;&#20110;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-thread-lock.html"><span class="kw2173">std::<span class="me2">lock</span></span></a><span class="br0">(</span>m...<span class="br0">)</span></span></span>&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#21462;&#24471;&#21508;&#20114;&#26021;&#20307; <span class="t-c"><span class="mw-geshi cpp source-cpp">m...</span></span> &#30340;&#25152;&#26377;&#26435;&#32780;&#19981;&#23581;&#35797;&#38145;&#23450;&#20219;&#20309;&#20114;&#26021;&#20307;&#12290;&#38500;&#38750;&#24403;&#21069;&#32447;&#31243;&#22312; <code>m...</code> &#20013;&#30340;&#27599;&#20010;&#23545;&#35937;&#19978;&#20445;&#26377;&#19968;&#20010;&#38750;&#20849;&#20139;&#38145;&#65288;&#21363;&#20197; <code>lock</code>&#12289;<code>try_lock</code>&#12289;<code>try_lock_for</code> &#25110; <code>try_lock_until</code> &#21462;&#24471;&#30340;&#38145;&#65289;&#65292;&#21542;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</div>
+<div class="t-li1"><span class="t-li">3)</span> &#22797;&#21046;&#26500;&#36896;&#20989;&#25968;&#34987;&#24323;&#32622;&#12290;</div>
+<p>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">m</span></span> &#22312; <code>scoped_lock</code> &#23545;&#35937;&#20043;&#21069;&#34987;&#38144;&#27585;&#65292;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>m</td>
+<td>-</td>
+<td>&#35201;&#33719;&#24471;&#25152;&#26377;&#26435;&#30340;&#21508;&#20114;&#26021;&#20307;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<div class="t-li1"><span class="t-li">1)</span> &#25243;&#20986; <span class="t-c"><span class="mw-geshi cpp source-cpp">m.<span class="me1">lock</span><span class="br0">(</span><span class="br0">)</span></span></span> &#25152;&#25243;&#30340;&#20219;&#20309;&#24322;&#24120;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#19981;&#25243;&#20986;&#12290;</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://wg21.link/P0739R0">P0739R0</a></td>
+<td>C++17</td>
+<td><code>adopt_lock_t</code> &#21442;&#25968;&#22312;&#26368;&#21518;&#65292;&#22952;&#30861;&#31867;&#27169;&#26495;&#23454;&#21442;&#25512;&#23548;</td>
+<td>&#31227;&#21040;&#26368;&#21069;</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

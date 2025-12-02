@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::variant_npos</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_utility_variant_variant_npos skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>variant_npos</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-utility.html">utility</a>&lrm; | <a href="cpp-utility-variant.html">variant</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-variant.html">&lt;variant&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">inline</span> <span class="kw4">constexpr</span> <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> variant_npos <span class="sy1">=</span> <span class="sy2">-</span><span class="nu0">1</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36825;&#26159;&#19968;&#20010;&#31561;&#20110;&#31867;&#22411; <span class="mw-geshi cpp source-cpp"><a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a></span> &#26368;&#22823;&#21487;&#34920;&#31034;&#20540;&#30340;&#29305;&#27530;&#20540;&#65292;&#29992;&#20316; <a href="cpp-utility-variant-index.html"><tt>index()</tt></a> &#22312; <a href="cpp-utility-variant-valueless_by_exception.html"><tt>valueless_by_exception()</tt></a> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span> &#26102;&#30340;&#36820;&#22238;&#20540;&#12290;</p>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;stdexcept&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+<span class="co2">#include &lt;variant&gt;</span>
+ 
+<span class="kw1">struct</span> Demon
+<span class="br0">{</span>
+    Demon<span class="br0">(</span><span class="kw4">int</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+    Demon<span class="br0">(</span><span class="kw4">const</span> Demon<span class="sy3">&amp;</span><span class="br0">)</span> <span class="br0">{</span> <span class="kw1">throw</span> <a href="cpp-error-domain_error.html"><span class="kw768">std::<span class="me2">domain_error</span></span></a><span class="br0">(</span><span class="st0">&quot;&#22797;&#21046;&#26500;&#36896;&#20989;&#25968;&quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span>
+    Demon<span class="sy3">&amp;</span> operator<span class="sy1">=</span> <span class="br0">(</span><span class="kw4">const</span> Demon<span class="sy3">&amp;</span><span class="br0">)</span> <span class="sy1">=</span> <span class="kw1">default</span><span class="sy4">;</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-utility-variant.html"><span class="kw1088">std::<span class="me2">variant</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span>, Demon<span class="sy1">&gt;</span> var<span class="br0">{</span><span class="nu0">42</span><span class="br0">}</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a>
+        <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-boolalpha.html"><span class="kw1767">std::<span class="me2">boolalpha</span></span></a>
+        <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;index == npos: &quot;</span> <span class="sy1">&lt;&lt;</span> <span class="br0">(</span>var.<span class="me1">index</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> std<span class="sy4">::</span><span class="me2">variant_npos</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="kw1">try</span> <span class="br0">{</span> var <span class="sy1">=</span> Demon<span class="br0">{</span><span class="nu0">666</span><span class="br0">}</span><span class="sy4">;</span> <span class="br0">}</span> <span class="kw1">catch</span> <span class="br0">(</span><span class="kw4">const</span> <a href="cpp-error-domain_error.html"><span class="kw768">std::<span class="me2">domain_error</span></span></a><span class="sy3">&amp;</span> ex<span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a>
+            <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#24322;&#24120;: &quot;</span> <span class="sy1">&lt;&lt;</span> ex.<span class="me1">what</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span>
+            <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;index == npos: &quot;</span> <span class="sy1">&lt;&lt;</span> <span class="br0">(</span>var.<span class="me1">index</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> std<span class="sy4">::</span><span class="me2">variant_npos</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span>
+            <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;valueless: &quot;</span> <span class="sy1">&lt;&lt;</span> var.<span class="me1">valueless_by_exception</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">index == npos: false
+&#24322;&#24120;: &#22797;&#21046;&#26500;&#36896;&#20989;&#25968;
+index == npos: true
+valueless: true</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-variant-index.html"><span class="t-lines"><span>index</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238; <code>variant</code> &#25152;&#20445;&#26377;&#21487;&#36873;&#39033;&#30340;&#38646;&#22522;&#32034;&#24341;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-variant-valueless_by_exception.html"><span class="t-lines"><span>valueless_by_exception</span></span></a></div>
+</div>
+</td>
+<td>&#26816;&#26597; <code>variant</code> &#26159;&#21542;&#22312;&#38750;&#27861;&#29366;&#24577;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

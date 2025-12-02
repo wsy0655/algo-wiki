@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::quick_exit</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_utility_program_quick_exit skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>quick_exit</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-utility.html">utility</a>&lrm; | <a href="cpp-utility-program.html">program</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-cstdlib.html">&lt;cstdlib&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="br0">[</span><span class="br0">[</span>noreturn<span class="br0">]</span><span class="br0">]</span> <span class="kw4">void</span> quick_exit<span class="br0">(</span> <span class="kw4">int</span> exit_code <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#23548;&#33268;&#21457;&#29983;&#27491;&#24120;&#31243;&#24207;&#32456;&#27490;&#65292;&#32780;&#19981;&#23436;&#20840;&#28165;&#29702;&#36164;&#28304;&#12290;</p>
+<p>&#20197;&#27880;&#20876;&#39034;&#24207;&#30340;&#36870;&#24207;&#35843;&#29992;&#20256;&#36882;&#32473; <span class="t-lc"><a href="cpp-utility-program-at_quick_exit.html">std::at_quick_exit</a></span> &#30340;&#20989;&#25968;&#12290;&#33509;&#26377;&#24322;&#24120;&#35797;&#22270;&#20174;&#36825;&#20123;&#20989;&#25968;&#20013;&#20256;&#25773;&#20986;&#26469;&#65292;&#21017;&#35843;&#29992; <span class="t-lc"><a href="cpp-error-terminate.html">std::terminate</a></span>&#12290;&#35843;&#29992;&#27880;&#20876;&#30340;&#20989;&#25968;&#21518;&#65292;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-program-_Exit.html"><span class="kw970">std::_Exit</span></a><span class="br0">(</span>exit_code<span class="br0">)</span></span></span>&#12290;</p>
+<p>&#19981;&#35843;&#29992;&#20256;&#36882;&#32473; <span class="t-lc"><a href="cpp-utility-program-atexit.html">std::atexit</a></span> &#30340;&#20989;&#25968;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>exit_code</td>
+<td>-</td>
+<td>&#31243;&#24207;&#30340;&#36864;&#20986;&#29366;&#24577;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;cstdlib&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+ 
+<span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw4">int</span> N<span class="sy1">&gt;</span>
+<span class="kw4">void</span> quick_exit_handler<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;quick_exit &#22788;&#29702;&#20989;&#25968; #&quot;</span> <span class="sy1">&lt;&lt;</span> N <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-endl.html"><span class="kw1794">std::<span class="me2">endl</span></span></a><span class="sy4">;</span> <span class="co1">// &#20914;&#27927;&#26159;&#26377;&#24847;&#30340;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">void</span> at_exit_handler<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;at_exit &#22788;&#29702;&#20989;&#25968;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">if</span> <span class="br0">(</span><a href="cpp-utility-program-at_quick_exit.html"><span class="kw972">std::<span class="me2">at_quick_exit</span></span></a><span class="br0">(</span>quick_exit_handler<span class="sy1">&lt;</span><span class="nu0">1</span><span class="sy1">&gt;</span><span class="br0">)</span> <span class="sy3">||</span>
+        <a href="cpp-utility-program-at_quick_exit.html"><span class="kw972">std::<span class="me2">at_quick_exit</span></span></a><span class="br0">(</span>quick_exit_handler<span class="sy1">&lt;</span><span class="nu0">2</span><span class="sy1">&gt;</span><span class="br0">)</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-cerr.html"><span class="kw1763">std::<span class="me2">cerr</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#27880;&#20876;&#22833;&#36133;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+        <span class="kw1">return</span> <a href="cpp-utility-program-EXIT_status.html"><span class="kw974">EXIT_FAILURE</span></a><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <a href="cpp-utility-program-atexit.html"><span class="kw971">std::<span class="me2">atexit</span></span></a><span class="br0">(</span>at_exit_handler<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#19981;&#20250;&#35843;&#29992;&#22788;&#29702;&#20989;&#25968;</span>
+ 
+    <span class="kw1">struct</span> R <span class="br0">{</span> ~R<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#26512;&#26500;&#20989;&#25968;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span> <span class="br0">}</span> <span class="br0">}</span> resource<span class="sy4">;</span>
+ 
+    <span class="coMULTI">/*...*/</span>
+ 
+    std<span class="sy4">::</span><span class="me2">quick_exit</span><span class="br0">(</span><a href="cpp-utility-program-EXIT_status.html"><span class="kw973">EXIT_SUCCESS</span></a><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#36825;&#26465;&#35821;&#21477;&#19981;&#21487;&#36798;...<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">quick_exit &#22788;&#29702;&#20989;&#25968; #2
+quick_exit &#22788;&#29702;&#20989;&#25968; #1</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-program-abort.html"><span class="t-lines"><span>abort</span></span></a></div>
+</div>
+</td>
+<td>&#23548;&#33268;&#38750;&#27491;&#24120;&#30340;&#31243;&#24207;&#32456;&#27490;&#65288;&#19981;&#36827;&#34892;&#28165;&#29702;&#65289;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-program-exit.html"><span class="t-lines"><span>exit</span></span></a></div>
+</div>
+</td>
+<td>&#23548;&#33268;&#27491;&#24120;&#30340;&#31243;&#24207;&#32456;&#27490;&#24182;&#36827;&#34892;&#28165;&#29702;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-program-atexit.html"><span class="t-lines"><span>atexit</span></span></a></div>
+</div>
+</td>
+<td>&#27880;&#20876;&#23558;&#20110;&#35843;&#29992; <span class="t-lc"><a href="cpp-utility-program-exit.html">std::exit()</a></span> &#26102;&#34987;&#35843;&#29992;&#30340;&#20989;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-program-at_quick_exit.html"><span class="t-lines"><span>at_quick_exit</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#27880;&#20876;&#23558;&#20110;&#35843;&#29992; <strong class="selflink"><tt>quick_exit</tt></strong> &#26102;&#34987;&#35843;&#29992;&#30340;&#20989;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>quick_exit</span></span>&nbsp;&#30340; <span><span><a href="c-program-quick_exit.html">C &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

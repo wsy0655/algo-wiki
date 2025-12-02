@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::barrier&lt;CompletionFunction&gt;::barrier</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_thread_barrier_barrier skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::barrier&lt;CompletionFunction&gt;::</span>barrier</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-thread.html">thread</a>&lrm; | <a href="cpp-thread-barrier.html">barrier</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="kw1">explicit</span> barrier<span class="br0">(</span> <a href="cpp-types-ptrdiff_t.html"><span class="kw108">std::<span class="me2">ptrdiff_t</span></span></a> expected,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CompletionFunction f <span class="sy1">=</span> CompletionFunction<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp">barrier<span class="br0">(</span> <span class="kw4">const</span> barrier<span class="sy3">&amp;</span> <span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#35774;&#32622;&#27599;&#20010;&#38454;&#27573;&#30340;&#21021;&#22987;&#26399;&#24453;&#35745;&#25968;&#21450;&#39318;&#38454;&#27573;&#30340;&#24403;&#21069;&#26399;&#24453;&#35745;&#25968;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">expected</span></span>&#65292;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>f<span class="br0">)</span></span></span> &#21021;&#22987;&#21270;&#23436;&#25104;&#20989;&#25968;&#23545;&#35937;&#65292;&#28982;&#21518;&#24320;&#22987;&#31532;&#19968;&#38454;&#27573;&#12290;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">expected</span></span> &#20026;&#36127;&#25110;&#22823;&#20110; <a href="cpp-thread-barrier-max.html"><code>max()</code></a> &#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#22797;&#21046;&#26500;&#36896;&#20989;&#25968;&#34987;&#24323;&#32622;&#12290;<span class="t-c"><span class="mw-geshi cpp source-cpp">barrier</span></span> &#26082;&#19981;&#21487;&#22797;&#21046;&#20134;&#19981;&#21487;&#31227;&#21160;&#12290;</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>expected</td>
+<td>-</td>
+<td>&#26399;&#24453;&#35745;&#25968;&#30340;&#21021;&#20540;</td>
+</tr>
+<tr class="t-par">
+<td>f</td>
+<td>-</td>
+<td>&#35201;&#22312;&#22312;&#38454;&#27573;&#23436;&#25104;&#27493;&#39588;&#35843;&#29992;&#30340;&#23436;&#25104;&#20989;&#25968;&#23545;&#35937;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<div class="t-li1"><span class="t-li">1)</span> <code>CompletionFunction</code> &#30340;&#31227;&#21160;&#26500;&#36896;&#20989;&#25968;&#25152;&#25243;&#30340;&#20219;&#20309;&#24322;&#24120;&#12290;</div>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#23481;&#35768; <span class="t-c"><span class="mw-geshi cpp source-cpp">expected</span></span> &#20026;&#38646;&#12290;&#28982;&#32780;&#22312;&#36825;&#31181; <code>barrier</code> &#19978;&#35843;&#29992;&#26512;&#26500;&#20989;&#25968;&#20197;&#22806;&#30340;&#20219;&#20309;&#38750;&#38745;&#24577;&#25104;&#21592;&#20989;&#25968;&#23548;&#33268;&#26410;&#23450;&#20041;&#34892;&#20026;&#12290;&#25442;&#35328;&#20043;&#65292;&#36825;&#31181; <code>barrier</code> &#21482;&#33021;&#34987;&#38144;&#27585;&#12290;</p>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

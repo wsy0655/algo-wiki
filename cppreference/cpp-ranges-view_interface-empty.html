@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::ranges::view_interface&lt;D&gt;::empty</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_ranges_view_interface_empty skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::ranges::view_interface&lt;D&gt;::</span>empty</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-ranges.html">ranges</a>&lrm; | <a href="cpp-ranges-view_interface.html">view interface</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="kw4">bool</span> empty<span class="br0">(</span><span class="br0">)</span><br />
+&nbsp; &nbsp; requires <a href="cpp-ranges-sized_range.html"><span class="kw2900">ranges::<span class="me2">sized_range</span></span></a><span class="sy1">&lt;</span>D<span class="sy1">&gt;</span> <span class="sy3">||</span> <a href="cpp-ranges-forward_range.html"><span class="kw2904">ranges::<span class="me2">forward_range</span></span></a><span class="sy1">&lt;</span>D<span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="kw4">bool</span> empty<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span><br />
+&nbsp; &nbsp; requires <a href="cpp-ranges-sized_range.html"><span class="kw2900">ranges::<span class="me2">sized_range</span></span></a><span class="sy1">&lt;</span><span class="kw4">const</span> D<span class="sy1">&gt;</span> <span class="sy3">||</span> <a href="cpp-ranges-forward_range.html"><span class="kw2904">ranges::<span class="me2">forward_range</span></span></a><span class="sy1">&lt;</span><span class="kw4">const</span> D<span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>empty</code> &#25104;&#21592;&#20989;&#25968;&#30340;&#40664;&#35748;&#23454;&#29616;&#26816;&#26597;&#27966;&#29983;&#31867;&#22411;&#30340;&#22823;&#23567;&#26159;&#21542;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">&#8203;<span class="nu0">0</span>&#8203;</span></span>&#65288;&#33509;&#20854;&#21512;&#27861;&#65289;&#65292;&#25110;&#36215;&#22987;&#36845;&#20195;&#22120;&#19982;&#21736;&#20301;&#26159;&#21542;&#27604;&#36739;&#30456;&#31561;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#20196; <code>derived</code> &#20026;&#32465;&#23450;&#21040; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">static_cast</span><span class="sy1">&lt;</span>D<span class="sy3">&amp;</span><span class="sy1">&gt;</span><span class="br0">(</span><span class="sy2">*</span>this<span class="br0">)</span></span></span> &#30340;&#24341;&#29992;&#12290;&#24403; <code>D</code> &#28385;&#36275; <a href="cpp-ranges-sized_range.html"><code>sized_range</code></a> &#26102;&#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">return</span> <a href="cpp-ranges-size.html"><span class="kw3100">ranges::<span class="me2">size</span></span></a><span class="br0">(</span>derived<span class="br0">)</span> <span class="sy1">==</span> <span class="nu0">0</span><span class="sy4">;</span></span></span>&#12290;&#21542;&#21017;&#65292;&#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">return</span> <a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/begin"><span class="kw2882">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>derived<span class="br0">)</span> <span class="sy1">==</span> <a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/end"><span class="kw2884">ranges::<span class="me2">end</span></span></a><span class="br0">(</span>derived<span class="br0">)</span><span class="sy4">;</span></span></span>&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#21516; <span class="t-v">(1)</span>&#65292;&#20294; <code>derived</code> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">static_cast</span><span class="sy1">&lt;</span><span class="kw4">const</span> D<span class="sy3">&amp;</span><span class="sy1">&gt;</span><span class="br0">(</span><span class="sy2">*</span>this<span class="br0">)</span></span></span>&#12290;</div>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#33509;&#27966;&#29983;&#31867;&#22411;&#23545;&#35937;&#30340;&#22823;&#23567;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">&#8203;<span class="nu0">0</span>&#8203;</span></span>&#65288;&#24403; <code>D</code> &#28385;&#36275; <span class="t-lc">std::ranges::sized_range</span>&#65289;&#65292;&#25110;&#20854;&#36215;&#22987;&#36845;&#20195;&#22120;&#19982;&#21736;&#20301;&#27604;&#36739;&#30456;&#31561;&#65292;&#21017;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#21542;&#21017;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#19979;&#21015;&#27966;&#29983;&#31867;&#22411;&#21487;&#20351;&#29992; <code>empty</code> &#30340;&#40664;&#35748;&#23454;&#29616;&#65306;</p>
+<ul>
+<li><a href="cpp-ranges-common_view.html"><tt>std::ranges::common_view</tt></a></li>
+<li><a href="cpp-ranges-drop_view.html"><tt>std::ranges::drop_view</tt></a></li>
+<li><a href="cpp-ranges-drop_while_view.html"><tt>std::ranges::drop_while_view</tt></a></li>
+<li><a href="cpp-ranges-elements_view.html"><tt>std::ranges::elements_view</tt></a></li>
+<li><a href="cpp-ranges-filter_view.html"><tt>std::ranges::filter_view</tt></a></li>
+<li><a href="cpp-ranges-join_view.html"><tt>std::ranges::join_view</tt></a></li>
+<li><a href="cpp-ranges-lazy_split_view.html"><tt>std::ranges::lazy_split_view</tt></a></li>
+<li><a href="cpp-ranges-reverse_view.html"><tt>std::ranges::reverse_view</tt></a></li>
+<li><a href="cpp-ranges-single_view.html"><tt>std::ranges::single_view</tt></a></li>
+<li><a href="cpp-ranges-split_view.html"><tt>std::ranges::split_view</tt></a></li>
+<li><a href="cpp-ranges-take_view.html"><tt>std::ranges::take_view</tt></a></li>
+<li><a href="cpp-ranges-take_while_view.html"><tt>std::ranges::take_while_view</tt></a></li>
+<li><a href="cpp-ranges-transform_view.html"><tt>std::ranges::transform_view</tt></a></li>
+</ul>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx23">
+<td>
+<ul>
+<li><a href="cpp-ranges-adjacent_transform_view.html"><tt>std::ranges::adjacent_transform_view</tt></a></li>
+<li><a href="cpp-ranges-adjacent_view.html"><tt>std::ranges::adjacent_view</tt></a></li>
+<li><a href="cpp-ranges-as_const_view.html"><tt>std::ranges::as_const_view</tt></a></li>
+<li><a href="cpp-ranges-as_rvalue_view.html"><tt>std::ranges::as_rvalue_view</tt></a></li>
+<li><a href="cpp-ranges-cartesian_product_view.html"><tt>std::ranges::cartesian_product_view</tt></a></li>
+<li><a href="cpp-ranges-chunk_view.html"><tt>std::ranges::chunk_view</tt></a></li>
+<li><a href="cpp-ranges-chunk_by_view.html"><tt>std::ranges::chunk_by_view</tt></a></li>
+<li><a href="cpp-ranges-join_with_view.html"><tt>std::ranges::join_with_view</tt></a></li>
+<li><a href="cpp-ranges-repeat_view.html"><tt>std::ranges::repeat_view</tt></a></li>
+<li><a href="cpp-ranges-slide_view.html"><tt>std::ranges::slide_view</tt></a></li>
+<li><a href="cpp-ranges-stride_view.html"><tt>std::ranges::stride_view</tt></a></li>
+<li><a href="cpp-ranges-zip_view.html"><tt>std::ranges::zip_view</tt></a></li>
+<li><a href="cpp-ranges-zip_transform_view.html"><tt>std::ranges::zip_transform_view</tt></a></li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+</table>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx26">
+<td>
+<ul>
+<li><a href="cpp-ranges-cache_latest_view.html"><tt>std::ranges::cache_latest_view</tt></a></li>
+<li><a href="cpp-ranges-concat_view.html"><tt>std::ranges::concat_view</tt></a></li>
+<li><a href="cpp-ranges-to_input_view.html"><tt>std::ranges::to_input_view</tt></a></li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+</table>
+<p>&#23613;&#31649; <span class="t-lc">std::ranges::basic_istream_view</span> &#32487;&#25215;&#33258; <span class="t-lc">std::ranges::view_interface</span> &#24182;&#19988;&#19981;&#22768;&#26126; <code>empty</code> &#25104;&#21592;&#20989;&#25968;&#65292;&#23427;&#20173;&#26080;&#27861;&#20351;&#29992;&#40664;&#35748;&#23454;&#29616;&#65292;&#22240;&#20026;&#23427;&#20915;&#19981;&#28385;&#36275; <span class="t-lc">std::ranges::sized_range</span> &#25110;&#32773; <span class="t-lc">std::ranges::forward_range</span>&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;array&gt;</span>
+<span class="co2">#include &lt;ranges&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">constexpr</span> <a href="cpp-container-array.html"><span class="kw1271">std::<span class="me2">array</span></span></a> a<span class="br0">{</span><span class="nu0">0</span>, <span class="nu0">1</span>, <span class="nu0">2</span>, <span class="nu0">3</span>, <span class="nu0">4</span><span class="br0">}</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span><span class="sy3">!</span>std<span class="sy4">::</span><a href="cpp-ranges-single_view.html"><span class="kw3104">ranges::<span class="me2">single_view</span></span></a><span class="br0">(</span>a<span class="br0">)</span>.<span class="me1">empty</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span><span class="br0">(</span>a <span class="sy3">|</span> std<span class="sy4">::</span><a href="cpp-ranges-take_view.html"><span class="kw2924">views::<span class="me2">take</span></span></a><span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="br0">)</span>.<span class="me1">empty</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span><span class="sy3">!</span><span class="br0">(</span>a <span class="sy3">|</span> std<span class="sy4">::</span><a href="cpp-ranges-take_view.html"><span class="kw2924">views::<span class="me2">take</span></span></a><span class="br0">(</span><span class="nu0">5</span><span class="br0">)</span><span class="br0">)</span>.<span class="me1">empty</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span><span class="br0">(</span>a <span class="sy3">|</span> std<span class="sy4">::</span><a href="cpp-ranges-drop_view.html"><span class="kw2928">views::<span class="me2">drop</span></span></a><span class="br0">(</span><span class="nu0">5</span><span class="br0">)</span><span class="br0">)</span>.<span class="me1">empty</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span><span class="sy3">!</span><span class="br0">(</span>a <span class="sy3">|</span> std<span class="sy4">::</span><a href="cpp-ranges-drop_view.html"><span class="kw2928">views::<span class="me2">drop</span></span></a><span class="br0">(</span><span class="nu0">3</span><span class="br0">)</span><span class="br0">)</span>.<span class="me1">empty</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span>std<span class="sy4">::</span><a href="cpp-ranges-iota_view.html"><span class="kw2914">views::<span class="me2">iota</span></span></a><span class="br0">(</span><span class="nu0">0</span>,<span class="nu0">0</span><span class="br0">)</span>.<span class="me1">empty</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span><span class="sy3">!</span>std<span class="sy4">::</span><a href="cpp-ranges-iota_view.html"><span class="kw2914">views::<span class="me2">iota</span></span></a><span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span>.<span class="me1">empty</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue3715">LWG 3715</a></td>
+<td>C++20</td>
+<td><code>empty()</code> &#20165;&#25903;&#25345; <a href="cpp-ranges-forward_range.html"><code>forward_range</code></a> &#31867;&#22411;</td>
+<td>&#20063;&#25903;&#25345;&#20165;&#20026; <a href="cpp-ranges-sized_range.html"><code>sized_range</code></a> &#30340;&#31867;&#22411;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-empty.html"><span class="t-lines"><span>empty</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#23481;&#22120;&#26159;&#21542;&#20026;&#31354;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-empty.html"><span class="t-lines"><span>ranges::empty</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#33539;&#22260;&#26159;&#21542;&#20026;&#31354;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#23450;&#21046;&#28857;&#23545;&#35937;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

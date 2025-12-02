@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::is_pointer_interconvertible_with_class</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_types_is_pointer_interconvertible_with_class skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>is_pointer_interconvertible_with_class</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-types.html">types</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-type_traits.html">&lt;type_traits&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> S, <span class="kw1">class</span> M <span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> <span class="kw4">bool</span> is_pointer_interconvertible_with_class<span class="br0">(</span> M S<span class="sy4">::</span><span class="sy2">*</span> mp <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#32473;&#23450; <code>S</code> &#31867;&#22411;&#30340;&#23545;&#35937; <code>s</code>&#65292;&#30830;&#23450; <span class="t-c"><span class="mw-geshi cpp source-cpp">s.<span class="sy2">*</span>mp</span></span> &#26159;&#21542;&#25351;&#20195; <code>s</code> &#30340;&#23376;&#23545;&#35937;&#19988; <code>s</code> &#19982;&#20854;&#23376;&#23545;&#35937; <span class="t-c"><span class="mw-geshi cpp source-cpp">s.<span class="sy2">*</span>mp</span></span> <a href="cpp-language-static_cast.html#.E6.8C.87.E9.92.88.E5.8F.AF.E4.BA.92.E8.BD.AC.E6.8D.A2">&#25351;&#38024;&#21487;&#20114;&#36716;&#25442;</a>&#12290;&#33509; <code>S</code> &#19981;&#26159;<a href="cpp-language-type.html#.E4.B8.8D.E5.AE.8C.E6.95.B4.E7.B1.BB.E5.9E.8B">&#23436;&#25972;&#31867;&#22411;</a>&#21017;&#31243;&#24207;&#38750;&#33391;&#26500;&#12290;</p>
+<p>&#33509; <code>S</code> &#19981;&#26159;<a href="cpp-named_req-StandardLayoutType.html"><span style="font-style:italic">&#26631;&#20934;&#24067;&#23616;&#31867;&#22411;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(StandardLayoutType)</span></a> &#65292;&#25110; <code>M</code> &#19981;&#26159;&#23545;&#35937;&#31867;&#22411;&#65292;&#25110; <code>mp</code> &#31561;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">nullptr</span></span>&#65292;&#21017;&#32467;&#26524;&#22987;&#32456;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>mp</td>
+<td>-</td>
+<td>&#35201;&#26816;&#27979;&#30340;&#25104;&#21592;&#25351;&#38024;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">s.<span class="sy2">*</span>mp</span></span> &#25351;&#20195; <code>s</code> &#30340;&#23376;&#23545;&#35937;&#19988; <code>s</code> &#19982;&#20854;&#23376;&#23545;&#35937; <span class="t-c"><span class="mw-geshi cpp source-cpp">s.<span class="sy2">*</span>mp</span></span> &#25351;&#38024;&#21487;&#20114;&#36716;&#25442;&#21017;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#21542;&#21017;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#65292;&#20854;&#20013; <code>s</code> &#26159; <code>S</code> &#31867;&#22411;&#30340;&#23545;&#35937;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#25104;&#21592;&#25351;&#38024;&#34920;&#36798;&#24335; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy3">&amp;</span>S<span class="sy4">::</span><span class="me2">m</span></span></span> &#30340;&#31867;&#22411;&#24182;&#38750;&#22987;&#32456;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp">M S<span class="sy4">::</span><span class="sy2">*</span></span></span>&#65292;&#20854;&#20013; <code>m</code> &#30340;&#31867;&#22411;&#20026; <code>M</code>&#65292;&#22240;&#20026; <code>m</code> &#21487;&#33021;&#26159;&#20174; <code>S</code> &#30340;&#22522;&#31867;&#32487;&#25215;&#30340;&#25104;&#21592;&#12290;&#21487;&#20197;&#25351;&#23450;&#31532;&#19968;&#27169;&#26495;&#23454;&#21442;&#20197;&#36991;&#20813;&#28508;&#22312;&#22320;&#20196;&#20154;&#35815;&#24322;&#30340;&#32467;&#26524;&#12290;</p>
+<p>&#33509;&#23384;&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">M S<span class="sy4">::</span><span class="sy2">*</span></span></span> &#31867;&#22411;&#30340;&#20540; <code>mp</code> &#20351;&#24471; <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">is_pointer_interconvertible_with_class</span><span class="br0">(</span>mp<span class="br0">)</span> <span class="sy1">==</span> <span class="kw2">true</span></span></span>&#65292;&#21017; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">reinterpret_cast</span><span class="sy1">&lt;</span>M<span class="sy3">&amp;</span><span class="sy1">&gt;</span><span class="br0">(</span>s<span class="br0">)</span></span></span> &#25317;&#26377;&#33391;&#23450;&#20041;&#32467;&#26524;&#19988;&#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">s.<span class="sy2">*</span>mp</span></span> &#25351;&#20195;&#21516;&#19968;&#23376;&#23545;&#35937;&#65292;&#20854;&#20013; <code>s</code> &#26159;&#21512;&#27861;&#30340; <code>S</code> &#31867;&#22411;&#30340;&#24038;&#20540;&#12290;</p>
+<p>&#22312;&#24120;&#29992;&#24179;&#21488;&#19978;&#65292;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">is_pointer_interconvertible_with_class</span><span class="br0">(</span>mp<span class="br0">)</span> <span class="sy1">==</span> <span class="kw2">true</span></span></span>&#65292;&#21017; <code>mp</code> &#30340;&#20301;&#27169;&#24335;&#20026;&#20840;&#38646;&#12290;</p>
+<table class="wikitable ftm-begin">
+<tr>
+<th><a href="cpp-utility-feature_test.html">&#21151;&#33021;&#29305;&#24615;&#27979;&#35797;</a>&#23439;</th>
+<th><abbr title="&#37319;&#32435;&#35813;&#29305;&#24615;&#30340;&#24180;/&#26376;&#12290;&#27599;&#20010;&#20540;&#19979;&#38754;&#30340;&#38142;&#25509;&#25351;&#21521;&#32534;&#35793;&#26399;&#25903;&#25345;&#39029;&#38754;&#20013;&#32473;&#23450;&#21151;&#33021;&#29305;&#24615;&#30340;&#26465;&#30446;&#12290;">&#20540;</abbr></th>
+<th><abbr title="&#24341;&#20837;&#35813;&#29305;&#24615;&#30340;&#26631;&#20934;&#65307;DR &#24847;&#20026;&#38024;&#23545;&#35813;&#20462;&#35746;&#29256;&#30340;&#32570;&#38519;&#25253;&#21578;">&#26631;&#20934;</abbr></th>
+<th>&#21151;&#33021;&#29305;&#24615;</th>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lib_is_pointer_interconvertible"><code>__cpp_lib_is_pointer_interconvertible</code></a></td>
+<td><a href="cpp-compiler_support-20.html#cpp_lib_is_pointer_interconvertible_201907L"><code>201907L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++20)</span></td>
+<td>&#25351;&#38024;&#21487;&#20114;&#25442;&#24615;&#29305;&#24449;&#65306;
+<ul>
+<li><span class="t-lc">std::is_pointer_interconvertible_base_of</span></li>
+<li><code>std::is_pointer_interconvertible_with_class</code></li>
+</ul>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;type_traits&gt;</span>
+ 
+<span class="kw1">struct</span> Foo <span class="br0">{</span> <span class="kw4">int</span> x<span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+<span class="kw1">struct</span> Bar <span class="br0">{</span> <span class="kw4">int</span> y<span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw1">struct</span> Baz <span class="sy4">:</span> Foo, Bar <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span> <span class="co1">// &#38750;&#26631;&#20934;&#24067;&#23616;</span>
+ 
+static_assert<span class="br0">(</span> not <a href="cpp-types-is_same.html"><span class="kw592">std::<span class="me2">is_same_v</span></span></a><span class="sy1">&lt;</span>decltype<span class="br0">(</span><span class="sy3">&amp;</span>Baz<span class="sy4">::</span><span class="me2">x</span><span class="br0">)</span>, <span class="kw4">int</span> Baz<span class="sy4">::</span><span class="sy2">*</span><span class="sy1">&gt;</span> <span class="br0">)</span><span class="sy4">;</span>
+static_assert<span class="br0">(</span> std<span class="sy4">::</span><span class="me2">is_pointer_interconvertible_with_class</span><span class="br0">(</span><span class="sy3">&amp;</span>Baz<span class="sy4">::</span><span class="me2">x</span><span class="br0">)</span> <span class="br0">)</span><span class="sy4">;</span>
+static_assert<span class="br0">(</span> not std<span class="sy4">::</span><span class="me2">is_pointer_interconvertible_with_class</span><span class="sy1">&lt;</span>Baz, <span class="kw4">int</span><span class="sy1">&gt;</span><span class="br0">(</span><span class="sy3">&amp;</span>Baz<span class="sy4">::</span><span class="me2">x</span><span class="br0">)</span> <span class="br0">)</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> <span class="br0">}</span></pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-types-is_standard_layout.html"><span class="t-lines"><span>is_standard_layout</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#31867;&#22411;&#26159;&#21542;&#20026;<a href="cpp-language-data_members.html#.E6.A0.87.E5.87.86.E5.B8.83.E5.B1.80">&#26631;&#20934;&#24067;&#23616;</a>&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-types-is_member_object_pointer.html"><span class="t-lines"><span>is_member_object_pointer</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#31867;&#22411;&#26159;&#21542;&#20026;&#25351;&#21521;&#38750;&#38745;&#24577;&#25104;&#21592;&#23545;&#35937;&#30340;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>islessequal</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_numeric_math_islessequal skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">islessequal</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-numeric.html">numeric</a>&lrm; | <a href="c-numeric-math.html">math</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-math.html"><tt>&lt;math.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-c99">
+<td>
+<div><span class="mw-geshi c source-c"><span class="co2">#define islessequal(x, y) /* &#30001;&#23454;&#29616;&#23450;&#20041; */</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#30830;&#23450;&#28014;&#28857;&#25968; <span class="t-c"><span class="mw-geshi c source-c">x</span></span> &#26159;&#21542;&#23567;&#20110;&#25110;&#31561;&#20110;&#28014;&#28857;&#25968; <span class="t-c"><span class="mw-geshi c source-c">y</span></span>&#65292;&#32780;&#19981;&#35774;&#32622;&#28014;&#28857;&#25968;&#24322;&#24120;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>x</td>
+<td>-</td>
+<td>&#28014;&#28857;&#25968;</td>
+</tr>
+<tr class="t-par">
+<td>y</td>
+<td>-</td>
+<td>&#28014;&#28857;&#25968;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#33509; <span class="t-c"><span class="mw-geshi c source-c">x <span class="sy1">&lt;=</span> y</span></span> &#21017;&#20026;&#38750;&#38646;&#25972;&#25968;&#65292;&#21542;&#21017;&#20026; <span class="t-c"><span class="mw-geshi c source-c">&#8203;<span class="nu0">0</span>&#8203;</span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#33509;&#19968;&#25110;&#20004;&#20010;&#23454;&#21442;&#20026; NaN&#65292;&#21017;&#20869;&#24314;&#30340; <span class="t-c"><span class="mw-geshi c source-c">operator<span class="sy1">&lt;=</span></span></span> &#23545;&#28014;&#28857;&#25968;&#21487;&#33021;&#24341;&#21457; <span class="t-lc"><a href="c-numeric-fenv-FE_exceptions.html">FE_INVALID</a></span>&#12290;&#27492;&#23439;&#26159; <span class="t-c"><span class="mw-geshi c source-c">operator<span class="sy1">&lt;=</span></span></span> &#30340;&ldquo;&#23433;&#38745;&rdquo;&#29256;&#26412;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#include &lt;math.h&gt;</span>
+<span class="co2">#include &lt;stdio.h&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;islessequal(2.0,1.0)      = %d<span class="es1">\n</span>&quot;</span>, islessequal<span class="br0">(</span><span class="nu16">2.0</span>, <span class="nu16">1.0</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;islessequal(1.0,2.0)      = %d<span class="es1">\n</span>&quot;</span>, islessequal<span class="br0">(</span><span class="nu16">1.0</span>, <span class="nu16">2.0</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;islessequal(1.0,1.0)      = %d<span class="es1">\n</span>&quot;</span>, islessequal<span class="br0">(</span><span class="nu16">1.0</span>, <span class="nu16">1.0</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;islessequal(INFINITY,1.0) = %d<span class="es1">\n</span>&quot;</span>, islessequal<span class="br0">(</span>INFINITY, <span class="nu16">1.0</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;islessequal(1.0,NAN)      = %d<span class="es1">\n</span>&quot;</span>, islessequal<span class="br0">(</span><span class="nu16">1.0</span>, NAN<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw1">return</span> <span class="nu0">0</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">islessequal(2.0,1.0)      = 0
+islessequal(1.0,2.0)      = 1
+islessequal(1.0,1.0)      = 1
+islessequal(INFINITY,1.0) = 0
+islessequal(1.0,NAN)      = 0</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-23">
+<ul>
+<li>C23 &#26631;&#20934;&#65288;ISO/IEC 9899:2024&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.12.14.4 The islessequal macro &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>F.10.11 Comparison macros &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.12.14.4 The islessequal macro &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>F.10.11 Comparison macros &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.12.14.4 The islessequal macro &#65288;&#31532; 260 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>F.10.11 Comparison macros &#65288;&#31532; 531 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c99">
+<ul>
+<li>C99 &#26631;&#20934;&#65288;ISO/IEC 9899:1999&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.12.14.4 The islessequal macro &#65288;&#31532; 241 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-numeric-math-isgreaterequal.html"><span class="t-lines"><span>isgreaterequal</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#31532;&#19968;&#20010;&#28014;&#28857;&#25968;&#23454;&#21442;&#26159;&#21542;&#22823;&#20110;&#31561;&#20110;&#31532;&#20108;&#20010;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#23439;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>islessequal</span></span>&nbsp;&#30340; <span><span><a href="cpp-numeric-math-islessequal.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

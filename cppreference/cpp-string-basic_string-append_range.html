@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::basic_string&lt;CharT,Traits,Allocator&gt;::append_range</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_string_basic_string_append_range skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::basic_string&lt;CharT,Traits,Allocator&gt;::</span>append_range</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-string.html">string</a>&lrm; | <a href="cpp-string-basic_string.html">basic string</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-ranges-to.html"><span class="kw100">container-compatible-range</span></a><span class="sy1">&lt;</span>CharT<span class="sy1">&gt;</span> R <span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> <a href="cpp-string-basic_string.html"><span class="kw1231">std::<span class="me2">basic_string</span></span></a><span class="sy3">&amp;</span> append_range<span class="br0">(</span> R<span class="sy3">&amp;&amp;</span> rg <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#21518;&#38468; <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> &#20013;&#30340;&#20840;&#37096;&#23383;&#31526;&#12290;</p>
+<p>&#31561;&#20215;&#20110;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">return</span> append<span class="br0">(</span><a href="cpp-string-basic_string.html"><span class="kw1231">std::<span class="me2">basic_string</span></span></a><span class="br0">(</span> <a href="cpp-ranges-from_range.html"><span class="kw3504">std::<span class="me2">from_range</span></span></a>, std&#8203;<span class="sy4">::</span>&#8203;forward<span class="sy1">&lt;</span>R<span class="sy1">&gt;</span><span class="br0">(</span>rg<span class="br0">)</span>, get_allocator<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span></pre></div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>rg</td>
+<td>-</td>
+<td><a href="cpp-ranges-to.html#.E5.AE.B9.E5.99.A8.E5.85.BC.E5.AE.B9.E8.8C.83.E5.9B.B4">&#23481;&#22120;&#20860;&#23481;&#33539;&#22260;</a></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span></p>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<p>&#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> &#30340;&#22823;&#23567;&#25104;&#32447;&#24615;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<p>&#22914;&#26524;&#25805;&#20316;&#20250;&#23548;&#33268; <span class="t-c"><a href="cpp-string-basic_string-size.html"><code>size()</code></a></span> &#36229;&#20986; <span class="t-c"><a href="cpp-string-basic_string-max_size.html"><code>max_size()</code></a></span>&#65292;&#37027;&#20040;&#23601;&#20250;&#25243;&#20986; <span class="t-lc"><a href="cpp-error-length_error.html">std::length_error</a></span>&#12290;</p>
+<p>&#22914;&#26524;&#22240;&#20026;&#20219;&#20309;&#21407;&#22240;&#25243;&#20986;&#20102;&#24322;&#24120;&#65292;&#37027;&#20040;&#27492;&#20989;&#25968;&#26080;&#25928;&#26524;&#65288;<a href="cpp-language-exceptions.html#.E5.BC.82.E5.B8.B8.E5.AE.89.E5.85.A8">&#24378;&#24322;&#24120;&#23433;&#20840;&#20445;&#35777;</a>&#65289;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<table class="wikitable ftm-begin">
+<tr>
+<th><a href="cpp-utility-feature_test.html">&#21151;&#33021;&#29305;&#24615;&#27979;&#35797;</a>&#23439;</th>
+<th><abbr title="&#37319;&#32435;&#35813;&#29305;&#24615;&#30340;&#24180;/&#26376;&#12290;&#27599;&#20010;&#20540;&#19979;&#38754;&#30340;&#38142;&#25509;&#25351;&#21521;&#32534;&#35793;&#26399;&#25903;&#25345;&#39029;&#38754;&#20013;&#32473;&#23450;&#21151;&#33021;&#29305;&#24615;&#30340;&#26465;&#30446;&#12290;">&#20540;</abbr></th>
+<th><abbr title="&#24341;&#20837;&#35813;&#29305;&#24615;&#30340;&#26631;&#20934;&#65307;DR &#24847;&#20026;&#38024;&#23545;&#35813;&#20462;&#35746;&#29256;&#30340;&#32570;&#38519;&#25253;&#21578;">&#26631;&#20934;</abbr></th>
+<th>&#21151;&#33021;&#29305;&#24615;</th>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lib_containers_ranges"><code>__cpp_lib_containers_ranges</code></a></td>
+<td><a href="cpp-compiler_support-23.html#cpp_lib_containers_ranges_202202L"><code>202202L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++23)</span></td>
+<td>&#25509;&#21463;<a href="cpp-ranges-to.html#.E5.AE.B9.E5.99.A8.E5.85.BC.E5.AE.B9.E8.8C.83.E5.9B.B4">&#23481;&#22120;&#20860;&#23481;&#33539;&#22260;</a>&#30340;&#25104;&#21592;&#20989;&#25968;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;cassert&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a> head<span class="br0">{</span><span class="st0">&quot;long long&quot;</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw4">const</span> <span class="kw4">auto</span> tail <span class="sy1">=</span> <span class="br0">{</span><span class="st0">&#39; &#39;</span>, <span class="st0">&#39;i&#39;</span>, <span class="st0">&#39;n&#39;</span>, <span class="st0">&#39;t&#39;</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="co2">#ifdef __cpp_lib_containers_ranges</span>
+    head.<span class="me1">append_range</span><span class="br0">(</span>tail<span class="br0">)</span><span class="sy4">;</span>
+<span class="co2">#else</span>
+    head.<span class="me1">append</span><span class="br0">(</span>tail.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, tail.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="co2">#endif</span>
+ 
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span>head <span class="sy1">==</span> <span class="st0">&quot;long long int&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-string-basic_string-append.html"><span class="t-lines"><span>append</span></span></a></div>
+</div>
+</td>
+<td>&#21518;&#38468;&#23383;&#31526;&#21040;&#32467;&#23614;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

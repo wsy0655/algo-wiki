@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>operator==,&lt;=&gt;(std::counted_iterator)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_iterator_counted_iterator_operator_cmp skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">operator==,&lt;=&gt;<small>(std::counted_iterator)</small></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-iterator.html">iterator</a>&lrm; | <a href="cpp-iterator-counted_iterator.html">counted iterator</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-concepts-common_with.html"><span class="kw2937">std::<span class="me2">common_with</span></span></a><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span> I2 <span class="sy1">&gt;</span><br /></span>
+<p>&nbsp; &nbsp; <span class="kw1">friend</span> <span class="kw4">constexpr</span> <span class="kw4">bool</span> operator<span class="sy1">==</span><span class="br0">(</span><br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw4">const</span> counted_iterator<span class="sy3">&amp;</span> x, <span class="kw4">const</span> counted_iterator<span class="sy1">&lt;</span>I2<span class="sy1">&gt;</span><span class="sy3">&amp;</span> y <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-concepts-common_with.html"><span class="kw2937">std::<span class="me2">common_with</span></span></a><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span> I2 <span class="sy1">&gt;</span><br /></span>
+<p>&nbsp; &nbsp; <span class="kw1">friend</span> <span class="kw4">constexpr</span> strong_ordering operator<span class="sy1">&lt;=&gt;</span><span class="br0">(</span><br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw4">const</span> counted_iterator<span class="sy3">&amp;</span> x, <span class="kw4">const</span> counted_iterator<span class="sy1">&lt;</span>I2<span class="sy1">&gt;</span><span class="sy3">&amp;</span> y <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#27604;&#36739;&#24213;&#23618;&#38271;&#24230;&#65288;&#21363;&#21040;&#26411;&#23614;&#30340;&#36317;&#31163;&#65289;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#26816;&#26597;&#38271;&#24230;&#26159;&#21542;&#30456;&#31561;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#29992;&#36816;&#31639;&#31526; <code>&lt;=&gt;</code> &#27604;&#36739;&#24213;&#23618;&#38271;&#24230;&#12290;</div>
+<p>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">x</span></span> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">y</span></span> &#19981;&#25351;&#21521;&#21516;&#19968;&#24207;&#21015;&#30340;&#20803;&#32032;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;&#21363;&#24517;&#39035;&#23384;&#22312;&#26576;&#20010; <span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span> &#20351;&#24471; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-next.html"><span class="kw677">std::<span class="me2">next</span></span></a><span class="br0">(</span>x.<span class="me1">base</span><span class="br0">(</span><span class="br0">)</span>, x.<span class="me1">count</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> n<span class="br0">)</span></span></span> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-next.html"><span class="kw677">std::<span class="me2">next</span></span></a><span class="br0">(</span>y.<span class="me1">base</span><span class="br0">(</span><span class="br0">)</span>, y.<span class="me1">count</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> n<span class="br0">)</span></span></span> &#25351;&#20195;&#21516;&#19968;&#20803;&#32032;&#12290;</p>
+<p><code>&lt;</code>&#12289;<code>&lt;=</code>&#12289;<code>&gt;</code>&#12289;<code>&gt;=</code> &#21450; <code>!=</code> &#36816;&#31639;&#31526;&#20998;&#21035;&#20174; <span class="mw-geshi cpp source-cpp">operator<span class="sy1">&lt;=&gt;</span></span> &#19982; <span class="mw-geshi cpp source-cpp">operator<span class="sy1">==</span></span> <a href="cpp-language-operators.html#.E6.AF.94.E8.BE.83.E8.BF.90.E7.AE.97.E7.AC.A6">&#21512;&#25104;</a>&#12290;</p>
+<p>&#27492;&#20989;&#25968;&#27169;&#26495;&#23545;&#24120;&#35268;&#30340;<a href="cpp-language-unqualified_lookup.html">&#26080;&#38480;&#23450;</a>&#25110;<a href="cpp-language-qualified_lookup.html">&#26377;&#38480;&#23450;&#26597;&#25214;</a>&#19981;&#21487;&#35265;&#65292;&#32780;&#21482;&#33021;&#22312; std::counted_iterator&lt;I&gt; &#20026;&#23454;&#21442;&#30340;&#20851;&#32852;&#31867;&#26102;&#30001;<a href="cpp-language-adl.html">&#23454;&#21442;&#20381;&#36182;&#26597;&#25214;</a>&#25214;&#21040;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>x, y</td>
+<td>-</td>
+<td>&#36845;&#20195;&#22120;&#36866;&#37197;&#22120;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<div class="t-li1"><span class="t-li">1)</span> <span class="t-c"><span class="mw-geshi cpp source-cpp">x.<span class="me1">count</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> y.<span class="me1">count</span><span class="br0">(</span><span class="br0">)</span></span></span></div>
+<div class="t-li1"><span class="t-li">2)</span> <span class="t-c"><span class="mw-geshi cpp source-cpp">y.<span class="me1">count</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;=&gt;</span> x.<span class="me1">count</span><span class="br0">(</span><span class="br0">)</span></span></span></div>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#30001;&#20110;<i>&#38271;&#24230;</i>&#21521;&#19979;&#35745;&#25968;&#65292;&#32780;&#38750;&#21521;&#19978;&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="sy1">&lt;=&gt;</span></span></span> &#30340;&#23454;&#21442;&#22312;&#24213;&#23618;&#27604;&#36739;&#34920;&#36798;&#24335;&#20013;&#30340;&#39034;&#24207;&#26159;&#36870;&#36716;&#30340;&#65292;&#21363; <span class="t-c"><span class="mw-geshi cpp source-cpp">y</span></span> &#20026; <i>lhs</i>&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">x</span></span> &#20026; <i>rhs</i>&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;initializer_list&gt;</span>
+<span class="co2">#include &lt;iterator&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">static</span> <span class="kw4">constexpr</span> <span class="kw4">auto</span> v <span class="sy1">=</span> <span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">2</span>, <span class="nu0">3</span>, <span class="nu0">4</span>, <span class="nu0">5</span>, <span class="nu0">6</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw4">constexpr</span> <a href="cpp-iterator-counted_iterator.html"><span class="kw3121">std::<span class="me2">counted_iterator</span></span></a><span class="sy1">&lt;</span><a href="cpp-utility-initializer_list.html"><span class="kw962">std::<span class="me2">initializer_list</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">iterator</span><span class="sy1">&gt;</span>
+        it1<span class="br0">{</span>v.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, <span class="nu0">5</span><span class="br0">}</span>,
+        it2<span class="br0">{</span>v.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, <span class="nu0">5</span><span class="br0">}</span>,
+        it3<span class="br0">{</span>v.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> <span class="nu0">1</span>, <span class="nu0">4</span><span class="br0">}</span>,
+        it4<span class="br0">{</span>v.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, <span class="nu0">0</span><span class="br0">}</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span>it1 <span class="sy1">==</span> it2<span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span>it2 <span class="sy3">!</span><span class="sy1">=</span> it3<span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span>it2 <span class="sy1">&lt;</span>  it3<span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span>it1 <span class="sy1">&lt;=</span> it2<span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span>it3 <span class="sy3">!</span><span class="sy1">=</span> <a href="cpp-iterator-default_sentinel_t.html"><span class="kw2879">std::<span class="me2">default_sentinel</span></span></a><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span>it4 <span class="sy1">==</span> <a href="cpp-iterator-default_sentinel_t.html"><span class="kw2879">std::<span class="me2">default_sentinel</span></span></a><span class="br0">)</span><span class="sy4">;</span>
+ 
+<span class="co1">//  it2 == std::counted_iterator{v.begin(), 4}; // UB&#65306;&#25805;&#20316;&#25968;&#19981;&#25351;&#20195;&#21516;&#19968;&#24207;&#21015;&#30340;&#20803;&#32032;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-counted_iterator-operator_cmp2.html"><span class="t-lines"><span>operator==<span class="t-dsc-small">(std::default_sentinel)</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#21040;&#26411;&#23614;&#30340;&#36317;&#31163;&#26159;&#21542;&#31561;&#20110; <code>&#8203;0&#8203;</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-counted_iterator-operator+.html"><span class="t-lines"><span>operator+</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#20196;&#36845;&#20195;&#22120;&#21069;&#36827;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-counted_iterator-operator-.html"><span class="t-lines"><span>operator-</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#35745;&#31639;&#20004;&#20010;&#36845;&#20195;&#22120;&#36866;&#37197;&#22120;&#38388;&#30340;&#36317;&#31163;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

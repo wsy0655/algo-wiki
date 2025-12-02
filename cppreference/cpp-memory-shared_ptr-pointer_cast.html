@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::static_pointer_cast, std::dynamic_pointer_cast, std::const_pointer_cast, std::reinterpret_pointer_cast</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_memory_shared_ptr_pointer_cast skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>static_pointer_cast, <span style="font-size:0.8em; line-height:125%">std::</span>dynamic_pointer_cast, <span style="font-size:0.8em; line-height:125%">std::</span>const_pointer_cast, <span style="font-size:0.8em; line-height:125%">std::</span>reinterpret_pointer_cast</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-memory.html">memory</a>&lrm; | <a href="cpp-memory-shared_ptr.html">shared ptr</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-memory.html">&lt;memory&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span id=".E7.89.88.E6.9C.AC_1"></span><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span> U <span class="sy1">&gt;</span><br />
+<a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> static_pointer_cast<span class="br0">(</span> <span class="kw4">const</span> <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span><span class="sy3">&amp;</span> r <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span> U <span class="sy1">&gt;</span><br />
+<a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> static_pointer_cast<span class="br0">(</span> <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span><span class="sy3">&amp;&amp;</span> r <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span id=".E7.89.88.E6.9C.AC_3"></span><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span> U <span class="sy1">&gt;</span><br />
+<a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> dynamic_pointer_cast<span class="br0">(</span> <span class="kw4">const</span> <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span><span class="sy3">&amp;</span> r <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span> U <span class="sy1">&gt;</span><br />
+<a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> dynamic_pointer_cast<span class="br0">(</span> <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span><span class="sy3">&amp;&amp;</span> r <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(4)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span id=".E7.89.88.E6.9C.AC_5"></span><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span> U <span class="sy1">&gt;</span><br />
+<a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> const_pointer_cast<span class="br0">(</span> <span class="kw4">const</span> <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span><span class="sy3">&amp;</span> r <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(5)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span> U <span class="sy1">&gt;</span><br />
+<a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> const_pointer_cast<span class="br0">(</span> <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span><span class="sy3">&amp;&amp;</span> r <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(6)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span id=".E7.89.88.E6.9C.AC_7"></span><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span> U <span class="sy1">&gt;</span><br />
+<a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> reinterpret_pointer_cast<span class="br0">(</span> <span class="kw4">const</span> <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span><span class="sy3">&amp;</span> r <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(7)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span> U <span class="sy1">&gt;</span><br />
+<a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> reinterpret_pointer_cast<span class="br0">(</span> <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span><span class="sy3">&amp;&amp;</span> r <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(8)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#21019;&#24314; <span class="t-lc"><a href="cpp-memory-shared_ptr.html">std::shared_ptr</a></span> &#30340;&#26032;&#23454;&#20363;&#65292;&#20854;&#23384;&#20648;&#25351;&#38024;&#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp">r</span></span> &#30340;&#23384;&#20648;&#25351;&#38024;&#29992;&#36716;&#22411;&#34920;&#36798;&#24335;&#33719;&#24471;&#12290;</p>
+<p>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">r</span></span> &#20026;&#31354;&#65292;&#21017;&#26032;&#30340; <code>shared_ptr</code> &#20134;&#28982;&#65288;&#20294;&#20854;&#23384;&#20648;&#25351;&#38024;&#19981;&#24517;&#20026;&#31354;&#65289;&#12290;&#21542;&#21017;&#65292;&#26032;&#30340; <code>shared_ptr</code> &#23558;&#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">r</span></span> &#30340;&#21021;&#22987;&#20540;&#20849;&#20139;&#25152;&#26377;&#26435;&#65292;&#20294;&#33509; <code>dynamic_pointer_cast</code> &#25152;&#36827;&#34892;&#30340; <code>dynamic_cast</code> &#36820;&#22238;&#31354;&#25351;&#38024;&#65292;&#21017;&#23427;&#20026;&#31354;&#12290;</p>
+<p>&#20196; <code>Y</code> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">typename</span> <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">element_type</span></span></span>&#65292;&#21017;&#23558;&#20998;&#21035;&#36890;&#36807;&#27714;&#20540;&#19979;&#21015;&#34920;&#36798;&#24335;&#65292;&#33719;&#24471;&#25152;&#24471; <span class="t-lc"><a href="cpp-memory-shared_ptr.html">std::shared_ptr</a></span> &#30340;&#23384;&#20648;&#25351;&#38024;&#65306;</p>
+<div class="t-li1"><span class="t-li">1,2)</span> <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">static_cast</span><span class="sy1">&lt;</span>Y<span class="sy2">*</span><span class="sy1">&gt;</span><span class="br0">(</span>r.<span class="me1">get</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span></div>
+<div class="t-li1"><span class="t-li">3,4)</span> <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">dynamic_cast</span><span class="sy1">&lt;</span>Y<span class="sy2">*</span><span class="sy1">&gt;</span><span class="br0">(</span>r.<span class="me1">get</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span>&#12290;&#33509; <code>dynamic_cast</code> &#30340;&#32467;&#26524;&#26159;&#31354;&#25351;&#38024;&#20540;&#65292;&#21017;&#36820;&#22238;&#30340; <code>shared_ptr</code> &#23558;&#20026;&#31354;&#12290;</div>
+<div class="t-li1"><span class="t-li">5,6)</span> <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">const_cast</span><span class="sy1">&lt;</span>Y<span class="sy2">*</span><span class="sy1">&gt;</span><span class="br0">(</span>r.<span class="me1">get</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span></div>
+<div class="t-li1"><span class="t-li">7,8)</span> <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">reinterpret_cast</span><span class="sy1">&lt;</span>Y<span class="sy2">*</span><span class="sy1">&gt;</span><span class="br0">(</span>r.<span class="me1">get</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span></div>
+<p>&#38500;&#38750;&#20174; <code>U*</code> &#21040; <code>T*</code> &#30340;&#23545;&#24212;&#36716;&#22411;&#33391;&#26500;&#65292;&#21542;&#21017;&#36825;&#20123;&#20989;&#25968;&#30340;&#34892;&#20026;&#26410;&#23450;&#20041;&#65306;</p>
+<div class="t-li1"><span class="t-li">1,2)</span> &#33509;&#38750; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">static_cast</span><span class="sy1">&lt;</span>T<span class="sy2">*</span><span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">(</span>U<span class="sy2">*</span><span class="br0">)</span>nullptr<span class="br0">)</span></span></span> &#33391;&#26500;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</div>
+<div class="t-li1"><span class="t-li">3,4)</span> &#33509;&#38750; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">dynamic_cast</span><span class="sy1">&lt;</span>T<span class="sy2">*</span><span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">(</span>U<span class="sy2">*</span><span class="br0">)</span>nullptr<span class="br0">)</span></span></span> &#33391;&#26500;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</div>
+<div class="t-li1"><span class="t-li">5,6)</span> &#33509;&#38750; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">const_cast</span><span class="sy1">&lt;</span>T<span class="sy2">*</span><span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">(</span>U<span class="sy2">*</span><span class="br0">)</span>nullptr<span class="br0">)</span></span></span> &#33391;&#26500;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</div>
+<div class="t-li1"><span class="t-li">7,8)</span> &#33509;&#38750; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">reinterpret_cast</span><span class="sy1">&lt;</span>T<span class="sy2">*</span><span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">(</span>U<span class="sy2">*</span><span class="br0">)</span>nullptr<span class="br0">)</span></span></span> &#33391;&#26500;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</div>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx20">
+<td>
+<p>&#35843;&#29992;&#21491;&#20540;&#37325;&#36733; <span class="t-v">(2,4,6,8)</span> &#21518;&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">r</span></span> &#20026;&#31354;&#19988; <span class="t-c"><span class="mw-geshi cpp source-cpp">r.<span class="me1">get</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> nullptr</span></span>&#65292;&#20294;&#23545;&#20110; <code>dynamic_pointer_cast</code> <span class="t-v">(4)</span>&#65292;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">dynamic_cast</span></span></span> &#22833;&#36133;&#21017;&#19981;&#20462;&#25913; <span class="t-c"><span class="mw-geshi cpp source-cpp">r</span></span>&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>r</td>
+<td>-</td>
+<td>&#35201;&#36716;&#25442;&#30340;&#25351;&#38024;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#34920;&#36798;&#24335; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="br0">(</span><span class="kw1">static_cast</span><span class="sy1">&lt;</span>T<span class="sy2">*</span><span class="sy1">&gt;</span><span class="br0">(</span>r.<span class="me1">get</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span></span></span>&#12289;<span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="br0">(</span><span class="kw1">dynamic_cast</span><span class="sy1">&lt;</span>T<span class="sy2">*</span><span class="sy1">&gt;</span><span class="br0">(</span>r.<span class="me1">get</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span></span></span> &#21450; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="br0">(</span><span class="kw1">const_cast</span><span class="sy1">&lt;</span>T<span class="sy2">*</span><span class="sy1">&gt;</span><span class="br0">(</span>r.<span class="me1">get</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span></span></span> &#30475;&#36215;&#26469;&#21487;&#33021;&#25317;&#26377;&#30456;&#21516;&#25928;&#26524;&#65292;&#20294;&#23427;&#20204;&#20840;&#37117;&#24456;&#21487;&#33021;&#23548;&#33268;&#26410;&#23450;&#20041;&#34892;&#20026;&#65292;&#35797;&#22270;&#20108;&#27425;&#21024;&#38500;&#21516;&#19968;&#23545;&#35937;&#65281;</p>
+<h3><span class="mw-headline" id=".E5.8F.AF.E8.83.BD.E7.9A.84.E5.AE.9E.E7.8E.B0">&#21487;&#33021;&#30340;&#23454;&#29616;</span></h3>
+<table class="eq-fun-cpp-table">
+<tr>
+<th><a href="cpp-memory-shared_ptr-pointer_cast.html#.E7.89.88.E6.9C.AC_1">static_pointer_cast</a></th>
+</tr>
+<tr>
+<td>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> T, <span class="kw1">class</span> U<span class="sy1">&gt;</span>
+<a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> static_pointer_cast<span class="br0">(</span><span class="kw4">const</span> <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span><span class="sy3">&amp;</span> r<span class="br0">)</span> <span class="kw1">noexcept</span>
+<span class="br0">{</span>
+    <span class="kw4">auto</span> p <span class="sy1">=</span> <span class="kw1">static_cast</span><span class="sy1">&lt;</span><span class="kw1">typename</span> <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">element_type</span><span class="sy2">*</span><span class="sy1">&gt;</span><span class="br0">(</span>r.<span class="me1">get</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">return</span> <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="br0">{</span>r, p<span class="br0">}</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</td>
+</tr>
+<tr>
+<th><a href="cpp-memory-shared_ptr-pointer_cast.html#.E7.89.88.E6.9C.AC_3">dynamic_pointer_cast</a></th>
+</tr>
+<tr>
+<td>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> T, <span class="kw1">class</span> U<span class="sy1">&gt;</span>
+<a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> dynamic_pointer_cast<span class="br0">(</span><span class="kw4">const</span> <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span><span class="sy3">&amp;</span> r<span class="br0">)</span> <span class="kw1">noexcept</span>
+<span class="br0">{</span>
+    <span class="kw1">if</span> <span class="br0">(</span><span class="kw4">auto</span> p <span class="sy1">=</span> <span class="kw1">dynamic_cast</span><span class="sy1">&lt;</span><span class="kw1">typename</span> <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">element_type</span><span class="sy2">*</span><span class="sy1">&gt;</span><span class="br0">(</span>r.<span class="me1">get</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>
+        <span class="kw1">return</span> <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="br0">{</span>r, p<span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw1">else</span>
+        <span class="kw1">return</span> <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</td>
+</tr>
+<tr>
+<th><a href="cpp-memory-shared_ptr-pointer_cast.html#.E7.89.88.E6.9C.AC_5">const_pointer_cast</a></th>
+</tr>
+<tr>
+<td>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> T, <span class="kw1">class</span> U<span class="sy1">&gt;</span>
+<a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> const_pointer_cast<span class="br0">(</span><span class="kw4">const</span> <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span><span class="sy3">&amp;</span> r<span class="br0">)</span> <span class="kw1">noexcept</span>
+<span class="br0">{</span>
+    <span class="kw4">auto</span> p <span class="sy1">=</span> <span class="kw1">const_cast</span><span class="sy1">&lt;</span><span class="kw1">typename</span> <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">element_type</span><span class="sy2">*</span><span class="sy1">&gt;</span><span class="br0">(</span>r.<span class="me1">get</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">return</span> <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="br0">{</span>r, p<span class="br0">}</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</td>
+</tr>
+<tr>
+<th><a href="cpp-memory-shared_ptr-pointer_cast.html#.E7.89.88.E6.9C.AC_7">reinterpret_pointer_cast</a></th>
+</tr>
+<tr>
+<td>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> T, <span class="kw1">class</span> U<span class="sy1">&gt;</span>
+<a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> reinterpret_pointer_cast<span class="br0">(</span><span class="kw4">const</span> <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span><span class="sy3">&amp;</span> r<span class="br0">)</span> <span class="kw1">noexcept</span>
+<span class="br0">{</span>
+    <span class="kw4">auto</span> p <span class="sy1">=</span> <span class="kw1">reinterpret_cast</span><span class="sy1">&lt;</span><span class="kw1">typename</span> <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">element_type</span><span class="sy2">*</span><span class="sy1">&gt;</span><span class="br0">(</span>r.<span class="me1">get</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">return</span> <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="br0">{</span>r, p<span class="br0">}</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;memory&gt;</span>
+ 
+<span class="kw1">class</span> Base
+<span class="br0">{</span>
+<span class="kw1">public</span><span class="sy4">:</span>
+    <span class="kw4">int</span> a<span class="sy4">;</span>
+    <span class="kw1">virtual</span> <span class="kw4">void</span> f<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="br0">{</span> <a href="cpp-io-cout.html"><span class="kw1759">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#25105;&#26159;&#22522;&#31867;!<span class="es1">\n</span>&quot;</span><span class="sy4">;</span> <span class="br0">}</span>
+    <span class="kw1">virtual</span> ~Base<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw1">class</span> Derived <span class="sy4">:</span> <span class="kw1">public</span> Base
+<span class="br0">{</span>
+<span class="kw1">public</span><span class="sy4">:</span>
+    <span class="kw4">void</span> f<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> override <span class="br0">{</span> <a href="cpp-io-cout.html"><span class="kw1759">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#25105;&#26159;&#27966;&#29983;&#31867;!<span class="es1">\n</span>&quot;</span><span class="sy4">;</span> <span class="br0">}</span>
+    ~Derived<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">auto</span> basePtr <span class="sy1">=</span> <a href="cpp-memory-shared_ptr-make_shared.html"><span class="kw738">std::<span class="me2">make_shared</span></span></a><span class="sy1">&lt;</span>Base<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1759">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#22522;&#31867;&#25351;&#38024;&#35828;: &quot;</span><span class="sy4">;</span>
+    basePtr<span class="sy2">-</span><span class="sy1">&gt;</span>f<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw4">auto</span> derivedPtr <span class="sy1">=</span> <a href="cpp-memory-shared_ptr-make_shared.html"><span class="kw738">std::<span class="me2">make_shared</span></span></a><span class="sy1">&lt;</span>Derived<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1759">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#27966;&#29983;&#31867;&#25351;&#38024;&#35828;: &quot;</span><span class="sy4">;</span>
+    derivedPtr<span class="sy2">-</span><span class="sy1">&gt;</span>f<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#27839;&#31867;&#23618;&#27425;&#21521;&#19978;&#30340; static_pointer_cast</span>
+    basePtr <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">static_pointer_cast</span><span class="sy1">&lt;</span>Base<span class="sy1">&gt;</span><span class="br0">(</span>derivedPtr<span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1759">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#25351;&#21521;&#27966;&#29983;&#31867;&#30340;&#22522;&#31867;&#25351;&#38024;&#35828;: &quot;</span><span class="sy4">;</span>
+    basePtr<span class="sy2">-</span><span class="sy1">&gt;</span>f<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#27839;&#31867;&#23618;&#27425;&#21521;&#19979;/&#36328;&#31867;&#23618;&#27425;&#30340; dynamic_pointer_cast</span>
+    <span class="kw4">auto</span> downcastedPtr <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">dynamic_pointer_cast</span><span class="sy1">&lt;</span>Derived<span class="sy1">&gt;</span><span class="br0">(</span>basePtr<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>downcastedPtr<span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-cout.html"><span class="kw1759">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#21521;&#19979;&#36716;&#22411;&#30340;&#25351;&#38024;&#35828;: &quot;</span><span class="sy4">;</span>
+        downcastedPtr<span class="sy2">-</span><span class="sy1">&gt;</span>f<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="co1">// &#25152;&#26377;&#25351;&#21521;&#27966;&#29983;&#31867;&#30340;&#25351;&#38024;&#37117;&#20849;&#20139;&#25152;&#26377;&#26435;</span>
+    <a href="cpp-io-cout.html"><span class="kw1759">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#25351;&#21521;&#24213;&#23618;&#27966;&#29983;&#31867;&#30340;&#25351;&#38024;&#25968;&#37327;: &quot;</span>
+              <span class="sy1">&lt;&lt;</span> derivedPtr.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#22522;&#31867;&#25351;&#38024;&#35828;: &#25105;&#26159;&#22522;&#31867;!
+&#27966;&#29983;&#31867;&#25351;&#38024;&#35828;: &#25105;&#26159;&#27966;&#29983;&#31867;!
+&#25351;&#21521;&#27966;&#29983;&#31867;&#30340;&#22522;&#31867;&#25351;&#38024;&#35828;: &#25105;&#26159;&#27966;&#29983;&#31867;!
+&#21521;&#19979;&#36716;&#22411;&#30340;&#25351;&#38024;&#35828;: &#25105;&#26159;&#27966;&#29983;&#31867;!
+&#25351;&#21521;&#24213;&#23618;&#27966;&#29983;&#31867;&#30340;&#25351;&#38024;&#25968;&#37327;: 3</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-memory-shared_ptr-shared_ptr.html"><span class="t-lines"><span>(&#26500;&#36896;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26500;&#36896;&#26032;&#30340; <code>shared_ptr</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

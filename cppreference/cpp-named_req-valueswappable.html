@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>C++ &#20855;&#21517;&#35201;&#27714;&#65306;&#21487;&#20132;&#25442;&#20540; (ValueSwappable) (C++11 &#36215;)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_named_req_ValueSwappable skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">C++ &#20855;&#21517;&#35201;&#27714;&#65306;</span><span style="font-style:italic">&#21487;&#20132;&#25442;&#20540;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(ValueSwappable)</span> <span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-named_req.html">named req</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<p>&#27492;&#31867;&#22411;&#30340;&#20004;&#20010;&#23545;&#35937;&#21487;&#20197;&#35299;&#24341;&#29992;&#65292;&#19988;&#22312; <span class="t-lc"><a href="cpp-algorithm-swap.html">std::swap</a></span> &#21644;&#29992;&#25143;&#23450;&#20041;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">swap<span class="br0">(</span><span class="br0">)</span></span></span> &#22343;&#21487;&#35265;&#30340;&#35821;&#22659;&#20013;&#65292;&#20854;&#32467;&#26524;&#20540;&#21487;&#20197;&#29992;&#26080;&#38480;&#23450;&#30340;&#20989;&#25968;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">swap<span class="br0">(</span><span class="br0">)</span></span></span> &#36827;&#34892;&#20132;&#25442;&#12290;</p>
+<h3><span class="mw-headline" id=".E8.A6.81.E6.B1.82">&#35201;&#27714;</span></h3>
+<p>&#20197;&#19979;&#24773;&#20917;&#19979;&#65292;&#31867;&#22411; T &#20026;<span style="font-style:italic">&#21487;&#20132;&#25442;&#20540;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(ValueSwappable)</span> :</p>
+<ol>
+<li>&#31867;&#22411; <code>T</code> &#28385;&#36275;<a href="cpp-named_req-Iterator.html"><span style="font-style:italic">&#32769;&#24335;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyIterator)</span></a> &#12290;</li>
+<li>&#23545; <code>T</code> &#31867;&#22411;&#30340;&#20219;&#20309;&#21487;&#35299;&#24341;&#29992;&#23545;&#35937; <code>x</code>&#65288;&#21363;&#24182;&#38750;&#23614;&#36845;&#20195;&#22120;&#30340;&#20540;&#65289;&#65292;<code>*x</code> &#28385;&#36275;<a href="cpp-named_req-Swappable.html"><span style="font-style:italic">&#21487;&#20132;&#25442;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(Swappable)</span></a> &#12290;</li>
+</ol>
+<p>&#35768;&#22810;&#26631;&#20934;&#24211;&#20989;&#25968;&#22343;&#26399;&#24453;&#20854;&#23454;&#21442;&#28385;&#36275;<span style="font-style:italic">&#21487;&#20132;&#25442;&#20540;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(ValueSwappable)</span> &#65292;&#36825;&#24847;&#21619;&#30528;&#20961;&#22312;&#26631;&#20934;&#24211;&#36827;&#34892;&#20132;&#25442;&#26102;&#65292;&#37117;&#20351;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">using</span> <a href="cpp-algorithm-swap.html"><span class="kw1603">std::<span class="me2">swap</span></span></a><span class="sy4">;</span> swap<span class="br0">(</span><span class="sy2">*</span>iter1, <span class="sy2">*</span>iter2<span class="br0">)</span><span class="sy4">;</span></span></span> &#30340;&#31561;&#20215;&#29289;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;vector&gt;</span>
+ 
+<span class="kw1">class</span> IntVector
+<span class="br0">{</span>
+    <a href="cpp-container-vector.html"><span class="kw1272">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span> v<span class="sy4">;</span>
+<span class="co1">//  IntVector&amp; operator=(IntVector); // &#19981;&#21487;&#36171;&#20540;&#65288;C++98 &#30340;&#26041;&#24335;&#65289;</span>
+<span class="kw1">public</span><span class="sy4">:</span>
+    IntVector<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span>IntVector<span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span> <span class="co1">// &#19981;&#21487;&#36171;&#20540;</span>
+    <span class="kw4">void</span> swap<span class="br0">(</span>IntVector<span class="sy3">&amp;</span> other<span class="br0">)</span>
+    <span class="br0">{</span>
+        v.<span class="me1">swap</span><span class="br0">(</span>other.<span class="me1">v</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">void</span> swap<span class="br0">(</span>IntVector<span class="sy3">&amp;</span> v1, IntVector<span class="sy3">&amp;</span> v2<span class="br0">)</span>
+<span class="br0">{</span>
+    v1.<span class="me1">swap</span><span class="br0">(</span>v2<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    IntVector v1, v2<span class="sy4">;</span>    <span class="co1">// IntVector &#20026;&#21487;&#20132;&#25442; (Swappable)&#65292;&#20294;&#38750;&#21487;&#31227;&#21160;&#36171;&#20540; (MoveAssignable)</span>
+    IntVector<span class="sy2">*</span> p1 <span class="sy1">=</span> <span class="sy3">&amp;</span>v1<span class="sy4">;</span>
+    IntVector<span class="sy2">*</span> p2 <span class="sy1">=</span> <span class="sy3">&amp;</span>v2<span class="sy4">;</span> <span class="co1">// IntVector* &#20026;&#20540;&#21487;&#20132;&#25442; (ValueSwappable)</span>
+    <a href="cpp-algorithm-iter_swap.html"><span class="kw1605">std::<span class="me2">iter_swap</span></span></a><span class="br0">(</span>p1, p2<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK&#65306;iter_swap &#35201;&#27714;&#20540;&#21487;&#20132;&#25442; (ValueSwappable)</span>
+<span class="co1">//  std::swap(v1, v2); // &#32534;&#35793;&#22120;&#38169;&#35823;&#65281;std::swap &#35201;&#27714;&#21487;&#31227;&#21160;&#36171;&#20540; (MoveAssignable)</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-indirectly_swappable.html"><span class="t-lines"><span>indirectly_swappable</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#25351;&#23450;&#33021;&#20132;&#25442;&#20004;&#20010; <a href="cpp-iterator-indirectly_readable.html"><code>indirectly_readable</code></a> &#31867;&#22411;&#25152;&#24341;&#29992;&#30340;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#27010;&#24565;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

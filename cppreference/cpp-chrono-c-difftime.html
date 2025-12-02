@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::difftime</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_chrono_c_difftime skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>difftime</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-chrono.html">chrono</a>&lrm; | <a href="cpp-chrono-c.html">c</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-ctime.html">&lt;ctime&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">double</span> difftime<span class="br0">(</span> <a href="cpp-chrono-c-time_t.html"><span class="kw1028">std::<span class="me2">time_t</span></span></a> time_end, <a href="cpp-chrono-c-time_t.html"><span class="kw1028">std::<span class="me2">time_t</span></span></a> time_beg <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#35745;&#31639;&#20004;&#20010;&#20316;&#20026; <span class="t-lc"><a href="cpp-chrono-c-time_t.html">std::time_t</a></span> &#23545;&#35937;&#30340;&#26085;&#21382;&#26102;&#38388;&#25353;&#31186;&#35745;&#30340;&#24046;&#65288;<span class="t-c"><span class="mw-geshi cpp source-cpp">time_end <span class="sy2">-</span> time_beg</span></span>&#65289;&#12290;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">time_end</span></span> &#25351;&#20195; <span class="t-c"><span class="mw-geshi cpp source-cpp">time_beg</span></span> &#20043;&#21069;&#30340;&#26102;&#38388;&#28857;&#65292;&#21017;&#32467;&#26524;&#20026;&#36127;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>time_beg, time_end</td>
+<td>-</td>
+<td>&#35201;&#27604;&#36739;&#30340;&#26102;&#38388;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#20197;&#31186;&#35745;&#30340;&#20004;&#20010;&#26102;&#38388;&#30340;&#24046;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E6.84.8F">&#27880;&#24847;</span></h3>
+<p>POSIX &#31995;&#32479;&#19978;&#65292;<span class="t-lc"><a href="cpp-chrono-c-time_t.html">std::time_t</a></span> &#20197;&#31186;&#24230;&#37327;&#65292;&#32780; <code>difftime</code> &#31561;&#20215;&#20110;&#31639;&#26415;&#20943;&#27861;&#65292;&#20294; C &#21644; C++ &#20801;&#35768; <code>time_t</code> &#26377;&#20998;&#25968;&#21333;&#20301;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;ctime&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-chrono-c-time_t.html"><span class="kw1028">std::<span class="me2">time_t</span></span></a> start <span class="sy1">=</span> <a href="cpp-chrono-c-time.html"><span class="kw1015">std::<span class="me2">time</span></span></a><span class="br0">(</span>nullptr<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">volatile</span> <span class="kw4">double</span> d <span class="sy1">=</span> <span class="nu16">1.0</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#19968;&#20123;&#32791;&#26102;&#25805;&#20316;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> p <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span> p <span class="sy1">&lt;</span> <span class="nu0">10000</span><span class="sy4">;</span> <span class="sy2">++</span>p<span class="br0">)</span>
+        <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> q <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span> q <span class="sy1">&lt;</span> <span class="nu0">100000</span><span class="sy4">;</span> <span class="sy2">++</span>q<span class="br0">)</span>
+            d <span class="sy1">=</span> d <span class="sy2">+</span> p <span class="sy2">*</span> d <span class="sy2">*</span> q <span class="sy2">+</span> d<span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;Wall time passed: &quot;</span>
+              <span class="sy1">&lt;&lt;</span> std<span class="sy4">::</span><span class="me2">difftime</span><span class="br0">(</span><a href="cpp-chrono-c-time.html"><span class="kw1015">std::<span class="me2">time</span></span></a><span class="br0">(</span>nullptr<span class="br0">)</span>, start<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; s.<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">Wall time passed: 9 s.</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-duration.html"><span class="t-lines"><span>duration</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#26102;&#38388;&#21306;&#38388;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>difftime</span></span>&nbsp;&#30340; <span><span><a href="c-chrono-difftime.html">C &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

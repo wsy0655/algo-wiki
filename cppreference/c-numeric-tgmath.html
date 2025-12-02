@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>&#27867;&#22411;&#25968;&#23398; (C99 &#36215;)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_numeric_tgmath skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">&#27867;&#22411;&#25968;&#23398; <span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99 &#36215;)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-numeric.html">numeric</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<p>&#22836;&#25991;&#20214; <a href="c-header-tgmath.html"><tt>&lt;tgmath.h&gt;</tt></a> &#21253;&#21547;&#22836;&#25991;&#20214; <a href="c-header-math.html"><tt>&lt;math.h&gt;</tt></a> &#21450; <a href="c-header-complex.html"><tt>&lt;complex.h&gt;</tt></a>&#65292;&#24182;&#23450;&#20041;&#20102;&#20960;&#31181;<a href="c-language-generic.html">&#27867;&#22411;&#23439;</a>&#12290;&#36825;&#20123;&#23439;&#20250;&#26681;&#25454;&#23454;&#21442;&#31867;&#22411;&#20915;&#23450;&#35201;&#35843;&#29992;&#30340;&#23454;&#38469;&#20989;&#25968;&#12290;</p>
+<p>&#23545;&#20110;&#27599;&#20010;&#23439;&#65292;&#22312; <a href="c-header-math.html"><tt>&lt;math.h&gt;</tt></a> &#26080;&#21518;&#32512;&#29256;&#20989;&#25968;&#20013;&#65292;&#25152;&#23545;&#24212;&#30340;&#23454;&#25968;&#31867;&#22411;&#20026; <span class="mw-geshi c source-c"><span class="kw4">double</span></span> &#30340;&#24418;&#21442;&#65292;&#21363;&#26159;&#25152;&#35859;&#30340;<i>&#27867;&#22411;&#24418;&#21442;</i>&#12290;&#65288;&#20363;&#22914;&#65292;<span class="t-lc"><a href="c-numeric-math-pow.html">pow</a></span> &#30340;&#20004;&#20010;&#24418;&#21442;&#37117;&#26159;&#27867;&#22411;&#24418;&#21442;&#65292;&#20294; <span class="t-lc"><a href="c-numeric-math-scalbn.html">scalbn</a></span> &#21482;&#26377;&#31532;&#19968;&#20010;&#24418;&#21442;&#26159;&#27867;&#22411;&#24418;&#21442;&#65289;</p>
+<p>&#22914;&#19979;&#25152;&#36848;&#65292;&#20351;&#29992; <a href="c-header-tgmath.html"><tt>&lt;tgmath.h&gt;</tt></a> &#23439;&#26102;&#65292;&#20256;&#36882;&#32473;&#27867;&#22411;&#24418;&#21442;&#30340;&#23454;&#21442;&#31867;&#22411;&#65292;&#20250;&#20915;&#23450;&#23439;&#25152;&#36873;&#25321;&#30340;&#20989;&#25968;&#12290;&#33509;&#23454;&#21442;&#30340;&#31867;&#22411;&#19982;&#25152;&#36873;&#20989;&#25968;&#30340;&#24418;&#21442;&#31867;&#22411;&#19981;<a href="c-language-type.html#.E5.85.BC.E5.AE.B9.E7.B1.BB.E5.9E.8B">&#20860;&#23481;</a>&#65292;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;&#65288;&#20363;&#22914;&#65292;&#33509;&#23558;&#22797;&#25968;&#23454;&#21442;&#20256;&#20837;&#23454;&#25968;&#38480;&#23450;&#30340; <a href="c-header-tgmath.html"><tt>&lt;tgmath.h&gt;</tt></a> &#23439;&#65306; <span class="t-c"><span class="mw-geshi c source-c"><span class="kw4">float</span> <a href="c-numeric-complex-complex.html"><span class="kw743">complex</span></a> fc<span class="sy4">;</span> <a href="c-numeric-math-ceil.html"><span class="kw686">ceil</span></a><span class="br0">(</span>fc<span class="br0">)</span></span></span> &#25110; <span class="t-c"><span class="mw-geshi c source-c"><span class="kw4">double</span> <a href="c-numeric-complex-complex.html"><span class="kw743">complex</span></a> dc<span class="sy4">;</span> <span class="kw4">double</span> d<span class="sy4">;</span> <a href="c-numeric-math-fmax.html"><span class="kw651">fmax</span></a><span class="br0">(</span>dc, d<span class="br0">)</span></span></span> &#23601;&#26159;&#26410;&#23450;&#20041;&#34892;&#20026;&#30340;&#20363;&#23376;&#65289;</p>
+<p>&#27880;&#24847;&#65306;&#27867;&#22411;&#23439;&#22312; C99 &#20013;&#26366;&#20197;&#23454;&#29616;&#23450;&#20041;&#34892;&#20026;&#23454;&#29616;&#65292;&#20294; C11 &#20851;&#38190;&#35789; <a href="c-keyword-_Generic.html">_Generic</a> &#20351;&#24471;&#20197;&#21487;&#31227;&#26893;&#26041;&#24335;&#23454;&#29616;&#36825;&#20123;&#23439;&#25104;&#20026;&#21487;&#33021;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.95.B0.2F.E5.AE.9E.E6.95.B0.E6.B3.9B.E5.9E.8B.E5.AE.8F">&#22797;&#25968;/&#23454;&#25968;&#27867;&#22411;&#23439;</span></h3>
+<p>&#23545;&#20110;&#25152;&#26377;&#25317;&#26377;&#23454;&#25968;&#21450;&#22797;&#25968;&#23545;&#24212;&#30340;&#20989;&#25968;&#65292;&#23384;&#22312;&#27867;&#22411;&#23439;&#65292;&#35843;&#29992;&#19979;&#21015;&#20989;&#25968;&#20043;&#19968;&#65306;</p>
+<ul>
+<li>&#23454;&#25968;&#20989;&#25968;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li><span class="mw-geshi c source-c"><span class="kw4">float</span></span> &#21464;&#20307; <code>XXXf</code></li>
+<li><span class="mw-geshi c source-c"><span class="kw4">double</span></span> &#21464;&#20307; <code>XXX</code></li>
+<li><span class="mw-geshi c source-c"><span class="kw4">long</span> <span class="kw4">double</span></span> &#21464;&#20307; <code>XXXl</code></li>
+</ul>
+</dd>
+</dl>
+<ul>
+<li>&#22797;&#25968;&#20989;&#25968;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li><span class="mw-geshi c source-c"><span class="kw4">float</span></span> &#21464;&#20307; <code>cXXXf</code></li>
+<li><span class="mw-geshi c source-c"><span class="kw4">double</span></span> &#21464;&#20307; <code>cXXX</code></li>
+<li><span class="mw-geshi c source-c"><span class="kw4">long</span> <span class="kw4">double</span></span> &#21464;&#20307; <code>cXXXl</code></li>
+</ul>
+</dd>
+</dl>
+<p>&#19978;&#36848;&#35268;&#21017;&#30340;&#19968;&#20010;&#20363;&#22806;&#26159; <code>fabs</code> &#23439;&#65288;&#35265;&#19979;&#34920;&#65289;&#12290;</p>
+<p>&#25353;&#20197;&#19979;&#26041;&#24335;&#20915;&#23450;&#35843;&#29992;&#30340;&#20989;&#25968;&#65306;</p>
+<ul>
+<li>&#33509;&#27867;&#22411;&#24418;&#21442;&#30340;&#20219;&#19968;&#23454;&#21442;&#20026;&#34394;&#25968;&#65292;&#21017;&#34892;&#20026;&#20250;&#22312;&#27599;&#20010;&#20989;&#25968;&#21442;&#32771;&#39029;&#38754;&#19978;&#21508;&#33258;&#25351;&#23450;&#12290;&#65288;&#20855;&#20307;&#32780;&#35328;&#65292;<code>sin</code>&#12289;<code>cos</code>&#12289;<code>tan</code>&#12289;<code>sinh</code>&#12289;<code>cosh</code>&#12289;<code>tanh</code>&#12289;<code>asin</code>&#12289;<code>atan</code>&#12289;<code>asinh</code> &#21450; <code>atanh</code> &#35843;&#29992;<i>&#23454;&#25968;</i>&#20989;&#25968;&#65292;<code>sin</code>&#12289;<code>cos</code>&#12289;<code>tan</code>&#12289;<code>sinh</code>&#12289;<code>tanh</code>&#12289;<code>asin</code>&#12289;<code>atan</code>&#12289;<code>asinh</code> &#21450; <code>atanh</code> &#30340;&#36820;&#22238;&#31867;&#22411;&#26159;&#34394;&#25968;&#65292;&#32780; <code>cosh</code> &#19982; <code>cosh</code> &#30340;&#36820;&#22238;&#31867;&#22411;&#26159;&#23454;&#25968;&#65289;</li>
+<li>&#33509;&#27867;&#22411;&#24418;&#21442;&#30340;&#20219;&#19968;&#23454;&#21442;&#20026;&#22797;&#25968;&#65292;&#21017;&#22797;&#25968;&#20989;&#25968;&#20250;&#24471;&#21040;&#35843;&#29992;&#65292;&#21542;&#21017;&#20250;&#35843;&#29992;&#23454;&#25968;&#20989;&#25968;&#12290;</li>
+<li>&#33509;&#27867;&#22411;&#24418;&#21442;&#30340;&#20219;&#19968;&#23454;&#21442;&#20026; <span class="mw-geshi c source-c"><span class="kw4">long</span> <span class="kw4">double</span></span>&#65292;&#21017;&#35843;&#29992; <span class="mw-geshi c source-c"><span class="kw4">long</span> <span class="kw4">double</span></span> &#21464;&#20307;&#12290;&#21542;&#21017;&#65292;&#33509;&#20219;&#19968;&#23454;&#21442;&#26159; <span class="mw-geshi c source-c"><span class="kw4">double</span></span> &#25110;&#25972;&#25968;&#65292;&#21017;&#35843;&#29992; <span class="mw-geshi c source-c"><span class="kw4">double</span></span> &#21464;&#20307;&#12290;&#21542;&#21017;&#20250;&#35843;&#29992; <span class="mw-geshi c source-c"><span class="kw4">float</span></span> &#21464;&#20307;&#12290;</li>
+</ul>
+<p>&#27867;&#22411;&#23439;&#22914;&#19979;&#25152;&#31034;&#65306;</p>
+<table class="wikitable">
+<tr>
+<th>&#27867;&#22411;&#23439;</th>
+<th colspan="3">&#23454;&#25968;&#20989;&#25968;&#21464;&#20307;</th>
+<th colspan="3">&#22797;&#25968;&#20989;&#25968;&#21464;&#20307;</th>
+</tr>
+<tr>
+<th>&nbsp;</th>
+<th><span class="mw-geshi c source-c"><span class="kw4">float</span></span></th>
+<th><span class="mw-geshi c source-c"><span class="kw4">double</span></span></th>
+<th><span class="mw-geshi c source-c"><span class="kw4">long</span> <span class="kw4">double</span></span></th>
+<th><span class="mw-geshi c source-c"><span class="kw4">float</span></span></th>
+<th><span class="mw-geshi c source-c"><span class="kw4">double</span></span></th>
+<th><span class="mw-geshi c source-c"><span class="kw4">long</span> <span class="kw4">double</span></span></th>
+</tr>
+<tr>
+<th>fabs</th>
+<td><a href="c-numeric-math-fabs.html"><tt>fabsf</tt></a></td>
+<td><a href="c-numeric-math-fabs.html"><tt>fabs</tt></a></td>
+<td><a href="c-numeric-math-fabs.html"><tt>fabsl</tt></a></td>
+<td><a href="c-numeric-complex-cabs.html"><tt>cabsf</tt></a></td>
+<td><a href="c-numeric-complex-cabs.html"><tt>cabs</tt></a></td>
+<td><a href="c-numeric-complex-cabs.html"><tt>cabsl</tt></a></td>
+</tr>
+<tr>
+<th>exp</th>
+<td><a href="c-numeric-math-exp.html"><tt>expf</tt></a></td>
+<td><a href="c-numeric-math-exp.html"><tt>exp</tt></a></td>
+<td><a href="c-numeric-math-exp.html"><tt>expl</tt></a></td>
+<td><a href="c-numeric-complex-cexp.html"><tt>cexpf</tt></a></td>
+<td><a href="c-numeric-complex-cexp.html"><tt>cexp</tt></a></td>
+<td><a href="c-numeric-complex-cexp.html"><tt>cexpl</tt></a></td>
+</tr>
+<tr>
+<th>log</th>
+<td><a href="c-numeric-math-log.html"><tt>logf</tt></a></td>
+<td><a href="c-numeric-math-log.html"><tt>log</tt></a></td>
+<td><a href="c-numeric-math-log.html"><tt>logl</tt></a></td>
+<td><a href="c-numeric-complex-clog.html"><tt>clogf</tt></a></td>
+<td><a href="c-numeric-complex-clog.html"><tt>clog</tt></a></td>
+<td><a href="c-numeric-complex-clog.html"><tt>clogl</tt></a></td>
+</tr>
+<tr>
+<th>pow</th>
+<td><a href="c-numeric-math-pow.html"><tt>powf</tt></a></td>
+<td><a href="c-numeric-math-pow.html"><tt>pow</tt></a></td>
+<td><a href="c-numeric-math-pow.html"><tt>powl</tt></a></td>
+<td><a href="c-numeric-complex-cpow.html"><tt>cpowf</tt></a></td>
+<td><a href="c-numeric-complex-cpow.html"><tt>cpow</tt></a></td>
+<td><a href="c-numeric-complex-cpow.html"><tt>cpowl</tt></a></td>
+</tr>
+<tr>
+<th>sqrt</th>
+<td><a href="c-numeric-math-sqrt.html"><tt>sqrtf</tt></a></td>
+<td><a href="c-numeric-math-sqrt.html"><tt>sqrt</tt></a></td>
+<td><a href="c-numeric-math-sqrt.html"><tt>sqrtl</tt></a></td>
+<td><a href="c-numeric-complex-csqrt.html"><tt>csqrtf</tt></a></td>
+<td><a href="c-numeric-complex-csqrt.html"><tt>csqrt</tt></a></td>
+<td><a href="c-numeric-complex-csqrt.html"><tt>csqrtl</tt></a></td>
+</tr>
+<tr>
+<th>sin</th>
+<td><a href="c-numeric-math-sin.html"><tt>sinf</tt></a></td>
+<td><a href="c-numeric-math-sin.html"><tt>sin</tt></a></td>
+<td><a href="c-numeric-math-sin.html"><tt>sinl</tt></a></td>
+<td><a href="c-numeric-complex-csin.html"><tt>csinf</tt></a></td>
+<td><a href="c-numeric-complex-csin.html"><tt>csin</tt></a></td>
+<td><a href="c-numeric-complex-csin.html"><tt>csinl</tt></a></td>
+</tr>
+<tr>
+<th>cos</th>
+<td><a href="c-numeric-math-cos.html"><tt>cosf</tt></a></td>
+<td><a href="c-numeric-math-cos.html"><tt>cos</tt></a></td>
+<td><a href="c-numeric-math-cos.html"><tt>cosl</tt></a></td>
+<td><a href="c-numeric-complex-ccos.html"><tt>ccosf</tt></a></td>
+<td><a href="c-numeric-complex-ccos.html"><tt>ccos</tt></a></td>
+<td><a href="c-numeric-complex-ccos.html"><tt>ccosl</tt></a></td>
+</tr>
+<tr>
+<th>tan</th>
+<td><a href="c-numeric-math-tan.html"><tt>tanf</tt></a></td>
+<td><a href="c-numeric-math-tan.html"><tt>tan</tt></a></td>
+<td><a href="c-numeric-math-tan.html"><tt>tanl</tt></a></td>
+<td><a href="c-numeric-complex-ctan.html"><tt>ctanf</tt></a></td>
+<td><a href="c-numeric-complex-ctan.html"><tt>ctan</tt></a></td>
+<td><a href="c-numeric-complex-ctan.html"><tt>ctanl</tt></a></td>
+</tr>
+<tr>
+<th>asin</th>
+<td><a href="c-numeric-math-asin.html"><tt>asinf</tt></a></td>
+<td><a href="c-numeric-math-asin.html"><tt>asin</tt></a></td>
+<td><a href="c-numeric-math-asin.html"><tt>asinl</tt></a></td>
+<td><a href="c-numeric-complex-casin.html"><tt>casinf</tt></a></td>
+<td><a href="c-numeric-complex-casin.html"><tt>casin</tt></a></td>
+<td><a href="c-numeric-complex-casin.html"><tt>casinl</tt></a></td>
+</tr>
+<tr>
+<th>acos</th>
+<td><a href="c-numeric-math-acos.html"><tt>acosf</tt></a></td>
+<td><a href="c-numeric-math-acos.html"><tt>acos</tt></a></td>
+<td><a href="c-numeric-math-acos.html"><tt>acosl</tt></a></td>
+<td><a href="c-numeric-complex-cacos.html"><tt>cacosf</tt></a></td>
+<td><a href="c-numeric-complex-cacos.html"><tt>cacos</tt></a></td>
+<td><a href="c-numeric-complex-cacos.html"><tt>cacosl</tt></a></td>
+</tr>
+<tr>
+<th>atan</th>
+<td><a href="c-numeric-math-atan.html"><tt>atanf</tt></a></td>
+<td><a href="c-numeric-math-atan.html"><tt>atan</tt></a></td>
+<td><a href="c-numeric-math-atan.html"><tt>atanl</tt></a></td>
+<td><a href="c-numeric-complex-catan.html"><tt>catanf</tt></a></td>
+<td><a href="c-numeric-complex-catan.html"><tt>catan</tt></a></td>
+<td><a href="c-numeric-complex-catan.html"><tt>catanl</tt></a></td>
+</tr>
+<tr>
+<th>sinh</th>
+<td><a href="c-numeric-math-sinh.html"><tt>sinhf</tt></a></td>
+<td><a href="c-numeric-math-sinh.html"><tt>sinh</tt></a></td>
+<td><a href="c-numeric-math-sinh.html"><tt>sinhl</tt></a></td>
+<td><a href="c-numeric-complex-csinh.html"><tt>csinhf</tt></a></td>
+<td><a href="c-numeric-complex-csinh.html"><tt>csinh</tt></a></td>
+<td><a href="c-numeric-complex-csinh.html"><tt>csinhl</tt></a></td>
+</tr>
+<tr>
+<th>cosh</th>
+<td><a href="c-numeric-math-cosh.html"><tt>coshf</tt></a></td>
+<td><a href="c-numeric-math-cosh.html"><tt>cosh</tt></a></td>
+<td><a href="c-numeric-math-cosh.html"><tt>coshl</tt></a></td>
+<td><a href="c-numeric-complex-ccosh.html"><tt>ccoshf</tt></a></td>
+<td><a href="c-numeric-complex-ccosh.html"><tt>ccosh</tt></a></td>
+<td><a href="c-numeric-complex-ccosh.html"><tt>ccoshl</tt></a></td>
+</tr>
+<tr>
+<th>tanh</th>
+<td><a href="c-numeric-math-tanh.html"><tt>tanhf</tt></a></td>
+<td><a href="c-numeric-math-tanh.html"><tt>tanh</tt></a></td>
+<td><a href="c-numeric-math-tanh.html"><tt>tanhl</tt></a></td>
+<td><a href="c-numeric-complex-ctanh.html"><tt>ctanhf</tt></a></td>
+<td><a href="c-numeric-complex-ctanh.html"><tt>ctanh</tt></a></td>
+<td><a href="c-numeric-complex-ctanh.html"><tt>ctanhl</tt></a></td>
+</tr>
+<tr>
+<th>asinh</th>
+<td><a href="c-numeric-math-asinh.html"><tt>asinhf</tt></a></td>
+<td><a href="c-numeric-math-asinh.html"><tt>asinh</tt></a></td>
+<td><a href="c-numeric-math-asinh.html"><tt>asinhl</tt></a></td>
+<td><a href="c-numeric-complex-casinh.html"><tt>casinhf</tt></a></td>
+<td><a href="c-numeric-complex-casinh.html"><tt>casinh</tt></a></td>
+<td><a href="c-numeric-complex-casinh.html"><tt>casinhl</tt></a></td>
+</tr>
+<tr>
+<th>acosh</th>
+<td><a href="c-numeric-math-acosh.html"><tt>acoshf</tt></a></td>
+<td><a href="c-numeric-math-acosh.html"><tt>acosh</tt></a></td>
+<td><a href="c-numeric-math-acosh.html"><tt>acoshl</tt></a></td>
+<td><a href="c-numeric-complex-cacosh.html"><tt>cacoshf</tt></a></td>
+<td><a href="c-numeric-complex-cacosh.html"><tt>cacosh</tt></a></td>
+<td><a href="c-numeric-complex-cacosh.html"><tt>cacoshl</tt></a></td>
+</tr>
+<tr>
+<th>atanh</th>
+<td><a href="c-numeric-math-atanh.html"><tt>atanhf</tt></a></td>
+<td><a href="c-numeric-math-atanh.html"><tt>atanh</tt></a></td>
+<td><a href="c-numeric-math-atanh.html"><tt>atanhl</tt></a></td>
+<td><a href="c-numeric-complex-catanh.html"><tt>catanhf</tt></a></td>
+<td><a href="c-numeric-complex-catanh.html"><tt>catanh</tt></a></td>
+<td><a href="c-numeric-complex-catanh.html"><tt>catanhl</tt></a></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.AE.9E.E6.95.B0.E9.99.90.E5.AE.9A.E5.87.BD.E6.95.B0">&#23454;&#25968;&#38480;&#23450;&#20989;&#25968;</span></h3>
+<p>&#23545;&#20110;&#25152;&#26377;&#26080;&#22797;&#25968;&#23545;&#24212;&#30340;&#20989;&#25968;&#65292;&#38500; <code>modf</code> &#22806;&#37117;&#23384;&#22312;&#27867;&#22411;&#23439; <code>XXX</code>&#65292;&#23427;&#20250;&#35843;&#29992;&#23454;&#25968;&#20989;&#25968;&#21464;&#20307;&#30340;&#20013;&#30340;&#19968;&#31181;&#65306;</p>
+<ul>
+<li><span class="mw-geshi c source-c"><span class="kw4">float</span></span> &#21464;&#20307; <code>XXXf</code></li>
+<li><span class="mw-geshi c source-c"><span class="kw4">double</span></span> &#21464;&#20307; <code>XXX</code></li>
+<li><span class="mw-geshi c source-c"><span class="kw4">long</span> <span class="kw4">double</span></span> &#21464;&#20307; <code>XXXl</code></li>
+</ul>
+<p>&#20197;&#19979;&#21015;&#26041;&#24335;&#30830;&#23450;&#35843;&#29992;&#30340;&#20989;&#25968;&#65306;</p>
+<ul>
+<li>&#33509;&#27867;&#22411;&#24418;&#21442;&#30340;&#20219;&#19968;&#23454;&#21442;&#20026; <span class="mw-geshi c source-c"><span class="kw4">long</span> <span class="kw4">double</span></span>&#65292;&#21017;&#35843;&#29992; <span class="mw-geshi c source-c"><span class="kw4">long</span> <span class="kw4">double</span></span> &#21464;&#20307;&#12290;&#21542;&#21017;&#65292;&#33509;&#27867;&#22411;&#24418;&#21442;&#30340;&#20219;&#19968;&#23454;&#21442;&#26159; <span class="mw-geshi c source-c"><span class="kw4">double</span></span>&#65292;&#21017;&#35843;&#29992; <span class="mw-geshi c source-c"><span class="kw4">double</span></span> &#21464;&#20307;&#12290;&#21542;&#21017;&#35843;&#29992; <span class="mw-geshi c source-c"><span class="kw4">float</span></span> &#21464;&#20307;&#12290;</li>
+</ul>
+<table class="wikitable">
+<tr>
+<th>&#27867;&#22411;&#23439;</th>
+<th colspan="3">&#23454;&#25968;&#20989;&#25968;&#21464;&#20307;</th>
+</tr>
+<tr>
+<th>&nbsp;</th>
+<th><span class="mw-geshi c source-c"><span class="kw4">float</span></span></th>
+<th><span class="mw-geshi c source-c"><span class="kw4">double</span></span></th>
+<th><span class="mw-geshi c source-c"><span class="kw4">long</span> <span class="kw4">double</span></span></th>
+</tr>
+<tr>
+<th>atan2</th>
+<td><a href="c-numeric-math-atan2.html"><tt>atan2f</tt></a></td>
+<td><a href="c-numeric-math-atan2.html"><tt>atan2</tt></a></td>
+<td><a href="c-numeric-math-atan2.html"><tt>atan2l</tt></a></td>
+</tr>
+<tr>
+<th>cbrt</th>
+<td><a href="c-numeric-math-cbrt.html"><tt>cbrtf</tt></a></td>
+<td><a href="c-numeric-math-cbrt.html"><tt>cbrt</tt></a></td>
+<td><a href="c-numeric-math-cbrt.html"><tt>cbrtl</tt></a></td>
+</tr>
+<tr>
+<th>ceil</th>
+<td><a href="c-numeric-math-ceil.html"><tt>ceilf</tt></a></td>
+<td><a href="c-numeric-math-ceil.html"><tt>ceil</tt></a></td>
+<td><a href="c-numeric-math-ceil.html"><tt>ceill</tt></a></td>
+</tr>
+<tr>
+<th>copysign</th>
+<td><a href="c-numeric-math-copysign.html"><tt>copysignf</tt></a></td>
+<td><a href="c-numeric-math-copysign.html"><tt>copysign</tt></a></td>
+<td><a href="c-numeric-math-copysign.html"><tt>copysignl</tt></a></td>
+</tr>
+<tr>
+<th>erf</th>
+<td><a href="c-numeric-math-erf.html"><tt>erff</tt></a></td>
+<td><a href="c-numeric-math-erf.html"><tt>erf</tt></a></td>
+<td><a href="c-numeric-math-erf.html"><tt>erfl</tt></a></td>
+</tr>
+<tr>
+<th>erfc</th>
+<td><a href="c-numeric-math-erfc.html"><tt>erfcf</tt></a></td>
+<td><a href="c-numeric-math-erfc.html"><tt>erfc</tt></a></td>
+<td><a href="c-numeric-math-erfc.html"><tt>erfcl</tt></a></td>
+</tr>
+<tr>
+<th>exp2</th>
+<td><a href="c-numeric-math-exp2.html"><tt>exp2f</tt></a></td>
+<td><a href="c-numeric-math-exp2.html"><tt>exp2</tt></a></td>
+<td><a href="c-numeric-math-exp2.html"><tt>exp2l</tt></a></td>
+</tr>
+<tr>
+<th>expm1</th>
+<td><a href="c-numeric-math-expm1.html"><tt>expm1f</tt></a></td>
+<td><a href="c-numeric-math-expm1.html"><tt>expm1</tt></a></td>
+<td><a href="c-numeric-math-expm1.html"><tt>expm1l</tt></a></td>
+</tr>
+<tr>
+<th>fdim</th>
+<td><a href="c-numeric-math-fdim.html"><tt>fdimf</tt></a></td>
+<td><a href="c-numeric-math-fdim.html"><tt>fdim</tt></a></td>
+<td><a href="c-numeric-math-fdim.html"><tt>fdiml</tt></a></td>
+</tr>
+<tr>
+<th>floor</th>
+<td><a href="c-numeric-math-floor.html"><tt>floorf</tt></a></td>
+<td><a href="c-numeric-math-floor.html"><tt>floor</tt></a></td>
+<td><a href="c-numeric-math-floor.html"><tt>floorl</tt></a></td>
+</tr>
+<tr>
+<th>fma</th>
+<td><a href="c-numeric-math-fma.html"><tt>fmaf</tt></a></td>
+<td><a href="c-numeric-math-fma.html"><tt>fma</tt></a></td>
+<td><a href="c-numeric-math-fma.html"><tt>fmal</tt></a></td>
+</tr>
+<tr>
+<th>fmax</th>
+<td><a href="c-numeric-math-fmax.html"><tt>fmaxf</tt></a></td>
+<td><a href="c-numeric-math-fmax.html"><tt>fmax</tt></a></td>
+<td><a href="c-numeric-math-fmax.html"><tt>fmaxl</tt></a></td>
+</tr>
+<tr>
+<th>fmin</th>
+<td><a href="c-numeric-math-fmin.html"><tt>fminf</tt></a></td>
+<td><a href="c-numeric-math-fmin.html"><tt>fmin</tt></a></td>
+<td><a href="c-numeric-math-fmin.html"><tt>fminl</tt></a></td>
+</tr>
+<tr>
+<th>fmod</th>
+<td><a href="c-numeric-math-fmod.html"><tt>fmodf</tt></a></td>
+<td><a href="c-numeric-math-fmod.html"><tt>fmod</tt></a></td>
+<td><a href="c-numeric-math-fmod.html"><tt>fmodl</tt></a></td>
+</tr>
+<tr>
+<th>frexp</th>
+<td><a href="c-numeric-math-frexp.html"><tt>frexpf</tt></a></td>
+<td><a href="c-numeric-math-frexp.html"><tt>frexp</tt></a></td>
+<td><a href="c-numeric-math-frexp.html"><tt>frexpl</tt></a></td>
+</tr>
+<tr>
+<th>hypot</th>
+<td><a href="c-numeric-math-hypot.html"><tt>hypotf</tt></a></td>
+<td><a href="c-numeric-math-hypot.html"><tt>hypot</tt></a></td>
+<td><a href="c-numeric-math-hypot.html"><tt>hypotl</tt></a></td>
+</tr>
+<tr>
+<th>ilogb</th>
+<td><a href="c-numeric-math-ilogb.html"><tt>ilogbf</tt></a></td>
+<td><a href="c-numeric-math-ilogb.html"><tt>ilogb</tt></a></td>
+<td><a href="c-numeric-math-ilogb.html"><tt>ilogbl</tt></a></td>
+</tr>
+<tr>
+<th>ldexp</th>
+<td><a href="c-numeric-math-ldexp.html"><tt>ldexpf</tt></a></td>
+<td><a href="c-numeric-math-ldexp.html"><tt>ldexp</tt></a></td>
+<td><a href="c-numeric-math-ldexp.html"><tt>ldexpl</tt></a></td>
+</tr>
+<tr>
+<th>lgamma</th>
+<td><a href="c-numeric-math-lgamma.html"><tt>lgammaf</tt></a></td>
+<td><a href="c-numeric-math-lgamma.html"><tt>lgamma</tt></a></td>
+<td><a href="c-numeric-math-lgamma.html"><tt>lgammal</tt></a></td>
+</tr>
+<tr>
+<th>llrint</th>
+<td><a href="c-numeric-math-rint.html"><tt>llrintf</tt></a></td>
+<td><a href="c-numeric-math-rint.html"><tt>llrint</tt></a></td>
+<td><a href="c-numeric-math-rint.html"><tt>llrintl</tt></a></td>
+</tr>
+<tr>
+<th>llround</th>
+<td><a href="c-numeric-math-round.html"><tt>llroundf</tt></a></td>
+<td><a href="c-numeric-math-round.html"><tt>llround</tt></a></td>
+<td><a href="c-numeric-math-round.html"><tt>llroundl</tt></a></td>
+</tr>
+<tr>
+<th>log10</th>
+<td><a href="c-numeric-math-log10.html"><tt>log10f</tt></a></td>
+<td><a href="c-numeric-math-log10.html"><tt>log10</tt></a></td>
+<td><a href="c-numeric-math-log10.html"><tt>log10l</tt></a></td>
+</tr>
+<tr>
+<th>log1p</th>
+<td><a href="c-numeric-math-log1p.html"><tt>log1pf</tt></a></td>
+<td><a href="c-numeric-math-log1p.html"><tt>log1p</tt></a></td>
+<td><a href="c-numeric-math-log1p.html"><tt>log1pl</tt></a></td>
+</tr>
+<tr>
+<th>log2</th>
+<td><a href="c-numeric-math-log2.html"><tt>log2f</tt></a></td>
+<td><a href="c-numeric-math-log2.html"><tt>log2</tt></a></td>
+<td><a href="c-numeric-math-log2.html"><tt>log2l</tt></a></td>
+</tr>
+<tr>
+<th>logb</th>
+<td><a href="c-numeric-math-logb.html"><tt>logbf</tt></a></td>
+<td><a href="c-numeric-math-logb.html"><tt>logb</tt></a></td>
+<td><a href="c-numeric-math-logb.html"><tt>logbl</tt></a></td>
+</tr>
+<tr>
+<th>lrint</th>
+<td><a href="c-numeric-math-rint.html"><tt>lrintf</tt></a></td>
+<td><a href="c-numeric-math-rint.html"><tt>lrint</tt></a></td>
+<td><a href="c-numeric-math-rint.html"><tt>lrintl</tt></a></td>
+</tr>
+<tr>
+<th>lround</th>
+<td><a href="c-numeric-math-round.html"><tt>lroundf</tt></a></td>
+<td><a href="c-numeric-math-round.html"><tt>lround</tt></a></td>
+<td><a href="c-numeric-math-round.html"><tt>lroundl</tt></a></td>
+</tr>
+<tr>
+<th>nearbyint</th>
+<td><a href="c-numeric-math-nearbyint.html"><tt>nearbyintf</tt></a></td>
+<td><a href="c-numeric-math-nearbyint.html"><tt>nearbyint</tt></a></td>
+<td><a href="c-numeric-math-nearbyint.html"><tt>nearbyintl</tt></a></td>
+</tr>
+<tr>
+<th>nextafter</th>
+<td><a href="c-numeric-math-nextafter.html"><tt>nextafterf</tt></a></td>
+<td><a href="c-numeric-math-nextafter.html"><tt>nextafter</tt></a></td>
+<td><a href="c-numeric-math-nextafter.html"><tt>nextafterl</tt></a></td>
+</tr>
+<tr>
+<th>nexttoward</th>
+<td><a href="c-numeric-math-nextafter.html"><tt>nexttowardf</tt></a></td>
+<td><a href="c-numeric-math-nextafter.html"><tt>nexttoward</tt></a></td>
+<td><a href="c-numeric-math-nextafter.html"><tt>nexttowardl</tt></a></td>
+</tr>
+<tr>
+<th>remainder</th>
+<td><a href="c-numeric-math-remainder.html"><tt>remainderf</tt></a></td>
+<td><a href="c-numeric-math-remainder.html"><tt>remainder</tt></a></td>
+<td><a href="c-numeric-math-remainder.html"><tt>remainderl</tt></a></td>
+</tr>
+<tr>
+<th>remquo</th>
+<td><a href="c-numeric-math-remquo.html"><tt>remquof</tt></a></td>
+<td><a href="c-numeric-math-remquo.html"><tt>remquo</tt></a></td>
+<td><a href="c-numeric-math-remquo.html"><tt>remquol</tt></a></td>
+</tr>
+<tr>
+<th>rint</th>
+<td><a href="c-numeric-math-rint.html"><tt>rintf</tt></a></td>
+<td><a href="c-numeric-math-rint.html"><tt>rint</tt></a></td>
+<td><a href="c-numeric-math-rint.html"><tt>rintl</tt></a></td>
+</tr>
+<tr>
+<th>round</th>
+<td><a href="c-numeric-math-round.html"><tt>roundf</tt></a></td>
+<td><a href="c-numeric-math-round.html"><tt>round</tt></a></td>
+<td><a href="c-numeric-math-round.html"><tt>roundl</tt></a></td>
+</tr>
+<tr>
+<th>scalbln</th>
+<td><a href="c-numeric-math-scalbn.html"><tt>scalblnf</tt></a></td>
+<td><a href="c-numeric-math-scalbn.html"><tt>scalbln</tt></a></td>
+<td><a href="c-numeric-math-scalbn.html"><tt>scalblnl</tt></a></td>
+</tr>
+<tr>
+<th>scalbn</th>
+<td><a href="c-numeric-math-scalbn.html"><tt>scalbnf</tt></a></td>
+<td><a href="c-numeric-math-scalbn.html"><tt>scalbn</tt></a></td>
+<td><a href="c-numeric-math-scalbn.html"><tt>scalbnl</tt></a></td>
+</tr>
+<tr>
+<th>tgamma</th>
+<td><a href="c-numeric-math-tgamma.html"><tt>tgammaf</tt></a></td>
+<td><a href="c-numeric-math-tgamma.html"><tt>tgamma</tt></a></td>
+<td><a href="c-numeric-math-tgamma.html"><tt>tgammal</tt></a></td>
+</tr>
+<tr>
+<th>trunc</th>
+<td><a href="c-numeric-math-trunc.html"><tt>truncf</tt></a></td>
+<td><a href="c-numeric-math-trunc.html"><tt>trunc</tt></a></td>
+<td><a href="c-numeric-math-trunc.html"><tt>truncl</tt></a></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.95.B0.E9.99.90.E5.AE.9A.E5.87.BD.E6.95.B0">&#22797;&#25968;&#38480;&#23450;&#20989;&#25968;</span></h3>
+<p>&#23545;&#20110;&#25152;&#26377;&#27809;&#26377;&#23454;&#25968;&#23545;&#24212;&#30340;&#22797;&#25968;&#20989;&#25968;&#65292;&#23384;&#22312;&#27867;&#22411;&#23439; <code>cXXX</code>&#65292;&#23427;&#20250;&#35843;&#29992;&#22797;&#25968;&#20989;&#25968;&#30340;&#21464;&#20307;&#65306;</p>
+<ul>
+<li><span class="mw-geshi c source-c"><span class="kw4">float</span> <a href="c-numeric-complex-complex.html"><span class="kw743">complex</span></a></span> &#21464;&#20307; <code>cXXXf</code></li>
+<li><span class="mw-geshi c source-c"><span class="kw4">double</span> <a href="c-numeric-complex-complex.html"><span class="kw743">complex</span></a></span> &#21464;&#20307; <code>cXXX</code></li>
+<li><span class="mw-geshi c source-c"><span class="kw4">long</span> <span class="kw4">double</span> <a href="c-numeric-complex-complex.html"><span class="kw743">complex</span></a></span> &#21464;&#20307; <code>cXXXl</code></li>
+</ul>
+<p>&#35843;&#29992;&#30340;&#20989;&#25968;&#25353;&#20197;&#19979;&#26041;&#24335;&#20915;&#23450;&#65306;</p>
+<ul>
+<li>&#33509;&#27867;&#22411;&#24418;&#21442;&#30340;&#20219;&#19968;&#23454;&#21442;&#20026;&#23454;&#25968;&#12289;&#22797;&#25968;&#25110;&#34394;&#25968;&#65292;&#21017;&#35843;&#29992;&#36866;&#24403;&#30340;&#22797;&#25968;&#20989;&#25968;&#12290;</li>
+</ul>
+<table class="wikitable">
+<tr>
+<th>&#27867;&#22411;&#23439;</th>
+<th colspan="3">&#22797;&#25968;&#20989;&#25968;&#21464;&#20307;</th>
+</tr>
+<tr>
+<th>&nbsp;</th>
+<th><span class="mw-geshi c source-c"><span class="kw4">float</span></span></th>
+<th><span class="mw-geshi c source-c"><span class="kw4">double</span></span></th>
+<th><span class="mw-geshi c source-c"><span class="kw4">long</span> <span class="kw4">double</span></span></th>
+</tr>
+<tr>
+<th>carg</th>
+<td><a href="c-numeric-complex-carg.html"><tt>cargf</tt></a></td>
+<td><a href="c-numeric-complex-carg.html"><tt>carg</tt></a></td>
+<td><a href="c-numeric-complex-carg.html"><tt>cargl</tt></a></td>
+</tr>
+<tr>
+<th>conj</th>
+<td><a href="c-numeric-complex-conj.html"><tt>conjf</tt></a></td>
+<td><a href="c-numeric-complex-conj.html"><tt>conj</tt></a></td>
+<td><a href="c-numeric-complex-conj.html"><tt>conjl</tt></a></td>
+</tr>
+<tr>
+<th>creal</th>
+<td><a href="c-numeric-complex-creal.html"><tt>crealf</tt></a></td>
+<td><a href="c-numeric-complex-creal.html"><tt>creal</tt></a></td>
+<td><a href="c-numeric-complex-creal.html"><tt>creall</tt></a></td>
+</tr>
+<tr>
+<th>cimag</th>
+<td><a href="c-numeric-complex-cimag.html"><tt>cimagf</tt></a></td>
+<td><a href="c-numeric-complex-cimag.html"><tt>cimag</tt></a></td>
+<td><a href="c-numeric-complex-cimag.html"><tt>cimagl</tt></a></td>
+</tr>
+<tr>
+<th>cproj</th>
+<td><a href="c-numeric-complex-cproj.html"><tt>cprojf</tt></a></td>
+<td><a href="c-numeric-complex-cproj.html"><tt>cproj</tt></a></td>
+<td><a href="c-numeric-complex-cproj.html"><tt>cprojl</tt></a></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#include &lt;tgmath.h&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">int</span> i <span class="sy1">=</span> <span class="nu0">2</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;sqrt(2) = %f<span class="es1">\n</span>&quot;</span>, <a href="c-numeric-math-sqrt.html"><span class="kw665">sqrt</span></a><span class="br0">(</span>i<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#23454;&#21442;&#31867;&#22411;&#20026; int&#65292;&#35843;&#29992; sqrt</span>
+ 
+    <span class="kw4">float</span> f <span class="sy1">=</span> <span class="nu16">0.5</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;sin(0.5f) = %f<span class="es1">\n</span>&quot;</span>, <a href="c-numeric-math-sin.html"><span class="kw669">sin</span></a><span class="br0">(</span>f<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#23454;&#21442;&#31867;&#22411;&#20026; float&#65292;&#35843;&#29992; sinf</span>
+ 
+    <span class="kw4">float</span> <a href="c-numeric-complex-complex.html"><span class="kw743">complex</span></a> dc <span class="sy1">=</span> <span class="nu0">1</span> <span class="sy2">+</span> <span class="nu16">0.5</span><span class="sy2">*</span>I<span class="sy4">;</span>
+    <span class="kw4">float</span> <a href="c-numeric-complex-complex.html"><span class="kw743">complex</span></a> z <span class="sy1">=</span> <a href="c-numeric-math-sqrt.html"><span class="kw665">sqrt</span></a><span class="br0">(</span>dc<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#23454;&#21442;&#31867;&#22411;&#20026; float complex&#65292;&#35843;&#29992; csqrtf</span>
+    <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;sqrt(1 + 0.5i) = %f+%fi<span class="es1">\n</span>&quot;</span>,
+           <a href="c-numeric-complex-creal.html"><span class="kw754">creal</span></a><span class="br0">(</span>z<span class="br0">)</span>,  <span class="co1">// &#23454;&#21442;&#31867;&#22411;&#20026; float complex&#65292;&#35843;&#29992; crealf</span>
+           <a href="c-numeric-complex-cimag.html"><span class="kw751">cimag</span></a><span class="br0">(</span>z<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#23454;&#21442;&#31867;&#22411;&#20026; float complex&#65292;&#35843;&#29992; cimagf</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">sqrt(2) = 1.414214
+sin(0.5f) = 0.479426
+sqrt(1 + 0.5i) = 1.029086+0.242934i</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-23">
+<ul>
+<li>C23 &#26631;&#20934;&#65288;ISO/IEC 9899:2024&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.25 Type-generic math &lt;tgmath.h&gt; &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.25 Type-generic math &lt;tgmath.h&gt; &#65288;&#31532; 272-273 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.25 Type-generic math &lt;tgmath.h&gt; &#65288;&#31532; 373-375 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c99">
+<ul>
+<li>C99 &#26631;&#20934;&#65288;ISO/IEC 9899:1999&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.22 Type-generic math &lt;tgmath.h&gt; &#65288;&#31532; 335-337 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

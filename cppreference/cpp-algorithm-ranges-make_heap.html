@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::ranges::make_heap</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_algorithm_ranges_make_heap skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::ranges::</span>make_heap</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-algorithm.html">algorithm</a>&lrm; | <a href="cpp-algorithm-ranges.html">ranges</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-algorithm.html">&lt;algorithm&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl-h">
+<td>
+<div>&#35843;&#29992;&#31614;&#21517;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-iterator-random_access_iterator.html"><span class="kw2868">std::<span class="me2">random_access_iterator</span></span></a> I, <a href="cpp-iterator-sentinel_for.html"><span class="kw2862">std::<span class="me2">sentinel_for</span></span></a><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span> S,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span> Comp <span class="sy1">=</span> <a href="cpp-utility-functional-ranges-less.html"><span class="kw2844">ranges::<span class="me2">less</span></span></a>, <span class="kw1">class</span> Proj <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a> <span class="sy1">&gt;</span><br />
+&nbsp; &nbsp; requires <a href="cpp-iterator-sortable.html"><span class="kw3137">std::<span class="me2">sortable</span></span></a><span class="sy1">&lt;</span>I, Comp, Proj<span class="sy1">&gt;</span><br /></p>
+<span class="kw4">constexpr</span> I make_heap<span class="br0">(</span> I first, S last, Comp comp <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span>, Proj proj <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span> <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-ranges-random_access_range.html"><span class="kw2906">ranges::<span class="me2">random_access_range</span></span></a> R,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span> Comp <span class="sy1">=</span> <a href="cpp-utility-functional-ranges-less.html"><span class="kw2844">ranges::<span class="me2">less</span></span></a>, <span class="kw1">class</span> Proj <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a> <span class="sy1">&gt;</span><br />
+&nbsp; &nbsp; requires <a href="cpp-iterator-sortable.html"><span class="kw3137">std::<span class="me2">sortable</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, Comp, Proj<span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> <a href="cpp-ranges-borrowed_iterator_t.html"><span class="kw2855">ranges::<span class="me2">borrowed_iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span><br /></p>
+&nbsp; &nbsp; make_heap<span class="br0">(</span> R<span class="sy3">&amp;&amp;</span> r, Comp comp <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span>, Proj proj <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span> <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#20174;&#25351;&#23450;&#33539;&#22260;&#30340;&#25152;&#26377;&#20803;&#32032;&#26500;&#36896;&#20851;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">comp</span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp">proj</span></span> &#30340;<a href="cpp-algorithm.html#.E5.A0.86.E6.93.8D.E4.BD.9C">&#22534;</a>&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#25351;&#23450;&#30340;&#33539;&#22260;&#26159; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">first</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">last</span></span><code>)</code>&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#25351;&#23450;&#30340;&#33539;&#22260;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp">r</span></span>&#12290;</div>
+<p>&#27492;&#39029;&#38754;&#19978;&#25551;&#36848;&#30340;&#20989;&#25968;&#24335;&#23454;&#20307;&#26159;<i><a href="cpp-algorithm-ranges.html#.E7.AE.97.E6.B3.95.E5.87.BD.E6.95.B0.E5.AF.B9.E8.B1.A1">&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;</a></i>&#65288;&#38750;&#27491;&#24335;&#22320;&#31216;&#20026; <i>niebloid</i>&#65289;&#65292;&#21363;&#65306;</p>
+<ul>
+<li>&#35843;&#29992;&#23427;&#20204;&#20013;&#30340;&#20219;&#20309;&#19968;&#20010;&#26102;&#19981;&#33021;&#26174;&#24335;&#25351;&#23450;&#27169;&#26495;&#23454;&#21442;&#12290;</li>
+<li>&#23427;&#20204;&#37117;&#19981;&#23545;<a href="cpp-language-adl.html">&#23454;&#21442;&#20381;&#36182;&#26597;&#25214;</a>&#21487;&#35265;&#12290;</li>
+<li>&#22312;&#36890;&#36807;&#20989;&#25968;&#35843;&#29992;&#36816;&#31639;&#31526;&#24038;&#20391;&#30340;&#21517;&#23383;&#36827;&#34892;<a href="cpp-language-unqualified_lookup.html">&#26080;&#38480;&#23450;&#26597;&#25214;</a>&#65292;&#25214;&#21040;&#23427;&#20204;&#20043;&#19968;&#26102;&#65292;&#31105;&#27490;<a href="cpp-language-adl.html">&#23454;&#21442;&#20381;&#36182;&#26597;&#25214;</a>&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>first, last</td>
+<td>-</td>
+<td>&#35201;&#20462;&#25913;&#30340;&#20803;&#32032;<a href="cpp-iterator.html#.E8.8C.83.E5.9B.B4">&#33539;&#22260;</a>&#30340;&#36845;&#20195;&#22120;-&#21736;&#20301;&#23545;</td>
+</tr>
+<tr class="t-par">
+<td>r</td>
+<td>-</td>
+<td>&#35201;&#20462;&#25913;&#30340;&#20803;&#32032; <a href="cpp-ranges-range.html"><code>range</code></a></td>
+</tr>
+<tr class="t-par">
+<td>comp</td>
+<td>-</td>
+<td>&#24212;&#29992;&#21040;&#25237;&#24433;&#21518;&#20803;&#32032;&#30340;&#27604;&#36739;&#22120;</td>
+</tr>
+<tr class="t-par">
+<td>proj</td>
+<td>-</td>
+<td>&#24212;&#29992;&#21040;&#20803;&#32032;&#30340;&#25237;&#24433;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<div class="t-li1"><span class="t-li">1)</span> <span class="t-c"><span class="mw-geshi cpp source-cpp">last</span></span></div>
+<div class="t-li1"><span class="t-li">2)</span> <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/end"><span class="kw2884">ranges::<span class="me2">end</span></span></a><span class="br0">(</span>r<span class="br0">)</span></span></span></div>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<p>&#26368;&#22810;&#24212;&#29992; <span class="mjax" style="display:none">\(\scriptsize 3\cdot N\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">3&middot;N</span> &#27425; <span class="t-c"><span class="mw-geshi cpp source-cpp">comp</span></span> &#21644; <span class="mjax" style="display:none">\(\scriptsize 6\cdot N\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">6&middot;N</span> &#27425; <span class="t-c"><span class="mw-geshi cpp source-cpp">proj</span></span>&#65292;&#20854;&#20013; <span class="mjax" style="display:none">\(\scriptsize N \)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">N</span> &#26159;&#65306;</p>
+<div class="t-li1"><span class="t-li">1)</span> <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-ranges-distance.html"><span class="kw3141">ranges::<span class="me2">distance</span></span></a><span class="br0">(</span>first, last<span class="br0">)</span></span></span></div>
+<div class="t-li1"><span class="t-li">2)</span> <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-ranges-distance.html"><span class="kw3141">ranges::<span class="me2">distance</span></span></a><span class="br0">(</span>r<span class="br0">)</span></span></span></div>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;algorithm&gt;</span>
+<span class="co2">#include &lt;cmath&gt;</span>
+<span class="co2">#include &lt;functional&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;vector&gt;</span>
+ 
+<span class="kw4">void</span> out<span class="br0">(</span><span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> what, <span class="kw4">int</span> n <span class="sy1">=</span> <span class="nu0">1</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">while</span> <span class="br0">(</span>n<span class="sy2">--</span> <span class="sy1">&gt;</span> <span class="nu0">0</span><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> what<span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">void</span> print<span class="br0">(</span><span class="kw4">auto</span> rem, <span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> v<span class="br0">)</span>
+<span class="br0">{</span>
+    out<span class="br0">(</span>rem<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">auto</span> e <span class="sy4">:</span> v<span class="br0">)</span>
+        out<span class="br0">(</span>e<span class="br0">)</span>, out<span class="br0">(</span><span class="st0">&#39; &#39;</span><span class="br0">)</span><span class="sy4">;</span>
+    out<span class="br0">(</span><span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">void</span> draw_heap<span class="br0">(</span><span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> v<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">auto</span> bails <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">int</span> n, <span class="kw4">int</span> w<span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw4">auto</span> b <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">int</span> w<span class="br0">)</span> <span class="br0">{</span> out<span class="br0">(</span><span class="st0">&quot;&#9484;&quot;</span><span class="br0">)</span>, out<span class="br0">(</span><span class="st0">&quot;&#9472;&quot;</span>, w<span class="br0">)</span>, out<span class="br0">(</span><span class="st0">&quot;&#9524;&quot;</span><span class="br0">)</span>, out<span class="br0">(</span><span class="st0">&quot;&#9472;&quot;</span>, w<span class="br0">)</span>, out<span class="br0">(</span><span class="st0">&quot;&#9488;&quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+        <span class="kw1">if</span> <span class="br0">(</span><span class="sy3">!</span><span class="br0">(</span>n <span class="sy2">/</span><span class="sy1">=</span> <span class="nu0">2</span><span class="br0">)</span><span class="br0">)</span>
+            <span class="kw1">return</span><span class="sy4">;</span>
+        <span class="kw1">for</span> <span class="br0">(</span>out<span class="br0">(</span><span class="st0">&#39; &#39;</span>, w<span class="br0">)</span><span class="sy4">;</span> n<span class="sy2">--</span> <span class="sy1">&gt;</span> <span class="nu0">0</span><span class="sy4">;</span><span class="br0">)</span>
+            b<span class="br0">(</span>w<span class="br0">)</span>, out<span class="br0">(</span><span class="st0">&#39; &#39;</span>, w <span class="sy2">+</span> w <span class="sy2">+</span> <span class="nu0">1</span><span class="br0">)</span><span class="sy4">;</span>
+        out<span class="br0">(</span><span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="kw4">auto</span> data <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">int</span> n, <span class="kw4">int</span> w, <span class="kw4">auto</span><span class="sy3">&amp;</span> first, <span class="kw4">auto</span> last<span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw1">for</span> <span class="br0">(</span>out<span class="br0">(</span><span class="st0">&#39; &#39;</span>, w<span class="br0">)</span><span class="sy4">;</span> n<span class="sy2">--</span> <span class="sy1">&gt;</span> <span class="nu0">0</span> <span class="sy3">&amp;&amp;</span> first <span class="sy3">!</span><span class="sy1">=</span> last<span class="sy4">;</span> <span class="sy2">++</span>first<span class="br0">)</span>
+            out<span class="br0">(</span><span class="sy2">*</span>first<span class="br0">)</span>, out<span class="br0">(</span><span class="st0">&#39; &#39;</span>, w <span class="sy2">+</span> w <span class="sy2">+</span> <span class="nu0">1</span><span class="br0">)</span><span class="sy4">;</span>
+        out<span class="br0">(</span><span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="kw4">auto</span> tier <span class="sy1">=</span> <span class="br0">[</span><span class="sy3">&amp;</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">int</span> t, <span class="kw4">int</span> m, <span class="kw4">auto</span><span class="sy3">&amp;</span> first, <span class="kw4">auto</span> last<span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw4">const</span> <span class="kw4">int</span> n<span class="br0">{</span><span class="nu0">1</span> <span class="sy1">&lt;&lt;</span> t<span class="br0">}</span><span class="sy4">;</span>
+        <span class="kw4">const</span> <span class="kw4">int</span> w<span class="br0">{</span><span class="br0">(</span><span class="nu0">1</span> <span class="sy1">&lt;&lt;</span> <span class="br0">(</span>m <span class="sy2">-</span> t <span class="sy2">-</span> <span class="nu0">1</span><span class="br0">)</span><span class="br0">)</span> <span class="sy2">-</span> <span class="nu0">1</span><span class="br0">}</span><span class="sy4">;</span>
+        bails<span class="br0">(</span>n, w<span class="br0">)</span>, data<span class="br0">(</span>n, w, first, last<span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="kw4">const</span> <span class="kw4">int</span> m<span class="br0">{</span><span class="kw1">static_cast</span><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span><span class="br0">(</span><a href="cpp-numeric-math-ceil.html"><span class="kw1353">std::<span class="me2">ceil</span></span></a><span class="br0">(</span><a href="cpp-numeric-math-log2.html"><span class="kw2705">std::<span class="me2">log2</span></span></a><span class="br0">(</span><span class="nu0">1</span> <span class="sy2">+</span> v.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw4">auto</span> first<span class="br0">{</span>v.<span class="me1">cbegin</span><span class="br0">(</span><span class="br0">)</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> i<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span> i <span class="sy3">!</span><span class="sy1">=</span> m<span class="sy4">;</span> <span class="sy2">++</span>i<span class="br0">)</span>
+        tier<span class="br0">(</span>i, m, first, v.<span class="me1">cend</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-container-vector.html"><span class="kw1272">std::<span class="me2">vector</span></span></a> h<span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">6</span>, <span class="nu0">1</span>, <span class="nu0">8</span>, <span class="nu0">0</span>, <span class="nu0">3</span>, <span class="nu0">3</span>, <span class="nu0">9</span>, <span class="nu0">8</span>, <span class="nu0">8</span>, <span class="nu0">7</span>, <span class="nu0">4</span>, <span class="nu0">9</span>, <span class="nu0">8</span>, <span class="nu0">9</span><span class="br0">}</span><span class="sy4">;</span>
+    print<span class="br0">(</span><span class="st0">&quot;&#28304;&#65306;&quot;</span>, h<span class="br0">)</span><span class="sy4">;</span>
+ 
+    std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">make_heap</span><span class="br0">(</span>h<span class="br0">)</span><span class="sy4">;</span>
+    print<span class="br0">(</span><span class="st0">&quot;<span class="es1">\n</span>&quot;</span> <span class="st0">&quot;&#26368;&#22823;&#22534;&#65306;&quot;</span>, h<span class="br0">)</span><span class="sy4">;</span>
+    draw_heap<span class="br0">(</span>h<span class="br0">)</span><span class="sy4">;</span>
+ 
+    std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">make_heap</span><span class="br0">(</span>h, <a href="cpp-utility-functional-greater.html"><span class="kw1042">std::<span class="me2">greater</span></span></a><span class="br0">{</span><span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+    print<span class="br0">(</span><span class="st0">&quot;<span class="es1">\n</span>&quot;</span> <span class="st0">&quot;&#26368;&#23567;&#22534;&#65306;&quot;</span>, h<span class="br0">)</span><span class="sy4">;</span>
+    draw_heap<span class="br0">(</span>h<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">
+&#28304;&#65306;1 6 1 8 0 3 3 9 8 8 7 4 9 8 9
+ 
+&#26368;&#22823;&#22534;&#65306;9 8 9 8 8 4 9 6 1 0 7 1 3 8 3
+       9
+   &#9484;&#9472;&#9472;&#9472;&#9524;&#9472;&#9472;&#9472;&#9488;
+   8       9
+ &#9484;&#9472;&#9524;&#9472;&#9488;   &#9484;&#9472;&#9524;&#9472;&#9488;
+ 8   8   4   9
+&#9484;&#9524;&#9488; &#9484;&#9524;&#9488; &#9484;&#9524;&#9488; &#9484;&#9524;&#9488;
+6 1 0 7 1 3 8 3
+ 
+&#26368;&#23567;&#22534;&#65306;0 1 1 8 6 3 3 9 8 8 7 4 9 8 9
+       0
+   &#9484;&#9472;&#9472;&#9472;&#9524;&#9472;&#9472;&#9472;&#9488;
+   1       1
+ &#9484;&#9472;&#9524;&#9472;&#9488;   &#9484;&#9472;&#9524;&#9472;&#9488;
+ 8   6   3   3
+&#9484;&#9524;&#9488; &#9484;&#9524;&#9488; &#9484;&#9524;&#9488; &#9484;&#9524;&#9488;
+9 8 8 7 4 9 8 9</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-is_heap.html"><span class="t-lines"><span>ranges::is_heap</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#32473;&#23450;&#33539;&#22260;&#26159;&#21542;&#20026;&#26368;&#22823;&#22534;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-is_heap_until.html"><span class="t-lines"><span>ranges::is_heap_until</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#26597;&#25214;&#33021;&#25104;&#20026;&#26368;&#22823;&#22534;&#30340;&#26368;&#22823;&#23376;&#33539;&#22260;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-push_heap.html"><span class="t-lines"><span>ranges::push_heap</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#28155;&#21152;&#20803;&#32032;&#21040;&#26368;&#22823;&#22534;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-pop_heap.html"><span class="t-lines"><span>ranges::pop_heap</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#31227;&#38500;&#26368;&#22823;&#22534;&#20013;&#26368;&#22823;&#20803;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-sort_heap.html"><span class="t-lines"><span>ranges::sort_heap</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#23558;&#26368;&#22823;&#22534;&#21464;&#25104;&#25353;&#21319;&#24207;&#25490;&#24207;&#30340;&#20803;&#32032;&#33539;&#22260;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-make_heap.html"><span class="t-lines"><span>make_heap</span></span></a></div>
+</div>
+</td>
+<td>&#20174;&#20803;&#32032;&#33539;&#22260;&#21019;&#24314;&#26368;&#22823;&#22534;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

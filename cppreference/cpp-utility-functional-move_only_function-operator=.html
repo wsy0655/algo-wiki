@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::move_only_function::operator=</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_utility_functional_move_only_function_operator skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::move_only_function::</span>operator=</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-utility.html">utility</a>&lrm; | <a href="cpp-utility-functional.html">functional</a>&lrm; | <a href="cpp-utility-functional-move_only_function.html">move only function</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp">move_only_function<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span> move_only_function<span class="sy3">&amp;&amp;</span> other <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp">move_only_function<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span> <span class="kw4">const</span> move_only_function<span class="sy3">&amp;</span> <span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp">move_only_function<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span> <a href="cpp-types-nullptr_t.html"><span class="kw109">std::<span class="me2">nullptr_t</span></span></a> <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> F <span class="sy1">&gt;</span><br />
+move_only_function<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span> F<span class="sy3">&amp;&amp;</span> f <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(4)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#25351;&#27966;&#26032;&#30446;&#26631;&#32473; <code>std::move_only_function</code> &#25110;&#38144;&#27585;&#20854;&#30446;&#26631;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#36890;&#36807; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">auto</span><span class="br0">(</span>std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>other<span class="br0">)</span><span class="br0">)</span>.<span class="me1">swap</span><span class="br0">(</span><span class="sy2">*</span>this<span class="br0">)</span></span></span> &#31227;&#21160; <span class="t-c"><span class="mw-geshi cpp source-cpp">other</span></span> &#30340;&#30446;&#26631;&#32473; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#25110;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">other</span></span> &#20026;&#31354;&#21017;&#38144;&#27585; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#30340;&#30446;&#26631;&#65288;&#33509;&#23384;&#22312;&#65289;&#12290;&#31227;&#21160;&#36171;&#20540;&#21518; <span class="t-c"><span class="mw-geshi cpp source-cpp">other</span></span> &#22312;&#26377;&#26410;&#25351;&#23450;&#20540;&#30340;&#21512;&#27861;&#29366;&#24577;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#22797;&#21046;&#36171;&#20540;&#36816;&#31639;&#31526;&#34987;&#24323;&#32622;&#12290;<code>std::move_only_function</code> &#19981;&#28385;&#36275;<a href="cpp-named_req-CopyAssignable.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#36171;&#20540;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyAssignable)</span></a> &#12290;</div>
+<div class="t-li1"><span class="t-li">3)</span> &#33509;&#24403;&#21069;&#30446;&#26631;&#23384;&#22312;&#21017;&#38144;&#27585;&#23427;&#12290;&#35843;&#29992;&#21518; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#20026;&#31354;&#12290;</div>
+<div class="t-li1"><span class="t-li">4)</span> &#22914;&#21516;&#36890;&#36807;&#25191;&#34892; <span class="t-c"><span class="mw-geshi cpp source-cpp">move_only_function<span class="br0">(</span><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>F<span class="sy1">&gt;</span><span class="br0">(</span>f<span class="br0">)</span><span class="br0">)</span>.<span class="me1">swap</span><span class="br0">(</span><span class="sy2">*</span>this<span class="br0">)</span><span class="sy4">;</span></span></span> &#35774;&#32622; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#30340;&#30446;&#26631;&#20026;&#21487;&#35843;&#29992;&#23545;&#35937; <span class="t-c"><span class="mw-geshi cpp source-cpp">f</span></span>&#65292;&#25110;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">f</span></span> &#20026;&#31354;&#20989;&#25968;&#25351;&#38024;&#12289;&#31354;&#25104;&#21592;&#20989;&#25968;&#25351;&#38024;&#25110;&#31354; <code>std::move_only_function</code> &#21017;&#38144;&#27585;&#24403;&#21069;&#30446;&#26631;&#12290;&#27492;&#37325;&#36733;&#21482;&#26377;&#22312; <code>move_only_function</code> &#28304;&#33258; <code>F</code> &#30340;&#26500;&#36896;&#20989;&#25968;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#26102;&#25165;&#20250;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#12290;&#33509;&#36873;&#25321;&#30340;&#26500;&#36896;&#20989;&#25968;&#35843;&#29992;&#38750;&#33391;&#26500;&#25110;&#26377;&#26410;&#23450;&#20041;&#34892;&#20026;&#65292;&#21017;&#31243;&#24207;&#38750;&#33391;&#26500;&#25110;&#26377;&#26410;&#23450;&#20041;&#34892;&#20026;&#12290;</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>other</td>
+<td>-</td>
+<td>&#35201;&#31227;&#21160;&#30446;&#26631;&#30340; <code>std::move_only_function</code> &#23545;&#35937;</td>
+</tr>
+<tr class="t-par">
+<td>f</td>
+<td>-</td>
+<td>&#29992;&#20197;&#21021;&#22987;&#21270;&#26032;&#30446;&#26631;&#30340;&#21487;&#35843;&#29992;&#23545;&#35937;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span></p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#26377;&#24847;&#19981;&#35201;&#27714;&#31227;&#21160;&#36171;&#20540;&#36816;&#31639;&#31526;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw1">noexcept</span></span>&#65292;&#20197;&#20026;&#23558;&#26469;&#30340;&#30693;&#20998;&#37197;&#22120;&#30340; <code>move_only_function</code> &#30041;&#20986;&#20313;&#22320;&#12290;</p>
+<p>&#21482;&#35201;&#33021;&#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-in_place.html"><span class="kw1086">std::<span class="me2">in_place_type</span></span></a><span class="sy1">&lt;</span>Fn<span class="sy1">&gt;</span></span></span> &#26500;&#36896; <code>move_only_function</code>&#65292;&#23601;&#33021;&#29992;&#35813;&#23454;&#21442;&#23545;&#20854;&#36171;&#20540;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#26242;&#26080;&#31034;&#20363;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-functional-function-operator=.html"><span class="t-lines"><span>operator=</span></span></a></div>
+</div>
+</td>
+<td>&#36171;&#20540;&#26032;&#30340;&#30446;&#26631;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::function&lt;R(Args...)&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+<table class="t-dsc-begin">
+<tr>
+<td></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

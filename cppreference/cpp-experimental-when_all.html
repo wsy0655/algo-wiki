@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::experimental::when_all</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_experimental_when_all skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::experimental::</span>when_all</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-experimental.html">experimental</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="https://zh.cppreference.com/mwiki/index.php?title=cpp/header/experimental/future&amp;action=edit&amp;redlink=1" class="new" title="cpp/header/experimental/future&#65288;&#39029;&#38754;&#19981;&#23384;&#22312;&#65289;">&lt;experimental/future&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-concurrency">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> InputIt <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw4">auto</span> when_all<span class="br0">(</span> InputIt first, InputIt last <span class="br0">)</span><br /></p>
+&nbsp; &nbsp; <span class="sy2">-</span><span class="sy1">&gt;</span> future<span class="sy1">&lt;</span><a href="cpp-container-vector.html"><span class="kw1272">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><span class="kw1">typename</span> <a href="cpp-iterator-iterator_traits.html"><span class="kw654">std::<span class="me2">iterator_traits</span></span></a><span class="sy1">&lt;</span>InputIt<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">value_type</span><span class="sy1">&gt;&gt;</span><span class="sy4">;</span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-concurrency-ts t-mark-ts" style="white-space: nowrap;">(&#24182;&#21457; TS)</span></td>
+</tr>
+<tr class="t-dcl t-since-concurrency">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span>... <span class="me1">Futures</span> <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw4">auto</span> when_all<span class="br0">(</span> Futures<span class="sy3">&amp;&amp;</span>... <span class="me1">futures</span> <span class="br0">)</span><br /></p>
+&nbsp; &nbsp; <span class="sy2">-</span><span class="sy1">&gt;</span> future<span class="sy1">&lt;</span><a href="cpp-utility-tuple.html"><span class="kw1101">std::<span class="me2">tuple</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-decay.html"><span class="kw632">std::<span class="me2">decay_t</span></span></a><span class="sy1">&lt;</span>Futures<span class="sy1">&gt;</span>...<span class="sy1">&gt;&gt;</span><span class="sy4">;</span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-concurrency-ts t-mark-ts" style="white-space: nowrap;">(&#24182;&#21457; TS)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#21019;&#24314; <span class="t-lc">future</span> &#23545;&#35937;&#65292;&#23427;&#23558;&#22312;&#25152;&#26377;&#36755;&#20837; <code>future</code> &#21644; <span class="t-lc">shared_future</span> &#23601;&#32490;&#21518;&#21464;&#20026;&#23601;&#32490;&#12290;&#33509;&#20219;&#20309;&#36755;&#20837; <code>future</code> &#25110; <code>shared_future</code> &#38750;&#27861;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<p>&#20855;&#20307;&#32780;&#35328;&#65292;&#20196; <code>Sequence</code> &#23545; <span class="t-v">(1)</span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-container-vector.html"><span class="kw1272">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><span class="kw1">typename</span> <a href="cpp-iterator-iterator_traits.html"><span class="kw654">std::<span class="me2">iterator_traits</span></span></a><span class="sy1">&lt;</span>InputIt<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">value_type</span><span class="sy1">&gt;</span></span></span>&#65292;&#23545; <span class="t-v">(2)</span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-tuple.html"><span class="kw1101">std::<span class="me2">tuple</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-decay.html"><span class="kw632">std::<span class="me2">decay_t</span></span></a><span class="sy1">&lt;</span>Futures<span class="sy1">&gt;</span>...<span class="sy1">&gt;</span></span></span>&#12290;&#27492;&#20989;&#25968;&#27169;&#26495;&#21019;&#24314;&#21547; <code>Sequence</code> &#30340;&#20849;&#20139;&#29366;&#24577;&#65292;&#24182;&#36820;&#22238;&#25351;&#20195;&#35813;&#20849;&#20139;&#29366;&#24577;&#30340; <code>future</code>&#12290;&#31227;&#21160;&#27599;&#20010;&#36755;&#20837; <code>future</code> &#21040;&#20849;&#20139;&#29366;&#24577;&#20013;&#30340; <code>Sequence</code> &#30340;&#23545;&#24212;&#23545;&#35937;&#20013;&#65292;&#22797;&#21046;&#27599;&#20010;&#36755;&#20837; <code>shared_future</code> &#21040;&#20849;&#20139;&#29366;&#24577;&#20013;&#30340; <code>Sequence</code> &#20013;&#30340;&#23545;&#24212;&#23545;&#35937;&#12290;<code>Sequence</code> &#20013;&#30340;&#23545;&#35937;&#39034;&#24207;&#21305;&#37197;&#23454;&#21442;&#30340;&#39034;&#24207;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#27492;&#20989;&#25968;&#20165;&#33509; <code>InputIt</code> &#30340;&#20540;&#31867;&#22411;&#65288;&#21363; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">typename</span> <a href="cpp-iterator-iterator_traits.html"><span class="kw654">std::<span class="me2">iterator_traits</span></span></a><span class="sy1">&lt;</span>InputIt<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">value_type</span></span></span>&#65289;&#20026; <span class="t-lc">std::experimental::future</span> &#25110; <span class="t-lc">std::experimental::shared_future</span> &#25165;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#27492;&#20989;&#25968;&#20165;&#33509;&#27599;&#20010;&#23454;&#21442;&#20026;&#65288;&#21487;&#26377; cv &#38480;&#23450;&#30340;&#65289;<span class="t-lc">std::experimental::shared_future</span> &#25110;&#26080; cv &#38480;&#23450;&#30340; <span class="t-lc">std::experimental::future</span> &#25165;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#65288;&#27491;&#24335;&#32780;&#35328;&#65292;&#23545;&#20110; <code>Futures</code> &#20013;&#30340;&#27599;&#20010; <code>Fn</code>&#65292;&#35201;&#20040; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>Fn<span class="sy1">&gt;</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-experimental-future.html"><span class="kw2753">std::<span class="me2">experimental</span><span class="sy4">::</span><span class="me2">future</span></span></a><span class="sy1">&lt;</span>Rn<span class="sy1">&gt;</span></span></span>&#65292;&#35201;&#20040; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-decay.html"><span class="kw632">std::<span class="me2">decay_t</span></span></a><span class="sy1">&lt;</span>Fn<span class="sy1">&gt;</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-experimental-shared_future.html"><span class="kw2795">std::<span class="me2">experimental</span><span class="sy4">::</span><span class="me2">shared_future</span></span></a><span class="sy1">&lt;</span>Rn<span class="sy1">&gt;</span></span></span>&#65289;&#12290;</div>
+<p>&#27492;&#35843;&#29992;&#21518;&#65292;&#27599;&#20010;&#36755;&#20837; <code>future</code> &#19981;&#20877;&#21512;&#27861;&#65307;&#27599;&#20010;&#36755;&#20837; <code>shared_future</code> &#20445;&#25345;&#21512;&#27861;&#12290;</p>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#25351;&#20195;&#35843;&#29992;&#25152;&#21019;&#24314;&#30340;&#20849;&#20139;&#29366;&#24577;&#30340; <code>future</code>&#12290;&#35813; <code>future</code> &#22987;&#32456; <span class="t-c"><span class="mw-geshi cpp source-cpp">valid<span class="br0">(</span><span class="br0">)</span></span></span>&#65292;&#32780;&#23427;&#22312;&#35843;&#29992;&#30340;&#25152;&#26377;&#36755;&#20837; <code>future</code> &#21644; <code>shared_future</code> &#23601;&#32490;&#26102;&#21464;&#20026;&#23601;&#32490;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#33509;&#33539;&#22260;&#20026;&#31354;&#65288;&#21363; <span class="t-c"><span class="mw-geshi cpp source-cpp">first <span class="sy1">==</span> last</span></span>&#65289;&#65292;&#21017;&#36820;&#22238;&#30340; <code>future</code> &#21547;&#26377;&#31354; <code>vector</code> &#19988;&#31435;&#21363;&#23601;&#32490;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#33509;&#19981;&#25552;&#20379;&#23454;&#21442;&#65292;&#21017;&#36820;&#22238; <code>future&lt;std::tuple&lt;&gt;&gt;</code> &#19988;&#31435;&#21363;&#23601;&#32490;&#12290;</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>&#21464;&#38271;&#23454;&#21442;</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_language_variadic skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">&#21464;&#38271;&#23454;&#21442;</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-language.html">language</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<p>&#21464;&#21442;&#20989;&#25968;&#26159;&#33021;&#20197;&#19981;&#21516;&#25968;&#30446;&#23454;&#21442;&#35843;&#29992;&#30340;&#20989;&#25968;&#12290;</p>
+<p>&#21482;&#26377;&#26377;&#21407;&#22411;<a href="c-language-function_declaration.html">&#20989;&#25968;&#22768;&#26126;</a>&#21487;&#20197;&#26377;&#21464;&#38271;&#21442;&#25968;&#12290;&#23427;&#36890;&#36807; <span class="t-c"><span class="mw-geshi c source-c">...</span></span> &#24418;&#24335;&#30340;&#24418;&#21442;&#25152;&#25351;&#23450;&#65292;&#23427;&#24517;&#39035;&#20986;&#29616;&#22312;&#24418;&#21442;&#21015;&#34920;&#26368;&#21518;<span class="t-rev-inl t-until-c23"><span>&#65292;&#24182;&#19988;&#36319;&#38543;&#33267;&#23569;&#19968;&#20010;&#20855;&#21517;&#24418;&#21442;&#20043;&#21518;</span><span><span class="t-mark-rev t-until-c23" style="white-space: nowrap;">(C23 &#21069;)</span></span></span>&#12290;&#30465;&#30053;&#21495;&#24418;&#21442;&#19982;&#21069;&#39537;&#30340;&#24418;&#21442;&#24517;&#39035;&#30001; <span class="t-c"><span class="mw-geshi c source-c">,</span></span> &#20998;&#38548;&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co1">// &#26377;&#21407;&#22411;&#22768;&#26126;</span>
+<span class="kw4">int</span> printx<span class="br0">(</span><span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> fmt, ...<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#27492;&#26041;&#27861;&#22768;&#26126;&#30340;&#20989;&#25968;</span>
+printx<span class="br0">(</span><span class="st0">&quot;hello world&quot;</span><span class="br0">)</span><span class="sy4">;</span>     <span class="co1">// &#21487;&#33021;&#20250;&#20197;&#19968;&#20010;</span>
+printx<span class="br0">(</span><span class="st0">&quot;a=%d b=%d&quot;</span>, a, b<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#25110;&#26356;&#22810;&#23454;&#21442;&#35843;&#29992;</span>
+ 
+<span class="kw4">int</span> printz<span class="br0">(</span>...<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// C23 &#36215;&#19982; C++ &#20013; OK</span>
+<span class="co1">// C23 &#21069;&#38169;&#35823;&#65306; ... &#24517;&#39035;&#36319;&#38543;&#33267;&#23569;&#19968;&#20010;&#20855;&#21517;&#24418;&#21442;</span>
+ 
+<span class="co1">// int printy(..., const char* fmt); // &#38169;&#35823;&#65306;... &#24517;&#39035;&#22312;&#26411;&#23614;</span>
+<span class="co1">// int printa(const char* fmt...);   // C &#20013;&#38169;&#35823;&#65306;&#35201;&#27714; &#39;,&#39; &#65307;C++ &#20013; OK</span></pre></div>
+</div>
+<p>&#22312;<a href="c-language-operator_other.html#.E5.87.BD.E6.95.B0.E8.B0.83.E7.94.A8">&#20989;&#25968;&#35843;&#29992;</a>&#20013;&#65292;&#27599;&#20010;&#23646;&#20110;&#21464;&#38271;&#23454;&#21442;&#21015;&#34920;&#19968;&#37096;&#20998;&#30340;&#23454;&#21442;&#20250;&#32463;&#21382;&#21517;&#20026;<a href="c-language-conversion.html#.E9.BB.98.E8.AE.A4.E5.AE.9E.E5.8F.82.E6.8F.90.E5.8D.87">&#40664;&#35748;&#23454;&#21442;&#25552;&#21319;</a>&#30340;&#38544;&#24335;&#36716;&#25442;&#12290;</p>
+<p>&#22312;&#20989;&#25968;&#20307;&#20869;&#20351;&#29992;&#21464;&#38271;&#23454;&#21442;&#26102;&#65292;&#36825;&#20123;&#23454;&#21442;&#30340;&#20540;&#24517;&#39035;&#29992; <a href="c-variadic.html"><code>&lt;stdarg.h&gt;</code> &#24211;&#35774;&#26045;</a>&#35775;&#38382;&#65306;</p>
+<table class="t-dsc-begin">
+<tr class="t-dsc-header">
+<td colspan="2">
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-stdarg.html"><tt>&lt;stdarg.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-variadic-va_start.html"><span class="t-lines"><span>va_start</span></span></a></div>
+</div>
+</td>
+<td>&#20196;&#20989;&#25968;&#24471;&#20197;&#35775;&#38382;&#21487;&#21464;&#23454;&#21442;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#23439;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-variadic-va_arg.html"><span class="t-lines"><span>va_arg</span></span></a></div>
+</div>
+</td>
+<td>&#35775;&#38382;&#19979;&#19968;&#20010;&#21487;&#21464;&#20989;&#25968;&#23454;&#21442;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#23439;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-variadic-va_copy.html"><span class="t-lines"><span>va_copy</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99)</span></span></span></div>
+</div>
+</td>
+<td>&#21019;&#36896;&#20989;&#25968;&#21487;&#21464;&#23454;&#21442;&#30340;&#21103;&#26412;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#23439;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-variadic-va_end.html"><span class="t-lines"><span>va_end</span></span></a></div>
+</div>
+</td>
+<td>&#32467;&#26463;&#23545;&#20989;&#25968;&#21487;&#21464;&#23454;&#21442;&#30340;&#36941;&#21382;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#23439;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-variadic-va_list.html"><span class="t-lines"><span>va_list</span></span></a></div>
+</div>
+</td>
+<td>&#20445;&#26377; <span class="t-lc">va_start</span>&#12289;<span class="t-lc">va_arg</span>&#12289;<span class="t-lc">va_end</span> &#21450; <span class="t-lc">va_copy</span> &#25152;&#38656;&#30340;&#20449;&#24687;<br />
+<span class="t-mark" style="white-space: nowrap;">(typedef)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#34429;&#28982;&#26087;&#24335;&#65288;&#26080;&#21407;&#22411;&#65289;<a href="c-language-function_declaration.html">&#20989;&#25968;&#22768;&#26126;</a>&#20801;&#35768;&#21518;&#32487;&#30340;&#20989;&#25968;&#35843;&#29992;&#20351;&#29992;&#20219;&#24847;&#21442;&#25968;&#65292;&#20294;&#19981;&#20801;&#35768;&#23427;&#20204;&#20026;&#21464;&#38271;&#21442;&#25968;&#65288;C89 &#36215;&#65289;&#12290;&#36825;&#31181;&#20989;&#25968;&#30340;&#23450;&#20041;&#24517;&#39035;&#25351;&#23450;&#22266;&#23450;&#25968;&#30446;&#30340;&#21442;&#25968;&#65292;&#24182;&#19988;&#19981;&#33021;&#20351;&#29992; <code>stdarg.h</code> &#20013;&#30340;&#23439;&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co1">// &#26087;&#24335;&#22768;&#26126;&#65292;C23 &#20013;&#31227;&#38500;</span>
+<span class="kw4">int</span> printx<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#27492;&#26041;&#24335;&#23450;&#20041;&#30340;&#20989;&#25968;</span>
+printx<span class="br0">(</span><span class="st0">&quot;hello world&quot;</span><span class="br0">)</span><span class="sy4">;</span>     <span class="co1">// &#21487;&#20197;&#20197;&#19968;&#20010;</span>
+printx<span class="br0">(</span><span class="st0">&quot;a=%d b=%d&quot;</span>, a, b<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#25110;&#26356;&#22810;&#23454;&#21442;&#35843;&#29992;</span>
+<span class="co1">// &#19978;&#36848;&#35843;&#29992;&#34892;&#20026;&#33267;&#23569;&#26377;&#19968;&#20010;&#26159;&#26410;&#23450;&#20041;&#30340;&#65292;&#21462;&#20915;&#20110;&#20989;&#25968;&#23450;&#20041;&#25152;&#25509;&#25910;&#30340;&#24418;&#21442;&#25968;</span></pre></div>
+</div>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#include &lt;time.h&gt;</span>
+<span class="co2">#include &lt;stdarg.h&gt;</span>
+ 
+<span class="kw4">void</span> tlog<span class="br0">(</span><span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> fmt,...<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">char</span> msg<span class="br0">[</span><span class="nu0">50</span><span class="br0">]</span><span class="sy4">;</span>
+    <a href="c-chrono-strftime.html"><span class="kw517">strftime</span></a><span class="br0">(</span>msg, <span class="kw4">sizeof</span> msg, <span class="st0">&quot;%T&quot;</span>, <a href="c-chrono-localtime.html"><span class="kw520">localtime</span></a><span class="br0">(</span><span class="sy3">&amp;</span><span class="br0">(</span><a href="c-chrono-time_t.html"><span class="kw524">time_t</span></a><span class="br0">)</span><span class="br0">{</span><a href="c-chrono-time.html"><span class="kw513">time</span></a><span class="br0">(</span><a href="c-types-NULL.html"><span class="kw103">NULL</span></a><span class="br0">)</span><span class="br0">}</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;[%s] &quot;</span>, msg<span class="br0">)</span><span class="sy4">;</span>
+    va_list args<span class="sy4">;</span>
+    va_start<span class="br0">(</span>args, fmt<span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-vfprintf.html"><span class="kw855">vprintf</span></a><span class="br0">(</span>fmt, args<span class="br0">)</span><span class="sy4">;</span>
+    va_end<span class="br0">(</span>args<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+   tlog<span class="br0">(</span><span class="st0">&quot;logging %d %d %d...<span class="es1">\n</span>&quot;</span>, <span class="nu0">1</span>, <span class="nu0">2</span>, <span class="nu0">3</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">[10:21:38] logging 1 2 3...</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>6.7.6.3/9 Function declarators (including prototypes) &#65288;&#31532; 96 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.16 Variable arguments &lt;stdarg.h&gt; &#65288;&#31532; 197-199 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>6.7.6.3/9 Function declarators (including prototypes) &#65288;&#31532; 133 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.16 Variable arguments &lt;stdarg.h&gt; &#65288;&#31532; 269-272 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c99">
+<ul>
+<li>C99 &#26631;&#20934;&#65288;ISO/IEC 9899:1999&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>6.7.5.3/9 Function declarators (including prototypes) &#65288;&#31532; 119 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.15 Variable arguments &lt;stdarg.h&gt; &#65288;&#31532; 249-252 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c89">
+<ul>
+<li>C89/C90 &#26631;&#20934;&#65288;ISO/IEC 9899:1990&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>3.5.4.3/5 Function declarators (including prototypes)</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>4.8 VARIABLE ARGUMENTS &lt;stdarg.h&gt;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class=""><span>&#21464;&#38271;&#23454;&#21442;</span></span>&#30340; <span><span><a href="cpp-language-variadic_arguments.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

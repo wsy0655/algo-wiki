@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::money_base</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_locale_money_base skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>money_base</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-locale.html">locale</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-locale.html">&lt;locale&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">class</span> money_base<span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#31867; <span class="t-lc"><strong class="selflink">std::money_base</strong></span> &#25552;&#20379;&#20026; <span class="t-lc"><a href="cpp-locale-moneypunct.html">std::moneypunct</a></span>&#12289;<span class="t-lc"><a href="cpp-locale-money_get.html">std::money_get</a></span> &#21644; <span class="t-lc"><a href="cpp-locale-money_put.html">std::money_put</a></span> &#24179;&#38754;&#25152;&#32487;&#25215;&#24182;&#20351;&#29992;&#30340;&#24120;&#37327;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E7.B1.BB.E5.9E.8B">&#25104;&#21592;&#31867;&#22411;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#31867;&#22411;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><span class="mw-geshi cpp source-cpp"><span class="kw2">enum</span> part <span class="br0">{</span> none, space, symbol, sign, value <span class="br0">}</span><span class="sy4">;</span></span></td>
+<td>&#26080;&#20316;&#29992;&#22495;&#26522;&#20030;&#31867;&#22411;</td>
+</tr>
+<tr class="t-dsc">
+<td><span class="mw-geshi cpp source-cpp"><span class="kw1">struct</span> pattern <span class="br0">{</span> <span class="kw4">char</span> field<span class="br0">[</span><span class="nu0">4</span><span class="br0">]</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span></span></td>
+<td>&#36135;&#24065;&#26684;&#24335;&#31867;&#22411;</td>
+</tr>
+</table>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#26522;&#20030;&#24120;&#37327;</td>
+<td>&#35299;&#37322;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>none</code></td>
+<td>&#23481;&#35768;&#20294;&#19981;&#35201;&#27714;&#31354;&#30333;&#31526;&#65292;&#38500;&#20102;&#22312;&#26411;&#20301;&#32622;&#19981;&#23481;&#35768;&#31354;&#30333;&#31526;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>space</code></td>
+<td>&#35201;&#27714;&#19968;&#25110;&#22810;&#20010;&#31354;&#30333;&#23383;&#31526;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>symbol</code></td>
+<td>&#35201;&#27714; <span class="mw-geshi cpp source-cpp">moneypunct<span class="sy4">::</span><span class="me2">curr_symbol</span></span> &#25152;&#36820;&#22238;&#30340;&#23383;&#31526;&#24207;&#21015;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>sign</code></td>
+<td>&#35201;&#27714; <span class="mw-geshi cpp source-cpp">moneypunct<span class="sy4">::</span><span class="me2">positive_sign</span></span> &#25110; <span class="mw-geshi cpp source-cpp">moneypunct<span class="sy4">::</span><span class="me2">negative_sign</span></span> &#25152;&#36820;&#22238;&#30340;&#39318;&#20010;&#23383;&#31526;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>value</code></td>
+<td>&#35201;&#27714;&#32477;&#23545;&#25968;&#20540;&#36135;&#24065;&#20540;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#36135;&#24065;&#26684;&#24335;&#26159;&#21487;&#36716;&#25442;&#20026; <code>std::money_base::part</code> &#30340;&#22235;&#20010; <span class="mw-geshi cpp source-cpp"><span class="kw4">char</span></span> &#30340;&#25968;&#32452;&#12290;&#35813;&#24207;&#21015;&#20013;&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">symbol</span></span>&#12289;<span class="t-c"><span class="mw-geshi cpp source-cpp">sign</span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp">value</span></span> &#30340;&#27599;&#19968;&#20010;&#20934;&#30830;&#20986;&#29616;&#19968;&#27425;&#65292;&#32780; <span class="t-c"><span class="mw-geshi cpp source-cpp">space</span></span> &#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp">none</span></span> &#20986;&#29616;&#20110;&#21097;&#20313;&#20301;&#32622;&#12290;<span class="t-c"><span class="mw-geshi cpp source-cpp">none</span></span> &#30340;&#20540;&#33509;&#23384;&#22312;&#65292;&#21017;&#19981;&#22312;&#39318;&#20301;&#65307;<span class="t-c"><span class="mw-geshi cpp source-cpp">space</span></span> &#30340;&#20540;&#33509;&#23384;&#22312;&#65292;&#21017;&#19981;&#22312;&#39318;&#20301;&#25110;&#26411;&#20301;&#12290;</p>
+<p><span class="t-lc"><a href="cpp-locale-moneypunct.html">std::moneypunct</a></span> &#30340;&#26631;&#20934;&#29305;&#21270;&#25152;&#36820;&#22238;&#30340;&#40664;&#35748;&#26684;&#24335;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">{</span>symbol, sign, none, value<span class="br0">}</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-locale-moneypunct.html"><span class="t-lines"><span>moneypunct</span></span></a></div>
+</div>
+</td>
+<td>&#23450;&#20041; <span class="t-lc"><a href="cpp-locale-money_get.html">std::money_get</a></span> &#19982; <span class="t-lc"><a href="cpp-locale-money_put.html">std::money_put</a></span> &#25152;&#29992;&#30340;&#36135;&#24065;&#26684;&#24335;&#35299;&#26512;&#22120;&#30340;&#21442;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-locale-money_get.html"><span class="t-lines"><span>money_get</span></span></a></div>
+</div>
+</td>
+<td>&#20174;&#36755;&#20837;&#23383;&#31526;&#24207;&#21015;&#20013;&#35299;&#26512;&#24182;&#26500;&#36896;&#36135;&#24065;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-locale-money_put.html"><span class="t-lines"><span>money_put</span></span></a></div>
+</div>
+</td>
+<td>&#26684;&#24335;&#21270;&#36135;&#24065;&#20540;&#20026;&#23383;&#31526;&#24207;&#21015;&#20197;&#36755;&#20986;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

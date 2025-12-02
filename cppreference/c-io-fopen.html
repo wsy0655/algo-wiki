@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>fopen, fopen_s</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_io_fopen skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">fopen, fopen_s</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-io.html">io</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-stdio.html"><tt>&lt;stdio.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+<tbody class="t-dcl-rev t-dcl-rev-num">
+<tr class="t-dcl-rev-aux">
+<td></td>
+<td rowspan="142">(1)</td>
+<td></td>
+</tr>
+<tr class="t-dcl t-until-c99">
+<td>
+<div><span class="mw-geshi c source-c"><a href="c-io.html"><span class="kw883">FILE</span></a> <span class="sy2">*</span>fopen<span class="br0">(</span> <span class="kw4">const</span> <span class="kw4">char</span> <span class="sy2">*</span>filename, <span class="kw4">const</span> <span class="kw4">char</span> <span class="sy2">*</span>mode <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-until-c99" style="white-space: nowrap;">(C99 &#21069;)</span></td>
+</tr>
+<tr class="t-dcl t-since-c99">
+<td>
+<div><span class="mw-geshi c source-c"><a href="c-io.html"><span class="kw883">FILE</span></a> <span class="sy2">*</span>fopen<span class="br0">(</span> <span class="kw4">const</span> <span class="kw4">char</span> <span class="sy2">*</span><span class="kw4">restrict</span> filename, <span class="kw4">const</span> <span class="kw4">char</span> <span class="sy2">*</span><span class="kw4">restrict</span> mode <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99 &#36215;)</span></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="t-dcl t-since-c11">
+<td>
+<div><span class="mw-geshi c source-c">errno_t fopen_s<span class="br0">(</span> <a href="c-io.html"><span class="kw883">FILE</span></a> <span class="sy2">*</span><span class="kw4">restrict</span> <span class="sy2">*</span><span class="kw4">restrict</span> streamptr,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw4">const</span> <span class="kw4">char</span> <span class="sy2">*</span><span class="kw4">restrict</span> filename,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw4">const</span> <span class="kw4">char</span> <span class="sy2">*</span><span class="kw4">restrict</span> mode <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#25171;&#24320; <code>filename</code> &#25152;&#25351;&#31034;&#30340;&#25991;&#20214;&#65292;&#24182;&#36820;&#22238;&#25351;&#21521;&#20851;&#32852;&#21040;&#35813;&#25991;&#20214;&#30340;&#25991;&#20214;&#27969;&#30340;&#25351;&#38024;&#12290; <code>mode</code> &#29992;&#20110;&#30830;&#23450;&#25991;&#20214;&#35775;&#38382;&#27169;&#24335;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#21516;<span class="t-v">(1)</span>&#65292;&#38500;&#20102;&#25351;&#21521;&#25991;&#20214;&#27969;&#30340;&#25351;&#38024;&#34987;&#20889;&#20837; <code>streamptr</code> &#65292;&#36824;&#22312;&#36816;&#34892;&#26102;&#26816;&#27979;&#19979;&#21015;&#38169;&#35823;&#65292;&#24182;&#35843;&#29992;&#24403;&#21069;&#23433;&#35013;&#30340;<a href="c-error-set_constraint_handler_s.html">&#32422;&#26463;&#22788;&#29702;</a>&#20989;&#25968;&#65306;</div>
+<dl>
+<dd>
+<ul>
+<li><code>streamptr</code> &#26159;&#31354;&#25351;&#38024;</li>
+<li><code>filename</code> &#26159;&#31354;&#25351;&#38024;</li>
+<li><code>mode</code> &#26159;&#31354;&#25351;&#38024;</li>
+</ul>
+</dd>
+</dl>
+<p>&#21516;&#25152;&#26377;&#36793;&#30028;&#26816;&#26597;&#20989;&#25968;&#65292;<code>fopen_s</code>&#65292;&#20165;&#33509;&#23454;&#29616;&#23450;&#20041; <span class="t-c"><span class="mw-geshi c source-c">__STDC_LIB_EXT1__</span></span> &#19988;&#29992;&#25143;&#22312;&#21253;&#21547; <a href="c-header-stdio.html"><tt>&lt;stdio.h&gt;</tt></a> &#21069;&#23450;&#20041; <span class="t-c"><span class="mw-geshi c source-c">__STDC_WANT_LIB_EXT1__</span></span> &#20026;&#25972;&#25968;&#24120;&#37327; 1 &#25165;&#20445;&#35777;&#21487;&#29992;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>filename</td>
+<td>-</td>
+<td>&#20851;&#32852;&#21040;&#25991;&#20214;&#31995;&#32479;&#30340;&#25991;&#20214;&#21517;</td>
+</tr>
+<tr class="t-par">
+<td>mode</td>
+<td>-</td>
+<td>&#30830;&#23450;&#35775;&#38382;&#27169;&#24335;&#30340;&#31354;&#32456;&#27490;&#23383;&#31526;&#20018;<a href="c-io-fopen.html#.E6.96.87.E4.BB.B6.E8.AE.BF.E9.97.AE.E6.A0.87.E8.AE.B0">&#25991;&#20214;&#35775;&#38382;&#27169;&#24335;</a></td>
+</tr>
+<tr class="t-par">
+<td>streamptr</td>
+<td>-</td>
+<td>&#25351;&#21521;&#23384;&#20648;&#20989;&#25968;&#32467;&#26524;&#30340;&#25351;&#38024;&#30340;&#25351;&#38024;&#65288;&#36755;&#20986;&#21442;&#25968;&#65289;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.96.87.E4.BB.B6.E8.AE.BF.E9.97.AE.E6.A0.87.E8.AE.B0">&#25991;&#20214;&#35775;&#38382;&#26631;&#35760;</span></h3>
+<table class="wikitable">
+<tr>
+<th>&#25991;&#20214;&#35775;&#38382;<br />
+&#27169;&#24335;&#23383;&#31526;&#20018;</th>
+<th>&#21547;&#20041;</th>
+<th>&#35299;&#37322;</th>
+<th>&#33509;&#25991;&#20214;&#24050;&#23384;&#22312;&#30340;&#21160;&#20316;</th>
+<th>&#33509;&#25991;&#20214;&#19981;&#23384;&#22312;&#30340;&#21160;&#20316;</th>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi c source-c"><span class="st0">&quot;r&quot;</span></span></span></td>
+<td>&#35835;</td>
+<td>&#25171;&#24320;&#25991;&#20214;&#20197;&#35835;&#21462;</td>
+<td>&#20174;&#22836;&#35835;</td>
+<td>&#25171;&#24320;&#22833;&#36133;</td>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi c source-c"><span class="st0">&quot;w&quot;</span></span></span></td>
+<td>&#20889;</td>
+<td>&#21019;&#24314;&#25991;&#20214;&#20197;&#20889;&#20837;</td>
+<td>&#38144;&#27585;&#20869;&#23481;</td>
+<td>&#21019;&#24314;&#26032;&#25991;&#20214;</td>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi c source-c"><span class="st0">&quot;a&quot;</span></span></span></td>
+<td>&#21518;&#38468;</td>
+<td>&#21518;&#38468;&#21040;&#25991;&#20214;</td>
+<td>&#20889;&#21040;&#32467;&#23614;</td>
+<td>&#21019;&#24314;&#26032;&#25991;&#20214;</td>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi c source-c"><span class="st0">&quot;r+&quot;</span></span></span></td>
+<td>&#35835;&#25193;&#23637;</td>
+<td>&#25171;&#24320;&#25991;&#20214;&#20197;&#35835;/&#20889;</td>
+<td>&#20174;&#22836;&#35835;</td>
+<td>&#38169;&#35823;</td>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi c source-c"><span class="st0">&quot;w+&quot;</span></span></span></td>
+<td>&#20889;&#25193;&#23637;</td>
+<td>&#21019;&#24314;&#25991;&#20214;&#20197;&#35835;/&#20889;</td>
+<td>&#38144;&#27585;&#20869;&#23481;</td>
+<td>&#21019;&#24314;&#26032;&#25991;&#20214;</td>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi c source-c"><span class="st0">&quot;a+&quot;</span></span></span></td>
+<td>&#21518;&#38468;&#25193;&#23637;</td>
+<td>&#25171;&#24320;&#25991;&#20214;&#20197;&#35835;/&#20889;</td>
+<td>&#20889;&#21040;&#32467;&#23614;</td>
+<td>&#21019;&#24314;&#26032;&#25991;&#20214;</td>
+</tr>
+<tr>
+<td>&#21487;&#20197;&#21487;&#36873;&#22320;&#25351;&#23450;&#25991;&#20214;&#35775;&#38382;&#27169;&#24335;&#26631;&#35760; <span class="t-c"><span class="mw-geshi c source-c"><span class="st0">&quot;b&quot;</span></span></span> &#26469;&#20197;&#20108;&#36827;&#21046;&#27169;&#24335;&#25171;&#24320;&#25991;&#20214;&#12290;&#27492;&#26631;&#22312; POSIX &#19978;&#27809;&#26377;&#25928;&#26524;&#65292;&#32780;&#22312; Windows &#31995;&#32479;&#19978;&#65292;&#23427;&#31105;&#29992;&#20102;&#23545; <span class="t-c"><span class="mw-geshi c source-c"><span class="st0">&#39;<span class="es1">\n</span>&#39;</span></span></span> &#21644; <span class="t-c"><span class="mw-geshi c source-c"><span class="st0">&#39;<span class="es2">\x1A</span>&#39;</span></span></span> &#29305;&#27530;&#22788;&#29702;&#12290;<br />
+&#22312;&#38468;&#21152;&#25991;&#20214;&#35775;&#38382;&#27169;&#24335;&#19979;&#65292;&#25968;&#25454;&#34987;&#20889;&#20837;&#21040;&#25991;&#20214;&#23614;&#65292;&#32780;&#19981;&#32771;&#34385;&#25991;&#20214;&#20301;&#32622;&#25351;&#31034;&#22120;&#30340;&#24403;&#21069;&#20301;&#32622;&#12290;</td>
+</tr>
+<tr>
+<td>&#22914;&#26524;&#27169;&#24335;&#19981;&#26159;&#20197;&#19978;&#25152;&#21015;&#23383;&#31526;&#20018;&#20043;&#19968;&#65292;&#21017;&#20854;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;&#19968;&#20123;&#23454;&#29616;&#20250;&#23450;&#20041;&#39069;&#22806;&#25903;&#25345;&#30340;&#27169;&#24335;&#65288;&#27604;&#22914; <a rel="nofollow" class="external text" href="https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/fopen-wfopen">Windows</a>&#65289;&#12290;</td>
+</tr>
+<tr>
+<td>&#22312;&#26356;&#26032;&#27169;&#24335;&#65288;<span class="t-c"><span class="mw-geshi c source-c"><span class="st0">&#39;+&#39;</span></span></span>&#65289;&#20013;&#65292;&#36755;&#20837;&#21644;&#36755;&#20986;&#22343;&#21487;&#36827;&#34892;&#65292;&#28982;&#32780;&#36755;&#20986;&#19981;&#24212;&#30452;&#25509;&#32039;&#38543;&#36755;&#20837;&#65292;&#32780;&#20013;&#38388;&#26080;&#23545; <span class="t-lc"><a href="c-io-fflush.html">fflush</a></span>&#12289;<span class="t-lc"><a href="c-io-fseek.html">fseek</a></span>&#12289;<span class="t-lc"><a href="c-io-fsetpos.html">fsetpos</a></span> &#25110; <span class="t-lc"><a href="c-io-rewind.html">rewind</a></span> &#30340;&#35843;&#29992;&#65292;&#19988;&#36755;&#20837;&#19981;&#24212;&#30452;&#25509;&#32039;&#38543;&#36755;&#20986;&#65292;&#32780;&#20013;&#38388;&#26080;&#23545; <span class="t-lc"><a href="c-io-fseek.html">fseek</a></span>&#12289;<span class="t-lc"><a href="c-io-fsetpos.html">fsetpos</a></span> &#25110; <span class="t-lc"><a href="c-io-rewind.html">rewind</a></span> &#30340;&#35843;&#29992;&#65292;&#38500;&#38750;&#36755;&#20837;&#25805;&#20316;&#36935;&#21040;&#25991;&#20214;&#23614;&#12290;&#22312;&#26356;&#26032;&#27169;&#24335;&#20013;&#65292;&#20801;&#35768;&#21508;&#23454;&#29616;&#22312;&#21363;&#20415;&#25351;&#23450;&#20102;&#25991;&#26412;&#27169;&#24335;&#26102;&#20173;&#20351;&#29992;&#20108;&#36827;&#21046;&#27169;&#24335;&#12290;</td>
+</tr>
+<tr>
+<td>&#25991;&#20214;&#35775;&#38382;&#27169;&#24335;&#26631;&#35760; <span class="t-c"><span class="mw-geshi c source-c"><span class="st0">&quot;x&quot;</span></span></span> &#21487;&#20197;&#21487;&#36873;&#22320;&#21518;&#38468;&#20110; <span class="t-c"><span class="mw-geshi c source-c"><span class="st0">&quot;w&quot;</span></span></span> &#25110; <span class="t-c"><span class="mw-geshi c source-c"><span class="st0">&quot;w+&quot;</span></span></span> &#25351;&#23450;&#31526;&#12290;&#33509;&#25991;&#20214;&#23384;&#22312;&#65292;&#21017;&#27492;&#26631;&#35760;&#24378;&#21046;&#20989;&#25968;&#22833;&#36133;&#65292;&#32780;&#19981;&#37325;&#20889;&#23427;&#12290;<span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></td>
+</tr>
+<tr>
+<td>&#20351;&#29992; <span class="t-lc">fopen_s</span> &#25110; <span class="t-lc">freopen_s</span> &#26102;&#65292;&#20219;&#20309;&#20197; <span class="t-c"><span class="mw-geshi c source-c"><span class="st0">&quot;w&quot;</span></span></span> &#25110; <span class="t-c"><span class="mw-geshi c source-c"><span class="st0">&quot;a&quot;</span></span></span> &#21019;&#24314;&#30340;&#25991;&#20214;&#30340;&#25991;&#20214;&#35775;&#38382;&#35768;&#21487;&#22343;&#31105;&#27490;&#20854;&#20182;&#29992;&#25143;&#35775;&#38382;&#23427;&#12290;&#25991;&#20214;&#35775;&#38382;&#27169;&#24335;&#26631;&#31614; <code>&quot;u&quot;</code> &#21487;&#20197;&#21487;&#36873;&#22320;&#21069;&#38468;&#20110;&#20219;&#20309;&#20197; <span class="t-c"><span class="mw-geshi c source-c"><span class="st0">&quot;w&quot;</span></span></span> &#25110; <span class="t-c"><span class="mw-geshi c source-c"><span class="st0">&quot;a&quot;</span></span></span> &#24320;&#22987;&#30340;&#25351;&#23450;&#31526;&#65292;&#20197;&#21551;&#29992;&#40664;&#35748;&#30340; <span class="t-lc"><strong class="selflink">fopen</strong></span> &#35768;&#21487;&#12290;<span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<div class="t-li1"><span class="t-li">1)</span> &#33509;&#25104;&#21151;&#65292;&#21017;&#36820;&#22238;&#25351;&#21521;&#26032;&#25991;&#20214;&#27969;&#30340;&#25351;&#38024;&#12290;&#27969;&#20026;&#23436;&#20840;&#32531;&#20914;&#65292;&#38500;&#38750; <code>filename</code> &#34920;&#31034;&#19968;&#20010;&#20132;&#20114;&#35774;&#22791;&#12290;&#38169;&#35823;&#26102;&#65292;&#36820;&#22238;&#31354;&#25351;&#38024;&#12290; <a rel="nofollow" class="external text" href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/fopen.html">POSIX &#35201;&#27714;</a>&#27492;&#24773;&#20917;&#19979;&#24517;&#39035;&#35774;&#32622; <span class="t-lc"><a href="c-error-errno.html">errno</a></span> &#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#33509;&#25104;&#21151;&#65292;&#21017;&#36820;&#22238;&#38646;&#24182;&#23558;&#26032;&#25991;&#20214;&#27969;&#25351;&#38024;&#20889;&#20837; <span class="t-c"><span class="mw-geshi c source-c"><span class="sy2">*</span>streamptr</span></span> &#12290;&#38169;&#35823;&#26102;&#65292;&#36820;&#22238;&#38750;&#38646;&#38169;&#35823;&#30721;&#24182;&#23558;&#31354;&#25351;&#38024;&#20889;&#20837; <span class="t-c"><span class="mw-geshi c source-c"><span class="sy2">*</span>streamptr</span></span> &#65288;&#38500;&#38750; <code>streamptr</code> &#33258;&#36523;&#20063;&#26159;&#31354;&#25351;&#38024;&#65289;&#12290;</div>
+<h3><span class="mw-headline" id=".E6.B3.A8.E6.84.8F">&#27880;&#24847;</span></h3>
+<p><code>filename</code> &#30340;&#26684;&#24335;&#26159;&#23454;&#29616;&#23450;&#20041;&#30340;&#65292;&#32780;&#19988;&#19981;&#38656;&#35201;&#34920;&#31034;&#19968;&#20010;&#25991;&#20214;&#65288;&#35692;&#22914;&#21487;&#20197;&#26159;&#25511;&#21046;&#21488;&#25110;&#21478;&#19968;&#33021;&#36890;&#36807;&#25991;&#20214;&#31995;&#32479; API &#35775;&#38382;&#30340;&#35774;&#22791;&#65289;&#12290;&#22312;&#25903;&#25345;&#30340;&#24179;&#21488;&#19978;&#65292; <code>filename</code> &#21487;&#20197;&#21253;&#21547;&#32477;&#23545;&#25110;&#30456;&#23545;&#36335;&#24452;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#include &lt;stdlib.h&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> fname <span class="sy1">=</span> <span class="st0">&quot;/tmp/unique_name.txt&quot;</span><span class="sy4">;</span> <span class="co1">// &#25110; tmpnam(NULL);</span>
+    <span class="kw4">int</span> is_ok <span class="sy1">=</span> <a href="c-program-EXIT_status.html"><span class="kw494">EXIT_FAILURE</span></a><span class="sy4">;</span>
+ 
+    <a href="c-io.html"><span class="kw883">FILE</span></a><span class="sy2">*</span> fp <span class="sy1">=</span> fopen<span class="br0">(</span>fname, <span class="st0">&quot;w+&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span><span class="sy3">!</span>fp<span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="c-io-perror.html"><span class="kw878">perror</span></a><span class="br0">(</span><span class="st0">&quot;File opening failed&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+        <span class="kw1">return</span> is_ok<span class="sy4">;</span>
+    <span class="br0">}</span>
+    <a href="c-io-fputs.html"><span class="kw831">fputs</span></a><span class="br0">(</span><span class="st0">&quot;Hello, world!<span class="es1">\n</span>&quot;</span>, fp<span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-rewind.html"><span class="kw874">rewind</span></a><span class="br0">(</span>fp<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw4">int</span> c<span class="sy4">;</span> <span class="co1">// &#27880;&#24847;&#65306;&#20026;&#22788;&#29702; EOF &#38656;&#35201; int &#32780;&#38750; char</span>
+    <span class="kw1">while</span> <span class="br0">(</span><span class="br0">(</span>c <span class="sy1">=</span> <a href="c-io-fgetc.html"><span class="kw826">fgetc</span></a><span class="br0">(</span>fp<span class="br0">)</span><span class="br0">)</span> <span class="sy3">!</span><span class="sy1">=</span> <a href="c-io.html"><span class="kw888">EOF</span></a><span class="br0">)</span> <span class="co1">// &#26631;&#20934; C &#30340; I/O &#25991;&#20214;&#35835;&#21462;&#24490;&#29615;</span>
+       <a href="c-io-putchar.html"><span class="kw834">putchar</span></a><span class="br0">(</span>c<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw1">if</span> <span class="br0">(</span><a href="c-io-ferror.html"><span class="kw877">ferror</span></a><span class="br0">(</span>fp<span class="br0">)</span><span class="br0">)</span>
+        <a href="c-io-puts.html"><span class="kw835">puts</span></a><span class="br0">(</span><span class="st0">&quot;&#35835;&#21462;&#26102;&#21457;&#29983; I/O &#38169;&#35823;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">else</span> <span class="kw1">if</span> <span class="br0">(</span><a href="c-io-feof.html"><span class="kw876">feof</span></a><span class="br0">(</span>fp<span class="br0">)</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="c-io-puts.html"><span class="kw835">puts</span></a><span class="br0">(</span><span class="st0">&quot;&#25104;&#21151;&#25269;&#36798;&#25991;&#20214;&#26411;&#23614;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+        is_ok <span class="sy1">=</span> <a href="c-program-EXIT_status.html"><span class="kw493">EXIT_SUCCESS</span></a><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <a href="c-io-fclose.html"><span class="kw821">fclose</span></a><span class="br0">(</span>fp<span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-remove.html"><span class="kw879">remove</span></a><span class="br0">(</span>fname<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">return</span> is_ok<span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">Hello, world!
+&#25104;&#21151;&#25269;&#36798;&#25991;&#20214;&#26411;&#23614;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.21.5.3 The fopen function &#65288;&#31532; 223-224 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.5.2.1 The fopen_s function &#65288;&#31532; 428-429 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.21.5.3 The fopen function &#65288;&#31532; 305-306 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.5.2.1 The fopen_s function &#65288;&#31532; 588-590 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c99">
+<ul>
+<li>C99 &#26631;&#20934;&#65288;ISO/IEC 9899:1999&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.19.5.3 The fopen function &#65288;&#31532; 271-272 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c89">
+<ul>
+<li>C89/C90 &#26631;&#20934;&#65288;ISO/IEC 9899:1990&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>4.9.5.3 The fopen function</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-io-fclose.html"><span class="t-lines"><span>fclose</span></span></a></div>
+</div>
+</td>
+<td>&#20851;&#38381;&#25991;&#20214;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-io-fflush.html"><span class="t-lines"><span>fflush</span></span></a></div>
+</div>
+</td>
+<td>&#23558;&#36755;&#20986;&#27969;&#19982;&#23454;&#38469;&#25991;&#20214;&#21516;&#27493;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-io-freopen.html"><span class="t-lines"><span>freopen</span><span>freopen_s</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#20197;&#19981;&#21516;&#21517;&#31216;&#25171;&#24320;&#26082;&#23384;&#30340;&#25991;&#20214;&#27969;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>fopen</span></span>&nbsp;&#30340; <span><span><a href="cpp-io-c-fopen.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

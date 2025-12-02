@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>C++ &#20855;&#21517;&#35201;&#27714;&#65306;&#26080;&#26684;&#24335;&#36755;&#20837;&#20989;&#25968; (UnformattedInputFunction)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_named_req_UnformattedInputFunction skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">C++ &#20855;&#21517;&#35201;&#27714;&#65306;</span><span style="font-style:italic">&#26080;&#26684;&#24335;&#36755;&#20837;&#20989;&#25968;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(UnformattedInputFunction)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-named_req.html">named req</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<h3><span class="mw-headline" id=".E8.A6.81.E6.B1.82">&#35201;&#27714;</span></h3>
+<p><strong class="selflink"><span style="font-style:italic">&#26080;&#26684;&#24335;&#36755;&#20837;&#20989;&#25968;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(UnformattedInputFunction)</span></strong> &#26159;&#36827;&#34892;&#19979;&#21015;&#25805;&#20316;&#30340;&#27969;&#36755;&#20837;&#20989;&#25968;&#65306;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#26500;&#36896;&#20855;&#26377;&#33258;&#21160;&#23384;&#20648;&#26399;&#30340; <a href="cpp-io-basic_istream-sentry.html"><tt>basic_istream::sentry</tt></a> &#31867;&#22411;&#30340;&#23545;&#35937;&#65292;&#24182;&#23558; <code>noskipws</code> &#23454;&#21442;&#35774;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#36825;&#20250;&#36827;&#34892;&#19979;&#21015;&#25805;&#20316;&#65306;
+<ul>
+<li>&#22914;&#26524;&#36755;&#20837;&#27969;&#24050;&#32463;&#35774;&#32622;&#20102; <a href="cpp-io-ios_base-iostate.html"><tt>eofbit</tt></a> &#25110; <a href="cpp-io-ios_base-iostate.html"><tt>badbit</tt></a>&#65292;&#37027;&#20040;&#20250;&#19968;&#24182;&#35774;&#32622; <a href="cpp-io-ios_base-iostate.html"><tt>failbit</tt></a>&#65292;&#19988;&#22914;&#26524;&#27492;&#36755;&#20837;&#27969;&#30340;<a href="cpp-io-basic_ios-exceptions.html">&#24322;&#24120;&#25513;&#30721;</a>&#20013;&#21551;&#29992;&#20102; <code>failbit</code> &#19978;&#30340;&#24322;&#24120;&#65288;<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span>exceptions<span class="br0">(</span><span class="br0">)</span> <span class="sy3">&amp;</span> failbit<span class="br0">)</span> <span class="sy3">!</span><span class="sy1">=</span> <span class="nu0">0</span></span></span>&#65289;&#65292;&#37027;&#20040;&#20250;&#25243;&#20986; <a href="cpp-io-ios_base-failure.html"><tt>ios_base::failure</tt></a>&#12290;</li>
+<li>&#20914;&#27927;&#23427;&#25152; tie() &#30340;&#36755;&#20986;&#27969;&#30340;&#32531;&#20914;&#21306;&#65292;&#22914;&#26524;&#36866;&#29992;&#12290;</li>
+</ul>
+</div>
+<div class="t-li1"><span class="t-li">2)</span> &#36890;&#36807;&#35843;&#29992; <code>sentry::operator bool()</code> &#26816;&#26597;&#21736;&#20853;&#30340;&#29366;&#24577;&#65292;&#36825;&#31561;&#20215;&#20110; <a href="cpp-io-basic_ios-good.html"><tt>basic_ios::good</tt></a>&#12290;
+<ul>
+<li>&#22914;&#26524;&#36816;&#31639;&#31526;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span> &#25110;&#21736;&#20853;&#30340;&#26500;&#36896;&#20989;&#25968;&#25243;&#20986;&#20102;&#24322;&#24120;&#65292;&#37027;&#20040;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>&#35774;&#32622;&#36755;&#20837;&#27969;&#20013;&#30340;&#24050;&#25552;&#21462;&#23383;&#31526;&#25968;&#65288;<code>gcount</code>&#65289;&#20026;&#38646;&#12290;</li>
+<li>&#22914;&#26524;&#35813;&#20989;&#25968;&#26159;&#20026;&#20102;&#20889;&#20837;&#26576;&#20010; <code>CharT</code> &#30340;&#25968;&#32452;&#32780;&#35843;&#29992;&#65292;&#37027;&#20040;&#21521;&#35813;&#25968;&#32452;&#30340;&#39318;&#20010;&#20301;&#32622;&#20889;&#20837; <code>CharT()</code>&#65288;&#31354;&#23383;&#31526;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<ul>
+<li>&#22914;&#26524;&#36816;&#31639;&#31526;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#37027;&#20040;&#22914;&#21516;&#20197;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">rdbuf<span class="br0">(</span><span class="br0">)</span><span class="sy2">-</span><span class="sy1">&gt;</span>sbumpc<span class="br0">(</span><span class="br0">)</span></span></span> &#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp">rdbuf<span class="br0">(</span><span class="br0">)</span><span class="sy2">-</span><span class="sy1">&gt;</span>sgetc<span class="br0">(</span><span class="br0">)</span></span></span> &#26469;&#23454;&#26045;&#36755;&#20837;&#12290;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>&#22914;&#26524;&#25269;&#36798;&#20102;&#27969;&#23614;&#65288;&#23545; <span class="t-c"><span class="mw-geshi cpp source-cpp">rdbuf<span class="br0">(</span><span class="br0">)</span><span class="sy2">-</span><span class="sy1">&gt;</span>sbumpc<span class="br0">(</span><span class="br0">)</span></span></span> &#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp">rdbuf<span class="br0">(</span><span class="br0">)</span><span class="sy2">-</span><span class="sy1">&gt;</span>sgetc<span class="br0">(</span><span class="br0">)</span></span></span> &#30340;&#35843;&#29992;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp">Traits<span class="sy4">::</span><span class="me2">eof</span><span class="br0">(</span><span class="br0">)</span></span></span>&#65289;&#65292;&#37027;&#20040;&#35774;&#32622; <code>eofbit</code>&#12290;&#22914;&#26524;&#27492;&#27969;&#30340;<a href="cpp-io-basic_ios-exceptions.html">&#24322;&#24120;&#25513;&#30721;</a>&#20013;&#21551;&#29992;&#20102; <code>eofbit</code> &#19978;&#30340;&#24322;&#24120;&#65288;<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span>exceptions<span class="br0">(</span><span class="br0">)</span> <span class="sy3">&amp;</span> eofbit<span class="br0">)</span> <span class="sy3">!</span><span class="sy1">=</span> <span class="nu0">0</span></span></span>&#65289;&#65292;&#37027;&#20040;&#23601;&#20250;&#25243;&#20986; <a href="cpp-io-ios_base-failure.html"><tt>ios_base::failure</tt></a>&#12290;</li>
+<li>&#22914;&#26524;&#36755;&#20837;&#36807;&#31243;&#20013;&#25243;&#20986;&#20102;&#24322;&#24120;&#65292;&#37027;&#20040;&#35774;&#32622;&#36755;&#20837;&#27969;&#20013;&#30340; <code>badbit</code>&#12290;&#22914;&#26524;&#27492;&#27969;&#30340;<a href="cpp-io-basic_ios-exceptions.html">&#24322;&#24120;&#25513;&#30721;</a>&#20013;&#21551;&#29992;&#20102; <code>badbit</code> &#19978;&#30340;&#24322;&#24120;&#65288;<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span>exceptions<span class="br0">(</span><span class="br0">)</span> <span class="sy3">&amp;</span> badbit<span class="br0">)</span> <span class="sy3">!</span><span class="sy1">=</span> <span class="nu0">0</span></span></span>&#65289;&#65292;&#37027;&#20040;&#36824;&#35201;&#37325;&#25243;&#36825;&#20010;&#24322;&#24120;&#12290;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>&#20174; <a href="cpp-io-basic_ios-clear.html"><tt>basic_ios::clear</tt></a> &#20013;&#25243;&#20986;&#30340;&#24322;&#24120;&#19981;&#20250;&#34987;&#25429;&#33719;&#25110;&#37325;&#25243;&#12290;</li>
+</ul>
+</dd>
+</dl>
+<ul>
+<li>&#22914;&#26524;&#36755;&#20837;&#36807;&#31243;&#20013;&#27809;&#26377;&#25243;&#20986;&#24322;&#24120;&#65292;&#37027;&#20040;&#23601;&#20250;&#35774;&#32622;&#36755;&#20837;&#27969;&#20013;&#30340;&#24050;&#25552;&#21462;&#23383;&#31526;&#25968;&#65288;<code>gcount</code>&#65289;&#12290;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-li1"><span class="t-li">3)</span> &#22312;&#20219;&#20309;&#20107;&#20214;&#20013;&#65292;&#26080;&#35770;&#26159;&#24322;&#24120;&#32456;&#27490;&#36824;&#26159;&#36820;&#22238;&#65292;&#31163;&#24320;&#27492;&#20989;&#25968;&#21069;&#37117;&#20250;&#35843;&#29992;&#21736;&#20853;&#30340;&#26512;&#26500;&#20989;&#25968;&#12290;</div>
+<h3><span class="mw-headline" id=".E6.A0.87.E5.87.86.E5.BA.93">&#26631;&#20934;&#24211;</span></h3>
+<p>&#19979;&#21015;&#26631;&#20934;&#24211;&#20989;&#25968;&#26159;<strong class="selflink"><span style="font-style:italic">&#26080;&#26684;&#24335;&#36755;&#20837;&#20989;&#25968;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(UnformattedInputFunction)</span></strong> &#12290;</p>
+<ul>
+<li><span class="t-lc"><a href="cpp-string-basic_string-getline.html">std::getline</a></span>&#65292;&#20294;&#23427;&#19981;&#20462;&#25913; <code>gcount</code></li>
+<li><a href="cpp-io-basic_istream-operator_gtgt.html"><tt>basic_istream::operator&gt;&gt;<span class="t-dsc-small">(basic_streambuf*)</span></tt></a></li>
+<li><a href="cpp-io-basic_istream-get.html"><tt>basic_istream::get</tt></a></li>
+<li><a href="cpp-io-basic_istream-getline.html"><tt>basic_istream::getline</tt></a></li>
+<li><a href="cpp-io-basic_istream-ignore.html"><tt>basic_istream::ignore</tt></a></li>
+<li><a href="cpp-io-basic_istream-peek.html"><tt>basic_istream::peek</tt></a></li>
+<li><a href="cpp-io-basic_istream-read.html"><tt>basic_istream::read</tt></a></li>
+<li><a href="cpp-io-basic_istream-readsome.html"><tt>basic_istream::readsome</tt></a></li>
+<li><a href="cpp-io-basic_istream-putback.html"><tt>basic_istream::putback</tt></a>&#65292;&#20294;&#23427;&#39318;&#20808;&#28165;&#38500; <code>eofbit</code></li>
+<li><a href="cpp-io-basic_istream-unget.html"><tt>basic_istream::unget</tt></a>&#65292;&#20294;&#23427;&#39318;&#20808;&#28165;&#38500; <code>eofbit</code></li>
+<li><a href="cpp-io-basic_istream-sync.html"><tt>basic_istream::sync</tt></a>&#65292;&#20294;&#23427;&#19981;&#20462;&#25913; <code>gcount</code></li>
+<li><a href="cpp-io-basic_istream-tellg.html"><tt>basic_istream::tellg</tt></a>&#65292;&#20294;&#23427;&#19981;&#20462;&#25913; <code>gcount</code></li>
+<li><a href="cpp-io-basic_istream-seekg.html"><tt>basic_istream::seekg</tt></a>&#65292;&#20294;&#23427;&#39318;&#20808;&#28165;&#38500; <code>eofbit</code> &#19988;&#19981;&#20462;&#25913; <code>gcount</code></li>
+<li><span class="t-lc"><a href="cpp-io-manip-ws.html">std::ws</a></span>&#65292;&#20294;&#23427;&#19981;&#20462;&#25913; <code>gcount</code></li>
+</ul>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue61">LWG 61</a></td>
+<td>C++98</td>
+<td>&#19981;&#26126;&#30830;&#30001;&#20110;&#35774;&#32622; <code>eofbit</code> &#21644;/&#25110; <code>failbit</code><br />
+&#32780;&#25243;&#20986;&#24322;&#24120;&#26159;&#21542;&#20250;&#23548;&#33268; <code>badbit</code> &#34987;&#35774;&#32622;</td>
+<td>&#20174; <a href="cpp-io-basic_ios-clear.html"><tt>basic_ios::clear</tt></a> &#20013;<br />
+&#25243;&#20986;&#30340;&#24322;&#24120;&#19981;&#20250;&#34987;&#25429;&#33719;&#25110;&#37325;&#25243;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue160">LWG 160</a></td>
+<td>C++98</td>
+<td>&#30830;&#23450;&#26159;&#21542;&#38656;&#35201;&#37325;&#25243;&#24322;&#24120;&#30340;&#27969;&#31243;&#20013;&#25552;&#21040;&#20102;&#19981;&#23384;&#22312;&#30340;&#20989;&#25968; <code>exception()</code></td>
+<td>&#25913;&#25104; <a href="cpp-io-basic_ios-exceptions.html"><tt>exceptions()</tt></a></td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue243">LWG 243</a></td>
+<td>C++98</td>
+<td>&#26410;&#25351;&#26126;&#22312; <code>sentry::operator bool()</code> &#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span> &#25110; sentry &#23545;&#35937;&#26500;&#36896;&#22833;&#36133;&#26102;&#30340;&#34892;&#20026;</td>
+<td>&#24050;&#25351;&#26126;</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

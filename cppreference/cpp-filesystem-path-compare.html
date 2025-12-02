@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::filesystem::path::compare</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_filesystem_path_compare skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::filesystem::path::</span>compare</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-filesystem.html">filesystem</a>&lrm; | <a href="cpp-filesystem-path.html">path</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">int</span> compare<span class="br0">(</span> <span class="kw4">const</span> path<span class="sy3">&amp;</span> p <span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">int</span> compare<span class="br0">(</span> <span class="kw4">const</span> string_type<span class="sy3">&amp;</span> str <span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span><br />
+<span class="kw4">int</span> compare<span class="br0">(</span> <a href="cpp-string-basic_string_view.html"><span class="kw1249">std::<span class="me2">basic_string_view</span></span></a><span class="sy1">&lt;</span>value_type<span class="sy1">&gt;</span> str <span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">int</span> compare<span class="br0">(</span> <span class="kw4">const</span> value_type<span class="sy2">*</span> s <span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span></span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#27604;&#36739; <code>path</code> &#19982;&#21478;&#19968; <code>path</code> &#30340;&#35789;&#27861;&#34920;&#31034;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">root_name<span class="br0">(</span><span class="br0">)</span>.<span class="me1">native</span><span class="br0">(</span><span class="br0">)</span>.<span class="me1">compare</span><span class="br0">(</span>p.<span class="me1">root_name</span><span class="br0">(</span><span class="br0">)</span>.<span class="me1">native</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span> &#38750;&#38646;&#65292;&#21017;&#36820;&#22238;&#35813;&#20540;&#12290;</div>
+<div class="t-li1"><span class="t-li"></span> &#21542;&#21017;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">has_root_directory<span class="br0">(</span><span class="br0">)</span> <span class="sy3">!</span><span class="sy1">=</span> p.<span class="me1">has_root_directory</span><span class="br0">(</span><span class="br0">)</span></span></span>&#65292;&#21017;&#33509; <a href="cpp-filesystem-path-has_path.html"><code>has_root_directory()</code></a> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span> &#21017;&#36820;&#22238;&#23567;&#20110;&#38646;&#30340;&#20540;&#65292;&#21542;&#21017;&#36820;&#22238;&#22823;&#20110;&#38646;&#30340;&#20540;&#12290;</div>
+<div class="t-li1"><span class="t-li"></span> &#21542;&#21017;&#65292;&#33509; <code>path</code> &#30340;&#30456;&#23545;&#37096;&#20998; (<a href="cpp-filesystem-path-relative_path.html"><code>relative_path()</code></a>) &#20998;&#21035;&#25353;&#23383;&#20856;&#24207;&#23567;&#20110;&#12289;&#31561;&#20110;&#25110;&#22823;&#20110; <code>p</code> &#30340;&#30456;&#23545;&#37096;&#20998; (<span class="t-c"><span class="mw-geshi cpp source-cpp">p.<span class="me1">relative_path</span><span class="br0">(</span><span class="br0">)</span></span></span>)&#65292;&#21017;&#20998;&#21035;&#36820;&#22238;&#23567;&#20110;&#12289;&#31561;&#20110;&#25110;&#22823;&#20110; <span class="texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">0</span> &#30340;&#20540;&#12290;&#36880;&#20803;&#32032;&#36827;&#34892;&#27604;&#36739;&#65292;&#22914;&#21516;&#20174;<a href="cpp-filesystem-path-begin.html"><code>begin()</code></a> &#21040; <a href="cpp-filesystem-path-begin.html"><code>end()</code></a> &#36845;&#20195; <code>path</code>&#65292;&#24182;&#27604;&#36739;&#21508;&#20803;&#32032;&#30340; <a href="cpp-filesystem-path-native.html"><code>native()</code></a>&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">compare<span class="br0">(</span>path<span class="br0">(</span>str<span class="br0">)</span><span class="br0">)</span></span></span>&#12290;</div>
+<div class="t-li1"><span class="t-li">3)</span> &#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">compare<span class="br0">(</span>path<span class="br0">(</span>s<span class="br0">)</span><span class="br0">)</span></span></span>&#12290;</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>p</td>
+<td>-</td>
+<td>&#35201;&#27604;&#36739;&#30340; <code>path</code></td>
+</tr>
+<tr class="t-par">
+<td>str</td>
+<td>-</td>
+<td>&#34920;&#31034;&#35201;&#27604;&#36739;&#30340;&#34920;&#31034;&#36335;&#24452;&#30340;&#23383;&#31526;&#20018;&#25110;&#23383;&#31526;&#20018;&#35270;&#22270;</td>
+</tr>
+<tr class="t-par">
+<td>s</td>
+<td>-</td>
+<td>&#34920;&#31034;&#35201;&#27604;&#36739;&#30340;&#36335;&#24452;&#30340;&#31354;&#32456;&#27490;&#23383;&#31526;&#20018;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#33509; <code>path</code> &#25353;&#23383;&#20856;&#24207;&#23567;&#20110;&#32473;&#23450; <code>path</code> &#21017;&#20026;&#23567;&#20110; <span class="texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">0</span> &#30340;&#20540;&#12290;</p>
+<p>&#33509; <code>path</code> &#25353;&#23383;&#20856;&#24207;&#31561;&#20110;&#32473;&#23450; <code>path</code> &#21017;&#20026;&#31561;&#20110; <span class="texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">0</span> &#30340;&#20540;&#12290;</p>
+<p>&#33509; <code>path</code> &#25353;&#23383;&#20856;&#24207;&#22823;&#20110;&#32473;&#23450; <code>path</code> &#21017;&#20026;&#22823;&#20110; <span class="texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">0</span> &#30340;&#20540;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<div class="t-li1"><span class="t-li">2,3)</span> &#21487;&#33021;&#20250;&#25243;&#20986;&#30001;&#23454;&#29616;&#23450;&#20041;&#30340;&#24322;&#24120;&#12290;</div>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#23545;&#20110;&#21452;&#36335;&#27604;&#36739;&#65292;<a href="cpp-filesystem-path-operator_cmp.html">&#20108;&#20803;&#36816;&#31639;&#31526;</a>&#21487;&#33021;&#26356;&#36866;&#21512;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;filesystem&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;string_view&gt;</span>
+<span class="kw1">namespace</span> fs <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">filesystem</span><span class="sy4">;</span>
+ 
+<span class="kw4">void</span> demo<span class="br0">(</span>fs<span class="sy4">::</span><span class="me2">path</span> p1, fs<span class="sy4">::</span><span class="me2">path</span> p2, <a href="cpp-string-basic_string_view.html"><span class="kw1251">std::<span class="me2">string_view</span></span></a> msg<span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> p1<span class="sy4">;</span>
+    <span class="kw4">const</span> <span class="kw4">int</span> rc <span class="sy1">=</span> p1.<span class="me1">compare</span><span class="br0">(</span>p2<span class="br0">)</span><span class="sy4">;</span> 
+    <span class="kw1">if</span> <span class="br0">(</span>rc <span class="sy1">&lt;</span> <span class="nu0">0</span><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; &lt; &quot;</span><span class="sy4">;</span>
+    <span class="kw1">else</span> <span class="kw1">if</span> <span class="br0">(</span>rc <span class="sy1">&gt;</span> <span class="nu0">0</span><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; &gt; &quot;</span><span class="sy4">;</span>
+    <span class="kw1">else</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; == &quot;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> p2 <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; <span class="es1">\t</span>: &quot;</span> <span class="sy1">&lt;&lt;</span> msg <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    demo<span class="br0">(</span><span class="st0">&quot;/a/b/&quot;</span>, <span class="st0">&quot;/a/b/&quot;</span>, <span class="st0">&quot;&#31616;&#21333;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    demo<span class="br0">(</span><span class="st0">&quot;/a/b/&quot;</span>, <span class="st0">&quot;/a/b/c&quot;</span>, <span class="st0">&quot;&#31616;&#21333;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    demo<span class="br0">(</span><span class="st0">&quot;/a/b/../b&quot;</span>, <span class="st0">&quot;/a/b&quot;</span>, <span class="st0">&quot;&#26080;&#35268;&#33539;&#36716;&#25442;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    demo<span class="br0">(</span><span class="st0">&quot;/a/b&quot;</span>, <span class="st0">&quot;/a/b/.&quot;</span>, <span class="st0">&quot;&#26080;&#35268;&#33539;&#36716;&#25442;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    demo<span class="br0">(</span><span class="st0">&quot;/a/b/&quot;</span>, <span class="st0">&quot;a/c&quot;</span>, <span class="st0">&quot;&#32477;&#23545;&#36335;&#24452;&#25353;&#24207;&#22312;&#30456;&#23545;&#36335;&#24452;&#20043;&#21518;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&quot;/a/b/&quot; == &quot;/a/b/&quot;      : &#31616;&#21333;
+&quot;/a/b/&quot; &lt; &quot;/a/b/c&quot;   : &#31616;&#21333;
+&quot;/a/b/../b&quot; &gt; &quot;/a/b&quot; : &#26080;&#35268;&#33539;&#36716;&#25442;
+&quot;/a/b&quot; &lt; &quot;/a/b/.&quot;    : &#26080;&#35268;&#33539;&#36716;&#25442;
+&quot;/a/b/&quot; &gt; &quot;a/c&quot;              : &#32477;&#23545;&#36335;&#24452;&#25353;&#24207;&#22312;&#30456;&#23545;&#36335;&#24452;&#20043;&#21518;</pre></div>
+</div>
+</div>
+<p><br /></p>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue2936">LWG 2936</a></td>
+<td>C++17</td>
+<td>&#30452;&#25509;&#27604;&#36739;&#25152;&#26377;&#36335;&#24452;&#20803;&#32032;</td>
+<td>&#20998;&#24320;&#22788;&#29702;&#26681;&#21517;&#19982;&#26681;&#30446;&#24405;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-operator_cmp.html"><span class="t-lines"><span>operator==</span><span>operator!=</span><span>operator&lt;</span><span>operator&lt;=</span><span>operator&gt;</span><span>operator&gt;=</span><span>operator&lt;=&gt;</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#21069;)</span></span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#21069;)</span></span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#21069;)</span></span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#21069;)</span></span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#21069;)</span></span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#20197;&#23383;&#20856;&#24207;&#27604;&#36739;&#20004;&#20010;&#36335;&#24452;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

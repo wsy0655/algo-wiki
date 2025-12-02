@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>iter_move(ranges::concat_view::iterator)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_ranges_concat_view_iterator_iter_move skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">iter_move<span style="font-size:0.8em; line-height:125%">(ranges::concat_view::<i>iterator</i>)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-ranges.html">ranges</a>&lrm; | <a href="cpp-ranges-concat_view.html">concat view</a>&lrm; | <a href="cpp-ranges-concat_view-iterator.html">iterator</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx26">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">friend</span> <span class="kw4">constexpr</span> decltype<span class="br0">(</span><span class="kw4">auto</span><span class="br0">)</span><br />
+&nbsp; &nbsp; iter_move<span class="br0">(</span> <span class="kw4">const</span> <span class="coMULTI">/*iterator*/</span><span class="sy3">&amp;</span> it <span class="br0">)</span> <span class="kw1">noexcept</span><span class="br0">(</span><span class="coMULTI">/* &#35265;&#25551;&#36848; */</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36820;&#22238;&#23545; <code><i><a href="cpp-ranges-concat_view-iterator.html#it">it_</a></i></code> &#21253;&#21547;&#30340;&#24213;&#23618;&#36845;&#20195;&#22120;&#24212;&#29992; <span class="t-lc">ranges::iter_move</span> &#30340;&#32467;&#26524;&#12290;</p>
+<p>&#35774; <code>Ref</code> &#20026; <code><i><a href="cpp-ranges-concat_view.html#concat-rvalue-reference-t">concat-rvalue-reference-t</a></i></code>&#8202;&#65279;<span class="mw-geshi cpp source-cpp"><span class="sy1">&lt;</span></span><code><i><a href="cpp-ranges.html#maybe-const">maybe-const</a></i></code>&#8202;&#65279;<span class="mw-geshi cpp source-cpp"><span class="sy1">&lt;</span>Const, Views<span class="sy1">&gt;</span>...<span class="sy1">&gt;</span></span>&#12290;&#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">return</span> <a href="cpp-utility-variant-visit.html"><span class="kw1089">std::<span class="me2">visit</span></span></a><span class="br0">(</span><span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> i<span class="br0">)</span> <span class="sy2">-</span><span class="sy1">&gt;</span> Ref <span class="br0">{</span> <span class="kw1">return</span> <a href="cpp-iterator-ranges-iter_move.html"><span class="kw3140">ranges::<span class="me2">iter_move</span></span></a><span class="br0">(</span>i<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span>, it.</span><code><i><a href="cpp-ranges-concat_view-iterator.html#it">it_</a></i></code>&#8202;&#65279;<span class="mw-geshi cpp source-cpp"><span class="br0">)</span><span class="sy4">;</span></span></span>&#12290;</p>
+<p>&#22914;&#26524; <span class="t-c"><code>it.</code><code><i><a href="cpp-ranges-concat_view-iterator.html#it">it_</a></i></code><span class="mw-geshi cpp source-cpp">.<span class="me1">valueless_by_exception</span><span class="br0">(</span><span class="br0">)</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#37027;&#20040;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<p>&#27492;&#20989;&#25968;&#23545;&#24120;&#35268;&#30340;<a href="cpp-language-unqualified_lookup.html">&#26080;&#38480;&#23450;</a>&#25110;<a href="cpp-language-qualified_lookup.html">&#26377;&#38480;&#23450;&#26597;&#25214;</a>&#19981;&#21487;&#35265;&#65292;&#32780;&#21482;&#33021;&#22312; <span class="mw-geshi cpp source-cpp">concat_view<span class="sy4">::</span></span><code><i>iterator</i></code>&#8202;&#65279;<span class="mw-geshi cpp source-cpp"><span class="sy1">&lt;</span>Const<span class="sy1">&gt;</span></span> &#20026;&#23454;&#21442;&#30340;&#20851;&#32852;&#31867;&#26102;&#30001;<a href="cpp-language-adl.html">&#23454;&#21442;&#20381;&#36182;&#26597;&#25214;</a>&#25214;&#21040;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>it</td>
+<td>-</td>
+<td>&#36845;&#20195;&#22120;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#23545;&#24213;&#23618;&#36845;&#20195;&#22120;&#24212;&#29992; <span class="t-lc">ranges::iter_move</span> &#30340;&#32467;&#26524;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<div class="t-noexcept-full"><a href="cpp-language-noexcept_spec.html"><tt>noexcept</tt></a> &#35828;&#26126;&#65306;&nbsp;&nbsp;
+<div class="t-noexcept-box"><span class="t-cc"><span class="mw-geshi cpp source-cpp"><span class="kw1">noexcept</span><span class="br0">(</span><br /></span></span>
+<p>&nbsp; &nbsp; <span class="br0">(</span><span class="br0">(</span><a href="cpp-types-is_invocable.html"><span class="kw3230">std::<span class="me2">is_nothrow_invocable_v</span></span></a><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy1">&lt;</span>decltype<span class="br0">(</span><a href="cpp-iterator-ranges-iter_move.html"><span class="kw3140">ranges::<span class="me2">iter_move</span></span></a><span class="br0">)</span>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw4">const</span> <a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span><span class="coMULTI">/*maybe-const*/</span><span class="sy1">&lt;</span>Const, Views<span class="sy1">&gt;&gt;</span><span class="sy3">&amp;</span><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; &nbsp; <a href="cpp-types-is_convertible.html"><span class="kw3227">std::<span class="me2">is_nothrow_convertible_v</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2896">ranges::<span class="me2">range_rvalue_reference_t</span></span></a><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy1">&lt;</span><span class="coMULTI">/*maybe-const*/</span><span class="sy1">&lt;</span>Const, Views<span class="sy1">&gt;&gt;</span>, Ref<span class="sy1">&gt;</span><span class="br0">)</span> <span class="sy3">&amp;&amp;</span> ...<span class="br0">)</span><br /></p>
+<span class="br0">)</span></div>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

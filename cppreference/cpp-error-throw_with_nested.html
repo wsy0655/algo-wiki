@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::throw_with_nested</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_error_throw_with_nested skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>throw_with_nested</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-error.html">error</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-exception.html">&lt;exception&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T <span class="sy1">&gt;</span><br />
+<span class="br0">[</span><span class="br0">[</span>noreturn<span class="br0">]</span><span class="br0">]</span> <span class="kw4">void</span> throw_with_nested<span class="br0">(</span> T<span class="sy3">&amp;&amp;</span> t <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span><br />
+<span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;&#20026; constexpr)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-decay.html"><span class="kw631">std::<span class="me2">decay</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">type</span></span></span> &#26159;&#38750; final&#12289;&#38750;&#32852;&#21512;&#20307;&#31867;&#22411;&#65292;&#19988;&#26082;&#38750; <span class="t-lc"><a href="cpp-error-nested_exception.html">std::nested_exception</a></span> &#20134;&#38750;&#20174; <span class="t-lc"><a href="cpp-error-nested_exception.html">std::nested_exception</a></span> &#27966;&#29983;&#30340;&#31867;&#31867;&#22411;&#65292;&#21017;&#25243;&#20986;&#19968;&#20010;&#20174; <span class="t-lc"><a href="cpp-error-nested_exception.html">std::nested_exception</a></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-decay.html"><span class="kw631">std::<span class="me2">decay</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">type</span></span></span> &#20004;&#32773;&#20844;&#24320;&#27966;&#29983;&#30340;&#26410;&#25351;&#23450;&#31867;&#22411;&#30340;&#24322;&#24120;&#65292;&#23427;&#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-forward.html"><span class="kw1119">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="br0">(</span>t<span class="br0">)</span></span></span> &#26500;&#36896;&#12290; <code>nested_exception</code> &#22522;&#31867;&#30340;&#40664;&#35748;&#26500;&#36896;&#20989;&#25968;&#35843;&#29992; <span class="t-lc"><a href="cpp-error-current_exception.html">std::current_exception</a></span>&#65292;&#20197;&#19968;&#20010; <span class="t-lc"><a href="cpp-error-exception_ptr.html">std::exception_ptr</a></span> &#25429;&#33719;&#24403;&#21069;&#22788;&#29702;&#30340;&#24322;&#24120;&#23545;&#35937;&#65292;&#33509;&#23427;&#23384;&#22312;&#12290;</p>
+<p>&#21542;&#21017;&#25243;&#20986; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-forward.html"><span class="kw1119">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="br0">(</span>t<span class="br0">)</span></span></span>&#12290;</p>
+<p>&#35201;&#27714; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-decay.html"><span class="kw631">std::<span class="me2">decay</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">type</span></span></span> &#20026;<a href="cpp-named_req-CopyConstructible.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyConstructible)</span></a> &#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>t</td>
+<td>-</td>
+<td>&#35201;&#25243;&#20986;&#30340;&#24322;&#24120;&#23545;&#35937;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<table class="wikitable">
+<tr>
+<th><a href="cpp-utility-feature_test.html">&#21151;&#33021;&#29305;&#24615;&#27979;&#35797;</a>&#23439;</th>
+<th><abbr title="&#37319;&#32435;&#35813;&#29305;&#24615;&#30340;&#24180;/&#26376;&#12290;&#27599;&#20010;&#20540;&#19979;&#38754;&#30340;&#38142;&#25509;&#25351;&#21521;&#32534;&#35793;&#26399;&#25903;&#25345;&#39029;&#38754;&#20013;&#32473;&#23450;&#21151;&#33021;&#29305;&#24615;&#30340;&#26465;&#30446;&#12290;">&#20540;</abbr></th>
+<th><abbr title="&#24341;&#20837;&#35813;&#29305;&#24615;&#30340;&#26631;&#20934;&#65307;DR &#24847;&#20026;&#38024;&#23545;&#35813;&#20462;&#35746;&#29256;&#30340;&#32570;&#38519;&#25253;&#21578;">&#26631;&#20934;</abbr></th>
+<th>&#21151;&#33021;&#29305;&#24615;</th>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lib_constexpr_exceptions"><code>__cpp_lib_constexpr_exceptions</code></a></td>
+<td><a href="cpp-compiler_support-26.html#cpp_lib_constexpr_exceptions_202411L"><code>202411L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++26)</span></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span></span> &#30340;&#24322;&#24120;&#31867;&#22411;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-template-editlink" style=""></div>
+<div class="t-example">
+<p>&#28436;&#31034;&#26500;&#36896;&#24182;&#36890;&#36807; nested_exception &#23545;&#35937;&#36882;&#24402;&#12290;</p>
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;exception&gt;</span>
+<span class="co2">#include &lt;fstream&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;stdexcept&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+ 
+<span class="co1">// &#25171;&#21360;&#24322;&#24120;&#30340;&#35299;&#37322;&#24615;&#23383;&#31526;&#20018;&#12290;&#33509;&#24322;&#24120;&#20869;&#23884;&#65292;&#21017;&#36882;&#24402;&#25171;&#21360;&#20854;&#20445;&#26377;&#30340;&#24322;&#24120;&#30340;&#35299;&#37322;&#24615;&#23383;&#31526;&#20018;</span>
+<span class="kw4">void</span> print_exception<span class="br0">(</span><span class="kw4">const</span> <a href="cpp-error-exception.html"><span class="kw766">std::<span class="me2">exception</span></span></a><span class="sy3">&amp;</span> e, <span class="kw4">int</span> level <span class="sy1">=</span>  <span class="nu0">0</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cerr.html"><span class="kw1763">std::<span class="me2">cerr</span></span></a> <span class="sy1">&lt;&lt;</span> <a href="cpp-string-basic_string.html"><span class="kw1232">std::<span class="me2">string</span></span></a><span class="br0">(</span>level, <span class="st0">&#39; &#39;</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;exception: &quot;</span> <span class="sy1">&lt;&lt;</span> e.<span class="me1">what</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="kw1">try</span>
+    <span class="br0">{</span>
+        <a href="cpp-error-rethrow_if_nested.html"><span class="kw783">std::<span class="me2">rethrow_if_nested</span></span></a><span class="br0">(</span>e<span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">catch</span> <span class="br0">(</span><span class="kw4">const</span> <a href="cpp-error-exception.html"><span class="kw766">std::<span class="me2">exception</span></span></a><span class="sy3">&amp;</span> nestedException<span class="br0">)</span>
+    <span class="br0">{</span>
+        print_exception<span class="br0">(</span>nestedException, level <span class="sy2">+</span> <span class="nu0">1</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">catch</span> <span class="br0">(</span>...<span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+<span class="br0">}</span>
+ 
+<span class="co1">// &#31034;&#20363;&#20989;&#25968;&#65292;&#25429;&#25417;&#24322;&#24120;&#24182;&#23558;&#20854;&#21253;&#35013;&#20110; nested_exception</span>
+<span class="kw4">void</span> open_file<span class="br0">(</span><span class="kw4">const</span> <a href="cpp-string-basic_string.html"><span class="kw1232">std::<span class="me2">string</span></span></a><span class="sy3">&amp;</span> s<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">try</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-basic_ifstream.html"><span class="kw1735">std::<span class="me2">ifstream</span></span></a> file<span class="br0">(</span>s<span class="br0">)</span><span class="sy4">;</span>
+        file.<span class="me1">exceptions</span><span class="br0">(</span><a href="cpp-io-ios_base-iostate.html"><span class="kw1703">std::<span class="me2">ios_base</span><span class="sy4">::</span><span class="me2">failbit</span></span></a><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">catch</span> <span class="br0">(</span>...<span class="br0">)</span>
+    <span class="br0">{</span>
+        std<span class="sy4">::</span><span class="me2">throw_with_nested</span><span class="br0">(</span><a href="cpp-error-runtime_error.html"><span class="kw772">std::<span class="me2">runtime_error</span></span></a><span class="br0">(</span><span class="st0">&quot;Couldn&#39;t open &quot;</span> <span class="sy2">+</span> s<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span>
+ 
+<span class="co1">// &#31034;&#20363;&#20989;&#25968;&#65292;&#25429;&#25417;&#24322;&#24120;&#24182;&#23558;&#20854;&#21253;&#35013;&#20110; nested_exception</span>
+<span class="kw4">void</span> run<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">try</span>
+    <span class="br0">{</span>
+        open_file<span class="br0">(</span><span class="st0">&quot;nonexistent.file&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">catch</span> <span class="br0">(</span>...<span class="br0">)</span>
+    <span class="br0">{</span>
+        std<span class="sy4">::</span><span class="me2">throw_with_nested</span><span class="br0">(</span><a href="cpp-error-runtime_error.html"><span class="kw772">std::<span class="me2">runtime_error</span></span></a><span class="br0">(</span><span class="st0">&quot;run() failed&quot;</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span>
+ 
+<span class="co1">// &#36816;&#34892;&#19978;&#36848;&#23454;&#20363;&#20989;&#25968;&#24182;&#25171;&#21360;&#25429;&#25417;&#30340;&#24322;&#24120;</span>
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">try</span>
+    <span class="br0">{</span>
+        run<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">catch</span> <span class="br0">(</span><span class="kw4">const</span> <a href="cpp-error-exception.html"><span class="kw766">std::<span class="me2">exception</span></span></a><span class="sy3">&amp;</span> e<span class="br0">)</span>
+    <span class="br0">{</span>
+        print_exception<span class="br0">(</span>e<span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">exception: run() failed
+ exception: Couldn&#39;t open nonexistent.file
+  exception: basic_ios::clear</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-error-nested_exception.html"><span class="t-lines"><span>nested_exception</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#25429;&#33719;&#24182;&#23384;&#20648;&#24403;&#21069;&#24322;&#24120;&#30340;&#28151;&#20837;&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-error-rethrow_if_nested.html"><span class="t-lines"><span>rethrow_if_nested</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#25243;&#20986; <span class="t-lc"><a href="cpp-error-nested_exception.html">std::nested_exception</a></span> &#20013;&#30340;&#24322;&#24120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>&#26631;&#20934;&#24211;&#26631;&#22836; &lt;shared_mutex&gt;&nbsp;(C++14)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_header_shared_mutex skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">&#26631;&#20934;&#24211;&#26631;&#22836;</span> &lt;shared_mutex&gt;&nbsp;<span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-header.html">header</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<p>&#27492;&#22836;&#25991;&#20214;&#26159;<a href="cpp-thread.html">&#32447;&#31243;&#25903;&#25345;</a>&#24211;&#30340;&#19968;&#37096;&#20998;&#12290;</p>
+<table class="t-dsc-begin">
+<tr>
+<td colspan="2">
+<h3><span class="mw-headline" id=".E7.B1.BB">&#31867;</span></h3>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-shared_mutex.html"><span class="t-lines"><span>shared_mutex</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span></span></span></div>
+</div>
+</td>
+<td>&#25552;&#20379;&#20849;&#20139;&#20114;&#26021;&#35774;&#26045;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-shared_timed_mutex.html"><span class="t-lines"><span>shared_timed_mutex</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14)</span></span></span></div>
+</div>
+</td>
+<td>&#25552;&#20379;&#20849;&#20139;&#20114;&#26021;&#35774;&#26045;&#24182;&#23454;&#29616;&#26377;&#26102;&#38480;&#38145;&#23450;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-shared_lock.html"><span class="t-lines"><span>shared_lock</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14)</span></span></span></div>
+</div>
+</td>
+<td>&#23454;&#29616;&#21487;&#31227;&#21160;&#30340;&#20849;&#20139;&#20114;&#26021;&#20307;&#25152;&#26377;&#26435;&#23553;&#35013;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h3><span class="mw-headline" id=".E5.87.BD.E6.95.B0">&#20989;&#25968;</span></h3>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-shared_lock-swap2.html"><span class="t-lines"><span>std::swap<span class="t-dsc-small">(std::shared_lock)</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14)</span></span></span></div>
+</div>
+</td>
+<td>&#29305;&#21270; <span class="t-lc"><a href="cpp-algorithm-swap.html">std::swap</a></span> &#31639;&#27861;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.A6.82.E8.A6.81">&#27010;&#35201;</span></h3>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">namespace</span> std <span class="br0">{</span>
+  <span class="kw1">class</span> shared_mutex<span class="sy4">;</span>
+  <span class="kw1">class</span> shared_timed_mutex<span class="sy4">;</span>
+  <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Mutex<span class="sy1">&gt;</span> <span class="kw1">class</span> shared_lock<span class="sy4">;</span>
+  <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Mutex<span class="sy1">&gt;</span>
+    <span class="kw4">void</span> swap<span class="br0">(</span>shared_lock<span class="sy1">&lt;</span>Mutex<span class="sy1">&gt;</span><span class="sy3">&amp;</span> x, shared_lock<span class="sy1">&lt;</span>Mutex<span class="sy1">&gt;</span><span class="sy3">&amp;</span> y<span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<h4><span class="mw-headline" id=".E7.B1.BB_std::shared_mutex">&#31867; <span class="t-lc"><a href="cpp-thread-shared_mutex.html">std::shared_mutex</a></span></span></h4>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">namespace</span> std <span class="br0">{</span>
+  <span class="kw1">class</span> shared_mutex <span class="br0">{</span>
+  <span class="kw1">public</span><span class="sy4">:</span>
+    shared_mutex<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    ~shared_mutex<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    shared_mutex<span class="br0">(</span><span class="kw4">const</span> shared_mutex<span class="sy3">&amp;</span><span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span>
+    shared_mutex<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span><span class="kw4">const</span> shared_mutex<span class="sy3">&amp;</span><span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span>
+ 
+    <span class="co1">// &#25490;&#20182;&#24615;&#25152;&#26377;&#26435;</span>
+    <span class="kw4">void</span> lock<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>                <span class="co1">// &#38459;&#22622;</span>
+    <span class="kw4">bool</span> try_lock<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">void</span> unlock<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#20849;&#20139;&#25152;&#26377;&#26435;</span>
+    <span class="kw4">void</span> lock_shared<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>         <span class="co1">// &#38459;&#22622;</span>
+    <span class="kw4">bool</span> try_lock_shared<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">void</span> unlock_shared<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw1">using</span> native_handle_type <span class="sy1">=</span> <span class="coMULTI">/* &#30001;&#23454;&#29616;&#23450;&#20041; */</span><span class="sy4">;</span>
+    native_handle_type native_handle<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+  <span class="br0">}</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<h4><span class="mw-headline" id=".E7.B1.BB_std::shared_timed_mutex">&#31867; <span class="t-lc"><a href="cpp-thread-shared_timed_mutex.html">std::shared_timed_mutex</a></span></span></h4>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">namespace</span> std <span class="br0">{</span>
+  <span class="kw1">class</span> shared_timed_mutex <span class="br0">{</span>
+  <span class="kw1">public</span><span class="sy4">:</span>
+    shared_timed_mutex<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    ~shared_timed_mutex<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    shared_timed_mutex<span class="br0">(</span><span class="kw4">const</span> shared_timed_mutex<span class="sy3">&amp;</span><span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span>
+    shared_timed_mutex<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span><span class="kw4">const</span> shared_timed_mutex<span class="sy3">&amp;</span><span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span>
+ 
+    <span class="co1">// &#25490;&#20182;&#24615;&#25152;&#26377;&#26435;</span>
+    <span class="kw4">void</span> lock<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>                <span class="co1">// &#38459;&#22622;</span>
+    <span class="kw4">bool</span> try_lock<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Rep, <span class="kw1">class</span> Period<span class="sy1">&gt;</span>
+      <span class="kw4">bool</span> try_lock_for<span class="br0">(</span><span class="kw4">const</span> chrono<span class="sy4">::</span><span class="me2">duration</span><span class="sy1">&lt;</span>Rep, Period<span class="sy1">&gt;</span><span class="sy3">&amp;</span> rel_time<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Clock, <span class="kw1">class</span> Duration<span class="sy1">&gt;</span>
+      <span class="kw4">bool</span> try_lock_until<span class="br0">(</span><span class="kw4">const</span> chrono<span class="sy4">::</span><span class="me2">time_point</span><span class="sy1">&lt;</span>Clock, Duration<span class="sy1">&gt;</span><span class="sy3">&amp;</span> abs_time<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">void</span> unlock<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#20849;&#20139;&#25152;&#26377;&#26435;</span>
+    <span class="kw4">void</span> lock_shared<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>         <span class="co1">// &#38459;&#22622;</span>
+    <span class="kw4">bool</span> try_lock_shared<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Rep, <span class="kw1">class</span> Period<span class="sy1">&gt;</span>
+      <span class="kw4">bool</span> try_lock_shared_for<span class="br0">(</span><span class="kw4">const</span> chrono<span class="sy4">::</span><span class="me2">duration</span><span class="sy1">&lt;</span>Rep, Period<span class="sy1">&gt;</span><span class="sy3">&amp;</span> rel_time<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Clock, <span class="kw1">class</span> Duration<span class="sy1">&gt;</span>
+      <span class="kw4">bool</span> try_lock_shared_until<span class="br0">(</span><span class="kw4">const</span> chrono<span class="sy4">::</span><span class="me2">time_point</span><span class="sy1">&lt;</span>Clock, Duration<span class="sy1">&gt;</span><span class="sy3">&amp;</span> abs_time<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">void</span> unlock_shared<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+  <span class="br0">}</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<h4><span class="mw-headline" id=".E7.B1.BB.E6.A8.A1.E6.9D.BF_std::shared_lock">&#31867;&#27169;&#26495; <span class="t-lc"><a href="cpp-thread-shared_lock.html">std::shared_lock</a></span></span></h4>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">namespace</span> std <span class="br0">{</span>
+  <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Mutex<span class="sy1">&gt;</span>
+  <span class="kw1">class</span> shared_lock <span class="br0">{</span>
+  <span class="kw1">public</span><span class="sy4">:</span>
+    <span class="kw1">using</span> mutex_type <span class="sy1">=</span> Mutex<span class="sy4">;</span>
+ 
+    <span class="co1">// &#26500;&#36896;/&#22797;&#21046;/&#26512;&#26500;</span>
+    shared_lock<span class="br0">(</span><span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+    <span class="kw1">explicit</span> shared_lock<span class="br0">(</span>mutex_type<span class="sy3">&amp;</span> m<span class="br0">)</span><span class="sy4">;</span>        <span class="co1">// &#38459;&#22622;</span>
+    shared_lock<span class="br0">(</span>mutex_type<span class="sy3">&amp;</span> m, defer_lock_t<span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+    shared_lock<span class="br0">(</span>mutex_type<span class="sy3">&amp;</span> m, try_to_lock_t<span class="br0">)</span><span class="sy4">;</span>
+    shared_lock<span class="br0">(</span>mutex_type<span class="sy3">&amp;</span> m, adopt_lock_t<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Clock, <span class="kw1">class</span> Duration<span class="sy1">&gt;</span>
+      shared_lock<span class="br0">(</span>mutex_type<span class="sy3">&amp;</span> m, <span class="kw4">const</span> chrono<span class="sy4">::</span><span class="me2">time_point</span><span class="sy1">&lt;</span>Clock, Duration<span class="sy1">&gt;</span><span class="sy3">&amp;</span> abs_time<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Rep, <span class="kw1">class</span> Period<span class="sy1">&gt;</span>
+      shared_lock<span class="br0">(</span>mutex_type<span class="sy3">&amp;</span> m, <span class="kw4">const</span> chrono<span class="sy4">::</span><span class="me2">duration</span><span class="sy1">&lt;</span>Rep, Period<span class="sy1">&gt;</span><span class="sy3">&amp;</span> rel_time<span class="br0">)</span><span class="sy4">;</span>
+    ~shared_lock<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    shared_lock<span class="br0">(</span><span class="kw4">const</span> shared_lock<span class="sy3">&amp;</span><span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span>
+    shared_lock<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span><span class="kw4">const</span> shared_lock<span class="sy3">&amp;</span><span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span>
+ 
+    shared_lock<span class="br0">(</span>shared_lock<span class="sy3">&amp;&amp;</span> u<span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+    shared_lock<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span>shared_lock<span class="sy3">&amp;&amp;</span> u<span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#38145;&#23450;</span>
+    <span class="kw4">void</span> lock<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>                                <span class="co1">// &#38459;&#22622;</span>
+    <span class="kw4">bool</span> try_lock<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Rep, <span class="kw1">class</span> Period<span class="sy1">&gt;</span>
+      <span class="kw4">bool</span> try_lock_for<span class="br0">(</span><span class="kw4">const</span> chrono<span class="sy4">::</span><span class="me2">duration</span><span class="sy1">&lt;</span>Rep, Period<span class="sy1">&gt;</span><span class="sy3">&amp;</span> rel_time<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Clock, <span class="kw1">class</span> Duration<span class="sy1">&gt;</span>
+      <span class="kw4">bool</span> try_lock_until<span class="br0">(</span><span class="kw4">const</span> chrono<span class="sy4">::</span><span class="me2">time_point</span><span class="sy1">&lt;</span>Clock, Duration<span class="sy1">&gt;</span><span class="sy3">&amp;</span> abs_time<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">void</span> unlock<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#20462;&#25913;&#22120;</span>
+    <span class="kw4">void</span> swap<span class="br0">(</span>shared_lock<span class="sy3">&amp;</span> u<span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+    mutex_type<span class="sy2">*</span> release<span class="br0">(</span><span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#35266;&#23519;&#22120;</span>
+    <span class="kw4">bool</span> owns_lock<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+    <span class="kw1">explicit</span> operator <span class="kw4">bool</span> <span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+    mutex_type<span class="sy2">*</span> mutex<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+ 
+  <span class="kw1">private</span><span class="sy4">:</span>
+    mutex_type<span class="sy2">*</span> pm<span class="sy4">;</span>                             <span class="co1">// &#20165;&#29992;&#20110;&#38416;&#37322;</span>
+    <span class="kw4">bool</span> owns<span class="sy4">;</span>                                  <span class="co1">// &#20165;&#29992;&#20110;&#38416;&#37322;</span>
+  <span class="br0">}</span><span class="sy4">;</span>
+ 
+  <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Mutex<span class="sy1">&gt;</span>
+    <span class="kw4">void</span> swap<span class="br0">(</span>shared_lock<span class="sy1">&lt;</span>Mutex<span class="sy1">&gt;</span><span class="sy3">&amp;</span> x, shared_lock<span class="sy1">&lt;</span>Mutex<span class="sy1">&gt;</span><span class="sy3">&amp;</span> y<span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

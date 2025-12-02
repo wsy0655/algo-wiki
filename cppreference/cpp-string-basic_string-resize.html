@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::basic_string&lt;CharT,Traits,Allocator&gt;::resize</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_string_basic_string_resize skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::basic_string&lt;CharT,Traits,Allocator&gt;::</span>resize</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-string.html">string</a>&lrm; | <a href="cpp-string-basic_string.html">basic string</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td>
+<div><span id=".E7.89.88.E6.9C.AC_1"></span><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span> resize<span class="br0">(</span> size_type count <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;&#20026; <code>constexpr</code>)</span></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span id=".E7.89.88.E6.9C.AC_2"></span><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span> resize<span class="br0">(</span> size_type count, CharT ch <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;&#20026; <code>constexpr</code>)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#37325;&#35774;&#23383;&#31526;&#20018;&#22823;&#23567;&#65292;&#20351;&#20854;&#21253;&#21547; <span class="t-c"><span class="mw-geshi cpp source-cpp">count</span></span> &#20010;&#23383;&#31526;&#12290;</p>
+<p>&#22914;&#26524;&#24403;&#21069;&#22823;&#23567;&#23567;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">count</span></span>&#65292;&#37027;&#20040;&#21518;&#38468;&#39069;&#22806;&#30340;&#23383;&#31526;&#65306;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#23558;&#21518;&#38468;&#30340;&#23383;&#31526;&#21021;&#22987;&#21270;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">CharT<span class="br0">(</span><span class="br0">)</span></span></span>&#65288;&#22312; <code>CharT</code> &#26159; <span class="mw-geshi cpp source-cpp"><span class="kw4">char</span></span> &#26102;&#23601;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="st0">&#39;<span class="es5">\0</span>&#39;</span></span></span>&#65289;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#23558;&#21518;&#38468;&#30340;&#23383;&#31526;&#21021;&#22987;&#21270;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">ch</span></span>&#12290;</div>
+<p>&#22914;&#26524;&#24403;&#21069;&#22823;&#23567;&#22823;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">count</span></span>&#65292;&#37027;&#20040;&#23383;&#31526;&#20018;&#20250;&#32553;&#20943;&#21040;&#39318; <span class="t-c"><span class="mw-geshi cpp source-cpp">count</span></span> &#20010;&#20803;&#32032;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>count</td>
+<td>-</td>
+<td>&#23383;&#31526;&#20018;&#30340;&#26032;&#22823;&#23567;</td>
+</tr>
+<tr class="t-par">
+<td>ch</td>
+<td>-</td>
+<td>&#29992;&#20197;&#21021;&#22987;&#21270;&#26032;&#23383;&#31526;&#30340;&#23383;&#31526;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<p>&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">count <span class="sy1">&gt;</span> max_size<span class="br0">(</span><span class="br0">)</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span> &#26102;&#25243;&#20986; <span class="t-lc"><a href="cpp-error-length_error.html">std::length_error</a></span>&#12290;&#20063;&#20250;&#25243;&#20986;&#23545;&#24212; <code>Allocator</code> &#25152;&#25243;&#30340;&#20219;&#20309;&#24322;&#24120;&#12290;</p>
+<p>&#22914;&#26524;&#22240;&#20026;&#20219;&#20309;&#21407;&#22240;&#25243;&#20986;&#20102;&#24322;&#24120;&#65292;&#37027;&#20040;&#27492;&#20989;&#25968;&#26080;&#25928;&#26524;&#65288;<a href="cpp-language-exceptions.html#.E5.BC.82.E5.B8.B8.E5.AE.89.E5.85.A8">&#24378;&#24322;&#24120;&#23433;&#20840;&#20445;&#35777;</a>&#65289;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iomanip&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;stdexcept&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">const</span> <span class="kw4">unsigned</span> desired_length<span class="br0">{</span><span class="nu0">8</span><span class="br0">}</span><span class="sy4">;</span>
+    <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a> long_string<span class="br0">(</span><span class="st0">&quot;Where is the end?&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a> short_string<span class="br0">(</span><span class="st0">&quot;H&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#22522;&#30784;&#21151;&#33021;&#65306;<span class="es1">\n</span>&quot;</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#32553;&#30701;&#65306;<span class="es1">\n</span>&quot;</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;1. resize &#21069;&#65306;&quot;</span> <span class="sy1">&lt;&lt;</span> quoted<span class="br0">(</span>long_string<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    long_string.<span class="me1">resize</span><span class="br0">(</span>desired_length<span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;2. resize &#21518;&#65306;&quot;</span> <span class="sy1">&lt;&lt;</span> quoted<span class="br0">(</span>long_string<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#20197;&#32473;&#23450;&#23383;&#31526; &#39;a&#39; &#21152;&#38271;&#65306;<span class="es1">\n</span>&quot;</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;3. resize &#21069;&#65306;&quot;</span> <span class="sy1">&lt;&lt;</span> quoted<span class="br0">(</span>short_string<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    short_string.<span class="me1">resize</span><span class="br0">(</span>desired_length, <span class="st0">&#39;a&#39;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;4. resize &#21518;&#65306;&quot;</span> <span class="sy1">&lt;&lt;</span> quoted<span class="br0">(</span>short_string<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#20197; char() == &quot;</span> <span class="sy1">&lt;&lt;</span> <span class="kw1">static_cast</span><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span><span class="br0">(</span><span class="kw4">char</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; &#21152;&#38271;&#65306;<span class="es1">\n</span>&quot;</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;5. resize &#21069;&#65306;&quot;</span> <span class="sy1">&lt;&lt;</span> quoted<span class="br0">(</span>short_string<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    short_string.<span class="me1">resize</span><span class="br0">(</span>desired_length <span class="sy2">+</span> <span class="nu0">3</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;6. resize &#21518;&#65306;<span class="es1">\&quot;</span>&quot;</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">char</span> c <span class="sy4">:</span> short_string<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="br0">(</span>c <span class="sy1">==</span> <span class="kw4">char</span><span class="br0">(</span><span class="br0">)</span> <span class="sy4">?</span> <span class="st0">&#39;@&#39;</span> <span class="sy4">:</span> c<span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;<span class="es1">\&quot;</span><span class="es1">\n</span><span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#38169;&#35823;&#65306;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a> s<span class="sy4">;</span>
+ 
+    <span class="kw1">try</span>
+    <span class="br0">{</span>
+        <span class="co1">// &#22823;&#23567; OK&#65292;&#27809;&#26377; length_error&#65288;&#21487;&#33021;&#20250;&#25243;&#20986; bad_alloc&#65289;</span>
+        s.<span class="me1">resize</span><span class="br0">(</span>s.<span class="me1">max_size</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">-</span> <span class="nu0">1</span>, <span class="st0">&#39;x&#39;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">catch</span> <span class="br0">(</span><span class="kw4">const</span> <a href="cpp-memory-new-bad_alloc.html"><span class="kw696">std::<span class="me2">bad_alloc</span></span></a><span class="sy3">&amp;</span> ex<span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;1. &#24322;&#24120;&#65306;&quot;</span> <span class="sy1">&lt;&lt;</span> ex.<span class="me1">what</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw1">try</span>
+    <span class="br0">{</span>
+        <span class="co1">// &#22823;&#23567; OK&#65292;&#27809;&#26377; length_error&#65288;&#21487;&#33021;&#20250;&#25243;&#20986; bad_alloc&#65289;</span>
+        s.<span class="me1">resize</span><span class="br0">(</span>s.<span class="me1">max_size</span><span class="br0">(</span><span class="br0">)</span>, <span class="st0">&#39;x&#39;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">catch</span> <span class="br0">(</span><span class="kw4">const</span> <a href="cpp-memory-new-bad_alloc.html"><span class="kw696">std::<span class="me2">bad_alloc</span></span></a><span class="sy3">&amp;</span> ex<span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;3. &#24322;&#24120;&#65306;&quot;</span> <span class="sy1">&lt;&lt;</span> ex.<span class="me1">what</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw1">try</span>
+    <span class="br0">{</span>
+        <span class="co1">// &#22823;&#23567;&#38169;&#35823;&#65292;&#25243;&#20986; length_error</span>
+        s.<span class="me1">resize</span><span class="br0">(</span>s.<span class="me1">max_size</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> <span class="nu0">1</span>, <span class="st0">&#39;x&#39;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">catch</span> <span class="br0">(</span><span class="kw4">const</span> <a href="cpp-error-length_error.html"><span class="kw769">std::<span class="me2">length_error</span></span></a><span class="sy3">&amp;</span> ex<span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;3. length_error&#65306;&quot;</span> <span class="sy1">&lt;&lt;</span> ex.<span class="me1">what</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#22522;&#30784;&#21151;&#33021;&#65306;
+&#32553;&#30701;&#65306;
+1. resize &#21069;&#65306;&quot;Where is the end?&quot;
+2. resize &#21518;&#65306;&quot;Where is&quot;
+&#20197;&#32473;&#23450;&#23383;&#31526; &#39;a&#39; &#21152;&#38271;&#65306;
+3. resize &#21069;&#65306;&quot;H&quot;
+4. resize &#21518;&#65306;&quot;Haaaaaaa&quot;
+&#20197; char() == 0 &#21152;&#38271;&#65306;
+5. resize &#21069;&#65306;&quot;Haaaaaaa&quot;
+6. resize &#21518;&#65306;&quot;Haaaaaaa@@@&quot;
+ 
+&#38169;&#35823;&#65306;
+1. &#24322;&#24120;&#65306;std::bad_alloc
+2. &#24322;&#24120;&#65306;std::bad_alloc
+3. length_error&#65306;basic_string::_M_replace_aux</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<p>&#19982;&#23383;&#31526;&#20018;&#22823;&#23567;&#25104;&#32447;&#24615;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue847">LWG 847</a></td>
+<td>C++98</td>
+<td>&#27809;&#26377;&#24322;&#24120;&#23433;&#20840;&#20445;&#35777;</td>
+<td>&#28155;&#21152;&#24378;&#24322;&#24120;&#23433;&#20840;&#20445;&#35777;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue2250">LWG 2250</a></td>
+<td>C++98</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">count <span class="sy1">&gt;</span> max_size<span class="br0">(</span><span class="br0">)</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span> &#26102;&#30340;&#34892;&#20026;&#26410;&#23450;&#20041;</td>
+<td>&#27492;&#26102;&#22987;&#32456;&#20250;&#25243;&#20986;&#24322;&#24120;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-string-basic_string-size.html"><span class="t-lines"><span>size</span><span>length</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#23383;&#31526;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-string-basic_string-reserve.html"><span class="t-lines"><span>reserve</span></span></a></div>
+</div>
+</td>
+<td>&#39044;&#30041;&#23384;&#20648;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-string-basic_string-shrink_to_fit.html"><span class="t-lines"><span>shrink_to_fit</span></span></a></div>
+</div>
+</td>
+<td>&#36890;&#36807;&#37322;&#25918;&#19981;&#20351;&#29992;&#20869;&#23384;&#20943;&#23569;&#20869;&#23384;&#20351;&#29992;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

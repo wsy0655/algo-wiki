@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::ranges::stride_view&lt;V&gt;::end</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_ranges_stride_view_end skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::ranges::stride_view&lt;V&gt;::</span>end</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-ranges.html">ranges</a>&lrm; | <a href="cpp-ranges-stride_view.html">stride view</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="kw4">auto</span> end<span class="br0">(</span><span class="br0">)</span> requires <span class="br0">(</span><span class="sy3">!</span><span class="coMULTI">/*simple-view*/</span><span class="sy1">&lt;</span>V<span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="kw4">auto</span> end<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> requires <a href="cpp-ranges-range.html"><span class="kw2898">ranges::<span class="me2">range</span></span></a><span class="sy1">&lt;</span><span class="kw4">const</span> V<span class="sy1">&gt;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36820;&#22238;&#20195;&#34920; <a href="cpp-ranges-stride_view.html"><code>stride_view</code></a> &#26411;&#23614;&#30340;<a href="cpp-ranges-stride_view-iterator.html">&#36845;&#20195;&#22120;</a>&#25110;<a href="https://zh.cppreference.com/mwiki/index.php?title=cpp/ranges/stride_view/sentinel&amp;action=edit&amp;redlink=1" class="new" title="cpp/ranges/stride view/sentinel&#65288;&#39029;&#38754;&#19981;&#23384;&#22312;&#65289;">&#21736;&#20301;</a>&#12290;</p>
+<p>&#20196; <a href="cpp-ranges-stride_view.html#.E6.95.B0.E6.8D.AE.E6.88.90.E5.91.98"><code><i>base_</i></code></a> &#19982; <a href="cpp-ranges-stride_view.html#.E6.95.B0.E6.8D.AE.E6.88.90.E5.91.98"><code><i>stride_</i></code></a> &#20026;&#24213;&#23618;&#25968;&#25454;&#25104;&#21592;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#23450;&#20041; <span class="t-c"><span class="mw-geshi cpp source-cpp">Const</span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">using</span> Const <span class="sy1">=</span> <span class="kw2">false</span><span class="sy4">;</span></span></span> &#19988; <span class="t-c"><span class="mw-geshi cpp source-cpp">Base</span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">using</span> Base <span class="sy1">=</span> V<span class="sy4">;</span></span></span>&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#23450;&#20041; <span class="t-c"><span class="mw-geshi cpp source-cpp">Const</span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">using</span> Const <span class="sy1">=</span> <span class="kw2">true</span><span class="sy4">;</span></span></span> &#19988; <span class="t-c"><span class="mw-geshi cpp source-cpp">Base</span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">using</span> Base <span class="sy1">=</span> <span class="kw4">const</span> V<span class="sy4">;</span></span></span>&#12290;</div>
+<p>&#31561;&#20215;&#20110;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">if</span> <span class="kw4">constexpr</span> <span class="br0">(</span><a href="cpp-ranges-common_range.html"><span class="kw2908">ranges::<span class="me2">common_range</span></span></a><span class="sy1">&lt;</span>Base<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span>
+              <a href="cpp-ranges-sized_range.html"><span class="kw2900">ranges::<span class="me2">sized_range</span></span></a><span class="sy1">&lt;</span>Base<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span>
+              <a href="cpp-ranges-forward_range.html"><span class="kw2904">ranges::<span class="me2">forward_range</span></span></a><span class="sy1">&lt;</span>Base<span class="sy1">&gt;</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">auto</span> missing <span class="sy1">=</span> <span class="br0">(</span>stride_ <span class="sy2">-</span> <a href="cpp-iterator-ranges-distance.html"><span class="kw3142">ranges::<span class="me2">distance</span></span></a><span class="br0">(</span>base_<span class="br0">)</span> <span class="sy2">%</span> stride_<span class="br0">)</span> <span class="sy2">%</span> stride_<span class="sy4">;</span>
+    <span class="kw1">return</span> iterator<span class="sy1">&lt;</span>Const<span class="sy1">&gt;</span><span class="br0">(</span>this, <a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/end"><span class="kw2884">ranges::<span class="me2">end</span></span></a><span class="br0">(</span>base_<span class="br0">)</span>, missing<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span>
+<span class="kw1">else</span> <span class="kw1">if</span> <span class="kw4">constexpr</span> <span class="br0">(</span><a href="cpp-ranges-common_range.html"><span class="kw2908">ranges::<span class="me2">common_range</span></span></a><span class="sy1">&lt;</span>Base<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span>
+                   <span class="sy3">!</span><a href="cpp-ranges-bidirectional_range.html"><span class="kw2905">ranges::<span class="me2">bidirectional_range</span></span></a><span class="sy1">&lt;</span>Base<span class="sy1">&gt;</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">return</span> iterator<span class="sy1">&lt;</span>Const<span class="sy1">&gt;</span><span class="br0">(</span>this, <a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/end"><span class="kw2884">ranges::<span class="me2">end</span></span></a><span class="br0">(</span>base_<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span>
+<span class="kw1">else</span>
+<span class="br0">{</span>
+    <span class="kw1">return</span> <a href="cpp-iterator-default_sentinel_t.html"><span class="kw2879">std::<span class="me2">default_sentinel</span></span></a><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#22914;&#26524;&#24213;&#23618;&#35270;&#22270; <span class="t-c"><span class="mw-geshi cpp source-cpp">V</span></span> &#23454;&#29616; <a href="cpp-ranges-common_range.html"><code>common_range</code></a>&#65292;&#36820;&#22238;&#25351;&#21521;&#26368;&#21518;&#19968;&#20010;&#20803;&#32032;&#20043;&#21518;&#20803;&#32032;&#30340;<a href="cpp-ranges-stride_view-iterator.html">&#36845;&#20195;&#22120;</a>&#12290;&#21542;&#21017;&#36820;&#22238; <span class="t-lc">std::default_sentinel</span>&#65292;&#23427;&#19982;&#23614;&#36845;&#20195;&#22120;&#27604;&#36739;&#30456;&#31561;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#21482;&#35201;&#24213;&#23618;&#35270;&#22270; <span class="t-c"><span class="mw-geshi cpp source-cpp">V</span></span> &#23454;&#29616; <a href="cpp-ranges-common_range.html"><code>common_range</code></a>&#65292;&#21017; <span class="t-c"><span class="mw-geshi cpp source-cpp">stride_view<span class="sy1">&lt;</span>V<span class="sy1">&gt;</span></span></span> &#20063;&#23454;&#29616;&#23427;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#26242;&#26080;&#31034;&#20363;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-stride_view-begin.html"><span class="t-lines"><span>begin</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#21521;&#36215;&#22987;&#30340;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-end.html"><span class="t-lines"><span>ranges::end</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#31034;&#33539;&#22260;&#32467;&#23614;&#30340;&#21736;&#20301;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#23450;&#21046;&#28857;&#23545;&#35937;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

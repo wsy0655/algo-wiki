@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::sub_match&lt;BidirIt&gt;::operator string_type, std::sub_match&lt;BidirIt&gt;::str</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_regex_sub_match_str skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::sub_match&lt;BidirIt&gt;::</span>operator string_type, <span style="font-size:0.8em; line-height:125%">std::sub_match&lt;BidirIt&gt;::</span>str</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-regex.html">regex</a>&lrm; | <a href="cpp-regex-sub_match.html">sub match</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp">operator string_type<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp">string_type str<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36716;&#25442;&#20026;&#24213;&#23618; <span class="t-lc"><a href="cpp-string-basic_string.html">std::basic_string</a></span> &#31867;&#22411;&#23545;&#35937;&#12290;</p>
+<p>&#31532;&#19968;&#29256;&#26412;&#20026;&#38544;&#24335;&#36716;&#25442;&#65292;&#31532;&#20108;&#29256;&#26412;&#20026;&#26174;&#24335;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#36820;&#22238;&#20316;&#20026;&#24213;&#23618; <span class="t-lc"><a href="cpp-string-basic_string.html">std::basic_string</a></span> &#31867;&#22411;&#23545;&#35937;&#30340;&#21305;&#37197;&#23383;&#31526;&#24207;&#21015;&#12290;&#33509; <code>matched</code> &#25104;&#21592;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span> &#21017;&#36820;&#22238;&#31354;&#23383;&#31526;&#20018;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<p>&#19982;&#24213;&#23618;&#23383;&#31526;&#24207;&#21015;&#30340;&#38271;&#24230;&#25104;&#32447;&#24615;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;cassert&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;regex&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">const</span> <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a> html<span class="br0">{</span>R<span class="st0">&quot;(&quot;</span><span class="sy1">&lt;</span>a href<span class="sy1">=</span><span class="st0">&quot;https://cppreference.com/&quot;</span><span class="sy1">&gt;</span><span class="br0">)</span><span class="st0">&quot;};
+    const std::regex re{&quot;</span><span class="br0">(</span>http<span class="sy3">|</span>https<span class="sy3">|</span>ftp<span class="br0">)</span><span class="sy4">:</span><span class="co1">//([a-z]+)\\.([a-z]{3})&quot;};</span>
+    <a href="cpp-regex-match_results.html"><span class="kw2014">std::<span class="me2">smatch</span></span></a> parts<span class="sy4">;</span>
+    <a href="cpp-regex-regex_search.html"><span class="kw2017">std::<span class="me2">regex_search</span></span></a><span class="br0">(</span>html, parts, re<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><a href="cpp-regex-sub_match.html"><span class="kw2009">std::<span class="me2">ssub_match</span></span></a> <span class="kw4">const</span><span class="sy3">&amp;</span> sub <span class="sy4">:</span> parts<span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw4">const</span> <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a> s <span class="sy1">=</span> sub<span class="sy4">;</span> <span class="co1">// (1) &#38544;&#24335;&#36716;&#25442;</span>
+        <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span>s <span class="sy1">==</span> sub.<span class="me1">str</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>    <span class="co1">// (2)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> s <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">https://cppreference.com
+https
+cppreference
+com</pre></div>
+</div>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

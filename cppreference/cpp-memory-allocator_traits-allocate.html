@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::allocator_traits&lt;Alloc&gt;::allocate</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_memory_allocator_traits_allocate skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::allocator_traits&lt;Alloc&gt;::</span>allocate</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-memory.html">memory</a>&lrm; | <a href="cpp-memory-allocator_traits.html">allocator traits</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-memory.html">&lt;memory&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">static</span> pointer allocate<span class="br0">(</span> Alloc<span class="sy3">&amp;</span> a, size_type n <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span><br />
+<span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;&#20026; <code>constexpr</code>)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">static</span> pointer allocate<span class="br0">(</span> Alloc<span class="sy3">&amp;</span> a, size_type n, const_void_pointer hint <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span><br />
+<span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;&#20026; <code>constexpr</code>)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#29992;&#20998;&#37197;&#22120; <span class="t-c"><span class="mw-geshi cpp source-cpp">a</span></span> &#20998;&#37197; <span class="t-c"><span class="mw-geshi cpp source-cpp">n<span class="sy2">*</span>sizeof<span class="br0">(</span>Alloc<span class="sy4">::</span><span class="me2">value_type</span><span class="br0">)</span></span></span> &#23383;&#33410;&#30340;&#26410;&#21021;&#22987;&#21270;&#23384;&#20648;&#12290;&#20110;&#35813;&#23384;&#20648;&#21019;&#24314; <span class="t-c"><span class="mw-geshi cpp source-cpp">Alloc<span class="sy4">::</span><span class="me2">value_type</span><span class="br0">[</span>n<span class="br0">]</span></span></span> &#31867;&#22411;&#30340;&#25968;&#32452;&#65292;&#20294;&#19981;&#26500;&#36896;&#20854;&#20219;&#20309;&#20803;&#32032;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">a.<span class="me1">allocate</span><span class="br0">(</span>n<span class="br0">)</span></span></span>&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#38468;&#24102;&#22320;&#20256;&#36882;&#20869;&#23384;&#20301;&#32622;&#25552;&#31034; <span class="t-c"><span class="mw-geshi cpp source-cpp">hint</span></span>&#12290;&#33509;&#21487;&#33021;&#21017;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">a.<span class="me1">allocate</span><span class="br0">(</span>n, hint<span class="br0">)</span></span></span>&#12290;&#33509;&#19981;&#21487;&#33021;&#65288;&#20363;&#22914; <span class="t-c"><span class="mw-geshi cpp source-cpp">a</span></span> &#27809;&#26377;&#21452;&#21442;&#25968;&#25104;&#21592;&#20989;&#25968; <code>allocate()</code>&#65289;&#65292;&#21017;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">a.<span class="me1">allocate</span><span class="br0">(</span>n<span class="br0">)</span></span></span>&#12290;</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>a</td>
+<td>-</td>
+<td>&#20351;&#29992;&#30340;&#20998;&#37197;&#22120;</td>
+</tr>
+<tr class="t-par">
+<td>n</td>
+<td>-</td>
+<td>&#35201;&#20998;&#37197;&#23384;&#20648;&#30340;&#23545;&#35937;&#25968;</td>
+</tr>
+<tr class="t-par">
+<td>hint</td>
+<td>-</td>
+<td>&#25351;&#21521;&#20020;&#36817;&#20869;&#23384;&#20301;&#32622;&#30340;&#25351;&#38024;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">a.<span class="me1">allocate</span><span class="br0">(</span>n<span class="br0">)</span></span></span> &#25152;&#36820;&#22238;&#30340;&#25351;&#38024;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#22312; <a rel="nofollow" class="external text" href="https://wg21.link/P0593R6">P0593R6</a> &#21069;&#19981;&#20445;&#35777; <code>Alloc::allocate</code> &#21019;&#24314;&#25968;&#32452;&#23545;&#35937;&#65292;&#36825;&#20351;&#24471;&#25353;&#29031;&#26680;&#24515;&#35821;&#35328;&#35268;&#33539;&#65292;&#23545; <span class="t-lc"><a href="cpp-container-vector.html">std::vector</a></span> &#21450;&#26576;&#20123;&#20854;&#20182;&#23481;&#22120;&#20351;&#29992;&#38750;&#40664;&#35748;&#20998;&#37197;&#22120;&#24182;&#38750;&#23454;&#38469;&#33391;&#23450;&#20041;&#12290;</p>
+<p>&#22312;&#35843;&#29992; <code>allocate</code> &#21518;&#12289;&#26500;&#36896;&#20803;&#32032;&#21069;&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">Alloc<span class="sy4">::</span><span class="me2">value_type</span><span class="sy2">*</span></span></span> &#30340;&#25351;&#38024;&#31639;&#26415;&#22312;&#20998;&#37197;&#30340;&#25968;&#32452;&#20869;&#26159;&#33391;&#23450;&#20041;&#30340;&#65292;&#20294;&#33509;&#35775;&#38382;&#20803;&#32032;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#26242;&#26080;&#31034;&#20363;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-allocator-allocate.html"><span class="t-lines"><span>allocate</span></span></a></div>
+</div>
+</td>
+<td>&#20998;&#37197;&#26410;&#21021;&#22987;&#21270;&#30340;&#23384;&#20648;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::allocator&lt;T&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

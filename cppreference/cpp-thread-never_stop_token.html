@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::never_stop_token</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_thread_never_stop_token skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>never_stop_token</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-thread.html">thread</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-stop_token.html">&lt;stop_token&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx26">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">class</span> never_stop_token<span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#31867; <code>never_stop_token</code> &#23454;&#29616;&#20102; <a href="cpp-thread-unstoppable_token.html"><code>unstoppable_token</code></a>&#65292;&#25552;&#20379;&#19981;&#21487;&#33021;&#20572;&#27490;&#19988;&#19981;&#33021;&#35831;&#27714;&#20572;&#27490;&#30340;&#38745;&#24577;&#20449;&#24687;&#12290;&#36825;&#26159; <code>std::get_stop_token</code> &#22312;&#21487;&#26597;&#35810;&#23545;&#35937;&#20013;&#26410;&#25552;&#20379;&#20854;&#20182;&#20851;&#32852;&#20572;&#27490;&#20196;&#29260;&#30340;&#24773;&#20917;&#19979;&#25152;&#36820;&#22238;&#30340;&#32570;&#30465;&#20572;&#27490;&#20196;&#29260;&#31867;&#22411;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.88.AB.E5.90.8D.E6.A8.A1.E6.9D.BF">&#25104;&#21592;&#21035;&#21517;&#27169;&#26495;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#31867;&#22411;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><span class="mw-geshi cpp source-cpp">callback_type<span class="sy1">&lt;</span>Callback<span class="sy1">&gt;</span></span></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="coMULTI">/*callback-type*/</span></span><br />
+&#35813;&#31867;&#22411;&#23450;&#20041;&#22914;&#19979;&#65306;
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">struct</span> <span class="coMULTI">/*callback-type*/</span><br /></span>
+<p><span class="br0">{</span><br />
+&nbsp; &nbsp; <span class="kw1">explicit</span> <span class="coMULTI">/*callback-type*/</span><span class="br0">(</span> never_stop_token,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw4">auto</span><span class="sy3">&amp;&amp;</span> <span class="br0">)</span> <span class="kw1">noexcept</span> <span class="br0">{</span><span class="br0">}</span><br /></p>
+<span class="br0">}</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"><span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;*</span>)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span>stop_requested</span></span></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td>&#25351;&#31034;&#19981;&#33021;&#21457;&#36215;&#20572;&#27490;&#35831;&#27714;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span>stop_possible</span></span></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td>&#25351;&#31034;&#19981;&#21487;&#33021;&#20572;&#27490;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span>operator==</span></span></div>
+</div>
+</td>
+<td>&#27604;&#36739;&#20004;&#20010; <code>never_stop_token</code> &#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+<div class="t-member">
+<h2><span class="mw-headline" id="std::never_stop_token::stop_requested"><span style="font-size:0.8em; line-height:125%">std::never_stop_token::</span>stop_requested</span></h2>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">static</span> <span class="kw4">constexpr</span> <span class="kw4">bool</span> stop_requested<span class="br0">(</span><span class="br0">)</span> <span class="kw1">noexcept</span> <span class="br0">{</span> <span class="kw1">return</span> <span class="kw2">false</span><span class="sy4">;</span> <span class="br0">}</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#22987;&#32456;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#65292;&#25351;&#31034;&#19981;&#33021;&#21457;&#36215;&#20572;&#27490;&#35831;&#27714;&#12290;</p>
+</div>
+<div class="t-member">
+<h2><span class="mw-headline" id="std::never_stop_token::stop_possible"><span style="font-size:0.8em; line-height:125%">std::never_stop_token::</span>stop_possible</span></h2>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">static</span> <span class="kw4">constexpr</span> <span class="kw4">bool</span> stop_possible<span class="br0">(</span><span class="br0">)</span> <span class="kw1">noexcept</span> <span class="br0">{</span> <span class="kw1">return</span> <span class="kw2">false</span><span class="sy4">;</span> <span class="br0">}</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#22987;&#32456;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#65292;&#25351;&#31034;&#19981;&#21487;&#33021;&#20572;&#27490;&#12290;</p>
+</div>
+<div class="t-member">
+<h2><span class="mw-headline" id="std::never_stop_token::operator.3D.3D"><span style="font-size:0.8em; line-height:125%">std::never_stop_token::</span>operator==</span></h2>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> operator<span class="sy1">==</span><span class="br0">(</span><span class="kw4">const</span> never_stop_token<span class="sy3">&amp;</span><span class="br0">)</span> <span class="kw4">const</span> <span class="sy1">=</span> <span class="kw1">default</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#20004;&#20010; <code>never_stop_token</code> &#23545;&#35937;&#27604;&#36739;&#22987;&#32456;&#30456;&#31561;&#12290;</p>
+</div>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#26242;&#26080;&#31034;&#20363;</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

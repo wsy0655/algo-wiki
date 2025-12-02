@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>getline, getwline, getdelim, getwdelim</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_experimental_dynamic_getline skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">getline, getwline, getdelim, getwdelim</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-experimental.html">experimental</a>&lrm; | <a href="c-experimental-dynamic.html">dynamic</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-stdio.html"><tt>&lt;stdio.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi c source-c">ssize_t getline<span class="br0">(</span><span class="kw4">char</span> <span class="sy2">**</span>lineptr, <a href="c-types-size_t.html"><span class="kw100">size_t</span></a> <span class="sy2">*</span>n, <a href="c-io.html"><span class="kw884">FILE</span></a> <span class="sy2">*</span>stream<span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-dynamic-tr t-mark-ts" style="white-space: nowrap;">(&#21160;&#24577;&#20869;&#23384; TR)</span></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi c source-c">ssize_t getwline<span class="br0">(</span><span class="kw4">wchar_t</span> <span class="sy2">**</span>lineptr, <a href="c-types-size_t.html"><span class="kw100">size_t</span></a> <span class="sy2">*</span>n, <a href="c-io.html"><span class="kw884">FILE</span></a> <span class="sy2">*</span>stream<span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-dynamic-tr t-mark-ts" style="white-space: nowrap;">(&#21160;&#24577;&#20869;&#23384; TR)</span></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi c source-c">ssize_t getdelim<span class="br0">(</span><span class="kw4">char</span> <span class="sy2">**</span> <span class="kw4">restrict</span> lineptr, <a href="c-types-size_t.html"><span class="kw100">size_t</span></a> <span class="sy2">*</span> <span class="kw4">restrict</span> n,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw4">int</span> delimiter, <a href="c-io.html"><span class="kw884">FILE</span></a> <span class="sy2">*</span>stream<span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-dynamic-tr t-mark-ts" style="white-space: nowrap;">(&#21160;&#24577;&#20869;&#23384; TR)</span></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi c source-c">ssize_t getwdelim<span class="br0">(</span><span class="kw4">wchar_t</span> <span class="sy2">**</span> <span class="kw4">restrict</span> lineptr, <a href="c-types-size_t.html"><span class="kw100">size_t</span></a> <span class="sy2">*</span> <span class="kw4">restrict</span> n,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;wint_t delimiter, <a href="c-io.html"><span class="kw884">FILE</span></a> <span class="sy2">*</span> stream<span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(4)</td>
+<td><span class="t-mark-rev t-since-dynamic-tr t-mark-ts" style="white-space: nowrap;">(&#21160;&#24577;&#20869;&#23384; TR)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#34920;&#29616;&#21516; <span class="t-c"><span class="mw-geshi c source-c">getdelim<span class="br0">(</span>lineptr, n, <span class="st0">&#39;<span class="es1">\n</span>&#39;</span>, stream<span class="br0">)</span></span></span> &#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#34920;&#29616;&#21516; <span class="t-c"><span class="mw-geshi c source-c">getwdelim<span class="br0">(</span>lineptr, n, L<span class="st0">&#39;<span class="es1">\n</span>&#39;</span>, stream<span class="br0">)</span></span></span> &#12290;</div>
+<div class="t-li1"><span class="t-li">3)</span> &#22914;&#21516;&#29992; <span class="t-lc"><a href="c-io-fgetc.html">fgetc</a></span> &#20174;&#27969; <code>stream</code> &#35835;&#21462;&#30452;&#33267;&#36935;&#21040; <code>delimiter</code> &#65292;&#24182;&#23558;&#23383;&#31526;&#23384;&#20648;&#20110; <code>*lineptr</code> &#25152;&#25351;&#21521;&#30340;&#22823;&#23567;&#20026; <code>*n</code> &#30340;&#32531;&#20914;&#21306;&#65292;&#22914;&#21516;&#29992; <span class="t-lc"><a href="c-memory-realloc.html">realloc</a></span> &#33258;&#21160;&#22686;&#21152;&#20854;&#22823;&#23567;&#20197;&#36866;&#24212;&#21253;&#21547;&#20998;&#38548;&#31526;&#30340;&#25972;&#20010;&#36755;&#20837;&#65292;&#20877;&#21152;&#19978;&#31354;&#32456;&#27490;&#31526;&#12290; <code>*lineptr</code> &#21487;&#20197;&#20026;&#31354;&#65292;&#35813;&#24773;&#20917;&#19979;&#24573;&#30053; <code>*n</code> &#65292; <code>getline</code> &#22914;&#21516;&#29992; <span class="t-lc"><a href="c-memory-malloc.html">malloc</a></span> &#20998;&#37197;&#19968;&#20010;&#26032;&#32531;&#20914;&#21306;&#12290; &#33509; <code>delimiter</code> &#25317;&#26377; <code>unsigned char</code> &#33539;&#22260;&#22806;&#30340;&#20540;&#19988;&#38750; <span class="t-lc"><a href="c-io.html">EOF</a></span> &#65292;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</div>
+<div class="t-li1"><span class="t-li">4)</span> &#21516; <span class="t-v">(3)</span> &#65292;&#38500;&#20102;&#22914;&#21516;&#20197; <span class="t-lc"><a href="c-io-fgetwc.html">fgetwc</a></span> &#35835;&#20837;&#23383;&#31526;&#65292;&#32780; <code>delimiter</code> &#24517;&#39035;&#26159;&#21512;&#27861;&#30340; <code>wchar_t</code> &#25110; <span class="t-lc">WEOF</span> &#12290;</div>
+<p>&#33509; <code>*lineptr</code> &#38750;&#31354;&#65292;&#21017;&#33509; <code>*lineptr</code> &#19981;&#26159;&#33021;&#20256;&#36882;&#32473; <span class="t-lc"><a href="c-memory-free.html">free</a></span> &#30340;&#25351;&#38024;&#65292;&#25110;&#33509; <code>*n</code> &#23567;&#20110; <code>*lineptr</code> &#25152;&#25351;&#21521;&#20869;&#23384;&#30340;&#34987;&#20998;&#37197;&#22823;&#23567;&#65292;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<p>&#21516;&#25152;&#26377;&#26469;&#33258;&#21160;&#24577;&#20869;&#23384; TR &#30340;&#20989;&#25968;&#65292; <code>getline</code> &#20165;&#33509;&#23454;&#29616;&#23450;&#20041;&#20102; <span class="t-c"><span class="mw-geshi c source-c">__STDC_ALLOC_LIB__</span></span> &#19988;&#29992;&#25143;&#22312;&#21253;&#21547; <code>stdio.h</code> &#21069;&#23450;&#20041; <span class="t-c"><span class="mw-geshi c source-c">__STDC_WANT_LIB_EXT2__</span></span> &#20026;&#25972;&#25968;&#24120;&#37327; <span class="t-c"><span class="mw-geshi c source-c"><span class="nu0">1</span></span></span> &#25165;&#20445;&#35777;&#21487;&#29992;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>lineptr</td>
+<td>-</td>
+<td>&#25351;&#38024;&#65292;&#25351;&#21521;&#31354;&#25351;&#38024;&#65292;&#25110;&#25351;&#21521;&#25351;&#21521;&#26368;&#21021;&#32531;&#20914;&#21306;&#30340;&#25351;&#38024;</td>
+</tr>
+<tr class="t-par">
+<td>n</td>
+<td>-</td>
+<td>&#25351;&#21521;&#26368;&#21021;&#32531;&#20914;&#21306;&#22823;&#23567;&#30340;&#25351;&#38024;</td>
+</tr>
+<tr class="t-par">
+<td>delimiter</td>
+<td>-</td>
+<td>&#20998;&#38548;&#23383;&#31526;</td>
+</tr>
+<tr class="t-par">
+<td>stream</td>
+<td>-</td>
+<td><span class="t-lc"><a href="c-io-fopen.html">fopen</a></span> &#25171;&#24320;&#30340;&#21512;&#27861;&#36755;&#20837;&#27969;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#23384;&#20648;&#20110;&#32531;&#20914;&#21306;&#30340;&#23383;&#31526;&#25968;&#65292;&#21253;&#21547;&#20998;&#38548;&#31526;&#65292;&#20294;&#25490;&#38500;&#31354;&#32456;&#27490;&#31526;&#12290;</p>
+<p>&#38169;&#35823;&#26102;&#36820;&#22238; <span class="t-c"><span class="mw-geshi c source-c"><span class="sy2">-</span><span class="nu0">1</span></span></span> &#24182;&#35774;&#32622; <code>stream</code> &#19978;&#30340; <span class="t-lc"><a href="c-io-feof.html">feof</a></span> &#25110; <span class="t-lc"><a href="c-io-ferror.html">ferror</a></span> &#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E6.84.8F">&#27880;&#24847;</span></h3>
+<p>&#36825;&#20123;&#20989;&#25968;&#31561;&#21516;&#20110;&#20854; <a rel="nofollow" class="external text" href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/getdelim.html">POSIX &#29256;&#26412;</a>&#65292;&#38500;&#20102;&#20801;&#35768;&#20294;&#19981;&#35201;&#27714;&#22312;&#38169;&#35823;&#26102;&#35774;&#32622; <span class="t-lc"><a href="c-error-errno.html">errno</a></span> &#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#ifdef __STDC_ALLOC_LIB__</span>
+<span class="co2">#define __STDC_WANT_LIB_EXT2__ 1</span>
+<span class="co2">#else</span>
+<span class="co2">#define _POSIX_C_SOURCE 200809L</span>
+<span class="co2">#endif</span>
+ 
+<span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#include &lt;stdlib.h&gt;</span>
+<span class="kw4">void</span> get_y_or_n<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">char</span> <span class="sy2">*</span>response <span class="sy1">=</span> <a href="c-types-NULL.html"><span class="kw103">NULL</span></a><span class="sy4">;</span>
+    <a href="c-types-size_t.html"><span class="kw100">size_t</span></a> len<span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;Continue? [y] n: &quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span><span class="br0">(</span><span class="br0">(</span>getline<span class="br0">(</span><span class="sy3">&amp;</span>response, <span class="sy3">&amp;</span>len, <a href="c-io.html"><span class="kw886">stdin</span></a><span class="br0">)</span> <span class="sy1">&lt;</span> <span class="nu0">0</span><span class="br0">)</span> <span class="sy3">||</span> <span class="br0">(</span>len <span class="sy3">&amp;&amp;</span> response<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span> <span class="sy1">==</span> <span class="st0">&#39;n&#39;</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
+        <a href="c-memory-free.html"><span class="kw406">free</span></a><span class="br0">(</span>response<span class="br0">)</span><span class="sy4">;</span>
+        <a href="c-program-exit.html"><span class="kw488">exit</span></a><span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <a href="c-memory-free.html"><span class="kw406">free</span></a><span class="br0">(</span>response<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">return</span><span class="sy4">;</span>
+<span class="br0">}</span>
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span> 
+<span class="br0">{</span>
+    get_y_or_n<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">Continue? [y] n:</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-io-fgets.html"><span class="t-lines"><span>fgets</span></span></a></div>
+</div>
+</td>
+<td>&#20174;&#25991;&#20214;&#27969;&#33719;&#21462;&#19968;&#20010;&#23383;&#31526;&#20018;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-io-gets.html"><span class="t-lines"><span>gets</span><span>gets_s</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-until-c11" style="white-space: nowrap;">(C11 &#31227;&#38500;)</span></span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#20174; <span class="t-lc"><a href="c-io.html">stdin</a></span> &#35835;&#21462;&#19968;&#20010;&#23383;&#31526;&#20018;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-io-fgetws.html"><span class="t-lines"><span>fgetws</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c95" style="white-space: nowrap;">(C95)</span></span></span></div>
+</div>
+</td>
+<td>&#20174;&#25991;&#20214;&#27969;&#33719;&#21462;&#19968;&#20010;&#23485;&#23383;&#31526;&#20018;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-memory-malloc.html"><span class="t-lines"><span>malloc</span></span></a></div>
+</div>
+</td>
+<td>&#20998;&#37197;&#20869;&#23384;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

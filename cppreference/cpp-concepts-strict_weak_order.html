@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::strict_weak_order</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_concepts_strict_weak_order skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>strict_weak_order</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-concepts.html">concepts</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-concepts.html">&lt;concepts&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> R, <span class="kw1">class</span> T, <span class="kw1">class</span> U <span class="sy1">&gt;</span><br />
+concept strict_weak_order <span class="sy1">=</span> <a href="cpp-concepts-relation.html"><span class="kw2961">std::<span class="me2">relation</span></span></a><span class="sy1">&lt;</span>R, T, U<span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#27010;&#24565; <code>strict_weak_order&lt;R, T, U&gt;</code> &#25351;&#23450; <a href="cpp-concepts-relation.html"><code>relation</code></a> <code>R</code> &#22312;&#20854;&#23454;&#21442;&#19978;&#26045;&#21152;&#19968;&#31181;&#20005;&#26684;&#24369;&#24207;&#12290;</p>
+<h3><span class="mw-headline" id=".E8.AF.AD.E4.B9.89.E8.A6.81.E6.B1.82">&#35821;&#20041;&#35201;&#27714;</span></h3>
+<p>&#33509;&#31526;&#21512;&#19979;&#21015;&#26465;&#20214;&#65292;&#21017;&#20851;&#31995; <span class="t-c"><span class="mw-geshi cpp source-cpp">r</span></span> &#26159;&#20005;&#26684;&#24369;&#24207;&#65306;</p>
+<ul>
+<li>&#23427;&#38750;&#33258;&#21453;&#65306;&#23545;&#25152;&#26377; <span class="t-c"><span class="mw-geshi cpp source-cpp">x</span></span>&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">r<span class="br0">(</span>x, x<span class="br0">)</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#65307;</li>
+<li>&#23427;&#20026;&#20256;&#36882;&#65306;&#23545;&#25152;&#26377; <span class="t-c"><span class="mw-geshi cpp source-cpp">a</span></span>&#12289;<span class="t-c"><span class="mw-geshi cpp source-cpp">b</span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp">c</span></span>&#65292;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">r<span class="br0">(</span>a, b<span class="br0">)</span></span></span> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">r<span class="br0">(</span>b, c<span class="br0">)</span></span></span> &#22343;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#21017; <span class="t-c"><span class="mw-geshi cpp source-cpp">r<span class="br0">(</span>a, c<span class="br0">)</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65307;</li>
+<li>&#20196; <span class="t-c"><span class="mw-geshi cpp source-cpp">e<span class="br0">(</span>a, b<span class="br0">)</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy3">!</span>r<span class="br0">(</span>a, b<span class="br0">)</span> <span class="sy3">&amp;&amp;</span> <span class="sy3">!</span>r<span class="br0">(</span>b, a<span class="br0">)</span></span></span>&#65292;&#21017; <span class="t-c"><span class="mw-geshi cpp source-cpp">e</span></span> &#20026;&#20256;&#36882;&#65306;<span class="t-c"><span class="mw-geshi cpp source-cpp">e<span class="br0">(</span>a, b<span class="br0">)</span> <span class="sy3">&amp;&amp;</span> e<span class="br0">(</span>b, c<span class="br0">)</span></span></span> &#34164;&#21547; <span class="t-c"><span class="mw-geshi cpp source-cpp">e<span class="br0">(</span>a, c<span class="br0">)</span></span></span>&#12290;</li>
+</ul>
+<p>&#22312;&#36825;&#20123;&#26465;&#20214;&#19979;&#65292;&#33021;&#35777;&#26126; <span class="t-c"><span class="mw-geshi cpp source-cpp">e</span></span> &#26159;&#19968;&#31181;&#31561;&#20215;&#20851;&#31995;&#65292;&#32780; <span class="t-c"><span class="mw-geshi cpp source-cpp">r</span></span> &#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">e</span></span> &#25152;&#30830;&#23450;&#30340;&#31561;&#20215;&#31867;&#19978;&#24341;&#20837;&#20102;&#19968;&#31181;&#20005;&#26684;&#20840;&#24207;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p><a href="cpp-concepts-relation.html"><code>relation</code></a> &#19982; <code>strict_weak_order</code> &#38388;&#30340;&#21306;&#21035;&#26159;&#32431;&#35821;&#20041;&#30340;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-c++23">
+<ul>
+<li>C++23 &#26631;&#20934;&#65288;ISO/IEC 14882:2024&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>18.7.7 Concept <code>strict_weak_order</code> [concept.strictweakorder]</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c++20">
+<ul>
+<li>C++20 &#26631;&#20934;&#65288;ISO/IEC 14882:2020&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>18.7.7 Concept <code>strict_weak_order</code> [concept.strictweakorder]</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<ul>
+<li><a href="cpp-named_req-LessThanComparable.html"><span style="font-style:italic">&#21487;&#23567;&#20110;&#27604;&#36739;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LessThanComparable)</span></a></li>
+</ul>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

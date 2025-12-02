@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>strerror, strerror_s, strerrorlen_s</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_string_byte_strerror skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">strerror, strerror_s, strerrorlen_s</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-string.html">string</a>&lrm; | <a href="c-string-byte.html">byte</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-string.html"><tt>&lt;string.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi c source-c"><span class="kw4">char</span><span class="sy2">*</span> strerror<span class="br0">(</span> <span class="kw4">int</span> errnum <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl t-since-c11">
+<td>
+<div><span class="mw-geshi c source-c">errno_t strerror_s<span class="br0">(</span> <span class="kw4">char</span> <span class="sy2">*</span>buf, rsize_t bufsz, errno_t errnum <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-c11">
+<td>
+<div><span class="mw-geshi c source-c"><a href="c-types-size_t.html"><span class="kw100">size_t</span></a> strerrorlen_s<span class="br0">(</span> errno_t errnum <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#36820;&#22238;&#25351;&#21521;&#31995;&#32479;&#38169;&#35823;&#30721; <code>errnum</code> &#30340;&#25991;&#26412;&#34920;&#31034;&#30340;&#25351;&#38024;&#65292;&#23427;&#31561;&#21516;&#20110; <span class="t-lc"><a href="c-io-perror.html">perror()</a></span> &#20250;&#25171;&#21360;&#30340;&#25551;&#36848;&#12290;</div>
+<div class="t-li1"><span class="t-li"></span> <code>errnum</code> &#36890;&#24120;&#20174; <code>errno</code> &#21464;&#37327;&#33719;&#24471;&#65292;&#19981;&#36807;&#20989;&#25968;&#25509;&#21463;&#21487;&#20219;&#20309; <span class="t-c"><span class="mw-geshi c source-c"><span class="kw4">int</span></span></span> &#31867;&#22411;&#20540;&#12290;&#23383;&#31526;&#20018;&#30340;&#20869;&#23481;&#29305;&#23450;&#20110;&#26412;&#22320;&#29615;&#22659;&#12290;</div>
+<div class="t-li1"><span class="t-li"></span> &#31243;&#24207;&#24517;&#39035;&#19981;&#20462;&#25913;&#36820;&#22238;&#30340;&#23383;&#31526;&#20018;&#65292;&#20294;&#23545; <code>strerror</code> &#20989;&#25968;&#30340;&#21518;&#32487;&#35843;&#29992;&#21487;&#33021;&#37325;&#20889;&#35813;&#23383;&#31526;&#20018;&#12290;&#19981;&#35201;&#27714; <code>strerror</code> &#20026;&#32447;&#31243;&#23433;&#20840;&#12290;&#23454;&#29616;&#21487;&#20197;&#36820;&#22238;&#25351;&#21521;&#38745;&#24577;&#21482;&#35835;&#23383;&#31526;&#20018;&#23383;&#38754;&#37327;&#30340;&#19981;&#21516;&#25351;&#38024;&#65292;&#25110;&#21453;&#22797;&#36820;&#22238;&#25351;&#21521;&#38745;&#24577;&#32531;&#20914;&#21306;&#30340;&#21516;&#19968;&#25351;&#38024;&#65292;<code>strerror</code> &#25918;&#32622;&#23383;&#31526;&#20018;&#20110;&#35813;&#32531;&#20914;&#21306;&#20013;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#21516; <span class="t-v">(1)</span>&#65292;&#20294;&#23558;&#28040;&#24687;&#22797;&#21046;&#21040;&#29992;&#25143;&#25552;&#20379;&#30340;&#23384;&#20648; <code>buf</code> &#20013;&#12290;&#19981;&#20889;&#20837;&#22810;&#20110; <code>bufsz-1</code> &#20010;&#23383;&#31526;&#65292;&#32531;&#20914;&#21306;&#22987;&#32456;&#20026;&#31354;&#32456;&#27490;&#30340;&#12290;&#33509;&#28040;&#24687;&#24517;&#39035;&#34987;&#25130;&#26029;&#65292;&#19988; <code>bufsz</code> &#22823;&#20110; 3&#65292;&#21017;&#21482;&#20889;&#20837; <code>bufsz-4</code> &#20010;&#23383;&#31526;&#65292;&#24182;&#22312;&#31354;&#32456;&#27490;&#31526;&#21069;&#21069;&#38468;&#23383;&#31526; <span class="t-c"><span class="mw-geshi c source-c"><span class="st0">&quot;...&quot;</span></span></span> &#12290;&#21478;&#22806;&#65292;&#22312;&#36816;&#34892;&#26102;&#26816;&#27979;&#19979;&#21015;&#38169;&#35823;&#65292;&#24182;&#35843;&#29992;&#24403;&#21069;&#23433;&#35013;&#30340;<a href="c-error-set_constraint_handler_s.html">&#32422;&#26463;&#22788;&#29702;&#20989;&#25968;</a>&#65306;
+<dl>
+<dd>
+<ul>
+<li><code>buf</code> &#20026;&#31354;&#25351;&#38024;</li>
+<li><code>bufsz</code> &#20026;&#38646;&#25110;&#22823;&#20110; <span class="t-lc">RSIZE_MAX</span></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-li1"><span class="t-li"></span> &#33509;&#21521; <code>buf</code> &#30340;&#20889;&#20837;&#22312;&#25968;&#32452;&#26411;&#23614;&#21518;&#21457;&#29983;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#65292;&#36825;&#22312; <code>buf</code> &#25152;&#25351;&#21521;&#30340;&#32531;&#20914;&#21306;&#22823;&#23567;&#20889;&#23567;&#20110;&#38169;&#35823;&#28040;&#24687;&#30340;&#23383;&#31526;&#25968;&#65292;&#19988;&#23567;&#20110; <code>bufsz</code> &#26102;&#20250;&#21457;&#29983;&#12290;</div>
+<div class="t-li1"><span class="t-li">3)</span> &#35745;&#31639;&#24403;&#20197; <code>errnum</code> &#35843;&#29992; <code>strerror_s</code> &#21017;&#26412;&#20250;&#20889;&#20837;&#30340;&#65292;&#26412;&#22320;&#29615;&#22659;&#38480;&#23450;&#38169;&#35823;&#28040;&#24687;&#30340;&#19981;&#25130;&#26029;&#38271;&#24230;&#12290;&#38271;&#24230;&#19981;&#21253;&#21547;&#31354;&#32456;&#27490;&#31526;&#12290;
+<dl>
+<dd>&#21516;&#25152;&#26377;&#36793;&#30028;&#26816;&#26597;&#20989;&#25968;&#65292;<code>strerror_s</code> &#19982; <code>strerrorlen_s</code>&#65292;&#20165;&#33509;&#23454;&#29616;&#23450;&#20041; <span class="t-c"><span class="mw-geshi c source-c">__STDC_LIB_EXT1__</span></span> &#19988;&#29992;&#25143;&#22312;&#21253;&#21547; <a href="c-header-string.html"><tt>&lt;string.h&gt;</tt></a> &#21069;&#23450;&#20041; <span class="t-c"><span class="mw-geshi c source-c">__STDC_WANT_LIB_EXT1__</span></span> &#20026;&#25972;&#25968;&#24120;&#37327; 1 &#25165;&#20445;&#35777;&#21487;&#29992;&#12290;</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>errnum</td>
+<td>-</td>
+<td>&#25351;&#20195;&#38169;&#35823;&#30721;&#30340;&#25972;&#25968;&#20540;</td>
+</tr>
+<tr class="t-par">
+<td>buf</td>
+<td>-</td>
+<td>&#25351;&#21521;&#29992;&#25143;&#25552;&#20379;&#30340;&#32531;&#20914;&#21306;&#30340;&#25351;&#38024;</td>
+</tr>
+<tr class="t-par">
+<td>bufsz</td>
+<td>-</td>
+<td>&#29992;&#25143;&#25552;&#20379;&#30340;&#32531;&#20914;&#21306;&#30340;&#22823;&#23567;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<div class="t-li1"><span class="t-li">1)</span> &#25351;&#21521;&#23545;&#24212; <span class="t-lc"><a href="c-error-errno.html">errno</a></span> &#38169;&#35823;&#30721; <code>errnum</code> &#30340;&#31354;&#32456;&#27490;&#23383;&#33410;&#20018;&#30340;&#25351;&#38024;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#33509;&#25972;&#20010;&#28040;&#24687;&#23436;&#25972;&#23384;&#20648;&#20110; <code>buf</code> &#21017;&#20026;&#38646;&#65292;&#21542;&#21017;&#20026;&#38750;&#38646;&#12290;</div>
+<div class="t-li1"><span class="t-li">3)</span> <code>strerror_s</code> &#20250;&#36820;&#22238;&#30340;&#28040;&#24687;&#38271;&#24230;&#65288;&#19981;&#21253;&#21547;&#31354;&#32456;&#27490;&#31526;&#65289;</div>
+<h3><span class="mw-headline" id=".E6.B3.A8.E6.84.8F">&#27880;&#24847;</span></h3>
+<p><a rel="nofollow" class="external text" href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/strerror.html">POSIX</a> &#20801;&#35768;&#23545; <code>strerror</code> &#30340;&#21518;&#32487;&#35843;&#29992;&#38750;&#27861;&#21270;&#20808;&#21069;&#35843;&#29992;&#25152;&#36820;&#22238;&#30340;&#25351;&#38024;&#20540;&#12290;&#23427;&#20134;&#25351;&#23450;&#25511;&#21046;&#36825;&#20123;&#28040;&#24687;&#30340; <a href="c-locale-LC_categories.html"><tt>LC_MESSAGES</tt></a> &#26412;&#22320;&#29615;&#22659;&#24179;&#38754;&#12290;</p>
+<p><code>strerror_s</code> &#26159;&#20165;&#26377;&#30340;&#20801;&#35768;&#25130;&#26029;&#30340;&#24102;&#36793;&#30028;&#26816;&#26597;&#20989;&#25968;&#65292;&#22240;&#20026;&#25552;&#20379;&#23613;&#21487;&#33021;&#22810;&#30340;&#20851;&#20110;&#22833;&#36133;&#30340;&#20449;&#24687;&#34987;&#35270;&#20026;&#26356;&#21152;&#20196;&#20154;&#28385;&#24847;&#12290;POSIX &#20134;&#20026;&#31867;&#20284;&#30446;&#30340;&#23450;&#20041; <a rel="nofollow" class="external text" href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/strerror.html">strerror_r</a>&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#define __STDC_WANT_LIB_EXT1__ 1</span>
+<span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#include &lt;errno.h&gt;</span>
+<span class="co2">#include &lt;string.h&gt;</span>
+<span class="co2">#include &lt;locale.h&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="c-io.html"><span class="kw883">FILE</span></a> <span class="sy2">*</span>fp <span class="sy1">=</span> <a href="c-io-fopen.html"><span class="kw818">fopen</span></a><span class="br0">(</span><a href="c-io-tmpnam.html"><span class="kw882">tmpnam</span></a><span class="br0">(</span><span class="br0">(</span><span class="kw4">char</span><span class="br0">[</span><a href="c-io.html"><span class="kw899">L_tmpnam</span></a><span class="br0">]</span><span class="br0">)</span><span class="br0">{</span><span class="nu0">0</span><span class="br0">}</span><span class="br0">)</span>, <span class="st0">&quot;r&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span><span class="br0">(</span>fp<span class="sy1">==</span><a href="c-types-NULL.html"><span class="kw103">NULL</span></a><span class="br0">)</span> <span class="br0">{</span>
+        <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;File opening error: %s<span class="es1">\n</span>&quot;</span>, strerror<span class="br0">(</span><span class="kw2">errno</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+        <a href="c-locale-setlocale.html"><span class="kw900">setlocale</span></a><span class="br0">(</span>LC_MESSAGES, <span class="st0">&quot;de_DE.utf8&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+        <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;Now in German: %s<span class="es1">\n</span>&quot;</span>, strerror<span class="br0">(</span><span class="kw2">errno</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="co2">#ifdef __STDC_LIB_EXT1__</span>
+        <a href="c-locale-setlocale.html"><span class="kw900">setlocale</span></a><span class="br0">(</span><a href="c-locale-LC_categories.html"><span class="kw903">LC_ALL</span></a>, <span class="st0">&quot;zh_CN.utf8&quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// printf &#38656;&#35201;&#22810;&#23383;&#33410;&#36755;&#20986;&#30340; CTYPE</span>
+        <a href="c-types-size_t.html"><span class="kw100">size_t</span></a> errmsglen <span class="sy1">=</span> strerrorlen_s<span class="br0">(</span><span class="kw2">errno</span><span class="br0">)</span> <span class="sy2">+</span> <span class="nu0">1</span><span class="sy4">;</span>
+        <span class="kw4">char</span> errmsg<span class="br0">[</span>errmsglen<span class="br0">]</span><span class="sy4">;</span> 
+        strerror_s<span class="br0">(</span>errmsg, errmsglen, <span class="kw2">errno</span><span class="br0">)</span><span class="sy4">;</span>
+        <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;Now in Chinese: %s<span class="es1">\n</span>&quot;</span>, errmsg<span class="br0">)</span><span class="sy4">;</span>
+<span class="co2">#endif</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">File opening error: No such file or directory
+Now in German: Datei oder Verzeichnis nicht gefunden
+Now in Chinese: &#25991;&#20214;&#25110;&#30446;&#24405;&#19981;&#23384;&#22312;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.24.6.2 The strerror function &#65288;&#31532; 371 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.7.4.2 The strerror_s function &#65288;&#31532; 622 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.7.4.3 The strerrorlen_s function &#65288;&#31532; 623 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<div class="t-ref-std-c99">
+<ul>
+<li>C99 &#26631;&#20934;&#65288;ISO/IEC 9899:1999&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.21.6.2 The strerror function &#65288;&#31532; 334 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<div class="t-ref-std-c89">
+<ul>
+<li>C89/C90 &#26631;&#20934;&#65288;ISO/IEC 9899:1990&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>4.11.6.2 The strerror function</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-io-perror.html"><span class="t-lines"><span>perror</span></span></a></div>
+</div>
+</td>
+<td>&#26174;&#31034;&#23545;&#24212;&#24403;&#21069;&#38169;&#35823;&#30340;&#23383;&#31526;&#20018;&#21040; <span class="t-lc"><a href="c-io.html">stderr</a></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-error-errno.html"><span class="t-lines"><span>errno</span></span></a></div>
+</div>
+</td>
+<td>&#23637;&#24320;&#25104; POSIX &#20860;&#23481;&#30340;&#32447;&#31243;&#23616;&#22495;&#38169;&#35823;&#32534;&#21495;&#21464;&#37327;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#23439;&#21464;&#37327;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>strerror</span></span>&nbsp;&#30340; <span><span><a href="cpp-string-byte-strerror.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

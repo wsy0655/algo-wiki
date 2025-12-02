@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::strstreambuf</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_io_strstreambuf skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>strstreambuf</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-io.html">io</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-strstream.html">&lt;strstream&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-until-cxx26">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">class</span> strstreambuf <span class="sy4">:</span> <span class="kw1">public</span> <a href="cpp-io-basic_streambuf.html"><span class="kw1670">std::<span class="me2">basic_streambuf</span></span></a><span class="sy1">&lt;</span><span class="kw4">char</span><span class="sy1">&gt;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++98 &#24323;&#29992;)</span><br />
+<span class="t-mark-rev t-until-cxx26" style="white-space: nowrap;">(C++26 &#31227;&#38500;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>std::strstreambuf</code> &#26159;&#20851;&#32852;&#23383;&#31526;&#24207;&#21015;&#20026;&#23383;&#31526;&#25968;&#32452;&#30340; <span class="t-lc"><a href="cpp-io-basic_streambuf.html">std::basic_streambuf</a></span>&#65292;&#35813;&#25968;&#32452;&#21487;&#20197;&#26159;&#24120;&#37327;&#65288;&#20363;&#22914;&#23383;&#31526;&#20018;&#23383;&#38754;&#37327;&#65289;&#65292;&#21487;&#20462;&#25913;&#20294;&#38750;&#21160;&#24577;&#30340;&#65288;&#20363;&#22914;&#26632;&#20998;&#37197;&#30340;&#25968;&#32452;&#65289;&#65292;&#25110;&#32773;&#21160;&#24577;&#30340;&#65292;&#27492;&#26102; <code>std::strstreambuf</code> &#21487;&#20197;&#37325;&#20998;&#37197;&#25968;&#32452;&#20197;&#36866;&#24212;&#36755;&#20986;&#65288;&#20363;&#22914;&#36890;&#36807;&#35843;&#29992; <span class="mw-geshi cpp source-cpp">delete<span class="br0">[</span><span class="br0">]</span></span> &#21644; <span class="mw-geshi cpp source-cpp">new<span class="br0">[</span><span class="br0">]</span></span> &#25110;&#29992;&#25143;&#25552;&#20379;&#30340;&#20989;&#25968;&#65289;&#12290;</p>
+<p><code>std::strstreambuf</code> &#30340;&#20856;&#22411;&#23454;&#29616;&#20445;&#26377;&#22235;&#20010;&#31169;&#26377;&#25968;&#25454;&#25104;&#21592;&#65306;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#32531;&#20914;&#21306;&#29366;&#24577;&#65292;&#20026;&#20301;&#25513;&#30721;&#31867;&#22411;&#65292;&#33021;&#34920;&#31034;&#22235;&#20010;&#20540;&ldquo;&#24050;&#20998;&#37197;&rdquo;&#65288;&#26512;&#26500;&#20989;&#25968;&#23558;&#35299;&#20998;&#37197;&#65289;&#12289;&ldquo;&#24120;&#37327;&rdquo;&#65288;&#19981;&#20801;&#35768;&#36755;&#20986;&#65289;&#12289;&ldquo;&#21160;&#24577;&rdquo;&#65288;&#36755;&#20986;&#23558;&#35299;&#20998;&#37197;&#65289;&#25110;&ldquo;&#20923;&#32467;&rdquo;&#65288;&#19981;&#20801;&#35768;&#35299;&#20998;&#37197;&#21644;&#37325;&#20998;&#37197;&#65289;&#30340;&#20219;&#20309;&#32452;&#21512;&#65307;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#20998;&#37197;&#30340;&#32531;&#20914;&#21306;&#22823;&#23567;&#65288;&#32531;&#20914;&#21306;&#30340;&#36215;&#28857;&#19981;&#24517;&#26159;&#29305;&#21035;&#30340;&#25968;&#25454;&#25104;&#21592;&#65292;&#23427;&#21487;&#23384;&#20648;&#20110;&#32487;&#25215;&#30340;&#25351;&#38024; <span class="t-lc"><a href="cpp-io-basic_streambuf-gptr.html">eback()</a></span>&#65289;&#65307;</div>
+<div class="t-li1"><span class="t-li">3)</span> &#25351;&#21521;&#29992;&#25143;&#25552;&#20379;&#30340;&#20998;&#37197;&#20989;&#25968;&#30340;&#25351;&#38024;&#65307;</div>
+<div class="t-li1"><span class="t-li">4)</span> &#25351;&#21521;&#29992;&#25143;&#25552;&#20379;&#30340;&#35299;&#20998;&#37197;&#20989;&#25968;&#30340;&#25351;&#38024;&#12290;</div>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#22312;&#20219;&#20309;&#20197;&#21160;&#24577;&#32531;&#20914;&#21306;&#22312;&#27969;&#19978;&#35843;&#29992; <span class="t-lc"><a href="cpp-io-strstreambuf-str.html">str()</a></span> &#21518;&#65292;&#35201;&#27714;&#35843;&#29992; <span class="t-lc"><a href="cpp-io-strstreambuf-freeze.html">freeze(false)</a></span> &#20197;&#20801;&#35768; <code>strstreambuf</code> &#30340;&#26512;&#26500;&#20989;&#25968;&#22312;&#38656;&#35201;&#26102;&#35299;&#20998;&#37197;&#32531;&#20914;&#21306;&#12290;</p>
+<p><code>strstreambuf</code> &#24050;&#20110; C++98 &#36215;&#24323;&#29992;&#24182;&#19982; C++26 &#36215;&#31227;&#38500;&#12290;<span class="t-rev-inl t-since-cxx23"><span>&#25512;&#33616;&#30340;&#26367;&#20195;&#21697;&#26159; <a href="cpp-io-basic_spanbuf.html"><tt>std::spanbuf</tt></a>&#12290;</span><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></span></span></p>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr>
+<td colspan="2">
+<h3><span class="mw-headline" id=".E5.85.AC.E5.BC.80.E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;</span></h3>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-io-strstreambuf-strstreambuf.html"><span class="t-lines"><span>(&#26500;&#36896;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26500;&#36896; <code>strstreambuf</code> &#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-io-strstreambuf-~strstreambuf.html"><span class="t-lines"><span>(&#26512;&#26500;&#20989;&#25968;)</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#38144;&#27585; <code>strstreambuf</code> &#23545;&#35937;&#65292;&#37096;&#20998;&#24773;&#20917;&#19979;&#20250;&#35299;&#20998;&#37197;&#23383;&#31526;&#25968;&#32452;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#34394;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-strstreambuf-freeze.html"><span class="t-lines"><span>freeze</span></span></a></div>
+</div>
+</td>
+<td>&#35774;&#32622;/&#28165;&#38500;&#32531;&#20914;&#21306;&#30340;&#20923;&#32467;&#29366;&#24577;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-strstreambuf-str.html"><span class="t-lines"><span>str</span></span></a></div>
+</div>
+</td>
+<td>&#26631;&#35760;&#32531;&#20914;&#20026;&#20923;&#32467;&#24182;&#36820;&#22238;&#36755;&#20837;&#24207;&#21015;&#30340;&#36215;&#22987;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-strstreambuf-pcount.html"><span class="t-lines"><span>pcount</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#36755;&#20986;&#24207;&#21015;&#20013;&#19979;&#19968;&#20301;&#32622;&#25351;&#38024;&#20943;&#36215;&#22987;&#25351;&#38024;&#65306;&#20889;&#20837;&#23383;&#31526;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h3><span class="mw-headline" id=".E5.8F.97.E4.BF.9D.E6.8A.A4.E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;</span></h3>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-strstreambuf-underflow.html"><span class="t-lines"><span>underflow</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#20174;&#36755;&#20837;&#24207;&#21015;&#35835;&#21462;&#19968;&#20010;&#23383;&#31526;&#32780;&#19981;&#21069;&#36827;&#19979;&#19968;&#20301;&#32622;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-strstreambuf-pbackfail.html"><span class="t-lines"><span>pbackfail</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#22238;&#36864;&#36755;&#20837;&#24207;&#21015;&#20197;&#21453;&#33719;&#21462;&#19968;&#20010;&#23383;&#31526;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-strstreambuf-overflow.html"><span class="t-lines"><span>overflow</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#21518;&#38468;&#23383;&#31526;&#21040;&#36755;&#20986;&#24207;&#21015;&#65292;&#21487;&#33021;&#37325;&#20998;&#37197;&#25110;&#21021;&#22987;&#22320;&#20998;&#37197;&#32531;&#20914;&#21306;&#65292;&#33509;&#23427;&#20026;&#21160;&#24577;&#19988;&#26410;&#34987;&#20923;&#32467;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-strstreambuf-setbuf.html"><span class="t-lines"><span>setbuf</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#23581;&#35797;&#20197;&#25968;&#32452;&#26367;&#25442;&#21463;&#25511;&#21046;&#23383;&#31526;&#24207;&#21015;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-strstreambuf-seekoff.html"><span class="t-lines"><span>seekoff</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#29992;&#30456;&#23545;&#23547;&#22336;&#37325;&#23547;&#20301;&#36755;&#20837;&#24207;&#21015;&#12289;&#36755;&#20986;&#24207;&#21015;&#25110;&#20004;&#32773;&#20013;&#30340;&#19979;&#19968;&#20301;&#32622;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-strstreambuf-seekpos.html"><span class="t-lines"><span>seekpos</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#29992;&#32477;&#23545;&#23547;&#22336;&#37325;&#23547;&#20301;&#36755;&#20837;&#24207;&#21015;&#12289;&#36755;&#20986;&#24207;&#21015;&#25110;&#20004;&#32773;&#20013;&#30340;&#19979;&#19968;&#20301;&#32622;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+<div class="t-inherited">
+<h2><span class="mw-headline" id=".E7.BB.A7.E6.89.BF.E8.87.AA_std::basic_streambuf">&#32487;&#25215;&#33258; <a href="cpp-io-basic_streambuf.html"><span style="font-size:0.8em; line-height:125%">std::</span>basic_streambuf</a></span></h2>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E7.B1.BB.E5.9E.8B">&#25104;&#21592;&#31867;&#22411;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#25104;&#21592;&#31867;&#22411;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>char_type</code></td>
+<td><code>CharT</code></td>
+</tr>
+<tr class="t-dsc">
+<td><code>traits_type</code></td>
+<td><code>Traits</code>&#65307;<code>Traits::char_type</code> &#19981;&#26159; <code>CharT</code> &#26102;&#31243;&#24207;&#38750;&#33391;&#26500;&#12290;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>int_type</code></td>
+<td><code>Traits::int_type</code></td>
+</tr>
+<tr class="t-dsc">
+<td><code>pos_type</code></td>
+<td><code>Traits::pos_type</code></td>
+</tr>
+<tr class="t-dsc">
+<td><code>off_type</code></td>
+<td><code>Traits::off_type</code></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.87.BD.E6.95.B0_2">&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-io-basic_streambuf-~basic_streambuf.html"><span class="t-lines"><span>(&#26512;&#26500;&#20989;&#25968;)</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#26512;&#26500; <code>basic_streambuf</code> &#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#34394;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E6.9C.AC.E5.9C.B0.E7.8E.AF.E5.A2.83">&#26412;&#22320;&#29615;&#22659;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-pubimbue.html"><span class="t-lines"><span>pubimbue</span></span></a></div>
+</div>
+</td>
+<td>&#25913;&#25442;&#20851;&#32852;&#30340;&#26412;&#22320;&#29615;&#22659;&#24182;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">imbue<span class="br0">(</span><span class="br0">)</span></span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-getloc.html"><span class="t-lines"><span>getloc</span></span></a></div>
+</div>
+</td>
+<td>&#33719;&#24471;&#20851;&#32852;&#30340;&#26412;&#22320;&#29615;&#22659;&#30340;&#21103;&#26412;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E5.AF.BB.E4.BD.8D">&#23547;&#20301;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-pubsetbuf.html"><span class="t-lines"><span>pubsetbuf</span></span></a></div>
+</div>
+</td>
+<td>&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">setbuf<span class="br0">(</span><span class="br0">)</span></span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-pubseekoff.html"><span class="t-lines"><span>pubseekoff</span></span></a></div>
+</div>
+</td>
+<td>&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">seekoff<span class="br0">(</span><span class="br0">)</span></span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-pubseekpos.html"><span class="t-lines"><span>pubseekpos</span></span></a></div>
+</div>
+</td>
+<td>&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">seekpos<span class="br0">(</span><span class="br0">)</span></span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-pubsync.html"><span class="t-lines"><span>pubsync</span></span></a></div>
+</div>
+</td>
+<td>&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">sync<span class="br0">(</span><span class="br0">)</span></span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E8.8E.B7.E5.8F.96.E5.8C.BA">&#33719;&#21462;&#21306;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-in_avail.html"><span class="t-lines"><span>in_avail</span></span></a></div>
+</div>
+</td>
+<td>&#33719;&#24471;&#33719;&#21462;&#21306;&#20013;&#31435;&#21363;&#21487;&#29992;&#30340;&#23383;&#31526;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-snextc.html"><span class="t-lines"><span>snextc</span></span></a></div>
+</div>
+</td>
+<td>&#25512;&#36827;&#36755;&#20837;&#24207;&#21015;&#65292;&#28982;&#21518;&#35835;&#21462;&#19968;&#20010;&#23383;&#31526;&#32780;&#19981;&#20877;&#25512;&#36827;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-sbumpc.html"><span class="t-lines"><span>sbumpc</span><span>stossc</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-until-cxx17" style="white-space: nowrap;">(C++17 &#31227;&#38500;)</span></span></span></div>
+</div>
+</td>
+<td>&#20174;&#36755;&#20837;&#24207;&#21015;&#35835;&#21462;&#19968;&#20010;&#23383;&#31526;&#24182;&#20196;&#24207;&#21015;&#21069;&#36827;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-sgetc.html"><span class="t-lines"><span>sgetc</span></span></a></div>
+</div>
+</td>
+<td>&#20174;&#36755;&#20837;&#24207;&#21015;&#35835;&#21462;&#19968;&#20010;&#23383;&#31526;&#65292;&#32780;&#19981;&#25512;&#36827;&#24207;&#21015;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-sgetn.html"><span class="t-lines"><span>sgetn</span></span></a></div>
+</div>
+</td>
+<td>&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">xsgetn<span class="br0">(</span><span class="br0">)</span></span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E6.94.BE.E7.BD.AE.E5.8C.BA">&#25918;&#32622;&#21306;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-sputc.html"><span class="t-lines"><span>sputc</span></span></a></div>
+</div>
+</td>
+<td>&#20889;&#19968;&#20010;&#23383;&#31526;&#21040;&#25918;&#32622;&#21306;&#22495;&#65292;&#24182;&#25512;&#36827;&#19979;&#19968;&#20301;&#32622;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-sputn.html"><span class="t-lines"><span>sputn</span></span></a></div>
+</div>
+</td>
+<td>&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">xsputn<span class="br0">(</span><span class="br0">)</span></span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E5.9B.9E.E6.94.BE">&#22238;&#25918;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-sputbackc.html"><span class="t-lines"><span>sputbackc</span></span></a></div>
+</div>
+</td>
+<td>&#22312;&#36755;&#20837;&#24207;&#21015;&#20013;&#25918;&#22238;&#19968;&#20010;&#23383;&#31526;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-sungetc.html"><span class="t-lines"><span>sungetc</span></span></a></div>
+</div>
+</td>
+<td>&#22238;&#31227;&#19968;&#20301;&#36755;&#20986;&#24207;&#21015;&#20013;&#30340;&#19979;&#19968;&#20301;&#32622;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.97.E4.BF.9D.E6.8A.A4.E6.88.90.E5.91.98.E5.87.BD.E6.95.B0_2">&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-io-basic_streambuf-basic_streambuf.html"><span class="t-lines"><span>(&#26500;&#36896;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26500;&#36896; <code>basic_streambuf</code> &#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-operator=.html"><span class="t-lines"><span>operator=</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#26367;&#25442; <code>basic_streambuf</code> &#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-swap.html"><span class="t-lines"><span>swap</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20132;&#25442;&#20004;&#20010; <code>basic_streambuf</code> &#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E6.9C.AC.E5.9C.B0.E7.8E.AF.E5.A2.83_2">&#26412;&#22320;&#29615;&#22659;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-pubimbue.html"><span class="t-lines"><span>imbue</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#21709;&#24212;&#20851;&#32852;&#26412;&#22320;&#29615;&#22659;&#30340;&#26356;&#25913;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E5.AF.BB.E4.BD.8D_2">&#23547;&#20301;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-pubsetbuf.html"><span class="t-lines"><span>setbuf</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#65288;&#22312;&#20801;&#35768;&#26102;&#65289;&#20197;&#29992;&#25143;&#23450;&#20041;&#25968;&#32452;&#26367;&#25442;&#32531;&#20914;&#21306;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-pubseekoff.html"><span class="t-lines"><span>seekoff</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#29992;&#30456;&#23545;&#23547;&#22336;&#37325;&#23450;&#20301;&#36755;&#20837;&#24207;&#21015;&#12289;&#36755;&#20986;&#24207;&#21015;&#25110;&#20004;&#32773;&#20013;&#30340;&#19979;&#19968;&#20301;&#32622;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-pubseekpos.html"><span class="t-lines"><span>seekpos</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#29992;&#32477;&#23545;&#23547;&#22336;&#37325;&#23450;&#20301;&#36755;&#20837;&#24207;&#21015;&#12289;&#36755;&#20986;&#24207;&#21015;&#25110;&#20004;&#32773;&#20013;&#30340;&#19979;&#19968;&#20301;&#32622;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-pubsync.html"><span class="t-lines"><span>sync</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#23558;&#32531;&#20914;&#19982;&#20851;&#32852;&#30340;&#23383;&#31526;&#24207;&#21015;&#21516;&#27493;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E8.8E.B7.E5.8F.96.E5.8C.BA_2">&#33719;&#21462;&#21306;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-showmanyc.html"><span class="t-lines"><span>showmanyc</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#33719;&#24471;&#20851;&#32852;&#36755;&#20837;&#24207;&#21015;&#20013;&#21487;&#29992;&#20110;&#36755;&#20837;&#30340;&#23383;&#31526;&#25968;&#65288;&#22914;&#26524;&#24050;&#30693;&#65289;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-underflow.html"><span class="t-lines"><span>underflow</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#20174;&#20851;&#32852;&#36755;&#20837;&#24207;&#21015;&#35835;&#21462;&#23383;&#31526;&#21040;&#33719;&#21462;&#21306;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-uflow.html"><span class="t-lines"><span>uflow</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#20174;&#36755;&#20837;&#24207;&#21015;&#35835;&#21462;&#23383;&#31526;&#21040;&#33719;&#21462;&#21306;&#65292;&#24182;&#25512;&#36827;&#19979;&#19968;&#20301;&#32622;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-sgetn.html"><span class="t-lines"><span>xsgetn</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#20174;&#36755;&#20837;&#24207;&#21015;&#35835;&#21462;&#22810;&#20010;&#23383;&#31526;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-gptr.html"><span class="t-lines"><span>eback</span><span>gptr</span><span>egptr</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#21521;&#33719;&#21462;&#21306;&#36215;&#22987;&#12289;&#24403;&#21069;&#23383;&#31526;&#21644;&#26411;&#23614;&#30340;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-gbump.html"><span class="t-lines"><span>gbump</span></span></a></div>
+</div>
+</td>
+<td>&#25512;&#36827;&#36755;&#20986;&#24207;&#21015;&#20013;&#30340;&#19979;&#19968;&#20301;&#32622;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-setg.html"><span class="t-lines"><span>setg</span></span></a></div>
+</div>
+</td>
+<td>&#37325;&#23450;&#20301;&#36755;&#20837;&#24207;&#21015;&#30340;&#36215;&#22987;&#12289;&#19979;&#19968;&#20301;&#32622;&#21644;&#32456;&#27490;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E6.94.BE.E7.BD.AE.E5.8C.BA_2">&#25918;&#32622;&#21306;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-sputn.html"><span class="t-lines"><span>xsputn</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#23558;&#22810;&#20010;&#23383;&#31526;&#20889;&#21040;&#36755;&#20986;&#24207;&#21015;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-overflow.html"><span class="t-lines"><span>overflow</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#20174;&#25918;&#32622;&#21306;&#20889;&#20837;&#23383;&#31526;&#21040;&#20851;&#32852;&#30340;&#36755;&#20986;&#24207;&#21015;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-pptr.html"><span class="t-lines"><span>pbase</span><span>pptr</span><span>epptr</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#21521;&#25918;&#32622;&#21306;&#30340;&#36215;&#22987;&#12289;&#24403;&#21069;&#23383;&#31526;&#21644;&#26411;&#23614;&#30340;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-pbump.html"><span class="t-lines"><span>pbump</span></span></a></div>
+</div>
+</td>
+<td>&#25512;&#36827;&#36755;&#20986;&#24207;&#21015;&#20013;&#30340;&#19979;&#19968;&#20301;&#32622;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-setp.html"><span class="t-lines"><span>setp</span></span></a></div>
+</div>
+</td>
+<td>&#37325;&#23450;&#20301;&#36755;&#20986;&#24207;&#21015;&#30340;&#36215;&#22987;&#12289;&#19979;&#19968;&#20301;&#32622;&#21644;&#32456;&#27490;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E5.9B.9E.E6.94.BE_2">&#22238;&#25918;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-pbackfail.html"><span class="t-lines"><span>pbackfail</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#23558;&#23383;&#31526;&#25918;&#22238;&#36755;&#20837;&#24207;&#21015;&#65292;&#21487;&#33021;&#20462;&#25913;&#36755;&#20837;&#24207;&#21015;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

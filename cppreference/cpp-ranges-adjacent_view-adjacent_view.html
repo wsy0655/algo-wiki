@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::ranges::adjacent_view&lt;V,N&gt;::adjacent_view</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_ranges_adjacent_view_adjacent_view skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::ranges::adjacent_view&lt;V,N&gt;::</span>adjacent_view</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-ranges.html">ranges</a>&lrm; | <a href="cpp-ranges-adjacent_view.html">adjacent view</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp">adjacent_view<span class="br0">(</span><span class="br0">)</span> requires <a href="cpp-concepts-default_initializable.html"><span class="kw2947">std::<span class="me2">default_initializable</span></span></a><span class="sy1">&lt;</span>V<span class="sy1">&gt;</span> <span class="sy1">=</span> <span class="kw1">default</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="kw1">explicit</span> adjacent_view<span class="br0">(</span> V base <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#26500;&#36896; <a href="cpp-ranges-adjacent_view.html"><code>adjacent_view</code></a>&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#40664;&#35748;&#26500;&#36896;&#20989;&#25968;&#12290;<a href="cpp-language-value_initialization.html">&#20540;&#21021;&#22987;&#21270;</a>&#24213;&#23618;&#35270;&#22270;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#20351;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>base<span class="br0">)</span></span></span> &#21021;&#22987;&#21270;&#24213;&#23618;&#35270;&#22270; <a href="cpp-ranges-adjacent_view.html#.E6.95.B0.E6.8D.AE.E6.88.90.E5.91.98"><code><i>base_</i></code></a>&#12290;</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>base</td>
+<td>-</td>
+<td>&#24213;&#23618;&#35270;&#22270;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;ranges&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+<span class="co2">#include &lt;tuple&gt;</span>
+ 
+<span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span>... <span class="me1">Ts</span><span class="sy1">&gt;</span>
+<span class="kw4">void</span> print<span class="br0">(</span><a href="cpp-utility-tuple.html"><span class="kw1101">std::<span class="me2">tuple</span></span></a><span class="sy1">&lt;</span>Ts...<span class="sy1">&gt;</span> <span class="kw4">const</span><span class="sy3">&amp;</span> tuple<span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-utility-apply.html"><span class="kw1106">std::<span class="me2">apply</span></span></a><span class="br0">(</span><span class="br0">[</span><span class="sy3">&amp;</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">auto</span><span class="sy3">&amp;&amp;</span> arg, <span class="kw4">auto</span><span class="sy3">&amp;&amp;</span>... <span class="me1">args</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> arg<span class="sy4">;</span>
+        <span class="br0">(</span><span class="br0">(</span><a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> args<span class="br0">)</span>, ...<span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>, tuple<span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">const</span> <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a> v<span class="br0">{</span><span class="st0">&quot;ABCDEF&quot;</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw4">constexpr</span> <span class="kw4">int</span> window_size<span class="br0">{</span><span class="nu0">4</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;v: &quot;</span> <span class="sy1">&lt;&lt;</span> v <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="kw4">auto</span> view <span class="sy1">=</span> std<span class="sy4">::</span><a href="cpp-ranges-adjacent_view.html"><span class="kw3575">views::<span class="me2">adjacent</span></span></a><span class="sy1">&lt;</span>window_size<span class="sy1">&gt;</span><span class="br0">(</span>v<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// overload (2)</span>
+ 
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">auto</span> <span class="kw4">const</span><span class="sy3">&amp;</span> tuple<span class="sy4">:</span> view<span class="br0">)</span>
+        print<span class="br0">(</span>tuple<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">v: ABCDEF
+ABCD
+BCDE
+CDEF</pre></div>
+</div>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

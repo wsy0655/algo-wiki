@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ATOMIC_VAR_INIT</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_atomic_ATOMIC_VAR_INIT skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">ATOMIC_VAR_INIT</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-atomic.html">atomic</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-atomic.html">&lt;atomic&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="co2">#define ATOMIC_VAR_INIT(value) /* &#30001;&#23454;&#29616;&#23450;&#20041; */</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span><br />
+<span class="t-mark" style="white-space: nowrap;">(C++20 &#24323;&#29992;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#23637;&#24320;&#25104;&#33021;&#29992;&#20110;&#21021;&#22987;&#21270;&#21487;&#20174; <code>value</code> &#21021;&#22987;&#21270;&#30340; <span class="t-lc"><a href="cpp-atomic-atomic.html">std::atomic</a></span> &#23545;&#35937;&#30340;&#34920;&#36798;&#24335;&#12290;&#33509;&#21407;&#23376;&#23545;&#35937;&#25317;&#26377;&#38745;&#24577;&#23384;&#20648;&#26399;&#65292;&#21017;&#27492;&#21021;&#22987;&#21270;&#20026;<a href="cpp-language-constant_initialization.html">&#24120;&#37327;&#21021;&#22987;&#21270;</a>&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#22312;&#21478;&#19968;&#32447;&#31243;&#22312;&#21021;&#22987;&#21270;&#26399;&#38388;&#35775;&#38382;&#65292;&#21363;&#20351;&#36890;&#36807;&#21407;&#23376;&#25805;&#20316;&#65292;&#20063;&#26159;&#25968;&#25454;&#31454;&#20105;&#65288;&#33509;&#22320;&#22336;&#31435;&#21363;&#20256;&#36882;&#32473;&#24102; <span class="t-lc"><a href="cpp-atomic-memory_order.html">std::memory_order_relaxed</a></span> &#25805;&#20316;&#30340;&#21478;&#19968;&#32447;&#31243;&#21017;&#21487;&#20197;&#21457;&#29983;&#65289;&#12290;</p>
+<p>&#27492;&#23439;&#20027;&#35201;&#20026;&#19982; C &#30340;&#20860;&#23481;&#24615;&#25552;&#20379;&#65307;&#23427;&#34920;&#29616;&#19982; <span class="t-lc"><a href="cpp-atomic-atomic.html">std::atomic</a></span> &#30340;&#26500;&#36896;&#20989;&#25968;&#30456;&#21516;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;atomic&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-atomic-atomic.html"><span class="kw2070">std::<span class="me2">atomic</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span> a <span class="sy1">=</span> ATOMIC_VAR_INIT<span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="co1">// std::atomic&lt;int&gt; a(1);   // &#20165; C++ &#30340;&#26367;&#29992;&#21697;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;Initialized std::atomic&lt;int&gt; as: &quot;</span> <span class="sy1">&lt;&lt;</span> a <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">Initialized std::atomic&lt;int&gt; as: 1</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-atomic-atomic_init.html"><span class="t-lines"><span>atomic_init</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span><span class="t-mark-rev t-deprecated-cxx20" style="white-space: nowrap;">(C++20 &#24323;&#29992;)</span></span></span></div>
+</div>
+</td>
+<td>&#23545;&#40664;&#35748;&#26500;&#36896;&#30340;&#21407;&#23376;&#23545;&#35937;&#36827;&#34892;&#38750;&#21407;&#23376;&#21021;&#22987;&#21270;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-atomic-atomic-atomic.html"><span class="t-lines"><span>(&#26500;&#36896;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26500;&#36896;&#21407;&#23376;&#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::atomic&lt;T&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>ATOMIC_VAR_INIT</span></span>&nbsp;&#30340; <span><span><a href="c-atomic-ATOMIC_VAR_INIT.html">C &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

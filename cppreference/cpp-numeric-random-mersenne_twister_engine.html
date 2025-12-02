@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::mersenne_twister_engine</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_numeric_random_mersenne_twister_engine skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>mersenne_twister_engine</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-numeric.html">numeric</a>&lrm; | <a href="cpp-numeric-random.html">random</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-random.html">&lt;random&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span><br /></span>
+<p>&nbsp; &nbsp; <span class="kw1">class</span> UIntType, <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> w, <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> n, <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> m, <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> r,<br />
+&nbsp; &nbsp; UIntType a, <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> u, UIntType d, <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> s,<br />
+&nbsp; &nbsp; UIntType b, <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> t, UIntType c, <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> l, UIntType f<br /></p>
+<span class="sy1">&gt;</span> <span class="kw1">class</span> mersenne_twister_engine<span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>mersenne_twister_engine</code> &#26159;&#22522;&#20110;<a href="https://en.wikipedia.org/wiki/Mersenne_twister" class="extiw" title="enwiki:Mersenne twister">&#26757;&#26862;&#32544;&#32469;&#22120;</a>&#31639;&#27861;&#30340;&#38543;&#26426;&#25968;&#29983;&#25104;&#22120;&#12290;&#23427;&#20135;&#29983;&#39640;&#36136;&#37327;&#20294;&#38750;&#23494;&#30721;&#23398;&#23433;&#20840;&#30340;&#65292;<code>UIntType</code> &#31867;&#22411;&#30340;&#21306;&#38388; <span class="mjax" style="display:none">\(\scriptsize {[0,2^w)}\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">[0, 2<span class="t-su">w<br /></span>)</span> &#19978;&#30340;&#26080;&#31526;&#21495;&#25972;&#25968;&#38543;&#26426;&#25968;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.A8.A1.E6.9D.BF.E5.BD.A2.E5.8F.82">&#27169;&#26495;&#24418;&#21442;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>UIntType</td>
+<td>-</td>
+<td>&#29983;&#25104;&#22120;&#25152;&#29983;&#25104;&#30340;&#32467;&#26524;&#31867;&#22411;&#12290;&#22914;&#26524;&#23427;&#19981;&#26159; <span class="mw-geshi cpp source-cpp"><span class="kw4">unsigned</span> <span class="kw4">short</span></span>&#12289;<span class="mw-geshi cpp source-cpp"><span class="kw4">unsigned</span> <span class="kw4">int</span></span>&#12289;<span class="mw-geshi cpp source-cpp"><span class="kw4">unsigned</span> <span class="kw4">long</span></span> &#25110; <span class="mw-geshi cpp source-cpp"><span class="kw4">unsigned</span> <span class="kw4">long</span> <span class="kw4">long</span></span> &#20043;&#19968;&#65292;&#37027;&#20040;&#25928;&#26524;&#26410;&#23450;&#20041;&#12290;</td>
+</tr>
+<tr class="t-par">
+<td>w</td>
+<td>-</td>
+<td>&#30830;&#23450;&#24341;&#25806;&#29983;&#25104;&#30340;&#20540;&#30340;&#33539;&#22260;&#30340;2&#30340;&#24130;</td>
+</tr>
+<tr class="t-par">
+<td>n</td>
+<td>-</td>
+<td>&#36882;&#25512;&#24230;</td>
+</tr>
+<tr class="t-par">
+<td>m</td>
+<td>-</td>
+<td>&#20013;&#38388;&#35789;&#65292;&#21363;&#23450;&#20041;&#29366;&#24577;&#30340;&#36882;&#25512;&#20851;&#31995;&#20013;&#20351;&#29992;&#30340;&#20559;&#31227;</td>
+</tr>
+<tr class="t-par">
+<td>r</td>
+<td>-</td>
+<td>&#20302;&#20301;&#25513;&#30721;&#30340;&#20301;&#25968;&#65292;&#20063;&#34987;&#31216;&#20026;&#32544;&#32469;&#20540;</td>
+</tr>
+<tr class="t-par">
+<td>a</td>
+<td>-</td>
+<td>&#26465;&#20214;&#24615;&#24322;&#25110;&#25513;&#30721;&#65292;&#21363;&#26377;&#29702;&#33539;&#24335;&#32544;&#32469;&#30697;&#38453;&#30340;&#31995;&#25968;</td>
+</tr>
+<tr class="t-par">
+<td>u, d, s, b, t, c, l</td>
+<td>-</td>
+<td>&#20301;&#25200;&#20081;&#65288;&#35843;&#21644;&#65289;&#30697;&#38453;&#30340;&#31532;&#19968;&#20010;&#21040;&#31532;&#19971;&#20010;&#32452;&#20998;</td>
+</tr>
+<tr class="t-par">
+<td>f</td>
+<td>-</td>
+<td>&#21021;&#22987;&#21270;&#20056;&#25968;</td>
+</tr>
+</table>
+<p>&#22914;&#26524;&#36829;&#32972;&#20102;&#20197;&#19979;&#20219;&#20309;&#38480;&#21046;&#65292;&#37027;&#20040;&#31243;&#24207;&#38750;&#33391;&#26500;&#65306;</p>
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">m</span></span> &#22312;&#33539;&#22260; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="nu0">1</span></span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span><code>]</code> &#20013;&#12290;</li>
+<li>&#20197;&#19979;&#34920;&#36798;&#24335;&#37117;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">w <span class="sy1">&gt;=</span> <span class="nu0">3</span></span></span></li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">w <span class="sy1">&gt;=</span> r</span></span></li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">w <span class="sy1">&gt;=</span> u</span></span></li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">w <span class="sy1">&gt;=</span> s</span></span></li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">w <span class="sy1">&gt;=</span> t</span></span></li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">w <span class="sy1">&gt;=</span> l</span></span></li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">w <span class="sy1">&lt;=</span> <a href="cpp-types-numeric_limits.html"><span class="kw351">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span>UIntType<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">digits</span></span></span></li>
+</ul>
+</dd>
+</dl>
+<ul>
+<li>&#32473;&#23450; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span>1u <span class="sy1">&lt;&lt;</span> w<span class="br0">)</span> <span class="sy2">-</span> 1u</span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">w1</span></span>&#65292;&#20197;&#19979;&#34920;&#36798;&#24335;&#37117;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">a <span class="sy1">&lt;=</span> w1</span></span></li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">b <span class="sy1">&lt;=</span> w1</span></span></li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">c <span class="sy1">&lt;=</span> w1</span></span></li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">d <span class="sy1">&lt;=</span> w1</span></span></li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">f <span class="sy1">&lt;=</span> w1</span></span></li>
+</ul>
+</dd>
+</dl>
+<h3><span class="mw-headline" id=".E7.94.9F.E6.88.90.E5.99.A8.E5.B1.9E.E6.80.A7">&#29983;&#25104;&#22120;&#23646;&#24615;</span></h3>
+<p><code>mersenne_twister_engine</code> &#30340;&#29366;&#24577;&#30340;<a href="cpp-numeric-random.html#.E9.9A.8F.E6.9C.BA.E6.95.B0.E5.BC.95.E6.93.8E">&#22823;&#23567;</a>&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span>&#65292;&#23427;&#21253;&#21547;&#19968;&#20010;&#21253;&#21547;&#20102; <span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span> &#20010; <code>result_type</code> &#20540;&#30340;&#24207;&#21015; <span class="t-c"><span class="mw-geshi cpp source-cpp">X</span></span>&#12290;<span class="mjax" style="display:none">\(\scriptsize X_j\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">X<span class="t-su t-su-b">j</span></span> &#34920;&#31034; <span class="t-c"><span class="mw-geshi cpp source-cpp">X</span></span> &#30340;&#31532; <span class="mjax" style="display:none">\(\scriptsize j\mod n\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">j mod n</span> &#20010;&#20540;&#65288;&#20174;0&#24320;&#22987;&#31639;&#36215;&#65289;&#12290;</p>
+<p>&#32473;&#23450;&#20197;&#19979;&#20301;&#25805;&#20316;&#34920;&#31034;&#65306;</p>
+<ul>
+<li><span class="mjax" style="display:none">\(\scriptsize \mathsf{bitand}\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">bitand</span>&#65292;&#20869;&#24314;&#30340;<a href="cpp-language-operator_arithmetic.html#.E9.80.90.E4.BD.8D.E9.80.BB.E8.BE.91.E8.BF.90.E7.AE.97.E7.AC.A6">&#36880;&#20301;&#19982;</a>&#12290;</li>
+<li><span class="mjax" style="display:none">\(\scriptsize \mathsf{xor}\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">xor</span>&#65292;&#20869;&#24314;&#30340;<a href="cpp-language-operator_arithmetic.html#.E9.80.90.E4.BD.8D.E9.80.BB.E8.BE.91.E8.BF.90.E7.AE.97.E7.AC.A6">&#36880;&#20301;&#24322;&#25110;</a>&#12290;</li>
+<li><span class="mjax" style="display:none">\(\scriptsize \mathsf{lshift}\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">lshift</span>&#65292;&#20869;&#24314;&#30340;<a href="cpp-language-operator_arithmetic.html#.E7.A7.BB.E4.BD.8D.E8.BF.90.E7.AE.97.E7.AC.A6">&#21521;&#24038;&#31227;&#20301;</a>&#12290;</li>
+<li><span class="mjax" style="display:none">\(\scriptsize \mathsf{rshift}\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">rshift</span>&#65292;&#20869;&#24314;&#30340;<a href="cpp-language-operator_arithmetic.html#.E7.A7.BB.E4.BD.8D.E8.BF.90.E7.AE.97.E7.AC.A6">&#21521;&#21491;&#31227;&#20301;</a>&#12290;</li>
+</ul>
+<p><code>mersenne_twister_engine</code> &#30340;<a href="cpp-numeric-random.html#.E9.9A.8F.E6.9C.BA.E6.95.B0.E5.BC.95.E6.93.8E">&#21464;&#25442;&#31639;&#27861;</a>&#65288;<span class="mjax" style="display:none">\(\scriptsize TA(x_i)\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">TA(x<span class="t-su t-su-b">i</span>)</span>&#65289;&#23450;&#20041;&#22914;&#19979;&#65306;</p>
+<ol>
+<li>&#25340;&#25509; <span class="mjax" style="display:none">\(\scriptsize X_{i-n}\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">X<span class="t-su t-su-b">i-n</span></span> &#30340;&#39640; <span class="t-c"><span class="mw-geshi cpp source-cpp">w <span class="sy2">-</span> r</span></span> &#20301;&#21644; <span class="mjax" style="display:none">\(\scriptsize X_{i+1-n}\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">X<span class="t-su t-su-b">i+1-n</span></span> &#30340;&#20302; <span class="t-c"><span class="mw-geshi cpp source-cpp">r</span></span> &#20301;&#65292;&#24471;&#21040;&#26080;&#31526;&#21495;&#25972;&#25968;&#20540; <span class="t-c"><span class="mw-geshi cpp source-cpp">Y</span></span>&#12290;</li>
+<li>&#35774; <span class="t-c"><span class="mw-geshi cpp source-cpp">y</span></span> &#20026; <span class="mjax" style="display:none">\(\scriptsize a \cdot (Y\ \mathsf{bitand}\ 1)\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">a&middot;(Y bitand 1)</span>&#65292;&#24182;&#19988;&#23558; <span class="mjax" style="display:none">\(\scriptsize X_i\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">X<span class="t-su t-su-b">i</span></span> &#35774;&#32622;&#20026; <span class="mjax" style="display:none">\(\scriptsize X_{i+m&minus;n}\ \mathsf{xor}\ (Y\ \mathsf{rshift}\ 1)\ \mathsf{xor}\ y\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">X<span class="t-su t-su-b">i+m&minus;n</span> xor (Y rshift 1) xor y</span>&#12290;</li>
+</ol>
+<p><code>mersenne_twister_engine</code> &#30340;<a href="cpp-numeric-random.html#.E9.9A.8F.E6.9C.BA.E6.95.B0.E5.BC.95.E6.93.8E">&#29983;&#25104;&#31639;&#27861;</a>&#65288;<span class="mjax" style="display:none">\(\scriptsize GA(x_i)\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">GA(x<span class="t-su t-su-b">i</span>)</span>&#65289;&#23450;&#20041;&#22914;&#19979;&#65306;</p>
+<ol>
+<li>&#35774; <span class="mjax" style="display:none">\(\scriptsize z_1\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">z<span class="t-su t-su-b">1</span></span> &#20026; <span class="mjax" style="display:none">\(\scriptsize X_i\ \mathsf{xor}\ ((X_i\ \mathsf{rshift}\ u)\ \mathsf{bitand}\ d)\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">X<span class="t-su t-su-b">i</span> xor ((X<span class="t-su t-su-b">i</span> rshift u) bitand d)</span>&#12290;</li>
+<li>&#35774; <span class="mjax" style="display:none">\(\scriptsize z_2\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">z<span class="t-su t-su-b">2</span></span> &#20026; <span class="mjax" style="display:none">\(\scriptsize z_1\ \mathsf{xor}\ (((z_1\ \mathsf{lshift}\ s)\mod 2^w)\ \mathsf{bitand}\ b)\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">X<span class="t-su t-su-b">i</span> xor (((X<span class="t-su t-su-b">i</span> lshift s) mod 2<span class="t-su">w<br /></span>) bitand b)</span>&#12290;</li>
+<li>&#35774; <span class="mjax" style="display:none">\(\scriptsize z_3\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">z<span class="t-su t-su-b">3</span></span> &#20026; <span class="mjax" style="display:none">\(\scriptsize z_2\ \mathsf{xor}\ (((z_2\ \mathsf{lshift}\ t)\mod 2^w)\ \mathsf{bitand}\ c)\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">X<span class="t-su t-su-b">i</span> xor (((X<span class="t-su t-su-b">i</span> lshift t) mod 2<span class="t-su">w<br /></span>) bitand c)</span>&#12290;</li>
+<li>&#35774; <span class="mjax" style="display:none">\(\scriptsize z_4\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">z<span class="t-su t-su-b">4</span></span> &#20026; <span class="mjax" style="display:none">\(\scriptsize z_3\ \mathsf{xor}\ (z_3\ \mathsf{rshift}\ l)\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">z<span class="t-su t-su-b">3</span> xor (z<span class="t-su t-su-b">3</span> rshift l)</span>&#12290;</li>
+<li>&#20197; <span class="mjax" style="display:none">\(\scriptsize z_4\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">z<span class="t-su t-su-b">4</span></span> &#20316;&#20026;&#29983;&#25104;&#32467;&#26524;&#65288;&#21363; <span class="mjax" style="display:none">\(\scriptsize GA(x_i)=z_4\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">GA(x<span class="t-su t-su-b">i</span>)=z<span class="t-su t-su-b">4</span></span>&#65289;&#12290;</li>
+</ol>
+<h3><span class="mw-headline" id=".E9.A2.84.E5.AE.9A.E4.B9.89.E7.89.B9.E5.8C.96">&#39044;&#23450;&#20041;&#29305;&#21270;</span></h3>
+<p>&#19979;&#21015;&#29305;&#21270;&#23450;&#20041;&#20102;&#20004;&#31181;&#24120;&#29992;&#21442;&#25968;&#38598;&#30340;&#38543;&#26426;&#25968;&#24341;&#25806;&#65306;</p>
+<table class="t-dsc-begin">
+<tr class="t-dsc-header">
+<td colspan="2">
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-random.html">&lt;random&gt;</a></code> &#23450;&#20041;</div>
+</td>
+</tr>
+<tr class="t-dsc-hitem">
+<td>&#31867;&#22411;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>mt19937</code> <span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></td>
+<td>
+<p><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">mersenne_twister_engine</span><span class="sy1">&lt;</span><a href="cpp-types-integer.html"><span class="kw133">std::<span class="me2">uint_fast32_t</span></span></a>,</span><br />
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><span class="mw-geshi cpp source-cpp"><span class="nu0">32</span>, <span class="nu0">624</span>, <span class="nu0">397</span>, <span class="nu0">31</span>,</span><br />
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><span class="mw-geshi cpp source-cpp"><span class="nu12">0x9908b0df</span>, <span class="nu0">11</span>,</span><br />
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><span class="mw-geshi cpp source-cpp"><span class="nu12">0xffffffff</span>, <span class="nu0">7</span>,</span><br />
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><span class="mw-geshi cpp source-cpp"><span class="nu12">0x9d2c5680</span>, <span class="nu0">15</span>,</span><br />
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><span class="mw-geshi cpp source-cpp"><span class="nu12">0xefc60000</span>, <span class="nu0">18</span>, <span class="nu0">1812433253</span><span class="sy1">&gt;</span></span><br />
+32 &#20301;&#26757;&#26862;&#32544;&#32469;&#22120;&#65292;&#30001;&#26494;&#26412;&#19982;&#35199;&#26449;&#35774;&#35745;&#20110; 1998</p>
+</td>
+</tr>
+<tr class="t-dsc">
+<td><code>mt19937_64</code> <span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></td>
+<td>
+<p><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">mersenne_twister_engine</span><span class="sy1">&lt;</span><a href="cpp-types-integer.html"><span class="kw134">std::<span class="me2">uint_fast64_t</span></span></a>,</span><br />
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><span class="mw-geshi cpp source-cpp"><span class="nu0">64</span>, <span class="nu0">312</span>, <span class="nu0">156</span>, <span class="nu0">31</span>,</span><br />
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><span class="mw-geshi cpp source-cpp"><span class="nu12">0xb5026f5aa96619e9</span>, <span class="nu0">29</span>,</span><br />
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><span class="mw-geshi cpp source-cpp"><span class="nu12">0x5555555555555555</span>, <span class="nu0">17</span>,</span><br />
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><span class="mw-geshi cpp source-cpp"><span class="nu12">0x71d67fffeda60000</span>, <span class="nu0">37</span>,</span><br />
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><span class="mw-geshi cpp source-cpp"><span class="nu12">0xfff7eee000000000</span>, <span class="nu0">43</span>,</span><br />
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><span class="mw-geshi cpp source-cpp"><span class="nu0">6364136223846793005</span><span class="sy1">&gt;</span></span><br />
+64 &#20301;&#26757;&#26862;&#32544;&#32469;&#22120;&#65292;&#30001;&#26494;&#26412;&#19982;&#35199;&#26449;&#35774;&#35745;&#20110; 2000</p>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.B5.8C.E5.A5.97.E7.B1.BB.E5.9E.8B">&#23884;&#22871;&#31867;&#22411;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#31867;&#22411;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>result_type</code></td>
+<td><code>UIntType</code></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.95.B0.E6.8D.AE.E6.88.90.E5.91.98">&#25968;&#25454;&#25104;&#21592;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span><span class="t-dsc-small">constexpr size_t</span> word_size</span></span></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">w</span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#24120;&#37327;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span><span class="t-dsc-small">constexpr size_t</span> state_size</span></span></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#24120;&#37327;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span><span class="t-dsc-small">constexpr size_t</span> shift_size</span></span></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">m</span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#24120;&#37327;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span><span class="t-dsc-small">constexpr size_t</span> mask_bits</span></span></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">r</span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#24120;&#37327;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span><span class="t-dsc-small">constexpr UIntType</span> xor_mask</span></span></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">a</span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#24120;&#37327;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span><span class="t-dsc-small">constexpr size_t</span> tempering_u</span></span></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">u</span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#24120;&#37327;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span><span class="t-dsc-small">constexpr UIntType</span> tempering_d</span></span></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">d</span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#24120;&#37327;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span><span class="t-dsc-small">constexpr size_t</span> tempering_s</span></span></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">s</span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#24120;&#37327;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span><span class="t-dsc-small">constexpr UIntType</span> tempering_b</span></span></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">b</span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#24120;&#37327;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span><span class="t-dsc-small">constexpr size_t</span> tempering_t</span></span></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">t</span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#24120;&#37327;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span><span class="t-dsc-small">constexpr UIntType</span> tempering_c</span></span></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">c</span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#24120;&#37327;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span><span class="t-dsc-small">constexpr size_t</span> tempering_l</span></span></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">l</span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#24120;&#37327;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span><span class="t-dsc-small">constexpr UIntType</span> initialization_multiplier</span></span></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">f</span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#24120;&#37327;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span><span class="t-dsc-small">constexpr UIntType</span> default_seed</span></span></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">5489u</span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#24120;&#37327;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E6.9E.84.E9.80.A0.E4.B8.8E.E6.92.AD.E7.A7.8D">&#26500;&#36896;&#19982;&#25773;&#31181;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-numeric-random-mersenne_twister_engine-mersenne_twister_engine.html"><span class="t-lines"><span>(&#26500;&#36896;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26500;&#36896;&#24341;&#25806;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-mersenne_twister_engine-seed.html"><span class="t-lines"><span>seed</span></span></a></div>
+</div>
+</td>
+<td>&#35774;&#32622;&#24341;&#25806;&#30340;&#24403;&#21069;&#29366;&#24577;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E7.94.9F.E6.88.90">&#29983;&#25104;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-mersenne_twister_engine-operator().html"><span class="t-lines"><span>operator()</span></span></a></div>
+</div>
+</td>
+<td>&#25512;&#36827;&#24341;&#25806;&#29366;&#24577;&#24182;&#36820;&#22238;&#29983;&#25104;&#30340;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-mersenne_twister_engine-discard.html"><span class="t-lines"><span>discard</span></span></a></div>
+</div>
+</td>
+<td>&#20196;&#24341;&#25806;&#29366;&#24577;&#21069;&#36827;&#25351;&#23450;&#37327;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E7.89.B9.E5.BE.81">&#29305;&#24449;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-mersenne_twister_engine-min.html"><span class="t-lines"><span>min</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td>&#33719;&#21462;&#36755;&#20986;&#33539;&#22260;&#20013;&#30340;&#26368;&#23567;&#21487;&#33021;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-mersenne_twister_engine-max.html"><span class="t-lines"><span>max</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td>&#33719;&#21462;&#36755;&#20986;&#33539;&#22260;&#20013;&#30340;&#26368;&#22823;&#21487;&#33021;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E9.9D.9E.E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#38750;&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-mersenne_twister_engine-operator_cmp.html"><span class="t-lines"><span>operator==</span><span>operator!=</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#31227;&#38500;)</span></span></span></div>
+</div>
+</td>
+<td>&#27604;&#36739;&#20004;&#20010;&#20266;&#38543;&#26426;&#25968;&#24341;&#25806;&#30340;&#20869;&#37096;&#29366;&#24577;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-mersenne_twister_engine-operator_ltltgtgt.html"><span class="t-lines"><span>operator&lt;&lt;</span><span>operator&gt;&gt;</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#25191;&#34892;&#20266;&#38543;&#26426;&#25968;&#24341;&#25806;&#30340;&#27969;&#36755;&#20837;&#21644;&#36755;&#20986;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#26242;&#26080;&#31034;&#20363;</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

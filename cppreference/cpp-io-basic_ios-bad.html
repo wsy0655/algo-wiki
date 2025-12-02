@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::basic_ios&lt;CharT,Traits&gt;::bad</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_io_basic_ios_bad skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::basic_ios&lt;CharT,Traits&gt;::</span>bad</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-io.html">io</a>&lrm; | <a href="cpp-io-basic_ios.html">basic ios</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> bad<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#33509;&#20851;&#32852;&#30340;&#27969;&#19978;&#24050;&#20986;&#29616;&#19981;&#21487;&#24674;&#22797;&#30340;&#38169;&#35823;&#21017;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#12290;&#26126;&#30830;&#35828;&#21363;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">rdstate<span class="br0">(</span><span class="br0">)</span></span></span> &#20013;&#35774;&#32622;&#20102; <a href="cpp-io-ios_base-iostate.html"><tt>badbit</tt></a> &#21017;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#12290;</p>
+<p>&#35774;&#32622; <code>badbit</code> &#30340;&#26465;&#20214;&#21015;&#34920;&#35265; <a href="cpp-io-ios_base-iostate.html"><tt>ios_base::iostate</tt></a>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#33509;&#20986;&#29616;&#19981;&#21487;&#24674;&#22797;&#30340;&#38169;&#35823;&#21017;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#21542;&#21017;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;cstdlib&gt;</span>
+<span class="co2">#include &lt;fstream&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-basic_ifstream.html"><span class="kw1736">std::<span class="me2">ifstream</span></span></a> file<span class="br0">(</span><span class="st0">&quot;test.txt&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span><span class="sy3">!</span>file<span class="br0">)</span> <span class="co1">// &#27492;&#22788;&#20351;&#29992;&#20102; operator!</span>
+    <span class="br0">{</span>  
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#25991;&#20214;&#25171;&#24320;&#22833;&#36133;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+        <span class="kw1">return</span> <a href="cpp-utility-program-EXIT_status.html"><span class="kw975">EXIT_FAILURE</span></a><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="co1">// &#20856;&#22411;&#30340; C++ I/O &#24490;&#29615;&#20197; I/O &#20989;&#25968;&#30340;&#36820;&#22238;&#20540;&#20026;&#24490;&#29615;&#25511;&#21046;&#26465;&#20214;&#65292;</span>
+    <span class="co1">// &#27492;&#22788;&#20351;&#29992;&#20102; operator bool()</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> n<span class="sy4">;</span> file <span class="sy1">&gt;&gt;</span> n<span class="sy4">;</span><span class="br0">)</span>
+       <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> n <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="kw1">if</span> <span class="br0">(</span>file.<span class="me1">bad</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#35835;&#21462;&#26102;&#21457;&#29983;&#20102; I/O &#38169;&#35823;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    <span class="kw1">else</span> <span class="kw1">if</span> <span class="br0">(</span>file.<span class="me1">eof</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#25104;&#21151;&#25269;&#36798;&#25991;&#20214;&#26411;&#23614;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    <span class="kw1">else</span> <span class="kw1">if</span> <span class="br0">(</span>file.<span class="me1">fail</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#36935;&#21040;&#20102;&#38750;&#25972;&#25968;&#25968;&#25454;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<p>&#19979;&#34920;&#26174;&#31034; <code>basic_ios</code> &#35775;&#38382;&#22120;&#65288;<a href="cpp-io-basic_ios-good.html"><tt>good()</tt></a>&#12289;<a href="cpp-io-basic_ios-fail.html"><tt>fail()</tt></a> &#31561;&#65289;&#23545;&#20110; <a href="cpp-io-ios_base-iostate.html"><tt>ios_base::iostate</tt></a> &#26631;&#24535;&#30340;&#25152;&#26377;&#21487;&#33021;&#32452;&#21512;&#30340;&#20540;&#65306;</p>
+<table class="wikitable" style="font-size:85%; text-align:center;">
+<tr>
+<td colspan="3"><a href="cpp-io-ios_base-iostate.html"><tt>ios_base::iostate</tt></a> &#26631;&#24535;</td>
+<td colspan="6"><code>basic_ios</code> &#35775;&#38382;&#22120;</td>
+</tr>
+<tr>
+<td><code>eofbit</code></td>
+<td><code>failbit</code></td>
+<td><code>badbit</code></td>
+<td><a href="cpp-io-basic_ios-good.html"><tt>good()</tt></a></td>
+<td><a href="cpp-io-basic_ios-fail.html"><tt>fail()</tt></a></td>
+<td><strong class="selflink"><tt>bad()</tt></strong></td>
+<td><a href="cpp-io-basic_ios-eof.html"><tt>eof()</tt></a></td>
+<td><a href="cpp-io-basic_ios-operator_bool.html"><tt>operator bool</tt></a></td>
+<td><a href="cpp-io-basic_ios-operator!.html"><tt>operator!</tt></a></td>
+</tr>
+<tr>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+</tr>
+<tr>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+</tr>
+<tr>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+</tr>
+<tr>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+</tr>
+<tr>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+</tr>
+<tr>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+</tr>
+<tr>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+</tr>
+<tr>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no">false</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">true</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>unreachable</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_program_unreachable skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">unreachable</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-program.html">program</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-stddef.html"><tt>&lt;stddef.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-c23">
+<td>
+<div><span class="mw-geshi c source-c"><span class="co2">#define unreachable() /* &#35265;&#19979;&#25991; */</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-c23" style="white-space: nowrap;">(C23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#20223;&#20989;&#25968;&#23439; <code>unreachable</code> &#23637;&#24320;&#25104; <span class="mw-geshi c source-c"><span class="kw4">void</span></span> &#34920;&#36798;&#24335;&#12290;&#25191;&#34892; <span class="t-c"><span class="mw-geshi c source-c">unreachable<span class="br0">(</span><span class="br0">)</span></span></span> &#23548;&#33268;<a href="c-language-behavior.html">&#26410;&#23450;&#20041;&#34892;&#20026;</a>&#12290;</p>
+<p>&#23454;&#29616;&#21487;&#20197;&#29992;&#27492;&#23439;&#20248;&#21270;&#25481;&#19981;&#21487;&#33021;&#30340;&#20195;&#30721;&#20998;&#25903;&#65288;&#24120;&#20110;&#20248;&#21270;&#26500;&#24314;&#20013;&#65289;&#65292;&#25110;&#20351;&#20043;&#36827;&#20837;&#38519;&#38449;&#20197;&#20813;&#21518;&#32493;&#25191;&#34892;&#65288;&#24120;&#20110;&#35843;&#35797;&#26500;&#24314;&#20013;&#65289;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.AF.E8.83.BD.E7.9A.84.E5.AE.9E.E7.8E.B0">&#21487;&#33021;&#30340;&#23454;&#29616;</span></h3>
+<table class="eq-fun-cpp-table">
+<tr>
+<td>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co1">// &#33509;&#21487;&#33021;&#21017;&#20351;&#29992;&#32534;&#35793;&#22120;&#29305;&#23450;&#30340;&#25193;&#23637;&#12290;</span>
+<span class="co2">#ifdef __GNUC__ // GCC, Clang, ICC</span>
+ 
+<span class="co2">#define unreachable() (__builtin_unreachable())</span>
+ 
+<span class="co2">#elifdef _MSC_VER // MSVC</span>
+ 
+<span class="co2">#define unreachable() (__assume(false))</span>
+ 
+<span class="co2">#else</span>
+<span class="co1">// &#21363;&#20351;&#19981;&#20351;&#29992;&#25193;&#23637;&#65292;&#31354;&#20989;&#25968;&#20307;&#19982; noreturn &#23646;&#24615;&#20063;&#36275;&#20197;&#24341;&#21457;&#26410;&#23450;&#20041;&#34892;&#20026;&#12290;</span>
+ 
+<span class="co1">// &#30001;&#20110; C &#20013; inline &#20989;&#25968;&#30340;&#35268;&#21017;&#65292;unreachable_impl &#30340;&#22806;&#37096;&#23450;&#20041;&#24517;&#39035;&#21457;&#25918;&#21040;&#20998;&#31163;&#30340;&#32763;&#35793;&#21333;&#20803;&#12290;</span>
+ 
+<span class="br0">[</span><span class="br0">[</span>noreturn<span class="br0">]</span><span class="br0">]</span> <span class="kw1">inline</span> <span class="kw4">void</span> unreachable_impl<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+<span class="co2">#define unreachable() (unreachable_impl())</span>
+ 
+<span class="co2">#endif</span></pre></div>
+</div>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#include &lt;assert.h&gt;</span>
+<span class="co2">#include &lt;stddef.h&gt;</span>
+<span class="co2">#include &lt;stdint.h&gt;</span>
+<span class="co2">#include &lt;stdlib.h&gt;</span>
+ 
+<span class="kw1">struct</span> Color <span class="br0">{</span> <a href="c-types-integer.html"><span class="kw120">uint8_t</span></a> r, g, b, a<span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+<span class="kw1">struct</span> ColorSpan <span class="br0">{</span> <span class="kw1">struct</span> Color<span class="sy2">*</span> data<span class="sy4">;</span> <a href="c-types-size_t.html"><span class="kw100">size_t</span></a> size<span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="co1">// &#20551;&#35774;&#20165;&#25903;&#25345;&#21463;&#38480;&#21046;&#30340;&#26448;&#36136;&#23481;&#37327;&#38598;&#21512;&#12290;</span>
+<span class="kw1">struct</span> ColorSpan allocate_texture<span class="br0">(</span><a href="c-types-size_t.html"><span class="kw100">size_t</span></a> xy<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">switch</span> <span class="br0">(</span>xy<span class="br0">)</span>
+    <span class="br0">{</span>
+    <span class="kw1">case</span> <span class="nu0">128</span><span class="sy4">:</span> <span class="br0">[</span><span class="br0">[</span>fallthrough<span class="br0">]</span><span class="br0">]</span><span class="sy4">;</span>
+    <span class="kw1">case</span> <span class="nu0">256</span><span class="sy4">:</span> <span class="br0">[</span><span class="br0">[</span>fallthrough<span class="br0">]</span><span class="br0">]</span><span class="sy4">;</span>
+    <span class="kw1">case</span> <span class="nu0">512</span><span class="sy4">:</span>
+    <span class="br0">{</span>
+        <span class="coMULTI">/* ... */</span>
+        <span class="kw1">struct</span> ColorSpan result <span class="sy1">=</span> <span class="br0">{</span>
+            .<span class="me1">data</span> <span class="sy1">=</span> <a href="c-memory-malloc.html"><span class="kw403">malloc</span></a><span class="br0">(</span>xy <span class="sy2">*</span> xy <span class="sy2">*</span> <span class="kw4">sizeof</span><span class="br0">(</span><span class="kw1">struct</span> Color<span class="br0">)</span><span class="br0">)</span>,
+            .<span class="me1">size</span> <span class="sy1">=</span> xy <span class="sy2">*</span> xy
+        <span class="br0">}</span><span class="sy4">;</span>
+ 
+        <span class="kw1">if</span> <span class="br0">(</span><span class="sy3">!</span>result.<span class="me1">data</span><span class="br0">)</span>
+            result.<span class="me1">size</span> <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span>
+ 
+        <span class="kw1">return</span> result<span class="sy4">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">default</span><span class="sy4">:</span>
+        unreachable<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">struct</span> ColorSpan tex <span class="sy1">=</span> allocate_texture<span class="br0">(</span><span class="nu0">128</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK</span>
+    <a href="c-error-assert.html"><span class="kw407">assert</span></a><span class="br0">(</span>tex.<span class="me1">size</span> <span class="sy1">==</span> <span class="nu0">128</span> <span class="sy2">*</span> <span class="nu0">128</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw1">struct</span> ColorSpan badtex <span class="sy1">=</span> allocate_texture<span class="br0">(</span><span class="nu0">32</span><span class="br0">)</span><span class="sy4">;</span>  <span class="co1">// &#26410;&#23450;&#20041;&#34892;&#20026;</span>
+ 
+    <a href="c-memory-free.html"><span class="kw406">free</span></a><span class="br0">(</span>badtex.<span class="me1">data</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-memory-free.html"><span class="kw406">free</span></a><span class="br0">(</span>tex.<span class="me1">data</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">Segmentation fault</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>unreachable</span></span>&nbsp;&#30340; <span><span><a href="cpp-utility-unreachable.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.A4.96.E9.83.A8.E9.93.BE.E6.8E.A5">&#22806;&#37096;&#38142;&#25509;</span></h3>
+<table style="border-top:solid 1px;border-bottom:none;border-left:none;border-right:none;">
+<tr style="vertical-align:top;">
+<td>1.&nbsp;</td>
+<td><a rel="nofollow" class="external text" href="https://gcc.gnu.org/onlinedocs/gcc/Other-Builtins.html#index-_005f_005fbuiltin_005funreachable">GCC &#25991;&#26723;: <code>__builtin_unreachable</code></a></td>
+</tr>
+<tr style="vertical-align:top;">
+<td>2.&nbsp;</td>
+<td><a rel="nofollow" class="external text" href="https://clang.llvm.org/docs/LanguageExtensions.html#builtin-unreachable">Clang &#25991;&#26723;: <code>__builtin_unreachable</code></a></td>
+</tr>
+<tr style="vertical-align:top;">
+<td>3.&nbsp;</td>
+<td><a rel="nofollow" class="external text" href="https://docs.microsoft.com/en-us/cpp/intrinsics/assume">MSVC &#25991;&#26723;: <code>__assume</code></a></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

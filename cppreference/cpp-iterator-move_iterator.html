@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::move_iterator</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_iterator_move_iterator skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>move_iterator</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-iterator.html">iterator</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-iterator.html">&lt;iterator&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Iter <span class="sy1">&gt;</span><br />
+<span class="kw1">class</span> move_iterator<span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>std::move_iterator</code> &#26159;&#19968;&#31181;&#36845;&#20195;&#22120;&#36866;&#37197;&#22120;&#65292;&#34920;&#29616;&#19982;&#23427;&#30340;&#24213;&#23618;&#36845;&#20195;&#22120;&#65288;&#24517;&#39035;&#33267;&#23569;&#26159;&#19968;&#20010;<a href="cpp-named_req-InputIterator.html"><span style="font-style:italic">&#32769;&#24335;&#36755;&#20837;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyInputIterator)</span></a> <span class="t-rev-inl t-since-cxx20"><span>&#25110;&#23454;&#29616; <a href="cpp-iterator-input_iterator.html"><code>input_iterator</code></a></span> <span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></span></span>&#65289;&#20005;&#26684;&#30456;&#21516;&#65292;&#20294;&#35299;&#24341;&#29992;&#20250;&#23558;&#24213;&#23618;&#36845;&#20195;&#22120;&#36820;&#22238;&#30340;&#20540;&#36716;&#25442;&#20026;&#21491;&#20540;&#12290;&#22914;&#26524;&#27492;&#36845;&#20195;&#22120;&#29992;&#20316;&#36755;&#20837;&#36845;&#20195;&#22120;&#65292;&#37027;&#20040;&#25928;&#26524;&#26159;&#20540;&#34987;&#31227;&#21160;&#65292;&#32780;&#38750;&#22797;&#21046;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.B5.8C.E5.A5.97.E7.B1.BB.E5.9E.8B">&#23884;&#22871;&#31867;&#22411;</span></h3>
+<table class="t-rev-begin">
+<tr class="t-rev t-until-cxx20">
+<td>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#31867;&#22411;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>iterator_type</code></td>
+<td><code>Iter</code></td>
+</tr>
+<tr class="t-dsc">
+<td><code>iterator_category</code></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-iterator_traits.html"><span class="kw654">std::<span class="me2">iterator_traits</span></span></a><span class="sy1">&lt;</span>Iter<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">iterator_category</span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>value_type</code></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-iterator_traits.html"><span class="kw654">std::<span class="me2">iterator_traits</span></span></a><span class="sy1">&lt;</span>Iter<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">value_type</span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>difference_type</code></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-iterator_traits.html"><span class="kw654">std::<span class="me2">iterator_traits</span></span></a><span class="sy1">&lt;</span>Iter<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">difference_type</span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>pointer</code></td>
+<td><code>Iter</code></td>
+</tr>
+<tr class="t-dsc">
+<td><code>reference</code></td>
+<td>
+<ul>
+<li><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-iterator_traits.html"><span class="kw654">std::<span class="me2">iterator_traits</span></span></a><span class="sy1">&lt;</span>Iter<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">reference</span></span> &#26159;&#24341;&#29992;&#31867;&#22411;&#26102;&#26159;&#23427;&#30340;&#21491;&#20540;&#24341;&#29992;&#29256;&#26412;</li>
+<li>&#21542;&#21017;&#26159; <span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-iterator_traits.html"><span class="kw654">std::<span class="me2">iterator_traits</span></span></a><span class="sy1">&lt;</span>Iter<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">reference</span></span></li>
+</ul>
+</td>
+</tr>
+</table>
+</td>
+<td><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#21069;)</span></td>
+</tr>
+<tr class="t-rev t-since-cxx20">
+<td>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#31867;&#22411;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>iterator_type</code></td>
+<td><code>Iter</code></td>
+</tr>
+<tr class="t-dsc">
+<td><code>iterator_category</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#26377;&#26465;&#20214;&#25552;&#20379;)</span></td>
+<td>
+<ul>
+<li><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-iterator_traits.html"><span class="kw654">std::<span class="me2">iterator_traits</span></span></a><span class="sy1">&lt;</span>Iter<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">iterator_category</span></span> &#26080;&#25928;&#25110;&#34920;&#31034;&#30340;&#19981;&#26159;&#31867;&#22411;&#26102;&#26410;&#23450;&#20041;</li>
+<li><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-iterator_traits.html"><span class="kw654">std::<span class="me2">iterator_traits</span></span></a><span class="sy1">&lt;</span>Iter<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">iterator_category</span></span> &#23454;&#29616;&#20102; <span class="mw-geshi cpp source-cpp"><a href="cpp-concepts-derived_from.html"><span class="kw2933">std::<span class="me2">derived_from</span></span></a><span class="sy1">&lt;</span><a href="cpp-iterator-iterator_tags.html"><span class="kw659">std::<span class="me2">random_access_iterator_tag</span></span></a><span class="sy1">&gt;</span></span> &#26102;&#26159; <span class="t-lc"><a href="cpp-iterator-iterator_tags.html">std::random_access_iterator_tag</a></span></li>
+<li>&#21542;&#21017;&#26159; <span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-iterator_traits.html"><span class="kw654">std::<span class="me2">iterator_traits</span></span></a><span class="sy1">&lt;</span>Iter<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">iterator_category</span></span></li>
+</ul>
+</td>
+</tr>
+<tr class="t-dsc">
+<td><code>iterator_concept</code></td>
+<td>
+<table class="t-rev-begin">
+<tr class="t-rev t-until-cxx23">
+<td>
+<p><span class="t-lc"><a href="cpp-iterator-iterator_tags.html">std::input_iterator_tag</a></span></p>
+</td>
+<td><span class="t-mark-rev t-until-cxx23" style="white-space: nowrap;">(C++23 &#21069;)</span></td>
+</tr>
+<tr class="t-rev t-since-cxx23">
+<td>
+<ul>
+<li><code>Iter</code> &#23454;&#29616;&#20102; <span class="t-lc">std::random_access_iterator</span> &#26102;&#26159; <span class="t-lc"><a href="cpp-iterator-iterator_tags.html">std::random_access_iterator_tag</a></span></li>
+<li><code>Iter</code> &#20165;&#23454;&#29616;&#20102; <span class="t-lc">std::bidirectional_iterator</span> &#26102;&#26159; <span class="t-lc"><a href="cpp-iterator-iterator_tags.html">std::bidirectional_iterator_tag</a></span></li>
+<li><code>Iter</code> &#20165;&#23454;&#29616;&#20102;s <span class="t-lc">std::forward_iterator</span> &#26102;&#26159; <span class="t-lc"><a href="cpp-iterator-iterator_tags.html">std::forward_iterator_tag</a></span></li>
+<li>&#21542;&#21017;&#26159; <span class="t-lc"><a href="cpp-iterator-iterator_tags.html">std::input_iterator_tag</a></span></li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr class="t-dsc">
+<td><code>value_type</code></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-iter_t.html"><span class="kw2871">std::<span class="me2">iter_value_t</span></span></a><span class="sy1">&lt;</span>Iter<span class="sy1">&gt;</span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>difference_type</code></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-iter_t.html"><span class="kw2874">std::<span class="me2">iter_difference_t</span></span></a><span class="sy1">&lt;</span>Iter<span class="sy1">&gt;</span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>pointer</code></td>
+<td><code>Iter</code></td>
+</tr>
+<tr class="t-dsc">
+<td><code>reference</code></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-iter_t.html"><span class="kw2873">std::<span class="me2">iter_rvalue_reference_t</span></span></a><span class="sy1">&lt;</span>Iter<span class="sy1">&gt;</span></span></td>
+</tr>
+</table>
+</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.95.B0.E6.8D.AE.E6.88.90.E5.91.98">&#25968;&#25454;&#25104;&#21592;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#25104;&#21592;</td>
+<td>&#25551;&#36848;</td>
+</tr>
+<tr class="t-dsc">
+<td><span id="current"></span><span class="t-dsc-small"><code>Iter</code></span> <code><i>current</i></code></td>
+<td>&#24213;&#23618;&#36845;&#20195;&#22120;<br />
+<span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;&#30340;&#25104;&#21592;&#23545;&#35937;*</span>)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-iterator-move_iterator-move_iterator.html"><span class="t-lines"><span>(&#26500;&#36896;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26500;&#36896;&#26032;&#30340; <code>move_iterator</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-move_iterator-operator=.html"><span class="t-lines"><span>operator=</span></span></a></div>
+</div>
+</td>
+<td>&#36171;&#20540;&#21478;&#19968; <code>move_iterator</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-move_iterator-base.html"><span class="t-lines"><span>base</span></span></a></div>
+</div>
+</td>
+<td>&#35775;&#38382;&#24213;&#23618;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-move_iterator-operator*.html"><span class="t-lines"><span>operator*</span><span>operator-&gt;</span></span></a></div>
+</div>
+</td>
+<td>&#35775;&#38382;&#34987;&#25351;&#21521;&#30340;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-move_iterator-operator_at.html"><span class="t-lines"><span>operator[]</span></span></a></div>
+</div>
+</td>
+<td>&#25353;&#32034;&#24341;&#35775;&#38382;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-move_iterator-operator_arith.html"><span class="t-lines"><span>operator++</span><span>operator++<span class="t-dsc-small">(int)</span></span><span>operator+=</span><span>operator+</span><span>operator--</span><span>operator--<span class="t-dsc-small">(int)</span></span><span>operator-=</span><span>operator-</span></span></a></div>
+</div>
+</td>
+<td>&#25512;&#36827;&#25110;&#22238;&#36864; <code>move_iterator</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E9.9D.9E.E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#38750;&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-move_iterator-operator_cmp.html"><span class="t-lines"><span>operator==</span><span>operator!=</span><span>operator&lt;</span><span>operator&lt;=</span><span>operator&gt;</span><span>operator&gt;=</span><span>operator&lt;=&gt;</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#31227;&#38500;)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#27604;&#36739;&#24213;&#23618;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-move_iterator-operator_cmp2.html"><span class="t-lines"><span>operator==<span class="t-dsc-small">(std::move_sentinel)</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#27604;&#36739;&#24213;&#23618;&#36845;&#20195;&#22120;&#19982;&#24213;&#23618;&#21736;&#20301;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-move_iterator-operator+.html"><span class="t-lines"><span>operator+</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20196;&#36845;&#20195;&#22120;&#21069;&#36827;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-move_iterator-operator-.html"><span class="t-lines"><span>operator-</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#35745;&#31639;&#20004;&#20010;&#36845;&#20195;&#22120;&#36866;&#37197;&#22120;&#38388;&#30340;&#36317;&#31163;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-move_iterator-operator-2.html"><span class="t-lines"><span>operator-<span class="t-dsc-small">(std::move_sentinel)</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#35745;&#31639;&#24213;&#23618;&#36845;&#20195;&#22120;&#19982;&#24213;&#23618;&#21736;&#20301;&#38388;&#30340;&#36317;&#31163;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-move_iterator-iter_move.html"><span class="t-lines"><span>iter_move</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#23558;&#35299;&#24341;&#29992;&#24213;&#23618;&#36845;&#20195;&#22120;&#30340;&#32467;&#26524;&#36716;&#25442;&#20026;&#20854;&#20851;&#32852;&#30340;&#21491;&#20540;&#24341;&#29992;&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-move_iterator-iter_swap.html"><span class="t-lines"><span>iter_swap</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#20132;&#25442;&#20004;&#20010;&#24213;&#23618;&#36845;&#20195;&#22120;&#25152;&#25351;&#21521;&#30340;&#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-make_move_iterator.html"><span class="t-lines"><span>make_move_iterator</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#21019;&#24314;&#25317;&#26377;&#20174;&#23454;&#21442;&#25512;&#20986;&#30340;&#31867;&#22411;&#30340; <span class="t-lc"><strong class="selflink">std::move_iterator</strong></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BE.85.E5.8A.A9.E6.A8.A1.E6.9D.BF">&#36741;&#21161;&#27169;&#26495;</span></h3>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Iterator1, <span class="kw1">class</span> Iterator2 <span class="sy1">&gt;</span><br /></span>
+<p>&nbsp; &nbsp; requires <span class="br0">(</span><span class="sy3">!</span><a href="cpp-iterator-sized_sentinel_for.html"><span class="kw2862">std::<span class="me2">sized_sentinel_for</span></span></a><span class="sy1">&lt;</span>Iterator1, Iterator2<span class="sy1">&gt;</span><span class="br0">)</span><br />
+<span class="kw4">constexpr</span> <span class="kw4">bool</span> disable_sized_sentinel_for<br /></p>
+&nbsp; &nbsp; <span class="sy1">&lt;</span>std<span class="sy4">::</span><span class="me2">move_iterator</span><span class="sy1">&lt;</span>Iterator1<span class="sy1">&gt;</span>, std<span class="sy4">::</span><span class="me2">move_iterator</span><span class="sy1">&lt;</span>Iterator2<span class="sy1">&gt;&gt;</span> <span class="sy1">=</span> <span class="kw2">true</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36825;&#20010; <code>std::disable_sized_sentinel_for</code> &#29305;&#21270;&#65292;&#24403;&#24213;&#23618;&#36845;&#20195;&#22120;&#19981;&#28385;&#36275; <a href="cpp-iterator-sized_sentinel_for.html"><code>sized_sentinel_for</code></a> &#26102;&#65292;&#38450;&#27490; <code>move_iterator</code> &#30340;&#29305;&#21270;&#28385;&#36275;&#36825;&#20010;&#27010;&#24565;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<table class="wikitable ftm-begin">
+<tr>
+<th><a href="cpp-utility-feature_test.html">&#21151;&#33021;&#29305;&#24615;&#27979;&#35797;</a>&#23439;</th>
+<th><abbr title="&#37319;&#32435;&#35813;&#29305;&#24615;&#30340;&#24180;/&#26376;&#12290;&#27599;&#20010;&#20540;&#19979;&#38754;&#30340;&#38142;&#25509;&#25351;&#21521;&#32534;&#35793;&#26399;&#25903;&#25345;&#39029;&#38754;&#20013;&#32473;&#23450;&#21151;&#33021;&#29305;&#24615;&#30340;&#26465;&#30446;&#12290;">&#20540;</abbr></th>
+<th><abbr title="&#24341;&#20837;&#35813;&#29305;&#24615;&#30340;&#26631;&#20934;&#65307;DR &#24847;&#20026;&#38024;&#23545;&#35813;&#20462;&#35746;&#29256;&#30340;&#32570;&#38519;&#25253;&#21578;">&#26631;&#20934;</abbr></th>
+<th>&#21151;&#33021;&#29305;&#24615;</th>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lib_move_iterator_concept"><code>__cpp_lib_move_iterator_concept</code></a></td>
+<td><a href="cpp-compiler_support-23.html#cpp_lib_move_iterator_concept_202207L"><code>202207L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++23)</span></td>
+<td>&#20351; <span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">move_iterator</span><span class="sy1">&lt;</span>T<span class="sy2">*</span><span class="sy1">&gt;</span></span> &#20026;&#38543;&#26426;&#35775;&#38382;&#36845;&#20195;&#22120;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;algorithm&gt;</span>
+<span class="co2">#include &lt;iomanip&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;iterator&gt;</span>
+<span class="co2">#include &lt;ranges&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+<span class="co2">#include &lt;string_view&gt;</span>
+<span class="co2">#include &lt;vector&gt;</span>
+ 
+<span class="kw4">void</span> print<span class="br0">(</span><span class="kw4">const</span> <a href="cpp-string-basic_string_view.html"><span class="kw1250">std::<span class="me2">string_view</span></span></a> rem, <span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> v<span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> rem<span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> s <span class="sy4">:</span> v<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-quoted.html"><span class="kw1805">std::<span class="me2">quoted</span></span></a><span class="br0">(</span>s<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-container-vector.html"><span class="kw1271">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1232">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span> v<span class="br0">{</span><span class="st0">&quot;this&quot;</span>, <span class="st0">&quot;_&quot;</span>, <span class="st0">&quot;is&quot;</span>, <span class="st0">&quot;_&quot;</span>, <span class="st0">&quot;an&quot;</span>, <span class="st0">&quot;_&quot;</span>, <span class="st0">&quot;example&quot;</span><span class="br0">}</span><span class="sy4">;</span>
+    print<span class="br0">(</span><span class="st0">&quot;vector &#30340;&#26087;&#20869;&#23481;&#65306;&quot;</span>, v<span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-string-basic_string.html"><span class="kw1232">std::<span class="me2">string</span></span></a> concat<span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">auto</span> begin <span class="sy1">=</span> <a href="cpp-iterator-make_move_iterator.html"><span class="kw666">std::<span class="me2">make_move_iterator</span></span></a><span class="br0">(</span>v.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>,
+              end <span class="sy1">=</span> <a href="cpp-iterator-make_move_iterator.html"><span class="kw666">std::<span class="me2">make_move_iterator</span></span></a><span class="br0">(</span>v.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+         begin <span class="sy3">!</span><span class="sy1">=</span> end<span class="sy4">;</span> <span class="sy2">++</span>begin<span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-string-basic_string.html"><span class="kw1232">std::<span class="me2">string</span></span></a> temp<span class="br0">{</span><span class="sy2">*</span>begin<span class="br0">}</span><span class="sy4">;</span> <span class="co1">// &#23558; *begin &#30340;&#20869;&#23481;&#31227;&#21160;&#21040; temp</span>
+        concat <span class="sy2">+</span><span class="sy1">=</span> temp<span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="co1">// &#20174; C++17 &#36215;&#24341;&#20837;&#20102;&#31867;&#27169;&#26495;&#23454;&#21442;&#25512;&#23548;&#65292;&#21487;&#20197;&#30452;&#25509;&#20351;&#29992; std::move_iterator &#30340;&#26500;&#36896;&#20989;&#25968;&#65306;</span>
+    <span class="co1">// std::string concat = std::accumulate(std::move_iterator(v.begin()),</span>
+    <span class="co1">//                                      std::move_iterator(v.end()),</span>
+    <span class="co1">//                                      std::string());</span>
+ 
+    print<span class="br0">(</span><span class="st0">&quot;vector &#30340;&#26032;&#20869;&#23481;&#65306;&quot;</span>, v<span class="br0">)</span><span class="sy4">;</span>
+    print<span class="br0">(</span><span class="st0">&quot;&#25340;&#25509;&#25104;&#23383;&#31526;&#20018;&#65306;&quot;</span>, std<span class="sy4">::</span><a href="cpp-ranges-single_view.html"><span class="kw3103">ranges::<span class="me2">single_view</span></span></a><span class="br0">(</span>concat<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">vector &#30340;&#26087;&#20869;&#23481;&#65306;&quot;this&quot; &quot;_&quot; &quot;is&quot; &quot;_&quot; &quot;an&quot; &quot;_&quot; &quot;example&quot;
+vector &#30340;&#26032;&#20869;&#23481;&#65306;&quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot;
+&#25340;&#25509;&#25104;&#23383;&#31526;&#20018;&#65306;&quot;this_is_an_example&quot;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue2106">LWG 2106</a></td>
+<td>C++11</td>
+<td>&#35299;&#24341;&#29992;&#24213;&#23618;&#36845;&#20195;&#22120;&#36820;&#22238;&#32431;&#21491;&#20540;&#26102;&#35299;&#24341;&#29992; <code>move_iterator</code> &#20250;&#36820;&#22238;&#24748;&#22402;&#24341;&#29992;</td>
+<td>&#25913;&#20026;&#36820;&#22238;&#23545;&#35937;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue3736">LWG 3736</a></td>
+<td>C++20</td>
+<td><code>move_iterator</code> &#32570;&#22833;&#20102; <code>disable_sized_sentinel_for</code> &#29305;&#21270;</td>
+<td>&#24050;&#28155;&#21152;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://wg21.link/P2259R1">P2259R1</a></td>
+<td>C++20</td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-iterator_traits.html"><span class="kw654">std::<span class="me2">iterator_traits</span></span></a><span class="sy1">&lt;</span>Iter<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">iterator_category</span></span><br />
+&#26410;&#23450;&#20041;&#26102;&#20063;&#20250;&#23450;&#20041;&#25104;&#21592; <code>iterator_category</code></td>
+<td>&#19981;&#20250;&#23450;&#20041;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-make_move_iterator.html"><span class="t-lines"><span>make_move_iterator</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#21019;&#24314;&#25317;&#26377;&#20174;&#23454;&#21442;&#25512;&#20986;&#30340;&#31867;&#22411;&#30340; <span class="t-lc"><strong class="selflink">std::move_iterator</strong></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-move_sentinel.html"><span class="t-lines"><span>move_sentinel</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><span class="t-lc"><strong class="selflink">std::move_iterator</strong></span> &#30340;&#21736;&#20301;&#36866;&#37197;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

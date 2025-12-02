@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::strftime</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_chrono_c_strftime skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>strftime</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-chrono.html">chrono</a>&lrm; | <a href="cpp-chrono-c.html">c</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-ctime.html">&lt;ctime&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi cpp source-cpp"><a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> strftime<span class="br0">(</span> <span class="kw4">char</span><span class="sy2">*</span> str, <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> count, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> format, <span class="kw4">const</span> <a href="cpp-chrono-c-tm.html"><span class="kw1027">std::<span class="me2">tm</span></span></a><span class="sy2">*</span> tp <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#25353;&#29031;<a href="cpp-chrono-c-strftime.html#.E6.A0.BC.E5.BC.8F.E5.AD.97.E7.AC.A6.E4.B8.B2">&#26684;&#24335;&#23383;&#31526;&#20018;</a> <span class="t-c"><span class="mw-geshi cpp source-cpp">format</span></span>&#65292;&#36716;&#25442;&#26469;&#33258;&#32473;&#23450;&#30340;&#26085;&#21382;&#26102;&#38388; <span class="t-c"><span class="mw-geshi cpp source-cpp">tp</span></span> &#30340;&#26085;&#26399;&#21644;&#26102;&#38388;&#20449;&#24687;&#65292;&#20026;&#31354;&#32456;&#27490;&#22810;&#23383;&#33410;&#23383;&#31526;&#20018; <span class="t-c"><span class="mw-geshi cpp source-cpp">str</span></span>&#12290;&#26368;&#22810;&#20889;&#20837; <span class="t-c"><span class="mw-geshi cpp source-cpp">count</span></span> &#20010;&#23383;&#33410;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>str</td>
+<td>-</td>
+<td>&#25351;&#21521;&#36755;&#20986;&#29992;&#30340;&#23383;&#31526;&#25968;&#32452;&#39318;&#20803;&#32032;&#30340;&#25351;&#38024;</td>
+</tr>
+<tr class="t-par">
+<td>count</td>
+<td>-</td>
+<td>&#20889;&#20837;&#30340;&#26368;&#22823;&#23383;&#33410;&#25968;</td>
+</tr>
+<tr class="t-par">
+<td>format</td>
+<td>-</td>
+<td>&#25351;&#21521;&#31354;&#32456;&#27490;&#22810;&#23383;&#33410;&#23383;&#31526;&#20018;&#30340;&#25351;&#38024;&#65292;&#23383;&#31526;&#20018;&#25351;&#23450;&#36716;&#25442;&#26684;&#24335;</td>
+</tr>
+<tr class="t-par">
+<td>tp</td>
+<td>-</td>
+<td>&#25351;&#21521;&#24453;&#36716;&#25442;&#26085;&#26399;&#21644;&#26102;&#38388;&#20449;&#24687;&#30340;&#25351;&#38024;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.A0.BC.E5.BC.8F.E5.AD.97.E7.AC.A6.E4.B8.B2">&#26684;&#24335;&#23383;&#31526;&#20018;</span></h3>
+<p>&#26684;&#24335;&#23383;&#31526;&#20018;&#30001;&#38646;&#25110;&#26356;&#22810;&#20010;&#35828;&#26126;&#31526;&#21644;&#65288;&#38500; <code>%</code> &#22806;&#30340;&#65289;&#26222;&#36890;&#23383;&#31526;&#26500;&#25104;&#12290;&#25152;&#26377;&#26222;&#36890;&#23383;&#31526;&#65292;&#21253;&#25324;&#31354;&#32456;&#27490;&#23383;&#31526;&#65292;&#37117;&#20250;&#34987;&#22797;&#21046;&#21040;&#36755;&#20986;&#23383;&#31526;&#20018;&#32780;&#19981;&#21152;&#20462;&#25913;&#12290;&#27599;&#20010;&#36716;&#25442;&#35828;&#26126;&#31526;&#37117;&#22987;&#20110; <code>%</code> &#23383;&#31526;&#65292;&#21487;&#36873;&#22320;&#36319;&#38543; <code>E</code> &#25110; <code>O</code> &#20462;&#39280;&#31526;&#65288;&#33509;&#26412;&#22320;&#29615;&#22659;&#19981;&#25903;&#25345;&#21017;&#24573;&#30053;&#20043;&#65289;&#65292;&#21518;&#38543;&#20915;&#23450;&#35828;&#26126;&#31526;&#34892;&#20026;&#30340;&#23383;&#31526;&#12290;&#19979;&#21015;&#26684;&#24335;&#35828;&#26126;&#31526;&#21487;&#29992;&#65306;</p>
+<table class="wikitable" style="font-size:85%; max-width:90em;">
+<tr>
+<th>&#36716;&#25442;<br />
+&#35828;&#26126;&#31526;</th>
+<th>&#35299;&#37322;</th>
+<th>&#20351;&#29992;&#30340;&#22495;</th>
+</tr>
+<tr>
+<th><code>%</code></th>
+<td>&#20889;&#23383;&#38754;&#30340; <code>%</code>&#12290;&#23436;&#25972;&#36716;&#25442;&#35828;&#26126;&#24517;&#39035;&#26159; <code>%%</code>&#12290;</td>
+<td></td>
+</tr>
+<tr>
+<th><code>n</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#20889;&#25442;&#34892;&#31526;</td>
+<td></td>
+</tr>
+<tr>
+<th><code>t</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#20889;&#27700;&#24179;&#21046;&#34920;&#31526;</td>
+<td></td>
+</tr>
+<tr>
+<th colspan="3">&#24180;</th>
+</tr>
+<tr>
+<th><code>Y</code></th>
+<td>&#20197;&#21313;&#36827;&#21046;&#25968;&#20889;<b>&#24180;</b>&#65292;&#22914; 2017</td>
+<td><code><b>tm_year</b></code></td>
+</tr>
+<tr>
+<th><code>EY</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#20197;&#26367;&#29992;&#26041;&#24335;&#20889;<b>&#24180;</b>&#12290;&#20363;&#22914;&#22312; ja_JP &#26412;&#22320;&#29615;&#22659;&#20013;&#65292;&#20197;&ldquo;&#24179;&#25104;23&#24180;&rdquo;&#21462;&#20195;&ldquo;2011&#24180;&rdquo;</td>
+<td><code><b>tm_year</b></code></td>
+</tr>
+<tr>
+<th><code>y</code></th>
+<td>&#20889;<b>&#24180;</b>&#30340;&#26411; 2 &#20301;&#21313;&#36827;&#21046;&#25968;&#65288;&#33539;&#22260; <code>[00,99]</code>&#65289;</td>
+<td><code><b>tm_year</b></code></td>
+</tr>
+<tr>
+<th><code>Oy</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#20197;&#26367;&#29992;&#25968;&#23383;&#31995;&#32479;&#20889;<b>&#24180;</b>&#30340;&#26411; 2 &#20301;&#25968;&#23383;&#12290;&#20363;&#22914;&#22312; ja_JP &#26412;&#22320;&#29615;&#22659;&#20013;&#20197;&ldquo;&#21313;&#19968;&rdquo;&#21462;&#20195;&ldquo;11&rdquo;</td>
+<td><code><b>tm_year</b></code></td>
+</tr>
+<tr>
+<th><code>Ey</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#23558;<b>&#24180;</b>&#20889;&#20316;&#20174;&#26412;&#22320;&#29615;&#22659;&#30340;&#26367;&#29992;&#26085;&#21382;&#26102;&#20195; <code>%EC</code> &#30340;&#20559;&#31227;&#65288;&#20381;&#36182;&#26412;&#22320;&#29615;&#22659;&#65289;</td>
+<td><code><b>tm_year</b></code></td>
+</tr>
+<tr>
+<th><code>C</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#20889;<b>&#24180;</b>&#30340;&#39318; 2 &#20301;&#21313;&#36827;&#21046;&#25968;&#65288;&#33539;&#22260; <code>[00,99]</code>&#65289;</td>
+<td><code><b>tm_year</b></code></td>
+</tr>
+<tr>
+<th><code>EC</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#20197;&#26412;&#22320;&#29615;&#22659;&#30340;&#26367;&#29992;&#34920;&#31034;&#20889;<b>&#24180;&#21495;&#65288;&#26102;&#20195;&#65289;</b>&#65292;&#20363;&#22914; ja_JP &#20013;&#30340;&ldquo;&#24179;&#25104;&rdquo;</td>
+<td><code><b>tm_year</b></code></td>
+</tr>
+<tr>
+<th><code>G</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#20889;<b>ISO 8601 &#22522;&#20110;&#26143;&#26399;&#30340;&#24180;</b>&#65292;&#21363;&#26159;&#21253;&#21547;&#25351;&#23450;&#26143;&#26399;&#30340;&#24180;&#20221;&#12290;
+<p>IS0 8601 &#20013;&#26143;&#26399;&#20197;&#26143;&#26399;&#19968;&#24320;&#22987;&#65292;&#32780;&#19988;&#19968;&#24180;&#30340;&#39318;&#26143;&#26399;&#24517;&#39035;&#28385;&#36275;&#19979;&#21015;&#35201;&#27714;&#65306;</p>
+<ul>
+<li>&#21253;&#21547; 1 &#26376; 4 &#26085;</li>
+<li>&#21253;&#21547;&#19968;&#24180;&#30340;&#39318;&#20010;&#26143;&#26399;&#22235;</li>
+</ul>
+</td>
+<td><code><b>tm_year</b></code>, <code><b>tm_wday</b></code>, <code><b>tm_yday</b></code></td>
+</tr>
+<tr>
+<th><code>g</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#20889;<b>ISO 8601 &#22522;&#20110;&#26143;&#26399;&#30340;&#24180;</b>&#65292;&#21363;&#26159;&#21253;&#21547;&#25351;&#23450;&#26143;&#26399;&#24180;&#20221;&#65292;&#30340;&#21518; 2 &#20301;&#25968;&#65288;&#33539;&#22260; <code>[00,99]</code>&#65289;
+<p>IS0 8601 &#20013;&#26143;&#26399;&#20197;&#26143;&#26399;&#19968;&#24320;&#22987;&#65292;&#32780;&#19988;&#19968;&#24180;&#30340;&#39318;&#26143;&#26399;&#24517;&#39035;&#28385;&#36275;&#19979;&#21015;&#35201;&#27714;&#65306;</p>
+<ul>
+<li>&#21253;&#21547; 1 &#26376; 4 &#26085;</li>
+<li>&#21253;&#21547;&#19968;&#24180;&#30340;&#39318;&#20010;&#26143;&#26399;&#22235;</li>
+</ul>
+</td>
+<td><code><b>tm_year</b></code>, <code><b>tm_wday</b></code>, <code><b>tm_yday</b></code></td>
+</tr>
+<tr>
+<th colspan="3">&#26376;</th>
+</tr>
+<tr>
+<th><code>b</code></th>
+<td>&#20889;<b>&#32553;&#20889;&#26376;</b>&#21517;&#65292;&#20363;&#22914; <code>Oct</code> &#65288;&#20381;&#36182;&#26412;&#22320;&#29615;&#22659;&#65289;</td>
+<td><code><b>tm_mon</b></code></td>
+</tr>
+<tr>
+<th><code>h</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#19982; <code>b</code> &#21516;&#20041;</td>
+<td><code><b>tm_mon</b></code></td>
+</tr>
+<tr>
+<th><code>B</code></th>
+<td>&#20889;<b>&#23436;&#25972;&#26376;</b>&#21517;&#65292;&#20363;&#22914; <code>October</code> &#65288;&#20381;&#36182;&#26412;&#22320;&#29615;&#22659;&#65289;</td>
+<td><code><b>tm_mon</b></code></td>
+</tr>
+<tr>
+<th><code>m</code></th>
+<td>&#23558;<b>&#26376;</b>&#20889;&#20316;&#21313;&#36827;&#21046;&#25968;&#65288;&#33539;&#22260; <code>[01,12]</code>&#65289;</td>
+<td><code><b>tm_mon</b></code></td>
+</tr>
+<tr>
+<th><code>Om</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#20197;&#26367;&#29992;&#25968;&#23383;&#31995;&#32479;&#20889;<b>&#26376;</b>&#12290;&#20363;&#22914; ja_JP &#26412;&#22320;&#29615;&#22659;&#20013;&ldquo;&#21313;&#20108;&rdquo;&#21462;&#20195;&ldquo;12&rdquo;</td>
+<td><code><b>tm_mon</b></code></td>
+</tr>
+<tr>
+<th colspan="3">&#26143;&#26399;</th>
+</tr>
+<tr>
+<th><code>U</code></th>
+<td>&#20197;&#21313;&#36827;&#21046;&#25968;&#20889;<b>&#24180;&#30340;&#26143;&#26399;</b>&#65288;&#26143;&#26399;&#26085;&#26159;&#26143;&#26399;&#30340;&#39318;&#26085;&#65289;&#65288;&#33539;&#22260; <code>[00,53]</code>&#65289;</td>
+<td><code><b>tm_year</b></code>, <code><b>tm_wday</b></code>, <code><b>tm_yday</b></code></td>
+</tr>
+<tr>
+<th><code>OU</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#20197;&#26367;&#29992;&#25968;&#20540;&#31995;&#32479;&#20889;&#22914;&#21516;&#29992; <code>%U</code> &#30340;<b>&#24180;&#30340;&#26143;&#26399;</b>&#12290;&#20363;&#22914;&#22312; ja_JP &#26412;&#22320;&#29615;&#22659;&#20013;&#20197;&ldquo;&#20116;&#21313;&#20108;&rdquo;&#21462;&#20195;&ldquo;52&rdquo;</td>
+<td><code><b>tm_year</b></code>, <code><b>tm_wday</b></code>, <code><b>tm_yday</b></code></td>
+</tr>
+<tr>
+<th><code>W</code></th>
+<td>&#20197;&#21313;&#36827;&#21046;&#25968;&#20889;<b>&#24180;&#30340;&#26143;&#26399;</b>&#65288;&#26143;&#26399;&#19968;&#26159;&#26143;&#26399;&#30340;&#39318;&#26085;&#65289;&#65288;&#33539;&#22260; <code>[00,53]</code>&#65289;</td>
+<td><code><b>tm_year</b></code>, <code><b>tm_wday</b></code>, <code><b>tm_yday</b></code></td>
+</tr>
+<tr>
+<th><code>OW</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#20197;&#26367;&#29992;&#25968;&#20540;&#31995;&#32479;&#20889;&#22914;&#21516;&#29992; <code>%W</code> &#30340;<b>&#24180;&#30340;&#26143;&#26399;</b>&#12290;&#20363;&#22914;&#22312; ja_JP &#26412;&#22320;&#29615;&#22659;&#20013;&#20197;&ldquo;&#20116;&#21313;&#20108;&rdquo;&#21462;&#20195;&ldquo;52&rdquo;</td>
+<td><code><b>tm_year</b></code>, <code><b>tm_wday</b></code>, <code><b>tm_yday</b></code></td>
+</tr>
+<tr>
+<th><code>V</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#20889; <b>ISO 8601 &#30340;&#24180;&#30340;&#26143;&#26399;</b>&#65288;&#33539;&#22260;<code>[00,53]</code>&#65289;
+<p>IS0 8601 &#20013;&#26143;&#26399;&#20197;&#26143;&#26399;&#19968;&#24320;&#22987;&#65292;&#32780;&#19988;&#19968;&#24180;&#30340;&#39318;&#26143;&#26399;&#24517;&#39035;&#28385;&#36275;&#19979;&#21015;&#35201;&#27714;&#65306;</p>
+<ul>
+<li>&#21253;&#21547; 1 &#26376; 4 &#26085;</li>
+<li>&#21253;&#21547;&#19968;&#24180;&#30340;&#39318;&#20010;&#26143;&#26399;&#22235;</li>
+</ul>
+</td>
+<td><code><b>tm_year</b></code>, <code><b>tm_wday</b></code>, <code><b>tm_yday</b></code></td>
+</tr>
+<tr>
+<th><code>OV</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#20197;&#26367;&#29992;&#25968;&#20540;&#31995;&#32479;&#20889;&#22914;&#21516;&#29992; <code>%V</code> &#30340;<b>&#24180;&#30340;&#26143;&#26399;</b>&#12290;&#20363;&#22914;&#22312; ja_JP &#26412;&#22320;&#29615;&#22659;&#20013;&#20197;&ldquo;&#20116;&#21313;&#20108;&rdquo;&#21462;&#20195;&ldquo;52&rdquo;</td>
+<td><code><b>tm_year</b></code>, <code><b>tm_wday</b></code>, <code><b>tm_yday</b></code></td>
+</tr>
+<tr>
+<th colspan="3">&#24180;/&#26376;&#20043;&#26085;</th>
+</tr>
+<tr>
+<th><code>j</code></th>
+<td>&#20197;&#21313;&#36827;&#21046;&#25968;&#20889;<b>&#24180;&#30340;&#31532;&#20960;&#26085;</b>&#65288;&#33539;&#22260; <code>[001,366]</code>&#65289;</td>
+<td><code><b>tm_yday</b></code></td>
+</tr>
+<tr>
+<th><code>d</code></th>
+<td>&#20197;&#21313;&#36827;&#21046;&#25968;&#20889;<b>&#26376;&#30340;&#31532;&#20960;&#26085;</b>&#65288;&#33539;&#22260; <code>[01,31]</code>&#65289;</td>
+<td><code><b>tm_mday</b></code></td>
+</tr>
+<tr>
+<th><code>Od</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#20197;&#26367;&#29992;&#25968;&#23383;&#31995;&#32479;&#20889;&#22522;&#20110;&#38646;&#30340;<b>&#26376;&#30340;&#31532;&#20960;&#26085;</b>&#12290;&#20363;&#22914; ja_JP &#26412;&#22320;&#29615;&#22659;&#20013;&ldquo;&#20108;&#21313;&#19971;&rdquo;&#21462;&#20195;&ldquo;27&rdquo;
+<p>&#21333;&#23383;&#31526;&#21069;&#21152;&#31354;&#26684;&#12290;</p>
+</td>
+<td><code><b>tm_mday</b></code></td>
+</tr>
+<tr>
+<th><code>e</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#20197;&#21313;&#36827;&#21046;&#25968;&#20889;<b>&#26376;&#30340;&#31532;&#20960;&#26085;</b>&#65288;&#33539;&#22260;<code>[01,31]</code>&#65289;
+<p>&#21333;&#25968;&#23383;&#21069;&#21152;&#31354;&#26684;&#12290;</p>
+</td>
+<td><code><b>tm_mday</b></code></td>
+</tr>
+<tr>
+<th><code>Oe</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#20197;&#26367;&#29992;&#25968;&#23383;&#31995;&#32479;&#20889;&#22522;&#20110;&#19968;&#30340;&#30340;<b>&#26376;&#30340;&#31532;&#20960;&#26085;</b>&#12290;&#20363;&#22914; ja_JP &#26412;&#22320;&#29615;&#22659;&#20013;&ldquo;&#20108;&#21313;&#19971;&rdquo;&#21462;&#20195;&ldquo;27&rdquo;
+<p>&#21333;&#23383;&#31526;&#21069;&#21152;&#31354;&#26684;&#12290;</p>
+</td>
+<td><code><b>tm_mday</b></code></td>
+</tr>
+<tr>
+<th colspan="3">&#26143;&#26399;&#20043;&#26085;</th>
+</tr>
+<tr>
+<th><code>a</code></th>
+<td>&#20889;<b>&#32553;&#30053;&#30340;&#26143;&#26399;&#26085;&#26399;</b>&#21517;&#65292;&#20363;&#22914; <code>Fri</code>&#65288;&#20381;&#36182;&#26412;&#22320;&#29615;&#22659;&#65289;</td>
+<td><code><b>tm_wday</b></code></td>
+</tr>
+<tr>
+<th><code>A</code></th>
+<td>&#20889;<b>&#23436;&#25972;&#30340;&#26143;&#26399;&#26085;&#26399;</b>&#21517;&#65292;&#20363;&#22914; <code>Friday</code>&#65288;&#20381;&#36182;&#26412;&#22320;&#29615;&#22659;&#65289;</td>
+<td><code><b>tm_wday</b></code></td>
+</tr>
+<tr>
+<th><code>w</code></th>
+<td>&#20197;&#21313;&#36827;&#21046;&#25968;&#20889;<b>&#26143;&#26399;&#26085;&#26399;</b>&#65292;&#20854;&#20013;&#26143;&#26399;&#26085;&#26159; <code>0</code> &#65288;&#33539;&#22260; <code>[0-6]</code> &#65289;</td>
+<td><code><b>tm_wday</b></code></td>
+</tr>
+<tr>
+<th><code>Ow</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#29992;&#26367;&#29992;&#25968;&#23383;&#31995;&#32479;&#20889;<b>&#26143;&#26399;&#26085;&#26399;</b>&#65292;&#20854;&#20013;&#26143;&#26399;&#26085;&#26159; <code>0</code>&#12290;&#20363;&#22914; ja_JP &#26412;&#22320;&#29615;&#22659;&#20013;&ldquo;&#20108;&rdquo;&#21462;&#20195;&ldquo;2&rdquo;</td>
+<td><code><b>tm_wday</b></code></td>
+</tr>
+<tr>
+<th><code>u</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#21313;&#36827;&#21046;&#25968;&#20889;<b>&#26143;&#26399;&#26085;&#26399;</b>&#65292;&#20854;&#20013;&#26143;&#26399;&#19968;&#26159; <code>1</code> &#65288;ISO 8601 &#26684;&#24335;&#65289;&#65288;&#33539;&#22260; <code>[1-7]</code>&#65289;</td>
+<td><code><b>tm_wday</b></code></td>
+</tr>
+<tr>
+<th><code>Ou</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#29992;&#26367;&#29992;&#25968;&#23383;&#31995;&#32479;&#20889;<b>&#26143;&#26399;&#26085;&#26399;</b>&#65292;&#20854;&#20013;&#26143;&#26399;&#19968;&#26159; <code>1</code>&#12290;&#20363;&#22914; ja_JP &#26412;&#22320;&#29615;&#22659;&#20013;&ldquo;&#20108;&rdquo;&#21462;&#20195;&ldquo;2&rdquo;</td>
+<td><code><b>tm_wday</b></code></td>
+</tr>
+<tr>
+<th colspan="3">&#26102;&#12289;&#20998;&#12289;&#31186;</th>
+</tr>
+<tr>
+<th><code>H</code></th>
+<td>&#20197;&#21313;&#36827;&#21046;&#25968;&#20889;<b>&#26102;</b>&#65292;24 &#23567;&#26102;&#21046;&#65288;&#33539;&#22260; <code>[00-23]</code>&#65289;</td>
+<td><code><b>tm_hour</b></code></td>
+</tr>
+<tr>
+<th><code>OH</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#20197;&#26367;&#29992;&#25968;&#23383;&#31995;&#32479;&#20889; 24 &#23567;&#26102;&#21046;&#30340;<b>&#26102;</b>&#12290;&#20363;&#22914; ja_JP &#26412;&#22320;&#29615;&#22659;&#20013;&ldquo;&#21313;&#20843;&rdquo;&#21462;&#20195;&ldquo;18&rdquo;&#12290;</td>
+<td><code><b>tm_hour</b></code></td>
+</tr>
+<tr>
+<th><code>I</code></th>
+<td>&#20197;&#21313;&#36827;&#21046;&#25968;&#20889;<b>&#26102;</b>&#65292;12 &#23567;&#26102;&#21046;&#65288;&#33539;&#22260; <code>[01,12]</code>&#65289;</td>
+<td><code><b>tm_hour</b></code></td>
+</tr>
+<tr>
+<th><code>OI</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#20197;&#26367;&#29992;&#25968;&#23383;&#31995;&#32479;&#20889; 12 &#23567;&#26102;&#21046;&#30340;<b>&#26102;</b>&#12290;&#20363;&#22914; ja_JP &#26412;&#22320;&#29615;&#22659;&#20013;&ldquo;&#20845;&rdquo;&#21462;&#20195;&ldquo;6&rdquo;</td>
+<td><code><b>tm_hour</b></code></td>
+</tr>
+<tr>
+<th><code>M</code></th>
+<td>&#20197;&#21313;&#36827;&#21046;&#25968;&#20889;<b>&#20998;</b>&#65288;&#33539;&#22260; <code>[00,59]</code>&#65289;</td>
+<td><code><b>tm_min</b></code></td>
+</tr>
+<tr>
+<th><code>OM</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#20197;&#26367;&#29992;&#25968;&#23383;&#31995;&#32479;&#20889;<b>&#20998;</b>&#12290;&#20363;&#22914; ja_JP &#26412;&#22320;&#29615;&#22659;&#20013;&ldquo;&#20108;&#21313;&#20116;&rdquo;&#21462;&#20195;&ldquo;25&rdquo;</td>
+<td><code><b>tm_min</b></code></td>
+</tr>
+<tr>
+<th><code>S</code></th>
+<td>&#20197;&#21313;&#36827;&#21046;&#25968;&#20889;<b>&#31186;</b>&#65288;&#33539;&#22260; <code>[00,60]</code>&#65289;</td>
+<td><code><b>tm_sec</b></code></td>
+</tr>
+<tr>
+<th><code>OS</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#20197;&#26367;&#29992;&#25968;&#23383;&#31995;&#32479;&#20889;<b>&#31186;</b>&#12290;&#20363;&#22914; ja_JP &#26412;&#22320;&#29615;&#22659;&#20013;&ldquo;&#20108;&#21313;&#22235;&rdquo;&#21462;&#20195;&ldquo;24&rdquo;</td>
+<td><code><b>tm_sec</b></code></td>
+</tr>
+<tr>
+<th colspan="3">&#20854;&#20182;</th>
+</tr>
+<tr>
+<th><code>c</code></th>
+<td>&#20889;<b>&#26631;&#20934;&#26085;&#26399;&#26102;&#38388;&#23383;&#31526;&#20018;</b>&#12290;&#20363;&#22914; <code>Sun Oct 17 04:41:13 2010</code> &#65288;&#20381;&#36182;&#26412;&#22320;&#29615;&#22659;&#65289;</td>
+<td>&#20840;&#37096;</td>
+</tr>
+<tr>
+<th><code>Ec</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#20889;<b>&#26367;&#29992;&#26085;&#26399;&#26102;&#38388;&#23383;&#31526;&#20018;</b>&#12290;&#20363;&#22914; ja_JP &#26412;&#22320;&#29615;&#22659;&#20013;&ldquo;&#24179;&#25104;23&#24180;&rdquo;&#21462;&#20195;&ldquo;2011&#24180;&rdquo;</td>
+<td>&#20840;&#37096;</td>
+</tr>
+<tr>
+<th><code>x</code></th>
+<td>&#20889;&#26412;&#22320;&#21270;&#30340;<b>&#26085;&#26399;&#34920;&#31034;</b>&#65288;&#20381;&#36182;&#26412;&#22320;&#29615;&#22659;&#65289;</td>
+<td>&#20840;&#37096;</td>
+</tr>
+<tr>
+<th><code>Ex</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#20889;<b>&#26367;&#29992;&#26085;&#26399;&#34920;&#31034;</b>&#12290;&#20363;&#22914; ja_JP &#26412;&#22320;&#29615;&#22659;&#20013;&ldquo;&#24179;&#25104;23&#24180;&rdquo;&#21462;&#20195;&ldquo;2011&#24180;&rdquo;</td>
+<td>&#20840;&#37096;</td>
+</tr>
+<tr>
+<th><code>X</code></th>
+<td>&#20889;&#26412;&#22320;&#21270;&#30340;<b>&#26102;&#38388;&#34920;&#31034;</b>&#65292;&#20363;&#22914; 18:40:20 &#25110; 6:40:20 PM&#65288;&#20381;&#36182;&#26412;&#22320;&#29615;&#22659;&#65289;</td>
+<td>&#20840;&#37096;</td>
+</tr>
+<tr>
+<th><code>EX</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#20889;<b>&#26367;&#29992;&#26102;&#38388;&#34920;&#31034;</b>&#65288;&#20381;&#36182;&#26412;&#22320;&#29615;&#22659;&#65289;</td>
+<td>&#20840;&#37096;</td>
+</tr>
+<tr>
+<th><code>D</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#31561;&#20215;&#20110;<b>&quot;%m/%d/%y&quot;</b></td>
+<td><code><b>tm_mon</b></code>, <code><b>tm_mday</b></code>, <code><b>tm_year</b></code></td>
+</tr>
+<tr>
+<th><code>F</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#31561;&#20215;&#20110;<b>&quot;%Y-%m-%d&quot;</b>&#65288;ISO 8601 &#26085;&#26399;&#26684;&#24335;&#65289;</td>
+<td><code><b>tm_mon</b></code>, <code><b>tm_mday</b></code>, <code><b>tm_year</b></code></td>
+</tr>
+<tr>
+<th><code>r</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#20889;&#26412;&#22320;&#21270;&#30340; <b>12 &#23567;&#26102;&#21046;</b>&#26102;&#38388;&#65288;&#20381;&#36182;&#26412;&#22320;&#29615;&#22659;&#65289;</td>
+<td><code><b>tm_hour</b></code>, <code><b>tm_min</b></code>, <code><b>tm_sec</b></code></td>
+</tr>
+<tr>
+<th><code>R</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#31561;&#20215;&#20110;<b>&quot;%H:%M&quot;</b></td>
+<td><code><b>tm_hour</b></code>, <code><b>tm_min</b></code></td>
+</tr>
+<tr>
+<th><code>T</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#31561;&#20215;&#20110;<b>&quot;%H:%M:%S&quot;</b>&#65288;ISO 8601 &#26102;&#38388;&#26684;&#24335;&#65289;</td>
+<td><code><b>tm_hour</b></code>, <code><b>tm_min</b></code>, <code><b>tm_sec</b></code></td>
+</tr>
+<tr>
+<th><code>p</code></th>
+<td>&#20889;&#26412;&#22320;&#21270;&#30340; <b>a.m.</b> &#25110; <b>p.m.</b>&#65288;&#20381;&#36182;&#26412;&#22320;&#29615;&#22659;&#65289;</td>
+<td><code><b>tm_hour</b></code></td>
+</tr>
+<tr>
+<th><code>z</code><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></th>
+<td>&#20197; ISO 8601 &#26684;&#24335;&#65288;&#20363;&#22914; <code>-0430</code>&#65289;&#20889;<b>&#36317; UTC &#30340;&#20559;&#31227;</b>&#65292;&#25110;&#32773;&#20504;&#33509;&#26102;&#21306;&#20449;&#24687;&#19981;&#21487;&#29992;&#21017;&#19981;&#20889;&#23383;&#31526;</td>
+<td><code><b>tm_isdst</b></code></td>
+</tr>
+<tr>
+<th><code>Z</code></th>
+<td>&#20889;&#20381;&#36182;&#26412;&#22320;&#29615;&#22659;&#30340;<b>&#26102;&#21306;&#21517;&#25110;&#32553;&#20889;</b>&#65292;&#25110;&#32773;&#33509;&#26102;&#21306;&#20449;&#24687;&#19981;&#21487;&#29992;&#21017;&#19981;&#20889;&#23383;&#31526;</td>
+<td><code><b>tm_isdst</b></code></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#25104;&#21151;&#26102;&#65292;&#36820;&#22238;&#20889;&#20837; <span class="t-c"><span class="mw-geshi cpp source-cpp">str</span></span> &#25152;&#25351;&#21521;&#30340;&#23383;&#31526;&#25968;&#32452;&#30340;&#23383;&#33410;&#25968;&#65292;&#19981;&#21253;&#21547;&#32456;&#27490; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="st0">&#39;<span class="es5">\0</span>&#39;</span></span></span>&#12290;&#33509;&#22312;&#33021;&#23384;&#20648;&#25972;&#20010;&#23383;&#31526;&#20018;&#21069;&#25269;&#36798; <span class="t-c"><span class="mw-geshi cpp source-cpp">count</span></span>&#65292;&#21017;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp">&#8203;<span class="nu0">0</span>&#8203;</span></span> &#19988;&#20889;&#20837;&#20869;&#23481;&#26159;&#19981;&#30830;&#23450;&#30340;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;ctime&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;iterator&gt;</span>
+<span class="co2">#include &lt;locale&gt;</span>
+ 
+<span class="kw4">void</span> utcExample<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="co1">// &#38750;&#24120;&#27969;&#34892;&#30340; RFC 3339 &#26684;&#24335; UTC &#26102;&#38388;&#30340;&#20363;&#23376;</span>
+    <a href="cpp-chrono-c-time_t.html"><span class="kw1028">std::<span class="me2">time_t</span></span></a> time <span class="sy1">=</span> <a href="cpp-chrono-c-time.html"><span class="kw1016">std::<span class="me2">time</span></span></a><span class="br0">(</span><span class="br0">{</span><span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">char</span> timeString<span class="br0">[</span><a href="cpp-iterator-size.html"><span class="kw687">std::<span class="me2">size</span></span></a><span class="br0">(</span><span class="st0">&quot;yyyy-mm-ddThh:mm:ssZ&quot;</span><span class="br0">)</span><span class="br0">]</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><span class="me2">strftime</span><span class="br0">(</span><a href="cpp-iterator-data.html"><span class="kw689">std::<span class="me2">data</span></span></a><span class="br0">(</span>timeString<span class="br0">)</span>, <a href="cpp-iterator-size.html"><span class="kw687">std::<span class="me2">size</span></span></a><span class="br0">(</span>timeString<span class="br0">)</span>,
+                  <span class="st0">&quot;%FT%TZ&quot;</span>, <a href="cpp-chrono-c-gmtime.html"><span class="kw1023">std::<span class="me2">gmtime</span></span></a><span class="br0">(</span><span class="sy3">&amp;</span>time<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> timeString <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-chrono-c-time_t.html"><span class="kw1028">std::<span class="me2">time_t</span></span></a> t <span class="sy1">=</span> <a href="cpp-chrono-c-time.html"><span class="kw1016">std::<span class="me2">time</span></span></a><span class="br0">(</span>nullptr<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">char</span> mbstr<span class="br0">[</span><span class="nu0">100</span><span class="br0">]</span><span class="sy4">;</span>
+ 
+    <span class="kw1">if</span> <span class="br0">(</span>std<span class="sy4">::</span><span class="me2">strftime</span><span class="br0">(</span>mbstr, sizeof<span class="br0">(</span>mbstr<span class="br0">)</span>, <span class="st0">&quot;%A %c&quot;</span>, <a href="cpp-chrono-c-localtime.html"><span class="kw1024">std::<span class="me2">localtime</span></span></a><span class="br0">(</span><span class="sy3">&amp;</span>t<span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> mbstr <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <a href="cpp-locale-locale-global.html"><span class="kw2683">std::<span class="me2">locale</span><span class="sy4">::</span><span class="me2">global</span></span></a><span class="br0">(</span><a href="cpp-locale-locale.html"><span class="kw1897">std::<span class="me2">locale</span></span></a><span class="br0">(</span><span class="st0">&quot;ja_JP.utf8&quot;</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>std<span class="sy4">::</span><span class="me2">strftime</span><span class="br0">(</span>mbstr, sizeof<span class="br0">(</span>mbstr<span class="br0">)</span>, <span class="st0">&quot;%A %c&quot;</span>, <a href="cpp-chrono-c-localtime.html"><span class="kw1024">std::<span class="me2">localtime</span></span></a><span class="br0">(</span><span class="sy3">&amp;</span>t<span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> mbstr <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    utcExample<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">Tuesday Tue Sep  7 19:40:35 2021
+&#28779;&#26332;&#26085; 2021&#24180;09&#26376;07&#26085; 19&#26178;40&#20998;35&#31186;
+2021-09-07T19:40:35Z</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id="See_also">See also</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-c-asctime.html"><span class="t-lines"><span>asctime</span></span></a></div>
+</div>
+</td>
+<td>&#36716;&#25442; <span class="t-lc"><a href="cpp-chrono-c-tm.html">std::tm</a></span> &#23545;&#35937;&#20026;&#25991;&#26412;&#34920;&#31034;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-c-ctime.html"><span class="t-lines"><span>ctime</span></span></a></div>
+</div>
+</td>
+<td>&#36716;&#25442; <span class="t-lc"><a href="cpp-chrono-c-time_t.html">std::time_t</a></span> &#23545;&#35937;&#20026;&#25991;&#26412;&#34920;&#31034;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-c-wcsftime.html"><span class="t-lines"><span>wcsftime</span></span></a></div>
+</div>
+</td>
+<td>&#36716;&#25442; <span class="t-lc"><a href="cpp-chrono-c-tm.html">std::tm</a></span> &#23545;&#35937;&#20026;&#33258;&#23450;&#20041;&#30340;&#23485;&#23383;&#31526;&#20018;&#25991;&#26412;&#34920;&#31034;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-manip-put_time.html"><span class="t-lines"><span>put_time</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#25353;&#29031;&#25351;&#23450;&#26684;&#24335;&#26684;&#24335;&#21270;&#24182;&#36755;&#20986;&#26085;&#26399;/&#26102;&#38388;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-hh_mm_ss-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::hh_mm_ss&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>hh_mm_ss</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>strftime</span></span>&nbsp;&#30340; <span><span><a href="c-chrono-strftime.html">C &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

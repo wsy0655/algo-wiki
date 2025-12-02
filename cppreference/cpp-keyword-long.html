@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>C++ &#20851;&#38190;&#35789;&#65306;long</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_keyword_long skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">C++ &#20851;&#38190;&#35789;&#65306;</span><code>long</code></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-keyword.html">keyword</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<h3><span class="mw-headline" id=".E7.94.A8.E6.B3.95">&#29992;&#27861;</span></h3>
+<ul>
+<li><a href="cpp-language-types.html#.E4.BF.AE.E9.A5.B0.E7.AC.A6"><code>long</code> &#31867;&#22411;&#20462;&#39280;&#31526;</a></li>
+</ul>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;climits&gt;</span>
+<span class="co2">#include &lt;concepts&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;limits&gt;</span>
+<span class="co2">#include &lt;locale&gt;</span>
+ 
+static_assert<span class="br0">(</span>
+    sizeof<span class="br0">(</span><span class="kw4">long</span><span class="br0">)</span> <span class="sy1">&gt;=</span> <span class="nu0">32</span> <span class="sy2">/</span> <a href="cpp-types-climits.html"><span class="kw394">CHAR_BIT</span></a> <span class="sy3">&amp;&amp;</span>
+    sizeof<span class="br0">(</span><span class="kw4">unsigned</span> <span class="kw4">long</span><span class="br0">)</span> <span class="sy1">&gt;=</span> <span class="nu0">32</span> <span class="sy2">/</span> <a href="cpp-types-climits.html"><span class="kw394">CHAR_BIT</span></a> <span class="sy3">&amp;&amp;</span>
+    <a href="cpp-types-numeric_limits.html"><span class="kw351">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span><span class="kw4">long</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">min</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;=</span> <span class="sy2">-</span><span class="nu0">2</span><span class="st0">&#39;147&#39;</span><span class="nu0">483</span><span class="st0">&#39;647l - 1 &amp;&amp; //&#39;</span>
+    <a href="cpp-types-numeric_limits.html"><span class="kw351">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span><span class="kw4">long</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">max</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&gt;=</span> <span class="nu0">2</span><span class="st0">&#39;147&#39;</span><span class="nu0">483</span><span class="st0">&#39;647l &amp;&amp; //&#39;</span>
+    <a href="cpp-types-numeric_limits.html"><span class="kw351">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span><span class="kw4">unsigned</span> <span class="kw4">long</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">max</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&gt;=</span> <span class="nu0">4</span><span class="st0">&#39;294&#39;</span><span class="nu0">967</span><span class="st0">&#39;295ul); //&#39;</span>
+ 
+<span class="co1">// &#39;long long&#39; &#21644; &#39;unsigned long long&#39; &#20174; C++11 &#36215;&#21487;&#29992;</span>
+static_assert<span class="br0">(</span>
+    sizeof<span class="br0">(</span><span class="kw4">long</span> <span class="kw4">long</span><span class="br0">)</span> <span class="sy1">&gt;=</span> <span class="nu0">64</span> <span class="sy2">/</span> <a href="cpp-types-climits.html"><span class="kw394">CHAR_BIT</span></a> <span class="sy3">&amp;&amp;</span>
+    sizeof<span class="br0">(</span><span class="kw4">unsigned</span> <span class="kw4">long</span> <span class="kw4">long</span><span class="br0">)</span> <span class="sy1">&gt;=</span> <span class="nu0">64</span> <span class="sy2">/</span> <a href="cpp-types-climits.html"><span class="kw394">CHAR_BIT</span></a> <span class="sy3">&amp;&amp;</span>
+    <a href="cpp-types-numeric_limits.html"><span class="kw351">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span><span class="kw4">long</span> <span class="kw4">long</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">min</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;=</span> <span class="sy2">-</span><span class="nu0">9</span><span class="st0">&#39;223&#39;</span><span class="nu0">372</span><span class="st0">&#39;036&#39;</span><span class="nu0">854</span><span class="st0">&#39;775&#39;</span>807ll <span class="sy2">-</span> <span class="nu0">1</span> <span class="sy3">&amp;&amp;</span>
+    <a href="cpp-types-numeric_limits.html"><span class="kw351">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span><span class="kw4">long</span> <span class="kw4">long</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">max</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&gt;=</span> <span class="nu0">9</span><span class="st0">&#39;223&#39;</span><span class="nu0">372</span><span class="st0">&#39;036&#39;</span><span class="nu0">854</span><span class="st0">&#39;775&#39;</span>807ll <span class="sy3">&amp;&amp;</span>
+    <a href="cpp-types-numeric_limits.html"><span class="kw351">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span><span class="kw4">unsigned</span> <span class="kw4">long</span> <span class="kw4">long</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">max</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&gt;=</span> <span class="nu0">18</span><span class="st0">&#39;446&#39;</span><span class="nu0">744</span><span class="st0">&#39;073&#39;</span><span class="nu0">709</span><span class="st0">&#39;551&#39;</span>615ull<span class="br0">)</span><span class="sy4">;</span>
+ 
+<span class="co1">// &#27010;&#24565;&#20174; C++20 &#36215;&#21487;&#29992;</span>
+static_assert<span class="br0">(</span>
+    <a href="cpp-concepts-integral.html"><span class="kw2938">std::<span class="me2">integral</span></span></a><span class="sy1">&lt;</span><span class="kw4">long</span><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span>
+    <a href="cpp-concepts-integral.html"><span class="kw2938">std::<span class="me2">integral</span></span></a><span class="sy1">&lt;</span><span class="kw4">long</span> <span class="kw4">long</span><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span>
+    <a href="cpp-concepts-integral.html"><span class="kw2938">std::<span class="me2">integral</span></span></a><span class="sy1">&lt;</span><span class="kw4">unsigned</span> <span class="kw4">long</span><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span>
+    <a href="cpp-concepts-integral.html"><span class="kw2938">std::<span class="me2">integral</span></span></a><span class="sy1">&lt;</span><span class="kw4">unsigned</span> <span class="kw4">long</span> <span class="kw4">long</span><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span>
+    <a href="cpp-concepts-floating_point.html"><span class="kw2941">std::<span class="me2">floating_point</span></span></a><span class="sy1">&lt;</span><span class="kw4">long</span> <span class="kw4">double</span><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="co1">// &#27880;&#24847; &#39;long&#39; &#19981;&#33021;&#20462;&#39280; &#39;float&#39;</span>
+ 
+static_assert<span class="br0">(</span>
+    <a href="cpp-concepts-same_as.html"><span class="kw2933">std::<span class="me2">same_as</span></span></a><span class="sy1">&lt;</span>decltype<span class="br0">(</span><span class="nu0">0l</span><span class="br0">)</span>, <span class="kw4">signed</span> <span class="kw4">long</span> <span class="kw4">int</span><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span>
+    <a href="cpp-concepts-same_as.html"><span class="kw2933">std::<span class="me2">same_as</span></span></a><span class="sy1">&lt;</span>decltype<span class="br0">(</span>0ll<span class="br0">)</span>, <span class="kw4">signed</span> <span class="kw4">long</span> <span class="kw4">long</span> <span class="kw4">int</span><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span>
+    <a href="cpp-concepts-same_as.html"><span class="kw2933">std::<span class="me2">same_as</span></span></a><span class="sy1">&lt;</span>decltype<span class="br0">(</span>0ul<span class="br0">)</span>, <span class="kw4">unsigned</span> <span class="kw4">long</span> <span class="kw4">int</span><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span>
+    <a href="cpp-concepts-same_as.html"><span class="kw2933">std::<span class="me2">same_as</span></span></a><span class="sy1">&lt;</span>decltype<span class="br0">(</span>0ull<span class="br0">)</span>, <span class="kw4">unsigned</span> <span class="kw4">long</span> <span class="kw4">long</span> <span class="kw4">int</span><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span>
+    <a href="cpp-concepts-same_as.html"><span class="kw2933">std::<span class="me2">same_as</span></span></a><span class="sy1">&lt;</span>decltype<span class="br0">(</span><span class="nu0">0</span>.<span class="me1">l</span><span class="br0">)</span>, <span class="kw4">long</span> <span class="kw4">double</span><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+<span class="kw1">template</span> <span class="sy1">&lt;</span><span class="kw1">typename</span> T, <span class="kw1">typename</span>... <span class="me1">Ts</span><span class="sy1">&gt;</span>
+concept all_same <span class="sy1">=</span> <span class="br0">(</span>... <span class="me1">and</span> <a href="cpp-concepts-same_as.html"><span class="kw2933">std::<span class="me2">same_as</span></span></a> <span class="sy1">&lt;</span>T, Ts<span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+static_assert<span class="br0">(</span>
+    all_same<span class="sy1">&lt;</span><span class="kw4">long</span>, <span class="kw4">long</span> <span class="kw4">int</span>, <span class="kw4">signed</span> <span class="kw4">long</span>, <span class="kw4">signed</span> <span class="kw4">long</span> <span class="kw4">int</span><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span>
+    all_same<span class="sy1">&lt;</span><span class="kw4">unsigned</span> <span class="kw4">long</span>, <span class="kw4">unsigned</span> <span class="kw4">long</span> <span class="kw4">int</span><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span>
+    all_same<span class="sy1">&lt;</span><span class="kw4">long</span> <span class="kw4">long</span>, <span class="kw4">long</span> <span class="kw4">long</span> <span class="kw4">int</span>, <span class="kw4">signed</span> <span class="kw4">long</span> <span class="kw4">long</span>, <span class="kw4">signed</span> <span class="kw4">long</span> <span class="kw4">long</span> <span class="kw4">int</span><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span>
+    all_same<span class="sy1">&lt;</span><span class="kw4">unsigned</span> <span class="kw4">long</span> <span class="kw4">long</span>, <span class="kw4">unsigned</span> <span class="kw4">long</span> <span class="kw4">long</span> <span class="kw4">int</span><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+<span class="co2">#define OUT(...) std::cout &lt;&lt; #__VA_ARGS__ &lt;&lt; &quot; = &quot; &lt;&lt; __VA_ARGS__ &lt;&lt; &#39;\n&#39;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a>.<span class="me1">imbue</span><span class="br0">(</span><a href="cpp-locale-locale.html"><span class="kw1898">std::<span class="me2">locale</span></span></a><span class="br0">(</span><span class="st0">&quot;en_US.UTF-8&quot;</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    OUT<span class="br0">(</span>sizeof<span class="br0">(</span><span class="kw4">long</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    OUT<span class="br0">(</span><a href="cpp-types-numeric_limits.html"><span class="kw351">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span><span class="kw4">long</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">min</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    OUT<span class="br0">(</span><a href="cpp-types-numeric_limits.html"><span class="kw351">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span><span class="kw4">long</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">max</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    OUT<span class="br0">(</span><a href="cpp-types-numeric_limits.html"><span class="kw351">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span><span class="kw4">unsigned</span> <span class="kw4">long</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">max</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    OUT<span class="br0">(</span>sizeof<span class="br0">(</span><span class="kw4">long</span> <span class="kw4">long</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    OUT<span class="br0">(</span><a href="cpp-types-numeric_limits.html"><span class="kw351">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span><span class="kw4">long</span> <span class="kw4">long</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">min</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    OUT<span class="br0">(</span><a href="cpp-types-numeric_limits.html"><span class="kw351">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span><span class="kw4">long</span> <span class="kw4">long</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">max</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    OUT<span class="br0">(</span><a href="cpp-types-numeric_limits.html"><span class="kw351">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span><span class="kw4">unsigned</span> <span class="kw4">long</span> <span class="kw4">long</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">max</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="co2">#undef OUT</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">sizeof(long) = 8
+std::numeric_limits&lt;long&gt;::min() = -9,223,372,036,854,775,808
+std::numeric_limits&lt;long&gt;::max() = 9,223,372,036,854,775,807
+std::numeric_limits&lt;unsigned long&gt;::max() = 18,446,744,073,709,551,615
+sizeof(long long) = 8
+std::numeric_limits&lt;long long&gt;::min() = -9,223,372,036,854,775,808
+std::numeric_limits&lt;long long&gt;::max() = 9,223,372,036,854,775,807
+std::numeric_limits&lt;unsigned long long&gt;::max() = 18,446,744,073,709,551,615</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<ul>
+<li><a href="cpp-language-types.html">&#22522;&#30784;&#31867;&#22411;</a>&#65306;<a href="cpp-keyword-void.html"><code>void</code></a><span class="t-rev-inl t-since-cxx11"><span>&#12289;<span class="t-lc"><a href="cpp-types-nullptr_t.html">std::nullptr_t</a></span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></span></span>&#12290;
+<ul>
+<li><a href="cpp-language-types.html#.E6.95.B4.E6.95.B0.E7.B1.BB.E5.9E.8B">&#25972;&#25968;&#31867;&#22411;</a>&#65306;<a href="cpp-keyword-int.html"><code>int</code></a>&#12290;<a href="cpp-language-types.html#.E4.BF.AE.E9.A5.B0.E7.AC.A6">&#20462;&#39280;&#31526;</a>&#65306;<a href="cpp-keyword-signed.html"><code>signed</code></a>&#12289;<a href="cpp-keyword-unsigned.html"><code>unsigned</code></a>&#12289;<a href="cpp-keyword-short.html"><code>short</code></a>&#12289;<strong class="selflink"><code>long</code></strong>&#12290;
+<ul>
+<li><a href="cpp-language-types.html#.E5.B8.83.E5.B0.94.E7.B1.BB.E5.9E.8B">&#24067;&#23572;&#31867;&#22411;</a>: <a href="cpp-keyword-bool.html"><code>bool</code></a>&#12290;<a href="cpp-language-bool_literal.html">&#24067;&#23572;&#23383;&#38754;&#37327;</a>: <a href="cpp-keyword-false.html"><code>false</code></a>&#12289;<a href="cpp-keyword-true.html"><code>true</code></a>&#12290;</li>
+<li><a href="cpp-language-types.html#.E5.AD.97.E7.AC.A6.E7.B1.BB.E5.9E.8B">&#23383;&#31526;&#31867;&#22411;</a>&#65306;<a href="cpp-keyword-char.html"><code>char</code></a><span class="t-rev-inl t-since-cxx20"><span>&#12289;<a href="cpp-keyword-char8_t.html"><code>char8_t</code></a></span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></span></span><span class="t-rev-inl t-since-cxx11"><span>&#12289;<a href="cpp-keyword-char16_t.html"><code>char16_t</code></a>&#12289;<a href="cpp-keyword-char32_t.html"><code>char32_t</code></a></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></span></span>&#12289;<a href="cpp-keyword-wchar_t.html"><code>wchar_t</code></a>&#12290;</li>
+</ul>
+</li>
+<li><a href="cpp-language-types.html#.E6.B5.AE.E7.82.B9.E6.95.B0.E7.B1.BB.E5.9E.8B">&#28014;&#28857;&#25968;&#31867;&#22411;</a>&#65306;<a href="cpp-keyword-float.html"><code>float</code></a>&#12289;<a href="cpp-keyword-double.html"><code>double</code></a>&#12290;</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

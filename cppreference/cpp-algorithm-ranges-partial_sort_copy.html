@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::ranges::partial_sort_copy, std::ranges::partial_sort_copy_result</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_algorithm_ranges_partial_sort_copy skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::ranges::</span>partial_sort_copy, <span style="font-size:0.8em; line-height:125%">std::ranges::</span>partial_sort_copy_result</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-algorithm.html">algorithm</a>&lrm; | <a href="cpp-algorithm-ranges.html">ranges</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-algorithm.html">&lt;algorithm&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl-h">
+<td>
+<div>&#35843;&#29992;&#31614;&#21517;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-iterator-input_iterator.html"><span class="kw2864">std::<span class="me2">input_iterator</span></span></a> I1, <a href="cpp-iterator-sentinel_for.html"><span class="kw2862">std::<span class="me2">sentinel_for</span></span></a><span class="sy1">&lt;</span>I1<span class="sy1">&gt;</span> S1,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-iterator-random_access_iterator.html"><span class="kw2868">std::<span class="me2">random_access_iterator</span></span></a> I2, <a href="cpp-iterator-sentinel_for.html"><span class="kw2862">std::<span class="me2">sentinel_for</span></span></a><span class="sy1">&lt;</span>I2<span class="sy1">&gt;</span> S2,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span> Comp <span class="sy1">=</span> <a href="cpp-utility-functional-ranges-less.html"><span class="kw2844">ranges::<span class="me2">less</span></span></a>, <span class="kw1">class</span> Proj1 <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span> Proj2 <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a> <span class="sy1">&gt;</span><br />
+requires <a href="cpp-iterator-indirectly_copyable.html"><span class="kw3123">std::<span class="me2">indirectly_copyable</span></span></a><span class="sy1">&lt;</span>I1, I2<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="cpp-iterator-sortable.html"><span class="kw3136">std::<span class="me2">sortable</span></span></a><span class="sy1">&lt;</span>I2, Comp, Proj2<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="cpp-iterator-indirect_strict_weak_order.html"><span class="kw3131">std::<span class="me2">indirect_strict_weak_order</span></span></a><span class="sy1">&lt;</span>Comp, std<span class="sy4">::</span><a href="cpp-iterator-projected.html"><span class="kw2678">projected</span></a><span class="sy1">&lt;</span>I1, Proj1<span class="sy1">&gt;</span>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;std<span class="sy4">::</span><a href="cpp-iterator-projected.html"><span class="kw2678">projected</span></a><span class="sy1">&lt;</span>I2, Proj2<span class="sy1">&gt;&gt;</span><br />
+<span class="kw4">constexpr</span> partial_sort_copy_result<span class="sy1">&lt;</span>I1, I2<span class="sy1">&gt;</span><br />
+&nbsp; &nbsp; partial_sort_copy<span class="br0">(</span> I1 first, S1 last, I2 result_first, S2 result_last,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Comp comp <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span>, Proj1 proj1 <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span>, Proj2 proj2 <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span> <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-ranges-input_range.html"><span class="kw2902">ranges::<span class="me2">input_range</span></span></a> R1, <a href="cpp-ranges-random_access_range.html"><span class="kw2906">ranges::<span class="me2">random_access_range</span></span></a> R2,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span> Comp <span class="sy1">=</span> <a href="cpp-utility-functional-ranges-less.html"><span class="kw2844">ranges::<span class="me2">less</span></span></a>, <span class="kw1">class</span> Proj1 <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span> Proj2 <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a> <span class="sy1">&gt;</span><br />
+requires <a href="cpp-iterator-indirectly_copyable.html"><span class="kw3123">std::<span class="me2">indirectly_copyable</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R1<span class="sy1">&gt;</span>, <a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R2<span class="sy1">&gt;&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="cpp-iterator-sortable.html"><span class="kw3136">std::<span class="me2">sortable</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R2<span class="sy1">&gt;</span>, Comp, Proj2<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="cpp-iterator-indirect_strict_weak_order.html"><span class="kw3131">std::<span class="me2">indirect_strict_weak_order</span></span></a><span class="sy1">&lt;</span>Comp, std<span class="sy4">::</span><a href="cpp-iterator-projected.html"><span class="kw2678">projected</span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R1<span class="sy1">&gt;</span>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Proj1<span class="sy1">&gt;</span>, std<span class="sy4">::</span><a href="cpp-iterator-projected.html"><span class="kw2678">projected</span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R2<span class="sy1">&gt;</span>, Proj2<span class="sy1">&gt;&gt;</span><br />
+<span class="kw4">constexpr</span> partial_sort_copy_result<span class="sy1">&lt;</span><a href="cpp-ranges-borrowed_iterator_t.html"><span class="kw2855">ranges::<span class="me2">borrowed_iterator_t</span></span></a><span class="sy1">&lt;</span>R1<span class="sy1">&gt;</span>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="cpp-ranges-borrowed_iterator_t.html"><span class="kw2855">ranges::<span class="me2">borrowed_iterator_t</span></span></a><span class="sy1">&lt;</span>R2<span class="sy1">&gt;&gt;</span><br />
+&nbsp; &nbsp; partial_sort_copy<span class="br0">(</span> R1<span class="sy3">&amp;&amp;</span> r, R2<span class="sy3">&amp;&amp;</span> result_r,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Comp comp <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span>, Proj1 proj1 <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span>, Proj2 proj2 <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span> <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-h">
+<td>
+<div>&#36741;&#21161;&#31867;&#22411;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> I, <span class="kw1">class</span> O <span class="sy1">&gt;</span><br />
+<span class="kw1">using</span> partial_sort_copy_result <span class="sy1">=</span> <a href="cpp-algorithm-ranges-return_types-in_out_result.html"><span class="kw3094">ranges::<span class="me2">in_out_result</span></span></a><span class="sy1">&lt;</span>I, O<span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#22797;&#21046;&#26469;&#33258;&#28304;&#33539;&#22260; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">first</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">last</span></span><code>)</code> &#30340;&#21069; <span class="t-c"><span class="mw-geshi cpp source-cpp">N</span></span> &#20010;&#20803;&#32032;&#65292;&#22914;&#21516;&#23427;&#25353;&#29031; <span class="t-c"><span class="mw-geshi cpp source-cpp">comp</span></span> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">proj1</span></span> &#37096;&#20998;&#25490;&#24207;&#65292;&#21040;&#30446;&#26631;&#33539;&#22260; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">result_first</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">result_first <span class="sy2">+</span> N</span></span><code>)</code>&#65292;&#20854;&#20013; <span class="mjax" style="display:none">\(\scriptsize N = \min{(L_1, L_2)}\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">N = min(L&#8321;, L&#8322;)</span>&#65292;<span class="mjax" style="display:none">\(\scriptsize L_1\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">L&#8321;</span> &#31561;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-ranges-distance.html"><span class="kw3140">ranges::<span class="me2">distance</span></span></a><span class="br0">(</span>first, last<span class="br0">)</span></span></span> &#32780; <span class="mjax" style="display:none">\(\scriptsize L_2\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">L&#8322;</span> &#31561;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-ranges-distance.html"><span class="kw3140">ranges::<span class="me2">distance</span></span></a><span class="br0">(</span>result_first, result_last<span class="br0">)</span></span></span>&#12290;</p>
+<p><i>&#19981;</i>&#20445;&#35777;&#20445;&#25345;&#30456;&#31561;&#20803;&#32032;&#38388;&#30340;&#39034;&#24207;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#29992;&#20989;&#25968;&#23545;&#35937; <span class="t-c"><span class="mw-geshi cpp source-cpp">proj1</span></span> &#25237;&#24433;&#28304;&#33539;&#22260;&#20803;&#32032;&#65292;&#24182;&#29992;&#20989;&#25968;&#23545;&#35937; <span class="t-c"><span class="mw-geshi cpp source-cpp">proj2</span></span> &#25237;&#24433;&#30446;&#26631;&#20803;&#32032;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#21516; <span class="t-v">(1)</span>&#65292;&#20294;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">r</span></span> &#20026;&#28304;&#33539;&#22260;&#24182;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">result_r</span></span> &#20026;&#30446;&#26631;&#33539;&#22260;&#65292;&#22914;&#21516;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/begin"><span class="kw2882">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>r<span class="br0">)</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">first</span></span>&#65292;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/end"><span class="kw2884">ranges::<span class="me2">end</span></span></a><span class="br0">(</span>r<span class="br0">)</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">last</span></span>&#65292;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/begin"><span class="kw2882">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>result_r<span class="br0">)</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">result_first</span></span>&#65292;&#24182;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/end"><span class="kw2884">ranges::<span class="me2">end</span></span></a><span class="br0">(</span>result_r<span class="br0">)</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">result_last</span></span>&#12290;</div>
+<p>&#27492;&#39029;&#38754;&#19978;&#25551;&#36848;&#30340;&#20989;&#25968;&#24335;&#23454;&#20307;&#26159;<i><a href="cpp-algorithm-ranges.html#.E7.AE.97.E6.B3.95.E5.87.BD.E6.95.B0.E5.AF.B9.E8.B1.A1">&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;</a></i>&#65288;&#38750;&#27491;&#24335;&#22320;&#31216;&#20026; <i>niebloid</i>&#65289;&#65292;&#21363;&#65306;</p>
+<ul>
+<li>&#35843;&#29992;&#23427;&#20204;&#20013;&#30340;&#20219;&#20309;&#19968;&#20010;&#26102;&#19981;&#33021;&#26174;&#24335;&#25351;&#23450;&#27169;&#26495;&#23454;&#21442;&#12290;</li>
+<li>&#23427;&#20204;&#37117;&#19981;&#23545;<a href="cpp-language-adl.html">&#23454;&#21442;&#20381;&#36182;&#26597;&#25214;</a>&#21487;&#35265;&#12290;</li>
+<li>&#22312;&#36890;&#36807;&#20989;&#25968;&#35843;&#29992;&#36816;&#31639;&#31526;&#24038;&#20391;&#30340;&#21517;&#23383;&#36827;&#34892;<a href="cpp-language-unqualified_lookup.html">&#26080;&#38480;&#23450;&#26597;&#25214;</a>&#65292;&#25214;&#21040;&#23427;&#20204;&#20043;&#19968;&#26102;&#65292;&#31105;&#27490;<a href="cpp-language-adl.html">&#23454;&#21442;&#20381;&#36182;&#26597;&#25214;</a>&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>first, last</td>
+<td>-</td>
+<td>&#22797;&#21046;&#26469;&#28304;&#30340;&#28304;&#20803;&#32032;<a href="cpp-iterator.html#.E8.8C.83.E5.9B.B4">&#33539;&#22260;</a>&#30340;&#36845;&#20195;&#22120;-&#21736;&#20301;&#23545;</td>
+</tr>
+<tr class="t-par">
+<td>r</td>
+<td>-</td>
+<td>&#22797;&#21046;&#26469;&#28304;&#30340;&#28304;&#33539;&#22260;</td>
+</tr>
+<tr class="t-par">
+<td>result_first, result_last</td>
+<td>-</td>
+<td>&#30446;&#26631;&#20803;&#32032;<a href="cpp-iterator.html#.E8.8C.83.E5.9B.B4">&#33539;&#22260;</a>&#30340;&#36845;&#20195;&#22120;-&#21736;&#20301;&#23545;</td>
+</tr>
+<tr class="t-par">
+<td>result_r</td>
+<td>-</td>
+<td>&#30446;&#26631;&#33539;&#22260;</td>
+</tr>
+<tr class="t-par">
+<td>comp</td>
+<td>-</td>
+<td>&#24212;&#29992;&#21040;&#25237;&#24433;&#21518;&#20803;&#32032;&#30340;&#27604;&#36739;</td>
+</tr>
+<tr class="t-par">
+<td>proj1</td>
+<td>-</td>
+<td>&#24212;&#29992;&#21040;&#28304;&#33539;&#22260;&#20803;&#32032;&#30340;&#25237;&#24433;</td>
+</tr>
+<tr class="t-par">
+<td>proj2</td>
+<td>-</td>
+<td>&#24212;&#29992;&#21040;&#30446;&#26631;&#33539;&#22260;&#20803;&#32032;&#30340;&#25237;&#24433;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#31561;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">{</span>last, result_first <span class="sy2">+</span> N<span class="br0">}</span></span></span> &#30340;&#23545;&#35937;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<p>&#33267;&#22810;&#27604;&#36739; <span class="mjax" style="display:none">\(\scriptsize L_1 \cdot \log{(N)}\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">L&#8321;&bull;log(N)</span> &#27425;&#65292;&#25237;&#24433; <span class="mjax" style="display:none">\(\scriptsize 2 \cdot L_1 \cdot \log{(N)}\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">2&bull;L&#8321;&bull;log(N)</span> &#27425;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.AF.E8.83.BD.E7.9A.84.E5.AE.9E.E7.8E.B0">&#21487;&#33021;&#30340;&#23454;&#29616;</span></h3>
+<table class="eq-fun-cpp-table">
+<tr>
+<td>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">struct</span> partial_sort_copy_fn
+<span class="br0">{</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span><a href="cpp-iterator-input_iterator.html"><span class="kw2864">std::<span class="me2">input_iterator</span></span></a> I1, <a href="cpp-iterator-sentinel_for.html"><span class="kw2862">std::<span class="me2">sentinel_for</span></span></a><span class="sy1">&lt;</span>I1<span class="sy1">&gt;</span> S1,
+             <a href="cpp-iterator-random_access_iterator.html"><span class="kw2868">std::<span class="me2">random_access_iterator</span></span></a> I2, <a href="cpp-iterator-sentinel_for.html"><span class="kw2862">std::<span class="me2">sentinel_for</span></span></a><span class="sy1">&lt;</span>I2<span class="sy1">&gt;</span> S2,
+             <span class="kw1">class</span> Comp <span class="sy1">=</span> <a href="cpp-utility-functional-ranges-less.html"><span class="kw2844">ranges::<span class="me2">less</span></span></a>, <span class="kw1">class</span> Proj1 <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a>,
+             <span class="kw1">class</span> Proj2 <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a><span class="sy1">&gt;</span>
+    requires <a href="cpp-iterator-indirectly_copyable.html"><span class="kw3123">std::<span class="me2">indirectly_copyable</span></span></a><span class="sy1">&lt;</span>I1, I2<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span> <a href="cpp-iterator-sortable.html"><span class="kw3136">std::<span class="me2">sortable</span></span></a><span class="sy1">&lt;</span>I2, Comp, Proj2<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span>
+             <a href="cpp-iterator-indirect_strict_weak_order.html"><span class="kw3131">std::<span class="me2">indirect_strict_weak_order</span></span></a><span class="sy1">&lt;</span>Comp, std<span class="sy4">::</span><a href="cpp-iterator-projected.html"><span class="kw2678">projected</span></a><span class="sy1">&lt;</span>I1, Proj1<span class="sy1">&gt;</span>,
+             std<span class="sy4">::</span><a href="cpp-iterator-projected.html"><span class="kw2678">projected</span></a><span class="sy1">&lt;</span>I2, Proj2<span class="sy1">&gt;&gt;</span>
+    <span class="kw4">constexpr</span> ranges<span class="sy4">::</span><span class="me2">partial_sort_copy_result</span><span class="sy1">&lt;</span>I1, I2<span class="sy1">&gt;</span>
+        operator<span class="br0">(</span><span class="br0">)</span><span class="br0">(</span>I1 first, S1 last, I2 result_first, S2 result_last,
+                   Comp comp <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span>, Proj1 proj1 <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span>, Proj2 proj2 <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span><span class="br0">)</span> <span class="kw4">const</span>
+    <span class="br0">{</span>
+        <span class="kw1">if</span> <span class="br0">(</span>result_first <span class="sy1">==</span> result_last<span class="br0">)</span>
+            <span class="kw1">return</span> <span class="br0">{</span>std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span><a href="cpp-iterator-ranges-next.html"><span class="kw3141">ranges::<span class="me2">next</span></span></a><span class="br0">(</span>std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>first<span class="br0">)</span>, std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>last<span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>,
+                    std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>result_first<span class="br0">)</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+        <span class="kw4">auto</span> out_last<span class="br0">{</span>result_first<span class="br0">}</span><span class="sy4">;</span>
+        <span class="co1">// &#22797;&#21046;&#39318; N &#20010;&#20803;&#32032;</span>
+        <span class="kw1">for</span> <span class="br0">(</span><span class="sy4">;</span> <span class="sy3">!</span><span class="br0">(</span>first <span class="sy1">==</span> last or out_last <span class="sy1">==</span> result_last<span class="br0">)</span><span class="sy4">;</span> <span class="sy2">++</span>out_last, <span class="sy2">++</span>first<span class="br0">)</span>
+            <span class="sy2">*</span>out_last <span class="sy1">=</span> <span class="sy2">*</span>first<span class="sy4">;</span>
+ 
+        <span class="co1">// &#36716;&#25442; N &#20010;&#22797;&#21046;&#30340;&#20803;&#32032;&#20026;&#26368;&#22823;&#22534;</span>
+        <a href="cpp-algorithm-ranges-make_heap.html"><span class="kw3005">ranges::<span class="me2">make_heap</span></span></a><span class="br0">(</span>result_first, out_last, comp, proj2<span class="br0">)</span><span class="sy4">;</span>
+ 
+        <span class="co1">// &#22788;&#29702;&#21097;&#20313;&#30340;&#36755;&#20837;&#33539;&#22260;&#65288;&#33509;&#23384;&#22312;&#65289;&#65292;&#20445;&#25345;&#22534;&#23646;&#24615;</span>
+        <span class="kw1">for</span> <span class="br0">(</span><span class="sy4">;</span> first <span class="sy3">!</span><span class="sy1">=</span> last<span class="sy4">;</span> <span class="sy2">++</span>first<span class="br0">)</span>
+        <span class="br0">{</span>
+            <span class="kw1">if</span> <span class="br0">(</span><a href="cpp-utility-functional-invoke.html"><span class="kw1063">std::<span class="me2">invoke</span></span></a><span class="br0">(</span>comp, <a href="cpp-utility-functional-invoke.html"><span class="kw1063">std::<span class="me2">invoke</span></span></a><span class="br0">(</span>proj1, <span class="sy2">*</span>first<span class="br0">)</span>,
+                                  <a href="cpp-utility-functional-invoke.html"><span class="kw1063">std::<span class="me2">invoke</span></span></a><span class="br0">(</span>proj2, <span class="sy2">*</span>result_first<span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>
+            <span class="br0">{</span>
+                <span class="co1">// &#24377;&#20986;&#26368;&#22823;&#39033;&#24182;&#22622;&#20837;&#26032;&#25214;&#21040;&#30340;&#36739;&#23567;&#39033;</span>
+                <a href="cpp-algorithm-ranges-pop_heap.html"><span class="kw3030">ranges::<span class="me2">pop_heap</span></span></a><span class="br0">(</span>result_first, out_last, comp, proj2<span class="br0">)</span><span class="sy4">;</span>
+                <span class="sy2">*</span><span class="br0">(</span>out_last <span class="sy2">-</span> <span class="nu0">1</span><span class="br0">)</span> <span class="sy1">=</span> <span class="sy2">*</span>first<span class="sy4">;</span>
+                <a href="cpp-algorithm-ranges-push_heap.html"><span class="kw3033">ranges::<span class="me2">push_heap</span></span></a><span class="br0">(</span>result_first, out_last, comp, proj2<span class="br0">)</span><span class="sy4">;</span>
+            <span class="br0">}</span>
+        <span class="br0">}</span>
+ 
+        <span class="co1">// &#36755;&#20986;&#33539;&#22260;&#20013;&#39318; N &#20010;&#20803;&#32032;&#20173;&#20026;&#22534;&mdash;&mdash;&#36716;&#25442;&#20043;&#20026;&#24050;&#25490;&#24207;&#33539;&#22260;</span>
+        <a href="cpp-algorithm-ranges-sort_heap.html"><span class="kw3064">ranges::<span class="me2">sort_heap</span></span></a><span class="br0">(</span>result_first, out_last, comp, proj2<span class="br0">)</span><span class="sy4">;</span>
+ 
+        <span class="kw1">return</span> <span class="br0">{</span>std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>first<span class="br0">)</span>, std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>out_last<span class="br0">)</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw1">template</span><span class="sy1">&lt;</span><a href="cpp-ranges-input_range.html"><span class="kw2902">ranges::<span class="me2">input_range</span></span></a> R1, <a href="cpp-ranges-random_access_range.html"><span class="kw2906">ranges::<span class="me2">random_access_range</span></span></a> R2,
+             <span class="kw1">class</span> Comp <span class="sy1">=</span> <a href="cpp-utility-functional-ranges-less.html"><span class="kw2844">ranges::<span class="me2">less</span></span></a>, <span class="kw1">class</span> Proj1 <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a>,
+             <span class="kw1">class</span> Proj2 <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a><span class="sy1">&gt;</span>
+    requires <a href="cpp-iterator-indirectly_copyable.html"><span class="kw3123">std::<span class="me2">indirectly_copyable</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R1<span class="sy1">&gt;</span>, <a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R2<span class="sy1">&gt;&gt;</span> <span class="sy3">&amp;&amp;</span>
+             <a href="cpp-iterator-sortable.html"><span class="kw3136">std::<span class="me2">sortable</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R2<span class="sy1">&gt;</span>, Comp, Proj2<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span>
+             <a href="cpp-iterator-indirect_strict_weak_order.html"><span class="kw3131">std::<span class="me2">indirect_strict_weak_order</span></span></a><span class="sy1">&lt;</span>Comp, std<span class="sy4">::</span><a href="cpp-iterator-projected.html"><span class="kw2678">projected</span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R1<span class="sy1">&gt;</span>,
+             Proj1<span class="sy1">&gt;</span>, std<span class="sy4">::</span><a href="cpp-iterator-projected.html"><span class="kw2678">projected</span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R2<span class="sy1">&gt;</span>, Proj2<span class="sy1">&gt;&gt;</span>
+    <span class="kw4">constexpr</span> ranges<span class="sy4">::</span><span class="me2">partial_sort_copy_result</span><span class="sy1">&lt;</span><a href="cpp-ranges-borrowed_iterator_t.html"><span class="kw2855">ranges::<span class="me2">borrowed_iterator_t</span></span></a><span class="sy1">&lt;</span>R1<span class="sy1">&gt;</span>,
+              <a href="cpp-ranges-borrowed_iterator_t.html"><span class="kw2855">ranges::<span class="me2">borrowed_iterator_t</span></span></a><span class="sy1">&lt;</span>R2<span class="sy1">&gt;&gt;</span>
+        operator<span class="br0">(</span><span class="br0">)</span><span class="br0">(</span>R1<span class="sy3">&amp;&amp;</span> r, R2<span class="sy3">&amp;&amp;</span> result_r, Comp comp <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span>,
+                   Proj1 proj1 <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span>, Proj2 proj2 <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span><span class="br0">)</span> <span class="kw4">const</span>
+    <span class="br0">{</span>
+        <span class="kw1">return</span> <span class="br0">(</span><span class="sy2">*</span>this<span class="br0">)</span><span class="br0">(</span><a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/begin"><span class="kw2882">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>r<span class="br0">)</span>, <a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/end"><span class="kw2884">ranges::<span class="me2">end</span></span></a><span class="br0">(</span>r<span class="br0">)</span>,
+                       <a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/begin"><span class="kw2882">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>result_r<span class="br0">)</span>, <a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/end"><span class="kw2884">ranges::<span class="me2">end</span></span></a><span class="br0">(</span>result_r<span class="br0">)</span>,
+                       std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>comp<span class="br0">)</span>, std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>proj1<span class="br0">)</span>, std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>proj2<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw1">inline</span> <span class="kw4">constexpr</span> partial_sort_copy_fn partial_sort_copy <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;algorithm&gt;</span>
+<span class="co2">#include &lt;forward_list&gt;</span>
+<span class="co2">#include &lt;functional&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;ranges&gt;</span>
+<span class="co2">#include &lt;string_view&gt;</span>
+<span class="co2">#include &lt;vector&gt;</span>
+ 
+<span class="kw4">void</span> print<span class="br0">(</span><a href="cpp-string-basic_string_view.html"><span class="kw1251">std::<span class="me2">string_view</span></span></a> rem, std<span class="sy4">::</span><a href="cpp-ranges-input_range.html"><span class="kw2902">ranges::<span class="me2">input_range</span></span></a> <span class="kw4">auto</span> <span class="kw4">const</span><span class="sy3">&amp;</span> v<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">for</span> <span class="br0">(</span><a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> rem<span class="sy4">;</span> <span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> e <span class="sy4">:</span> v<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> e <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">const</span> <a href="cpp-container-forward_list.html"><span class="kw1276">std::<span class="me2">forward_list</span></span></a> source<span class="br0">{</span><span class="nu0">4</span>, <span class="nu0">2</span>, <span class="nu0">5</span>, <span class="nu0">1</span>, <span class="nu0">3</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+    print<span class="br0">(</span><span class="st0">&quot;&#20197;&#21319;&#24207;&#20889;&#20837;&#36739;&#23567; vector: &quot;</span>, <span class="st0">&quot;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-container-vector.html"><span class="kw1272">std::<span class="me2">vector</span></span></a> dest1<span class="br0">{</span><span class="nu0">10</span>, <span class="nu0">11</span>, <span class="nu0">12</span><span class="br0">}</span><span class="sy4">;</span>
+    print<span class="br0">(</span><span class="st0">&quot;const source list: &quot;</span>, source<span class="br0">)</span><span class="sy4">;</span>
+    print<span class="br0">(</span><span class="st0">&quot;destination range: &quot;</span>, dest1<span class="br0">)</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">partial_sort_copy</span><span class="br0">(</span>source, dest1<span class="br0">)</span><span class="sy4">;</span>
+    print<span class="br0">(</span><span class="st0">&quot;partial_sort_copy: &quot;</span>, dest1<span class="br0">)</span><span class="sy4">;</span>
+ 
+    print<span class="br0">(</span><span class="st0">&quot;&#20197;&#38477;&#24207;&#20889;&#20837;&#36739;&#22823; vector:&quot;</span>, <span class="st0">&quot;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-container-vector.html"><span class="kw1272">std::<span class="me2">vector</span></span></a> dest2<span class="br0">{</span><span class="nu0">10</span>, <span class="nu0">11</span>, <span class="nu0">12</span>, <span class="nu0">13</span>, <span class="nu0">14</span>, <span class="nu0">15</span>, <span class="nu0">16</span><span class="br0">}</span><span class="sy4">;</span>
+    print<span class="br0">(</span><span class="st0">&quot;const source list: &quot;</span>, source<span class="br0">)</span><span class="sy4">;</span>
+    print<span class="br0">(</span><span class="st0">&quot;destination range: &quot;</span>, dest2<span class="br0">)</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">partial_sort_copy</span><span class="br0">(</span>source, dest2, <a href="cpp-utility-functional-greater.html"><span class="kw1042">std::<span class="me2">greater</span></span></a><span class="br0">{</span><span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+    print<span class="br0">(</span><span class="st0">&quot;partial_sort_copy: &quot;</span>, dest2<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#20197;&#21319;&#24207;&#20889;&#20837;&#36739;&#23567; vector:
+const source list: 4 2 5 1 3
+destination range: 10 11 12
+partial_sort_copy: 1 2 3
+&#20197;&#38477;&#24207;&#20889;&#20837;&#36739;&#22823; vector:
+const source list: 4 2 5 1 3
+destination range: 10 11 12 13 14 15 16
+partial_sort_copy: 5 4 3 2 1 15 16</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-partial_sort.html"><span class="t-lines"><span>ranges::partial_sort</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#23558;&#33539;&#22260;&#20013;&#21069; N &#20010;&#20803;&#32032;&#25490;&#24207;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-sort.html"><span class="t-lines"><span>ranges::sort</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#23558;&#33539;&#22260;&#25353;&#21319;&#24207;&#25490;&#24207;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-stable_sort.html"><span class="t-lines"><span>ranges::stable_sort</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#23558;&#33539;&#22260;&#20013;&#20803;&#32032;&#25490;&#24207;&#65292;&#21516;&#26102;&#20445;&#25345;&#30456;&#31561;&#20803;&#20043;&#38388;&#30340;&#39034;&#24207;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-sort_heap.html"><span class="t-lines"><span>ranges::sort_heap</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#23558;&#26368;&#22823;&#22534;&#21464;&#25104;&#25353;&#21319;&#24207;&#25490;&#24207;&#30340;&#20803;&#32032;&#33539;&#22260;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-make_heap.html"><span class="t-lines"><span>ranges::make_heap</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#20174;&#20803;&#32032;&#33539;&#22260;&#21019;&#24314;&#26368;&#22823;&#22534;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-push_heap.html"><span class="t-lines"><span>ranges::push_heap</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#28155;&#21152;&#20803;&#32032;&#21040;&#26368;&#22823;&#22534;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-pop_heap.html"><span class="t-lines"><span>ranges::pop_heap</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#31227;&#38500;&#26368;&#22823;&#22534;&#20013;&#26368;&#22823;&#20803;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-partial_sort_copy.html"><span class="t-lines"><span>partial_sort_copy</span></span></a></div>
+</div>
+</td>
+<td>&#22797;&#21046;&#33539;&#22260;&#20013;&#20803;&#32032;&#24182;&#37096;&#20998;&#25490;&#24207;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::ranges::viewable_range</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_ranges_viewable_range skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::ranges::</span>viewable_range</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-ranges.html">ranges</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-ranges.html">&lt;ranges&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T <span class="sy1">&gt;</span><br /></span>
+<p>concept viewable_range <span class="sy1">=</span><br />
+&nbsp; &nbsp; <a href="cpp-ranges-range.html"><span class="kw2898">ranges::<span class="me2">range</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; <span class="br0">(</span><span class="br0">(</span><a href="cpp-ranges-view.html"><span class="kw2901">ranges::<span class="me2">view</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-remove_cvref.html"><span class="kw2644">std::<span class="me2">remove_cvref_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; &nbsp; <a href="cpp-concepts-constructible_from.html"><span class="kw2945">std::<span class="me2">constructible_from</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-remove_cvref.html"><span class="kw2644">std::<span class="me2">remove_cvref_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span>, T<span class="sy1">&gt;</span><span class="br0">)</span> <span class="sy3">||</span><br />
+&nbsp; &nbsp; &nbsp;<span class="br0">(</span><span class="sy3">!</span><a href="cpp-ranges-view.html"><span class="kw2901">ranges::<span class="me2">view</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-remove_cvref.html"><span class="kw2644">std::<span class="me2">remove_cvref_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; &nbsp; <span class="br0">(</span><a href="cpp-types-is_lvalue_reference.html"><span class="kw472">std::<span class="me2">is_lvalue_reference_v</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> <span class="sy3">||</span><br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp;<span class="br0">(</span><a href="cpp-concepts-movable.html"><span class="kw2953">std::<span class="me2">movable</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;&gt;</span> <span class="sy3">&amp;&amp;</span> <span class="sy3">!</span><span class="coMULTI">/*is-initializer-list*/</span><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>viewable_range</code> &#27010;&#24565;&#26159; <a href="cpp-ranges-range.html"><code>range</code></a> &#30340;&#31934;&#21270;&#65292;&#23427;&#25551;&#36848;&#33021;&#36890;&#36807; <a href="cpp-ranges-all_view.html"><tt>views::all</tt></a> &#36716;&#25442;&#25104; <a href="cpp-ranges-view.html"><code>view</code></a> &#30340;&#33539;&#22260;&#12290;</p>
+<p>&#24403;&#19988;&#20165;&#24403; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-remove_cvref.html"><span class="kw2644">std::<span class="me2">remove_cvref_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span></span></span> &#20026; <span class="t-lc"><a href="cpp-utility-initializer_list.html">std::initializer_list</a></span> &#30340;&#29305;&#21270;&#26102;&#65292;&#24120;&#37327; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="coMULTI">/*is-initializer-list*/</span><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;ranges&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+<span class="co2">#include &lt;vector&gt;</span>
+ 
+<span class="kw1">struct</span> valid_result <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+<span class="kw1">struct</span> invalid_result <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw1">template</span> <span class="sy1">&lt;</span><span class="kw1">typename</span> T<span class="sy1">&gt;</span>
+concept valid_viewable_range <span class="sy1">=</span> <a href="cpp-concepts-same_as.html"><span class="kw2932">std::<span class="me2">same_as</span></span></a><span class="sy1">&lt;</span>T, valid_result<span class="sy1">&gt;</span><span class="sy4">;</span>
+ 
+<span class="kw1">template</span> <span class="sy1">&lt;</span><span class="kw1">typename</span> T<span class="sy1">&gt;</span>
+concept invalid_viewable_range <span class="sy1">=</span> <a href="cpp-concepts-same_as.html"><span class="kw2932">std::<span class="me2">same_as</span></span></a><span class="sy1">&lt;</span>T, invalid_result<span class="sy1">&gt;</span><span class="sy4">;</span>
+ 
+<span class="kw4">auto</span> test_viewable_range<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">viewable_range</span> <span class="kw4">auto</span> <span class="sy3">&amp;&amp;</span><span class="br0">)</span> <span class="sy2">-</span><span class="sy1">&gt;</span> valid_result<span class="sy4">;</span>
+<span class="kw4">auto</span> test_viewable_range<span class="br0">(</span><span class="kw4">auto</span><span class="sy3">&amp;&amp;</span><span class="br0">)</span> <span class="sy2">-</span><span class="sy1">&gt;</span> invalid_result<span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">auto</span> il <span class="sy1">=</span> <span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">2</span>, <span class="nu0">3</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw4">int</span> arr <span class="br0">[</span><span class="br0">]</span><span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">2</span>, <span class="nu0">3</span><span class="br0">}</span><span class="sy4">;</span>
+    <a href="cpp-container-vector.html"><span class="kw1272">std::<span class="me2">vector</span></span></a> vec<span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">2</span>, <span class="nu0">3</span><span class="br0">}</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><a href="cpp-ranges-ref_view.html"><span class="kw2917">ranges::<span class="me2">ref_view</span></span></a> r<span class="br0">{</span>arr<span class="br0">}</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><a href="cpp-ranges-owning_view.html"><span class="kw3595">ranges::<span class="me2">owning_view</span></span></a> o<span class="br0">{</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="br0">(</span><span class="st0">&quot;Hello&quot;</span><span class="br0">)</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+    static_assert<span class="br0">(</span>requires <span class="br0">{</span>
+        <span class="br0">{</span> test_viewable_range<span class="br0">(</span>il<span class="br0">)</span> <span class="br0">}</span> <span class="sy2">-</span><span class="sy1">&gt;</span> valid_viewable_range<span class="sy4">;</span>
+        <span class="br0">{</span> test_viewable_range<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>il<span class="br0">)</span><span class="br0">)</span> <span class="br0">}</span> <span class="sy2">-</span><span class="sy1">&gt;</span> invalid_viewable_range<span class="sy4">;</span>
+        <span class="br0">{</span> test_viewable_range<span class="br0">(</span>arr<span class="br0">)</span> <span class="br0">}</span> <span class="sy2">-</span><span class="sy1">&gt;</span> valid_viewable_range<span class="sy4">;</span>
+        <span class="br0">{</span> test_viewable_range<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>arr<span class="br0">)</span><span class="br0">)</span> <span class="br0">}</span> <span class="sy2">-</span><span class="sy1">&gt;</span> invalid_viewable_range<span class="sy4">;</span>
+        <span class="br0">{</span> test_viewable_range<span class="br0">(</span>vec<span class="br0">)</span> <span class="br0">}</span> <span class="sy2">-</span><span class="sy1">&gt;</span> valid_viewable_range<span class="sy4">;</span>
+        <span class="br0">{</span> test_viewable_range<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>vec<span class="br0">)</span><span class="br0">)</span> <span class="br0">}</span> <span class="sy2">-</span><span class="sy1">&gt;</span> valid_viewable_range<span class="sy4">;</span>
+        <span class="br0">{</span> test_viewable_range<span class="br0">(</span>r<span class="br0">)</span> <span class="br0">}</span> <span class="sy2">-</span><span class="sy1">&gt;</span> valid_viewable_range<span class="sy4">;</span>
+        <span class="br0">{</span> test_viewable_range<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>r<span class="br0">)</span><span class="br0">)</span> <span class="br0">}</span> <span class="sy2">-</span><span class="sy1">&gt;</span> valid_viewable_range<span class="sy4">;</span>
+        <span class="br0">{</span> test_viewable_range<span class="br0">(</span>o<span class="br0">)</span> <span class="br0">}</span> <span class="sy2">-</span><span class="sy1">&gt;</span> invalid_viewable_range<span class="sy4">;</span>
+        <span class="br0">{</span> test_viewable_range<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>o<span class="br0">)</span><span class="br0">)</span> <span class="br0">}</span> <span class="sy2">-</span><span class="sy1">&gt;</span> valid_viewable_range<span class="sy4">;</span>
+        <span class="br0">{</span> test_viewable_range<span class="br0">(</span>std<span class="sy4">::</span><a href="cpp-ranges-ref_view.html"><span class="kw2917">ranges::<span class="me2">ref_view</span></span></a><span class="br0">(</span>o<span class="br0">)</span><span class="br0">)</span> <span class="br0">}</span> <span class="sy2">-</span><span class="sy1">&gt;</span> valid_viewable_range<span class="sy4">;</span>
+    <span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue3481">LWG 3481</a></td>
+<td>C++20</td>
+<td><code>viewable_range</code> &#26366;&#25509;&#21463;&#20165;&#31227;&#21160;&#35270;&#22270;&#30340;&#24038;&#20540;</td>
+<td>&#25298;&#32477;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://wg21.link/P2415R2">P2415R2</a></td>
+<td>C++20</td>
+<td><code>viewable_range</code> &#20165;&#25509;&#21463;&#20316;&#20026; <a href="cpp-ranges-borrowed_range.html"><code>borrowed_range</code></a> &#30340;&#38750; <a href="cpp-ranges-view.html"><code>view</code></a> &#21491;&#20540;</td>
+<td>&#25509;&#21463;&#26356;&#22810;&#31867;&#22411;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-all_view.html"><span class="t-lines"><span>views::all_t</span><span>views::all</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#21253;&#21547; <a href="cpp-ranges-range.html"><code>range</code></a> &#30340;&#25152;&#26377;&#20803;&#32032;&#30340; <a href="cpp-ranges-view.html"><code>view</code></a><br />
+<span class="t-mark" style="white-space: nowrap;">(&#21035;&#21517;&#27169;&#26495;)</span> <span class="t-mark" style="white-space: nowrap;">(&#33539;&#22260;&#36866;&#37197;&#22120;&#23545;&#35937;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

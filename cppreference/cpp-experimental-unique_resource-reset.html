@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::experimental::unique_resource&lt;R, D&gt;::reset</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_experimental_unique_resource_reset skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::experimental::unique_resource&lt;R, D&gt;::</span>reset</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-experimental.html">experimental</a>&lrm; | <a href="cpp-experimental-unique_resource.html">unique resource</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-libfund_ts_3">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span> reset<span class="br0">(</span><span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-libfund-ts-3 t-mark-ts" style="white-space: nowrap;">(&#24211;&#22522;&#30784; TS v3)</span></td>
+</tr>
+<tr class="t-dcl t-since-libfund_ts_3">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> RR <span class="sy1">&gt;</span><br />
+<span class="kw4">void</span> reset<span class="br0">(</span> RR<span class="sy3">&amp;&amp;</span> r <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-libfund-ts-3 t-mark-ts" style="white-space: nowrap;">(&#24211;&#22522;&#30784; TS v3)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#33509; <code>unique_resource</code> &#21344;&#26377;&#36164;&#28304;&#65292;&#21017;&#36890;&#36807;&#20197;&#24213;&#23618;&#36164;&#28304;&#21477;&#26564;&#35843;&#29992;&#21024;&#38500;&#22120;&#26469;&#37322;&#25918;&#23427;&#12290;&#35843;&#29992;&#21518; <code>unique_resource</code> &#19981;&#21344;&#26377;&#36164;&#28304;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#36890;&#36807;&#35843;&#29992; <span class="t-v">(1)</span> &#28982;&#21518;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_assignable.html"><span class="kw556">std::<span class="me2">is_nothrow_assignable_v</span></span></a><span class="sy1">&lt;</span>RS, RR<span class="sy1">&gt;</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span> &#21017;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>RR<span class="sy1">&gt;</span><span class="br0">(</span>r<span class="br0">)</span></span></span>&#65292;&#21542;&#21017;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-as_const.html"><span class="kw1124">std::<span class="me2">as_const</span></span></a><span class="br0">(</span>r<span class="br0">)</span></span></span> &#36171;&#20540;&#23384;&#20648;&#30340;&#36164;&#28304;&#21477;&#26564;&#26469;&#26367;&#25442;&#36164;&#28304;&#65292;&#20854;&#20013; <code>RS</code> &#26159;&#23384;&#20648;&#30340;&#36164;&#28304;&#21477;&#26564;&#30340;&#31867;&#22411;&#12290;&#35843;&#29992;&#21518; <code>unique_resource</code> &#21344;&#26377;&#36164;&#28304;&#12290;</div>
+<div class="t-li1"><span class="t-li"></span> &#33509;&#23384;&#20648;&#30340;&#36164;&#28304;&#21477;&#26564;&#30340;&#22797;&#21046;&#36171;&#20540;&#25243;&#20986;&#20102;&#24322;&#24120;&#65292;&#21017;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">del_<span class="br0">(</span>r<span class="br0">)</span></span></span>&#65292;&#20854;&#20013; <code>del</code> &#26159;&#21024;&#38500;&#22120;&#23545;&#35937;&#12290;</div>
+<div class="t-li1"><span class="t-li"></span> &#27492;&#37325;&#36733;&#21482;&#26377;&#22312;&#36873;&#25321;&#30340;&#36171;&#20540;&#23384;&#20648;&#30340;&#36164;&#28304;&#21477;&#26564;&#30340;&#36171;&#20540;&#34920;&#36798;&#24335;&#20026;&#33391;&#26500;&#26102;&#25165;&#20250;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#12290;</div>
+<div class="t-li1"><span class="t-li"></span> &#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">del_<span class="br0">(</span>r<span class="br0">)</span></span></span> &#38750;&#33391;&#26500;&#65292;&#21017;&#31243;&#24207;&#38750;&#33391;&#26500;&#12290;</div>
+<div class="t-li1"><span class="t-li"></span> &#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">del_<span class="br0">(</span>r<span class="br0">)</span></span></span> &#23548;&#33268;&#26410;&#23450;&#20041;&#34892;&#20026;&#25110;&#25243;&#20986;&#24322;&#24120;&#65292;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>r</td>
+<td>-</td>
+<td>&#35201;&#31649;&#29702;&#30340;&#26032;&#36164;&#28304;&#30340;&#36164;&#28304;&#21477;&#26564;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<div class="t-li1"><span class="t-li">2)</span> &#20219;&#20309;&#36171;&#20540;&#23384;&#20648;&#30340;&#36164;&#28304;&#21477;&#26564;&#26102;&#25243;&#20986;&#30340;&#24322;&#24120;&#12290;</div>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#35813;&#26426;&#21046;&#30830;&#20445;&#26080;&#36164;&#28304;&#27844;&#28431;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#26242;&#26080;&#31034;&#20363;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-unique_ptr-reset.html"><span class="t-lines"><span>reset</span></span></a></div>
+</div>
+</td>
+<td>&#26367;&#25442;&#34987;&#31649;&#29702;&#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::unique_ptr&lt;T,Deleter&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

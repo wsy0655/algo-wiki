@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::experimental::make_unique_resource_checked</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_experimental_unique_resource_make_unique_resource_checked skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::experimental::</span>make_unique_resource_checked</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-experimental.html">experimental</a>&lrm; | <a href="cpp-experimental-unique_resource.html">unique resource</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="https://zh.cppreference.com/mwiki/index.php?title=cpp/header/experimental/scope&amp;action=edit&amp;redlink=1" class="new" title="cpp/header/experimental/scope&#65288;&#39029;&#38754;&#19981;&#23384;&#22312;&#65289;">&lt;experimental/scope&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-libfund_ts_3">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> R, <span class="kw1">class</span> D, <span class="kw1">class</span> S <span class="sy1">=</span> <a href="cpp-types-decay.html"><span class="kw632">std::<span class="me2">decay_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span> <span class="sy1">&gt;</span><br /></span>
+<p>std<span class="sy4">::</span><span class="me2">experimental</span><span class="sy4">::</span><span class="me2">unique_resource</span><span class="sy1">&lt;</span><a href="cpp-types-decay.html"><span class="kw632">std::<span class="me2">decay_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, <a href="cpp-types-decay.html"><span class="kw632">std::<span class="me2">decay_t</span></span></a><span class="sy1">&lt;</span>D<span class="sy1">&gt;&gt;</span><br />
+&nbsp; &nbsp; make_unique_resource_checked<span class="br0">(</span> R<span class="sy3">&amp;&amp;</span> r, <span class="kw4">const</span> S<span class="sy3">&amp;</span> invalid, D<span class="sy3">&amp;&amp;</span> d <span class="br0">)</span><br /></p>
+&nbsp; &nbsp; <span class="kw1">noexcept</span><span class="br0">(</span><span class="coMULTI">/* &#35265;&#19979;&#25991; */</span><span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-libfund-ts-3 t-mark-ts" style="white-space: nowrap;">(&#24211;&#22522;&#30784; TS v3)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#21019;&#24314; <code>unique_resource</code>&#65292;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span><span class="br0">(</span>r<span class="br0">)</span></span></span> &#21021;&#22987;&#21270;&#20854;&#23384;&#20648;&#30340;&#36164;&#28304;&#26564;&#65292;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>D<span class="sy1">&gt;</span><span class="br0">(</span>d<span class="br0">)</span></span></span> &#21021;&#22987;&#21270;&#20854;&#21024;&#38500;&#22120;&#12290;&#24403;&#19988;&#20165;&#24403; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span><span class="br0">(</span>r <span class="sy1">==</span> invalid<span class="br0">)</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span> &#26102;&#65292;&#21019;&#24314;&#30340; <code>unique_resource</code> &#21344;&#26377;&#36164;&#28304;&#12290;</p>
+<p>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">r <span class="sy1">==</span> invalid</span></span> &#19981;&#33021;<a href="cpp-language-implicit_conversion.html#.E6.8C.89.E8.AF.AD.E5.A2.83.E8.BD.AC.E6.8D.A2">&#25353;&#35821;&#22659;&#36716;&#25442;&#25104; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span></span></a>&#65292;&#21017;&#31243;&#24207;&#38750;&#33391;&#26500;&#65292;&#32780;&#33509;&#35813;&#36716;&#25442;&#23548;&#33268;&#26410;&#23450;&#20041;&#34892;&#20026;&#25110;&#25243;&#24322;&#24120;&#65292;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>r</td>
+<td>-</td>
+<td>&#36164;&#28304;&#21477;&#26564;</td>
+</tr>
+<tr class="t-par">
+<td>d</td>
+<td>-</td>
+<td>&#29992;&#20110;&#37322;&#25918;&#36164;&#28304;&#30340;&#21024;&#38500;&#22120;</td>
+</tr>
+<tr class="t-par">
+<td>invalid</td>
+<td>-</td>
+<td>&#25351;&#31034;&#36164;&#28304;&#21477;&#26564;&#20026;&#26080;&#25928;&#20540;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#22914;&#19978;&#25152;&#36848;&#30340; <code>unique_resource</code>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<p>&#23384;&#20648;&#30340;&#36164;&#28304;&#21477;&#26564;&#19982;&#21024;&#38500;&#22120;&#30340;&#21021;&#22987;&#21270;&#20013;&#25243;&#20986;&#30340;&#20219;&#20309;&#24322;&#24120;&#12290;</p>
+<div class="t-noexcept-full"><a href="cpp-language-noexcept_spec.html"><tt>noexcept</tt></a> &#35828;&#26126;&#65306;&nbsp;&nbsp;
+<div class="t-noexcept-box"><span class="t-cc"><span class="mw-geshi cpp source-cpp"><span class="kw1">noexcept</span><span class="br0">(</span><br /></span></span>
+<p>&nbsp; &nbsp; <a href="cpp-types-is_constructible.html"><span class="kw532">std::<span class="me2">is_nothrow_constructible_v</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-decay.html"><span class="kw632">std::<span class="me2">decay_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, R<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; <a href="cpp-types-is_constructible.html"><span class="kw532">std::<span class="me2">is_nothrow_constructible_v</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-decay.html"><span class="kw632">std::<span class="me2">decay_t</span></span></a><span class="sy1">&lt;</span>D<span class="sy1">&gt;</span>, D<span class="sy1">&gt;</span><br /></p>
+<span class="br0">)</span></div>
+</div>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p><code>make_unique_resource_checked</code> &#23384;&#22312;&#26159;&#20026;&#20102;&#36991;&#20813;&#20197;&#26080;&#25928;&#23454;&#21442;&#35843;&#29992;&#21024;&#38500;&#22120;&#20989;&#25968;&#12290;</p>
+<p>&#22797;&#21046;&#25110;&#31227;&#21160;&#36164;&#28304;&#21477;&#26564; <span class="t-c"><span class="mw-geshi cpp source-cpp">r</span></span> &#21040;&#36820;&#22238;&#20540;&#20013;&#65292;&#32780;&#21019;&#24314;&#30340; <code>unique_resource</code> &#22987;&#32456;&#20445;&#26377;&#25317;&#26377;&#23545;&#35937;&#31867;&#22411;&#30340;&#24213;&#23618;&#36164;&#28304;&#21477;&#26564;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;cstdio&gt;</span>
+<span class="co2">#include &lt;experimental/scope&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="co1">// &#36991;&#20813;&#22312; fclose &#22833;&#36133;&#26102;&#35843;&#29992; fclose</span>
+    <span class="kw4">auto</span> file <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">experimental</span><span class="sy4">::</span><span class="me2">make_unique_resource_checked</span><span class="br0">(</span>
+        <a href="cpp-io-c-fopen.html"><span class="kw1817">std::<span class="me2">fopen</span></span></a><span class="br0">(</span><span class="st0">&quot;potentially_nonexistent_file.txt&quot;</span>, <span class="st0">&quot;r&quot;</span><span class="br0">)</span>,
+        nullptr,
+        <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><a href="cpp-io-c-FILE.html"><span class="kw1881">std::<span class="me2">FILE</span></span></a> <span class="sy2">*</span>fptr<span class="br0">)</span> <span class="br0">{</span> <a href="cpp-io-c-fclose.html"><span class="kw1820">std::<span class="me2">fclose</span></span></a><span class="br0">(</span>fptr<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span>
+    <span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>file.<span class="me1">get</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+        <a href="cpp-io-c-puts.html"><span class="kw1834">std::<span class="me2">puts</span></span></a><span class="br0">(</span><span class="st0">&quot;&#25991;&#20214;&#23384;&#22312;&#12290;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">else</span>
+        <a href="cpp-io-c-puts.html"><span class="kw1834">std::<span class="me2">puts</span></span></a><span class="br0">(</span><span class="st0">&quot;&#25991;&#20214;&#19981;&#23384;&#22312;&#12290;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#25991;&#20214;&#19981;&#23384;&#22312;&#12290;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr>
+<td></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

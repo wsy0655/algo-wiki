@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::chrono::system_clock::from_time_t</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_chrono_system_clock_from_time_t skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::chrono::system_clock::</span>from_time_t</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-chrono.html">chrono</a>&lrm; | <a href="cpp-chrono-system_clock.html">system clock</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">static</span> std<span class="sy4">::</span><span class="me2">chrono</span><span class="sy4">::</span><span class="me2">system_clock</span><span class="sy4">::</span><span class="me2">time_point</span> from_time_t<span class="br0">(</span> <a href="cpp-chrono-c-time_t.html"><span class="kw1029">std::<span class="me2">time_t</span></span></a> t <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#29992;&#20004;&#20010;&#31867;&#22411;&#38388;&#30340;&#36739;&#20302;&#31934;&#24230;&#65292;&#36716;&#25442; <span class="t-c"><span class="mw-geshi cpp source-cpp">t</span></span> &#20026;&#26102;&#38388;&#28857;&#31867;&#22411;&#12290;</p>
+<p>&#33509; <code>time_point</code> &#25317;&#26377;&#36739;&#20302;&#31934;&#24230;&#65292;&#21017;&#33293;&#20837;&#36824;&#26159;&#25130;&#26029;&#20540;&#26159;&#23454;&#29616;&#23450;&#20041;&#30340;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>t</td>
+<td>-</td>
+<td>&#35201;&#36716;&#25442;&#30340; <span class="t-lc"><a href="cpp-chrono-c-time_t.html">std::time_t</a></span> &#20540;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#34920;&#31034; <span class="t-c"><span class="mw-geshi cpp source-cpp">t</span></span> &#30340; <a href="cpp-chrono-system_clock.html#.E6.88.90.E5.91.98.E7.B1.BB.E5.9E.8B"><code>std::chrono::system_clock::time_point</code></a> &#31867;&#22411;&#30340;&#20540;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;chrono&gt;</span>
+<span class="co2">#include &lt;ctime&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;thread&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">using</span> <span class="kw1">namespace</span> std<span class="sy4">::</span><span class="me2">chrono_literals</span><span class="sy4">;</span>
+ 
+    <span class="kw4">const</span> <a href="cpp-chrono-c-time_t.html"><span class="kw1029">std::<span class="me2">time_t</span></span></a> t <span class="sy1">=</span> <a href="cpp-chrono-c-time.html"><span class="kw1016">std::<span class="me2">time</span></span></a><span class="br0">(</span>nullptr<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#31934;&#24230;&#36890;&#24120;&#20026; &quot;1 &#31186;&quot;</span>
+ 
+    <span class="kw4">const</span> <span class="kw4">auto</span> from <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">chrono</span><span class="sy4">::</span><span class="me2">system_clock</span><span class="sy4">::</span><span class="me2">from_time_t</span><span class="br0">(</span>t<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-thread-sleep_for.html"><span class="kw2153">std::<span class="me2">this_thread</span><span class="sy4">::</span><span class="me2">sleep_for</span></span></a><span class="br0">(</span>500ms<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw4">const</span> <span class="kw4">auto</span> diff <span class="sy1">=</span> <a href="cpp-chrono-system_clock-now.html"><span class="kw2675">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">system_clock</span><span class="sy4">::</span><span class="me2">now</span></span></a><span class="br0">(</span><span class="br0">)</span> <span class="sy2">-</span> from<span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> diff <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; (&quot;</span>
+              <span class="sy1">&lt;&lt;</span> <a href="cpp-chrono-duration-round.html"><span class="kw3290">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">round</span></span></a><span class="sy1">&lt;</span><a href="cpp-chrono-duration.html"><span class="kw998">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">milliseconds</span></span></a><span class="sy1">&gt;</span><span class="br0">(</span>diff<span class="br0">)</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;)<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">987654321ns (987ms)</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-system_clock-to_time_t.html"><span class="t-lines"><span>to_time_t</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td>&#36716;&#25442;&#31995;&#32479;&#26102;&#38047;&#26102;&#38388;&#28857;&#20026; <span class="t-lc"><a href="cpp-chrono-c-time_t.html">std::time_t</a></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

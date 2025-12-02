@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::basic_ostream&lt;CharT,Traits&gt;::swap</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_io_basic_ostream_swap skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::basic_ostream&lt;CharT,Traits&gt;::</span>swap</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-io.html">io</a>&lrm; | <a href="cpp-io-basic_ostream.html">basic ostream</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">protected</span><span class="sy4">:</span><br />
+<span class="kw4">void</span> swap<span class="br0">(</span> basic_ostream<span class="sy3">&amp;</span> rhs <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">basic_ios<span class="sy4">::</span><span class="me2">swap</span><span class="br0">(</span>rhs<span class="br0">)</span></span></span> &#20197;&#20132;&#25442; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#21644; <code>rhs</code> &#38388;&#38500;&#20102; <span class="t-c"><span class="mw-geshi cpp source-cpp">rdbuf<span class="br0">(</span><span class="br0">)</span></span></span> &#20043;&#22806;&#30340;&#22522;&#31867;&#25968;&#25454;&#25104;&#21592;&#12290;&#27492; swap &#20989;&#25968;&#21463;&#20445;&#25252;&#65306;&#23427;&#34987;&#21487;&#20132;&#25442;&#36755;&#20986;&#27969;&#31867; <span class="t-lc"><a href="cpp-io-basic_ofstream.html">std::basic_ofstream</a></span> &#21644; <span class="t-lc"><a href="cpp-io-basic_ostringstream.html">std::basic_ostringstream</a></span> &#30340; swap &#20989;&#25968;&#25152;&#35843;&#29992;&#65292;&#36825;&#20123;&#20989;&#25968;&#30693;&#26195;&#22914;&#20309;&#27491;&#30830;&#20132;&#25442;&#20851;&#32852;&#30340;&#27969;&#32531;&#20914;&#21306;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>rhs</td>
+<td>-</td>
+<td>&#35201;&#19982;&#20043;&#20132;&#25442;&#30340;&#21516;&#31867;&#22411; basic_ostream</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;sstream&gt;</span>
+<span class="co2">#include &lt;utility&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-basic_ostringstream.html"><span class="kw1740">std::<span class="me2">ostringstream</span></span></a> s1<span class="br0">(</span><span class="st0">&quot;hello&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-basic_ostringstream.html"><span class="kw1740">std::<span class="me2">ostringstream</span></span></a> s2<span class="br0">(</span><span class="st0">&quot;bye&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    s1.<span class="me1">swap</span><span class="br0">(</span>s2<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK&#65292;ostringstream &#25317;&#26377;&#20844;&#24320;&#30340; swap()</span>
+    <a href="cpp-algorithm-swap.html"><span class="kw1603">std::<span class="me2">swap</span></span></a><span class="br0">(</span>s1, s2<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK&#65292;&#35843;&#29992; s1.swap(s2)</span>
+ 
+<span class="co1">//  std::cout.swap(s2); // &#38169;&#35823;&#65306;swap &#26159;&#21463;&#20445;&#25252;&#25104;&#21592;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> s1.<span class="me1">str</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">hello</pre></div>
+</div>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

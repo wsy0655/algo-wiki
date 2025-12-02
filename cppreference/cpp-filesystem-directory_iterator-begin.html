@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::filesystem::begin(directory_iterator), std::filesystem::end(directory_iterator)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_filesystem_directory_iterator_begin skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::filesystem::</span>begin<span style="font-size:0.8em; line-height:125%">(directory_iterator)</span>, <span style="font-size:0.8em; line-height:125%">std::filesystem::</span>end<span style="font-size:0.8em; line-height:125%">(directory_iterator)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-filesystem.html">filesystem</a>&lrm; | <a href="cpp-filesystem-directory_iterator.html">directory iterator</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-filesystem.html">&lt;filesystem&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp">directory_iterator begin<span class="br0">(</span> directory_iterator iter <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp">directory_iterator end<span class="br0">(</span> directory_iterator <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#36820;&#22238;&#26410;&#26356;&#25913;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">iter</span></span>&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#36820;&#22238;&#40664;&#35748;&#26500;&#36896;&#30340; <a href="cpp-filesystem-directory_iterator.html"><tt>directory_iterator</tt></a>&#65292;&#23427;&#29992;&#20316;&#23614;&#36845;&#20195;&#22120;&#12290;&#24573;&#30053;&#23454;&#21442;&#12290;</div>
+<p>&#36825;&#20123;&#38750;&#27169;&#26495;&#20989;&#25968;&#20801;&#35768;&#23558; <code>directory_iterator</code> &#29992;&#20110;&#22522;&#20110;&#33539;&#22260;&#30340; for &#24490;&#29615;<span class="t-rev-inl t-since-cxx20"><span>&#24182;&#20351; <code>directory_iterator</code> &#20026; <a href="cpp-ranges-range.html"><code>range</code></a> &#31867;&#22411;</span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>iter</td>
+<td>-</td>
+<td><code>directory_iterator</code></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<div class="t-li1"><span class="t-li">1)</span> &#19981;&#26356;&#25913;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">iter</span></span>&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#23614;&#36845;&#20195;&#22120;&#65288;&#40664;&#35748;&#26500;&#36896;&#30340; <code>directory_iterator</code>&#65289;&#12290;</div>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;filesystem&gt;</span>
+<span class="co2">#include &lt;fstream&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="kw1">namespace</span> fs <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">filesystem</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    fs<span class="sy4">::</span><span class="me2">create_directories</span><span class="br0">(</span><span class="st0">&quot;sandbox/a/b&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-basic_ofstream.html"><span class="kw1737">std::<span class="me2">ofstream</span></span></a><span class="br0">(</span><span class="st0">&quot;sandbox/file1.txt&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-basic_ofstream.html"><span class="kw1737">std::<span class="me2">ofstream</span></span></a><span class="br0">(</span><span class="st0">&quot;sandbox/file2.txt&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">auto</span><span class="sy3">&amp;</span> p <span class="sy4">:</span> fs<span class="sy4">::</span><span class="me2">directory_iterator</span><span class="br0">(</span><span class="st0">&quot;sandbox&quot;</span><span class="br0">)</span><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> p <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    fs<span class="sy4">::</span><span class="me2">remove_all</span><span class="br0">(</span><span class="st0">&quot;sandbox&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&quot;sandbox/a&quot;
+&quot;sandbox/file1.txt&quot;
+&quot;sandbox/file2.txt&quot;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue3480">LWG 3480</a></td>
+<td>C++17</td>
+<td><code>end</code> &#25353;&#24341;&#29992;&#25509;&#25910;&#21442;&#25968;</td>
+<td>&#25353;&#20540;&#25509;&#25910;&#21442;&#25968;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-recursive_directory_iterator-begin.html"><span class="t-lines"><span>begin<span class="t-dsc-small">(std::filesystem::recursive_directory_iterator)</span></span><span>end<span class="t-dsc-small">(std::filesystem::recursive_directory_iterator)</span></span></span></a></div>
+</div>
+</td>
+<td>&#22522;&#20110;&#33539;&#22260;&#30340; for &#24490;&#29615;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

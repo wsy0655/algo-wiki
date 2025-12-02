@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::basic_stacktrace</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_utility_basic_stacktrace skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>basic_stacktrace</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-utility.html">utility</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-stacktrace.html">&lt;stacktrace&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Allocator <span class="sy1">&gt;</span><br />
+<span class="kw1">class</span> basic_stacktrace<span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">using</span> stacktrace <span class="sy1">=</span><br />
+&nbsp; &nbsp; std<span class="sy4">::</span><span class="me2">basic_stacktrace</span><span class="sy1">&lt;</span><a href="cpp-memory-allocator.html"><span class="kw702">std::<span class="me2">allocator</span></span></a><span class="sy1">&lt;</span><a href="cpp-utility-stacktrace_entry.html"><span class="kw3546">std::<span class="me2">stacktrace_entry</span></span></a><span class="sy1">&gt;&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">namespace</span> pmr <span class="br0">{</span><br /></span>
+<p><span class="kw1">using</span> stacktrace <span class="sy1">=</span><br />
+&nbsp; &nbsp; std<span class="sy4">::</span><span class="me2">basic_stacktrace</span><span class="sy1">&lt;</span><a href="cpp-memory-polymorphic_allocator.html"><span class="kw709">std::<span class="me2">pmr</span><span class="sy4">::</span><span class="me2">polymorphic_allocator</span></span></a><span class="sy1">&lt;</span><a href="cpp-utility-stacktrace_entry.html"><span class="kw3546">std::<span class="me2">stacktrace_entry</span></span></a><span class="sy1">&gt;&gt;</span><span class="sy4">;</span><br /></p>
+<span class="br0">}</span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> <code>basic_stacktrace</code> &#31867;&#27169;&#26495;&#34920;&#31034;&#25972;&#20010;&#26632;&#36394;&#36857;&#25110;&#20854;&#32473;&#23450;&#37096;&#20998;&#30340;&#24555;&#29031;&#12290;&#23427;&#28385;&#36275;<a href="cpp-named_req-AllocatorAwareContainer.html"><span style="font-style:italic">&#30693;&#20998;&#37197;&#22120;&#23481;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(AllocatorAwareContainer)</span></a> &#12289;<a href="cpp-named_req-SequenceContainer.html"><span style="font-style:italic">&#24207;&#21015;&#23481;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(SequenceContainer)</span></a> &#21450;<a href="cpp-named_req-ReversibleContainer.html"><span style="font-style:italic">&#21487;&#36870;&#23481;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(ReversibleContainer)</span></a> &#30340;&#35201;&#27714;&#65292;&#20294;&#20165;&#25903;&#25345;&#31227;&#21160;&#12289;&#22797;&#21046;&#12289;&#20132;&#25442;&#21644; const &#38480;&#23450;&#30340;&#39034;&#24207;&#23481;&#22120;&#19978;&#30340;&#25805;&#20316;&#65292;&#24182;&#19988;&#27604;&#36739;&#20989;&#25968;&#30340;&#35821;&#20041;&#19981;&#21516;&#20110;&#23545;&#23481;&#22120;&#25152;&#35201;&#27714;&#30340;&#35821;&#20041;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#20351;&#29992;&#40664;&#35748; <span class="t-lc"><a href="cpp-memory-allocator.html">std::allocator</a></span> &#30340; <code>basic_stacktrace</code> &#30340;&#20415;&#21033;&#31867;&#22411;&#21035;&#21517;&#12290;</div>
+<div class="t-li1"><span class="t-li">3)</span> &#20351;&#29992;<a href="cpp-memory-polymorphic_allocator.html">&#22810;&#24577;&#20998;&#37197;&#22120;</a>&#30340; <code>basic_stacktrace</code> &#30340;&#20415;&#21033;&#31867;&#22411;&#21035;&#21517;&#12290;</div>
+<p>&#24403;&#21069;&#25191;&#34892;&#32447;&#31243;&#20013;&#30340;&#24403;&#21069;&#27714;&#20540; <span class="mjax" style="display:none">\(\small{ {x}_{0} }\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">x<sub>0</sub></span> &#30340;<i>&#35843;&#29992;&#24207;&#21015;</i>&#65292;&#26159;&#27714;&#20540;&#30340;&#24207;&#21015; <span class="mjax" style="display:none">\(\small{ ({x}_{0}, \dots, {x}_{n})}\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">(x<sub>0</sub>, ..., x<sub>n</sub>)</span>&#65292;&#23427;&#20351;&#24471;&#23545;&#20110; <span class="mjax" style="display:none">\(\small{i \ge 0}\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">i&ge;0</span>&#65292;<span class="mjax" style="display:none">\(\small{ {x}_{i} }\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">x<sub>i</sub></span> &#22312;&#20989;&#25968;&#35843;&#29992; <span class="mjax" style="display:none">\(\small{ {x}_{i+1} }\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">x<sub>i+1</sub></span> &#20043;&#20869;&#12290;</p>
+<p><i>&#26632;&#36394;&#36857;&#8202;&#65279;</i>&#26159;&#35843;&#29992;&#24207;&#21015;&#30340;&#36817;&#20284;&#34920;&#31034;&#65292;&#30001;&#26632;&#36394;&#36857;&#26465;&#30446;&#32452;&#25104;&#12290;</p>
+<p>&#27599;&#20010;<i>&#26632;&#36394;&#36857;&#26465;&#30446;&#8202;&#65279;</i>&#34920;&#31034;&#26632;&#36394;&#36857;&#20013;&#30340;&#19968;&#39033;&#27714;&#20540;&#12290;&#23427;&#30001; C++ &#26631;&#20934;&#24211;&#20013;&#30340; <span class="t-lc">std::stacktrace_entry</span> &#34920;&#31034;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.A8.A1.E6.9D.BF.E5.BD.A2.E5.8F.82">&#27169;&#26495;&#24418;&#21442;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>Allocator</td>
+<td>-</td>
+<td>&#29992;&#20110;&#33719;&#21462;/&#37322;&#25918;&#20869;&#23384;&#21450;&#26500;&#36896;/&#38144;&#27585;&#35813;&#20869;&#23384;&#20013;&#30340;&#20803;&#32032;&#30340;&#20998;&#37197;&#22120;&#12290;&#27492;&#31867;&#22411;&#24517;&#39035;&#31526;&#21512;<a href="cpp-named_req-Allocator.html"><span style="font-style:italic">&#20998;&#37197;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(Allocator)</span></a> &#30340;&#35201;&#27714;&#12290;&#33509; <code>Allocator::value_type</code> &#19981;&#26159; <span class="t-lc">std::stacktrace_entry</span> &#21017;&#31243;&#24207;&#38750;&#33391;&#26500;&#12290;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E7.B1.BB.E5.9E.8B">&#25104;&#21592;&#31867;&#22411;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#25104;&#21592;&#31867;&#22411;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>value_type</code></td>
+<td><span class="t-lc">std::stacktrace_entry</span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>const_reference</code></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw4">const</span> value_type<span class="sy3">&amp;</span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>reference</code></td>
+<td><span class="mw-geshi cpp source-cpp">value_type<span class="sy3">&amp;</span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>const_iterator</code></td>
+<td>&#23454;&#29616;&#23450;&#20041;&#30340;&#24120;&#37327;<a href="cpp-named_req-RandomAccessIterator.html"><span style="font-style:italic">&#32769;&#24335;&#38543;&#26426;&#35775;&#38382;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyRandomAccessIterator)</span></a> &#31867;&#22411;&#65292;&#23454;&#29616; <a href="cpp-iterator-random_access_iterator.html"><code>random_access_iterator</code></a></td>
+</tr>
+<tr class="t-dsc">
+<td><code>iterator</code></td>
+<td><code>const_iterator</code></td>
+</tr>
+<tr class="t-dsc">
+<td><code>reverse_iterator</code></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-reverse_iterator.html"><span class="kw661">std::<span class="me2">reverse_iterator</span></span></a><span class="sy1">&lt;</span>iterator<span class="sy1">&gt;</span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>reverse_const_iterator</code></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-reverse_iterator.html"><span class="kw661">std::<span class="me2">reverse_iterator</span></span></a><span class="sy1">&lt;</span>const_iterator<span class="sy1">&gt;</span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>difference_type</code></td>
+<td>&#23454;&#29616;&#23450;&#20041;&#30340;&#26377;&#31526;&#21495;&#25972;&#25968;&#31867;&#22411;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>size_type</code></td>
+<td>&#23454;&#29616;&#23450;&#20041;&#30340;&#26080;&#31526;&#21495;&#25972;&#25968;&#31867;&#22411;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>allocator_type</code></td>
+<td><code>Allocator</code></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-utility-basic_stacktrace-basic_stacktrace.html"><span class="t-lines"><span>(&#26500;&#36896;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#21019;&#24314;&#26032;&#30340; <code>basic_stacktrace</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-utility-basic_stacktrace-~basic_stacktrace.html"><span class="t-lines"><span>(&#26512;&#26500;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#38144;&#27585; <code>basic_stacktrace</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-basic_stacktrace-operator=.html"><span class="t-lines"><span>operator=</span></span></a></div>
+</div>
+</td>
+<td>&#36171;&#20540;&#32473; <code>basic_stacktrace</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-basic_stacktrace-current.html"><span class="t-lines"><span>current</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td>&#33719;&#24471;&#24403;&#21069;&#26632;&#36394;&#36857;&#25110;&#20854;&#32473;&#23450;&#37096;&#20998;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-basic_stacktrace-get_allocator.html"><span class="t-lines"><span>get_allocator</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#20851;&#32852;&#30340;&#20998;&#37197;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E8.BF.AD.E4.BB.A3.E5.99.A8">&#36845;&#20195;&#22120;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-basic_stacktrace-begin.html"><span class="t-lines"><span>begin</span><span>cbegin</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#21521;&#36215;&#22987;&#30340;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-basic_stacktrace-end.html"><span class="t-lines"><span>end</span><span>cend</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#21521;&#26411;&#23614;&#30340;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-basic_stacktrace-rbegin.html"><span class="t-lines"><span>rbegin</span><span>crbegin</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#21521;&#36215;&#22987;&#30340;&#36870;&#21521;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-basic_stacktrace-rend.html"><span class="t-lines"><span>rend</span><span>crend</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#21521;&#26411;&#23614;&#30340;&#36870;&#21521;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E5.AE.B9.E9.87.8F">&#23481;&#37327;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-basic_stacktrace-empty.html"><span class="t-lines"><span>empty</span></span></a></div>
+</div>
+</td>
+<td>&#26816;&#26597; <code>basic_stacktrace</code> &#26159;&#21542;&#20026;&#31354;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-basic_stacktrace-size.html"><span class="t-lines"><span>size</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#26632;&#36394;&#36857;&#26465;&#30446;&#30340;&#25968;&#37327;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-basic_stacktrace-max_size.html"><span class="t-lines"><span>max_size</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#26632;&#36394;&#36857;&#26465;&#30446;&#30340;&#26368;&#22823;&#21487;&#33021;&#25968;&#37327;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E5.85.83.E7.B4.A0.E8.AE.BF.E9.97.AE">&#20803;&#32032;&#35775;&#38382;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-basic_stacktrace-operator_at.html"><span class="t-lines"><span>operator[]</span></span></a></div>
+</div>
+</td>
+<td>&#35775;&#38382;&#25351;&#23450;&#30340;&#26632;&#36394;&#36857;&#26465;&#30446;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-basic_stacktrace-at.html"><span class="t-lines"><span>at</span></span></a></div>
+</div>
+</td>
+<td>&#35775;&#38382;&#25351;&#23450;&#30340;&#26632;&#36394;&#36857;&#26465;&#30446;&#65292;&#24102;&#36793;&#30028;&#26816;&#26597;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E4.BF.AE.E6.94.B9.E5.99.A8">&#20462;&#25913;&#22120;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-basic_stacktrace-swap.html"><span class="t-lines"><span>swap</span></span></a></div>
+</div>
+</td>
+<td>&#20132;&#25442;&#20869;&#23481;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E9.9D.9E.E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#38750;&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-basic_stacktrace-operator_cmp.html"><span class="t-lines"><span>operator==</span><span>operator&lt;=&gt;</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#27604;&#36739;&#20004;&#20010; <code>basic_stacktrace</code> &#20540;&#30340;&#22823;&#23567;&#19982;&#20869;&#23481;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-basic_stacktrace-swap2.html"><span class="t-lines"><span>std::swap<span class="t-dsc-small">(std::basic_stacktrace)</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#29305;&#21270; <span class="t-lc"><a href="cpp-algorithm-swap.html">std::swap</a></span> &#31639;&#27861;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-basic_stacktrace-to_string.html"><span class="t-lines"><span>to_string</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25317;&#26377; <code>basic_stacktrace</code> &#30340;&#25551;&#36848;&#30340;&#23383;&#31526;&#20018;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-basic_stacktrace-operator_ltlt.html"><span class="t-lines"><span>operator&lt;&lt;</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#36827;&#34892; <code>basic_stacktrace</code> &#30340;&#27969;&#36755;&#20986;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BE.85.E5.8A.A9.E7.B1.BB">&#36741;&#21161;&#31867;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-basic_stacktrace-hash.html"><span class="t-lines"><span>std::hash<span class="t-dsc-small">&lt;std::basic_stacktrace&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td><strong class="selflink"><tt>std::basic_stacktrace</tt></strong> &#30340;&#25955;&#21015;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-basic_stacktrace-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::basic_stacktrace&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td><code>basic_stacktrace</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#25552;&#20379;&#20102;&#23545;&#33258;&#23450;&#20041;&#20998;&#37197;&#22120;&#30340;&#25903;&#25345;&#65292;&#20197;&#20415;&#22312;&#28909;&#36335;&#24452;&#19978;&#25110;&#23884;&#20837;&#24335;&#29615;&#22659;&#20013;&#20351;&#29992; <code>basic_stacktrace</code>&#12290;&#29992;&#25143;&#21487;&#20197;&#22312;&#26632;&#19978;&#25110;&#20854;&#20182;&#36866;&#21512;&#30340;&#20301;&#32622;&#20998;&#37197; <code>stacktrace_entry</code> &#23545;&#35937;&#12290;</p>
+<p><code>std::basic_stacktrace</code> &#25152;&#25317;&#26377;&#30340; <span class="t-lc">std::stacktrace_entry</span> &#23545;&#35937;&#24207;&#21015;&#26159;&#19981;&#21487;&#21464;&#30340;&#65292;&#32780;&#19988;&#35201;&#20040;&#20026;&#31354;&#65292;&#35201;&#20040;&#34920;&#31034;&#25972;&#20010;&#26632;&#36394;&#36857;&#30340;&#19968;&#20010;&#36830;&#32493;&#21306;&#38388;&#12290;</p>
+<p>&#24403; <code>std::basic_stacktrace</code> &#19981;&#21487;&#29992;&#26102;&#21487;&#20197;&#20195;&#20043;&#20197;&#20351;&#29992; <span class="mw-geshi cpp source-cpp">boost<span class="sy4">::</span><span class="me2">stacktrace</span><span class="sy4">::</span><span class="me2">basic_stacktrace</span></span>&#65288;&#20110; <a rel="nofollow" class="external text" href="https://www.boost.org/doc/libs/release/doc/html/stacktrace.html">Boost.Stacktrace</a> &#20013;&#21487;&#29992;&#65289;&#12290;</p>
+<table class="wikitable">
+<tr>
+<th><a href="cpp-utility-feature_test.html">&#21151;&#33021;&#29305;&#24615;&#27979;&#35797;</a>&#23439;</th>
+<th><abbr title="&#37319;&#32435;&#35813;&#29305;&#24615;&#30340;&#24180;/&#26376;&#12290;&#27599;&#20010;&#20540;&#19979;&#38754;&#30340;&#38142;&#25509;&#25351;&#21521;&#32534;&#35793;&#26399;&#25903;&#25345;&#39029;&#38754;&#20013;&#32473;&#23450;&#21151;&#33021;&#29305;&#24615;&#30340;&#26465;&#30446;&#12290;">&#20540;</abbr></th>
+<th><abbr title="&#24341;&#20837;&#35813;&#29305;&#24615;&#30340;&#26631;&#20934;&#65307;DR &#24847;&#20026;&#38024;&#23545;&#35813;&#20462;&#35746;&#29256;&#30340;&#32570;&#38519;&#25253;&#21578;">&#26631;&#20934;</abbr></th>
+<th>&#21151;&#33021;&#29305;&#24615;</th>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lib_stacktrace"><code>__cpp_lib_stacktrace</code></a></td>
+<td><a href="cpp-compiler_support-23.html#cpp_lib_stacktrace_202011L"><code>202011L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++23)</span></td>
+<td><a href="cpp-utility-basic_stacktrace.html#top">&#26632;&#36394;&#36857;</a>&#24211;</td>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lib_formatters"><code>__cpp_lib_formatters</code></a></td>
+<td><a href="cpp-compiler_support-23.html#cpp_lib_formatters_202302L"><code>202302L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++23)</span></td>
+<td>&#26684;&#24335;&#21270; <span class="t-lc"><a href="cpp-thread-thread-id.html">std::thread::id</a></span> &#21644; <span class="t-lc">std::stacktrace</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<p>&#20351;&#29992; Compiler Explorer &#33719;&#24471;&#30340;&#36755;&#20986;&#32467;&#26524;&#65306;<a rel="nofollow" class="external text" href="https://godbolt.org/z/sjxvc97a7">msvc</a> &#21644; <a rel="nofollow" class="external text" href="https://godbolt.org/z/v117ccshs">gcc</a>&#12290;</p>
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;stacktrace&gt;</span>
+ 
+<span class="kw4">int</span> nested_func<span class="br0">(</span><span class="kw4">int</span> c<span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> std<span class="sy4">::</span><span class="me2">stacktrace</span><span class="sy4">::</span><span class="me2">current</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="kw1">return</span> c <span class="sy2">+</span> <span class="nu0">1</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> func<span class="br0">(</span><span class="kw4">int</span> b<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">return</span> nested_func<span class="br0">(</span>b <span class="sy2">+</span> <span class="nu0">1</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> func<span class="br0">(</span><span class="nu0">777</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">// msvc &#36755;&#20986;&#65288;&#20197; &#39;&#10550;&#39; &#31661;&#22836;&#32467;&#23614;&#30340;&#34892;&#34987;&#20999;&#20998;&#20197;&#36866;&#24212;&#23485;&#24230;&#65289;&#65306;
+0&gt; C:\Users\ContainerAdministrator\AppData\Local\Temp\compiler-explorer-compiler20221122-&#10550;
+31624-2ja1sf.8ytzw\example.cpp(6): output_s!nested_func+0x1F
+1&gt; C:\Users\ContainerAdministrator\AppData\Local\Temp\compiler-explorer-compiler20221122-&#10550;
+31624-2ja1sf.8ytzw\example.cpp(12): output_s!func+0x15
+2&gt; C:\Users\ContainerAdministrator\AppData\Local\Temp\compiler-explorer-compiler20221122-&#10550;
+31624-2ja1sf.8ytzw\example.cpp(15): output_s!main+0xE
+3&gt; D:\a\_work\1\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl(288): output_s!&#10550;
+__scrt_common_main_seh+0x10C
+4&gt; KERNEL32!BaseThreadInitThunk+0x14
+5&gt; ntdll!RtlUserThreadStart+0x21
+779
+ 
+gcc output:
+   0# nested_func(int) at /app/example.cpp:7
+   1# func(int) at /app/example.cpp:13
+   2#      at /app/example.cpp:18
+   3#      at :0
+   4#      at :0
+   5# 
+ 
+779</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-stacktrace_entry.html"><span class="t-lines"><span>stacktrace_entry</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#34920;&#31034;&#26632;&#36394;&#36857;&#20013;&#27714;&#20540;&#30340;&#39033;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

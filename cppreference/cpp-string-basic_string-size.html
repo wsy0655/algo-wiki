@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::basic_string&lt;CharT,Traits,Allocator&gt;::size, std::basic_string&lt;CharT,Traits,Allocator&gt;::length</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_string_basic_string_size skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::basic_string&lt;CharT,Traits,Allocator&gt;::</span>size, <span style="font-size:0.8em; line-height:125%">std::basic_string&lt;CharT,Traits,Allocator&gt;::</span>length</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-string.html">string</a>&lrm; | <a href="cpp-string-basic_string.html">basic string</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp">size_type size<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;&#20026; noexcept)</span><br />
+<span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;&#20026; <code>constexpr</code>)</span></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp">size_type length<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;&#20026; noexcept)</span><br />
+<span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;&#20026; <code>constexpr</code>)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36820;&#22238;&#23383;&#31526;&#20018;&#20013;&#30340; <code>CharT</code> &#20803;&#32032;&#25968;&#65292;&#21363; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-distance.html"><span class="kw676">std::<span class="me2">distance</span></span></a><span class="br0">(</span>begin<span class="br0">(</span><span class="br0">)</span>, end<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#23383;&#31526;&#20018;&#20013;&#30340; <code>CharT</code> &#20803;&#32032;&#25968;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<table class="t-rev-begin">
+<tr class="t-rev t-until-cxx11">
+<td>
+<p>&#26410;&#25351;&#23450;</p>
+</td>
+<td><span class="t-mark-rev t-until-cxx11" style="white-space: nowrap;">(C++11 &#21069;)</span></td>
+</tr>
+<tr class="t-rev t-since-cxx11">
+<td>
+<p>&#24120;&#25968;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#23545;&#20110; <span class="t-lc"><a href="cpp-string-basic_string.html">std::string</a></span>&#65292;&#20803;&#32032;&#26159;&#23383;&#33410;&#65288;<span class="mw-geshi cpp source-cpp"><span class="kw4">char</span></span> &#31867;&#22411;&#30340;&#23545;&#35937;&#65289;&#65292;&#33509;&#20351;&#29992;&#22914; UTF-8 &#30340;&#22810;&#23383;&#33410;&#32534;&#30721;&#65292;&#21017;&#23427;&#19982;&#23383;&#31526;&#19981;&#21516;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;cassert&gt;</span>
+<span class="co2">#include &lt;iterator&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a> s<span class="br0">(</span><span class="st0">&quot;Exemplar&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><span class="nu0">8</span> <span class="sy1">==</span> s.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span>s.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> s.<span class="me1">length</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span>s.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> <span class="kw1">static_cast</span><span class="sy1">&lt;</span>std<span class="sy4">::</span><span class="me2">string</span><span class="sy4">::</span><span class="me2">size_type</span><span class="sy1">&gt;</span><span class="br0">(</span>
+        <a href="cpp-iterator-distance.html"><span class="kw676">std::<span class="me2">distance</span></span></a><span class="br0">(</span>s.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, s.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-string-basic_string.html"><span class="kw1239">std::<span class="me2">u32string</span></span></a> a<span class="br0">(</span>U<span class="st0">&quot;&#12495;&#12525;&#12540;&#12539;&#12527;&#12540;&#12523;&#12489;&quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// 8 &#20010;&#30721;&#28857;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><span class="nu0">8</span> <span class="sy1">==</span> a.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// 8 &#20010; UTF-32 &#30340;&#32534;&#30721;&#21333;&#20803;</span>
+ 
+    <a href="cpp-string-basic_string.html"><span class="kw1237">std::<span class="me2">u16string</span></span></a> b<span class="br0">(</span>u<span class="st0">&quot;&#12495;&#12525;&#12540;&#12539;&#12527;&#12540;&#12523;&#12489;&quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// 8 &#20010;&#30721;&#28857;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><span class="nu0">8</span> <span class="sy1">==</span> b.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// 8 &#20010; UTF-16 &#30340;&#32534;&#30721;&#21333;&#20803;</span>
+ 
+    <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a> c<span class="br0">(</span>u8<span class="st0">&quot;&#12495;&#12525;&#12540;&#12539;&#12527;&#12540;&#12523;&#12489;&quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// 8 &#20010;&#30721;&#28857;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><span class="nu0">24</span> <span class="sy1">==</span> c.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// 24 &#20010; UTF-8 &#30340;&#32534;&#30721;&#21333;&#20803;</span>
+ 
+    <span class="co2">#if __cpp_lib_char8_t &gt;= 201907L</span>
+    <a href="cpp-string-basic_string.html"><span class="kw3263">std::<span class="me2">u8string</span></span></a> d<span class="br0">(</span>u8<span class="st0">&quot;&#12495;&#12525;&#12540;&#12539;&#12527;&#12540;&#12523;&#12489;&quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// 8 &#20010;&#30721;&#28857;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><span class="nu0">24</span> <span class="sy1">==</span> d.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// 24 &#20010; UTF-8 &#30340;&#32534;&#30721;&#21333;&#20803;</span>
+    <span class="co2">#endif</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-string-basic_string-empty.html"><span class="t-lines"><span>empty</span></span></a></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#23383;&#31526;&#20018;&#26159;&#21542;&#20026;&#31354;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-string-basic_string-max_size.html"><span class="t-lines"><span>max_size</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#23383;&#31526;&#25968;&#30340;&#26368;&#22823;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-string-basic_string_view-size.html"><span class="t-lines"><span>size</span><span>length</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#23383;&#31526;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_string_view&lt;CharT,Traits&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

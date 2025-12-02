@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::unexpected_handler</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_error_unexpected_handler skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>unexpected_handler</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-error.html">error</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-exception.html">&lt;exception&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-until-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">typedef</span> <span class="kw4">void</span> <span class="br0">(</span><span class="sy2">*</span>unexpected_handler<span class="br0">)</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++11 &#24323;&#29992;)</span><br />
+<span class="t-mark-rev t-until-cxx17" style="white-space: nowrap;">(C++17 &#31227;&#38500;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>std::unexpected_handler</code> &#26159;&#20989;&#25968;&#25351;&#38024;&#31867;&#22411;&#65288;&#25351;&#21521;&#19981;&#25509;&#25910;&#23454;&#21442;&#24182;&#36820;&#22238; void &#30340;&#20989;&#25968;&#65289;&#65292;&#23427;&#30001;&#20989;&#25968; <span class="t-lc"><a href="cpp-error-set_unexpected.html">std::set_unexpected</a></span> &#25152;&#23433;&#35013;&#65292;&#30001; <span class="t-lc"><a href="cpp-error-get_unexpected.html">std::get_unexpected</a></span> &#25152;&#26597;&#35810;&#65292;&#24182;&#30001; <span class="t-lc"><a href="cpp-error-unexpected.html">std::unexpected</a></span> &#25152;&#35843;&#29992;&#12290;</p>
+<p>C++ &#23454;&#29616;&#25552;&#20379;&#40664;&#35748;&#30340; <code>std::unexpected_handler</code> &#20989;&#25968;&#65292;&#23427;&#35843;&#29992; <span class="t-lc"><a href="cpp-error-terminate.html">std::terminate()</a></span>&#12290;&#33509;&#23433;&#35013;&#31354;&#25351;&#38024;&#20540;&#65288;&#29992; <span class="t-lc"><a href="cpp-error-set_unexpected.html">std::set_unexpected</a></span>&#65289;&#65292;&#21017;&#23454;&#29616;&#21487;&#20197;&#26367;&#20195;&#22320;&#24674;&#22797;&#40664;&#35748;&#22788;&#29702;&#20989;&#25968;&#12290;</p>
+<p>&#26399;&#24453;&#29992;&#25143;&#23450;&#20041;&#30340; <code>std::unexpected_handler</code> &#32456;&#27490;&#31243;&#24207;&#25110;&#25243;&#20986;&#24322;&#24120;&#12290;&#33509;&#23427;&#25243;&#20986;&#24322;&#24120;&#65292;&#21017;&#21487;&#33021;&#36935;&#21040;&#19979;&#21015;&#19977;&#31181;&#24773;&#20917;&#20043;&#19968;&#65306;</p>
+<p>1) <code>std::unexpected_handler</code> &#25152;&#25243;&#30340;&#24322;&#24120;&#28385;&#36275;&#20043;&#21069;&#34987;&#36829;&#32972;&#30340;&#21160;&#24577;&#24322;&#24120;&#35268;&#23450;&#12290;&#21017;&#20801;&#35768;&#26032;&#24322;&#24120;&#36867;&#20986;&#20989;&#25968;&#24182;&#32487;&#32493;&#26632;&#22238;&#28335;&#12290;</p>
+<p>2) <code>std::unexpected_handler</code> &#25152;&#25243;&#30340;&#24322;&#24120;&#20173;&#28982;&#36829;&#32972;&#21160;&#24577;&#24322;&#24120;&#35268;&#23450;&#65306;</p>
+<p>2a) &#28982;&#32780;&#65292;&#24322;&#24120;&#35268;&#23450;&#20801;&#35768; <span class="t-lc"><a href="cpp-error-bad_exception.html">std::bad_exception</a></span>&#65306;C++ &#36816;&#34892;&#26102;&#38144;&#27585;&#25243;&#20986;&#30340;&#24322;&#24120;&#23545;&#35937;&#65292;&#24182;&#26500;&#36896; <span class="t-lc"><a href="cpp-error-bad_exception.html">std::bad_exception</a></span> &#26367;&#20195;&#22320;&#25243;&#20986;&#12290;</p>
+<p>2b) &#24322;&#24120;&#35268;&#23450;&#19981;&#20801;&#35768; <span class="t-lc"><a href="cpp-error-bad_exception.html">std::bad_exception</a></span>&#65306;&#35843;&#29992; <span class="t-lc"><a href="cpp-error-terminate.html">std::terminate()</a></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-error-unexpected.html"><span class="t-lines"><span>unexpected</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-deprecated-cxx11" style="white-space: nowrap;">(C++11 &#24323;&#29992;)</span></span><span><span class="t-mark-rev t-until-cxx17" style="white-space: nowrap;">(C++17 &#31227;&#38500;)</span></span></span></div>
+</div>
+</td>
+<td>&#36829;&#32972;&#21160;&#24577;&#24322;&#24120;&#35828;&#26126;&#26102;&#35843;&#29992;&#30340;&#20989;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-error-set_unexpected.html"><span class="t-lines"><span>set_unexpected</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-deprecated-cxx11" style="white-space: nowrap;">(C++11 &#24323;&#29992;)</span></span><span><span class="t-mark-rev t-until-cxx17" style="white-space: nowrap;">(C++17 &#31227;&#38500;)</span></span></span></div>
+</div>
+</td>
+<td>&#26356;&#25913;&#35201;&#34987; <span class="t-lc"><a href="cpp-error-unexpected.html">std::unexpected</a></span> &#35843;&#29992;&#30340;&#20989;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-error-get_unexpected.html"><span class="t-lines"><span>get_unexpected</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-deprecated-cxx11" style="white-space: nowrap;">(C++11 &#24323;&#29992;)</span></span><span><span class="t-mark-rev t-until-cxx17" style="white-space: nowrap;">(C++17 &#31227;&#38500;)</span></span></span></div>
+</div>
+</td>
+<td>&#33719;&#24471;&#24403;&#21069;&#30340; <code>unexpected_handler</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

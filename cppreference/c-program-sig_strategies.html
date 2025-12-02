@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SIG_DFL, SIG_IGN</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_program_SIG_strategies skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">SIG_DFL, SIG_IGN</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-program.html">program</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-signal.html"><tt>&lt;signal.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi c source-c"><span class="co2">#define SIG_DFL /* &#30001;&#23454;&#29616;&#23450;&#20041; */</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi c source-c"><span class="co2">#define SIG_IGN /* &#30001;&#23454;&#29616;&#23450;&#20041; */</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><span class="t-lc"><strong class="selflink">SIG_DFL</strong></span> &#21644; <span class="t-lc"><strong class="selflink">SIG_IGN</strong></span> &#23439;&#23637;&#24320;&#25104;&#19981;&#31561;&#20110;&#20219;&#20309;&#20989;&#25968;&#22320;&#22336;&#30340;&#25972;&#25968;&#34920;&#36798;&#24335;&#12290;&#23439;&#23450;&#20041;&#29992;&#20110; <span class="t-c"><span class="mw-geshi c source-c"><a href="c-program-signal.html"><span class="kw497">signal</span></a><span class="br0">(</span><span class="br0">)</span></span></span> &#20989;&#25968;&#30340;&#20449;&#21495;&#22788;&#29702;&#31574;&#30053;&#12290;</p>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#24120;&#37327;</td>
+<td>&#35299;&#37322;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>SIG_DFL</code></td>
+<td>&#40664;&#35748;&#20449;&#21495;&#22788;&#29702;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>SIG_IGN</code></td>
+<td>&#24573;&#30053;&#20449;&#21495;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#include &lt;signal.h&gt;</span>
+<span class="co2">#include &lt;stdio.h&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="coMULTI">/* &#20351;&#29992;&#40664;&#35748;&#20449;&#21495;&#22788;&#29702; */</span>
+    <a href="c-program-raise.html"><span class="kw498">raise</span></a><span class="br0">(</span><a href="c-program-SIG_types.html"><span class="kw506">SIGTERM</span></a><span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw849">printf</span></a><span class="br0">(</span><span class="st0">&quot;Exit main()<span class="es1">\n</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span>   <span class="coMULTI">/* &#27704;&#19981;&#25269;&#36798; */</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#65288;&#26080;&#65289;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B_2">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#include &lt;signal.h&gt;</span>
+<span class="co2">#include &lt;stdio.h&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="coMULTI">/* &#24573;&#30053;&#20449;&#21495; */</span>
+    <a href="c-program-signal.html"><span class="kw497">signal</span></a><span class="br0">(</span><a href="c-program-SIG_types.html"><span class="kw506">SIGTERM</span></a>, SIG_IGN<span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-program-raise.html"><span class="kw498">raise</span></a><span class="br0">(</span><a href="c-program-SIG_types.html"><span class="kw506">SIGTERM</span></a><span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw849">printf</span></a><span class="br0">(</span><span class="st0">&quot;Exit main()<span class="es1">\n</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">Exit main()</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.14/3 Signal handling &lt;signal.h&gt; &#65288;&#31532; 193 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.14/3 Signal handling &lt;signal.h&gt; &#65288;&#31532; 265 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c99">
+<ul>
+<li>C99 &#26631;&#20934;&#65288;ISO/IEC 9899:1999&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.14/3 Signal handling &lt;signal.h&gt; &#65288;&#31532; 246 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c89">
+<ul>
+<li>C89/C90 &#26631;&#20934;&#65288;ISO/IEC 9899:1990&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>4.7 SIGNAL HANDLING &lt;signal.h&gt;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<p><br /></p>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>SIG_DFL</span>, <span>SIG_IGN</span></span>&nbsp;&#30340; <span><span><a href="cpp-utility-program-SIG_strategies.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

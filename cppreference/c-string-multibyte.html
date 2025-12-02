@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>&#31354;&#32456;&#27490;&#22810;&#23383;&#33410;&#23383;&#31526;&#20018;</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_string_multibyte skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">&#31354;&#32456;&#27490;&#22810;&#23383;&#33410;&#23383;&#31526;&#20018;</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-string.html">string</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<p>&#31354;&#32456;&#27490;&#22810;&#23383;&#33410;&#23383;&#31526;&#20018;&#65288;NTMBS&#65289;&#65292;&#25110;&#31216;&ldquo;&#22810;&#23383;&#33410;&#23383;&#31526;&#20018;&rdquo;&#65292;&#26159;&#21518;&#38754;&#36319;&#38543;&#19968;&#20010;&#38646;&#20540;&#23383;&#33410;&#65288;&#31354;&#32456;&#27490;&#23383;&#31526;&#39;\0&#39;&#65289;&#30340;&#19968;&#20018;&#38750;&#38646;&#23383;&#33410;&#12290;</p>
+<p>&#23383;&#31526;&#20018;&#20013;&#23384;&#20648;&#30340;&#27599;&#20010;&#23383;&#31526;&#21487;&#33021;&#21344;&#29992;&#22810;&#20110;&#19968;&#20010;&#23383;&#33410;&#12290;&#22312;&#22810;&#23383;&#33410;&#23383;&#31526;&#20018;&#20013;&#65292;&#29992;&#20110;&#34920;&#31034;&#23383;&#31526;&#30340;&#32534;&#30721;&#26159;&#26412;&#22320;&#29615;&#22659;&#38480;&#23450;&#30340;&#65306;&#23427;&#21487;&#20197;&#26159; UTF-8&#12289;GB18030&#12289;EUC-JP&#12289;Shift-JIS &#31561;&#31561;&#12290;&#20363;&#22914;&#65292;&#23383;&#31526;&#25968;&#32452; <span class="t-c"><span class="mw-geshi c source-c"><span class="br0">{</span><span class="st0">&#39;<span class="es2">\xe4</span>&#39;</span>,<span class="st0">&#39;<span class="es2">\xbd</span>&#39;</span>,<span class="st0">&#39;<span class="es2">\xa0</span>&#39;</span>,<span class="st0">&#39;<span class="es2">\xe5</span>&#39;</span>,<span class="st0">&#39;<span class="es2">\xa5</span>&#39;</span>,<span class="st0">&#39;<span class="es2">\xbd</span>&#39;</span>,<span class="st0">&#39;<span class="es5">\0</span>&#39;</span><span class="br0">}</span></span></span> &#26159;&#19968;&#20010;&#20197; UTF-8 &#22810;&#23383;&#33410;&#32534;&#30721;&#34920;&#31034;&#23383;&#31526;&#20018; <span class="t-c"><span class="mw-geshi c source-c"><span class="st0">&quot;&#20320;&#22909;&quot;</span></span></span> &#30340; NTMBS&#65306;&#21069;&#19977;&#23383;&#33410;&#32534;&#30721;&#23383;&#31526; &quot;&#20320;&quot;&#65292;&#21518;&#19977;&#23383;&#33410;&#32534;&#30721;&#23383;&#31526; &quot;&#22909;&quot;&#12290;&#29992; GB18030 &#32534;&#30721;&#30340;&#30456;&#21516;&#23383;&#31526;&#20018;&#26159;&#23383;&#31526;&#25968;&#32452; <span class="t-c"><span class="mw-geshi c source-c"><span class="br0">{</span><span class="st0">&#39;<span class="es2">\xc4</span>&#39;</span>, <span class="st0">&#39;<span class="es2">\xe3</span>&#39;</span>, <span class="st0">&#39;<span class="es2">\xba</span>&#39;</span>, <span class="st0">&#39;<span class="es2">\xc3</span>&#39;</span>, <span class="st0">&#39;<span class="es5">\0</span>&#39;</span><span class="br0">}</span></span></span>&#65292;&#20854;&#20013;&#20004;&#20010;&#23383;&#31526;&#37117;&#32534;&#30721;&#25104;&#21452;&#23383;&#33410;&#24207;&#21015;&#12290;</p>
+<p>&#19968;&#20123;&#22810;&#23383;&#33410;&#23383;&#31526;&#20018;&#20013;&#65292;&#20219;&#20309;&#32473;&#23450;&#30340;&#22810;&#23383;&#33410;&#23383;&#31526;&#24207;&#21015;&#21487;&#33021;&#20250;&#26681;&#25454;&#21069;&#32622;&#30340;&#23383;&#33410;&#24207;&#21015;&#34920;&#31034;&#19981;&#21516;&#30340;&#23383;&#31526;&#65292;&#36825;&#20010;&#21069;&#32622;&#24207;&#21015;&#31216;&#20026;&ldquo;&#36801;&#31227;&#24207;&#21015;&rdquo;&#12290;&#27492;&#31867;&#32534;&#30721;&#26159;&#20381;&#36182;&#29366;&#24577;&#30340;&#65306;&#38656;&#35201;&#24403;&#21069;&#36801;&#31227;&#29366;&#24577;&#26469;&#36716;&#35793;&#27599;&#19968;&#20010;&#23383;&#31526;&#12290;&#21482;&#26377;&#36215;&#22987;&#21644;&#32456;&#27490;&#22343;&#20026;&#21021;&#22987;&#36801;&#31227;&#29366;&#24577;&#65292;NTMBS &#25165;&#26159;&#21512;&#27861;&#30340;&#65306;&#21363;&#33509;&#22810;&#23383;&#33410;&#32534;&#30721;&#20351;&#29992;&#36801;&#31227;&#24207;&#21015;&#65292;&#21017;&#23383;&#31526;&#20018;&#32467;&#26463;&#21069;&#30340;&#25972;&#20010;&#24207;&#21015;&#24517;&#39035;&#20026;&#26410;&#36801;&#31227;&#24207;&#21015;&#12290;&#36825;&#31867;&#32534;&#30721;&#30340;&#20363;&#23376;&#26159; BOCU-1 &#21644; <a rel="nofollow" class="external text" href="https://www.unicode.org/reports/tr6">SCSU</a>&#12290;</p>
+<p>&#22810;&#23383;&#33410;&#23383;&#31526;&#20018;&#19982;<a href="c-string-byte.html">&#31354;&#32456;&#27490;&#23383;&#33410;&#23383;&#31526;&#20018;</a>&#65288;NTBS&#65289;&#24067;&#23616;&#20860;&#23481;&#65292;&#21363;&#26159;&#35828;&#65292;&#21487;&#20197;&#20351;&#29992;&#21516;&#26679;&#30340;&#24037;&#20855;&#23384;&#20648;&#12289;&#22797;&#21046;&#21644;&#26816;&#39564;&#65292;&#38500;&#20102;&#35745;&#31639;&#23383;&#31526;&#25968;&#30340;&#24773;&#20917;&#12290;&#33509;&#27491;&#30830;&#30340;&#26412;&#22320;&#29615;&#22659;&#27491;&#22312;&#21457;&#25381;&#20316;&#29992;&#65292;&#21017;&#36755;&#20837;/&#36755;&#20986;&#20989;&#25968;&#20134;&#21487;&#25511;&#21046;&#22810;&#23383;&#33410;&#23383;&#31526;&#20018;&#12290;&#36816;&#29992;&#19979;&#21015;&#20381;&#36182;&#26412;&#22320;&#29615;&#22659;&#30340;&#20989;&#25968;&#65292;&#22810;&#23383;&#33410;&#23383;&#31526;&#20018;&#21487;&#20197;&#19982;&#23485;&#23383;&#31526;&#20018;&#30456;&#20114;&#36716;&#25442;&#65306;</p>
+<h3><span class="mw-headline" id=".E5.87.BD.E6.95.B0">&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E5.A4.9A.E5.AD.97.E8.8A.82.2F.E5.AE.BD.E5.AD.97.E7.AC.A6.E8.BD.AC.E6.8D.A2">&#22810;&#23383;&#33410;/&#23485;&#23383;&#31526;&#36716;&#25442;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc-header">
+<td colspan="2">
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-stdlib.html"><tt>&lt;stdlib.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-multibyte-mblen.html"><span class="t-lines"><span>mblen</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#19979;&#19968;&#20010;&#22810;&#23383;&#33410;&#23383;&#31526;&#30340;&#23383;&#33410;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-multibyte-mbtowc.html"><span class="t-lines"><span>mbtowc</span></span></a></div>
+</div>
+</td>
+<td>&#36716;&#25442;&#19979;&#19968;&#20010;&#22810;&#23383;&#33410;&#23383;&#31526;&#20026;&#23485;&#23383;&#31526;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-multibyte-wctomb.html"><span class="t-lines"><span>wctomb</span><span>wctomb_s</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#36716;&#25442;&#23485;&#23383;&#31526;&#20026;&#22810;&#23383;&#33410;&#34920;&#31034;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-multibyte-mbstowcs.html"><span class="t-lines"><span>mbstowcs</span><span>mbstowcs_s</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#36716;&#25442;&#31364;&#22810;&#23383;&#33410;&#23383;&#31526;&#20018;&#20026;&#23485;&#23383;&#31526;&#20018;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-multibyte-wcstombs.html"><span class="t-lines"><span>wcstombs</span><span>wcstombs_s</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#36716;&#25442;&#23485;&#23383;&#31526;&#20018;&#20026;&#31364;&#22810;&#23383;&#33410;&#23383;&#31526;&#20018;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc-header">
+<td colspan="2">
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-wchar.html"><tt>&lt;wchar.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-multibyte-mbsinit.html"><span class="t-lines"><span>mbsinit</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c95" style="white-space: nowrap;">(C95)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597; mbstate_t &#23545;&#35937;&#26159;&#21542;&#34920;&#31034;&#21021;&#22987;&#36801;&#31227;&#29366;&#24577;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-multibyte-btowc.html"><span class="t-lines"><span>btowc</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c95" style="white-space: nowrap;">(C95)</span></span></span></div>
+</div>
+</td>
+<td>&#33509;&#21487;&#33021;&#65292;&#21152;&#23485;&#21333;&#23383;&#33410;&#31364;&#23383;&#31526;&#20026;&#23485;&#23383;&#31526;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-multibyte-wctob.html"><span class="t-lines"><span>wctob</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c95" style="white-space: nowrap;">(C95)</span></span></span></div>
+</div>
+</td>
+<td>&#33509;&#21487;&#33021;&#65292;&#25910;&#31364;&#23485;&#23383;&#31526;&#20026;&#21333;&#23383;&#33410;&#31364;&#23383;&#31526;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-multibyte-mbrlen.html"><span class="t-lines"><span>mbrlen</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c95" style="white-space: nowrap;">(C95)</span></span></span></div>
+</div>
+</td>
+<td>&#32473;&#23450;&#29366;&#24577;&#65292;&#36820;&#22238;&#19979;&#19968;&#20010;&#22810;&#23383;&#33410;&#23383;&#31526;&#30340;&#23383;&#33410;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-multibyte-mbrtowc.html"><span class="t-lines"><span>mbrtowc</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c95" style="white-space: nowrap;">(C95)</span></span></span></div>
+</div>
+</td>
+<td>&#32473;&#23450;&#29366;&#24577;&#65292;&#36716;&#25442;&#19979;&#19968;&#20010;&#22810;&#23383;&#33410;&#23383;&#31526;&#20026;&#23485;&#23383;&#31526;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-multibyte-wcrtomb.html"><span class="t-lines"><span>wcrtomb</span><span>wcrtomb_s</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c95" style="white-space: nowrap;">(C95)</span></span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#32473;&#23450;&#29366;&#24577;&#65292;&#36716;&#25442;&#23485;&#23383;&#31526;&#25104;&#20854;&#22810;&#23383;&#33410;&#34920;&#31034;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-multibyte-mbsrtowcs.html"><span class="t-lines"><span>mbsrtowcs</span><span>mbsrtowcs_s</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c95" style="white-space: nowrap;">(C95)</span></span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#32473;&#23450;&#29366;&#24577;&#65292;&#36716;&#25442;&#31364;&#22810;&#23383;&#33410;&#23383;&#31526;&#20018;&#20026;&#23485;&#23383;&#31526;&#20018;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-multibyte-wcsrtombs.html"><span class="t-lines"><span>wcsrtombs</span><span>wcsrtombs_s</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c95" style="white-space: nowrap;">(C95)</span></span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#32473;&#23450;&#29366;&#24577;&#65292;&#36716;&#25442;&#23485;&#23383;&#31526;&#20018;&#20026;&#31364;&#22810;&#23383;&#33410;&#23383;&#31526;&#20018;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc-header">
+<td colspan="2">
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-uchar.html"><tt>&lt;uchar.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-multibyte-mbrtoc8.html"><span class="t-lines"><span>mbrtoc8</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c23" style="white-space: nowrap;">(C23)</span></span></span></div>
+</div>
+</td>
+<td>&#36716;&#25442;&#31364;&#22810;&#23383;&#33410;&#23383;&#31526;&#20026; UTF-8 &#32534;&#30721;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-multibyte-c8rtomb.html"><span class="t-lines"><span>c8rtomb</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c23" style="white-space: nowrap;">(C23)</span></span></span></div>
+</div>
+</td>
+<td>&#36716;&#25442; UTF-8 &#23383;&#31526;&#20018;&#20026;&#31364;&#22810;&#23383;&#33410;&#32534;&#30721;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-multibyte-mbrtoc16.html"><span class="t-lines"><span>mbrtoc16</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#36716;&#25442;&#31364;&#22810;&#23383;&#33410;&#23383;&#31526;&#20026; UTF-16 &#32534;&#30721;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-multibyte-c16rtomb.html"><span class="t-lines"><span>c16rtomb</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#36716;&#25442; UTF-16 &#23383;&#31526;&#20026;&#31364;&#22810;&#23383;&#33410;&#32534;&#30721;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-multibyte-mbrtoc32.html"><span class="t-lines"><span>mbrtoc32</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#36716;&#25442;&#31364;&#22810;&#23383;&#33410;&#23383;&#31526;&#20026; UTF-32 &#32534;&#30721;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-multibyte-c32rtomb.html"><span class="t-lines"><span>c32rtomb</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#36716;&#25442; UTF-32 &#23383;&#31526;&#20026;&#31364;&#22810;&#23383;&#33410;&#32534;&#30721;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.B1.BB.E5.9E.8B">&#31867;&#22411;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-header">
+<td colspan="2">
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-uchar.html"><tt>&lt;uchar.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+</tr>
+<tr class="t-dsc-header">
+<td colspan="2">
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-wchar.html"><tt>&lt;wchar.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-multibyte-mbstate_t.html"><span class="t-lines"><span>mbstate_t</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c95" style="white-space: nowrap;">(C95)</span></span></span></div>
+</div>
+</td>
+<td>&#36845;&#20195;&#22810;&#23383;&#33410;&#23383;&#31526;&#20018;&#25152;&#38656;&#30340;&#36716;&#25442;&#20449;&#24687;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#32467;&#26500;&#20307;)</span></td>
+</tr>
+<tr class="t-dsc-header">
+<td colspan="2">
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-uchar.html"><tt>&lt;uchar.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-multibyte-char8_t.html"><span class="t-lines"><span>char8_t</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c23" style="white-space: nowrap;">(C23)</span></span></span></div>
+</div>
+</td>
+<td>8 &#20301;&#23383;&#31526;&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(typedef)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-multibyte-char16_t.html"><span class="t-lines"><span>char16_t</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>16 &#20301;&#23383;&#31526;&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(typedef)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-multibyte-char32_t.html"><span class="t-lines"><span>char32_t</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>32 &#20301;&#23383;&#31526;&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(typedef)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.AE.8F">&#23439;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-header">
+<td colspan="2">
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-limits.html"><tt>&lt;limits.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span>MB_LEN_MAX</span></span></div>
+</div>
+</td>
+<td>&#25152;&#25903;&#25345;&#30340;&#20219;&#20309;&#26412;&#22320;&#29615;&#22659;&#20013;&#22810;&#23383;&#33410;&#23383;&#31526;&#30340;&#26368;&#22823;&#23383;&#33410;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#23439;&#24120;&#37327;)</span></td>
+</tr>
+<tr class="t-dsc-header">
+<td colspan="2">
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-stdlib.html"><tt>&lt;stdlib.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span>MB_CUR_MAX</span></span></div>
+</div>
+</td>
+<td>&#24403;&#21069;&#26412;&#22320;&#29615;&#22659;&#20013;&#30340;&#22810;&#23383;&#33410;&#23383;&#31526;&#26368;&#22823;&#23383;&#33410;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#23439;&#21464;&#37327;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-23">
+<ul>
+<li>C23 &#26631;&#20934;&#65288;ISO/IEC 9899:2024&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.10 Sizes of integer types &lt;limits.h&gt; &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.22 General utilities &lt;stdlib.h&gt; &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.28 Unicode utilities &lt;uchar.h&gt; &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.29 Extended multibyte and wide character utilities &lt;wchar.h&gt; &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.31.12 General utilities &lt;stdlib.h&gt; &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.31.16 Extended multibyte and wide character utilities &lt;wchar.h&gt; &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.6 General utilities &lt;stdlib.h&gt; &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.9 Extended multibyte and wide character utilities &lt;wchar.h&gt; &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.10 Sizes of integer types &lt;limits.h&gt; &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.22 General utilities &lt;stdlib.h&gt; &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.28 Unicode utilities &lt;uchar.h&gt; &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.29 Extended multibyte and wide character utilities &lt;wchar.h&gt; &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.31.12 General utilities &lt;stdlib.h&gt; &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.31.16 Extended multibyte and wide character utilities &lt;wchar.h&gt; &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.6 General utilities &lt;stdlib.h&gt; &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.9 Extended multibyte and wide character utilities &lt;wchar.h&gt; &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.10 Sizes of integer types &lt;limits.h&gt; &#65288;&#31532; 222 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.22 General utilities &lt;stdlib.h&gt; &#65288;&#31532; 340-360 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.28 Unicode utilities &lt;uchar.h&gt; &#65288;&#31532; 398-401 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.29 Extended multibyte and wide character utilities &lt;wchar.h&gt; &#65288;&#31532; 402-446 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.31.12 General utilities &lt;stdlib.h&gt; &#65288;&#31532; 456 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.31.16 Extended multibyte and wide character utilities &lt;wchar.h&gt; &#65288;&#31532; 456 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.6 General utilities &lt;stdlib.h&gt; &#65288;&#31532; 604-614 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.9 Extended multibyte and wide character utilities &lt;wchar.h&gt; &#65288;&#31532; 627-651 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c99">
+<ul>
+<li>C99 &#26631;&#20934;&#65288;ISO/IEC 9899:1999&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.10 Sizes of integer types &lt;limits.h&gt; &#65288;&#31532; 203 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.20 General utilities &lt;stdlib.h&gt; &#65288;&#31532; 306-324 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.24 Extended multibyte and wide character utilities &lt;wchar.h&gt; &#65288;&#31532; 348-392 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.26.10 General utilities &lt;stdlib.h&gt; &#65288;&#31532; 402 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.26.12 Extended multibyte and wide character utilities &lt;wchar.h&gt; &#65288;&#31532; 402 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c89">
+<ul>
+<li>C89/C90 &#26631;&#20934;&#65288;ISO/IEC 9899:1990&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>4.1.4 Limits &lt;float.h&gt; and &lt;limits.h&gt;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>4.10 GENERAL UTILITIES &lt;stdlib.h&gt;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>4.13.7 General utilities &lt;stdlib.h&gt;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class=""><span>&#31354;&#32456;&#27490;&#22810;&#23383;&#33410;&#23383;&#31526;&#20018;</span></span>&#30340; <span><span><a href="cpp-string-multibyte.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

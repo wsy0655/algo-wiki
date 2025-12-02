@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::unordered_multimap&lt;Key,T,Hash,KeyEqual,Allocator&gt;::max_bucket_count</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_container_unordered_multimap_max_bucket_count skin-cppreference2 action-view cpp-page-template cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::unordered_multimap&lt;Key,T,Hash,KeyEqual,Allocator&gt;::</span>max_bucket_count</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-container.html">container</a>&lrm; | <a href="cpp-container-unordered_multimap.html">unordered multimap</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<div class="t-page-template" style="">
+<p></p>
+</div>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp">size_type max_bucket_count<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36820;&#22238;&#23481;&#22120;&#30001;&#20110;&#31995;&#32479;&#25110;&#24211;&#23454;&#29616;&#38480;&#21046;&#30340;&#33021;&#20445;&#26377;&#30340;&#26368;&#22823;&#26742;&#25968;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#26368;&#22823;&#26742;&#25968;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<p>&#24120;&#25968;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;unordered_map&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">struct</span> Ha <span class="br0">{</span> <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> operator<span class="br0">(</span><span class="br0">)</span><span class="br0">(</span><span class="kw4">long</span> x<span class="br0">)</span> <span class="kw4">const</span> <span class="br0">{</span> <span class="kw1">return</span> <a href="cpp-utility-hash.html"><span class="kw1127">std::<span class="me2">hash</span></span></a><span class="sy1">&lt;</span><span class="kw4">long</span><span class="sy1">&gt;</span><span class="br0">{</span><span class="br0">}</span><span class="br0">(</span>x<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="kw4">auto</span> c1 <span class="sy1">=</span> <a href="cpp-container-unordered_multimap.html"><span class="kw1298">std::<span class="me2">unordered_multimap</span></span></a><span class="sy1">&lt;</span><span class="kw4">char</span>, <span class="kw4">long</span><span class="sy1">&gt;</span><span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw4">auto</span> c2 <span class="sy1">=</span> <a href="cpp-container-unordered_multimap.html"><span class="kw1298">std::<span class="me2">unordered_multimap</span></span></a><span class="sy1">&lt;</span><span class="kw4">long</span>, <span class="kw4">long</span><span class="sy1">&gt;</span><span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw4">auto</span> c3 <span class="sy1">=</span> <a href="cpp-container-unordered_multimap.html"><span class="kw1298">std::<span class="me2">unordered_multimap</span></span></a><span class="sy1">&lt;</span><span class="kw4">long</span>, <span class="kw4">long</span>, <a href="cpp-utility-hash.html"><span class="kw1127">std::<span class="me2">hash</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;&gt;</span><span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw4">auto</span> c4 <span class="sy1">=</span> <a href="cpp-container-unordered_multimap.html"><span class="kw1298">std::<span class="me2">unordered_multimap</span></span></a><span class="sy1">&lt;</span><span class="kw4">long</span>, <span class="kw4">long</span>, Ha<span class="sy1">&gt;</span><span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a>
+        <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;Max bucket count of<span class="es1">\n</span>&quot;</span> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-hex.html"><span class="kw1786">std::<span class="me2">hex</span></span></a> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-showbase.html"><span class="kw1770">std::<span class="me2">showbase</span></span></a>
+        <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;c1: &quot;</span> <span class="sy1">&lt;&lt;</span> c1.<span class="me1">max_bucket_count</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span>
+        <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;c2: &quot;</span> <span class="sy1">&lt;&lt;</span> c2.<span class="me1">max_bucket_count</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span>
+        <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;c3: &quot;</span> <span class="sy1">&lt;&lt;</span> c3.<span class="me1">max_bucket_count</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span>
+        <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;c4: &quot;</span> <span class="sy1">&lt;&lt;</span> c4.<span class="me1">max_bucket_count</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span>
+        <span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">Max bucket count of
+c1: 0xfffffffffffffff
+c2: 0xfffffffffffffff
+c3: 0xfffffffffffffff
+c4: 0xaaaaaaaaaaaaaaa</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-unordered_multimap-bucket_count.html"><span class="t-lines"><span>bucket_count</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#26742;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::btowc</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_string_multibyte_btowc skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>btowc</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-string.html">string</a>&lrm; | <a href="cpp-string-multibyte.html">multibyte</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-cwchar.html">&lt;cwchar&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi cpp source-cpp"><a href="cpp-string-wide.html"><span class="kw3521">std::<span class="me2">wint_t</span></span></a> btowc<span class="br0">(</span> <span class="kw4">int</span> c <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#21152;&#23485;&#21333;&#23383;&#33410;&#23383;&#31526; <span class="t-c"><span class="mw-geshi cpp source-cpp">c</span></span> &#20026;&#20854;&#23485;&#23383;&#31526;&#31561;&#20215;&#29289;&#12290;</p>
+<p>&#22823;&#22810;&#25968;&#22810;&#23383;&#33410;&#23383;&#31526;&#32534;&#30721;&#29992;&#21333;&#23383;&#33410;&#30721;&#34920;&#31034;&#26469;&#33258; ASCII &#23383;&#31526;&#38598;&#30340;&#23383;&#31526;&#12290;&#27492;&#20989;&#25968;&#21487;&#29992;&#20110;&#36716;&#25442;&#36825;&#31181;&#23383;&#31526;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">wchar_t</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>c</td>
+<td>-</td>
+<td>&#35201;&#21152;&#23485;&#30340;&#21333;&#23383;&#33410;&#23383;&#31526;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">c</span></span> &#20026; <span class="t-lc"><a href="cpp-io-c.html">EOF</a></span> &#21017;&#20026; <span class="t-lc">WEOF</span>&#12290;</p>
+<p>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span><span class="kw4">unsigned</span> <span class="kw4">char</span><span class="br0">)</span>c</span></span> &#22312;&#21021;&#22987;&#36801;&#31227;&#29366;&#24577;&#20026;&#21512;&#27861;&#21333;&#23383;&#33410;&#23383;&#31526;&#65292;&#21017;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">c</span></span> &#30340;&#23485;&#23383;&#31526;&#34920;&#31034;&#65292;&#21542;&#21017;&#20026; <span class="t-lc">WEOF</span>&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;clocale&gt;</span>
+<span class="co2">#include &lt;cwchar&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+ 
+<span class="kw4">void</span> try_widen<span class="br0">(</span><span class="kw4">char</span> c<span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-string-wide.html"><span class="kw3521">std::<span class="me2">wint_t</span></span></a> w <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">btowc</span><span class="br0">(</span>c<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>w <span class="sy3">!</span><span class="sy1">=</span> WEOF<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#21333;&#23383;&#33410;&#23383;&#31526; &quot;</span> <span class="sy1">&lt;&lt;</span> <span class="sy2">+</span><span class="br0">(</span><span class="kw4">unsigned</span> <span class="kw4">char</span><span class="br0">)</span>c
+                  <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; &#34987;&#21152;&#23485;&#20026; &quot;</span> <span class="sy1">&lt;&lt;</span> <span class="sy2">+</span>w <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="kw1">else</span>
+        <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#21333;&#23383;&#33410;&#23383;&#31526; &quot;</span> <span class="sy1">&lt;&lt;</span> <span class="sy2">+</span><span class="br0">(</span><span class="kw4">unsigned</span> <span class="kw4">char</span><span class="br0">)</span>c
+                  <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; &#21152;&#23485;&#22833;&#36133;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-locale-setlocale.html"><span class="kw1993">std::<span class="me2">setlocale</span></span></a><span class="br0">(</span><a href="cpp-locale-LC_categories.html"><span class="kw1996">LC_ALL</span></a>, <span class="st0">&quot;lt_LT.iso88594&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-hex.html"><span class="kw1785">std::<span class="me2">hex</span></span></a> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-showbase.html"><span class="kw1769">std::<span class="me2">showbase</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#22312;&#31435;&#38518;&#23451;&#35821; ISO-8859-4 &#26412;&#22320;&#29615;&#22659;&#20013;:<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    try_widen<span class="br0">(</span><span class="st0">&#39;A&#39;</span><span class="br0">)</span><span class="sy4">;</span>
+    try_widen<span class="br0">(</span><span class="st0">&#39;<span class="es2">\xdf</span>&#39;</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// ISO-8859-4 &#20013;&#30340;&#24503;&#25991;&#23383;&#27597; &szlig; (U+00df)</span>
+    try_widen<span class="br0">(</span><span class="st0">&#39;<span class="es2">\xf9</span>&#39;</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// ISO-8859-4 &#20013;&#30340;&#31435;&#38518;&#23451;&#23383;&#27597; &#371; (U+0173)</span>
+ 
+    <a href="cpp-locale-setlocale.html"><span class="kw1993">std::<span class="me2">setlocale</span></span></a><span class="br0">(</span><a href="cpp-locale-LC_categories.html"><span class="kw1996">LC_ALL</span></a>, <span class="st0">&quot;lt_LT.utf8&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#22312;&#31435;&#38518;&#23451;&#35821; UTF-8 &#26412;&#22320;&#29615;&#22659;&#20013;:<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    try_widen<span class="br0">(</span><span class="st0">&#39;A&#39;</span><span class="br0">)</span><span class="sy4">;</span>
+    try_widen<span class="br0">(</span><span class="st0">&#39;<span class="es2">\xdf</span>&#39;</span><span class="br0">)</span><span class="sy4">;</span>
+    try_widen<span class="br0">(</span><span class="st0">&#39;<span class="es2">\xf9</span>&#39;</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#22312;&#31435;&#38518;&#23451;&#35821; ISO-8859-4 &#26412;&#22320;&#29615;&#22659;&#20013;:
+&#34987;&#21152;&#23485;&#20026; 0x41 &#34987;&#21152;&#23485;&#20026; 0x41
+&#34987;&#21152;&#23485;&#20026; 0xdf &#34987;&#21152;&#23485;&#20026; 0xdf
+&#34987;&#21152;&#23485;&#20026; 0xf9 &#34987;&#21152;&#23485;&#20026; 0x173
+&#22312;&#31435;&#38518;&#23451;&#35821;  UTF-8 &#26412;&#22320;&#29615;&#22659;&#20013;:
+&#34987;&#21152;&#23485;&#20026; 0x41 &#34987;&#21152;&#23485;&#20026; 0x41
+&#34987;&#21152;&#23485;&#20026; 0xdf &#21152;&#23485;&#22833;&#36133;
+&#34987;&#21152;&#23485;&#20026; 0xf9 &#21152;&#23485;&#22833;&#36133;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-string-multibyte-wctob.html"><span class="t-lines"><span>wctob</span></span></a></div>
+</div>
+</td>
+<td>&#33509;&#21487;&#33021;&#65292;&#31364;&#21270;&#23485;&#23383;&#31526;&#20026;&#21333;&#23383;&#33410;&#31364;&#23383;&#31526;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-locale-ctype-widen.html"><span class="t-lines"><span>do_widen</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#23558;&#19968;&#20010;&#25110;&#22810;&#20010;&#23383;&#31526;&#20174; <span class="mw-geshi cpp source-cpp"><span class="kw4">char</span></span> &#36716;&#25442;&#21040; <code>CharT</code><br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::ctype&lt;CharT&gt;</code> &#30340;&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>btowc</span></span>&nbsp;&#30340; <span><span><a href="c-string-multibyte-btowc.html">C &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

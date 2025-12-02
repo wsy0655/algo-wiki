@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::list</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_container_list skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>list</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-container.html">container</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-list.html">&lt;list&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span><br /></span>
+<p>&nbsp; &nbsp; <span class="kw1">class</span> T,<br />
+&nbsp; &nbsp; <span class="kw1">class</span> Allocator <span class="sy1">=</span> <a href="cpp-memory-allocator.html"><span class="kw702">std::<span class="me2">allocator</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><br /></p>
+<span class="sy1">&gt;</span> <span class="kw1">class</span> list<span class="sy4">;</span></div>
+</td>
+<td>(1)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">namespace</span> pmr <span class="br0">{</span><br /></span>
+<p>&nbsp; &nbsp; <span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T <span class="sy1">&gt;</span><br />
+&nbsp; &nbsp; <span class="kw1">using</span> list <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">list</span><span class="sy1">&lt;</span>T, <a href="cpp-memory-polymorphic_allocator.html"><span class="kw709">std::<span class="me2">pmr</span><span class="sy4">::</span><span class="me2">polymorphic_allocator</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;&gt;</span><span class="sy4">;</span><br /></p>
+<span class="br0">}</span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>std::list</code> &#26159;&#25903;&#25345;&#20174;&#23481;&#22120;&#20219;&#20309;&#20301;&#32622;&#36827;&#34892;&#24120;&#25968;&#26102;&#38388;&#30340;&#20803;&#32032;&#25554;&#20837;&#21644;&#31227;&#38500;&#30340;&#23481;&#22120;&#12290;&#19981;&#25903;&#25345;&#24555;&#36895;&#38543;&#26426;&#35775;&#38382;&#12290;&#23427;&#36890;&#24120;&#23454;&#29616;&#20026;&#21452;&#21521;&#38142;&#34920;&#12290;&#19982; <span class="t-lc"><a href="cpp-container-forward_list.html">std::forward_list</a></span> &#30456;&#27604;&#65292;&#27492;&#23481;&#22120;&#25552;&#20379;&#21452;&#21521;&#36845;&#20195;&#20294;&#22312;&#31354;&#38388;&#19978;&#25928;&#29575;&#31245;&#20302;&#12290;</p>
+<p>&#22312; list &#20869;&#25110;&#22312;&#25968;&#20010; list &#38388;&#28155;&#21152;&#12289;&#31227;&#38500;&#21644;&#31227;&#21160;&#20803;&#32032;&#19981;&#20250;&#20351;&#36845;&#20195;&#22120;&#25110;&#24341;&#29992;&#22833;&#25928;&#12290;&#36845;&#20195;&#22120;&#21482;&#26377;&#22312;&#23545;&#24212;&#20803;&#32032;&#34987;&#21024;&#38500;&#26102;&#25165;&#20250;&#22833;&#25928;&#12290;</p>
+<p><code>std::list</code> &#28385;&#36275;<a href="cpp-named_req-Container.html"><span style="font-style:italic">&#23481;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(Container)</span></a> &#12289;<a href="cpp-named_req-AllocatorAwareContainer.html"><span style="font-style:italic">&#30693;&#20998;&#37197;&#22120;&#23481;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(AllocatorAwareContainer)</span></a> &#12289;<a href="cpp-named_req-SequenceContainer.html"><span style="font-style:italic">&#24207;&#21015;&#23481;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(SequenceContainer)</span></a> &#21450;<a href="cpp-named_req-ReversibleContainer.html"><span style="font-style:italic">&#21487;&#36870;&#23481;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(ReversibleContainer)</span></a> &#12290;</p>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx26">
+<td>
+<p><code>std::list</code> &#30340;&#20840;&#37096;&#25104;&#21592;&#20989;&#25968;&#22343;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span></span>&#65306;&#22312;&#24120;&#37327;&#34920;&#36798;&#24335;&#27714;&#20540;&#20013;&#21019;&#24314;&#24182;&#20351;&#29992; <code>std::list</code> &#23545;&#35937;&#26159;&#21487;&#33021;&#30340;&#12290;</p>
+<p>&#28982;&#32780;&#65292;<code>std::list</code> &#23545;&#35937;&#36890;&#24120;&#19981;&#33021;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span></span>&#65292;&#22240;&#20026;&#20219;&#20309;&#21160;&#24577;&#20998;&#37197;&#30340;&#23384;&#20648;&#37117;&#24517;&#39035;&#22312;&#30456;&#21516;&#30340;&#24120;&#37327;&#34920;&#36798;&#24335;&#27714;&#20540;&#20013;&#37322;&#25918;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.A8.A1.E6.9D.BF.E5.8F.82.E6.95.B0">&#27169;&#26495;&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>T</td>
+<td>-</td>
+<td>&#20803;&#32032;&#30340;&#31867;&#22411;&#12290;
+<table class="t-rev-begin">
+<tr class="t-rev t-until-cxx11">
+<td><code>T</code> &#24517;&#39035;&#28385;&#36275;<a href="cpp-named_req-CopyConstructible.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyConstructible)</span></a> &#12290;&#22312;&#20197; <code>T</code> &#23454;&#20363;&#21270;&#20102; <a href="cpp-container-list-operator=.html"><tt>list::operator=</tt></a> &#25110; <a href="cpp-container-list-assign.html"><tt>list::assign</tt></a> &#30340;&#24773;&#20917;&#19979; <code>T</code> &#36824;&#24517;&#39035;&#28385;&#36275;<a href="cpp-named_req-CopyAssignable.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#36171;&#20540;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyAssignable)</span></a> &#12290;</td>
+<td><span class="t-mark-rev t-until-cxx11" style="white-space: nowrap;">(C++11 &#21069;)</span></td>
+</tr>
+<tr class="t-rev t-since-cxx11 t-until-cxx17">
+<td>&#23545;&#20803;&#32032;&#30340;&#35201;&#27714;&#20381;&#36182;&#20110;&#23481;&#22120;&#19978;&#36827;&#34892;&#30340;&#23454;&#38469;&#25805;&#20316;&#12290;&#19968;&#33324;&#22320;&#65292;&#35201;&#27714;&#20803;&#32032;&#31867;&#22411;&#26159;&#23436;&#25972;&#31867;&#22411;&#24182;&#28385;&#36275;<a href="cpp-named_req-Erasable.html"><span style="font-style:italic">&#21487;&#25830;&#38500;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(Erasable)</span></a> &#65292;&#20294;&#35768;&#22810;&#25104;&#21592;&#20989;&#25968;&#38468;&#24102;&#20102;&#26356;&#20005;&#26684;&#30340;&#35201;&#27714;&#12290;</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span><br />
+<span class="t-mark-rev t-until-cxx17" style="white-space: nowrap;">(C++17 &#21069;)</span></td>
+</tr>
+<tr class="t-rev t-since-cxx17">
+<td>
+<p>&#23545;&#20803;&#32032;&#30340;&#35201;&#27714;&#20381;&#36182;&#20110;&#23481;&#22120;&#19978;&#36827;&#34892;&#30340;&#23454;&#38469;&#25805;&#20316;&#12290;&#19968;&#33324;&#22320;&#65292;&#35201;&#27714;&#20803;&#32032;&#31867;&#22411;&#28385;&#36275;<a href="cpp-named_req-Erasable.html"><span style="font-style:italic">&#21487;&#25830;&#38500;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(Erasable)</span></a> &#65292;&#20294;&#35768;&#22810;&#25104;&#21592;&#20989;&#25968;&#38468;&#24102;&#20102;&#26356;&#20005;&#26684;&#30340;&#35201;&#27714;&#12290;&#22914;&#26524;&#20998;&#37197;&#22120;&#28385;&#36275;<a href="cpp-named_req-Allocator.html#.E5.88.86.E9.85.8D.E5.99.A8.E5.AE.8C.E6.95.B4.E6.80.A7">&#20998;&#37197;&#22120;&#23436;&#25972;&#24615;</a>&#65292;&#37027;&#20040;&#23481;&#22120;&#65288;&#27880;&#24847;&#19981;&#26159;&#23481;&#22120;&#25104;&#21592;&#65289;&#33021;&#20197;&#19981;&#23436;&#25972;&#30340;&#20803;&#32032;&#31867;&#22411;&#23454;&#20363;&#21270;&#12290;</p>
+<table class="wikitable ftm-begin">
+<tr>
+<th><a href="cpp-utility-feature_test.html">&#21151;&#33021;&#29305;&#24615;&#27979;&#35797;</a>&#23439;</th>
+<th><abbr title="&#37319;&#32435;&#35813;&#29305;&#24615;&#30340;&#24180;/&#26376;&#12290;&#27599;&#20010;&#20540;&#19979;&#38754;&#30340;&#38142;&#25509;&#25351;&#21521;&#32534;&#35793;&#26399;&#25903;&#25345;&#39029;&#38754;&#20013;&#32473;&#23450;&#21151;&#33021;&#29305;&#24615;&#30340;&#26465;&#30446;&#12290;">&#20540;</abbr></th>
+<th><abbr title="&#24341;&#20837;&#35813;&#29305;&#24615;&#30340;&#26631;&#20934;&#65307;DR &#24847;&#20026;&#38024;&#23545;&#35813;&#20462;&#35746;&#29256;&#30340;&#32570;&#38519;&#25253;&#21578;">&#26631;&#20934;</abbr></th>
+<th>&#21151;&#33021;&#29305;&#24615;</th>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lib_incomplete_container_elements"><code>__cpp_lib_incomplete_container_elements</code></a></td>
+<td><a href="cpp-compiler_support-17.html#cpp_lib_incomplete_container_elements_201505L"><code>201505L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++17)</span></td>
+<td>&#26368;&#20302;&#38480;&#24230;&#25903;&#25345;&#19981;&#23436;&#25972;&#31867;&#22411;</td>
+</tr>
+</table>
+</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+</table>
+<p></p>
+</td>
+</tr>
+<tr class="t-par">
+<td>Allocator</td>
+<td>-</td>
+<td>&#29992;&#20110;&#33719;&#21462;/&#37322;&#25918;&#20869;&#23384;&#21450;&#26500;&#36896;/&#26512;&#26500;&#20869;&#23384;&#20013;&#20803;&#32032;&#30340;&#20998;&#37197;&#22120;&#12290;&#31867;&#22411;&#24517;&#39035;&#28385;&#36275;<a href="cpp-named_req-Allocator.html"><span style="font-style:italic">&#20998;&#37197;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(Allocator)</span></a> &#12290;&#22914;&#26524; <code>Allocator::value_type</code> &#19982; <code>T</code> &#19981;&#21516;&#65292;&#37027;&#20040;<span class="t-rev-inl t-until-cxx20"><span>&#34892;&#20026;&#26410;&#23450;&#20041;</span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#21069;)</span></span></span><span class="t-rev-inl t-since-cxx20"><span>&#31243;&#24207;&#38750;&#33391;&#26500;</span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></span></span>&#12290;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E7.B1.BB.E5.9E.8B">&#25104;&#21592;&#31867;&#22411;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#25104;&#21592;&#31867;&#22411;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>value_type</code></td>
+<td><code>T</code></td>
+</tr>
+<tr class="t-dsc">
+<td><code>allocator_type</code></td>
+<td><code>Allocator</code></td>
+</tr>
+<tr class="t-dsc">
+<td><code>size_type</code></td>
+<td>&#26080;&#31526;&#21495;&#25972;&#25968;&#31867;&#22411;&#65288;&#36890;&#24120;&#26159; <span class="t-lc"><a href="cpp-types-size_t.html">std::size_t</a></span>&#65289;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>difference_type</code></td>
+<td>&#26377;&#31526;&#21495;&#25972;&#25968;&#31867;&#22411;&#65288;&#36890;&#24120;&#26159; <span class="t-lc"><a href="cpp-types-ptrdiff_t.html">std::ptrdiff_t</a></span>&#65289;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>reference</code></td>
+<td><span class="mw-geshi cpp source-cpp">value_type<span class="sy3">&amp;</span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>const_reference</code></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw4">const</span> value_type<span class="sy3">&amp;</span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>pointer</code></td>
+<td>
+<table class="t-rev-begin">
+<tr class="t-rev t-until-cxx11">
+<td>
+<p><code>Allocator::pointer</code></p>
+</td>
+<td><span class="t-mark-rev t-until-cxx11" style="white-space: nowrap;">(C++11 &#21069;)</span></td>
+</tr>
+<tr class="t-rev t-since-cxx11">
+<td>
+<p><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-allocator_traits.html"><span class="kw703">std::<span class="me2">allocator_traits</span></span></a><span class="sy1">&lt;</span>Allocator<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">pointer</span></span></p>
+</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr class="t-dsc">
+<td><code>const_pointer</code></td>
+<td>
+<table class="t-rev-begin">
+<tr class="t-rev t-until-cxx11">
+<td>
+<p><code>Allocator::const_pointer</code></p>
+</td>
+<td><span class="t-mark-rev t-until-cxx11" style="white-space: nowrap;">(C++11 &#21069;)</span></td>
+</tr>
+<tr class="t-rev t-since-cxx11">
+<td>
+<p><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-allocator_traits.html"><span class="kw703">std::<span class="me2">allocator_traits</span></span></a><span class="sy1">&lt;</span>Allocator<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">const_pointer</span></span></p>
+</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr class="t-dsc">
+<td><code>iterator</code></td>
+<td>&#25351;&#21521; <code>value_type</code> &#30340;<a href="cpp-named_req-BidirectionalIterator.html"><span style="font-style:italic">&#32769;&#24335;&#21452;&#21521;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyBidirectionalIterator)</span></a> <span class="t-rev-inl t-since-cxx26"><span>&#21644;<a href="cpp-named_req-ConstexprIterator.html"><span style="font-style:italic">&#24120;&#37327;&#34920;&#36798;&#24335;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(ConstexprIterator)</span></a></span> <span><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>const_iterator</code></td>
+<td>&#25351;&#21521; <span class="mw-geshi cpp source-cpp"><span class="kw4">const</span> value_type</span> &#30340;<a href="cpp-named_req-BidirectionalIterator.html"><span style="font-style:italic">&#32769;&#24335;&#21452;&#21521;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyBidirectionalIterator)</span></a> <span class="t-rev-inl t-since-cxx26"><span>&#21644;<a href="cpp-named_req-ConstexprIterator.html"><span style="font-style:italic">&#24120;&#37327;&#34920;&#36798;&#24335;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(ConstexprIterator)</span></a></span> <span><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>reverse_iterator</code></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-reverse_iterator.html"><span class="kw661">std::<span class="me2">reverse_iterator</span></span></a><span class="sy1">&lt;</span>iterator<span class="sy1">&gt;</span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>const_reverse_iterator</code></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-reverse_iterator.html"><span class="kw661">std::<span class="me2">reverse_iterator</span></span></a><span class="sy1">&lt;</span>const_iterator<span class="sy1">&gt;</span></span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-container-list-list.html"><span class="t-lines"><span>(&#26500;&#36896;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26500;&#36896; <code>list</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-container-list-~list.html"><span class="t-lines"><span>(&#26512;&#26500;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26512;&#26500; <code>list</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-operator=.html"><span class="t-lines"><span>operator=</span></span></a></div>
+</div>
+</td>
+<td>&#23558;&#20540;&#36171;&#32473;&#23481;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-assign.html"><span class="t-lines"><span>assign</span></span></a></div>
+</div>
+</td>
+<td>&#23558;&#20540;&#36171;&#32473;&#23481;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-assign_range.html"><span class="t-lines"><span>assign_range</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#23558;&#33539;&#22260;&#30340;&#20540;&#36171;&#32473;&#23481;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-get_allocator.html"><span class="t-lines"><span>get_allocator</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#20851;&#32852;&#30340;&#20998;&#37197;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E5.85.83.E7.B4.A0.E8.AE.BF.E9.97.AE">&#20803;&#32032;&#35775;&#38382;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-front.html"><span class="t-lines"><span>front</span></span></a></div>
+</div>
+</td>
+<td>&#35775;&#38382;&#31532;&#19968;&#20010;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-back.html"><span class="t-lines"><span>back</span></span></a></div>
+</div>
+</td>
+<td>&#35775;&#38382;&#26368;&#21518;&#19968;&#20010;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E8.BF.AD.E4.BB.A3.E5.99.A8">&#36845;&#20195;&#22120;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-begin.html"><span class="t-lines"><span>begin</span><span>cbegin</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#21521;&#36215;&#22987;&#30340;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-end.html"><span class="t-lines"><span>end</span><span>cend</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#21521;&#26411;&#23614;&#30340;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-rbegin.html"><span class="t-lines"><span>rbegin</span><span>crbegin</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#21521;&#36215;&#22987;&#30340;&#36870;&#21521;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-rend.html"><span class="t-lines"><span>rend</span><span>crend</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#21521;&#26411;&#23614;&#30340;&#36870;&#21521;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E5.AE.B9.E9.87.8F">&#23481;&#37327;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-empty.html"><span class="t-lines"><span>empty</span></span></a></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#23481;&#22120;&#26159;&#21542;&#20026;&#31354;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-size.html"><span class="t-lines"><span>size</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#20803;&#32032;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-max_size.html"><span class="t-lines"><span>max_size</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#21487;&#23481;&#32435;&#30340;&#26368;&#22823;&#20803;&#32032;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E4.BF.AE.E6.94.B9.E5.99.A8">&#20462;&#25913;&#22120;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-clear.html"><span class="t-lines"><span>clear</span></span></a></div>
+</div>
+</td>
+<td>&#28165;&#38500;&#20869;&#23481;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-insert.html"><span class="t-lines"><span>insert</span></span></a></div>
+</div>
+</td>
+<td>&#25554;&#20837;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-insert_range.html"><span class="t-lines"><span>insert_range</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#25554;&#20837;&#20803;&#32032;&#33539;&#22260;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-emplace.html"><span class="t-lines"><span>emplace</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#21407;&#20301;&#26500;&#36896;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-erase.html"><span class="t-lines"><span>erase</span></span></a></div>
+</div>
+</td>
+<td>&#25830;&#38500;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-push_back.html"><span class="t-lines"><span>push_back</span></span></a></div>
+</div>
+</td>
+<td>&#23558;&#20803;&#32032;&#28155;&#21152;&#21040;&#23481;&#22120;&#26411;&#23614;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-emplace_back.html"><span class="t-lines"><span>emplace_back</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#22312;&#23481;&#22120;&#26411;&#23614;&#21407;&#20301;&#26500;&#36896;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-append_range.html"><span class="t-lines"><span>append_range</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#28155;&#21152;&#20803;&#32032;&#30340;&#33539;&#22260;&#21040;&#26411;&#23614;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-pop_back.html"><span class="t-lines"><span>pop_back</span></span></a></div>
+</div>
+</td>
+<td>&#31227;&#38500;&#26411;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-push_front.html"><span class="t-lines"><span>push_front</span></span></a></div>
+</div>
+</td>
+<td>&#25554;&#20837;&#20803;&#32032;&#21040;&#23481;&#22120;&#36215;&#22987;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-emplace_front.html"><span class="t-lines"><span>emplace_front</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#22312;&#23481;&#22120;&#22836;&#37096;&#21407;&#20301;&#26500;&#36896;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-prepend_range.html"><span class="t-lines"><span>prepend_range</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#28155;&#21152;&#20803;&#32032;&#30340;&#33539;&#22260;&#21040;&#36215;&#22987;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-pop_front.html"><span class="t-lines"><span>pop_front</span></span></a></div>
+</div>
+</td>
+<td>&#31227;&#38500;&#39318;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-resize.html"><span class="t-lines"><span>resize</span></span></a></div>
+</div>
+</td>
+<td>&#25913;&#21464;&#23384;&#20648;&#20803;&#32032;&#30340;&#20010;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-swap.html"><span class="t-lines"><span>swap</span></span></a></div>
+</div>
+</td>
+<td>&#20132;&#25442;&#20869;&#23481;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E6.93.8D.E4.BD.9C">&#25805;&#20316;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-merge.html"><span class="t-lines"><span>merge</span></span></a></div>
+</div>
+</td>
+<td>&#21512;&#24182;&#20004;&#20010;&#26377;&#24207;&#21015;&#34920;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-splice.html"><span class="t-lines"><span>splice</span></span></a></div>
+</div>
+</td>
+<td>&#20174;&#21478;&#19968;&#20010; <code>list</code> &#20013;&#31227;&#21160;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-remove.html"><span class="t-lines"><span>remove</span><span>remove_if</span></span></a></div>
+</div>
+</td>
+<td>&#31227;&#38500;&#28385;&#36275;&#29305;&#23450;&#26631;&#20934;&#30340;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-reverse.html"><span class="t-lines"><span>reverse</span></span></a></div>
+</div>
+</td>
+<td>&#21453;&#36716;&#20803;&#32032;&#30340;&#39034;&#24207;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-unique.html"><span class="t-lines"><span>unique</span></span></a></div>
+</div>
+</td>
+<td>&#21024;&#38500;&#36830;&#32493;&#30340;&#37325;&#22797;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-sort.html"><span class="t-lines"><span>sort</span></span></a></div>
+</div>
+</td>
+<td>&#23545;&#20803;&#32032;&#36827;&#34892;&#25490;&#24207;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E9.9D.9E.E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#38750;&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-operator_cmp.html"><span class="t-lines"><span>operator==</span><span>operator!=</span><span>operator&lt;</span><span>operator&lt;=</span><span>operator&gt;</span><span>operator&gt;=</span><span>operator&lt;=&gt;</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#31227;&#38500;)</span></span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#31227;&#38500;)</span></span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#31227;&#38500;)</span></span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#31227;&#38500;)</span></span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#31227;&#38500;)</span></span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#25353;&#29031;&#23383;&#20856;&#39034;&#24207;&#27604;&#36739;&#20004;&#20010; <code>list</code> &#30340;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-swap2.html"><span class="t-lines"><span>std::swap<span class="t-dsc-small">(std::list)</span></span></span></a></div>
+</div>
+</td>
+<td>&#29305;&#21270; <span class="t-lc"><a href="cpp-algorithm-swap.html">std::swap</a></span> &#31639;&#27861;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-erase2.html"><span class="t-lines"><span>erase<span class="t-dsc-small">(std::list)</span></span><span>erase_if<span class="t-dsc-small">(std::list)</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#25830;&#38500;&#25152;&#26377;&#28385;&#36275;&#29305;&#23450;&#21028;&#21035;&#26631;&#20934;&#30340;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx17">
+<td>
+<h3><span class="mw-headline" id=".E6.8E.A8.E5.AF.BC.E6.8C.87.E5.BC.95"><a href="cpp-container-list-deduction_guides.html">&#25512;&#23548;&#25351;&#24341;</a></span></h3>
+</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<table class="wikitable">
+<tr>
+<th><a href="cpp-utility-feature_test.html">&#21151;&#33021;&#29305;&#24615;&#27979;&#35797;</a>&#23439;</th>
+<th><abbr title="&#37319;&#32435;&#35813;&#29305;&#24615;&#30340;&#24180;/&#26376;&#12290;&#27599;&#20010;&#20540;&#19979;&#38754;&#30340;&#38142;&#25509;&#25351;&#21521;&#32534;&#35793;&#26399;&#25903;&#25345;&#39029;&#38754;&#20013;&#32473;&#23450;&#21151;&#33021;&#29305;&#24615;&#30340;&#26465;&#30446;&#12290;">&#20540;</abbr></th>
+<th><abbr title="&#24341;&#20837;&#35813;&#29305;&#24615;&#30340;&#26631;&#20934;&#65307;DR &#24847;&#20026;&#38024;&#23545;&#35813;&#20462;&#35746;&#29256;&#30340;&#32570;&#38519;&#25253;&#21578;">&#26631;&#20934;</abbr></th>
+<th>&#21151;&#33021;&#29305;&#24615;</th>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lib_containers_ranges"><code>__cpp_lib_containers_ranges</code></a></td>
+<td><a href="cpp-compiler_support-23.html#cpp_lib_containers_ranges_202202L"><code>202202L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++23)</span></td>
+<td>&#23481;&#22120;&#30340;&#33539;&#22260;&#26500;&#36896;&#21644;&#25554;&#20837;</td>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lib_constexpr_containers"><code>__cpp_lib_constexpr_containers</code></a></td>
+<td><a href="cpp-compiler_support-26.html#cpp_lib_constexpr_containers_202502L"><code>202502L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++26)</span></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span></span> <code>std::list</code></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;algorithm&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;list&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="co1">// &#21019;&#24314;&#21547;&#25972;&#25968;&#30340; list</span>
+    std<span class="sy4">::</span><span class="me2">list</span><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span> l <span class="sy1">=</span> <span class="br0">{</span><span class="nu0">7</span>, <span class="nu0">5</span>, <span class="nu0">16</span>, <span class="nu0">8</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#28155;&#21152;&#25972;&#25968;&#21040; list &#24320;&#22836;</span>
+    l.<span class="me1">push_front</span><span class="br0">(</span><span class="nu0">25</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="co1">// &#28155;&#21152;&#25972;&#25968;&#21040; list &#32467;&#23614;</span>
+    l.<span class="me1">push_back</span><span class="br0">(</span><span class="nu0">13</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#20197;&#25628;&#32034;&#25554;&#20837; 16 &#21069;&#30340;&#20540;</span>
+    <span class="kw4">auto</span> it <span class="sy1">=</span> <a href="cpp-algorithm-find.html"><span class="kw1576">std::<span class="me2">find</span></span></a><span class="br0">(</span>l.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, l.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>, <span class="nu0">16</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>it <span class="sy3">!</span><span class="sy1">=</span> l.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+        l.<span class="me1">insert</span><span class="br0">(</span>it, <span class="nu0">42</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#36845;&#20195;&#24182;&#25171;&#21360; list &#30340;&#20540;</span>
+    <a href="cpp-io-cout.html"><span class="kw1760">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;l = { &quot;</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> n <span class="sy4">:</span> l<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1760">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> n <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;, &quot;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1760">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;};<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">l = { 25, 7, 5, 42, 16, 8, 13, };</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue230">LWG 230</a></td>
+<td>C++98</td>
+<td><code>T</code> &#19981;&#38656;&#35201;&#28385;&#36275;<a href="cpp-named_req-CopyConstructible.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyConstructible)</span></a><br />
+&#65288;&#22240;&#27492;&#19981;&#20445;&#35777;&#33021;&#26500;&#36896; <code>T</code> &#31867;&#22411;&#30340;&#20803;&#32032;&#65289;</td>
+<td><code>T</code> &#20063;&#38656;&#35201;&#28385;&#36275;<br />
+<a href="cpp-named_req-CopyConstructible.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyConstructible)</span></a></td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue276">LWG 276</a></td>
+<td>C++98</td>
+<td><code>T</code> &#22987;&#32456;&#38656;&#35201;&#28385;&#36275;<a href="cpp-named_req-CopyAssignable.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#36171;&#20540;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyAssignable)</span></a></td>
+<td>&#21482;&#26377;&#22312;&#20197; <code>T</code> &#23454;&#20363;&#21270;&#20102; <a href="cpp-container-list-operator=.html"><tt>operator=</tt></a> &#25110; <a href="cpp-container-list-assign.html"><tt>assign</tt></a> &#26102;&#25165;&#38656;&#35201;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-forward_list.html"><span class="t-lines"><span>forward_list</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></span></span></div>
+</div>
+</td>
+<td>&#21333;&#21521;&#38142;&#34920;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

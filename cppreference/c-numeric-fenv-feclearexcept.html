@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>feclearexcept</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_numeric_fenv_feclearexcept skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">feclearexcept</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-numeric.html">numeric</a>&lrm; | <a href="c-numeric-fenv.html">fenv</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-fenv.html"><tt>&lt;fenv.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-c99">
+<td>
+<div><span class="mw-geshi c source-c"><span class="kw4">int</span> feclearexcept<span class="br0">(</span> <span class="kw4">int</span> excepts <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#23581;&#35797;&#28165;&#38500;&#21015;&#20110;&#20301;&#25513;&#30721;&#23454;&#21442; <code>excepts</code> &#30340;&#28014;&#28857;&#25968;&#24322;&#24120;&#65292;&#35813;&#23454;&#21442;&#20540;&#20026;<a href="c-numeric-fenv-FE_exceptions.html">&#28014;&#28857;&#25968;&#24322;&#24120;&#23439;</a>&#30340;&#36880;&#20301;&#25110;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>excepts</td>
+<td>-</td>
+<td>&#21015;&#20986;&#27442;&#28165;&#38500;&#30340;&#24322;&#24120;&#26631;&#24535;&#30340;&#20301;&#25513;&#30721;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#33509;&#25104;&#21151;&#28165;&#38500;&#25152;&#26377;&#25351;&#26126;&#30340;&#24322;&#24120;&#65292;&#25110;&#33509; <code>excepts</code> &#20026;&#38646;&#21017;&#36820;&#22238; <span class="t-c"><span class="mw-geshi c source-c">&#8203;<span class="nu0">0</span>&#8203;</span></span>&#12290;&#38169;&#35823;&#26102;&#36820;&#22238;&#38750;&#38646;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#include &lt;fenv.h&gt;</span>
+<span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#include &lt;math.h&gt;</span>
+<span class="co2">#include &lt;float.h&gt;</span>
+ 
+<span class="coMULTI">/*
+ * &#21487;&#33021;&#30340; hypot &#23454;&#29616;&#65292;&#23427;&#20250;&#27963;&#29992;&#35768;&#22810;&#39640;&#32423;&#28014;&#28857;&#25968;&#29305;&#24615;&#12290;
+ */</span>
+<span class="kw4">double</span> hypot_demo<span class="br0">(</span><span class="kw4">double</span> a, <span class="kw4">double</span> b<span class="br0">)</span> <span class="br0">{</span>
+  <span class="kw4">const</span> <span class="kw4">int</span> range_problem <span class="sy1">=</span> <a href="c-numeric-fenv-FE_exceptions.html"><span class="kw732">FE_OVERFLOW</span></a> <span class="sy3">|</span> <a href="c-numeric-fenv-FE_exceptions.html"><span class="kw733">FE_UNDERFLOW</span></a><span class="sy4">;</span>
+  feclearexcept<span class="br0">(</span>range_problem<span class="br0">)</span><span class="sy4">;</span>
+  <span class="co1">// &#23581;&#35797;&#24555;&#36895;&#31639;&#27861;</span>
+  <span class="kw4">double</span> result <span class="sy1">=</span> <a href="c-numeric-math-sqrt.html"><span class="kw665">sqrt</span></a><span class="br0">(</span>a <span class="sy2">*</span> a <span class="sy2">+</span> b <span class="sy2">*</span> b<span class="br0">)</span><span class="sy4">;</span>
+  <span class="kw1">if</span> <span class="br0">(</span><span class="sy3">!</span><a href="c-numeric-fenv-fetestexcept.html"><span class="kw718">fetestexcept</span></a><span class="br0">(</span>range_problem<span class="br0">)</span><span class="br0">)</span>  <span class="co1">// &#26410;&#19978;&#28322;&#25110;&#19979;&#28322;</span>
+    <span class="kw1">return</span> result<span class="sy4">;</span>                   <span class="co1">// &#36820;&#22238;&#32467;&#26524;</span>
+  <span class="co1">// &#20570;&#26356;&#22810;&#22797;&#26434;&#35745;&#31639;&#20197;&#36991;&#20813;&#19978;&#28322;&#25110;&#19979;&#28322;</span>
+  <span class="kw4">int</span> a_exponent,b_exponent<span class="sy4">;</span>
+  <a href="c-numeric-math-frexp.html"><span class="kw696">frexp</span></a><span class="br0">(</span>a, <span class="sy3">&amp;</span>a_exponent<span class="br0">)</span><span class="sy4">;</span>
+  <a href="c-numeric-math-frexp.html"><span class="kw696">frexp</span></a><span class="br0">(</span>b, <span class="sy3">&amp;</span>b_exponent<span class="br0">)</span><span class="sy4">;</span>
+ 
+  <span class="kw1">if</span> <span class="br0">(</span>a_exponent <span class="sy2">-</span> b_exponent <span class="sy1">&gt;</span> <a href="c-types-limits.html"><span class="kw396">DBL_MAX_EXP</span></a><span class="br0">)</span>
+    <span class="kw1">return</span> <a href="c-numeric-math-fabs.html"><span class="kw644">fabs</span></a><span class="br0">(</span>a<span class="br0">)</span> <span class="sy2">+</span> <a href="c-numeric-math-fabs.html"><span class="kw644">fabs</span></a><span class="br0">(</span>b<span class="br0">)</span><span class="sy4">;</span>        <span class="co1">// &#25105;&#20204;&#21487;&#20197;&#24573;&#30053;&#23567;&#20540;</span>
+  <span class="co1">// &#32553;&#25918;&#20197;&#20196; fabs(a) &#25509;&#36817;1</span>
+  <span class="kw4">double</span> a_scaled <span class="sy1">=</span> <a href="c-numeric-math-scalbn.html"><span class="kw699">scalbn</span></a><span class="br0">(</span>a, <span class="sy2">-</span>a_exponent<span class="br0">)</span><span class="sy4">;</span>
+  <span class="kw4">double</span> b_scaled <span class="sy1">=</span> <a href="c-numeric-math-scalbn.html"><span class="kw699">scalbn</span></a><span class="br0">(</span>b, <span class="sy2">-</span>a_exponent<span class="br0">)</span><span class="sy4">;</span>
+  <span class="co1">// &#29616;&#22312;&#19978;&#28322;&#21644;&#19979;&#28322;&#26159;&#19981;&#21487;&#33021;&#30340;</span>
+  result <span class="sy1">=</span> <a href="c-numeric-math-sqrt.html"><span class="kw665">sqrt</span></a><span class="br0">(</span>a_scaled <span class="sy2">*</span> a_scaled <span class="sy2">+</span> b_scaled <span class="sy2">*</span> b_scaled<span class="br0">)</span><span class="sy4">;</span>
+  <span class="co1">// &#25764;&#38144;&#32553;&#25918;</span>
+  <span class="kw1">return</span> <a href="c-numeric-math-scalbn.html"><span class="kw699">scalbn</span></a><span class="br0">(</span>result, a_exponent<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+  <span class="co1">// &#36890;&#24120;&#24773;&#20917;&#36873;&#25321;&#36739;&#24555;&#30340;&#36335;&#32447;</span>
+  <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;hypot(%f, %f) = %f<span class="es1">\n</span>&quot;</span>, <span class="nu16">3.0</span>, <span class="nu16">4.0</span>, hypot_demo<span class="br0">(</span><span class="nu16">3.0</span>, <span class="nu16">4.0</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+  <span class="co1">// &#26497;&#38480;&#24773;&#24418;&#20250;&#36873;&#25321;&#36739;&#24930;&#20294;&#26356;&#20934;&#30830;&#30340;&#36335;&#32447;</span>
+  <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;hypot(%e, %e) = %e<span class="es1">\n</span>&quot;</span>, <a href="c-types-limits.html"><span class="kw378">DBL_MAX</span></a> <span class="sy2">/</span> <span class="nu16">2.0</span>, 
+                                <a href="c-types-limits.html"><span class="kw378">DBL_MAX</span></a> <span class="sy2">/</span> <span class="nu16">2.0</span>, 
+                                hypot_demo<span class="br0">(</span><a href="c-types-limits.html"><span class="kw378">DBL_MAX</span></a> <span class="sy2">/</span> <span class="nu16">2.0</span>, <a href="c-types-limits.html"><span class="kw378">DBL_MAX</span></a> <span class="sy2">/</span> <span class="nu16">2.0</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+  <span class="kw1">return</span> <span class="nu0">0</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">hypot(3.000000, 4.000000) = 5.000000
+hypot(8.988466e+307, 8.988466e+307) = 1.271161e+308</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.6.2.1 The feclearexcept function &#65288;&#31532; 209 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<div class="t-ref-std-c99">
+<ul>
+<li>C99 &#26631;&#20934;&#65288;ISO/IEC 9899:1999&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.6.2.1 The feclearexcept function &#65288;&#31532; 190 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-numeric-fenv-fetestexcept.html"><span class="t-lines"><span>fetestexcept</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99)</span></span></span></div>
+</div>
+</td>
+<td>&#30830;&#35748;&#35774;&#32622;&#20102;&#21738;&#20123;&#28014;&#28857;&#25968;&#24322;&#24120;&#29366;&#24577;&#26631;&#24535;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>feclearexcept</span></span>&nbsp;&#30340; <span><span><a href="cpp-numeric-fenv-feclearexcept.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

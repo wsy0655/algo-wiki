@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ftell</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_io_ftell skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">ftell</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-io.html">io</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-stdio.html"><tt>&lt;stdio.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi c source-c"><span class="kw4">long</span> ftell<span class="br0">(</span> <a href="c-io.html"><span class="kw883">FILE</span></a> <span class="sy2">*</span>stream <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36820;&#22238;&#27969; <span class="t-c"><span class="mw-geshi c source-c">stream</span></span> &#30340;&#25991;&#20214;&#20301;&#32622;&#25351;&#31034;&#22120;&#12290;</p>
+<p>&#33509;&#27969;&#20197;&#20108;&#36827;&#21046;&#27169;&#24335;&#25171;&#24320;&#65292;&#21017;&#30001;&#27492;&#20989;&#25968;&#33719;&#24471;&#30340;&#20540;&#26159;&#20174;&#25991;&#20214;&#24320;&#22987;&#30340;&#23383;&#33410;&#25968;&#12290;</p>
+<p>&#33509;&#27969;&#20197;&#25991;&#26412;&#27169;&#24335;&#25171;&#24320;&#65292;&#21017;&#30001;&#27492;&#20989;&#25968;&#36820;&#22238;&#30340;&#20540;&#26410;&#25351;&#23450;&#65292;&#19988;&#20165;&#33509;&#20316;&#20026; <span class="t-lc"><a href="c-io-fseek.html">fseek()</a></span> &#30340;&#36755;&#20837;&#25165;&#26377;&#24847;&#20041;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>stream</td>
+<td>-</td>
+<td>&#35201;&#26816;&#39564;&#30340;&#25991;&#20214;&#27969;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#25104;&#21151;&#26102;&#20026;&#25991;&#20214;&#20301;&#32622;&#25351;&#31034;&#22120;&#65292;&#33509;&#22833;&#36133;&#21457;&#29983;&#21017;&#20026; <span class="t-c"><span class="mw-geshi c source-c"><span class="sy2">-</span><span class="nu0">1L</span></span></span> &#12290;</p>
+<p>&#22833;&#36133;&#26102;&#65292;&#35774; <span class="t-c"><span class="mw-geshi c source-c"><span class="kw2">errno</span></span></span> &#23545;&#35937;&#20026;&#23454;&#29616;&#23450;&#20041;&#30340;&#27491;&#20540;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>Windows &#20013;&#65292;&#24212;&#20351;&#29992; <a rel="nofollow" class="external text" href="https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/ftell-ftelli64"><code>_ftelli64</code></a> &#20197;&#25903;&#25345;&#22823;&#23567;&#36229;&#36807; 2GiB &#30340;&#25991;&#20214;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<p>&#28436;&#31034; <code>ftell()</code> &#24102;&#38169;&#35823;&#26816;&#26597;&#12290;&#21521;&#25991;&#20214;&#20889;&#20986;&#23569;&#37327;&#28014;&#28857;&#25968;&#21518;&#20877;&#20174;&#20013;&#35835;&#21462;&#23427;&#20204;&#12290;</p>
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#include &lt;stdlib.h&gt;</span>
+ 
+<span class="coMULTI">/* &#22914;&#26524;&#26465;&#20214;&#19981;&#28385;&#36275;&#65292;&#21017;&#36864;&#20986;&#31243;&#24207;&#24182;&#32473;&#20986;&#38169;&#35823;&#28040;&#24687;&#12290; */</span>
+<span class="kw4">void</span> check<span class="br0">(</span>_Bool condition, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> func, <span class="kw4">int</span> line<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">if</span> <span class="br0">(</span>condition<span class="br0">)</span>
+        <span class="kw1">return</span><span class="sy4">;</span>
+    <a href="c-io-perror.html"><span class="kw878">perror</span></a><span class="br0">(</span>func<span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw852">fprintf</span></a><span class="br0">(</span><a href="c-io.html"><span class="kw887">stderr</span></a>, <span class="st0">&quot;%s failed in file %s at line # %d<span class="es1">\n</span>&quot;</span>, func, __FILE__, line <span class="sy2">-</span> <span class="nu0">1</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-program-exit.html"><span class="kw488">exit</span></a><span class="br0">(</span><a href="c-program-EXIT_status.html"><span class="kw494">EXIT_FAILURE</span></a><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="coMULTI">/* &#20934;&#22791;&#28014;&#28857;&#25968;&#30340;&#25968;&#32452;&#12290; */</span>
+    <span class="co2">#define SIZE 5</span>
+    <span class="kw4">double</span> A<span class="br0">[</span>SIZE<span class="br0">]</span> <span class="sy1">=</span> <span class="br0">{</span><span class="nu16">1.1</span>, <span class="nu16">2.0</span>, <span class="nu16">3.0</span>, <span class="nu16">4.0</span>, <span class="nu16">5.0</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="coMULTI">/* &#20889;&#25968;&#32452;&#21040;&#25991;&#20214;&#12290; */</span>
+    <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> fname <span class="sy1">=</span> <span class="st0">&quot;/tmp/test.bin&quot;</span><span class="sy4">;</span>
+    <a href="c-io.html"><span class="kw883">FILE</span></a><span class="sy2">*</span> file <span class="sy1">=</span> <a href="c-io-fopen.html"><span class="kw819">fopen</span></a><span class="br0">(</span>fname, <span class="st0">&quot;wb&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    check<span class="br0">(</span>file <span class="sy3">!</span><span class="sy1">=</span> <a href="c-types-NULL.html"><span class="kw103">NULL</span></a>, <span class="st0">&quot;fopen()&quot;</span>, __LINE__<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw4">const</span> <span class="kw4">int</span> write_count <span class="sy1">=</span> <a href="c-io-fwrite.html"><span class="kw826">fwrite</span></a><span class="br0">(</span>A, <span class="kw4">sizeof</span><span class="br0">(</span><span class="kw4">double</span><span class="br0">)</span>, SIZE, file<span class="br0">)</span><span class="sy4">;</span>
+    check<span class="br0">(</span>write_count <span class="sy1">==</span> SIZE, <span class="st0">&quot;fwrite()&quot;</span>, __LINE__<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="c-io-fclose.html"><span class="kw822">fclose</span></a> <span class="br0">(</span>file<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="coMULTI">/* &#35835;&#21462;&#28014;&#28857;&#25968;&#21040;&#25968;&#32452; B&#12290; */</span>
+    <span class="kw4">double</span> B<span class="br0">[</span>SIZE<span class="br0">]</span><span class="sy4">;</span>
+    file <span class="sy1">=</span> <a href="c-io-fopen.html"><span class="kw819">fopen</span></a><span class="br0">(</span>fname, <span class="st0">&quot;rb&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    check<span class="br0">(</span>file <span class="sy3">!</span><span class="sy1">=</span> <a href="c-types-NULL.html"><span class="kw103">NULL</span></a>, <span class="st0">&quot;fopen()&quot;</span>, __LINE__<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw4">long</span> <span class="kw4">int</span> pos <span class="sy1">=</span> ftell<span class="br0">(</span>file<span class="br0">)</span><span class="sy4">;</span> <span class="coMULTI">/* &#20301;&#32622;&#25351;&#31034;&#22120;&#22312;&#25991;&#20214;&#36215;&#22987; */</span>
+    check<span class="br0">(</span>pos <span class="sy3">!</span><span class="sy1">=</span> <span class="sy2">-</span><span class="nu0">1L</span>, <span class="st0">&quot;ftell()&quot;</span>, __LINE__<span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;pos: %ld<span class="es1">\n</span>&quot;</span>, pos<span class="br0">)</span><span class="sy4">;</span>
+ 
+ 
+    <span class="kw4">const</span> <span class="kw4">int</span> read_count <span class="sy1">=</span> <a href="c-io-fread.html"><span class="kw825">fread</span></a><span class="br0">(</span>B, <span class="kw4">sizeof</span><span class="br0">(</span><span class="kw4">double</span><span class="br0">)</span>, <span class="nu0">1</span>, file<span class="br0">)</span><span class="sy4">;</span> <span class="coMULTI">/* &#35835;&#21462;&#19968;&#20010;&#28014;&#28857;&#25968; */</span>
+    check<span class="br0">(</span>read_count <span class="sy1">==</span> <span class="nu0">1</span>, <span class="st0">&quot;fread()&quot;</span>, __LINE__<span class="br0">)</span><span class="sy4">;</span>
+ 
+    pos <span class="sy1">=</span> ftell<span class="br0">(</span>file<span class="br0">)</span><span class="sy4">;</span> <span class="coMULTI">/* &#35835;&#21462;&#19968;&#20010;&#28014;&#28857;&#25968;&#21518;&#30340;&#20301;&#32622;&#25351;&#31034;&#22120; */</span>
+    check<span class="br0">(</span>pos <span class="sy3">!</span><span class="sy1">=</span> <span class="sy2">-</span><span class="nu0">1L</span>, <span class="st0">&quot;ftell()&quot;</span>, __LINE__<span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;pos: %ld<span class="es1">\n</span>&quot;</span>, pos<span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;B[0]: %.1f<span class="es1">\n</span>&quot;</span>, B<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span><span class="br0">)</span><span class="sy4">;</span> <span class="coMULTI">/* &#25171;&#21360;&#19968;&#20010;&#28014;&#28857;&#25968; */</span>
+ 
+    <span class="kw1">return</span> <a href="c-program-EXIT_status.html"><span class="kw493">EXIT_SUCCESS</span></a><span class="sy4">;</span> 
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">pos: 0
+pos: 8
+B[0]: 1.1</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-23">
+<ul>
+<li>C23 &#26631;&#20934;&#65288;ISO/IEC 9899:2024&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.21.9.4 The ftell function &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.21.9.4 The ftell function &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.21.9.4 The ftell function &#65288;&#31532; 337-338 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c99">
+<ul>
+<li>C99 &#26631;&#20934;&#65288;ISO/IEC 9899:1999&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.19.9.4 The ftell function &#65288;&#31532; 303-304 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c89">
+<ul>
+<li>C89/C90 &#26631;&#20934;&#65288;ISO/IEC 9899:1990&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>4.9.9.4 The ftell function</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-io-fgetpos.html"><span class="t-lines"><span>fgetpos</span></span></a></div>
+</div>
+</td>
+<td>&#33719;&#21462;&#25991;&#20214;&#20301;&#32622;&#25351;&#31034;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-io-fseek.html"><span class="t-lines"><span>fseek</span></span></a></div>
+</div>
+</td>
+<td>&#23558;&#25991;&#20214;&#20301;&#32622;&#25351;&#31034;&#31526;&#31227;&#21160;&#21040;&#25991;&#20214;&#20013;&#30340;&#25351;&#23450;&#20301;&#32622;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-io-fsetpos.html"><span class="t-lines"><span>fsetpos</span></span></a></div>
+</div>
+</td>
+<td>&#23558;&#25991;&#20214;&#20301;&#32622;&#25351;&#31034;&#22120;&#31227;&#21160;&#21040;&#25991;&#20214;&#20013;&#30340;&#25351;&#23450;&#20301;&#32622;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>ftell</span></span>&nbsp;&#30340; <span><span><a href="cpp-io-c-ftell.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::inplace_vector&lt;T,N&gt;::operator=</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_container_inplace_vector_operator skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::inplace_vector&lt;T,N&gt;::</span>operator=</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-container.html">container</a>&lrm; | <a href="cpp-container-inplace_vector.html">inplace vector</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx26">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> inplace_vector<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span> <span class="kw4">const</span> inplace_vector<span class="sy3">&amp;</span> other <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx26">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> inplace_vector<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span> inplace_vector<span class="sy3">&amp;&amp;</span> other <span class="br0">)</span><br />
+&nbsp; &nbsp; <span class="kw1">noexcept</span><span class="br0">(</span><span class="coMULTI">/* &#35265;&#19979;&#25991; */</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx26">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> inplace_vector<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span> <a href="cpp-utility-initializer_list.html"><span class="kw962">std::<span class="me2">initializer_list</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> init <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#26367;&#25442; <code>inplace_vector</code> &#30340;&#20869;&#23481;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> <a href="cpp-language-copy_assignment.html#.E5.A4.8D.E5.88.B6.E8.B5.8B.E5.80.BC.E8.BF.90.E7.AE.97.E7.AC.A6">&#22797;&#21046;&#36171;&#20540;&#36816;&#31639;&#31526;</a>&#12290;&#24182;&#19988;&#65292;&#22914;&#26524; <span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">inplace_vector</span><span class="sy1">&lt;</span>T, N<span class="sy1">&gt;</span></span> &#20855;&#26377;<a href="cpp-language-destructor.html#.E5.B9.B3.E5.87.A1.E6.9E.90.E6.9E.84.E5.87.BD.E6.95.B0">&#24179;&#20961;&#26512;&#26500;&#20989;&#25968;</a>&#65292;&#19988; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_copy_constructible.html"><span class="kw542">std::<span class="me2">is_trivially_copy_constructible_v</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span> <a href="cpp-types-is_copy_assignable.html"><span class="kw560">std::<span class="me2">is_trivially_copy_assignable_v</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#21017;&#20063;&#26159;<a href="cpp-language-copy_assignment.html#.E5.B9.B3.E5.87.A1.E5.A4.8D.E5.88.B6.E8.B5.8B.E5.80.BC.E8.BF.90.E7.AE.97.E7.AC.A6">&#24179;&#20961;&#22797;&#21046;&#36171;&#20540;&#36816;&#31639;&#31526;</a>&#12290;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">other</span></span> &#20869;&#23481;&#30340;&#21103;&#26412;&#26367;&#25442;&#20869;&#23481;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> <a href="cpp-language-move_assignment.html#.E7.A7.BB.E5.8A.A8.E8.B5.8B.E5.80.BC.E8.BF.90.E7.AE.97.E7.AC.A6">&#31227;&#21160;&#36171;&#20540;&#36816;&#31639;&#31526;</a>&#12290;&#24182;&#19988;&#65292;&#22914;&#26524; <span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">inplace_vector</span><span class="sy1">&lt;</span>T, N<span class="sy1">&gt;</span></span> &#20855;&#26377;<a href="cpp-language-destructor.html#.E5.B9.B3.E5.87.A1.E6.9E.90.E6.9E.84.E5.87.BD.E6.95.B0">&#24179;&#20961;&#26512;&#26500;&#20989;&#25968;</a>&#65292;&#19988; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_move_constructible.html"><span class="kw548">std::<span class="me2">is_trivially_move_constructible_v</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span> <a href="cpp-types-is_move_assignable.html"><span class="kw566">std::<span class="me2">is_trivially_move_assignable_v</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#21017;&#20063;&#26159;<a href="cpp-language-move_assignment.html#.E5.B9.B3.E5.87.A1.E7.A7.BB.E5.8A.A8.E8.B5.8B.E5.80.BC.E8.BF.90.E7.AE.97.E7.AC.A6">&#24179;&#20961;&#31227;&#21160;&#36171;&#20540;&#36816;&#31639;&#31526;</a>&#12290;&#20351;&#29992;&#31227;&#21160;&#35821;&#20041;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">other</span></span> &#30340;&#20869;&#23481;&#26367;&#25442;&#20869;&#23481;&#65288;&#21363;&#23558; <span class="t-c"><span class="mw-geshi cpp source-cpp">other</span></span> &#20013;&#30340;&#25968;&#25454;&#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp">other</span></span> &#31227;&#21160;&#21040;&#36825;&#20010;&#23481;&#22120;&#20013;&#65289;&#12290;&#27492;&#21518; <span class="t-c"><span class="mw-geshi cpp source-cpp">other</span></span> &#22788;&#20110;&#26377;&#25928;&#20294;&#26410;&#25351;&#26126;&#30340;&#29366;&#24577;&#12290;</div>
+<div class="t-li1"><span class="t-li">3)</span> &#20197;&#21021;&#22987;&#21270;&#24335;&#21015;&#34920; <span class="t-c"><span class="mw-geshi cpp source-cpp">init</span></span> &#25351;&#23450;&#30340;&#20869;&#23481;&#26367;&#25442;&#20869;&#23481;&#12290;</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>other</td>
+<td>-</td>
+<td>&#29992;&#20316;&#21021;&#22987;&#21270;&#23481;&#22120;&#20803;&#32032;&#30340;&#26469;&#28304;&#30340;&#21478;&#19968;&#20010; <code>inplace_vector</code></td>
+</tr>
+<tr class="t-par">
+<td>init</td>
+<td>-</td>
+<td>&#29992;&#20197;&#21021;&#22987;&#21270;&#23481;&#22120;&#20803;&#32032;&#30340;&#21021;&#22987;&#21270;&#24335;&#21015;&#34920;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<div class="t-li1"><span class="t-li">1,2)</span> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp">other</span></span> &#30340;&#22823;&#23567;&#25104;&#32447;&#24615;&#12290;</div>
+<div class="t-li1"><span class="t-li">3)</span> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp">init</span></span> &#30340;&#22823;&#23567;&#25104;&#32447;&#24615;&#12290;</div>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<div class="t-li1"><span class="t-li">2)</span>
+<div class="t-noexcept-full"><a href="cpp-language-noexcept_spec.html"><tt>noexcept</tt></a> &#35828;&#26126;&#65306;&nbsp;&nbsp;
+<div class="t-noexcept-box"><span class="t-cc"><span class="mw-geshi cpp source-cpp"><span class="kw1">noexcept</span><span class="br0">(</span>N <span class="sy1">==</span> <span class="nu0">0</span> <span class="sy3">||</span><br /></span></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">(</span><a href="cpp-types-is_move_assignable.html"><span class="kw568">std::<span class="me2">is_nothrow_move_assignable_v</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="cpp-types-is_move_constructible.html"><span class="kw550">std::<span class="me2">is_nothrow_move_constructible_v</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="br0">)</span><span class="br0">)</span></div>
+</div>
+</div>
+<div class="t-li1"><span class="t-li">3)</span> &#24403; <span class="t-c"><span class="mw-geshi cpp source-cpp">init.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&gt;</span> N</span></span> &#26102;&#25243;&#20986; <span class="t-lc"><a href="cpp-memory-new-bad_alloc.html">std::bad_alloc</a></span>&#12290;</div>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;initializer_list&gt;</span>
+<span class="co2">#include &lt;inplace_vector&gt;</span>
+<span class="co2">#include &lt;new&gt;</span>
+<span class="co2">#include &lt;print&gt;</span>
+<span class="co2">#include &lt;ranges&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    std<span class="sy4">::</span><span class="me2">inplace_vector</span><span class="sy1">&lt;</span><span class="kw4">int</span>, <span class="nu0">4</span><span class="sy1">&gt;</span> x<span class="br0">(</span><span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">2</span>, <span class="nu0">3</span><span class="br0">}</span><span class="br0">)</span>, y<span class="sy4">;</span>
+    <a href="cpp-io-println.html"><span class="kw3364">std::<span class="me2">println</span></span></a><span class="br0">(</span><span class="st0">&quot;&#36215;&#21021;:&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-println.html"><span class="kw3364">std::<span class="me2">println</span></span></a><span class="br0">(</span><span class="st0">&quot;x = {}&quot;</span>, x<span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-println.html"><span class="kw3364">std::<span class="me2">println</span></span></a><span class="br0">(</span><span class="st0">&quot;y = {}&quot;</span>, y<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-println.html"><span class="kw3364">std::<span class="me2">println</span></span></a><span class="br0">(</span><span class="st0">&quot;&#22797;&#21046;&#36171;&#20540;&#20250;&#23558;&#25968;&#25454;&#20174; x &#21521; y &#22797;&#21046;:&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    y <span class="sy1">=</span> x<span class="sy4">;</span> <span class="co1">// &#37325;&#36733; (1)</span>
+    <a href="cpp-io-println.html"><span class="kw3364">std::<span class="me2">println</span></span></a><span class="br0">(</span><span class="st0">&quot;x = {}&quot;</span>, x<span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-println.html"><span class="kw3364">std::<span class="me2">println</span></span></a><span class="br0">(</span><span class="st0">&quot;y = {}&quot;</span>, y<span class="br0">)</span><span class="sy4">;</span>
+ 
+    std<span class="sy4">::</span><span class="me2">inplace_vector</span><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a>, <span class="nu0">3</span><span class="sy1">&gt;</span> z, w<span class="br0">{</span><span class="st0">&quot;<span class="es1">\N</span>{CAT}&quot;</span>, <span class="st0">&quot;<span class="es1">\N</span>{GREEN HEART}&quot;</span><span class="br0">}</span><span class="sy4">;</span>
+    <a href="cpp-io-println.html"><span class="kw3364">std::<span class="me2">println</span></span></a><span class="br0">(</span><span class="st0">&quot;&#36215;&#21021;:&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-println.html"><span class="kw3364">std::<span class="me2">println</span></span></a><span class="br0">(</span><span class="st0">&quot;z = {}&quot;</span>, z<span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-println.html"><span class="kw3364">std::<span class="me2">println</span></span></a><span class="br0">(</span><span class="st0">&quot;w = {}&quot;</span>, w<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-println.html"><span class="kw3364">std::<span class="me2">println</span></span></a><span class="br0">(</span><span class="st0">&quot;&#31227;&#21160;&#36171;&#20540;&#20250;&#23558;&#25968;&#25454;&#20174; w &#21521; z &#31227;&#21160;:&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    z <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>w<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#37325;&#36733; (2)</span>
+    <a href="cpp-io-println.html"><span class="kw3364">std::<span class="me2">println</span></span></a><span class="br0">(</span><span class="st0">&quot;z = {}&quot;</span>, z<span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-println.html"><span class="kw3364">std::<span class="me2">println</span></span></a><span class="br0">(</span><span class="st0">&quot;w = {}&quot;</span>, w<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// w &#22788;&#20110;&#26377;&#25928;&#20294;&#26410;&#25351;&#26126;&#30340;&#29366;&#24577;</span>
+ 
+    <span class="kw4">auto</span> l <span class="sy1">=</span> <span class="br0">{</span><span class="nu0">4</span>, <span class="nu0">5</span>, <span class="nu0">6</span>, <span class="nu0">7</span><span class="br0">}</span><span class="sy4">;</span>
+    <a href="cpp-io-println.html"><span class="kw3364">std::<span class="me2">println</span></span></a><span class="br0">(</span><span class="st0">&quot;&#36171;&#20540; initializer_list {} &#32473; x:&quot;</span>, l<span class="br0">)</span><span class="sy4">;</span>
+    x <span class="sy1">=</span> l<span class="sy4">;</span> <span class="co1">// &#37325;&#36733; (3)</span>
+    <a href="cpp-io-println.html"><span class="kw3364">std::<span class="me2">println</span></span></a><span class="br0">(</span><span class="st0">&quot;x = {}&quot;</span>, x<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-println.html"><span class="kw3364">std::<span class="me2">println</span></span></a><span class="br0">(</span><span class="st0">&quot;&#29992;&#22823;&#23567;&#22823;&#20110; N &#30340; initializer_list &#30340;&#36171;&#20540;&#25243;&#20986;&#24322;&#24120;:&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">try</span>
+    <span class="br0">{</span>
+        x <span class="sy1">=</span> <span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">2</span>, <span class="nu0">3</span>, <span class="nu0">4</span>, <span class="nu0">5</span><span class="br0">}</span><span class="sy4">;</span> <span class="co1">// &#24403; (initializer list size == 5) &gt; (capacity N == 4) &#26102;&#25243;&#20986;</span>
+    <span class="br0">}</span>
+    <span class="kw1">catch</span><span class="br0">(</span><span class="kw4">const</span> <a href="cpp-memory-new-bad_alloc.html"><span class="kw696">std::<span class="me2">bad_alloc</span></span></a><span class="sy3">&amp;</span> ex<span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-println.html"><span class="kw3364">std::<span class="me2">println</span></span></a><span class="br0">(</span><span class="st0">&quot;ex.what(): {}&quot;</span>, ex.<span class="me1">what</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#36215;&#21021;:
+x = [1, 2, 3]
+y = []
+&#22797;&#21046;&#36171;&#20540;&#20250;&#23558;&#25968;&#25454;&#20174; x &#21521; y &#22797;&#21046;:
+x = [1, 2, 3]
+y = [1, 2, 3]
+&#36215;&#21021;:
+z = []
+w = [&quot;&#128008;&quot;, &quot;&#128154;&quot;]
+&#31227;&#21160;&#36171;&#20540;&#20250;&#23558;&#25968;&#25454;&#20174; w &#21521; z &#31227;&#21160;:
+z = [&quot;&#128008;&quot;, &quot;&#128154;&quot;]
+w = [&quot;&quot;, &quot;&quot;]
+&#36171;&#20540; initializer_list [4, 5, 6, 7] &#32473; x:
+x = [4, 5, 6, 7]
+&#29992;&#22823;&#23567;&#22823;&#20110; N &#30340; initializer_list &#30340;&#36171;&#20540;&#25243;&#20986;&#24322;&#24120;:
+ex.what(): std::bad_alloc</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-container-inplace_vector-inplace_vector.html"><span class="t-lines"><span>(&#26500;&#36896;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26500;&#36896; <code>inplace_vector</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-inplace_vector-assign.html"><span class="t-lines"><span>assign</span></span></a></div>
+</div>
+</td>
+<td>&#23558;&#20540;&#36171;&#32473;&#23481;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

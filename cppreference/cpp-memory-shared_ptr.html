@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::shared_ptr</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_memory_shared_ptr skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>shared_ptr</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-memory.html">memory</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-memory.html">&lt;memory&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T <span class="sy1">&gt;</span> <span class="kw1">class</span> shared_ptr<span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>std::shared_ptr</code> &#26159;&#19968;&#31181;&#36890;&#36807;&#25351;&#38024;&#20445;&#25345;&#23545;&#35937;&#20849;&#20139;&#25152;&#26377;&#26435;&#30340;&#26234;&#33021;&#25351;&#38024;&#12290;&#22810;&#20010; <code>shared_ptr</code> &#23545;&#35937;&#21487;&#25345;&#26377;&#21516;&#19968;&#23545;&#35937;&#12290;&#19979;&#21015;&#24773;&#20917;&#20043;&#19968;&#20986;&#29616;&#26102;&#38144;&#27585;&#23545;&#35937;&#24182;&#35299;&#20998;&#37197;&#20854;&#20869;&#23384;&#65306;</p>
+<ul>
+<li>&#26368;&#21518;&#21097;&#19979;&#30340;&#25345;&#26377;&#23545;&#35937;&#30340; <code>shared_ptr</code> &#34987;&#38144;&#27585;&#65307;</li>
+<li>&#26368;&#21518;&#21097;&#19979;&#30340;&#25345;&#26377;&#23545;&#35937;&#30340; <code>shared_ptr</code> &#34987;&#36890;&#36807; <span class="t-lc"><a href="cpp-memory-shared_ptr-operator=.html">operator=</a></span> &#25110; <span class="t-lc"><a href="cpp-memory-shared_ptr-reset.html">reset()</a></span> &#36171;&#20540;&#20026;&#21478;&#19968;&#25351;&#38024;&#12290;</li>
+</ul>
+<p>&#29992; <a href="cpp-language-delete.html"><code>delete</code> &#34920;&#36798;&#24335;</a>&#25110;&#22312;&#26500;&#36896;&#26399;&#38388;&#25552;&#20379;&#32473; <code>shared_ptr</code> &#30340;&#23450;&#21046;&#21024;&#38500;&#22120;&#38144;&#27585;&#23545;&#35937;&#12290;</p>
+<p><code>shared_ptr</code> &#33021;&#22312;&#23384;&#20648;&#25351;&#21521;&#19968;&#20010;&#23545;&#35937;&#30340;&#25351;&#38024;&#26102;&#20849;&#20139;&#21478;&#19968;&#23545;&#35937;&#30340;&#25152;&#26377;&#26435;&#12290;&#27492;&#29305;&#24615;&#33021;&#29992;&#20110;&#22312;&#25345;&#26377;&#20854;&#25152;&#23646;&#23545;&#35937;&#26102;&#65292;&#25351;&#21521;&#25104;&#21592;&#23545;&#35937;&#12290;&#23384;&#20648;&#30340;&#25351;&#38024;&#21487;&#20197;&#20351;&#29992; <span class="t-lc"><a href="cpp-memory-shared_ptr-get.html">get()</a></span>&#12289;&#35299;&#24341;&#29992;&#25110;&#27604;&#36739;&#36816;&#31639;&#31526;&#35775;&#38382;&#12290;&#34987;&#31649;&#29702;&#25351;&#38024;&#22312;&#20351;&#29992;&#35745;&#25968;&#25269;&#36798;&#38646;&#26102;&#20256;&#36882;&#32473;&#21024;&#38500;&#22120;&#12290;</p>
+<p><code>shared_ptr</code> &#20063;&#21487;&#19981;&#25345;&#26377;&#23545;&#35937;&#65292;&#35813;&#24773;&#20917;&#19979;&#31216;&#23427;&#20026;<i>&#31354; (empty)</i>&#65288;&#33509;&#20197;&#21035;&#21517;&#20351;&#29992;&#26500;&#36896;&#20989;&#25968;&#21019;&#24314;&#65292;&#31354; <code>shared_ptr</code> &#21487;&#25317;&#26377;&#38750;&#31354;&#30340;&#23384;&#20648;&#25351;&#38024;&#65289;&#12290;</p>
+<p><code>shared_ptr</code> &#30340;&#25152;&#26377;&#29305;&#21270;&#37117;&#28385;&#36275;<a href="cpp-named_req-CopyConstructible.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyConstructible)</span></a> &#12289;<a href="cpp-named_req-CopyAssignable.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#36171;&#20540;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyAssignable)</span></a> &#21644;<a href="cpp-named_req-LessThanComparable.html"><span style="font-style:italic">&#21487;&#23567;&#20110;&#27604;&#36739;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LessThanComparable)</span></a> &#30340;&#35201;&#27714;&#65292;&#24182;<a href="cpp-language-implicit_conversion.html">&#21487;&#25353;&#35821;&#22659;&#36716;&#25442;</a>&#20026; <code>bool</code>&#12290;</p>
+<p>&#22810;&#20010;&#32447;&#31243;&#33021;&#22312;&#19981;&#21516;&#30340; <code>shared_ptr</code> &#23545;&#35937;&#19978;&#35843;&#29992;&#25152;&#26377;&#25104;&#21592;&#20989;&#25968;&#65288;&#21253;&#21547;&#22797;&#21046;&#26500;&#36896;&#20989;&#25968;&#19982;&#22797;&#21046;&#36171;&#20540;&#65289;&#32780;&#19981;&#38468;&#21152;&#21516;&#27493;&#65292;&#21363;&#20351;&#36825;&#20123;&#23454;&#20363;&#26159;&#21516;&#19968;&#23545;&#35937;&#30340;&#21103;&#26412;&#19988;&#20849;&#20139;&#25152;&#26377;&#26435;&#20063;&#26159;&#22914;&#27492;&#12290;&#33509;&#22810;&#20010;&#25191;&#34892;&#32447;&#31243;&#35775;&#38382;&#21516;&#19968; <code>shared_ptr</code> &#23545;&#35937;&#32780;&#19981;&#21516;&#27493;&#65292;&#19988;&#20219;&#19968;&#32447;&#31243;&#20351;&#29992; <code>shared_ptr</code> &#30340;&#38750; const &#25104;&#21592;&#20989;&#25968;&#65292;&#21017;&#23558;&#20986;&#29616;&#25968;&#25454;&#31454;&#20105;&#65307;<a href="cpp-memory-shared_ptr-atomic2.html"><tt>std::atomic&lt;shared_ptr&gt;</tt></a> &#33021;&#29992;&#20110;&#36991;&#20813;&#25968;&#25454;&#31454;&#20105;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E7.B1.BB.E5.9E.8B">&#25104;&#21592;&#31867;&#22411;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#25104;&#21592;&#31867;&#22411;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>element_type</code></td>
+<td>
+<table class="t-rev-begin">
+<tr class="t-rev t-until-cxx17">
+<td><span class="mw-geshi cpp source-cpp">T</span></td>
+<td><span class="t-mark-rev t-until-cxx17" style="white-space: nowrap;">(C++17 &#21069;)</span></td>
+</tr>
+<tr class="t-rev t-since-cxx17">
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-types-remove_extent.html"><span class="kw624">std::<span class="me2">remove_extent_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span></span></td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr class="t-dsc">
+<td><code>weak_type</code> <span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-weak_ptr.html"><span class="kw742">std::<span class="me2">weak_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span></span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-memory-shared_ptr-shared_ptr.html"><span class="t-lines"><span>(&#26500;&#36896;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26500;&#36896;&#26032;&#30340; <code>shared_ptr</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-memory-shared_ptr-~shared_ptr.html"><span class="t-lines"><span>(&#26512;&#26500;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#22914;&#26524;&#27809;&#26377;&#26356;&#22810; <code>shared_ptr</code> &#25351;&#21521;&#25152;&#25345;&#26377;&#30340;&#23545;&#35937;&#65292;&#21017;&#26512;&#26500;&#35813;&#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-shared_ptr-operator=.html"><span class="t-lines"><span>operator=</span></span></a></div>
+</div>
+</td>
+<td>&#23545; <code>shared_ptr</code> &#36171;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E4.BF.AE.E6.94.B9.E5.99.A8">&#20462;&#25913;&#22120;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-shared_ptr-reset.html"><span class="t-lines"><span>reset</span></span></a></div>
+</div>
+</td>
+<td>&#26367;&#25442;&#25152;&#31649;&#29702;&#30340;&#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-shared_ptr-swap.html"><span class="t-lines"><span>swap</span></span></a></div>
+</div>
+</td>
+<td>&#20132;&#25442;&#25152;&#31649;&#29702;&#30340;&#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E8.A7.82.E5.AF.9F.E5.99.A8">&#35266;&#23519;&#22120;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-shared_ptr-get.html"><span class="t-lines"><span>get</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#23384;&#20648;&#30340;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-shared_ptr-operator*.html"><span class="t-lines"><span>operator*</span><span>operator-&gt;</span></span></a></div>
+</div>
+</td>
+<td>&#35299;&#24341;&#29992;&#23384;&#20648;&#30340;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-shared_ptr-operator_at.html"><span class="t-lines"><span>operator[]</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span></span></span></div>
+</div>
+</td>
+<td>&#25552;&#20379;&#21040;&#25152;&#23384;&#20648;&#25968;&#32452;&#30340;&#32034;&#24341;&#35775;&#38382;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-shared_ptr-use_count.html"><span class="t-lines"><span>use_count</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238; <code>shared_ptr</code> &#25152;&#25351;&#23545;&#35937;&#30340;&#24341;&#29992;&#35745;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-shared_ptr-unique.html"><span class="t-lines"><span>unique</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#21069;)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#25152;&#31649;&#29702;&#23545;&#35937;&#26159;&#21542;&#20165;&#30001;&#24403;&#21069; <code>shared_ptr</code> &#30340;&#23545;&#35937;&#31649;&#29702;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-shared_ptr-operator_bool.html"><span class="t-lines"><span>operator bool</span></span></a></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#26159;&#21542;&#26377;&#20851;&#32852;&#30340;&#31649;&#29702;&#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-shared_ptr-owner_before.html"><span class="t-lines"><span>owner_before</span></span></a></div>
+</div>
+</td>
+<td>&#25552;&#20379;&#22522;&#20110;&#25345;&#26377;&#32773;&#30340;&#20849;&#20139;&#25351;&#38024;&#25490;&#24207;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-shared_ptr-owner_hash.html"><span class="t-lines"><span>owner_hash</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26)</span></span></span></div>
+</div>
+</td>
+<td>&#25552;&#20379;&#22522;&#20110;&#25152;&#26377;&#32773;&#30340;&#20849;&#20139;&#25351;&#38024;&#25955;&#21015;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-shared_ptr-owner_equal.html"><span class="t-lines"><span>owner_equal</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26)</span></span></span></div>
+</div>
+</td>
+<td>&#25552;&#20379;&#22522;&#20110;&#25152;&#26377;&#32773;&#30340;&#20849;&#20139;&#25351;&#38024;&#30456;&#31561;&#27604;&#36739;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E9.9D.9E.E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#38750;&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-shared_ptr-make_shared.html"><span class="t-lines"><span>make_shared</span><span>make_shared_for_overwrite</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#21019;&#24314;&#31649;&#29702;&#19968;&#20010;&#26032;&#23545;&#35937;&#30340;&#20849;&#20139;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-shared_ptr-allocate_shared.html"><span class="t-lines"><span>allocate_shared</span><span>allocate_shared_for_overwrite</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#21019;&#24314;&#31649;&#29702;&#19968;&#20010;&#29992;&#20998;&#37197;&#22120;&#20998;&#37197;&#30340;&#26032;&#23545;&#35937;&#30340;&#20849;&#20139;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-shared_ptr-pointer_cast.html"><span class="t-lines"><span>static_pointer_cast</span><span>dynamic_pointer_cast</span><span>const_pointer_cast</span><span>reinterpret_pointer_cast</span></span></a></div>
+<div><span class="t-lines"><span></span><span></span><span></span><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span></span></span></div>
+</div>
+</td>
+<td>&#24212;&#29992; <a href="cpp-language-static_cast.html"><tt>static_cast</tt></a>&#12289;<a href="cpp-language-dynamic_cast.html"><tt>dynamic_cast</tt></a>&#12289;<a href="cpp-language-const_cast.html"><tt>const_cast</tt></a> &#25110; <a href="cpp-language-reinterpret_cast.html"><tt>reinterpret_cast</tt></a> &#21040;&#34987;&#23384;&#20648;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-shared_ptr-get_deleter.html"><span class="t-lines"><span>get_deleter</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#23450;&#31867;&#22411;&#20013;&#30340;&#21024;&#38500;&#22120;&#65292;&#33509;&#20854;&#25317;&#26377;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-shared_ptr-operator_cmp.html"><span class="t-lines"><span>operator==</span><span>operator!=</span><span>operator&lt;</span><span>operator&lt;=</span><span>operator&gt;</span><span>operator&gt;=</span><span>operator&lt;=&gt;</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#31227;&#38500;)</span></span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#31227;&#38500;)</span></span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#31227;&#38500;)</span></span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#31227;&#38500;)</span></span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#31227;&#38500;)</span></span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#19982;&#21478;&#19968;&#20010; <code>shared_ptr</code> &#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp">nullptr</span></span> &#36827;&#34892;&#27604;&#36739;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-shared_ptr-operator_ltlt.html"><span class="t-lines"><span>operator&lt;&lt;</span></span></a></div>
+</div>
+</td>
+<td>&#36755;&#20986;&#23384;&#20648;&#30340;&#25351;&#38024;&#30340;&#20540;&#21040;&#36755;&#20986;&#27969;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-shared_ptr-swap2.html"><span class="t-lines"><span>std::swap<span class="t-dsc-small">(std::shared_ptr)</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#29305;&#21270; <span class="t-lc"><a href="cpp-algorithm-swap.html">std::swap</a></span> &#31639;&#27861;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-shared_ptr-atomic.html"><span class="t-lines"><span>std::atomic_is_lock_free<span class="t-dsc-small">(std::shared_ptr)</span></span><span>std::atomic_load<span class="t-dsc-small">(std::shared_ptr)</span></span><span>std::atomic_load_explicit<span class="t-dsc-small">(std::shared_ptr)</span></span><span>std::atomic_store<span class="t-dsc-small">(std::shared_ptr)</span></span><span>std::atomic_store_explicit<span class="t-dsc-small">(std::shared_ptr)</span></span><span>std::atomic_exchange<span class="t-dsc-small">(std::shared_ptr)</span></span><span>std::atomic_exchange_explicit<span class="t-dsc-small">(std::shared_ptr)</span></span><span>std::atomic_compare_exchange_weak<span class="t-dsc-small">(std::shared_ptr)</span></span><span>std::atomic_compare_exchange_strong<span class="t-dsc-small">(std::shared_ptr)</span></span><span>std::atomic_compare_exchange_weak_explicit<span class="t-dsc-small">(std::shared_ptr)</span></span><span>std::atomic_compare_exchange_strong_explicit<span class="t-dsc-small">(std::shared_ptr)</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-deprecated-cxx20" style="white-space: nowrap;">(C++20 &#24323;&#29992;)</span></span><span><span class="t-mark-rev t-until-cxx26" style="white-space: nowrap;">(C++26 &#31227;&#38500;)</span></span></span></div>
+</div>
+</td>
+<td>&#20026; <code>std::shared_ptr</code> &#29305;&#21270;&#30340;&#21407;&#23376;&#25805;&#20316;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BE.85.E5.8A.A9.E7.B1.BB">&#36741;&#21161;&#31867;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-shared_ptr-atomic2.html"><span class="t-lines"><span>std::atomic<span class="t-dsc-small">&lt;std::shared_ptr&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#21407;&#23376;&#20849;&#20139;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-shared_ptr-hash.html"><span class="t-lines"><span>std::hash<span class="t-dsc-small">&lt;std::shared_ptr&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td><strong class="selflink"><tt>std::shared_ptr</tt></strong> &#30340;&#25955;&#21015;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.8E.A8.E5.AF.BC.E6.8C.87.E5.BC.95_.28C.2B.2B17_.E8.B5.B7.29"><a href="cpp-memory-shared_ptr-deduction_guides.html">&#25512;&#23548;&#25351;&#24341;</a> <span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></span></h3>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#21482;&#33021;&#36890;&#36807;&#22797;&#21046;&#26500;&#36896;&#25110;&#22797;&#21046;&#36171;&#20540;&#20854;&#20540;&#32473;&#21478;&#19968; <code>shared_ptr</code>&#65292;&#23558;&#23545;&#35937;&#25152;&#26377;&#26435;&#19982;&#21478;&#19968; <code>shared_ptr</code> &#20849;&#20139;&#12290;&#29992;&#21478;&#19968; <code>shared_ptr</code> &#25152;&#25345;&#26377;&#30340;&#21407;&#22987;&#24213;&#23618;&#25351;&#38024;&#21019;&#24314;&#26032;&#30340; <code>shared_ptr</code> &#23548;&#33268;&#26410;&#23450;&#20041;&#34892;&#20026;&#12290;</p>
+<p><code>std::shared_ptr</code> &#21487;&#20197;&#29992;&#20110;<a href="cpp-language-type.html#.E4.B8.8D.E5.AE.8C.E6.95.B4.E7.B1.BB.E5.9E.8B">&#19981;&#23436;&#25972;&#31867;&#22411;</a> <code>T</code>&#12290;&#28982;&#32780;&#65292;&#21442;&#25968;&#20026;&#35064;&#25351;&#38024;&#30340;&#26500;&#36896;&#20989;&#25968;&#65288;<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Y<span class="sy1">&gt;</span> shared_ptr<span class="br0">(</span>Y<span class="sy2">*</span><span class="br0">)</span></span></span>&#65289;&#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Y<span class="sy1">&gt;</span> <span class="kw4">void</span> reset<span class="br0">(</span>Y<span class="sy2">*</span><span class="br0">)</span></span></span> &#25104;&#21592;&#20989;&#25968;&#21482;&#21487;&#20197;&#29992;&#25351;&#21521;&#23436;&#25972;&#31867;&#22411;&#30340;&#25351;&#38024;&#35843;&#29992;&#65288;&#27880;&#24847; <span class="t-lc"><a href="cpp-memory-unique_ptr.html">std::unique_ptr</a></span> &#21487;&#20197;&#20174;&#25351;&#21521;&#19981;&#23436;&#25972;&#31867;&#22411;&#30340;&#35064;&#25351;&#38024;&#26500;&#36896;&#65289;&#12290;</p>
+<p><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">shared_ptr</span><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span></span> &#20013;&#30340; <code>T</code> &#21487;&#20197;&#26159;&#20989;&#25968;&#31867;&#22411;&#65306;&#36825;&#31181;&#24773;&#20917;&#19979;&#23427;&#31649;&#29702;&#20989;&#25968;&#25351;&#38024;&#32780;&#38750;&#23545;&#35937;&#25351;&#38024;&#12290;&#26377;&#26102;&#29992;&#36825;&#31181;&#26041;&#24335;&#32500;&#25345;&#21160;&#24577;&#24211;&#25110;&#25554;&#20214;&#30340;&#21152;&#36733;&#65292;&#21482;&#35201;&#20173;&#26377;&#20854;&#20219;&#20309;&#20989;&#25968;&#30340;&#24341;&#29992;&#23384;&#22312;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw4">void</span> del<span class="br0">(</span><span class="kw4">void</span><span class="br0">(</span><span class="sy2">*</span><span class="br0">)</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+ 
+<span class="kw4">void</span> fun<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    std<span class="sy4">::</span><span class="me2">shared_ptr</span><span class="sy1">&lt;</span><span class="kw4">void</span><span class="br0">(</span><span class="br0">)</span><span class="sy1">&gt;</span> ee<span class="br0">(</span>fun, del<span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">(</span><span class="sy2">*</span>ee<span class="br0">)</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<h3><span class="mw-headline" id=".E5.AE.9E.E7.8E.B0.E8.AF.B4.E6.98.8E">&#23454;&#29616;&#35828;&#26126;</span></h3>
+<p>&#22312;&#20856;&#22411;&#30340;&#23454;&#29616;&#20013;&#65292;<span class="t-lc"><strong class="selflink">std::shared_ptr</strong></span> &#21482;&#20445;&#26377;&#20004;&#20010;&#25351;&#38024;&#65306;</p>
+<ul>
+<li>&#25152;&#23384;&#20648;&#30340;&#25351;&#38024;&#65288;<span class="t-lc"><a href="cpp-memory-shared_ptr-get.html">get()</a></span>) &#25152;&#36820;&#22238;&#30340;&#25351;&#38024;&#65289;</li>
+<li>&#25351;&#21521;<i>&#25511;&#21046;&#22359;</i>&#8202;&#65279;&#30340;&#25351;&#38024;</li>
+</ul>
+<p>&#25511;&#21046;&#22359;&#26159;&#19968;&#20010;&#21160;&#24577;&#20998;&#37197;&#30340;&#23545;&#35937;&#65292;&#20854;&#20013;&#21253;&#21547;&#65306;</p>
+<ul>
+<li>&#25351;&#21521;&#34987;&#31649;&#29702;&#23545;&#35937;&#30340;&#25351;&#38024;&#25110;&#34987;&#31649;&#29702;&#23545;&#35937;&#26412;&#36523;</li>
+<li>&#21024;&#38500;&#22120;&#65288;&#31867;&#22411;&#25830;&#38500;&#65289;</li>
+<li>&#20998;&#37197;&#22120;&#65288;&#31867;&#22411;&#25830;&#38500;&#65289;</li>
+<li>&#25345;&#26377;&#34987;&#31649;&#29702;&#23545;&#35937;&#30340; <code>shared_ptr</code> &#30340;&#25968;&#37327;</li>
+<li>&#28041;&#21450;&#34987;&#31649;&#29702;&#23545;&#35937;&#30340; <code>weak_ptr</code> &#30340;&#25968;&#37327;</li>
+</ul>
+<p>&#20197;&#35843;&#29992; <span class="t-lc"><a href="cpp-memory-shared_ptr-make_shared.html">std::make_shared</a></span> &#25110; <span class="t-lc"><a href="cpp-memory-shared_ptr-allocate_shared.html">std::allocate_shared</a></span> &#21019;&#24314; <code>shared_ptr</code> &#26102;&#65292;&#20197;&#21333;&#27425;&#20998;&#37197;&#21019;&#24314;&#25511;&#21046;&#22359;&#21644;&#34987;&#31649;&#29702;&#23545;&#35937;&#12290;&#34987;&#31649;&#29702;&#23545;&#35937;&#22312;&#25511;&#21046;&#22359;&#30340;&#25968;&#25454;&#25104;&#21592;&#20013;&#21407;&#20301;&#26500;&#36896;&#12290;&#36890;&#36807; <code>shared_ptr</code> &#30340;&#26500;&#36896;&#20989;&#25968;&#20043;&#19968;&#21019;&#24314; <code>shared_ptr</code> &#26102;&#65292;&#34987;&#31649;&#29702;&#23545;&#35937;&#21644;&#25511;&#21046;&#22359;&#21482;&#33021;&#20998;&#31163;&#20998;&#37197;&#12290;&#27492;&#24773;&#20917;&#20013;&#65292;&#25511;&#21046;&#22359;&#23384;&#20648;&#25351;&#21521;&#34987;&#31649;&#29702;&#23545;&#35937;&#30340;&#25351;&#38024;&#12290;</p>
+<p><code>shared_ptr</code> &#30452;&#25509;&#25345;&#26377;&#30340;&#25351;&#38024;&#21363;&#26159; <span class="t-lc"><a href="cpp-memory-shared_ptr-get.html">get()</a></span> &#25152;&#36820;&#22238;&#30340;&#25351;&#38024;&#65307;&#32780;&#25511;&#21046;&#22359;&#25152;&#25345;&#26377;&#30340;&#25351;&#38024;/&#23545;&#35937;&#21017;&#26159;&#24341;&#29992;&#35745;&#25968;&#24402;&#38646;&#26102;&#20250;&#34987;&#21024;&#38500;&#30340;&#37027;&#20010;&#12290;&#20004;&#32773;&#24182;&#19981;&#19968;&#23450;&#30456;&#31561;&#12290;</p>
+<p><code>shared_ptr</code> &#30340;&#26512;&#26500;&#20989;&#25968;&#20250;&#23558;&#25511;&#21046;&#22359;&#20013;&#30340;&#20849;&#20139;&#25152;&#26377;&#32773;&#25968;&#37327;&#20943;&#19968;&#65292;&#22914;&#26524;&#35813;&#35745;&#25968;&#22120;&#20943;&#33267;&#38646;&#65292;&#25511;&#21046;&#22359;&#23601;&#20250;&#35843;&#29992;&#34987;&#31649;&#29702;&#23545;&#35937;&#30340;&#26512;&#26500;&#20989;&#25968;&#12290;&#20294;&#25511;&#21046;&#22359;&#26412;&#36523;&#30452;&#21040; <span class="t-lc"><a href="cpp-memory-weak_ptr.html">std::weak_ptr</a></span> &#35745;&#25968;&#22120;&#21516;&#26679;&#24402;&#38646;&#26102;&#20250;&#35299;&#20998;&#37197;&#20854;&#33258;&#36523;&#12290;</p>
+<p>&#26082;&#23384;&#23454;&#29616;&#20013;&#65292;&#33509;&#26377;&#20849;&#20139;&#25351;&#38024;&#25351;&#21521;&#21516;&#19968;&#25511;&#21046;&#22359;&#65292;&#21017;&#20250;&#22686;&#21152;&#24369;&#25351;&#38024;&#35745;&#25968; (<a rel="nofollow" class="external autonumber" href="https://stackoverflow.com/questions/43297517/stdshared-ptr-internals-weak-count-more-than-expected">[1]</a>, <a rel="nofollow" class="external autonumber" href="https://www.reddit.com/r/cpp/comments/3eia29/stdshared_ptrs_secret_constructor/ctfeh1p">[2]</a>)&#12290;</p>
+<p>&#20026;&#28385;&#36275;&#32447;&#31243;&#23433;&#20840;&#35201;&#27714;&#65292;&#24341;&#29992;&#35745;&#25968;&#22120;&#20856;&#22411;&#22320;&#29992;&#31561;&#20215;&#20110;&#20197; <span class="t-lc"><a href="cpp-atomic-memory_order.html">std::memory_order_relaxed</a></span> &#35843;&#29992; <span class="t-lc"><a href="cpp-atomic-atomic-fetch_add.html">std::atomic::fetch_add</a></span> &#36827;&#34892;&#33258;&#22686;&#65288;&#33258;&#20943;&#21017;&#35201;&#27714;&#26356;&#24378;&#30340;&#23450;&#24207;&#65292;&#20197;&#23433;&#20840;&#38144;&#27585;&#25511;&#21046;&#22359;&#65289;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;chrono&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;memory&gt;</span>
+<span class="co2">#include &lt;mutex&gt;</span>
+<span class="co2">#include &lt;thread&gt;</span>
+ 
+<span class="kw1">using</span> <span class="kw1">namespace</span> std<span class="sy4">::</span><span class="me2">chrono_literals</span><span class="sy4">;</span>
+ 
+<span class="kw1">struct</span> Base
+<span class="br0">{</span>
+    Base<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;Base::Base()<span class="es1">\n</span>&quot;</span><span class="sy4">;</span> <span class="br0">}</span>
+ 
+    <span class="co1">// &#27880;&#24847;&#65306;&#27492;&#22788;&#38750;&#34394;&#26512;&#26500;&#20989;&#25968; OK</span>
+    ~Base<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;Base::~Base()<span class="es1">\n</span>&quot;</span><span class="sy4">;</span> <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw1">struct</span> Derived <span class="sy4">:</span> <span class="kw1">public</span> Base
+<span class="br0">{</span>
+    Derived<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;Derived::Derived()<span class="es1">\n</span>&quot;</span><span class="sy4">;</span> <span class="br0">}</span>
+ 
+    ~Derived<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;Derived::~Derived()<span class="es1">\n</span>&quot;</span><span class="sy4">;</span> <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">void</span> print<span class="br0">(</span><span class="kw4">auto</span> rem, std<span class="sy4">::</span><span class="me2">shared_ptr</span><span class="sy1">&lt;</span>Base<span class="sy1">&gt;</span> <span class="kw4">const</span><span class="sy3">&amp;</span> sp<span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> rem <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;<span class="es1">\n</span><span class="es1">\t</span>get() = &quot;</span> <span class="sy1">&lt;&lt;</span> sp.<span class="me1">get</span><span class="br0">(</span><span class="br0">)</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;, use_count() = &quot;</span> <span class="sy1">&lt;&lt;</span> sp.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">void</span> thr<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">shared_ptr</span><span class="sy1">&lt;</span>Base<span class="sy1">&gt;</span> p<span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-thread-sleep_for.html"><span class="kw2152">std::<span class="me2">this_thread</span><span class="sy4">::</span><span class="me2">sleep_for</span></span></a><span class="br0">(</span>987ms<span class="br0">)</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><span class="me2">shared_ptr</span><span class="sy1">&lt;</span>Base<span class="sy1">&gt;</span> lp <span class="sy1">=</span> p<span class="sy4">;</span> <span class="co1">// &#32447;&#31243;&#23433;&#20840;&#65292;&#34429;&#28982;&#33258;&#22686;&#20849;&#20139;&#30340; use_count</span>
+    <span class="br0">{</span>
+        <span class="kw4">static</span> <a href="cpp-thread-mutex.html"><span class="kw2157">std::<span class="me2">mutex</span></span></a> io_mutex<span class="sy4">;</span>
+        <a href="cpp-thread-lock_guard.html"><span class="kw2169">std::<span class="me2">lock_guard</span></span></a><span class="sy1">&lt;</span><a href="cpp-thread-mutex.html"><span class="kw2157">std::<span class="me2">mutex</span></span></a><span class="sy1">&gt;</span> lk<span class="br0">(</span>io_mutex<span class="br0">)</span><span class="sy4">;</span>
+        print<span class="br0">(</span><span class="st0">&quot;&#32447;&#31243;&#20013;&#30340;&#23616;&#37096;&#25351;&#38024;:&quot;</span>, lp<span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    std<span class="sy4">::</span><span class="me2">shared_ptr</span><span class="sy1">&lt;</span>Base<span class="sy1">&gt;</span> p <span class="sy1">=</span> <a href="cpp-memory-shared_ptr-make_shared.html"><span class="kw737">std::<span class="me2">make_shared</span></span></a><span class="sy1">&lt;</span>Derived<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    print<span class="br0">(</span><span class="st0">&quot;&#21019;&#24314;&#20849;&#20139;&#30340; Derived (&#20026; Base &#25351;&#38024;)&quot;</span>, p<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-thread-thread.html"><span class="kw2149">std::<span class="me2">thread</span></span></a> t1<span class="br0">{</span>thr, p<span class="br0">}</span>, t2<span class="br0">{</span>thr, p<span class="br0">}</span>, t3<span class="br0">{</span>thr, p<span class="br0">}</span><span class="sy4">;</span>
+    p.<span class="me1">reset</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#20174; main &#37322;&#25918;&#25152;&#26377;&#26435;</span>
+ 
+    print<span class="br0">(</span><span class="st0">&quot;&#22312; 3 &#20010;&#32447;&#31243;&#38388;&#20849;&#20139;&#25152;&#26377;&#26435;&#24182;&#20174; main &#37322;&#25918;&#25152;&#26377;&#26435;:&quot;</span>, p<span class="br0">)</span><span class="sy4">;</span>
+ 
+    t1.<span class="me1">join</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    t2.<span class="me1">join</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    t3.<span class="me1">join</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#32447;&#31243;&#20840;&#37096;&#24050;&#23436;&#25104;&#65292;&#26368;&#21518;&#19968;&#20010;&#21024;&#38500;&#20102; Derived&#12290;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">Base::Base()
+Derived::Derived()
+&#21019;&#24314;&#20849;&#20139;&#30340; Derived (&#20026; Base &#25351;&#38024;)
+        get() = 0x118ac30, use_count() = 1
+&#22312; 3 &#20010;&#32447;&#31243;&#38388;&#20849;&#20139;&#25152;&#26377;&#26435;&#24182;&#20174; main &#37322;&#25918;&#25152;&#26377;&#26435;:
+        get() = 0, use_count() = 0
+&#32447;&#31243;&#20013;&#30340;&#23616;&#37096;&#25351;&#38024;:
+        get() = 0x118ac30, use_count() = 5
+&#32447;&#31243;&#20013;&#30340;&#23616;&#37096;&#25351;&#38024;:
+        get() = 0x118ac30, use_count() = 4
+&#32447;&#31243;&#20013;&#30340;&#23616;&#37096;&#25351;&#38024;:
+        get() = 0x118ac30, use_count() = 2
+Derived::~Derived()
+Base::~Base()
+&#24050;&#23436;&#25104;&#65292;&#26368;&#21518;&#19968;&#20010;&#21024;&#38500;&#20102; Derived&#12290;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B_2">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;memory&gt;</span>
+ 
+<span class="kw1">struct</span> MyObj
+<span class="br0">{</span>
+    MyObj<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#26500;&#36896; MyObj<span class="es1">\n</span>&quot;</span><span class="sy4">;</span> <span class="br0">}</span>
+ 
+    ~MyObj<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#26512;&#26500; MyObj<span class="es1">\n</span>&quot;</span><span class="sy4">;</span> <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw1">struct</span> Container <span class="sy4">:</span> <a href="cpp-memory-enable_shared_from_this.html"><span class="kw745">std::<span class="me2">enable_shared_from_this</span></span></a><span class="sy1">&lt;</span>Container<span class="sy1">&gt;</span> <span class="co1">// &#27880;: &#20844;&#24320;&#32487;&#25215;</span>
+<span class="br0">{</span>
+    std<span class="sy4">::</span><span class="me2">shared_ptr</span><span class="sy1">&lt;</span>MyObj<span class="sy1">&gt;</span> memberObj<span class="sy4">;</span>
+ 
+    <span class="kw4">void</span> CreateMember<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> memberObj <span class="sy1">=</span> <a href="cpp-memory-shared_ptr-make_shared.html"><span class="kw737">std::<span class="me2">make_shared</span></span></a><span class="sy1">&lt;</span>MyObj<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span>
+ 
+    std<span class="sy4">::</span><span class="me2">shared_ptr</span><span class="sy1">&lt;</span>MyObj<span class="sy1">&gt;</span> GetAsMyObj<span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="co1">// &#20026;&#25104;&#21592;&#20351;&#29992;&#20351;&#29992;&#21035;&#21517; shared_ptr</span>
+        <span class="kw1">return</span> std<span class="sy4">::</span><span class="me2">shared_ptr</span><span class="sy1">&lt;</span>MyObj<span class="sy1">&gt;</span><span class="br0">(</span>shared_from_this<span class="br0">(</span><span class="br0">)</span>, memberObj.<span class="me1">get</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="co2">#define COUT(str) std::cout &lt;&lt; &#39;\n&#39; &lt;&lt; str &lt;&lt; &#39;\n&#39;</span>
+ 
+<span class="co2">#define DEMO(...) std::cout &lt;&lt; #__VA_ARGS__ &lt;&lt; &quot; = &quot; &lt;&lt; __VA_ARGS__ &lt;&lt; &#39;\n&#39;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    COUT<span class="br0">(</span><span class="st0">&quot;&#21019;&#24314;&#20849;&#20139;&#23481;&#22120;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><span class="me2">shared_ptr</span><span class="sy1">&lt;</span>Container<span class="sy1">&gt;</span> cont <span class="sy1">=</span> <a href="cpp-memory-shared_ptr-make_shared.html"><span class="kw737">std::<span class="me2">make_shared</span></span></a><span class="sy1">&lt;</span>Container<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    DEMO<span class="br0">(</span>cont.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    DEMO<span class="br0">(</span>cont<span class="sy2">-</span><span class="sy1">&gt;</span>memberObj.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    COUT<span class="br0">(</span><span class="st0">&quot;&#21019;&#24314;&#25104;&#21592;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    cont<span class="sy2">-</span><span class="sy1">&gt;</span>CreateMember<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    DEMO<span class="br0">(</span>cont.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    DEMO<span class="br0">(</span>cont<span class="sy2">-</span><span class="sy1">&gt;</span>memberObj.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    COUT<span class="br0">(</span><span class="st0">&quot;&#21019;&#24314;&#21478;&#19968;&#20010;&#20849;&#20139;&#23481;&#22120;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><span class="me2">shared_ptr</span><span class="sy1">&lt;</span>Container<span class="sy1">&gt;</span> cont2 <span class="sy1">=</span> cont<span class="sy4">;</span>
+    DEMO<span class="br0">(</span>cont.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    DEMO<span class="br0">(</span>cont<span class="sy2">-</span><span class="sy1">&gt;</span>memberObj.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    DEMO<span class="br0">(</span>cont2.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    DEMO<span class="br0">(</span>cont2<span class="sy2">-</span><span class="sy1">&gt;</span>memberObj.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    COUT<span class="br0">(</span><span class="st0">&quot;GetAsMyObj&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><span class="me2">shared_ptr</span><span class="sy1">&lt;</span>MyObj<span class="sy1">&gt;</span> myobj1 <span class="sy1">=</span> cont<span class="sy2">-</span><span class="sy1">&gt;</span>GetAsMyObj<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    DEMO<span class="br0">(</span>myobj1.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    DEMO<span class="br0">(</span>cont.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    DEMO<span class="br0">(</span>cont<span class="sy2">-</span><span class="sy1">&gt;</span>memberObj.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    DEMO<span class="br0">(</span>cont2.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    DEMO<span class="br0">(</span>cont2<span class="sy2">-</span><span class="sy1">&gt;</span>memberObj.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    COUT<span class="br0">(</span><span class="st0">&quot;&#22797;&#21046;&#21035;&#21517;&#23545;&#35937;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><span class="me2">shared_ptr</span><span class="sy1">&lt;</span>MyObj<span class="sy1">&gt;</span> myobj2 <span class="sy1">=</span> myobj1<span class="sy4">;</span>
+    DEMO<span class="br0">(</span>myobj1.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    DEMO<span class="br0">(</span>myobj2.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    DEMO<span class="br0">(</span>cont.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    DEMO<span class="br0">(</span>cont<span class="sy2">-</span><span class="sy1">&gt;</span>memberObj.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    DEMO<span class="br0">(</span>cont2.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    DEMO<span class="br0">(</span>cont2<span class="sy2">-</span><span class="sy1">&gt;</span>memberObj.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    COUT<span class="br0">(</span><span class="st0">&quot;&#37325;&#32622; cont2&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    cont2.<span class="me1">reset</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    DEMO<span class="br0">(</span>myobj1.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    DEMO<span class="br0">(</span>myobj2.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    DEMO<span class="br0">(</span>cont.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    DEMO<span class="br0">(</span>cont<span class="sy2">-</span><span class="sy1">&gt;</span>memberObj.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    COUT<span class="br0">(</span><span class="st0">&quot;&#37325;&#32622; myobj2&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    myobj2.<span class="me1">reset</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    DEMO<span class="br0">(</span>myobj1.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    DEMO<span class="br0">(</span>cont.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    DEMO<span class="br0">(</span>cont<span class="sy2">-</span><span class="sy1">&gt;</span>memberObj.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    COUT<span class="br0">(</span><span class="st0">&quot;&#37325;&#32622; cont&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    cont.<span class="me1">reset</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    DEMO<span class="br0">(</span>myobj1.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    DEMO<span class="br0">(</span>cont.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#21019;&#24314;&#20849;&#20139;&#23481;&#22120;
+cont.use_count() = 1
+cont-&gt;memberObj.use_count() = 0
+ 
+&#21019;&#24314;&#25104;&#21592;
+&#26500;&#36896; MyObj
+cont.use_count() = 1
+cont-&gt;memberObj.use_count() = 1
+ 
+&#21019;&#24314;&#21478;&#19968;&#20010;&#20849;&#20139;&#23481;&#22120;
+cont.use_count() = 2
+cont-&gt;memberObj.use_count() = 1
+cont2.use_count() = 2
+cont2-&gt;memberObj.use_count() = 1
+ 
+GetAsMyObj
+myobj1.use_count() = 3
+cont.use_count() = 3
+cont-&gt;memberObj.use_count() = 1
+cont2.use_count() = 3
+cont2-&gt;memberObj.use_count() = 1
+ 
+&#22797;&#21046;&#21035;&#21517;&#23545;&#35937;
+myobj1.use_count() = 4
+myobj2.use_count() = 4
+cont.use_count() = 4
+cont-&gt;memberObj.use_count() = 1
+cont2.use_count() = 4
+cont2-&gt;memberObj.use_count() = 1
+ 
+&#37325;&#32622; cont2
+myobj1.use_count() = 3
+myobj2.use_count() = 3
+cont.use_count() = 3
+cont-&gt;memberObj.use_count() = 1
+ 
+&#37325;&#32622; myobj2
+myobj1.use_count() = 2
+cont.use_count() = 2
+cont-&gt;memberObj.use_count() = 1
+ 
+&#37325;&#32622; cont
+myobj1.use_count() = 1
+cont.use_count() = 0
+&#26512;&#26500; MyObj</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-unique_ptr.html"><span class="t-lines"><span>unique_ptr</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#25317;&#26377;&#29420;&#26377;&#23545;&#35937;&#25152;&#26377;&#26435;&#35821;&#20041;&#30340;&#26234;&#33021;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-weak_ptr.html"><span class="t-lines"><span>weak_ptr</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#21040; <span class="t-lc"><strong class="selflink">std::shared_ptr</strong></span> &#25152;&#31649;&#29702;&#23545;&#35937;&#30340;&#24369;&#24341;&#29992;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

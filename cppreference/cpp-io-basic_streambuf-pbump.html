@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::basic_streambuf&lt;CharT,Traits&gt;::pbump</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_io_basic_streambuf_pbump skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::basic_streambuf&lt;CharT,Traits&gt;::</span>pbump</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-io.html">io</a>&lrm; | <a href="cpp-io-basic_streambuf.html">basic streambuf</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">protected</span><span class="sy4">:</span><br />
+<span class="kw4">void</span> pbump<span class="br0">(</span> <span class="kw4">int</span> count <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#37325;&#23547;&#20301;<i>&#25918;&#32622;&#25351;&#38024;</i>&#65288;<span class="t-lc"><a href="cpp-io-basic_streambuf-pptr.html">pptr()</a></span>&#65289;<span class="t-c"><span class="mw-geshi cpp source-cpp">count</span></span> &#20010;&#23383;&#31526;&#65292;&#20854;&#20013; <span class="t-c"><span class="mw-geshi cpp source-cpp">count</span></span> &#21487;&#20026;&#27491;&#25110;&#36127;&#12290;&#19981;&#23545;&#23558;&#25351;&#38024;&#31227;&#20986;&#25918;&#32622;&#21306; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">pbase<span class="br0">(</span><span class="br0">)</span></span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">epptr<span class="br0">(</span><span class="br0">)</span></span></span><code>)</code> &#20570;&#26816;&#26597;&#12290;</p>
+<p>&#33509;&#25351;&#38024;&#21069;&#36827;&#65292;&#28982;&#21518;&#35843;&#29992; <span class="t-lc"><a href="cpp-io-basic_streambuf-overflow.html">overflow()</a></span> &#20914;&#20837;&#25918;&#32622;&#21306;&#21040;&#20851;&#32852;&#23383;&#31526;&#24207;&#21015;&#65292;&#21017;&#25928;&#26524;&#26159;&#36755;&#20986;&#25317;&#26377;&#26410;&#23450;&#20041;&#20540;&#30340;&#39069;&#22806; <span class="t-c"><span class="mw-geshi cpp source-cpp">count</span></span> &#20010;&#23383;&#31526;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>count</td>
+<td>-</td>
+<td>&#21152;&#21040;&#25918;&#32622;&#25351;&#38024;&#30340;&#25968;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#22240;&#20026;&#27492;&#20989;&#25968;&#25509;&#25910; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">int</span></span></span>&#65292;&#25925;&#23427;&#26080;&#27861;&#25805;&#32437;&#22823;&#20110; <code>std::numeric_limits&lt;int&gt;::max()</code> &#20010;&#23383;&#31526;&#30340;&#32531;&#20914;&#21306;&#65288;<a rel="nofollow" class="external text" href="http://wg21.link/lwg255">LWG 255</a>&#65289;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;fstream&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+ 
+<span class="kw1">struct</span> showput_streambuf <span class="sy4">:</span> <a href="cpp-io-basic_filebuf.html"><span class="kw1729">std::<span class="me2">filebuf</span></span></a>
+<span class="br0">{</span>
+    <span class="kw1">using</span> std<span class="sy4">::</span><span class="me2">filebuf</span><span class="sy4">::</span><span class="me2">pbump</span><span class="sy4">;</span> <span class="co1">// &#26292;&#38706;&#21463;&#20445;&#25252;&#20989;&#25968;</span>
+    <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a> showput<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span>
+    <span class="br0">{</span>
+        <span class="kw1">return</span> <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="br0">(</span>pbase<span class="br0">(</span><span class="br0">)</span>, pptr<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    showput_streambuf mybuf<span class="sy4">;</span>
+    mybuf.<span class="me1">open</span><span class="br0">(</span><span class="st0">&quot;test.txt&quot;</span>, <a href="cpp-io-ios_base-openmode.html"><span class="kw1679">std::<span class="me2">ios_base</span><span class="sy4">::</span><span class="me2">out</span></span></a><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-basic_ostream.html"><span class="kw1733">std::<span class="me2">ostream</span></span></a> str<span class="br0">(</span><span class="sy3">&amp;</span>mybuf<span class="br0">)</span><span class="sy4">;</span>
+    str <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;This is a test&quot;</span> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-flush.html"><span class="kw1794">std::<span class="me2">flush</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;1234&quot;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;The put area contains: &quot;</span> <span class="sy1">&lt;&lt;</span> mybuf.<span class="me1">showput</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    mybuf.<span class="me1">pbump</span><span class="br0">(</span><span class="nu0">10</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;after pbump(10), it contains &quot;</span> <span class="sy1">&lt;&lt;</span> mybuf.<span class="me1">showput</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">The put area contains: 1234
+after pbump(10), it contains 1234 is a test</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-gbump.html"><span class="t-lines"><span>gbump</span></span></a></div>
+</div>
+</td>
+<td>&#25512;&#36827;&#36755;&#20986;&#24207;&#21015;&#20013;&#30340;&#19979;&#19968;&#20301;&#32622;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

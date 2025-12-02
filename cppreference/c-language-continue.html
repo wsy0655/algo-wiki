@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>continue&#35821;&#21477;</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_language_continue skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">continue&#35821;&#21477;</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-language.html">language</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<p>&#23548;&#33268;&#36339;&#36807;&#25972;&#20010; <a href="c-language-for.html">for</a>&#12289; <a href="c-language-while.html">while</a> &#25110; <a href="c-language-do.html">do-while</a> &#24490;&#29615;&#20307;&#30340;&#21097;&#20313;&#37096;&#20998;&#12290;</p>
+<p>&#22312;&#20351;&#29992;&#26465;&#20214;&#35821;&#21477;&#24573;&#30053;&#24490;&#29615;&#21097;&#20313;&#37096;&#20998;&#26174;&#24471;&#31528;&#25305;&#26102;&#20351;&#29992;&#12290;</p>
+<h3><span class="mw-headline" id=".E8.AF.AD.E6.B3.95">&#35821;&#27861;</span></h3>
+<table class="t-sdsc-begin">
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td class="t-sdsc-nopad"><span class="t-spar">&#23646;&#24615;&#35828;&#26126;&#31526;&#24207;&#21015;</span><span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <code><b>continue</b></code> <code><b>;</b></code></td>
+<td class="t-sdsc-nopad"></td>
+<td class="t-sdsc-nopad"></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+</table>
+<table class="t-par-begin">
+<tr class="t-par">
+<td><span class="t-spar">&#23646;&#24615;&#35828;&#26126;&#31526;&#24207;&#21015;</span></td>
+<td>-</td>
+<td><span class="t-mark-rev t-since-c23" style="white-space: nowrap;">(C23)</span>&#21487;&#36873;&#30340;<a href="c-language-attributes.html">&#23646;&#24615;</a>&#21015;&#34920;&#65292;&#24212;&#29992;&#21040; <code>continue</code> &#35821;&#21477;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.A7.A3.E9.87.8A">&#35299;&#37322;</span></h3>
+<p><code>continue</code> &#35821;&#21477;&#23548;&#33268;&#22914;&#21516;&#29992; <a href="c-language-goto.html">goto</a> &#36339;&#36716;&#21040;&#24490;&#29615;&#20307;&#30340;&#32467;&#23614;&#65288;&#23427;&#20165;&#33021;&#20986;&#29616;&#22312; <a href="c-language-for.html">for</a>&#12289; <a href="c-language-while.html">while</a> &#21450; <a href="c-language-do.html">do-while</a> &#30340;&#24490;&#29615;&#20307;&#20869;&#65289;&#12290;</p>
+<p>&#23545;&#20110; <a href="c-language-while.html">while</a> &#24490;&#29615;&#65292;&#23427;&#34920;&#29616;&#20026;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="kw1">while</span> <span class="br0">(</span><span class="coMULTI">/* ... */</span><span class="br0">)</span> <span class="br0">{</span>
+   <span class="co1">// ... </span>
+   <span class="kw1">continue</span><span class="sy4">;</span> <span class="co1">// &#34920;&#29616;&#20026; goto contin;</span>
+   <span class="co1">// ... </span>
+   contin<span class="sy4">:;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#23545;&#20110; <a href="c-language-do.html">do-while</a> &#24490;&#29615;&#65292;&#23427;&#34920;&#29616;&#20026;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="kw1">do</span> <span class="br0">{</span>
+    <span class="co1">// ... </span>
+    <span class="kw1">continue</span><span class="sy4">;</span> <span class="co1">// &#34920;&#29616;&#20026; goto contin;</span>
+    <span class="co1">// ... </span>
+    contin<span class="sy4">:;</span>
+<span class="br0">}</span> <span class="kw1">while</span> <span class="br0">(</span><span class="coMULTI">/* ... */</span><span class="br0">)</span><span class="sy4">;</span></pre></div>
+</div>
+<p>&#23545;&#20110; <a href="c-language-for.html">for</a> &#24490;&#29615;&#65292;&#23427;&#34920;&#29616;&#20026;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="kw1">for</span> <span class="br0">(</span><span class="coMULTI">/* ... */</span><span class="br0">)</span> <span class="br0">{</span>
+    <span class="co1">// ... </span>
+    <span class="kw1">continue</span><span class="sy4">;</span> <span class="co1">// &#34920;&#29616;&#20026; goto contin;</span>
+    <span class="co1">// ... </span>
+    contin<span class="sy4">:;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<h3><span class="mw-headline" id=".E5.85.B3.E9.94.AE.E8.AF.8D">&#20851;&#38190;&#35789;</span></h3>
+<p><a href="c-keyword-continue.html"><tt>continue</tt></a></p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span> 
+<span class="br0">{</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> i <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span> i <span class="sy1">&lt;</span> <span class="nu0">10</span><span class="sy4">;</span> i<span class="sy2">++</span><span class="br0">)</span> <span class="br0">{</span>
+        <span class="kw1">if</span> <span class="br0">(</span>i <span class="sy3">!</span><span class="sy1">=</span> <span class="nu0">5</span><span class="br0">)</span> <span class="kw1">continue</span><span class="sy4">;</span>
+        <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;%d &quot;</span>, i<span class="br0">)</span><span class="sy4">;</span>             <span class="co1">// &#27599;&#27425; i != 5 &#26102;&#36339;&#36807;&#27492;&#35821;&#21477;</span>
+    <span class="br0">}</span>
+ 
+    <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> j <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span> j <span class="sy1">&lt;</span> <span class="nu0">2</span><span class="sy4">;</span> j<span class="sy2">++</span><span class="br0">)</span> <span class="br0">{</span>
+        <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> k <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span> k <span class="sy1">&lt;</span> <span class="nu0">5</span><span class="sy4">;</span> k<span class="sy2">++</span><span class="br0">)</span> <span class="br0">{</span> <span class="co1">// &#21482;&#26377;&#27492;&#24490;&#29615;&#21463; continue &#24433;&#21709;</span>
+            <span class="kw1">if</span> <span class="br0">(</span>k <span class="sy1">==</span> <span class="nu0">3</span><span class="br0">)</span> <span class="kw1">continue</span><span class="sy4">;</span>
+            <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;%d%d &quot;</span>, j, k<span class="br0">)</span><span class="sy4">;</span>    <span class="co1">// &#27599;&#27425; k == 3 &#26102;&#36339;&#36807;&#27492;&#35821;&#21477;</span>
+        <span class="br0">}</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">5
+00 01 02 04 10 11 12 14</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>6.8.6.2 The continue statement &#65288;&#31532; 111 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>6.8.6.2 The continue statement &#65288;&#31532; 153 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c99">
+<ul>
+<li>C99 &#26631;&#20934;&#65288;ISO/IEC 9899:1999&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>6.8.6.2 The continue statement &#65288;&#31532; 138 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c89">
+<ul>
+<li>C89/C90 &#26631;&#20934;&#65288;ISO/IEC 9899:1990&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>3.6.6.2 The continue statement</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class=""><span><code>continue</code> &#35821;&#21477;</span></span>&#30340; <span><span><a href="cpp-language-continue.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

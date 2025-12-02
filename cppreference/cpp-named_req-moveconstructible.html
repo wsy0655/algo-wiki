@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>C++ &#20855;&#21517;&#35201;&#27714;&#65306;&#21487;&#31227;&#21160;&#26500;&#36896; (MoveConstructible) (C++11 &#36215;)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_named_req_MoveConstructible skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">C++ &#20855;&#21517;&#35201;&#27714;&#65306;</span><span style="font-style:italic">&#21487;&#31227;&#21160;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(MoveConstructible)</span> <span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-named_req.html">named req</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<p>&#25351;&#23450;&#35813;&#31867;&#22411;&#30340;&#23454;&#20363;&#21487;&#20197;&#20174;&#19968;&#20010;<a href="cpp-language-value_category.html">&#21491;&#20540;</a>&#23454;&#21442;&#26500;&#36896;&#12290;</p>
+<h3><span class="mw-headline" id=".E8.A6.81.E6.B1.82">&#35201;&#27714;</span></h3>
+<p>&#20197;&#19979;&#24773;&#20917;&#19979;&#65292;&#31867;&#22411; <code>T</code> &#28385;&#36275;<span style="font-style:italic">&#21487;&#31227;&#21160;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(MoveConstructible)</span> &#65306;</p>
+<p>&#32473;&#23450;</p>
+<ul>
+<li><code>T</code> &#31867;&#22411;&#30340;<a href="cpp-language-value_category.html">&#21491;&#20540;&#34920;&#36798;&#24335;</a> <code>rv</code></li>
+<li>&#20219;&#24847;&#26631;&#35782;&#31526; <code>u</code></li>
+</ul>
+<p>&#19979;&#21015;&#34920;&#36798;&#24335;&#24517;&#39035;&#21512;&#27861;&#19988;&#25317;&#26377;&#20854;&#25351;&#23450;&#30340;&#25928;&#26524;&#12290;</p>
+<table class="wikitable">
+<tr>
+<th>&#34920;&#36798;&#24335;</th>
+<th>&#21518;&#26465;&#20214;</th>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">T u <span class="sy1">=</span> rv<span class="sy4">;</span></span></span></td>
+<td><code>u</code> &#30340;&#20540;&#31561;&#20110; <code>rv</code> &#22312;&#21021;&#22987;&#21270;&#21069;&#30340;&#20540;&#12290;<code>rv</code> &#30340;&#26032;&#20540;&#26410;&#25351;&#26126;&#12290;</td>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">T<span class="br0">(</span>rv<span class="br0">)</span></span></span></td>
+<td><code>T(rv)</code> &#30340;&#20540;&#31561;&#20110; <code>rv</code> &#22312;&#21021;&#22987;&#21270;&#21069;&#30340;&#20540;&#12290;<code>rv</code> &#30340;&#26032;&#20540;&#26410;&#25351;&#26126;&#12290;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#31867;&#19981;&#24517;&#20026;&#28385;&#36275;&#27492;&#35201;&#27714;&#32780;&#23454;&#29616;<a href="cpp-language-move_constructor.html">&#31227;&#21160;&#26500;&#36896;&#20989;&#25968;</a>&#65306;&#25509;&#25910; <code>const T&amp;</code> &#23454;&#21442;&#30340;<a href="cpp-language-copy_constructor.html">&#22797;&#21046;&#26500;&#36896;&#20989;&#25968;</a>&#20063;&#33021;&#32465;&#23450;&#21491;&#20540;&#34920;&#36798;&#24335;&#12290;</p>
+<p>&#33509;<span style="font-style:italic">&#21487;&#31227;&#21160;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(MoveConstructible)</span> &#31867;&#23454;&#29616;&#20102;&#31227;&#21160;&#26500;&#36896;&#20989;&#25968;&#65292;&#21017;&#23427;&#20134;&#21487;&#23454;&#29616;<a href="cpp-utility-move.html">&#31227;&#21160;&#35821;&#20041;</a>&#65292;&#20197;&#20174;&ldquo;&#26500;&#36896;&#21518; <code>rv</code> &#30340;&#20540;&#26410;&#25351;&#26126;&rdquo;&#30340;&#20107;&#23454;&#20013;&#33719;&#21033;&#12290;</p>
+<div style="margin-left:0px">
+<table class="mw-collapsible mw-collapsed" style="background: transparent; text-align: left; border: 1px solid silver; margin: 0.2em auto auto; width:100%; clear: both; padding: 1px;">
+<tr>
+<th style="background: #F0F2F5; font-size:87%; padding:0.2em 0.3em; text-align:center;"><span style="font-size:115%">&#24310;&#20280;&#20869;&#23481;</span></th>
+</tr>
+<tr>
+<td style="border: solid 1px silver; padding: 8px; background: white;">
+<p>&#20316;&#20026;<span style="font-style:italic">&#21487;&#31227;&#21160;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(MoveConstructible)</span> &#30340;&#31867;&#34164;&#21547; <span class="t-lc"><a href="cpp-types-is_move_constructible.html">std::is_move_constructible</a></span>&#65292;&#20294;&#21453;&#20043;&#19981;&#28982;&#65292;&#22240;&#20026; <span class="t-lc"><a href="cpp-types-is_move_constructible.html">std::is_move_constructible</a></span> &#20165;&#26816;&#26597;&#20197;&#27491;&#30830;&#23454;&#21442;&#35843;&#29992;&#26500;&#36896;&#20989;&#25968;&#30340;&#33021;&#21147;&#65292;&#32780;&#19981;&#26816;&#26597;&#21518;&#26465;&#20214;&#30340;&#20540;&#12290;</p>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+ 
+<span class="kw1">struct</span> S
+<span class="br0">{</span>
+    <span class="kw4">int</span> n<span class="sy4">;</span>
+    S<span class="br0">(</span><span class="kw4">int</span> in<span class="br0">)</span> <span class="sy4">:</span> n<span class="br0">{</span>in<span class="br0">}</span> <span class="br0">{</span><span class="br0">}</span>
+    S<span class="br0">(</span>S<span class="sy3">&amp;&amp;</span> other<span class="br0">)</span> <span class="br0">{</span> n <span class="sy1">=</span> other.<span class="me1">n</span> <span class="sy2">+</span> <span class="nu0">1</span><span class="sy4">;</span> <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+static_assert<span class="br0">(</span><a href="cpp-types-is_move_constructible.html"><span class="kw546">std::<span class="me2">is_move_constructible_v</span></span></a><span class="sy1">&lt;</span>S<span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    S v<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;v.n = &quot;</span> <span class="sy1">&lt;&lt;</span> v.<span class="me1">n</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    S u <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>v<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#31867; `S` &#24182;&#19981;&#28385;&#36275;&#21487;&#31227;&#21160;&#26500;&#36896;&#65288;MoveConstructible&#65289;&#30340;&#35201;&#27714;</span>
+    <span class="co1">// `u` &#30340;&#20540;*&#24182;&#19981;*&#31561;&#20215;&#20110; `v` &#22312;&#21021;&#22987;&#21270; `u` &#20043;&#21069;&#30340;&#20540;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;u.n = &quot;</span> <span class="sy1">&lt;&lt;</span> u.<span class="me1">n</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">v.n = 1
+u.n = 2</pre></div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div style="margin-left:0px">
+<table class="mw-collapsible mw-collapsed" style="background: transparent; text-align: left; border: 1px solid silver; margin: 0.2em auto auto; width:100%; clear: both; padding: 1px;">
+<tr>
+<th style="background: #F0F2F5; font-size:87%; padding:0.2em 0.3em; text-align:center;"><span style="font-size:115%">&#24310;&#20280;&#20869;&#23481;</span></th>
+</tr>
+<tr>
+<td style="border: solid 1px silver; padding: 8px; background: white;">
+<div class="t-ref-std-c++23">
+<ul>
+<li>C++23 &#26631;&#20934;&#65288;ISO/IEC 14882:2024&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>16.4.4.2 Template argument requirements [utility.arg.requirements]</li>
+</ul>
+</dd>
+</dl>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-types-is_move_constructible.html"><span class="t-lines"><span>is_move_constructible</span><span>is_trivially_move_constructible</span><span>is_nothrow_move_constructible</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#31867;&#22411;&#26159;&#21542;&#33021;&#20174;&#21491;&#20540;&#24341;&#29992;&#26500;&#36896;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-concepts-move_constructible.html"><span class="t-lines"><span>move_constructible</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#25351;&#23450;&#33021;&#31227;&#21160;&#26500;&#36896;&#19968;&#20010;&#31867;&#22411;&#30340;&#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#27010;&#24565;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

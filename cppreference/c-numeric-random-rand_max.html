@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>RAND_MAX</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_numeric_random_RAND_MAX skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">RAND_MAX</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-numeric.html">numeric</a>&lrm; | <a href="c-numeric-random.html">random</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-stdlib.html"><tt>&lt;stdlib.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi c source-c"><span class="co2">#define RAND_MAX /* &#30001;&#23454;&#29616;&#23450;&#20041; */</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#23637;&#24320;&#25104;&#31561;&#20110;&#20989;&#25968; <span class="t-lc"><a href="c-numeric-random-rand.html">rand()</a></span> &#26368;&#22823;&#36820;&#22238;&#20540;&#30340;&#25972;&#25968;&#24120;&#37327;&#34920;&#36798;&#24335;&#12290;&#27492;&#20540;&#20026;&#23454;&#29616;&#23450;&#20041;&#12290;&#26631;&#20934;&#20445;&#35777;&#27492;&#20540;&#33267;&#23569;&#20026; <span class="t-c"><span class="mw-geshi c source-c"><span class="nu0">32767</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#include &lt;limits.h&gt;</span>
+<span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#include &lt;stdlib.h&gt;</span>
+<span class="co2">#include &lt;time.h&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="c-numeric-random-srand.html"><span class="kw740">srand</span></a><span class="br0">(</span><a href="c-chrono-time.html"><span class="kw513">time</span></a><span class="br0">(</span><a href="c-types-NULL.html"><span class="kw103">NULL</span></a><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#20351;&#29992;&#24403;&#21069;&#26102;&#38388;&#20316;&#20026;&#38543;&#26426;&#25968;&#29983;&#25104;&#22120;&#30340;&#31181;&#23376;</span>
+    <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;RAND_MAX: %i<span class="es1">\n</span>&quot;</span>, RAND_MAX<span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;INT_MAX: %i<span class="es1">\n</span>&quot;</span>, <a href="c-types-limits.html"><span class="kw364">INT_MAX</span></a><span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;Random value on [0,1]: %f<span class="es1">\n</span>&quot;</span>, <span class="br0">(</span><span class="kw4">double</span><span class="br0">)</span><a href="c-numeric-random-rand.html"><span class="kw741">rand</span></a><span class="br0">(</span><span class="br0">)</span> <span class="sy2">/</span> RAND_MAX<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">RAND_MAX: 2147483647
+INT_MAX: 2147483647
+Random value on [0,1]: 0.362509</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.22/3 General utilities &lt;stdlib.h&gt; &#65288;&#31532; 248 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.22/3 General utilities &lt;stdlib.h&gt; &#65288;&#31532; 340 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c99">
+<ul>
+<li>C99 &#26631;&#20934;&#65288;ISO/IEC 9899:1999&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.20/3 General utilities &lt;stdlib.h&gt; &#65288;&#31532; 306 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c89">
+<ul>
+<li>C89/C90 &#26631;&#20934;&#65288;ISO/IEC 9899:1990&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>4.10 GENERAL UTILITIES &lt;stdlib.h&gt;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-numeric-random-rand.html"><span class="t-lines"><span>rand</span></span></a></div>
+</div>
+</td>
+<td>&#20135;&#29983;&#19968;&#20010;&#20266;&#38543;&#26426;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-numeric-random-srand.html"><span class="t-lines"><span>srand</span></span></a></div>
+</div>
+</td>
+<td>&#25773;&#31181;&#20266;&#38543;&#26426;&#25968;&#29983;&#25104;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>RAND_MAX</span></span>&nbsp;&#30340; <span><span><a href="cpp-numeric-random-RAND_MAX.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

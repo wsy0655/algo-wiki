@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::formatter</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_utility_format_formatter skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>formatter</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-utility.html">utility</a>&lrm; | <a href="cpp-utility-format.html">format</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-format.html">&lt;format&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span> CharT <span class="sy1">=</span> <span class="kw4">char</span> <span class="sy1">&gt;</span><br />
+<span class="kw1">struct</span> formatter<span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>std::formatter</code> &#30340;&#34987;&#21551;&#29992;&#29305;&#21270;&#23545;&#32473;&#23450;&#31867;&#22411;&#23450;&#20041;&#26684;&#24335;&#21270;&#35268;&#21017;&#12290;&#34987;&#21551;&#29992;&#29305;&#21270;&#28385;&#36275;<a href="cpp-named_req-BasicFormatter.html"><span style="font-style:italic">&#22522;&#26412;&#26684;&#24335;&#21270;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(BasicFormatter)</span></a> &#65292;&#24182;&#19988;&#38500;&#38750;&#21478;&#26377;&#35268;&#23450;&#65292;&#21542;&#21017;&#20063;&#28385;&#36275;<a href="cpp-named_req-Formatter.html"><span style="font-style:italic">&#26684;&#24335;&#21270;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(Formatter)</span></a> &#12290;</p>
+<p>&#23545;&#27599;&#32452;&#26410;&#23545;&#20854;&#21551;&#29992;&#29305;&#21270; <code>std::formatter&lt;T, CharT&gt;</code> &#30340;&#31867;&#22411; <code>T</code> &#19982; <code>CharT</code>&#65292;&#35813;&#29305;&#21270;&#26159;&#23436;&#25972;&#31867;&#22411;&#19988;&#34987;&#31105;&#29992;&#12290;</p>
+<p>&#34987;&#31105;&#29992;&#29305;&#21270;&#19981;&#28385;&#36275;<a href="cpp-named_req-Formatter.html"><span style="font-style:italic">&#26684;&#24335;&#21270;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(Formatter)</span></a> &#65292;&#19988;&#19979;&#21015;&#20540;&#37117;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#65306;</p>
+<ul>
+<li><span class="t-lc"><a href="cpp-types-is_default_constructible.html">std::is_default_constructible_v</a></span></li>
+<li><span class="t-lc"><a href="cpp-types-is_copy_constructible.html">std::is_copy_constructible_v</a></span></li>
+<li><span class="t-lc"><a href="cpp-types-is_move_constructible.html">std::is_move_constructible_v</a></span></li>
+<li><span class="t-lc"><a href="cpp-types-is_copy_assignable.html">std::is_copy_assignable_v</a></span></li>
+<li><span class="t-lc"><a href="cpp-types-is_move_assignable.html">std::is_move_assignable_v</a></span></li>
+</ul>
+<h3><span class="mw-headline" id=".E5.9F.BA.E6.9C.AC.E7.9A.84.E6.A0.87.E5.87.86.E7.89.B9.E5.8C.96">&#22522;&#26412;&#30340;&#26631;&#20934;&#29305;&#21270;</span></h3>
+<p>&#20197;&#19979;&#21015;&#34920;&#20013;&#65292;<code>CharT</code> &#26159; <span class="mw-geshi cpp source-cpp"><span class="kw4">char</span></span> &#25110; <span class="mw-geshi cpp source-cpp"><span class="kw4">wchar_t</span></span>&#65292;<code>ArithmeticT</code> &#26159;&#38500;&#20102; <span class="mw-geshi cpp source-cpp"><span class="kw4">char</span></span>&#12289;<span class="mw-geshi cpp source-cpp"><span class="kw4">wchar_t</span></span>&#12289;<span class="mw-geshi cpp source-cpp">char8_t</span>&#12289;<span class="mw-geshi cpp source-cpp"><span class="kw4">char16_t</span></span> &#25110; <span class="mw-geshi cpp source-cpp"><span class="kw4">char32_t</span></span> &#20043;&#22806;&#30340;&#20219;&#20309;&#26080; cv &#38480;&#23450;&#30340;&#31639;&#26415;&#31867;&#22411;&#12290;</p>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl-h">
+<td>
+<div>&#23383;&#31526;&#26684;&#24335;&#21270;&#22120;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;&gt;</span><br />
+<span class="kw1">struct</span> formatter<span class="sy1">&lt;</span><span class="kw4">char</span>, <span class="kw4">char</span><span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;&gt;</span><br />
+<span class="kw1">struct</span> formatter<span class="sy1">&lt;</span><span class="kw4">char</span>, <span class="kw4">wchar_t</span><span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;&gt;</span><br />
+<span class="kw1">struct</span> formatter<span class="sy1">&lt;</span><span class="kw4">wchar_t</span>, <span class="kw4">wchar_t</span><span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(3)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-h">
+<td>
+<div>&#23383;&#31526;&#20018;&#26684;&#24335;&#21270;&#22120;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;&gt;</span><br />
+<span class="kw1">struct</span> formatter<span class="sy1">&lt;</span>CharT<span class="sy2">*</span>, CharT<span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(4)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;&gt;</span><br />
+<span class="kw1">struct</span> formatter<span class="sy1">&lt;</span><span class="kw4">const</span> CharT<span class="sy2">*</span>, CharT<span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(5)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> N <span class="sy1">&gt;</span><br />
+<span class="kw1">struct</span> formatter<span class="sy1">&lt;</span>CharT<span class="br0">[</span>N<span class="br0">]</span>, CharT<span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(6)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Traits, <span class="kw1">class</span> Alloc <span class="sy1">&gt;</span><br />
+<span class="kw1">struct</span> formatter<span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1231">std::<span class="me2">basic_string</span></span></a><span class="sy1">&lt;</span>CharT, Traits, Alloc<span class="sy1">&gt;</span>, CharT<span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(7)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Traits <span class="sy1">&gt;</span><br />
+<span class="kw1">struct</span> formatter<span class="sy1">&lt;</span><a href="cpp-string-basic_string_view.html"><span class="kw1249">std::<span class="me2">basic_string_view</span></span></a><span class="sy1">&lt;</span>CharT, Traits<span class="sy1">&gt;</span>, CharT<span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(8)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-h">
+<td>
+<div>&#31639;&#26415;&#26684;&#24335;&#21270;&#22120;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;&gt;</span><br />
+<span class="kw1">struct</span> formatter<span class="sy1">&lt;</span>ArithmeticT, CharT<span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(9)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-h">
+<td>
+<div>&#25351;&#38024;&#26684;&#24335;&#21270;&#22120;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;&gt;</span><br />
+<span class="kw1">struct</span> formatter<span class="sy1">&lt;</span><a href="cpp-types-nullptr_t.html"><span class="kw109">std::<span class="me2">nullptr_t</span></span></a>, CharT<span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(10)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;&gt;</span><br />
+<span class="kw1">struct</span> formatter<span class="sy1">&lt;</span><span class="kw4">void</span><span class="sy2">*</span>, CharT<span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(11)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;&gt;</span><br />
+<span class="kw1">struct</span> formatter<span class="sy1">&lt;</span><span class="kw4">const</span> <span class="kw4">void</span><span class="sy2">*</span>, CharT<span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(12)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#38024;&#23545;&#20854;&#20182;&#25351;&#38024;&#21644;&#25104;&#21592;&#25351;&#38024;&#30340;&#26684;&#24335;&#21270;&#22120;&#34987;&#31105;&#29992;&#12290;</p>
+<p>&#22914; <span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">formatter</span><span class="sy1">&lt;</span><span class="kw4">wchar_t</span>, <span class="kw4">char</span><span class="sy1">&gt;</span></span> &#21644; <span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">formatter</span><span class="sy1">&lt;</span><span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span>, <span class="kw4">wchar_t</span><span class="sy1">&gt;</span></span> &#36825;&#20123;&#20250;&#35201;&#27714;&#32534;&#30721;&#36716;&#25442;&#30340;&#29305;&#21270;&#34987;&#31105;&#29992;&#12290;</p>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx23">
+<td>
+<p>C++23 &#20013;&#19979;&#21015;&#29305;&#21270;&#20173;&#28982;&#34987;&#31105;&#29992;&#65292;&#20197;&#36991;&#20813;&#23558;&#26576;&#20123; <span class="mw-geshi cpp source-cpp"><span class="kw4">char</span></span> &#24207;&#21015;&#20316;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw4">wchar_t</span></span> &#30340;&#33539;&#22260;&#26684;&#24335;&#21270;&#65306;</p>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl-h">
+<td>
+<div>&#23545; <span class="mw-geshi cpp source-cpp"><span class="kw4">wchar_t</span></span> &#31105;&#29992;&#30340;&#29305;&#21270;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;&gt;</span><br />
+<span class="kw1">struct</span> formatter<span class="sy1">&lt;</span><span class="kw4">char</span><span class="sy2">*</span>, <span class="kw4">wchar_t</span><span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;&gt;</span><br />
+<span class="kw1">struct</span> formatter<span class="sy1">&lt;</span><span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span>, <span class="kw4">wchar_t</span><span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> N <span class="sy1">&gt;</span><br />
+<span class="kw1">struct</span> formatter<span class="sy1">&lt;</span><span class="kw4">char</span><span class="br0">[</span>N<span class="br0">]</span>, <span class="kw4">wchar_t</span><span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(3)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Traits, <span class="kw1">class</span> Allocator <span class="sy1">&gt;</span><br />
+<span class="kw1">struct</span> formatter<span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1231">std::<span class="me2">basic_string</span></span></a><span class="sy1">&lt;</span><span class="kw4">char</span>, Traits, Allocator<span class="sy1">&gt;</span>, <span class="kw4">wchar_t</span><span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(4)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Traits <span class="sy1">&gt;</span><br />
+<span class="kw1">struct</span> formatter<span class="sy1">&lt;</span><a href="cpp-string-basic_string_view.html"><span class="kw1249">std::<span class="me2">basic_string_view</span></span></a><span class="sy1">&lt;</span><span class="kw4">char</span>, Traits<span class="sy1">&gt;</span>, <span class="kw4">wchar_t</span><span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(5)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><i>&#21551;&#29992;&#35843;&#35797;&#30340;</i>&#26684;&#24335;&#21270;&#22120;&#29305;&#21270;&#37117;&#20250;&#21478;&#22806;&#25552;&#20379;&#19968;&#20010;&#20844;&#24320;&#30340;&#38750;&#38745;&#24577;&#25104;&#21592;&#20989;&#25968; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="kw4">void</span> set_debug_format<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span></span></span>&#65292;&#23427;&#20250;&#20462;&#25913;&#26684;&#24335;&#21270;&#22120;&#23545;&#35937;&#30340;&#29366;&#24577;&#65292;&#20351;&#35813;&#23545;&#35937;&#21487;&#20197;&#22312;&#26684;&#24335;&#21270;&#26102;<a href="cpp-utility-format-spec.html#.E6.A0.BC.E5.BC.8F.E5.8C.96.E7.BB.8F.E8.BD.AC.E4.B9.89.E5.AD.97.E7.AC.A6.E5.92.8C.E5.AD.97.E7.AC.A6.E4.B8.B2">&#36827;&#34892;&#36716;&#20041;&#21644;&#20351;&#29992;&#24341;&#21495;&#21253;&#22260;</a>&#65292;&#22914;&#21516;&#19978;&#27425;&#35843;&#29992; <code>parse</code> &#30340;&#26684;&#24335;&#21270;&#35828;&#26126;&#31526;&#20013;<span class="t-spar">&#31867;&#22411;</span>&#8202;&#65279;&#26159; <code><b>?</b></code>&#12290;</p>
+<p>&#27599;&#20010;&#38024;&#23545;&#23383;&#31526;&#20018;&#25110;&#23383;&#31526;&#31867;&#22411;&#30340; <code>std::formatter</code> &#29305;&#21270;&#37117;&#26159;<i>&#21551;&#29992;&#35843;&#35797;&#30340;</i>&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.A0.87.E5.87.86.E6.A0.BC.E5.BC.8F.E8.AF.B4.E6.98.8E">&#26631;&#20934;&#26684;&#24335;&#35828;&#26126;</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#26631;&#20934;&#26684;&#24335;&#35828;&#26126;&#29616;&#24050;&#31227;&#21160;&#21040;&#21333;&#29420;<a href="cpp-utility-format-spec.html">&#39029;&#38754;</a>&#12290;&#30001;&#20110;&#36824;&#26377;&#38142;&#25509;&#21040;&#27492;&#22788;&#65292;&#25152;&#20197;&#26242;&#26102;&#20445;&#30041;&#27492;&#29256;&#22359;&#30340;&#26631;&#39064;&#12290;&#22312;&#35299;&#20915;&#37027;&#20123;&#38142;&#25509;&#21518;&#23601;&#20250;&#31227;&#38500;&#27492;&#29256;&#22359;&#12290;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.BA.93.E7.B1.BB.E5.9E.8B.E7.9A.84.E6.A0.87.E5.87.86.E7.89.B9.E5.8C.96">&#24211;&#31867;&#22411;&#30340;&#26631;&#20934;&#29305;&#21270;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-duration-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::duration&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>duration</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-system_clock-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::sys_time&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>sys_time</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-utc_clock-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::utc_time&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>utc_time</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-tai_clock-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::tai_time&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>tai_time</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-gps_clock-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::gps_time&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>gps_time</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-file_clock-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::file_time&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>file_time</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-local_t-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::local_time&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>local_time</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-day-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::day&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>day</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-month-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::month&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>month</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-year-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::year&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>year</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-weekday-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::weekday&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>weekday</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-weekday_indexed-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::weekday_indexed&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>weekday_indexed</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-weekday_last-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::weekday_last&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>weekday_last</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-month_day-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::month_day&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>month_day</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-month_day_last-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::month_day_last&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>month_day_last</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-month_weekday-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::month_weekday&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>month_weekday</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-month_weekday_last-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::month_weekday_last&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>month_weekday_last</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-year_month-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::year_month&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>year_month</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-year_month_day-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::year_month_day&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>year_month_day</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-year_month_day_last-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::year_month_day_last&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>year_month_day_last</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-year_month_weekday-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::year_month_weekday&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>year_month_weekday</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-year_month_weekday_last-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::year_month_weekday_last&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>year_month_weekday_last</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-hh_mm_ss-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::hh_mm_ss&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>hh_mm_ss</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-sys_info-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::sys_info&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>sys_info</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-local_info-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::local_info&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>local_info</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-zoned_time-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::chrono::zoned_time&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td><code>zoned_time</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-basic_stacktrace-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::basic_stacktrace&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td><code>basic_stacktrace</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-stacktrace_entry-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::stacktrace_entry&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td><code>stacktrace_entry</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-thread-id-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::thread::id&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td><code>thread::id</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-vector_bool-reference.html#Helper_classes"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::vector&lt;bool&gt;::reference&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td><code>vector&lt;bool&gt;::reference</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-format-tuple_formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;<i>pair &#25110; tuple</i>&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td><code>pair</code> &#21644; <code>tuple</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-format-ranges_formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;<i>&#33539;&#22260;</i>&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#33539;&#22260;&#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-stack-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::stack&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td><code>std::stack</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-queue-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::queue&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td><code>std::queue</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-priority_queue-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::priority_queue&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td><code>std::priority_queue</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::filesystem::path&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26)</span></span></span></div>
+</div>
+</td>
+<td><code>filesystem::path</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;algorithm&gt;</span>
+<span class="co2">#include &lt;format&gt;</span>
+<span class="co2">#include &lt;iomanip&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;sstream&gt;</span>
+<span class="co2">#include &lt;string_view&gt;</span>
+ 
+<span class="kw1">struct</span> QuotableString <span class="sy4">:</span> <a href="cpp-string-basic_string_view.html"><span class="kw1251">std::<span class="me2">string_view</span></span></a>
+<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw1">template</span><span class="sy1">&lt;&gt;</span>
+<span class="kw1">struct</span> std<span class="sy4">::</span><span class="me2">formatter</span><span class="sy1">&lt;</span>QuotableString, <span class="kw4">char</span><span class="sy1">&gt;</span>
+<span class="br0">{</span>
+    <span class="kw4">bool</span> quoted <span class="sy1">=</span> <span class="kw2">false</span><span class="sy4">;</span>
+ 
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> ParseContext<span class="sy1">&gt;</span>
+    <span class="kw4">constexpr</span> ParseContext<span class="sy4">::</span><span class="me2">iterator</span> parse<span class="br0">(</span>ParseContext<span class="sy3">&amp;</span> ctx<span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw4">auto</span> it <span class="sy1">=</span> ctx.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+        <span class="kw1">if</span> <span class="br0">(</span>it <span class="sy1">==</span> ctx.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+            <span class="kw1">return</span> it<span class="sy4">;</span>
+ 
+        <span class="kw1">if</span> <span class="br0">(</span><span class="sy2">*</span>it <span class="sy1">==</span> <span class="st0">&#39;#&#39;</span><span class="br0">)</span>
+        <span class="br0">{</span>
+            quoted <span class="sy1">=</span> <span class="kw2">true</span><span class="sy4">;</span>
+            <span class="sy2">++</span>it<span class="sy4">;</span>
+        <span class="br0">}</span>
+        <span class="kw1">if</span> <span class="br0">(</span>it <span class="sy3">!</span><span class="sy1">=</span> ctx.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span> <span class="sy3">&amp;&amp;</span> <span class="sy2">*</span>it <span class="sy3">!</span><span class="sy1">=</span> <span class="st0">&#39;}&#39;</span><span class="br0">)</span>
+            <span class="kw1">throw</span> <a href="cpp-utility-format-format_error.html"><span class="kw3167">std::<span class="me2">format_error</span></span></a><span class="br0">(</span><span class="st0">&quot;&#26080;&#25928;&#30340; QuotableString &#26684;&#24335;&#21442;&#25968;&#12290;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+        <span class="kw1">return</span> it<span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> FmtContext<span class="sy1">&gt;</span>
+    FmtContext<span class="sy4">::</span><span class="me2">iterator</span> format<span class="br0">(</span>QuotableString s, FmtContext<span class="sy3">&amp;</span> ctx<span class="br0">)</span> <span class="kw4">const</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-basic_ostringstream.html"><span class="kw1740">std::<span class="me2">ostringstream</span></span></a> out<span class="sy4">;</span>
+        <span class="kw1">if</span> <span class="br0">(</span>quoted<span class="br0">)</span>
+            out <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-quoted.html"><span class="kw1806">std::<span class="me2">quoted</span></span></a><span class="br0">(</span>s<span class="br0">)</span><span class="sy4">;</span>
+        <span class="kw1">else</span>
+            out <span class="sy1">&lt;&lt;</span> s<span class="sy4">;</span>
+ 
+        <span class="kw1">return</span> std<span class="sy4">::</span><a href="cpp-algorithm-ranges-copy.html"><span class="kw2850">ranges::<span class="me2">copy</span></span></a><span class="br0">(</span>std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>out<span class="br0">)</span>.<span class="me1">str</span><span class="br0">(</span><span class="br0">)</span>, ctx.<span class="me1">out</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>.<span class="me1">out</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    QuotableString a<span class="br0">(</span><span class="st0">&quot;be&quot;</span><span class="br0">)</span>, a2<span class="br0">(</span>R<span class="st0">&quot;( &quot;</span> be <span class="st0">&quot; )&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    QuotableString b<span class="br0">(</span><span class="st0">&quot;a question&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;To {0} or not to {0}, that is {1}.<span class="es1">\n</span>&quot;</span>, a, b<span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;To {0:} or not to {0:}, that is {1:}.<span class="es1">\n</span>&quot;</span>, a, b<span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;To {0:#} or not to {0:#}, that is {1:#}.<span class="es1">\n</span>&quot;</span>, a2, b<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">To be or not to be, that is a question.
+To be or not to be, that is a question.
+To &quot; \&quot; be \&quot; &quot; or not to &quot; \&quot; be \&quot; &quot;, that is &quot;a question&quot;.</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue3944">LWG 3944</a></td>
+<td>C++23</td>
+<td>&#26576;&#20123; <span class="mw-geshi cpp source-cpp"><span class="kw4">char</span></span> &#24207;&#21015;&#33021;&#20316;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw4">wchar_t</span></span> &#30340;&#33539;&#22260;&#26684;&#24335;&#21270;</td>
+<td>&#28155;&#21152;&#20102;&#31105;&#29992;&#30340;&#29305;&#21270;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-format-basic_format_context.html"><span class="t-lines"><span>basic_format_context</span><span>format_context</span><span>wformat_context</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#26684;&#24335;&#21270;&#29366;&#24577;&#65292;&#21253;&#25324;&#25152;&#26377;&#26684;&#24335;&#21270;&#21442;&#25968;&#21644;&#36755;&#20986;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-format-formattable.html"><span class="t-lines"><span>formattable</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#25351;&#31034;&#19968;&#20010;&#31867;&#22411;&#21487;&#26684;&#24335;&#21270;&#65292;&#21363;&#23427;&#29305;&#21270;&#20102; <span class="t-lc">std::formatter</span> &#24182;&#19988;&#25552;&#20379;&#20102;&#25104;&#21592;&#20989;&#25968; <code>parse</code> &#21644; <code>format</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#27010;&#24565;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-format-range_formatter.html"><span class="t-lines"><span>range_formatter</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#29992;&#20110;&#24110;&#21161;&#23454;&#29616; <span class="t-lc">std::formatter</span> &#23545;&#33539;&#22260;&#31867;&#22411;&#30340;&#29305;&#21270;&#30340;&#31867;&#27169;&#26495;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

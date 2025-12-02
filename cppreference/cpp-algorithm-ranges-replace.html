@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::ranges::replace, std::ranges::replace_if</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_algorithm_ranges_replace skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::ranges::</span>replace, <span style="font-size:0.8em; line-height:125%">std::ranges::</span>replace_if</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-algorithm.html">algorithm</a>&lrm; | <a href="cpp-algorithm-ranges.html">ranges</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-algorithm.html">&lt;algorithm&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl-h">
+<td>
+<div>&#35843;&#29992;&#31614;&#21517;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+<tbody class="t-dcl-rev t-dcl-rev-num">
+<tr class="t-dcl-rev-aux">
+<td></td>
+<td rowspan="142">(1)</td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20 t-until-cxx26">
+<td>
+<div><span id=".E7.89.88.E6.9C.AC_1"></span><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-iterator-input_iterator.html"><span class="kw2864">std::<span class="me2">input_iterator</span></span></a> I, <a href="cpp-iterator-sentinel_for.html"><span class="kw2862">std::<span class="me2">sentinel_for</span></span></a><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span> S,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span> T1, <span class="kw1">class</span> T2, <span class="kw1">class</span> Proj <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a> <span class="sy1">&gt;</span><br />
+requires <a href="cpp-iterator-indirectly_writable.html"><span class="kw2858">std::<span class="me2">indirectly_writable</span></span></a><span class="sy1">&lt;</span>I, <span class="kw4">const</span> T2<span class="sy3">&amp;</span><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="cpp-iterator-indirect_binary_predicate.html"><span class="kw3120">std::<span class="me2">indirect_binary_predicate</span></span></a><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="sy1">&lt;</span><a href="cpp-functional-ranges-equal_to.html"><span class="kw2841">ranges::<span class="me2">equal_to</span></span></a>, std<span class="sy4">::</span><a href="cpp-iterator-projected.html"><span class="kw2678">projected</span></a><span class="sy1">&lt;</span>I, Proj<span class="sy1">&gt;</span>, <span class="kw4">const</span> T1<span class="sy2">*</span><span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> I replace<span class="br0">(</span> I first, S last, <span class="kw4">const</span> T1<span class="sy3">&amp;</span> old_value,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw4">const</span> T2<span class="sy3">&amp;</span> new_value, Proj proj <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span> <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span><br />
+<span class="t-mark-rev t-until-cxx26" style="white-space: nowrap;">(C++26 &#21069;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx26">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-iterator-input_iterator.html"><span class="kw2864">std::<span class="me2">input_iterator</span></span></a> I, <a href="cpp-iterator-sentinel_for.html"><span class="kw2862">std::<span class="me2">sentinel_for</span></span></a><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span> S,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span> Proj <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span> T1 <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">projected_value_t</span><span class="sy1">&lt;</span>I, Proj<span class="sy1">&gt;</span>, <span class="kw1">class</span> T2 <span class="sy1">=</span> T1 <span class="sy1">&gt;</span><br />
+requires <a href="cpp-iterator-indirectly_writable.html"><span class="kw2858">std::<span class="me2">indirectly_writable</span></span></a><span class="sy1">&lt;</span>I, <span class="kw4">const</span> T2<span class="sy3">&amp;</span><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="cpp-iterator-indirect_binary_predicate.html"><span class="kw3120">std::<span class="me2">indirect_binary_predicate</span></span></a><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="sy1">&lt;</span><a href="cpp-functional-ranges-equal_to.html"><span class="kw2841">ranges::<span class="me2">equal_to</span></span></a>, std<span class="sy4">::</span><a href="cpp-iterator-projected.html"><span class="kw2678">projected</span></a><span class="sy1">&lt;</span>I, Proj<span class="sy1">&gt;</span>, <span class="kw4">const</span> T1<span class="sy2">*</span><span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> I replace<span class="br0">(</span> I first, S last, <span class="kw4">const</span> T1<span class="sy3">&amp;</span> old_value,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw4">const</span> T2<span class="sy3">&amp;</span> new_value, Proj proj <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span> <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+</tbody>
+<tbody></tbody>
+<tbody class="t-dcl-rev t-dcl-rev-num">
+<tr class="t-dcl-rev-aux">
+<td></td>
+<td rowspan="142">(2)</td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20 t-until-cxx26">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-ranges-input_range.html"><span class="kw2902">ranges::<span class="me2">input_range</span></span></a> R,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span> T1, <span class="kw1">class</span> T2, <span class="kw1">class</span> Proj <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a> <span class="sy1">&gt;</span><br />
+requires <a href="cpp-iterator-indirectly_writable.html"><span class="kw2858">std::<span class="me2">indirectly_writable</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, <span class="kw4">const</span> T2<span class="sy3">&amp;</span><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="cpp-iterator-indirect_binary_predicate.html"><span class="kw3120">std::<span class="me2">indirect_binary_predicate</span></span></a><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="sy1">&lt;</span><a href="cpp-functional-ranges-equal_to.html"><span class="kw2841">ranges::<span class="me2">equal_to</span></span></a>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std<span class="sy4">::</span><a href="cpp-iterator-projected.html"><span class="kw2678">projected</span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, Proj<span class="sy1">&gt;</span>, <span class="kw4">const</span> T1<span class="sy2">*</span><span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> <a href="cpp-ranges-borrowed_iterator_t.html"><span class="kw2855">ranges::<span class="me2">borrowed_iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span><br />
+&nbsp; &nbsp; replace<span class="br0">(</span> R<span class="sy3">&amp;&amp;</span> r, <span class="kw4">const</span> T1<span class="sy3">&amp;</span> old_value,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw4">const</span> T2<span class="sy3">&amp;</span> new_value, Proj proj <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span> <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span><br />
+<span class="t-mark-rev t-until-cxx26" style="white-space: nowrap;">(C++26 &#21069;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx26">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-ranges-input_range.html"><span class="kw2902">ranges::<span class="me2">input_range</span></span></a> R,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span> Proj <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span> T1 <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">projected_value_t</span><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, Proj<span class="sy1">&gt;</span>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span> T2 <span class="sy1">=</span> T1 <span class="sy1">&gt;</span><br />
+requires <a href="cpp-iterator-indirectly_writable.html"><span class="kw2858">std::<span class="me2">indirectly_writable</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, <span class="kw4">const</span> T2<span class="sy3">&amp;</span><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="cpp-iterator-indirect_binary_predicate.html"><span class="kw3120">std::<span class="me2">indirect_binary_predicate</span></span></a><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="sy1">&lt;</span><a href="cpp-functional-ranges-equal_to.html"><span class="kw2841">ranges::<span class="me2">equal_to</span></span></a>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std<span class="sy4">::</span><a href="cpp-iterator-projected.html"><span class="kw2678">projected</span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, Proj<span class="sy1">&gt;</span>, <span class="kw4">const</span> T1<span class="sy2">*</span><span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> <a href="cpp-ranges-borrowed_iterator_t.html"><span class="kw2855">ranges::<span class="me2">borrowed_iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span><br />
+&nbsp; &nbsp; replace<span class="br0">(</span> R<span class="sy3">&amp;&amp;</span> r, <span class="kw4">const</span> T1<span class="sy3">&amp;</span> old_value,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw4">const</span> T2<span class="sy3">&amp;</span> new_value, Proj proj <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span> <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+</tbody>
+<tbody></tbody>
+<tbody class="t-dcl-rev t-dcl-rev-num">
+<tr class="t-dcl-rev-aux">
+<td></td>
+<td rowspan="142">(3)</td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20 t-until-cxx26">
+<td>
+<div><span id=".E7.89.88.E6.9C.AC_3"></span><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-iterator-input_iterator.html"><span class="kw2864">std::<span class="me2">input_iterator</span></span></a> I, <a href="cpp-iterator-sentinel_for.html"><span class="kw2862">std::<span class="me2">sentinel_for</span></span></a><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span> S,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span> T, <span class="kw1">class</span> Proj <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-iterator-indirect_unary_predicate.html"><span class="kw3132">std::<span class="me2">indirect_unary_predicate</span></span></a><span class="sy1">&lt;</span>std<span class="sy4">::</span><a href="cpp-iterator-projected.html"><span class="kw2678">projected</span></a><span class="sy1">&lt;</span>I, Proj<span class="sy1">&gt;&gt;</span> Pred <span class="sy1">&gt;</span><br />
+requires <a href="cpp-iterator-indirectly_writable.html"><span class="kw2858">std::<span class="me2">indirectly_writable</span></span></a><span class="sy1">&lt;</span>I, <span class="kw4">const</span> T<span class="sy3">&amp;</span><span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> I replace_if<span class="br0">(</span> I first, S last, Pred pred,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw4">const</span> T<span class="sy3">&amp;</span> new_value, Proj proj <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span> <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span><br />
+<span class="t-mark-rev t-until-cxx26" style="white-space: nowrap;">(C++26 &#21069;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx26">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-iterator-input_iterator.html"><span class="kw2864">std::<span class="me2">input_iterator</span></span></a> I, <a href="cpp-iterator-sentinel_for.html"><span class="kw2862">std::<span class="me2">sentinel_for</span></span></a><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span> S,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span> Proj <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span> T <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">projected_value_t</span><span class="sy1">&lt;</span>I, Proj<span class="sy1">&gt;</span>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-iterator-indirect_unary_predicate.html"><span class="kw3132">std::<span class="me2">indirect_unary_predicate</span></span></a><span class="sy1">&lt;</span>std<span class="sy4">::</span><a href="cpp-iterator-projected.html"><span class="kw2678">projected</span></a><span class="sy1">&lt;</span>I, Proj<span class="sy1">&gt;&gt;</span> Pred <span class="sy1">&gt;</span><br />
+requires <a href="cpp-iterator-indirectly_writable.html"><span class="kw2858">std::<span class="me2">indirectly_writable</span></span></a><span class="sy1">&lt;</span>I, <span class="kw4">const</span> T<span class="sy3">&amp;</span><span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> I replace_if<span class="br0">(</span> I first, S last, Pred pred,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw4">const</span> T<span class="sy3">&amp;</span> new_value, Proj proj <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span> <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+</tbody>
+<tbody></tbody>
+<tbody class="t-dcl-rev t-dcl-rev-num">
+<tr class="t-dcl-rev-aux">
+<td></td>
+<td rowspan="142">(4)</td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20 t-until-cxx26">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-ranges-input_range.html"><span class="kw2902">ranges::<span class="me2">input_range</span></span></a> R, <span class="kw1">class</span> T, <span class="kw1">class</span> Proj <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a>,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-iterator-indirect_unary_predicate.html"><span class="kw3132">std::<span class="me2">indirect_unary_predicate</span></span></a><span class="sy1">&lt;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std<span class="sy4">::</span><a href="cpp-iterator-projected.html"><span class="kw2678">projected</span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, Proj<span class="sy1">&gt;&gt;</span> Pred <span class="sy1">&gt;</span><br />
+requires <a href="cpp-iterator-indirectly_writable.html"><span class="kw2858">std::<span class="me2">indirectly_writable</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, <span class="kw4">const</span> T<span class="sy3">&amp;</span><span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> <a href="cpp-ranges-borrowed_iterator_t.html"><span class="kw2855">ranges::<span class="me2">borrowed_iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span><br /></p>
+&nbsp; &nbsp; replace_if<span class="br0">(</span> R<span class="sy3">&amp;&amp;</span> r, Pred pred, <span class="kw4">const</span> T<span class="sy3">&amp;</span> new_value, Proj proj <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span> <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span><br />
+<span class="t-mark-rev t-until-cxx26" style="white-space: nowrap;">(C++26 &#21069;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx26">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-ranges-input_range.html"><span class="kw2902">ranges::<span class="me2">input_range</span></span></a> R, <span class="kw1">class</span> Proj <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a>,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span> T <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">projected_value_t</span><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, Proj<span class="sy1">&gt;</span>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-iterator-indirect_unary_predicate.html"><span class="kw3132">std::<span class="me2">indirect_unary_predicate</span></span></a><span class="sy1">&lt;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std<span class="sy4">::</span><a href="cpp-iterator-projected.html"><span class="kw2678">projected</span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, Proj<span class="sy1">&gt;&gt;</span> Pred <span class="sy1">&gt;</span><br />
+requires <a href="cpp-iterator-indirectly_writable.html"><span class="kw2858">std::<span class="me2">indirectly_writable</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, <span class="kw4">const</span> T<span class="sy3">&amp;</span><span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> <a href="cpp-ranges-borrowed_iterator_t.html"><span class="kw2855">ranges::<span class="me2">borrowed_iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span><br /></p>
+&nbsp; &nbsp; replace_if<span class="br0">(</span> R<span class="sy3">&amp;&amp;</span> r, Pred pred, <span class="kw4">const</span> T<span class="sy3">&amp;</span> new_value, Proj proj <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span> <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">new_value</span></span> &#26367;&#25442;&#33539;&#22260; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">first</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">last</span></span><code>)</code> &#20013;&#25152;&#26377;&#28385;&#36275;&#29305;&#23450;&#21028;&#21035;&#26631;&#20934;&#30340;&#20803;&#32032;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#26367;&#25442;&#25152;&#26377;&#31561;&#20110; <code>old_value</code> &#30340;&#20803;&#32032;&#12290;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-functional-invoke.html"><span class="kw1063">std::<span class="me2">invoke</span></span></a><span class="br0">(</span>proj, <span class="sy2">*</span>i<span class="br0">)</span> <span class="sy1">==</span> old_value</span></span> &#27604;&#36739;&#12290;</div>
+<div class="t-li1"><span class="t-li">3)</span> &#26367;&#25442;&#25152;&#26377;&#35859;&#35789; <code>pred</code> &#23545;&#20854;&#27714;&#20540;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span> &#30340;&#20803;&#32032;&#65292;&#20854;&#20013;&#27714;&#20540;&#30340;&#34920;&#36798;&#24335;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-functional-invoke.html"><span class="kw1063">std::<span class="me2">invoke</span></span></a><span class="br0">(</span>pred, <a href="cpp-utility-functional-invoke.html"><span class="kw1063">std::<span class="me2">invoke</span></span></a><span class="br0">(</span>proj, <span class="sy2">*</span>i<span class="br0">)</span><span class="br0">)</span></span></span>&#12290;</div>
+<div class="t-li1"><span class="t-li">2,4)</span> &#21516; <span class="t-v">(1,3)</span>&#65292;&#20294;&#20197; <code>r</code> &#20026;&#33539;&#22260;&#65292;&#22914;&#21516;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/begin"><span class="kw2882">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>r<span class="br0">)</span></span></span> &#20026; <code>first</code> &#24182;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/end"><span class="kw2884">ranges::<span class="me2">end</span></span></a><span class="br0">(</span>r<span class="br0">)</span></span></span> &#20026; <code>last</code>&#12290;</div>
+<p>&#27492;&#39029;&#38754;&#19978;&#25551;&#36848;&#30340;&#20989;&#25968;&#24335;&#23454;&#20307;&#26159;<i><a href="cpp-algorithm-ranges.html#.E7.AE.97.E6.B3.95.E5.87.BD.E6.95.B0.E5.AF.B9.E8.B1.A1">&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;</a></i>&#65288;&#38750;&#27491;&#24335;&#22320;&#31216;&#20026; <i>niebloid</i>&#65289;&#65292;&#21363;&#65306;</p>
+<ul>
+<li>&#35843;&#29992;&#23427;&#20204;&#20013;&#30340;&#20219;&#20309;&#19968;&#20010;&#26102;&#19981;&#33021;&#26174;&#24335;&#25351;&#23450;&#27169;&#26495;&#23454;&#21442;&#12290;</li>
+<li>&#23427;&#20204;&#37117;&#19981;&#23545;<a href="cpp-language-adl.html">&#23454;&#21442;&#20381;&#36182;&#26597;&#25214;</a>&#21487;&#35265;&#12290;</li>
+<li>&#22312;&#36890;&#36807;&#20989;&#25968;&#35843;&#29992;&#36816;&#31639;&#31526;&#24038;&#20391;&#30340;&#21517;&#23383;&#36827;&#34892;<a href="cpp-language-unqualified_lookup.html">&#26080;&#38480;&#23450;&#26597;&#25214;</a>&#65292;&#25214;&#21040;&#23427;&#20204;&#20043;&#19968;&#26102;&#65292;&#31105;&#27490;<a href="cpp-language-adl.html">&#23454;&#21442;&#20381;&#36182;&#26597;&#25214;</a>&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>first, last</td>
+<td>-</td>
+<td>&#35201;&#22788;&#29702;&#30340;&#20803;&#32032;<a href="cpp-iterator.html#.E8.8C.83.E5.9B.B4">&#33539;&#22260;</a>&#30340;&#36845;&#20195;&#22120;-&#21736;&#20301;&#23545;</td>
+</tr>
+<tr class="t-par">
+<td>r</td>
+<td>-</td>
+<td>&#35201;&#22788;&#29702;&#30340;&#20803;&#32032;&#33539;&#22260;</td>
+</tr>
+<tr class="t-par">
+<td>old_value</td>
+<td>-</td>
+<td>&#35201;&#26367;&#25442;&#30340;&#20803;&#32032;&#30340;&#20540;</td>
+</tr>
+<tr class="t-par">
+<td>new_value</td>
+<td>-</td>
+<td>&#35201;&#29992;&#20316;&#26367;&#25442;&#21697;&#30340;&#20540;</td>
+</tr>
+<tr class="t-par">
+<td>pred</td>
+<td>-</td>
+<td>&#24212;&#29992;&#21040;&#25237;&#24433;&#21518;&#20803;&#32032;&#30340;&#35859;&#35789;</td>
+</tr>
+<tr class="t-par">
+<td>proj</td>
+<td>-</td>
+<td>&#24212;&#29992;&#21040;&#35859;&#35789;&#30340;&#25237;&#24433;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#31561;&#20110; <code>last</code> &#30340;&#36845;&#20195;&#22120;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<p>&#20934;&#30830;&#24212;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-ranges-distance.html"><span class="kw3140">ranges::<span class="me2">distance</span></span></a><span class="br0">(</span>first, last<span class="br0">)</span></span></span> &#27425;&#23545;&#24212;&#30340;&#35859;&#35789; <code>comp</code> &#19982;&#20219;&#20309;&#25237;&#24433; <code>proj</code>&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#30001;&#20110;&#31639;&#27861;&#25353;&#24341;&#29992;&#25509;&#25910; <span class="t-c"><span class="mw-geshi cpp source-cpp">old_value</span></span> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">new_value</span></span> &#65292;&#23427;&#21487;&#33021;&#22312;&#20219;&#19968;&#21442;&#25968;&#20026;&#21040;&#33539;&#22260; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">first</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">last</span></span><code>)</code> &#20013;&#20803;&#32032;&#30340;&#24341;&#29992;&#26102;&#26377;&#38750;&#26399;&#24453;&#30340;&#34892;&#20026;&#12290;</p>
+<table class="wikitable ftm-begin">
+<tr>
+<th><a href="cpp-utility-feature_test.html">&#21151;&#33021;&#29305;&#24615;&#27979;&#35797;</a>&#23439;</th>
+<th><abbr title="&#37319;&#32435;&#35813;&#29305;&#24615;&#30340;&#24180;/&#26376;&#12290;&#27599;&#20010;&#20540;&#19979;&#38754;&#30340;&#38142;&#25509;&#25351;&#21521;&#32534;&#35793;&#26399;&#25903;&#25345;&#39029;&#38754;&#20013;&#32473;&#23450;&#21151;&#33021;&#29305;&#24615;&#30340;&#26465;&#30446;&#12290;">&#20540;</abbr></th>
+<th><abbr title="&#24341;&#20837;&#35813;&#29305;&#24615;&#30340;&#26631;&#20934;&#65307;DR &#24847;&#20026;&#38024;&#23545;&#35813;&#20462;&#35746;&#29256;&#30340;&#32570;&#38519;&#25253;&#21578;">&#26631;&#20934;</abbr></th>
+<th>&#21151;&#33021;&#29305;&#24615;</th>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lib_algorithm_default_value_type"><code>__cpp_lib_algorithm_default_value_type</code></a></td>
+<td><a href="cpp-compiler_support-26.html#cpp_lib_algorithm_default_value_type_202403"><code>202403</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++26)</span></td>
+<td>&#31639;&#27861;&#20013;&#30340;<a href="cpp-language-list_initialization.html">&#21015;&#34920;&#21021;&#22987;&#21270;</a> <span class="t-v">(<a href="cpp-algorithm-ranges-replace.html#.E7.89.88.E6.9C.AC_1">1-4</a>)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.AF.E8.83.BD.E7.9A.84.E5.AE.9E.E7.8E.B0">&#21487;&#33021;&#30340;&#23454;&#29616;</span></h3>
+<table class="eq-fun-cpp-table">
+<tr>
+<th><a href="cpp-algorithm-ranges-replace.html#.E7.89.88.E6.9C.AC_1">replace (1,2)</a></th>
+</tr>
+<tr>
+<td>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">struct</span> replace_fn
+<span class="br0">{</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span><a href="cpp-iterator-input_iterator.html"><span class="kw2864">std::<span class="me2">input_iterator</span></span></a> I, <a href="cpp-iterator-sentinel_for.html"><span class="kw2862">std::<span class="me2">sentinel_for</span></span></a><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span> S, <span class="kw1">class</span> Proj <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a>,
+             <span class="kw1">class</span> T1 <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">projected_value_t</span><span class="sy1">&lt;</span>I, Proj<span class="sy1">&gt;</span>, <span class="kw1">class</span> T2 <span class="sy1">=</span> T1<span class="sy1">&gt;</span>
+    requires <a href="cpp-iterator-indirectly_writable.html"><span class="kw2858">std::<span class="me2">indirectly_writable</span></span></a><span class="sy1">&lt;</span>I, <span class="kw4">const</span> T2<span class="sy3">&amp;</span><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span> 
+             <a href="cpp-iterator-indirect_binary_predicate.html"><span class="kw3120">std::<span class="me2">indirect_binary_predicate</span></span></a>
+                 <span class="sy1">&lt;</span><a href="cpp-functional-ranges-equal_to.html"><span class="kw2841">ranges::<span class="me2">equal_to</span></span></a>, std<span class="sy4">::</span><a href="cpp-iterator-projected.html"><span class="kw2678">projected</span></a><span class="sy1">&lt;</span>I, Proj<span class="sy1">&gt;</span>, <span class="kw4">const</span> T1<span class="sy2">*</span><span class="sy1">&gt;</span>
+    <span class="kw4">constexpr</span> I operator<span class="br0">(</span><span class="br0">)</span><span class="br0">(</span>I first, S last, <span class="kw4">const</span> T1<span class="sy3">&amp;</span> old_value,
+                           <span class="kw4">const</span> T2<span class="sy3">&amp;</span> new_value, Proj proj <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span><span class="br0">)</span> <span class="kw4">const</span>
+    <span class="br0">{</span>
+        <span class="kw1">for</span> <span class="br0">(</span><span class="sy4">;</span> first <span class="sy3">!</span><span class="sy1">=</span> last<span class="sy4">;</span> <span class="sy2">++</span>first<span class="br0">)</span>
+            <span class="kw1">if</span> <span class="br0">(</span>old_value <span class="sy1">==</span> <a href="cpp-utility-functional-invoke.html"><span class="kw1063">std::<span class="me2">invoke</span></span></a><span class="br0">(</span>proj, <span class="sy2">*</span>first<span class="br0">)</span><span class="br0">)</span>
+                <span class="sy2">*</span>first <span class="sy1">=</span> new_value<span class="sy4">;</span>
+        <span class="kw1">return</span> first<span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw1">template</span><span class="sy1">&lt;</span><a href="cpp-ranges-input_range.html"><span class="kw2902">ranges::<span class="me2">input_range</span></span></a> R, <span class="kw1">class</span> Proj <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a>
+             <span class="kw1">class</span> T1 <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">projected_value_t</span><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, Proj<span class="sy1">&gt;</span>,
+             <span class="kw1">class</span> T2 <span class="sy1">=</span> T1<span class="sy1">&gt;</span>
+    requires <a href="cpp-iterator-indirectly_writable.html"><span class="kw2858">std::<span class="me2">indirectly_writable</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, <span class="kw4">const</span> T2<span class="sy3">&amp;</span><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span>
+             <a href="cpp-iterator-indirect_binary_predicate.html"><span class="kw3120">std::<span class="me2">indirect_binary_predicate</span></span></a><span class="sy1">&lt;</span><a href="cpp-functional-ranges-equal_to.html"><span class="kw2841">ranges::<span class="me2">equal_to</span></span></a>,
+             std<span class="sy4">::</span><a href="cpp-iterator-projected.html"><span class="kw2678">projected</span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, Proj<span class="sy1">&gt;</span>, <span class="kw4">const</span> T1<span class="sy2">*</span><span class="sy1">&gt;</span>
+    <span class="kw4">constexpr</span> <a href="cpp-ranges-borrowed_iterator_t.html"><span class="kw2855">ranges::<span class="me2">borrowed_iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>
+        operator<span class="br0">(</span><span class="br0">)</span><span class="br0">(</span>R<span class="sy3">&amp;&amp;</span> r, <span class="kw4">const</span> T1<span class="sy3">&amp;</span> old_value,
+                   <span class="kw4">const</span> T2<span class="sy3">&amp;</span> new_value, Proj proj <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span><span class="br0">)</span> <span class="kw4">const</span>
+    <span class="br0">{</span>
+        <span class="kw1">return</span> <span class="br0">(</span><span class="sy2">*</span>this<span class="br0">)</span><span class="br0">(</span><a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/begin"><span class="kw2882">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>r<span class="br0">)</span>, <a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/end"><span class="kw2884">ranges::<span class="me2">end</span></span></a><span class="br0">(</span>r<span class="br0">)</span>, old_value,
+                       new_value, std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>proj<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw1">inline</span> <span class="kw4">constexpr</span> replace_fn replace<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+</td>
+</tr>
+<tr>
+<th><a href="cpp-algorithm-ranges-replace.html#.E7.89.88.E6.9C.AC_3">replace_if (3,4)</a></th>
+</tr>
+<tr>
+<td>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">struct</span> replace_if_fn
+<span class="br0">{</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span><a href="cpp-iterator-input_iterator.html"><span class="kw2864">std::<span class="me2">input_iterator</span></span></a> I, <a href="cpp-iterator-sentinel_for.html"><span class="kw2862">std::<span class="me2">sentinel_for</span></span></a><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span> S,
+             <span class="kw1">class</span> Proj <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a>, <span class="kw1">class</span> T <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">projected_value_t</span><span class="sy1">&lt;</span>I, Proj<span class="sy1">&gt;</span>,
+             <a href="cpp-iterator-indirect_unary_predicate.html"><span class="kw3132">std::<span class="me2">indirect_unary_predicate</span></span></a><span class="sy1">&lt;</span>std<span class="sy4">::</span><a href="cpp-iterator-projected.html"><span class="kw2678">projected</span></a><span class="sy1">&lt;</span>I, Proj<span class="sy1">&gt;&gt;</span> Pred<span class="sy1">&gt;</span>
+    requires <a href="cpp-iterator-indirectly_writable.html"><span class="kw2858">std::<span class="me2">indirectly_writable</span></span></a><span class="sy1">&lt;</span>I, <span class="kw4">const</span> T<span class="sy3">&amp;</span><span class="sy1">&gt;</span>
+    <span class="kw4">constexpr</span> I operator<span class="br0">(</span><span class="br0">)</span><span class="br0">(</span>I first, S last, Pred pred,
+                           <span class="kw4">const</span> T<span class="sy3">&amp;</span> new_value, Proj proj <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span><span class="br0">)</span> <span class="kw4">const</span>
+    <span class="br0">{</span>
+        <span class="kw1">for</span> <span class="br0">(</span><span class="sy4">;</span> first <span class="sy3">!</span><span class="sy1">=</span> last<span class="sy4">;</span> <span class="sy2">++</span>first<span class="br0">)</span>
+            <span class="kw1">if</span> <span class="br0">(</span><span class="sy3">!!</span><a href="cpp-utility-functional-invoke.html"><span class="kw1063">std::<span class="me2">invoke</span></span></a><span class="br0">(</span>pred, <a href="cpp-utility-functional-invoke.html"><span class="kw1063">std::<span class="me2">invoke</span></span></a><span class="br0">(</span>proj, <span class="sy2">*</span>first<span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>
+                <span class="sy2">*</span>first <span class="sy1">=</span> new_value<span class="sy4">;</span>
+        <span class="kw1">return</span> std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>first<span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw1">template</span><span class="sy1">&lt;</span><a href="cpp-ranges-input_range.html"><span class="kw2902">ranges::<span class="me2">input_range</span></span></a> R, <span class="kw1">class</span> Proj <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a>,
+             <span class="kw1">class</span> T <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">projected_value_t</span><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, Proj<span class="sy1">&gt;</span>
+             <a href="cpp-iterator-indirect_unary_predicate.html"><span class="kw3132">std::<span class="me2">indirect_unary_predicate</span></span></a>
+                 <span class="sy1">&lt;</span>std<span class="sy4">::</span><a href="cpp-iterator-projected.html"><span class="kw2678">projected</span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, Proj<span class="sy1">&gt;&gt;</span> Pred<span class="sy1">&gt;</span>
+    requires <a href="cpp-iterator-indirectly_writable.html"><span class="kw2858">std::<span class="me2">indirectly_writable</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, <span class="kw4">const</span> T<span class="sy3">&amp;</span><span class="sy1">&gt;</span>
+    <span class="kw4">constexpr</span> <a href="cpp-ranges-borrowed_iterator_t.html"><span class="kw2855">ranges::<span class="me2">borrowed_iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>
+        operator<span class="br0">(</span><span class="br0">)</span><span class="br0">(</span>R<span class="sy3">&amp;&amp;</span> r, Pred pred, <span class="kw4">const</span> T<span class="sy3">&amp;</span> new_value, Proj proj <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span><span class="br0">)</span> <span class="kw4">const</span>
+    <span class="br0">{</span>
+        <span class="kw1">return</span> <span class="br0">(</span><span class="sy2">*</span>this<span class="br0">)</span><span class="br0">(</span><a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/begin"><span class="kw2882">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>r<span class="br0">)</span>, <a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/end"><span class="kw2884">ranges::<span class="me2">end</span></span></a><span class="br0">(</span>r<span class="br0">)</span>, std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>pred<span class="br0">)</span>,
+                       new_value, std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>proj<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw1">inline</span> <span class="kw4">constexpr</span> replace_if_fn replace_if<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;algorithm&gt;</span>
+<span class="co2">#include &lt;array&gt;</span>
+<span class="co2">#include &lt;complex&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+ 
+<span class="kw4">void</span> println<span class="br0">(</span><span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> v<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> e <span class="sy4">:</span> v<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> e <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">namespace</span> ranges <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">;</span>
+ 
+    <a href="cpp-container-array.html"><span class="kw1271">std::<span class="me2">array</span></span></a> p<span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">6</span>, <span class="nu0">1</span>, <span class="nu0">6</span>, <span class="nu0">1</span>, <span class="nu0">6</span><span class="br0">}</span><span class="sy4">;</span>
+    println<span class="br0">(</span>p<span class="br0">)</span><span class="sy4">;</span>
+    ranges<span class="sy4">::</span><span class="me2">replace</span><span class="br0">(</span>p, <span class="nu0">6</span>, <span class="nu0">9</span><span class="br0">)</span><span class="sy4">;</span>
+    println<span class="br0">(</span>p<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-container-array.html"><span class="kw1271">std::<span class="me2">array</span></span></a> q<span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">2</span>, <span class="nu0">3</span>, <span class="nu0">6</span>, <span class="nu0">7</span>, <span class="nu0">8</span>, <span class="nu0">4</span>, <span class="nu0">5</span><span class="br0">}</span><span class="sy4">;</span>
+    println<span class="br0">(</span>q<span class="br0">)</span><span class="sy4">;</span>
+    ranges<span class="sy4">::</span><span class="me2">replace_if</span><span class="br0">(</span>q, <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">int</span> x<span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> <span class="nu0">5</span> <span class="sy1">&lt;</span> x<span class="sy4">;</span> <span class="br0">}</span>, <span class="nu0">5</span><span class="br0">)</span><span class="sy4">;</span>
+    println<span class="br0">(</span>q<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-container-array.html"><span class="kw1271">std::<span class="me2">array</span></span></a><span class="sy1">&lt;</span><a href="cpp-numeric-complex.html"><span class="kw1475">std::<span class="me2">complex</span></span></a><span class="sy1">&lt;</span><span class="kw4">double</span><span class="sy1">&gt;</span>, <span class="nu0">2</span><span class="sy1">&gt;</span> nums<span class="br0">{</span><span class="br0">{</span><span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">3</span><span class="br0">}</span>, <span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">3</span><span class="br0">}</span><span class="br0">}</span><span class="br0">}</span><span class="sy4">;</span>
+    println<span class="br0">(</span>nums<span class="br0">)</span><span class="sy4">;</span>
+    <span class="co2">#ifdef __cpp_lib_algorithm_default_value_type</span>
+        ranges<span class="sy4">::</span><span class="me2">replace</span><span class="br0">(</span>nums, <span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">3</span><span class="br0">}</span>, <span class="br0">{</span><span class="nu0">4</span>, <span class="nu0">2</span><span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="co2">#else</span>
+        ranges<span class="sy4">::</span><span class="me2">replace</span><span class="br0">(</span>nums, <a href="cpp-numeric-complex.html"><span class="kw1475">std::<span class="me2">complex</span></span></a><span class="sy1">&lt;</span><span class="kw4">double</span><span class="sy1">&gt;</span><span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">3</span><span class="br0">}</span>, <a href="cpp-numeric-complex.html"><span class="kw1475">std::<span class="me2">complex</span></span></a><span class="sy1">&lt;</span><span class="kw4">double</span><span class="sy1">&gt;</span><span class="br0">{</span><span class="nu0">4</span>, <span class="nu0">2</span><span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="co2">#endif</span>
+    println<span class="br0">(</span>nums<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">1 6 1 6 1 6
+1 9 1 9 1 9
+1 2 3 6 7 8 4 5
+1 2 3 5 5 5 4 5
+(1,3) (1,3)
+(4,2) (4,2)</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-replace_copy.html"><span class="t-lines"><span>ranges::replace_copy</span><span>ranges::replace_copy_if</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#22797;&#21046;&#33539;&#22260;&#65292;&#24182;&#23558;&#28385;&#36275;&#29305;&#23450;&#26465;&#20214;&#30340;&#20803;&#32032;&#26367;&#25442;&#20026;&#21478;&#19968;&#20010;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-replace.html"><span class="t-lines"><span>replace</span><span>replace_if</span></span></a></div>
+</div>
+</td>
+<td>&#26367;&#25442;&#25152;&#26377;&#28385;&#36275;&#29305;&#23450;&#26465;&#20214;&#30340;&#20540;&#20026;&#21478;&#19968;&#20010;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

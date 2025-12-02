@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::strtoimax, std::strtoumax</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_string_byte_strtoimax skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>strtoimax, <span style="font-size:0.8em; line-height:125%">std::</span>strtoumax</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-string.html">string</a>&lrm; | <a href="cpp-string-byte.html">byte</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-cinttypes.html">&lt;cinttypes&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><a href="cpp-types-integer.html"><span class="kw125">std::<span class="me2">intmax_t</span></span></a> strtoimax<span class="br0">(</span> <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> nptr, <span class="kw4">char</span><span class="sy2">**</span> endptr, <span class="kw4">int</span> base <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><a href="cpp-types-integer.html"><span class="kw139">std::<span class="me2">uintmax_t</span></span></a> strtoumax<span class="br0">(</span> <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> nptr, <span class="kw4">char</span><span class="sy2">**</span> endptr, <span class="kw4">int</span> base <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36716;&#35793; <span class="t-c"><span class="mw-geshi cpp source-cpp">nptr</span></span> &#25152;&#25351;&#21521;&#30340;&#23383;&#33410;&#23383;&#31526;&#20018;&#20013;&#30340;&#25972;&#25968;&#20540;&#12290;</p>
+<p>&#33293;&#24323;&#25152;&#26377;&#31354;&#30333;&#31526;&#65288;&#20197;&#35843;&#29992; <a href="cpp-string-byte-isspace.html"><tt>std::isspace</tt></a> &#37492;&#21035;&#65289;&#65292;&#30452;&#21040;&#25214;&#21040;&#39318;&#20010;&#38750;&#31354;&#30333;&#31526;&#65292;&#28982;&#21518;&#21462;&#23613;&#21487;&#33021;&#22810;&#30340;&#23383;&#31526;&#32452;&#25104;&#21512;&#27861;&#30340;<i>&#24213; n</i> &#65288;&#20854;&#20013; n=<code>base</code>&#65289;&#30340;&#25972;&#25968;&#34920;&#31034;&#65292;&#24182;&#23558;&#23427;&#20204;&#36716;&#25442;&#25104;&#19968;&#20010;&#25972;&#25968;&#12290;&#21512;&#27861;&#30340;&#25972;&#25968;&#30001;&#19979;&#21015;&#37096;&#20998;&#32452;&#25104;&#65306;</p>
+<ul>
+<li><span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span>&#27491;&#25110;&#36127;&#21495;</li>
+<li><span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span>&#25351;&#31034;&#20843;&#36827;&#21046;&#24213;&#30340;&#21069;&#32512;&#65288;<code><b>0</b></code>&#65289;&#65288;&#20165;&#24403;&#24213;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="nu0">8</span></span></span> &#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp">&#8203;<span class="nu0">0</span>&#8203;</span></span> &#26102;&#24212;&#29992;&#65289;</li>
+<li><span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span>&#25351;&#31034;&#21313;&#20845;&#36827;&#21046;&#24213;&#30340;&#21069;&#32512;&#65288;<code><b>0x</b></code> &#25110; <code><b>0X</b></code>&#65289;&#65288;&#20165;&#24403;&#24213;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="nu0">16</span></span></span> &#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp">&#8203;<span class="nu0">0</span>&#8203;</span></span> &#26102;&#24212;&#29992;&#65289;</li>
+<li>&#25968;&#23383;&#24207;&#21015;</li>
+</ul>
+<p>&#24213;&#30340;&#21512;&#27861;&#38598;&#26159; <code>{0, 2, 3, ..., 36}</code>&#12290;&#21512;&#27861;&#25968;&#23383;&#38598;&#23545;&#20110;&#24213; 2 &#25972;&#25968;&#26159; <code>{0, 1}</code>&#65292;&#23545;&#20110;&#24213; 3 &#25972;&#25968;&#26159; <code>{0, 1, 2}</code>&#65292;&#20197;&#27492;&#31867;&#25512;&#12290;&#23545;&#20110;&#22823;&#20110; <code>10</code> &#30340;&#24213;&#65292;&#21512;&#27861;&#25968;&#23383;&#21253;&#21547;&#23383;&#27597;&#23383;&#31526;&#65292;&#20174;&#23545;&#20110;&#24213; <code>11</code> &#25972;&#25968;&#30340; <code>Aa</code> &#21040;&#23545;&#20110;&#24213; <code>36</code> &#25972;&#25968;&#30340; <code>Zz</code>&#12290;&#24573;&#30053;&#23383;&#31526;&#22823;&#23567;&#20889;&#12290;</p>
+<p>&#24403;&#21069;&#23433;&#35013;&#30340; C <a href="cpp-locale-setlocale.html">&#26412;&#22320;&#29615;&#22659;</a>&#21487;&#33021;&#25509;&#21463;&#21478;&#22806;&#30340;&#25968;&#23383;&#26684;&#24335;&#12290;</p>
+<p>&#22914;&#26524; <code>base</code> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp">&#8203;<span class="nu0">0</span>&#8203;</span></span>&#65292;&#37027;&#20040;&#33258;&#21160;&#26816;&#27979;&#25968;&#20540;&#36827;&#21046;&#65306;&#22914;&#26524;&#21069;&#32512;&#26159; <code><b>0</b></code>&#65292;&#37027;&#20040;&#24213;&#26159;&#20843;&#36827;&#21046;&#65292;&#22914;&#26524;&#21069;&#32512;&#26159; <code><b>0x</b></code> &#25110; <code><b>0X</b></code>&#65292;&#37027;&#20040;&#24213;&#26159;&#21313;&#20845;&#36827;&#21046;&#65292;&#21542;&#21017;&#24213;&#26159;&#21313;&#36827;&#21046;&#12290;</p>
+<p>&#22914;&#26524;&#31526;&#21495;&#26159;&#36755;&#20837;&#24207;&#21015;&#30340;&#19968;&#37096;&#20998;&#65292;&#37027;&#20040;&#23545;&#20174;&#25968;&#23383;&#24207;&#21015;&#35745;&#31639;&#24471;&#26469;&#30340;&#25968;&#23383;&#20540;&#21462;&#21453;&#65292;&#22914;&#21516;&#29992;&#32467;&#26524;&#31867;&#22411;&#30340;<a href="cpp-language-operator_arithmetic.html#.E4.B8.80.E5.85.83.E7.AE.97.E6.9C.AF.E8.BF.90.E7.AE.97.E7.AC.A6">&#19968;&#20803;&#20943;</a>&#12290;</p>
+<p>&#36825;&#20123;&#20989;&#25968;&#35774;&#32622; <span class="t-c"><span class="mw-geshi cpp source-cpp">endptr</span></span> &#25152;&#25351;&#21521;&#30340;&#25351;&#38024;&#25351;&#21521;&#26368;&#21518;&#34987;&#36716;&#35793;&#23383;&#31526;&#30340;&#21518;&#19968;&#23383;&#31526;&#12290;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">endptr</span></span> &#20026;&#31354;&#25351;&#38024;&#65292;&#21017;&#24573;&#30053;&#20043;&#12290;</p>
+<p>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">nptr</span></span> &#20026;&#31354;&#25110;&#19981;&#20855;&#26377;&#25152;&#26399;&#24453;&#30340;&#24418;&#24335;&#65292;&#21017;&#19981;&#36827;&#34892;&#36716;&#25442;&#65292;&#24182;&#65288;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">enptr</span></span> &#19981;&#26159;&#31354;&#25351;&#38024;&#65289;&#23558; <span class="t-c"><span class="mw-geshi cpp source-cpp">nptr</span></span> &#30340;&#20540;&#23384;&#20648;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">endptr</span></span> &#25152;&#25351;&#21521;&#30340;&#23545;&#35937;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>nptr</td>
+<td>-</td>
+<td>&#25351;&#21521;&#35201;&#36716;&#35793;&#30340;&#31354;&#32456;&#27490;&#23383;&#33410;&#23383;&#31526;&#20018;&#30340;&#25351;&#38024;</td>
+</tr>
+<tr class="t-par">
+<td>endptr</td>
+<td>-</td>
+<td>&#25351;&#21521;&#25351;&#21521;&#23383;&#31526;&#25351;&#38024;&#30340;&#25351;&#38024;&#12290;</td>
+</tr>
+<tr class="t-par">
+<td>base</td>
+<td>-</td>
+<td>&#34987;&#36716;&#35793;&#25972;&#25968;&#20540;&#30340;<i>&#24213;</i></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<ul>
+<li>&#33509;&#25104;&#21151;&#65292;&#21017;&#36820;&#22238;&#23545;&#24212; <span class="t-c"><span class="mw-geshi cpp source-cpp">str</span></span> &#20869;&#23481;&#30340;&#25972;&#25968;&#20540;&#12290;</li>
+<li>&#33509;&#36716;&#25442;&#20986;&#30340;&#20540;&#33853;&#22312;&#23545;&#24212;&#36820;&#22238;&#31867;&#22411;&#30340;&#33539;&#22260;&#22806;&#65292;&#21017;&#21457;&#29983;&#20540;&#22495;&#38169;&#35823;&#65288;&#35774;&#32622; <span class="t-lc"><a href="cpp-error-errno.html">errno</a></span> &#20026; <span class="t-lc"><a href="cpp-error-errno_macros.html">ERANGE</a></span>&#65289;&#24182;&#36820;&#22238; <span class="t-lc"><a href="cpp-types-integer.html">INTMAX_MAX</a></span>&#12289;<span class="t-lc"><a href="cpp-types-integer.html">INTMAX_MIN</a></span>&#12289;<span class="t-lc"><a href="cpp-types-integer.html">UINTMAX_MAX</a></span> &#21450; <span class="t-c"><span class="mw-geshi cpp source-cpp">&#8203;<span class="nu0">0</span>&#8203;</span></span> &#20013;&#30340;&#36866;&#24403;&#20540;&#12290;</li>
+<li>&#33509;&#19981;&#33021;&#36827;&#34892;&#36716;&#25442;&#65292;&#21017;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp">&#8203;<span class="nu0">0</span>&#8203;</span></span>&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;cinttypes&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-string-basic_string.html"><span class="kw1231">std::<span class="me2">string</span></span></a> str <span class="sy1">=</span> <span class="st0">&quot;helloworld&quot;</span><span class="sy4">;</span>
+    <a href="cpp-types-integer.html"><span class="kw125">std::<span class="me2">intmax_t</span></span></a> val <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">strtoimax</span><span class="br0">(</span>str.<span class="me1">c_str</span><span class="br0">(</span><span class="br0">)</span>, nullptr, <span class="nu0">36</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1760">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> str <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; &#20197; 36 &#20026;&#24213;&#30340;&#20540;&#20026;&#20197; 10 &#20026;&#24213;&#30340; &quot;</span> <span class="sy1">&lt;&lt;</span> val <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+ 
+    <span class="kw4">char</span><span class="sy2">*</span> nptr<span class="sy4">;</span>
+    val <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">strtoimax</span><span class="br0">(</span>str.<span class="me1">c_str</span><span class="br0">(</span><span class="br0">)</span>, <span class="sy3">&amp;</span>nptr, <span class="nu0">30</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>nptr <span class="sy3">!</span><span class="sy1">=</span> <span class="sy3">&amp;</span>str<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span> <span class="sy2">+</span> str.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1760">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> str <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; &#20197; 30 &#20026;&#24213;&#26080;&#25928;&#12290;&quot;</span>
+                  <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#31532;&#19968;&#20010;&#26080;&#25928;&#25968;&#23383;&#26159; &#39;&quot;</span> <span class="sy1">&lt;&lt;</span> <span class="sy2">*</span>nptr <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#39;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">helloworld &#20197; 36 &#20026;&#24213;&#30340;&#20540;&#20026;&#20197; 10 &#20026;&#24213;&#30340; 1767707668033969
+helloworld &#20197; 30 &#20026;&#24213;&#26080;&#25928;&#12290;&#31532;&#19968;&#20010;&#26080;&#25928;&#25968;&#23383;&#26159; &#39;w&#39;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-string-basic_string-stol.html"><span class="t-lines"><span>stoi</span><span>stol</span><span>stoll</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#36716;&#25442;&#23383;&#31526;&#20018;&#20026;&#26377;&#31526;&#21495;&#25972;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-string-basic_string-stoul.html"><span class="t-lines"><span>stoul</span><span>stoull</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#36716;&#25442;&#23383;&#31526;&#20018;&#20026;&#26080;&#31526;&#21495;&#25972;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-string-byte-strtol.html"><span class="t-lines"><span>strtol</span><span>strtoll</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#36716;&#25442;&#23383;&#33410;&#23383;&#31526;&#20018;&#20026;&#25972;&#25968;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-string-byte-strtoul.html"><span class="t-lines"><span>strtoul</span><span>strtoull</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#36716;&#25442;&#23383;&#33410;&#23383;&#31526;&#20018;&#20026;&#26080;&#31526;&#21495;&#25972;&#25968;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-string-wide-wcstoimax.html"><span class="t-lines"><span>wcstoimax</span><span>wcstoumax</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#36716;&#25442;&#23485;&#23383;&#31526;&#20018;&#20026; <span class="t-lc"><a href="cpp-types-integer.html">std::intmax_t</a></span> &#25110; <span class="t-lc"><a href="cpp-types-integer.html">std::uintmax_t</a></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-string-byte-strtof.html"><span class="t-lines"><span>strtof</span><span>strtod</span><span>strtold</span></span></a></div>
+</div>
+</td>
+<td>&#36716;&#25442;&#23383;&#33410;&#23383;&#31526;&#20018;&#20026;&#28014;&#28857;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-from_chars.html"><span class="t-lines"><span>from_chars</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span></span></span></div>
+</div>
+</td>
+<td>&#36716;&#25442;&#23383;&#31526;&#24207;&#21015;&#21040;&#25972;&#25968;&#25110;&#28014;&#28857;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-string-byte-atoi.html"><span class="t-lines"><span>atoi</span><span>atol</span><span>atoll</span></span></a></div>
+<div><span class="t-lines"><span></span><span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#36716;&#25442;&#23383;&#33410;&#23383;&#31526;&#20018;&#20026;&#25972;&#25968;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>strtoimax</span>, <span>strtoumax</span></span>&nbsp;&#30340; <span><span><a href="c-string-byte-strtoimax.html">C &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

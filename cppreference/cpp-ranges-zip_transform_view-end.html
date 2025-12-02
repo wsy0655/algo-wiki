@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::ranges::zip_transform_view&lt;F,Views...&gt;::end</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_ranges_zip_transform_view_end skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::ranges::zip_transform_view&lt;F,Views...&gt;::</span>end</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-ranges.html">ranges</a>&lrm; | <a href="cpp-ranges-zip_transform_view.html">zip transform view</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="kw4">auto</span> end<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="kw4">auto</span> end<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span><br /></span>
+<p>&nbsp; &nbsp; requires <a href="cpp-ranges-range.html"><span class="kw2898">ranges::<span class="me2">range</span></span></a><span class="sy1">&lt;</span><span class="kw4">const</span> <span class="coMULTI">/*InnerView*/</span><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="cpp-concepts-invocable.html"><span class="kw2959">std::<span class="me2">regular_invocable</span></span></a><span class="sy1">&lt;</span><span class="kw4">const</span> F<span class="sy3">&amp;</span>,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="cpp-ranges-iterator_t.html"><span class="kw2895">ranges::<span class="me2">range_reference_t</span></span></a><span class="sy1">&lt;</span><span class="kw4">const</span> Views<span class="sy1">&gt;</span>...<span class="sy1">&gt;</span><span class="sy4">;</span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36820;&#22238;&#19982; <a href="cpp-ranges-zip_transform_view.html"><code>zip_transform_view</code></a> &#30340;&#23614;&#36845;&#20195;&#22120;&#27604;&#36739;&#30456;&#31561;&#30340;<a href="cpp-ranges-zip_transform_view-iterator.html">&#36845;&#20195;&#22120;</a>&#25110;<a href="cpp-ranges-zip_transform_view-sentinel.html">&#21736;&#20301;</a>&#12290;</p>
+<p>&#20196; <code>zip_</code> &#20195;&#34920;&#24213;&#23618;&#30340;&#35270;&#22270;&#20803;&#32452;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#31561;&#20215;&#20110;&#65306;<br />
+<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">if</span> <span class="kw4">constexpr</span> <span class="br0">(</span><a href="cpp-ranges-common_range.html"><span class="kw2908">ranges::<span class="me2">common_range</span></span></a><span class="sy1">&lt;</span><span class="coMULTI">/*InnerView*/</span><span class="sy1">&gt;</span><span class="br0">)</span><br /></span></span>
+<p>&nbsp; &nbsp; <span class="kw1">return</span> <span class="coMULTI">/*iterator*/</span><span class="sy1">&lt;</span><span class="kw2">false</span><span class="sy1">&gt;</span><span class="br0">(</span><span class="sy2">*</span>this, zip_.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span><br />
+<span class="kw1">else</span><br /></p>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="coMULTI">/*sentinel*/</span><span class="sy1">&lt;</span><span class="kw2">false</span><span class="sy1">&gt;</span><span class="br0">(</span>zip_.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span></div>
+<div class="t-li1"><span class="t-li">2)</span> &#31561;&#20215;&#20110;&#65306;<br />
+<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">if</span> <span class="kw4">constexpr</span> <span class="br0">(</span><a href="cpp-ranges-common_range.html"><span class="kw2908">ranges::<span class="me2">common_range</span></span></a><span class="sy1">&lt;</span><span class="kw4">const</span> <span class="coMULTI">/*InnerView*/</span><span class="sy1">&gt;</span><span class="br0">)</span><br /></span></span>
+<p>&nbsp; &nbsp; <span class="kw1">return</span> <span class="coMULTI">/*iterator*/</span><span class="sy1">&lt;</span><span class="kw2">true</span><span class="sy1">&gt;</span><span class="br0">(</span><span class="sy2">*</span>this, zip_.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span><br />
+<span class="kw1">else</span><br /></p>
+&nbsp; &nbsp; <span class="kw1">return</span> <span class="coMULTI">/*sentinel*/</span><span class="sy1">&lt;</span><span class="kw2">true</span><span class="sy1">&gt;</span><span class="br0">(</span>zip_.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span></div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#34920;&#31034; <code>zip_transform_view</code> &#30340;&#26411;&#23614;&#30340;&#36845;&#20195;&#22120;&#25110;&#21736;&#20301;&#65292;&#22914;&#19978;&#25152;&#36848;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#26242;&#26080;&#31034;&#20363;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-zip_transform_view-begin.html"><span class="t-lines"><span>begin</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#21521;&#36215;&#22987;&#30340;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-end.html"><span class="t-lines"><span>ranges::end</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#31034;&#33539;&#22260;&#32467;&#23614;&#30340;&#21736;&#20301;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#23450;&#21046;&#28857;&#23545;&#35937;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

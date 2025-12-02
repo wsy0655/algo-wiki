@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::feof</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_io_c_feof skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>feof</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-io.html">io</a>&lrm; | <a href="cpp-io-c.html">c</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-cstdio.html">&lt;cstdio&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">int</span> feof<span class="br0">(</span> <a href="cpp-io-c-FILE.html"><span class="kw1880">std::<span class="me2">FILE</span></span></a><span class="sy2">*</span> stream <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#26816;&#26597;&#26159;&#21542;&#24050;&#25269;&#36798;&#32473;&#23450;&#25991;&#20214;&#27969;&#30340;&#32467;&#23614;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>stream</td>
+<td>-</td>
+<td>&#35201;&#26816;&#26597;&#30340;&#25991;&#20214;&#27969;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#33509;&#24050;&#25269;&#36798;&#25991;&#20214;&#27969;&#23614;&#21017;&#20026;&#38750;&#38646;&#20540;&#65292;&#21542;&#21017;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">&#8203;<span class="nu0">0</span>&#8203;</span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#27492;&#20989;&#25968;&#21482;&#25253;&#21578;&#26368;&#36817;&#30340; I/O &#25805;&#20316;&#25152;&#25253;&#21578;&#30340;&#27969;&#29366;&#24577;&#65292;&#23427;&#19981;&#26816;&#39564;&#20851;&#32852;&#25968;&#25454;&#28304;&#12290;&#20363;&#22914;&#65292;&#33509;&#26368;&#36817;&#19968;&#27425; I/O &#26159;&#36820;&#22238;&#25991;&#20214;&#26368;&#21518;&#23383;&#33410;&#30340; <span class="t-lc"><a href="cpp-io-c-fgetc.html">std::fgetc</a></span>&#65292;&#21017; <code>std::feof</code> &#36820;&#22238;&#38646;&#12290;&#19979;&#20010; <span class="t-lc"><a href="cpp-io-c-fgetc.html">std::fgetc</a></span> &#20250;&#22833;&#36133;&#24182;&#26356;&#25913;&#27969;&#29366;&#24577;&#20026;<i>&#25991;&#20214;&#23614;</i>&#12290;&#21482;&#22312;&#36825;&#20043;&#21518; <code>std::feof</code> &#25165;&#36820;&#22238;&#38750;&#38646;&#12290;</p>
+<p>&#20856;&#22411;&#29992;&#27861;&#20013;&#65292;&#36755;&#20837;&#27969;&#22312;&#21457;&#29983;&#20219;&#20309;&#38169;&#35823;&#26102;&#20572;&#27490;&#22788;&#29702;&#65307;&#28982;&#21518;&#29992; <code>feof</code> &#21644; <span class="t-lc"><a href="cpp-io-c-ferror.html">std::ferror</a></span> &#26469;&#21306;&#20998;&#19981;&#21516;&#30340;&#38169;&#35823;&#26465;&#20214;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;cstdio&gt;</span>
+<span class="co2">#include &lt;cstdlib&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">int</span> is_ok <span class="sy1">=</span> <a href="cpp-utility-program-EXIT_status.html"><span class="kw975">EXIT_FAILURE</span></a><span class="sy4">;</span>
+    FILE<span class="sy2">*</span> fp <span class="sy1">=</span> <a href="cpp-io-c-fopen.html"><span class="kw1817">std::<span class="me2">fopen</span></span></a><span class="br0">(</span><span class="st0">&quot;/tmp/test.txt&quot;</span>, <span class="st0">&quot;w+&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span><span class="sy3">!</span>fp<span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-c-perror.html"><span class="kw1876">std::<span class="me2">perror</span></span></a><span class="br0">(</span><span class="st0">&quot;&#25171;&#24320;&#25991;&#20214;&#22833;&#36133;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+        <span class="kw1">return</span> is_ok<span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw4">int</span> c<span class="sy4">;</span> <span class="co1">// &#27880;&#24847;&#65306;&#26159; int &#32780;&#38750; char&#65292;&#22788;&#29702; EOF &#25152;&#24517;&#39035;</span>
+    <span class="kw1">while</span> <span class="br0">(</span><span class="br0">(</span>c <span class="sy1">=</span> <a href="cpp-io-c-fgetc.html"><span class="kw1825">std::<span class="me2">fgetc</span></span></a><span class="br0">(</span>fp<span class="br0">)</span><span class="br0">)</span> <span class="sy3">!</span><span class="sy1">=</span> <a href="cpp-io-c.html"><span class="kw1885">EOF</span></a><span class="br0">)</span> <span class="co1">// &#26631;&#20934; C I/O &#25991;&#20214;&#35835;&#21462;&#24490;&#29615;</span>
+        <a href="cpp-io-c-putchar.html"><span class="kw1833">std::<span class="me2">putchar</span></span></a><span class="br0">(</span>c<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw1">if</span> <span class="br0">(</span><a href="cpp-io-c-ferror.html"><span class="kw1875">std::<span class="me2">ferror</span></span></a><span class="br0">(</span>fp<span class="br0">)</span><span class="br0">)</span>
+        <a href="cpp-io-c-puts.html"><span class="kw1834">std::<span class="me2">puts</span></span></a><span class="br0">(</span><span class="st0">&quot;&#35835;&#21462;&#26102;&#21457;&#29983;&#20102; I/O &#38169;&#35823;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">else</span> <span class="kw1">if</span> <span class="br0">(</span>std<span class="sy4">::</span><span class="me2">feof</span><span class="br0">(</span>fp<span class="br0">)</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-c-puts.html"><span class="kw1834">std::<span class="me2">puts</span></span></a><span class="br0">(</span><span class="st0">&quot;&#25104;&#21151;&#25269;&#36798;&#25991;&#20214;&#26411;&#23614;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+        is_ok <span class="sy1">=</span> <a href="cpp-utility-program-EXIT_status.html"><span class="kw974">EXIT_SUCCESS</span></a><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <a href="cpp-io-c-fclose.html"><span class="kw1820">std::<span class="me2">fclose</span></span></a><span class="br0">(</span>fp<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">return</span> is_ok<span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#25104;&#21151;&#25269;&#36798;&#25991;&#20214;&#26411;&#23614;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_ios-eof.html"><span class="t-lines"><span>eof</span></span></a></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#26159;&#21542;&#21040;&#36798;&#20102;&#25991;&#20214;&#26411;&#23614;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_ios&lt;CharT,Traits&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-c-clearerr.html"><span class="t-lines"><span>clearerr</span></span></a></div>
+</div>
+</td>
+<td>&#28165;&#38500;&#38169;&#35823;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-c-perror.html"><span class="t-lines"><span>perror</span></span></a></div>
+</div>
+</td>
+<td>&#26174;&#31034;&#23545;&#24212;&#24403;&#21069;&#38169;&#35823;&#30340;&#23383;&#31526;&#20018;&#20110; <span class="t-lc"><a href="cpp-io-c.html">stderr</a></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-c-ferror.html"><span class="t-lines"><span>ferror</span></span></a></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#25991;&#20214;&#38169;&#35823;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>feof</span></span>&nbsp;&#30340; <span><span><a href="c-io-feof.html">C &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

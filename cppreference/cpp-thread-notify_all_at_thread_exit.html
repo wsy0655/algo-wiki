@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::notify_all_at_thread_exit</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_thread_notify_all_at_thread_exit skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>notify_all_at_thread_exit</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-thread.html">thread</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-condition_variable.html">&lt;condition_variable&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span> notify_all_at_thread_exit<span class="br0">(</span> <a href="cpp-thread-condition_variable.html"><span class="kw2175">std::<span class="me2">condition_variable</span></span></a><span class="sy3">&amp;</span> cond,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-thread-unique_lock.html"><span class="kw2171">std::<span class="me2">unique_lock</span></span></a><span class="sy1">&lt;</span><a href="cpp-thread-mutex.html"><span class="kw2158">std::<span class="me2">mutex</span></span></a><span class="sy1">&gt;</span> lk <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>notify_all_at_thread_exit</code> &#25552;&#20379;&#19968;&#31181;&#26426;&#21046;&#65292;&#36890;&#30693;&#20854;&#20182;&#32447;&#31243;&#32473;&#23450;&#30340;&#32447;&#31243;&#24050;&#23436;&#20840;&#23436;&#25104;&#65292;&#21253;&#25324;&#38144;&#27585;&#25152;&#26377; <a href="cpp-keyword-thread_local.html"><tt>thread_local</tt></a> &#23545;&#35937;&#12290;&#23427;&#25805;&#20316;&#22914;&#19979;&#65306;</p>
+<ul>
+<li>&#23558;&#20808;&#21069;&#33719;&#24471;&#30340;&#38145; <span class="t-c"><span class="mw-geshi cpp source-cpp">lk</span></span> &#30340;&#25152;&#26377;&#26435;&#36716;&#31227;&#21040;&#20869;&#37096;&#23384;&#20648;&#12290;</li>
+</ul>
+<ul>
+<li>&#20462;&#25913;&#25191;&#34892;&#29615;&#22659;&#65292;&#20197;&#20196;&#24403;&#21069;&#32447;&#31243;&#36864;&#20986;&#26102;&#65292;&#22914;&#21516;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">lk.<span class="me1">unlock</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span></span><br />
+<span class="mw-geshi cpp source-cpp">cond.<span class="me1">notify_all</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span></span></span> &#36890;&#30693;&#26465;&#20214;&#21464;&#37327; <span class="t-c"><span class="mw-geshi cpp source-cpp">cond</span></span>&#12290;</li>
+</ul>
+<p>&#38544;&#21547;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">lk.<span class="me1">unlock</span></span></span> <a href="cpp-atomic-memory_order.html">&#25353;&#39034;&#24207;&#26202;&#20110;</a>&#19982;&#24403;&#21069;&#32447;&#31243;&#20851;&#32852;&#30340;&#25152;&#26377;&#25317;&#26377;<a href="cpp-keyword-thread_local.html">&#32447;&#31243;&#23616;&#22495;&#23384;&#20648;&#26399;</a>&#30340;&#23545;&#35937;&#26512;&#26500;&#12290;</p>
+<p>&#22914;&#26524;&#28385;&#36275;&#20197;&#19979;&#20219;&#24847;&#26465;&#20214;&#65292;&#37027;&#20040;&#34892;&#20026;&#26410;&#23450;&#20041;&#65306;</p>
+<ul>
+<li>&#35843;&#29992;&#32447;&#31243;&#27809;&#26377;&#38145;&#23450; <span class="t-c"><span class="mw-geshi cpp source-cpp">lk</span></span>&#12290;</li>
+<li>&#22312;&#26377;&#20854;&#20182;&#32447;&#31243;&#20063;&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">cond</span></span> &#19978;&#31561;&#24453;&#30340;&#24773;&#20917;&#19979;&#65292;&#37027;&#20123;&#32447;&#31243;&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">cond</span></span> &#19978;&#35843;&#29992;&#30340;&#31561;&#24453;&#20989;&#25968;&#65288;<code>wait</code>&#12289;<span class="t-lc">wait_for</span> &#20197;&#21450; <span class="t-lc">wait_until</span>&#65289;&#35299;&#38145;&#30340;&#20114;&#26021;&#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">lk.<span class="me1">mutex</span><span class="br0">(</span><span class="br0">)</span></span></span> &#19981;&#21516;&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#31561;&#20215;&#30340;&#25928;&#26524;&#21487;&#20197;&#29992; <span class="t-lc"><a href="cpp-thread-promise.html">std::promise</a></span> &#25110; <span class="t-lc"><a href="cpp-thread-packaged_task.html">std::packaged_task</a></span> &#25152;&#25552;&#20379;&#30340;&#35774;&#26045;&#36798;&#25104;&#12290;</p>
+<p>&#20445;&#26377;&#25552;&#20379;&#30340;&#38145; <span class="t-c"><span class="mw-geshi cpp source-cpp">lk</span></span> &#30452;&#33267;&#32447;&#31243;&#36864;&#20986;&#12290;&#19968;&#26086;&#35843;&#29992;&#27492;&#20989;&#25968;&#65292;&#21017;&#19981;&#20250;&#20877;&#26377;&#32447;&#31243;&#21487;&#33719;&#24471;&#30456;&#21516;&#30340;&#38145;&#20197;&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">cond</span></span> &#19978;&#31561;&#24453;&#12290;&#33509;&#26576;&#20123;&#32447;&#31243;&#27491;&#22312;&#27492;&#26465;&#20214;&#21464;&#37327;&#19978;&#31561;&#24453;&#65292;&#21017;&#24212;&#30830;&#20445;&#25152;&#31561;&#24453;&#30340;&#26465;&#20214;&#26159;&#22312;&#25345;&#26377; <span class="t-c"><span class="mw-geshi cpp source-cpp">lk</span></span> &#30340;&#38145;&#26102;&#28385;&#36275;&#30340;&#65292;&#24182;&#19988;&#22312;&#35843;&#29992; <code>notify_all_at_thread_exit</code> &#20043;&#21069;&#19981;&#24212;&#37322;&#25918;&#21644;&#37325;&#33719;&#24471;&#38145;&#65292;&#20197;&#36991;&#20813;&#20854;&#20182;&#32447;&#31243;&#20013;&#21457;&#29983;&#34394;&#20551;&#21796;&#37266;&#30340;&#28151;&#20081;&#12290;</p>
+<p>&#20856;&#22411;&#20351;&#29992;&#24773;&#20917;&#20013;&#65292;&#27492;&#20989;&#25968;&#26159;&#34987;&#33073;&#38468;&#32447;&#31243;&#25152;&#20570;&#30340;&#26368;&#21518;&#34892;&#21160;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>cond</td>
+<td>-</td>
+<td>&#22312;&#32447;&#31243;&#36864;&#20986;&#26102;&#36890;&#30693;&#30340;&#26465;&#20214;&#21464;&#37327;</td>
+</tr>
+<tr class="t-par">
+<td>lk</td>
+<td>-</td>
+<td>&#19982;&#26465;&#20214;&#21464;&#37327; <span class="t-c"><span class="mw-geshi cpp source-cpp">cond</span></span> &#20851;&#32852;&#30340;&#38145;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<p>&#27492;&#37096;&#20998;&#20195;&#30721;&#38646;&#30862;&#22320;&#25551;&#32472; <code>notify_all_at_thread_exit</code> &#33021;&#22914;&#20309;&#29992;&#20110;&#36991;&#20813;&#22312;&#32447;&#31243;&#23616;&#22495;&#23545;&#35937;&#22788;&#20110;&#34987;&#26512;&#26500;&#36807;&#31243;&#26102;&#65292;&#35775;&#38382;&#20381;&#36182;&#20110;&#23427;&#20204;&#30340;&#25968;&#25454;&#65306;</p>
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;cassert&gt;</span>
+<span class="co2">#include &lt;condition_variable&gt;</span>
+<span class="co2">#include &lt;mutex&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+<span class="co2">#include &lt;thread&gt;</span>
+ 
+<a href="cpp-thread-mutex.html"><span class="kw2158">std::<span class="me2">mutex</span></span></a> m<span class="sy4">;</span>
+<a href="cpp-thread-condition_variable.html"><span class="kw2175">std::<span class="me2">condition_variable</span></span></a> cv<span class="sy4">;</span>
+ 
+<span class="kw4">bool</span> ready <span class="sy1">=</span> <span class="kw2">false</span><span class="sy4">;</span>
+ComplexType result<span class="sy4">;</span> <span class="co1">// &#26576;&#31181;&#20219;&#24847;&#31867;&#22411;</span>
+ 
+<span class="kw4">void</span> thread_func<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    thread_local <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a> thread_local_data <span class="sy1">=</span> <span class="st0">&quot;42&quot;</span><span class="sy4">;</span>
+ 
+    <a href="cpp-thread-unique_lock.html"><span class="kw2171">std::<span class="me2">unique_lock</span></span></a><span class="sy1">&lt;</span><a href="cpp-thread-mutex.html"><span class="kw2158">std::<span class="me2">mutex</span></span></a><span class="sy1">&gt;</span> lk<span class="br0">(</span>m<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#29992; thread_local &#25968;&#25454;&#36171;&#20540;&#32473; result</span>
+    result <span class="sy1">=</span> thread_local_data<span class="sy4">;</span>
+    ready <span class="sy1">=</span> <span class="kw2">true</span><span class="sy4">;</span>
+ 
+    std<span class="sy4">::</span><span class="me2">notify_all_at_thread_exit</span><span class="br0">(</span>cv, std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>lk<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+<span class="br0">}</span>   <span class="co1">// 1. &#38144;&#27585; thread_local &#23545;&#35937;&#65307;</span>
+    <span class="co1">// 2. &#35299;&#38145;&#20114;&#26021;&#20307;&#65307;</span>
+    <span class="co1">// 3. &#36890;&#30693; cv&#12290;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-thread-thread.html"><span class="kw2150">std::<span class="me2">thread</span></span></a> t<span class="br0">(</span>thread_func<span class="br0">)</span><span class="sy4">;</span>
+    t.<span class="me1">detach</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#20570;&#20854;&#20182;&#24037;&#20316;</span>
+    <span class="co1">// .&hellip;</span>
+ 
+    <span class="co1">// &#31561;&#24453;&#33073;&#38468;&#30340;&#32447;&#31243;</span>
+    <a href="cpp-thread-unique_lock.html"><span class="kw2171">std::<span class="me2">unique_lock</span></span></a><span class="sy1">&lt;</span><a href="cpp-thread-mutex.html"><span class="kw2158">std::<span class="me2">mutex</span></span></a><span class="sy1">&gt;</span> lk<span class="br0">(</span>m<span class="br0">)</span><span class="sy4">;</span>
+    cv.<span class="me1">wait</span><span class="br0">(</span>lk, <span class="br0">[</span><span class="br0">]</span><span class="br0">{</span> <span class="kw1">return</span> ready<span class="sy4">;</span> <span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// result &#24050;&#23601;&#32490;&#19988; thread_local &#26512;&#26500;&#20989;&#25968;&#24050;&#23436;&#25104;&#65292;&#26080; UB</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span>result <span class="sy1">==</span> <span class="st0">&quot;42&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue2140">LWG 2140</a></td>
+<td>C++11</td>
+<td><code>notify_all_at_thread_exit</code> &#30340;&#35843;&#29992;&#21516;&#27493;&#20110;&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">cond</span></span> &#19978;&#31561;&#24453;&#30340;&#20989;&#25968;&#30340;&#35843;&#29992;</td>
+<td>&#26356;&#26032;&#21516;&#27493;&#35201;&#27714;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-promise-set_value_at_thread_exit.html"><span class="t-lines"><span>set_value_at_thread_exit</span></span></a></div>
+</div>
+</td>
+<td>&#35774;&#32622;&#32467;&#26524;&#20026;&#25351;&#23450;&#20540;&#65292;&#21516;&#26102;&#20165;&#22312;&#32447;&#31243;&#36864;&#20986;&#26102;&#20998;&#21457;&#25552;&#37266;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::promise&lt;R&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-packaged_task-make_ready_at_thread_exit.html"><span class="t-lines"><span>make_ready_at_thread_exit</span></span></a></div>
+</div>
+</td>
+<td>&#25191;&#34892;&#20989;&#25968;&#65292;&#24182;&#30830;&#20445;&#32467;&#26524;&#20165;&#22312;&#19968;&#26086;&#24403;&#21069;&#32447;&#31243;&#36864;&#20986;&#26102;&#23601;&#32490;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::packaged_task&lt;R(Args...)&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

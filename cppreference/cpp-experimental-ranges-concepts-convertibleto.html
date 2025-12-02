@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::experimental::ranges::ConvertibleTo</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_experimental_ranges_concepts_ConvertibleTo skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::experimental::ranges::</span>ConvertibleTo</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-experimental.html">experimental</a>&lrm; | <a href="cpp-experimental-ranges.html">ranges</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-experimental-ranges-concepts.html">&lt;experimental/ranges/concepts&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-ranges">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> From, <span class="kw1">class</span> To <span class="sy1">&gt;</span><br /></span>
+<p>concept <span class="kw4">bool</span> ConvertibleTo <span class="sy1">=</span><br />
+&nbsp; &nbsp; <a href="cpp-types-is_convertible.html"><span class="kw595">std::<span class="me2">is_convertible</span></span></a><span class="sy1">&lt;</span>From, To<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">value</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; requires<span class="br0">(</span>From <span class="br0">(</span><span class="sy3">&amp;</span>f<span class="br0">)</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">static_cast</span><span class="sy1">&lt;</span>To<span class="sy1">&gt;</span><span class="br0">(</span>f<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span><br /></p>
+&nbsp; &nbsp; <span class="br0">}</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-ranges-ts t-mark-ts" style="white-space: nowrap;">(&#33539;&#22260; TS)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#27010;&#24565; <span class="t-c"><span class="mw-geshi cpp source-cpp">ConvertibleTo<span class="sy1">&lt;</span>From, To<span class="sy1">&gt;</span></span></span> &#25351;&#23450;&#25317;&#26377; <code>From</code> &#25152;&#25351;&#23450;&#30340;&#31867;&#22411;&#21644;&#20540;&#31867;&#21035;&#30340;&#34920;&#36798;&#24335;&#33021;&#38544;&#24335;&#21644;&#26174;&#24335;&#36716;&#25442;&#20026;&#31867;&#22411; <code>To</code>&#65292;&#19988;&#20108;&#31181;&#36716;&#25442;&#24418;&#24335;&#31561;&#20215;&#12290;</p>
+<p>&#20855;&#20307;&#32780;&#35328;&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">ConvertibleTo<span class="sy1">&lt;</span>From, To<span class="sy1">&gt;</span></span></span> &#20165;&#33509;&#28385;&#36275;&#20197;&#19979;&#26465;&#20214;&#25165;&#24471;&#21040;&#28385;&#36275;&#12290;&#32473;&#23450;&#34394;&#35774;&#20989;&#25968; <span class="t-c"><span class="mw-geshi cpp source-cpp">To test<span class="br0">(</span>From <span class="br0">(</span><span class="sy3">&amp;</span>f<span class="br0">)</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> f<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span></span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp">From <span class="br0">(</span><span class="br0">)</span></span></span> &#31867;&#22411;&#20989;&#25968; <code>F</code>&#65292;&#20351;&#24471;&#34920;&#36798;&#24335; <span class="t-c"><span class="mw-geshi cpp source-cpp">F<span class="br0">(</span><span class="br0">)</span></span></span> &#20445;&#25345;&#30456;&#31561;&#24615;&#65288;&#35265;&#21518;&#36848;&#65289;&#65292;&#32780;</p>
+<ul>
+<li>&#20197;&#19979;&#20043;&#19968;
+<ul>
+<li><code>To</code> &#26082;&#38750;&#23545;&#35937;&#31867;&#22411;&#20134;&#38750;&#21040;&#23545;&#35937;&#24341;&#29992;&#31867;&#22411;&#65292;&#25110;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">static_cast</span><span class="sy1">&lt;</span>To<span class="sy1">&gt;</span><span class="br0">(</span>f<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span> &#31561;&#20110; <code>test(f)</code>&#65292;&#19988;</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>&#19979;&#21015;&#20043;&#19968;&#20026;&#30495;&#65306;
+<ul>
+<li><code>From</code> &#19981;&#26159;&#21040;&#23545;&#35937;&#24341;&#29992;&#31867;&#22411;&#65292;&#25110;</li>
+<li><code>From</code> &#20026;&#21040;&#38750; const &#38480;&#23450;&#30340;&#21491;&#20540;&#24341;&#29992;&#31867;&#22411;&#65292;&#19988; <span class="t-c"><span class="mw-geshi cpp source-cpp">f<span class="br0">(</span><span class="br0">)</span></span></span> &#25152;&#24341;&#29992;&#23545;&#35937;&#30340;&#32467;&#26524;&#29366;&#24577;&#21512;&#27861;&#65292;&#20294;&#22312;&#20219;&#19968;&#19978;&#36848;&#34920;&#36798;&#24335;&#21518;&#26410;&#25351;&#23450;&#65307;&#25110;</li>
+<li><code>f()</code> &#25152;&#25351;&#20195;&#30340;&#23545;&#35937;&#19981;&#20026;&#20219;&#19968;&#19978;&#36848;&#34920;&#36798;&#24335;&#25152;&#20462;&#25913;&#12290;</li>
+</ul>
+</li>
+</ul>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp">ConvertibleTo<span class="sy1">&lt;</span>From, To<span class="sy1">&gt;</span></span></span> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_convertible.html"><span class="kw595">std::<span class="me2">is_convertible</span></span></a><span class="sy1">&lt;</span>From, To<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">value</span></span></span> &#38388;&#19981;&#24517;&#26377;&#20219;&#20309;&#34164;&#21547;&#20851;&#31995;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.9B.B8.E7.AD.89.E6.80.A7.E4.BF.9D.E6.8C.81">&#30456;&#31561;&#24615;&#20445;&#25345;</span></h3>
+<p>&#33509;&#34920;&#36798;&#24335;&#23545;&#32473;&#23450;&#30340;&#30456;&#31561;&#36755;&#20837;&#20135;&#29983;&#30456;&#31561;&#36755;&#20986;&#65292;&#21017;&#23427;<i>&#20445;&#25345;&#30456;&#31561;&#24615;</i>&#12290;</p>
+<ul>
+<li>&#34920;&#36798;&#24335;&#30340;&#36755;&#20837;&#30001;&#20854;&#25805;&#20316;&#25968;&#32452;&#25104;&#12290;</li>
+<li>&#34920;&#36798;&#24335;&#30340;&#36755;&#20986;&#30001;&#20854;&#32467;&#26524;&#21644;&#34920;&#36798;&#24335;&#25152;&#20462;&#25913;&#30340;&#25152;&#26377;&#25805;&#20316;&#25968;&#65288;&#33509;&#23384;&#22312;&#65289;&#32452;&#25104;&#12290;</li>
+</ul>
+<p>&#27599;&#20010;&#35201;&#27714;&#20445;&#25345;&#30456;&#31561;&#24615;&#30340;&#34920;&#36798;&#24335;&#36824;&#36827;&#19968;&#27493;&#35201;&#27714;&#26159;<i>&#31283;&#23450;</i>&#30340;&#65306;&#20197;&#30456;&#21516;&#36755;&#20837;&#23545;&#35937;&#23545;&#36825;&#31181;&#34920;&#36798;&#24335;&#36827;&#34892;&#20004;&#27425;&#27714;&#20540;&#24517;&#39035;&#25317;&#26377;&#30456;&#31561;&#30340;&#36755;&#20986;&#65292;&#32780;&#26080;&#20219;&#20309;&#23545;&#36825;&#20123;&#36755;&#20837;&#23545;&#35937;&#30340;&#26174;&#24335;&#20013;&#38388;&#20462;&#25913;&#12290;</p>
+<p>&#38500;&#38750;&#21478;&#22806;&#25552;&#37266;&#65292;&#27599;&#20010;&#29992;&#20110; <i>requires &#34920;&#36798;&#24335;</i>&#20013;&#30340;&#34920;&#36798;&#24335;&#37117;&#35201;&#27714;&#20445;&#25345;&#30456;&#31561;&#24615;&#19988;&#31283;&#23450;&#65292;&#32780;&#34920;&#36798;&#24335;&#30340;&#27714;&#20540;&#24517;&#39035;&#21482;&#20462;&#25913;&#20854;&#38750; const &#25805;&#20316;&#25968;&#12290;&#24517;&#39035;&#19981;&#20462;&#25913;&#24120;&#36816;&#31639;&#25968;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-types-is_convertible.html"><span class="t-lines"><span>is_convertible</span><span>is_nothrow_convertible</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#26159;&#21542;&#33021;&#36716;&#25442;&#19968;&#20010;&#31867;&#22411;&#20026;&#21478;&#19968;&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

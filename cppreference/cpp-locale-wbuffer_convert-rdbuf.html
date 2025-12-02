@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::wbuffer_convert&lt;Codecvt,Elem,Tr&gt;::rdbuf</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_locale_wbuffer_convert_rdbuf skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::wbuffer_convert&lt;Codecvt,Elem,Tr&gt;::</span>rdbuf</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-locale.html">locale</a>&lrm; | <a href="cpp-locale-wbuffer_convert.html">wbuffer convert</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><a href="cpp-io-basic_streambuf.html"><span class="kw1728">std::<span class="me2">streambuf</span></span></a><span class="sy2">*</span> rdbuf<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><a href="cpp-io-basic_streambuf.html"><span class="kw1728">std::<span class="me2">streambuf</span></span></a><span class="sy2">*</span> rdbuf<span class="br0">(</span> <a href="cpp-io-basic_streambuf.html"><span class="kw1728">std::<span class="me2">streambuf</span></span></a><span class="sy2">*</span> bytebuf <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#36820;&#22238;&#25351;&#21521;&#24213;&#23618;&#23383;&#33410;&#27969;&#30340;&#25351;&#38024;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">bytebuf</span></span> &#26367;&#25442;&#20851;&#32852;&#23383;&#33410;&#27969;&#12290;</div>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<div class="t-li1"><span class="t-li">1)</span> <span class="t-c"><code><i><a href="cpp-locale-wbuffer_convert.html#bufptr">bufptr</a></i></code></span></div>
+<div class="t-li1"><span class="t-li">2)</span> <code><i><a href="cpp-locale-wbuffer_convert.html#bufptr">bufptr</a></i></code> &#20808;&#21069;&#30340;&#20540;</div>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;codecvt&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;locale&gt;</span>
+<span class="co2">#include &lt;sstream&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="co1">// &#36716;&#25442; UTF-8 &#21040; UCS4</span>
+    <a href="cpp-io-basic_stringbuf.html"><span class="kw1730">std::<span class="me2">stringbuf</span></span></a> utf8buf<span class="br0">(</span><span class="st0">&quot;z<span class="es3">\u00df</span><span class="es3">\u6c34</span><span class="es4">\U0001d10b</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span>  <span class="co1">// &#25110; u8&quot;z&szlig;&#27700;&#119051;&quot;</span>
+                       <span class="co1">// &#25110; &quot;\x7a\xc3\x9f\xe6\xb0\xb4\xf0\x9d\x84\x8b&quot;;</span>
+    <a href="cpp-locale-wbuffer_convert.html"><span class="kw1904">std::<span class="me2">wbuffer_convert</span></span></a><span class="sy1">&lt;</span><a href="cpp-locale-codecvt_utf8.html"><span class="kw1987">std::<span class="me2">codecvt_utf8</span></span></a><span class="sy1">&lt;</span><span class="kw4">wchar_t</span><span class="sy1">&gt;&gt;</span> conv<span class="br0">(</span><span class="sy3">&amp;</span>utf8buf<span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-basic_istream.html"><span class="kw1745">std::<span class="me2">wistream</span></span></a> ucsbuf<span class="br0">(</span><span class="sy3">&amp;</span>conv<span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#36890;&#36807; wbuffer_convert &#20174; UTF-8 stringbuf &#35835;&#21462;&#65306;&quot;</span><span class="sy4">;</span>
+              <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-hex.html"><span class="kw1786">std::<span class="me2">hex</span></span></a> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-showbase.html"><span class="kw1770">std::<span class="me2">showbase</span></span></a><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">wchar_t</span> c<span class="sy4">;</span> ucsbuf.<span class="me1">get</span><span class="br0">(</span>c<span class="br0">)</span><span class="sy4">;</span><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="kw1">static_cast</span><span class="sy1">&lt;</span><a href="cpp-string-wide.html"><span class="kw3522">std::<span class="me2">wint_t</span></span></a><span class="sy1">&gt;</span><span class="br0">(</span>c<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#22797;&#29992;&#21516;&#19968; wbuffer_convert&#65292;&#20197;&#22788;&#29702; UCS4 &#21040; UTF-8 &#30340;&#36755;&#20986;</span>
+    conv.<span class="me1">rdbuf</span><span class="br0">(</span><a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a>.<span class="me1">rdbuf</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-basic_ostream.html"><span class="kw1747">std::<span class="me2">wostream</span></span></a> out<span class="br0">(</span><span class="sy3">&amp;</span>conv<span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;<span class="es1">\n</span>&#36890;&#36807; wbuffer_convert &#21521; std::cout &#21457;&#36865; UCS4 &#25968;&#25454;&#65306;&quot;</span><span class="sy4">;</span>
+    out <span class="sy1">&lt;&lt;</span> L<span class="st0">&quot;z<span class="es3">\u00df</span><span class="es3">\u6c34</span><span class="es4">\U0001d10b</span><span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#36890;&#36807; wbuffer_convert &#20174; UTF-8 stringbuf &#35835;&#21462;&#65306;0x7a 0xdf 0x6c34 0x1d10b 
+&#36890;&#36807; wbuffer_convert &#21521; std::cout &#21457;&#36865; UCS4 &#25968;&#25454;&#65306;z&szlig;&#27700;&#119051;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-locale-wbuffer_convert-wbuffer_convert.html"><span class="t-lines"><span>(&#26500;&#36896;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26500;&#36896;&#26032;&#30340; <code>wbuffer_convert</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

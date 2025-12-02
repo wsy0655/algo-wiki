@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::flat_map&lt;Key,T,Compare,KeyContainer,MappedContainer&gt;::operator[]</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_container_flat_map_operator_at skin-cppreference2 action-view cpp-page-template cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::flat_map&lt;Key,T,Compare,KeyContainer,MappedContainer&gt;::</span>operator[]</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-container.html">container</a>&lrm; | <a href="cpp-container-flat_map.html">flat map</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<div class="t-page-template" style="">
+<p></p>
+</div>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp">T<span class="sy3">&amp;</span> operator<span class="br0">[</span><span class="br0">]</span><span class="br0">(</span> <span class="kw4">const</span> Key<span class="sy3">&amp;</span> key <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp">T<span class="sy3">&amp;</span> operator<span class="br0">[</span><span class="br0">]</span><span class="br0">(</span> Key<span class="sy3">&amp;&amp;</span> key <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span id=".E7.89.88.E6.9C.AC_3"></span><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> K <span class="sy1">&gt;</span><br />
+T<span class="sy3">&amp;</span> operator<span class="br0">[</span><span class="br0">]</span><span class="br0">(</span> K<span class="sy3">&amp;&amp;</span> x <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36820;&#22238;&#21040;&#26144;&#23556;&#21040;&#20998;&#21035;&#31561;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">key</span></span> &#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp">x</span></span> &#30340;&#38190;&#30340;&#20540;&#30340;&#24341;&#29992;&#65292;&#36825;&#31181;&#38190;&#19981;&#23384;&#22312;&#30340;&#24773;&#20917;&#19979;&#23601;&#20250;&#36827;&#34892;&#25554;&#20837;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#22312;&#38190;&#19981;&#23384;&#22312;&#30340;&#24773;&#20917;&#19979;&#25554;&#20837;&#21407;&#20301;&#26500;&#36896;&#30340; <code>value_type</code> &#23545;&#35937;&#12290;&#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">return</span> try_emplace<span class="br0">(</span>x<span class="br0">)</span>.<span class="me1">first</span><span class="sy2">-</span><span class="sy1">&gt;</span>second<span class="sy4">;</span></span></span>&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#22312;&#38190;&#19981;&#23384;&#22312;&#30340;&#24773;&#20917;&#19979;&#25554;&#20837;&#21407;&#20301;&#26500;&#36896;&#30340; <code>value_type</code> &#23545;&#35937;&#12290;&#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">return</span> try_emplace<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>x<span class="br0">)</span><span class="br0">)</span>.<span class="me1">first</span><span class="sy2">-</span><span class="sy1">&gt;</span>second<span class="sy4">;</span></span></span>&#12290;</div>
+<div class="t-li1"><span class="t-li">3)</span> &#22914;&#26524;&#27809;&#26377;&#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">x</span></span> &#30340;&#20540;&#36827;&#34892;&#36879;&#26126;&#27604;&#36739;&#30456;&#31561;&#30340;&#38190;&#65292;&#21017;&#25554;&#20837;&#19968;&#20010;&#23601;&#22320;&#26500;&#36896;&#30340; <code>value_type</code> &#23545;&#35937;&#12290;</div>
+<div class="t-li1"><span class="t-li"></span> &#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">return</span> this<span class="sy2">-</span><span class="sy1">&gt;</span>try_emplace<span class="br0">(</span><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>K<span class="sy1">&gt;</span><span class="br0">(</span>x<span class="br0">)</span><span class="br0">)</span>.<span class="me1">first</span><span class="sy2">-</span><span class="sy1">&gt;</span>second<span class="sy4">;</span></span></span>&#12290; &#27492;&#37325;&#36733;&#20165;&#22312; &#27492;&#37325;&#36733;&#21482;&#26377;&#22312;&#38480;&#23450;&#26631;&#35782; <span class="t-c"><span class="mw-geshi cpp source-cpp">Compare<span class="sy4">::</span><span class="me2">is_transparent</span></span></span> &#21512;&#27861;&#24182;&#25351;&#20195;&#31867;&#22411;&#26102;&#25165;&#20250;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#12290;&#23427;&#20801;&#35768;&#35843;&#29992;&#27492;&#20989;&#25968;&#26102;&#26080;&#38656;&#26500;&#36896; <code>Key</code> &#30340;&#23454;&#20363;&#12290;&#26102;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#12290;&#23427;&#20801;&#35768;&#35843;&#29992;&#35813;&#20989;&#25968;&#26102;&#26080;&#38656;&#26500;&#24314; <code>Key</code> &#30340;&#23454;&#20363;&#12290;</div>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#36845;&#20195;&#22120;&#22833;&#25928;&#19978;&#30340;&#20449;&#24687;&#22797;&#21046;&#33258;<a href="https://zh.cppreference.com/w/Template:cpp/container/note_iterator_invalidation" title="Template:cpp/container/note iterator invalidation">&#27492;&#22788;</a></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>key</td>
+<td>-</td>
+<td>&#35201;&#23547;&#25214;&#30340;&#20803;&#32032;&#38190;</td>
+</tr>
+<tr class="t-par">
+<td>x</td>
+<td>-</td>
+<td>&#20219;&#20309;&#21487;&#20197;&#21644;&#38190;&#36827;&#34892;&#36879;&#26126;&#27604;&#36739;&#30340;&#31867;&#22411;&#30340;&#20540;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<div class="t-li1"><span class="t-li">1,2)</span> &#19981;&#23384;&#22312;&#25317;&#26377;&#38190; <span class="t-c"><span class="mw-geshi cpp source-cpp">key</span></span> &#30340;&#20803;&#32032;&#26102;&#36820;&#22238;&#21040;&#26032;&#20803;&#32032;&#34987;&#26144;&#23556;&#20540;&#30340;&#24341;&#29992;&#12290;&#21542;&#21017;&#36820;&#22238;&#25351;&#20195;&#20854;&#38190;&#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">key</span></span> &#30340;&#26082;&#23384;&#20803;&#32032;&#30340;&#34987;&#26144;&#23556;&#20540;&#30340;&#24341;&#29992;&#12290;</div>
+<div class="t-li1"><span class="t-li">3)</span> &#19981;&#23384;&#22312;&#25317;&#26377;&#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">x</span></span> &#20540;&#27604;&#36739;&#31561;&#20215;&#30340;&#38190;&#30340;&#20803;&#32032;&#26102;&#36820;&#22238;&#21040;&#26032;&#20803;&#32032;&#34987;&#26144;&#23556;&#20540;&#30340;&#24341;&#29992;&#12290;&#21542;&#21017;&#36820;&#22238;&#25351;&#20195;&#20854;&#38190;&#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">x</span></span> &#27604;&#36739;&#31561;&#20215;&#30340;&#26082;&#23384;&#20803;&#32032;&#30340;&#34987;&#26144;&#23556;&#20540;&#30340;&#24341;&#29992;&#12290;</div>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<p>&#22914;&#26524;&#20219;&#20309;&#25805;&#20316;&#25243;&#20986;&#24322;&#24120;&#65292;&#37027;&#20040;&#25554;&#20837;&#26080;&#25928;&#26524;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<p>&#19982;&#23481;&#22120;&#22823;&#23567;&#25104;&#23545;&#25968;&#65292;&#21152;&#19978;<a href="cpp-container-flat_map-try_emplace.html">&#25554;&#20837;</a>&#19968;&#20010;&#31354;&#20803;&#32032;&#65288;&#22914;&#26524;&#26377;&#65289;&#30340;&#32791;&#36153;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p><span class="mw-geshi cpp source-cpp">operator<span class="br0">[</span><span class="br0">]</span></span> &#38750; const&#65292;&#22240;&#20026;&#23427;&#20250;&#22312;&#38190;&#19981;&#23384;&#22312;&#26102;&#25554;&#20837;&#38190;&#12290;&#22914;&#26524;&#27492;&#34892;&#20026;&#38750;&#25152;&#27442;&#25110;&#23481;&#22120;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw4">const</span></span>&#65292;&#37027;&#20040;&#21487;&#20197;&#20351;&#29992; <a href="cpp-container-flat_map-at.html"><code>at</code></a>&#12290;</p>
+<p><a href="cpp-container-flat_map-insert_or_assign.html"><code>insert_or_assign</code></a> &#36820;&#22238;&#30340;&#20449;&#24687;&#22810;&#20110; <span class="mw-geshi cpp source-cpp">operator<span class="br0">[</span><span class="br0">]</span></span>&#65292;&#32780;&#19988;&#19981;&#35201;&#27714; <code>mapped_type</code> &#21487;&#40664;&#35748;&#26500;&#36896;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+<span class="co2">#include &lt;flat_map&gt;</span>
+ 
+<span class="kw4">void</span> println<span class="br0">(</span><span class="kw4">auto</span> <span class="kw4">const</span> comment, <span class="kw4">auto</span> <span class="kw4">const</span><span class="sy3">&amp;</span> map<span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> comment <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;{&quot;</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">const</span> <span class="kw4">auto</span> <span class="sy3">&amp;</span>pair <span class="sy4">:</span> map<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;{&quot;</span> <span class="sy1">&lt;&lt;</span> pair.<span class="me1">first</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;: &quot;</span> <span class="sy1">&lt;&lt;</span> pair.<span class="me1">second</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;}&quot;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;}<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-container-flat_map.html"><span class="kw3329">std::<span class="me2">flat_map</span></span></a><span class="sy1">&lt;</span><span class="kw4">char</span>, <span class="kw4">int</span><span class="sy1">&gt;</span> letter_counts<span class="br0">{</span><span class="br0">{</span><span class="st0">&#39;a&#39;</span>, <span class="nu0">27</span><span class="br0">}</span>, <span class="br0">{</span><span class="st0">&#39;b&#39;</span>, <span class="nu0">3</span><span class="br0">}</span>, <span class="br0">{</span><span class="st0">&#39;c&#39;</span>, <span class="nu0">1</span><span class="br0">}</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+    println<span class="br0">(</span><span class="st0">&quot;letter_counts &#36215;&#21021;&#21253;&#21547;&#65306;&quot;</span>, letter_counts<span class="br0">)</span><span class="sy4">;</span>
+ 
+    letter_counts<span class="br0">[</span><span class="st0">&#39;b&#39;</span><span class="br0">]</span> <span class="sy1">=</span> <span class="nu0">42</span><span class="sy4">;</span> <span class="co1">// &#26356;&#26032;&#26082;&#23384;&#20540;</span>
+    letter_counts<span class="br0">[</span><span class="st0">&#39;x&#39;</span><span class="br0">]</span> <span class="sy1">=</span> <span class="nu0">9</span><span class="sy4">;</span>  <span class="co1">// &#25554;&#20837;&#26032;&#20540;</span>
+ 
+    println<span class="br0">(</span><span class="st0">&quot;&#20462;&#25913;&#21518;&#23427;&#21253;&#21547;&#65306;&quot;</span>, letter_counts<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#32479;&#35745;&#27599;&#20010;&#21333;&#35789;&#30340;&#20986;&#29616;&#27425;&#25968;</span>
+    <span class="co1">// &#65288;&#39318;&#27425;&#35843;&#29992; operator[] &#20250;&#21021;&#22987;&#21270;&#35745;&#25968;&#20026;&#38646;&#65289;</span>
+    <a href="cpp-container-flat_map.html"><span class="kw3329">std::<span class="me2">flat_map</span></span></a><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a>, <span class="kw4">int</span><span class="sy1">&gt;</span>  word_map<span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> w <span class="sy4">:</span> <span class="br0">{</span><span class="st0">&quot;this&quot;</span>, <span class="st0">&quot;sentence&quot;</span>, <span class="st0">&quot;is&quot;</span>, <span class="st0">&quot;not&quot;</span>, <span class="st0">&quot;a&quot;</span>, <span class="st0">&quot;sentence&quot;</span>,
+                          <span class="st0">&quot;this&quot;</span>, <span class="st0">&quot;sentence&quot;</span>, <span class="st0">&quot;is&quot;</span>, <span class="st0">&quot;a&quot;</span>, <span class="st0">&quot;hoax&quot;</span><span class="br0">}</span><span class="br0">)</span>
+        <span class="sy2">++</span>word_map<span class="br0">[</span>w<span class="br0">]</span><span class="sy4">;</span>
+    word_map<span class="br0">[</span><span class="st0">&quot;that&quot;</span><span class="br0">]</span><span class="sy4">;</span> <span class="co1">// &#25554;&#20837;&#23545; {&quot;that&quot;, 0}</span>
+ 
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> <span class="br0">[</span>word, count<span class="br0">]</span> <span class="sy4">:</span> word_map<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#21333;&#35789; &#39;&quot;</span> <span class="sy1">&lt;&lt;</span> word <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#39; &#20986;&#29616; &quot;</span> <span class="sy1">&lt;&lt;</span> count <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#27425;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">letter_counts &#21021;&#22987;&#29366;&#24577;&#19979;&#21253;&#21547;&#65306;{{a: 27}{b: 3}{c: 1}}
+&#20462;&#25913;&#21518;&#23427;&#21253;&#21547;&#65306;{{a: 27}{b: 42}{c: 1}{x: 9}}
+&#21333;&#35789; &#39;a&#39; &#20986;&#29616; 2 &#27425;
+&#21333;&#35789; &#39;hoax&#39; &#20986;&#29616; 1 &#27425;
+&#21333;&#35789; &#39;is&#39; &#20986;&#29616; 2 &#27425;
+&#21333;&#35789; &#39;not&#39; &#20986;&#29616; 1 &#27425;
+&#21333;&#35789; &#39;sentence&#39; &#20986;&#29616; 3 &#27425;
+&#21333;&#35789; &#39;that&#39; &#20986;&#29616; 0 &#27425;
+&#21333;&#35789; &#39;this&#39; &#20986;&#29616; 2 &#27425;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-flat_map-at.html"><span class="t-lines"><span>at</span></span></a></div>
+</div>
+</td>
+<td>&#24102;&#36234;&#30028;&#26816;&#26597;&#35775;&#38382;&#25351;&#23450;&#30340;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-flat_map-insert_or_assign.html"><span class="t-lines"><span>insert_or_assign</span></span></a></div>
+</div>
+</td>
+<td>&#25554;&#20837;&#20803;&#32032;&#65292;&#25110;&#33509;&#38190;&#24050;&#23384;&#22312;&#21017;&#36171;&#20540;&#32473;&#24403;&#21069;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-flat_map-try_emplace.html"><span class="t-lines"><span>try_emplace</span></span></a></div>
+</div>
+</td>
+<td>&#33509;&#38190;&#19981;&#23384;&#22312;&#21017;&#21407;&#20301;&#25554;&#20837;&#65292;&#33509;&#38190;&#23384;&#22312;&#21017;&#19981;&#20570;&#20219;&#20309;&#20107;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::ranges::slide_view&lt;V&gt;::slide_view</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_ranges_slide_view_slide_view skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::ranges::slide_view&lt;V&gt;::</span>slide_view</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-ranges.html">ranges</a>&lrm; | <a href="cpp-ranges-slide_view.html">slide view</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="kw1">explicit</span> slide_view<span class="br0">(</span> V base, <a href="cpp-ranges-iterator_t.html"><span class="kw2892">ranges::<span class="me2">range_difference_t</span></span></a><span class="sy1">&lt;</span>V<span class="sy1">&gt;</span> n <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#26500;&#36896; <code>slide_view</code> &#24182;&#21021;&#22987;&#21270;&#24213;&#23618;&#25968;&#25454;&#25104;&#21592;&#65306;</p>
+<ul>
+<li>&#20351;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>base<span class="br0">)</span></span></span> &#31227;&#21160;&#26500;&#36896;&#24213;&#23618;&#35270;&#22270; <code><i><a href="cpp-ranges-slide_view.html#base">base_</a></i></code>&#12290;</li>
+<li>&quot;&#31383;&#21475;&#22823;&#23567;&quot; <code><i><a href="cpp-ranges-slide_view.html#n">n_</a></i></code> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span>&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>base</td>
+<td>-</td>
+<td>&#28304;&#35270;&#22270;</td>
+</tr>
+<tr class="t-par">
+<td>n</td>
+<td>-</td>
+<td>&ldquo;&#28369;&#31383;&rdquo;&#30340;&#22823;&#23567;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;algorithm&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;ranges&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">const</span> <span class="kw4">auto</span> source <span class="sy1">=</span> <span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">2</span>, <span class="nu0">3</span>, <span class="nu0">4</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="kw4">auto</span> slide <span class="sy1">=</span> std<span class="sy4">::</span><a href="cpp-ranges-slide_view.html"><span class="kw3601">views::<span class="me2">slide</span></span></a><span class="br0">(</span>source, <span class="nu0">3</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    std<span class="sy4">::</span><a href="cpp-algorithm-ranges-for_each.html"><span class="kw2989">ranges::<span class="me2">for_each</span></span></a><span class="br0">(</span>slide, <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span>std<span class="sy4">::</span><a href="cpp-ranges-viewable_range.html"><span class="kw2909">ranges::<span class="me2">viewable_range</span></span></a> <span class="kw4">auto</span><span class="sy3">&amp;&amp;</span> w<span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;[&#39;</span> <span class="sy1">&lt;&lt;</span> w<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span> <span class="sy1">&lt;&lt;</span> w<span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span> <span class="sy1">&lt;&lt;</span> w<span class="br0">[</span><span class="nu0">2</span><span class="br0">]</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;]<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    <span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">[1 2 3]
+[2 3 4]</pre></div>
+</div>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

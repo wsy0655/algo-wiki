@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>FE_DFL_ENV</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_numeric_fenv_FE_DFL_ENV skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">FE_DFL_ENV</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-numeric.html">numeric</a>&lrm; | <a href="cpp-numeric-fenv.html">fenv</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-cfenv.html">&lt;cfenv&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="co2">#define FE_DFL_ENV &nbsp;/* &#30001;&#23454;&#29616;&#23450;&#20041; */</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#23439;&#24120;&#37327; <code>FE_DFL_ENV</code> &#23637;&#24320;&#25104; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">const</span> <a href="cpp-numeric-fenv.html"><span class="kw3380">std::<span class="me2">fenv_t</span></span></a><span class="sy2">*</span></span></span> &#31867;&#22411;&#30340;&#34920;&#36798;&#24335;&#65292;&#23427;&#25351;&#21521;&#40664;&#35748;&#28014;&#28857;&#25968;&#29615;&#22659;&#65288;&#21363;&#22312;&#31243;&#24207;&#21152;&#36733;&#26102;&#30340;&#28014;&#28857;&#25968;&#29615;&#22659;&#65289;&#30340;&#23436;&#25972;&#21103;&#26412;&#12290;</p>
+<p>&#23454;&#29616;&#20134;&#21487;&#25903;&#25345;&#38468;&#21152;&#30340;&#20197; <code>FE_</code> &#24320;&#22836;&#24182;&#21518;&#38543;&#22823;&#20889;&#23383;&#27597;&#65292;&#24182;&#25317;&#26377; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">const</span> <a href="cpp-numeric-fenv.html"><span class="kw3380">std::<span class="me2">fenv_t</span></span></a><span class="sy2">*</span></span></span> &#31867;&#22411;&#30340;&#23439;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;cfenv&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co1">// #pragma STDC FENV_ACCESS ON</span>
+ 
+<span class="kw4">void</span> show_env<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">const</span> <span class="kw4">int</span> e <span class="sy1">=</span> <a href="cpp-numeric-fenv-fetestexcept.html"><span class="kw1454">std::<span class="me2">fetestexcept</span></span></a><span class="br0">(</span><a href="cpp-numeric-fenv-FE_exceptions.html"><span class="kw1464">FE_ALL_EXCEPT</span></a><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>e <span class="sy3">&amp;</span> <a href="cpp-numeric-fenv-FE_exceptions.html"><span class="kw1465">FE_DIVBYZERO</span></a><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#24050;&#24341;&#21457; &#38500;&#20197;&#38646; (division by zero)<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>e <span class="sy3">&amp;</span> <a href="cpp-numeric-fenv-FE_exceptions.html"><span class="kw1466">FE_INEXACT</span></a><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#24050;&#24341;&#21457; &#19981;&#31934;&#30830;&#20540; (inexact)<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>e <span class="sy3">&amp;</span> <a href="cpp-numeric-fenv-FE_exceptions.html"><span class="kw1467">FE_INVALID</span></a><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#24050;&#24341;&#21457; &#26080;&#25928;&#20540; (invalid)<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>e <span class="sy3">&amp;</span> <a href="cpp-numeric-fenv-FE_exceptions.html"><span class="kw1469">FE_UNDERFLOW</span></a><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#24050;&#24341;&#21457; &#19979;&#28322;&#20986; (underflow)<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>e <span class="sy3">&amp;</span> <a href="cpp-numeric-fenv-FE_exceptions.html"><span class="kw1468">FE_OVERFLOW</span></a><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#24050;&#24341;&#21457; &#19978;&#28322;&#20986; (overflow)<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+ 
+    <span class="kw1">switch</span> <span class="br0">(</span><a href="cpp-numeric-fenv-feround.html"><span class="kw1458">std::<span class="me2">fegetround</span></span></a><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+    <span class="br0">{</span>  
+        <span class="kw1">case</span> <a href="cpp-numeric-fenv-FE_round.html"><span class="kw1470">FE_DOWNWARD</span></a><span class="sy4">:</span>
+            <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#21521;&#19979;&#33293;&#20837;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+            <span class="kw1">break</span><span class="sy4">;</span>
+        <span class="kw1">case</span> <a href="cpp-numeric-fenv-FE_round.html"><span class="kw1471">FE_TONEAREST</span></a><span class="sy4">:</span>
+            <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#21521;&#26368;&#36817;&#33293;&#20837;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+            <span class="kw1">break</span><span class="sy4">;</span>
+        <span class="kw1">case</span> <a href="cpp-numeric-fenv-FE_round.html"><span class="kw1472">FE_TOWARDZERO</span></a><span class="sy4">:</span>
+            <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#21521;&#38646;&#33293;&#20837;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+            <span class="kw1">break</span><span class="sy4">;</span>
+        <span class="kw1">case</span> <a href="cpp-numeric-fenv-FE_round.html"><span class="kw1473">FE_UPWARD</span></a><span class="sy4">:</span>
+            <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#21521;&#19978;&#33293;&#20837;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+            <span class="kw1">break</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#21551;&#21160;&#26102;:<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    show_env<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-numeric-fenv-feraiseexcept.html"><span class="kw1455">std::<span class="me2">feraiseexcept</span></span></a><span class="br0">(</span><a href="cpp-numeric-fenv-FE_exceptions.html"><span class="kw1469">FE_UNDERFLOW</span></a> <span class="sy3">|</span> <a href="cpp-numeric-fenv-FE_exceptions.html"><span class="kw1468">FE_OVERFLOW</span></a><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-numeric-fenv-feround.html"><span class="kw1459">std::<span class="me2">fesetround</span></span></a><span class="br0">(</span><a href="cpp-numeric-fenv-FE_round.html"><span class="kw1473">FE_UPWARD</span></a><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;<span class="es1">\n</span>&#24674;&#22797;&#21069;:<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    show_env<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-numeric-fenv-feenv.html"><span class="kw1461">std::<span class="me2">fesetenv</span></span></a><span class="br0">(</span>FE_DFL_ENV<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;<span class="es1">\n</span>&#37325;&#32622;&#20026;&#40664;&#35748;&#20540;&#21518;:<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    show_env<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#21551;&#21160;&#26102;: 
+&#21521;&#26368;&#36817;&#33293;&#20837;
+ 
+&#24674;&#22797;&#21069;: 
+&#24050;&#24341;&#21457; &#19979;&#28322;&#20986; (underflow)
+&#24050;&#24341;&#21457; &#19978;&#28322;&#20986; (overflow)
+&#21521;&#19978;&#33293;&#20837;
+ 
+&#37325;&#32622;&#20026;&#40664;&#35748;&#20540;&#21518;: 
+&#21521;&#26368;&#36817;&#33293;&#20837;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-fenv-feenv.html"><span class="t-lines"><span>fegetenv</span><span>fesetenv</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20445;&#23384;&#25110;&#24674;&#22797;&#24403;&#21069;&#28014;&#28857;&#25968;&#29615;&#22659;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-fenv-feupdateenv.html"><span class="t-lines"><span>feupdateenv</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#24674;&#22797;&#28014;&#28857;&#25968;&#29615;&#22659;&#24182;&#24341;&#21457;&#20043;&#21069;&#24341;&#21457;&#30340;&#24322;&#24120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>FE_DFL_ENV</span></span>&nbsp;&#30340; <span><span><a href="c-numeric-fenv-FE_DFL_ENV.html">C &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

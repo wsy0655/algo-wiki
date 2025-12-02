@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>C++ &#20855;&#21517;&#35201;&#27714;&#65306;&#24207;&#21015;&#23481;&#22120; (SequenceContainer)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_named_req_SequenceContainer skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">C++ &#20855;&#21517;&#35201;&#27714;&#65306;</span><span style="font-style:italic">&#24207;&#21015;&#23481;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(SequenceContainer)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-named_req.html">named req</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<p><strong class="selflink"><span style="font-style:italic">&#24207;&#21015;&#23481;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(SequenceContainer)</span></strong> &#26159;&#22312;&#32447;&#24615;&#25490;&#21015;&#20013;&#23384;&#20648;&#30456;&#21516;&#31867;&#22411;&#23545;&#35937;&#30340;<a href="cpp-named_req-Container.html"><span style="font-style:italic">&#23481;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(Container)</span></a> &#12290;</p>
+<h3><span class="mw-headline" id=".E8.A6.81.E6.B1.82">&#35201;&#27714;</span></h3>
+<p>&#32473;&#23450;&#20197;&#19979;&#31867;&#22411;&#21644;&#20540;&#65306;</p>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#31867;&#22411;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>C</code></td>
+<td>&#24207;&#21015;&#23481;&#22120;&#31867;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>T</code></td>
+<td><code>C</code> &#30340;&#20803;&#32032;&#31867;&#22411;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>A</code></td>
+<td><code>C</code> &#30340;&#20998;&#37197;&#22120;&#31867;&#22411;&#65306;
+<ul>
+<li>&#22312; <code>C::allocator_type</code> &#23384;&#22312;&#26102;&#26159;&#35813;&#31867;&#22411;&#65292;</li>
+<li>&#21542;&#21017;&#26159; <span class="mw-geshi cpp source-cpp"><a href="cpp-memory-allocator.html"><span class="kw702">std::<span class="me2">allocator</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span></span></li>
+</ul>
+</td>
+</tr>
+<tr class="t-dsc">
+<td><code>R</code> <span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+<td>&#23454;&#29616;&#20102; <a href="cpp-ranges-to.html#container_compatible_range"><tt><i>container-compatible-range</i></tt></a>&#8202;&#65279;<code>&lt;T&gt;</code> &#30340;&#31867;&#22411;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>Args</code> <span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+<td>&#27169;&#26495;&#24418;&#21442;&#21253;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>Ref</code></td>
+<td><code>C::reference</code></td>
+</tr>
+<tr class="t-dsc">
+<td><code>CRef</code></td>
+<td><code>C::const_reference</code></td>
+</tr>
+<tr class="t-dsc-hitem">
+<td>&#20540;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span></td>
+<td><code>C</code> &#31867;&#22411;&#30340;&#20540;</td>
+</tr>
+<tr class="t-dsc">
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">cv</span></span></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw4">const</span> C</span> &#31867;&#22411;&#30340;&#20540;</td>
+</tr>
+<tr class="t-dsc">
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span>&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">j</span></span></td>
+<td><a href="cpp-named_req-InputIterator.html"><span style="font-style:italic">&#32769;&#24335;&#36755;&#20837;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyInputIterator)</span></a> &#65292;<code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">j</span></span><code>)</code> &#26159;<a href="cpp-iterator.html#.E8.8C.83.E5.9B.B4">&#26377;&#25928;&#33539;&#22260;</a>&#65292;&#24182;&#19988;&#36825;&#20123;&#36845;&#20195;&#22120;&#25152;&#25351;&#20195;&#30340;&#20803;&#32032;&#21487;&#38544;&#24335;&#36716;&#25442;&#21040; <code>C::value_type</code></td>
+</tr>
+<tr class="t-dsc">
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> <span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+<td><code>R</code> &#31867;&#22411;&#30340;&#20540;</td>
+</tr>
+<tr class="t-dsc">
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">il</span></span> <span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-initializer_list.html"><span class="kw962">std::<span class="me2">initializer_list</span></span></a><span class="sy1">&lt;</span>value_type<span class="sy1">&gt;</span></span> &#31867;&#22411;&#30340;&#20540;</td>
+</tr>
+<tr class="t-dsc">
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span></td>
+<td><code>C::size_type</code> &#31867;&#22411;&#30340;&#20540;</td>
+</tr>
+<tr class="t-dsc">
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">p</span></span></td>
+<td>&#21040; <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#20013;&#30340;&#26377;&#25928;<a href="cpp-iterator.html">&#24120;&#37327;&#36845;&#20195;&#22120;</a></td>
+</tr>
+<tr class="t-dsc">
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">q</span></span></td>
+<td>&#21040; <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#20013;&#30340;<a href="cpp-iterator.html#.E5.8F.AF.E8.A7.A3.E5.BC.95.E7.94.A8.E6.80.A7.E4.B8.8E.E6.9C.89.E6.95.88.E6.80.A7">&#26377;&#25928;&#21487;&#35299;&#24341;&#29992;</a>&#24120;&#37327;&#36845;&#20195;&#22120;</td>
+</tr>
+<tr class="t-dsc">
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">q1</span></span>&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">q2</span></span></td>
+<td>&#21040; <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#20013;&#30340;&#20004;&#20010;&#24120;&#37327;&#36845;&#20195;&#22120;&#65292;&#20351;&#24471; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">q1</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">q2</span></span><code>)</code> &#26159;&#26377;&#25928;&#33539;&#22260;</td>
+</tr>
+<tr class="t-dsc">
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">t</span></span></td>
+<td><code>C::value_type</code> &#31867;&#22411;&#30340;<span class="t-rev-inl t-until-cxx11"><span>&#20540;</span><span><span class="t-mark-rev t-until-cxx11" style="white-space: nowrap;">(C++11 &#21069;)</span></span></span><span class="t-rev-inl t-since-cxx11"><span><a href="cpp-language-value_category.html">&#24038;&#20540;</a>&#25110; const &#21491;&#20540;</span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">rv</span></span> <span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+<td><code>C::value_type</code> &#31867;&#22411;&#30340;&#38750; const &#21491;&#20540;</td>
+</tr>
+<tr class="t-dsc">
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">args</span></span> <span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+<td>&#27169;&#24335;&#20026; <code>Args&amp;&amp;</code> &#30340;&#20989;&#25968;&#24418;&#21442;&#21253;</td>
+</tr>
+</table>
+<p>&#22312;&#28385;&#36275;&#20197;&#19979;&#25152;&#26377;&#26465;&#20214;&#26102;&#65292;<code>C</code> &#26159;<span style="font-style:italic">&#24207;&#21015;&#23481;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(SequenceContainer)</span> &#65306;</p>
+<ul>
+<li>&#31867;&#22411; <code>C</code> &#28385;&#36275;<a href="cpp-named_req-Container.html"><span style="font-style:italic">&#23481;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(Container)</span></a> &#30340;&#35201;&#27714;&#12290;</li>
+<li>&#20197;&#19979;&#35821;&#21477;&#21644;&#34920;&#36798;&#24335;&#37117;&#33391;&#26500;&#24182;&#20855;&#26377;&#25351;&#23450;&#30340;&#35821;&#20041;&#65306;</li>
+</ul>
+<div style="max-width: 100%; max-height: 80vh; overflow-y: scroll; margin: 1em 0;">
+<table class="wikitable" style="margin: 0;">
+<tr style="position: sticky; top: 0;">
+<th colspan="4" style="font-size: 16px; line-height: 16px;">&#22522;&#26412;&#35201;&#27714;<br />
+<span style="font-weight: normal;"><span style="font-size:0.8em; line-height:125%">&#65288;<span class="t-rev-inl t-since-cxx11"><span>&#38500; <span class="t-lc"><a href="cpp-container-array.html">std::array</a></span> &#20043;&#22806;&#30340;</span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></span></span>&#25152;&#26377;<a href="cpp-named_req-SequenceContainer.html#.E6.A0.87.E5.87.86.E5.BA.93">&#26631;&#20934;&#24211;</a>&#24207;&#21015;&#23481;&#22120;&#37117;&#38656;&#35201;&#28385;&#36275;&#65289;</span></span></th>
+</tr>
+<tr>
+<th colspan="2">&#35821;&#21477;</th>
+<th colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&#35821;&#20041;<sup id="cite_ref-1" class="reference"><a href="cpp-named_req-SequenceContainer.html#cite_note-1">[1]</a></sup></th>
+</tr>
+<tr>
+<td rowspan="3" colspan="2"><span class="t-c"><span class="mw-geshi cpp source-cpp">C c<span class="br0">(</span>n, t<span class="br0">)</span><span class="sy4">;</span></span></span></td>
+<td>&#25928;&#26524;</td>
+<td>&#26500;&#36896;&#20445;&#26377; <span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span> &#20010; <span class="t-c"><span class="mw-geshi cpp source-cpp">t</span></span> &#30340;&#21103;&#26412;&#30340;&#24207;&#21015;&#23481;&#22120;&#12290;</td>
+</tr>
+<tr>
+<td style="word-break: keep-all;">&#21069;&#26465;&#20214;&nbsp;</td>
+<td>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx11">
+<td>
+<p><code>T</code> <a href="cpp-named_req-CopyInsertable.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#25554;&#20837;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyInsertable)</span></a> &#21040; <code>C</code> &#20013;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>&#21518;&#26465;&#20214;</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-distance.html"><span class="kw676">std::<span class="me2">distance</span></span></a><span class="br0">(</span>c.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, c.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span>&#12290;</td>
+</tr>
+<tr>
+<td rowspan="3" colspan="2"><span class="t-c"><span class="mw-geshi cpp source-cpp">C c<span class="br0">(</span>i, j<span class="br0">)</span><span class="sy4">;</span></span></span></td>
+<td>&#25928;&#26524;</td>
+<td>&#26500;&#36896;&#19982;&#33539;&#22260; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">j</span></span><code>)</code> &#36880;&#20803;&#32032;&#30456;&#31561;&#30340;&#24207;&#21015;&#23481;&#22120;&#12290;
+<ul>
+<li>&#33539;&#22260; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">j</span></span><code>)</code> &#20013;&#30340;&#27599;&#20010;&#36845;&#20195;&#22120;&#37117;&#21482;&#20250;&#24688;&#22909;&#35299;&#24341;&#29992;&#19968;&#27425;&#12290;</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>&#21069;&#26465;&#20214;</td>
+<td>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx11">
+<td>
+<p><code>T</code> &#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>i</span></span> <a href="cpp-named_req-EmplaceConstructible.html"><span style="font-style:italic">&#21487;&#23601;&#20301;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(EmplaceConstructible)</span></a> &#21040; <code>C</code> &#20013;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>&#21518;&#26465;&#20214;</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-distance.html"><span class="kw676">std::<span class="me2">distance</span></span></a><span class="br0">(</span>c.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, c.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-distance.html"><span class="kw676">std::<span class="me2">distance</span></span></a><span class="br0">(</span>i, j<span class="br0">)</span></span></span>&#12290;</td>
+</tr>
+<tr>
+<th>&#34920;&#36798;&#24335;</th>
+<th style="word-break: keep-all;">&nbsp;&#31867;&#22411;&nbsp;</th>
+<th colspan="2">&#35821;&#20041;</th>
+</tr>
+<tr>
+<td rowspan="3"><span style="font-size:0.8em; line-height:125%"><span class="t-c"><span class="mw-geshi cpp source-cpp">C<span class="br0">(</span><a href="cpp-ranges-from_range.html"><span class="kw3504">std::<span class="me2">from_range</span></span></a>, rg<span class="br0">)</span></span></span></span><br />
+<span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+<td rowspan="3"><code>C</code></td>
+<td>&#25928;&#26524;</td>
+<td>&#26500;&#36896;&#19982;&#33539;&#22260; <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> &#36880;&#20803;&#32032;&#30456;&#31561;&#30340;&#24207;&#21015;&#23481;&#22120;&#12290;
+<ul>
+<li>&#33539;&#22260; <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> &#20013;&#30340;&#27599;&#20010;&#36845;&#20195;&#22120;&#37117;&#21482;&#20250;&#24688;&#22909;&#35299;&#24341;&#29992;&#19968;&#27425;&#12290;</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>&#21069;&#26465;&#20214;</td>
+<td><code>T</code> &#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span><a href="../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/begin"><span class="kw2882">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>rg<span class="br0">)</span></span></span> <a href="cpp-named_req-EmplaceConstructible.html"><span style="font-style:italic">&#21487;&#23601;&#20301;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(EmplaceConstructible)</span></a> &#21040; <code>C</code> &#20013;&#12290;</td>
+</tr>
+<tr>
+<td>&#21518;&#26465;&#20214;</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-distance.html"><span class="kw676">std::<span class="me2">distance</span></span></a><span class="br0">(</span>begin<span class="br0">(</span><span class="br0">)</span>, end<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-ranges-distance.html"><span class="kw3142">ranges::<span class="me2">distance</span></span></a><span class="br0">(</span>rg<span class="br0">)</span></span></span>&#12290;</td>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">C<span class="br0">(</span>il<span class="br0">)</span></span></span><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+<td><code>C</code></td>
+<td colspan="2">&#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">C<span class="br0">(</span>il.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, il.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span>&#12290;</td>
+</tr>
+<tr>
+<td rowspan="4"><span class="t-c"><span class="mw-geshi cpp source-cpp">v <span class="sy1">=</span> il</span></span><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+<td rowspan="4"><code>C&amp;</code></td>
+<td>&#25928;&#26524;</td>
+<td>&#23558; <span class="t-c"><span class="mw-geshi cpp source-cpp">il</span></span> &#25152;&#34920;&#31034;&#30340;&#33539;&#22260;&#36171;&#20540;&#21040; <span class="t-c"><span class="mw-geshi cpp source-cpp">a</span></span> &#20013;&#12290;<sup id="cite_ref-2" class="reference"><a href="cpp-named_req-SequenceContainer.html#cite_note-2">[2]</a></sup></td>
+</tr>
+<tr>
+<td>&#36820;&#22238;&#20540;</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span></td>
+</tr>
+<tr>
+<td>&#21069;&#26465;&#20214;</td>
+<td><code>T</code> <a href="cpp-named_req-CopyInsertable.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#25554;&#20837;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyInsertable)</span></a> &#21040; <code>C</code> &#20013;&#65292;&#24182;&#19988;<a href="cpp-named_req-CopyAssignable.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#36171;&#20540;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyAssignable)</span></a> &#12290;</td>
+</tr>
+<tr>
+<td>&#21518;&#26465;&#20214;</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#30340;&#26082;&#23384;&#20803;&#32032;&#35201;&#20040;&#34987;&#38144;&#27585;&#65292;&#35201;&#20040;&#34987;&#36171;&#20540;&#12290;</td>
+</tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">emplace</span><span class="br0">(</span>p, args<span class="br0">)</span></span></span><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+<td rowspan="3"><code>Iter</code>&nbsp;</td>
+<td>&#25928;&#26524;</td>
+<td>&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">p</span></span> &#21069;&#25554;&#20837;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span>args<span class="br0">)</span>...</span></span> &#26500;&#36896;&#30340; <code>T</code> &#31867;&#22411;&#23545;&#35937;&#12290;</td>
+</tr>
+<tr>
+<td>&#36820;&#22238;&#20540;</td>
+<td>&#25351;&#21521;&#30001; <span class="t-c"><span class="mw-geshi cpp source-cpp">args</span></span> &#26500;&#36896;&#21040; <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#20013;&#30340;&#20803;&#32032;&#30340;&#36845;&#20195;&#22120;&#12290;</td>
+</tr>
+<tr>
+<td>&#21069;&#26465;&#20214;</td>
+<td><code>T</code> &#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp">args</span></span> <a href="cpp-named_req-EmplaceConstructible.html"><span style="font-style:italic">&#21487;&#23601;&#20301;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(EmplaceConstructible)</span></a> &#21040; <code>C</code> &#20013;&#12290;</td>
+</tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">insert</span><span class="br0">(</span>p, t<span class="br0">)</span></span></span></td>
+<td rowspan="3"><code>Iter</code></td>
+<td>&#25928;&#26524;</td>
+<td>&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">p</span></span> &#21069;&#25554;&#20837; <span class="t-c"><span class="mw-geshi cpp source-cpp">t</span></span> &#30340;&#21103;&#26412;&#12290;</td>
+</tr>
+<tr>
+<td>&#36820;&#22238;&#20540;</td>
+<td>&#25351;&#21521;&#25554;&#20837;&#21040; <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#20013;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">t</span></span> &#30340;&#21103;&#26412;&#30340;&#36845;&#20195;&#22120;&#12290;</td>
+</tr>
+<tr>
+<td>&#21069;&#26465;&#20214;</td>
+<td>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx11">
+<td>
+<p><code>T</code> <a href="cpp-named_req-CopyInsertable.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#25554;&#20837;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyInsertable)</span></a> &#21040; <code>C</code> &#20013;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">insert</span><span class="br0">(</span>p, rv<span class="br0">)</span></span></span><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+<td rowspan="3"><code>Iter</code></td>
+<td>&#25928;&#26524;</td>
+<td>&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">p</span></span> &#21069;&#25554;&#20837; <span class="t-c"><span class="mw-geshi cpp source-cpp">rv</span></span> &#30340;&#21103;&#26412;&#65292;&#21487;&#33021;&#20351;&#29992;&#31227;&#21160;&#35821;&#20041;&#12290;</td>
+</tr>
+<tr>
+<td>&#36820;&#22238;&#20540;</td>
+<td>&#25351;&#21521;&#25554;&#20837;&#21040; <span class="t-c"><span class="mw-geshi cpp source-cpp">a</span></span> &#20013;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">rv</span></span> &#30340;&#21103;&#26412;&#30340;&#36845;&#20195;&#22120;&#12290;</td>
+</tr>
+<tr>
+<td>&#21069;&#26465;&#20214;</td>
+<td><code>T</code> <a href="cpp-named_req-MoveInsertable.html"><span style="font-style:italic">&#21487;&#31227;&#21160;&#25554;&#20837;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(MoveInsertable)</span></a> &#21040; <code>C</code> &#20013;&#12290;</td>
+</tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">insert</span><span class="br0">(</span>p, n, t<span class="br0">)</span></span></span></td>
+<td rowspan="3"><code>Iter</code></td>
+<td>&#25928;&#26524;</td>
+<td>&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">p</span></span> &#21069;&#25554;&#20837; <span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span> &#20010; <span class="t-c"><span class="mw-geshi cpp source-cpp">t</span></span> &#30340;&#21103;&#26412;&#12290;</td>
+</tr>
+<tr>
+<td>&#36820;&#22238;&#20540;</td>
+<td>&#25351;&#21521;&#25554;&#20837;&#21040; <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#20013;&#30340;&#39318;&#20803;&#32032;&#30340;&#21103;&#26412;&#30340;&#36845;&#20195;&#22120;&#65288;&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp">&#8203;<span class="nu0">0</span>&#8203;</span></span> &#26102;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp">p</span></span>&#65289;&#12290;</td>
+</tr>
+<tr>
+<td>&#21069;&#26465;&#20214;</td>
+<td>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx11">
+<td>
+<p><code>T</code> <a href="cpp-named_req-CopyInsertable.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#25554;&#20837;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyInsertable)</span></a> &#21040; <code>C</code> &#20013;&#65292;&#24182;&#19988;<a href="cpp-named_req-CopyAssignable.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#36171;&#20540;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyAssignable)</span></a> &#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">insert</span><span class="br0">(</span>p, i, j<span class="br0">)</span></span></span></td>
+<td rowspan="3"><code>Iter</code></td>
+<td>&#25928;&#26524;</td>
+<td>&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">p</span></span> &#21069;&#25554;&#20837; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">j</span></span><code>)</code> &#20013;&#20803;&#32032;&#30340;&#21103;&#26412;&#12290;
+<ul>
+<li>&#33539;&#22260; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">j</span></span><code>)</code> &#20013;&#30340;&#27599;&#20010;&#36845;&#20195;&#22120;&#37117;&#21482;&#20250;&#24688;&#22909;&#35299;&#24341;&#29992;&#19968;&#27425;&#12290;</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>&#36820;&#22238;&#20540;</td>
+<td>&#25351;&#21521;&#25554;&#20837;&#21040; <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#20013;&#30340;&#39318;&#20803;&#32032;&#30340;&#21103;&#26412;&#30340;&#36845;&#20195;&#22120;&#65288;&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">i <span class="sy1">==</span> j</span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span> &#26102;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp">p</span></span>&#65289;&#12290;</td>
+</tr>
+<tr>
+<td>&#21069;&#26465;&#20214;</td>
+<td>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx11">
+<td>
+<ul>
+<li><code>T</code> &#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>i</span></span> <a href="cpp-named_req-EmplaceConstructible.html"><span style="font-style:italic">&#21487;&#23601;&#20301;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(EmplaceConstructible)</span></a> &#21040; <code>C</code> &#20013;&#12290;</li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+</table>
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp">j</span></span> &#37117;&#19981;&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#20013;&#12290;</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td rowspan="3"><span style="font-size:0.8em; line-height:125%"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">insert_range</span><span class="br0">(</span>p, rg<span class="br0">)</span></span></span></span><br />
+<span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+<td rowspan="3"><code>Iter</code></td>
+<td>&#25928;&#26524;</td>
+<td>&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">p</span></span> &#21069;&#25554;&#20837; <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> &#20013;&#20803;&#32032;&#30340;&#21103;&#26412;&#12290;
+<ul>
+<li>&#33539;&#22260; <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> &#20013;&#30340;&#27599;&#20010;&#36845;&#20195;&#22120;&#37117;&#21482;&#20250;&#24688;&#22909;&#35299;&#24341;&#29992;&#19968;&#27425;&#12290;</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>&#36820;&#22238;&#20540;</td>
+<td>&#25351;&#21521;&#25554;&#20837;&#21040; <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#20013;&#30340;&#39318;&#20803;&#32032;&#30340;&#21103;&#26412;&#30340;&#36845;&#20195;&#22120;&#65288;&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> &#20026;&#31354;&#26102;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp">p</span></span>&#65289;&#12290;</td>
+</tr>
+<tr>
+<td>&#21069;&#26465;&#20214;</td>
+<td>
+<ul>
+<li><code>T</code> &#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span><a href="../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/begin"><span class="kw2882">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>rg<span class="br0">)</span></span></span> <a href="cpp-named_req-EmplaceConstructible.html"><span style="font-style:italic">&#21487;&#23601;&#20301;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(EmplaceConstructible)</span></a> &#21040; <code>C</code> &#20013;&#12290;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#19981;&#37325;&#21472;&#12290;</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">insert</span><span class="br0">(</span>p, il<span class="br0">)</span></span></span><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+<td><code>Iter</code></td>
+<td colspan="2">&#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">insert</span><span class="br0">(</span>p, il.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, il.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span>&#12290;</td>
+</tr>
+<tr>
+<td rowspan="2"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">erase</span><span class="br0">(</span>q<span class="br0">)</span></span></span></td>
+<td rowspan="2"><code>Iter</code></td>
+<td>&#25928;&#26524;</td>
+<td>&#25830;&#38500; <span class="t-c"><span class="mw-geshi cpp source-cpp">q</span></span> &#25351;&#21521;&#30340;&#20803;&#32032;&#12290;</td>
+</tr>
+<tr>
+<td>&#36820;&#22238;&#20540;</td>
+<td>&#25351;&#21521;&#25830;&#38500;&#21069;&#32039;&#36319; <span class="t-c"><span class="mw-geshi cpp source-cpp">q</span></span> &#20043;&#21518;&#30340;&#20803;&#32032;&#30340;&#36845;&#20195;&#22120;&#65288;&#22312;&#27492;&#31867;&#20803;&#32032;&#19981;&#23384;&#22312;&#26102;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span></span></span>&#65289;&#12290;</td>
+</tr>
+<tr>
+<td rowspan="2"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">erase</span><span class="br0">(</span>q1, q2<span class="br0">)</span></span></span></td>
+<td rowspan="2"><code>Iter</code></td>
+<td>&#25928;&#26524;</td>
+<td>&#25830;&#38500; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">q1</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">q2</span></span><code>)</code> &#20013;&#30340;&#20803;&#32032;&#12290;</td>
+</tr>
+<tr>
+<td>&#36820;&#22238;&#20540;</td>
+<td>&#25351;&#21521;&#22312;&#20219;&#20309;&#20803;&#32032;&#34987;&#25830;&#38500;&#21069; <span class="t-c"><span class="mw-geshi cpp source-cpp">q2</span></span> &#26366;&#25351;&#21521;&#30340;&#20803;&#32032;&#65288;&#22312;&#27492;&#31867;&#20803;&#32032;&#19981;&#23384;&#22312;&#26102;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span></span></span>&#65289;&#12290;</td>
+</tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">clear</span><span class="br0">(</span><span class="br0">)</span></span></span></td>
+<td rowspan="3"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span></td>
+<td>&#25928;&#26524;</td>
+<td>&#38144;&#27585; <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#20013;&#30340;&#25152;&#26377;&#20803;&#32032;&#12290;
+<ul>
+<li>&#25351;&#20195; <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#20013;&#30340;&#20803;&#32032;&#30340;&#25152;&#26377;&#24341;&#29992;&#12289;&#25351;&#38024;&#21644;&#36845;&#20195;&#22120;&#37117;&#20250;&#22833;&#25928;&#65292;&#23614;&#21518;&#36845;&#20195;&#22120;&#20063;&#21487;&#33021;&#20250;&#22833;&#25928;&#12290;</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>&#21518;&#26465;&#20214;</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">empty</span><span class="br0">(</span><span class="br0">)</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#12290;</td>
+</tr>
+<tr>
+<td>&#22797;&#26434;&#24230;</td>
+<td>&#32447;&#24615;&#12290;</td>
+</tr>
+<tr>
+<td rowspan="2"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">assign</span><span class="br0">(</span>i, j<span class="br0">)</span></span></span></td>
+<td rowspan="2"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span></td>
+<td>&#25928;&#26524;</td>
+<td>&#20197; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">j</span></span><code>)</code> &#30340;&#21103;&#26412;&#26367;&#25442; <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#20013;&#30340;&#20803;&#32032;&#12290;
+<ul>
+<li>&#25351;&#20195; <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#20013;&#30340;&#20803;&#32032;&#30340;&#25152;&#26377;&#24341;&#29992;&#12289;&#25351;&#38024;&#21644;&#36845;&#20195;&#22120;&#37117;&#20250;&#22833;&#25928;&#12290;</li>
+<li>&#33539;&#22260; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">j</span></span><code>)</code> &#20013;&#30340;&#27599;&#20010;&#36845;&#20195;&#22120;&#37117;&#21482;&#20250;&#24688;&#22909;&#35299;&#24341;&#29992;&#19968;&#27425;&#12290;</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>&#21069;&#26465;&#20214;</td>
+<td>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx11">
+<td>
+<ul>
+<li><code>T</code> &#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>i</span></span> <a href="cpp-named_req-EmplaceConstructible.html"><span style="font-style:italic">&#21487;&#23601;&#20301;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(EmplaceConstructible)</span></a> &#21040; <code>C</code> &#20013;&#12290;</li>
+<li><code>T</code> &#21487;&#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>i</span></span> &#36171;&#20540;&#12290;</li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+</table>
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp">j</span></span> &#37117;&#19981;&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#20013;&#12290;</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td rowspan="2"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">assign_range</span><span class="br0">(</span>rg<span class="br0">)</span></span></span><br />
+<span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+<td rowspan="2"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span></td>
+<td>&#25928;&#26524;</td>
+<td>&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> &#20013;&#27599;&#20010;&#20803;&#32032;&#30340;&#21103;&#26412;&#26367;&#25442; <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#20013;&#30340;&#20803;&#32032;&#12290;
+<ul>
+<li>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-concepts-assignable_from.html"><span class="kw2942">std::<span class="me2">assignable_from</span></span></a></span><br />
+<code>&nbsp;&nbsp;&nbsp;&nbsp;</code><span class="mw-geshi cpp source-cpp"><span class="sy1">&lt;</span>T<span class="sy3">&amp;</span>, <a href="cpp-ranges-iterator_t.html"><span class="kw2895">ranges::<span class="me2">range_reference_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;&gt;</span></span></span> &#27809;&#26377;&#24471;&#21040;&#23454;&#29616;&#65292;&#37027;&#20040;&#31243;&#24207;&#38750;&#33391;&#26500;&#12290;</li>
+<li>&#25351;&#20195; <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#20013;&#30340;&#20803;&#32032;&#30340;&#25152;&#26377;&#24341;&#29992;&#12289;&#25351;&#38024;&#21644;&#36845;&#20195;&#22120;&#37117;&#20250;&#22833;&#25928;&#12290;</li>
+<li>&#33539;&#22260; <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> &#20013;&#30340;&#27599;&#20010;&#36845;&#20195;&#22120;&#37117;&#21482;&#20250;&#24688;&#22909;&#35299;&#24341;&#29992;&#19968;&#27425;&#12290;</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>&#21069;&#26465;&#20214;</td>
+<td>
+<ul>
+<li><code>T</code> &#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span><a href="../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/begin"><span class="kw2882">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>rg<span class="br0">)</span></span></span> <a href="cpp-named_req-EmplaceConstructible.html"><span style="font-style:italic">&#21487;&#23601;&#20301;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(EmplaceConstructible)</span></a> &#21040; <code>C</code> &#20013;&#12290;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#19981;&#37325;&#21472;&#12290;</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">assign</span><span class="br0">(</span>il<span class="br0">)</span></span></span><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span></td>
+<td colspan="2">&#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">assign</span><span class="br0">(</span>il.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, il.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span>&#12290;</td>
+</tr>
+<tr>
+<td rowspan="2"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">assign</span><span class="br0">(</span>n, t<span class="br0">)</span></span></span></td>
+<td rowspan="2"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span></td>
+<td>&#25928;&#26524;</td>
+<td>&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">t</span></span> &#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span> &#20010;&#21103;&#26412;&#26367;&#25442; <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#20013;&#30340;&#20803;&#32032;&#12290;</td>
+</tr>
+<tr>
+<td>&#21069;&#26465;&#20214;</td>
+<td>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx11">
+<td>
+<p><code>T</code> <a href="cpp-named_req-CopyInsertable.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#25554;&#20837;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyInsertable)</span></a> &#21040; <code>C</code> &#20013;&#65292;&#24182;&#19988;<a href="cpp-named_req-CopyAssignable.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#36171;&#20540;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyAssignable)</span></a> &#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="position: sticky; top: 0;">
+<th colspan="4" style="font-size: 16px; line-height: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&#39069;&#22806;&#25805;&#20316;<sup id="cite_ref-3" class="reference"><a href="cpp-named_req-SequenceContainer.html#cite_note-3">[3]</a></sup><br />
+<span style="font-weight: normal;"><span style="font-size:0.8em; line-height:125%">&#65288;&#21482;&#26377;&#25351;&#23450;&#30340;&#23481;&#22120;&#38656;&#35201;&#28385;&#36275;&#65292;&#30465;&#30053; <code>std::</code>&#65289;</span></span></th>
+</tr>
+<tr>
+<th>&#34920;&#36798;&#24335;</th>
+<th>&nbsp;&#31867;&#22411;&nbsp;</th>
+<th colspan="2">&#35821;&#20041;</th>
+</tr>
+<tr>
+<td rowspan="2"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">front</span><span class="br0">(</span><span class="br0">)</span></span></span></td>
+<td rowspan="2"><code>Ref</code></td>
+<td>&#23481;&#22120;</td>
+<td><code><a href="cpp-string-basic_string.html">basic_string</a>, <a href="cpp-container-array.html">array</a>, <a href="cpp-container-vector.html">vector</a>, <a href="cpp-container-inplace_vector.html">inplace_vector</a>, <a href="cpp-container-deque.html">deque</a>, <a href="cpp-container-list.html">list</a>, <a href="cpp-container-forward_list.html">forward_list</a></code></td>
+</tr>
+<tr>
+<td>&#36820;&#22238;&#20540;</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>v.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span></span></span></td>
+</tr>
+<tr>
+<td rowspan="2"><span class="t-c"><span class="mw-geshi cpp source-cpp">cv.<span class="me1">front</span><span class="br0">(</span><span class="br0">)</span></span></span></td>
+<td rowspan="2"><code>CRef</code></td>
+<td>&#23481;&#22120;</td>
+<td><code><a href="cpp-string-basic_string.html">basic_string</a>, <a href="cpp-container-array.html">array</a>, <a href="cpp-container-vector.html">vector</a>, <a href="cpp-container-inplace_vector.html">inplace_vector</a>, <a href="cpp-container-deque.html">deque</a>, <a href="cpp-container-list.html">list</a>, <a href="cpp-container-forward_list.html">forward_list</a></code></td>
+</tr>
+<tr>
+<td>&#36820;&#22238;&#20540;</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>cv.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span></span></span></td>
+</tr>
+<tr>
+<td rowspan="2"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">back</span><span class="br0">(</span><span class="br0">)</span></span></span></td>
+<td rowspan="2"><code>Ref</code></td>
+<td>&#23481;&#22120;</td>
+<td><code><a href="cpp-string-basic_string.html">basic_string</a>, <a href="cpp-container-array.html">array</a>, <a href="cpp-container-vector.html">vector</a>, <a href="cpp-container-inplace_vector.html">inplace_vector</a>, <a href="cpp-container-deque.html">deque</a>, <a href="cpp-container-list.html">list</a></code></td>
+</tr>
+<tr>
+<td colspan="2">&#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">auto</span> tmp <span class="sy1">=</span> v.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="sy2">--</span>tmp<span class="sy4">;</span> <span class="kw1">return</span> <span class="sy2">*</span>tmp<span class="sy4">;</span></span></span><sup id="cite_ref-4" class="reference"><a href="cpp-named_req-SequenceContainer.html#cite_note-4">[4]</a></sup>&#12290;</td>
+</tr>
+<tr>
+<td rowspan="2"><span class="t-c"><span class="mw-geshi cpp source-cpp">cv.<span class="me1">back</span><span class="br0">(</span><span class="br0">)</span></span></span></td>
+<td rowspan="2"><code>CRef</code></td>
+<td>&#23481;&#22120;</td>
+<td><code><a href="cpp-string-basic_string.html">basic_string</a>, <a href="cpp-container-array.html">array</a>, <a href="cpp-container-vector.html">vector</a>, <a href="cpp-container-inplace_vector.html">inplace_vector</a>, <a href="cpp-container-deque.html">deque</a>, <a href="cpp-container-list.html">list</a></code></td>
+</tr>
+<tr>
+<td colspan="2">&#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">auto</span> tmp <span class="sy1">=</span> cv.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="sy2">--</span>tmp<span class="sy4">;</span> <span class="kw1">return</span> <span class="sy2">*</span>tmp<span class="sy4">;</span></span></span><sup id="cite_ref-5" class="reference"><a href="cpp-named_req-SequenceContainer.html#cite_note-5">[5]</a></sup>&#12290;</td>
+</tr>
+<tr>
+<td rowspan="4"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">emplace_front</span><span class="br0">(</span>args<span class="br0">)</span></span></span><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+<td rowspan="4"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span></td>
+<td>&#23481;&#22120;</td>
+<td><code><a href="cpp-container-deque.html">deque</a>, <a href="cpp-container-list.html">list</a>, <a href="cpp-container-forward_list.html">forward_list</a></code></td>
+</tr>
+<tr>
+<td>&#25928;&#26524;</td>
+<td>&#21069;&#38468;&#19968;&#20010;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span>args<span class="br0">)</span>...</span></span> &#26500;&#36896;&#30340; <code>T</code> &#31867;&#22411;&#23545;&#35937;&#12290;</td>
+</tr>
+<tr>
+<td>&#36820;&#22238;&#20540;</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">front</span><span class="br0">(</span><span class="br0">)</span></span></span></td>
+</tr>
+<tr>
+<td>&#21069;&#26465;&#20214;</td>
+<td><code>T</code> &#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp">args</span></span> <a href="cpp-named_req-EmplaceConstructible.html"><span style="font-style:italic">&#21487;&#23601;&#20301;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(EmplaceConstructible)</span></a> &#21040; <code>C</code> &#20013;&#12290;</td>
+</tr>
+<tr>
+<td rowspan="4"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">emplace_back</span><span class="br0">(</span>args<span class="br0">)</span></span></span><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+<td rowspan="4"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span></td>
+<td>&#23481;&#22120;</td>
+<td><code><a href="cpp-container-vector.html">vector</a>, <a href="cpp-container-inplace_vector.html">inplace_vector</a>, <a href="cpp-container-deque.html">deque</a>, <a href="cpp-container-list.html">list</a></code></td>
+</tr>
+<tr>
+<td>&#25928;&#26524;</td>
+<td>&#21518;&#38468;&#19968;&#20010;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span>args<span class="br0">)</span>...</span></span> &#26500;&#36896;&#30340; <code>T</code> &#31867;&#22411;&#23545;&#35937;&#12290;</td>
+</tr>
+<tr>
+<td>&#36820;&#22238;&#20540;</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">back</span><span class="br0">(</span><span class="br0">)</span></span></span></td>
+</tr>
+<tr>
+<td>&#21069;&#26465;&#20214;</td>
+<td><code>T</code> &#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp">args</span></span> <a href="cpp-named_req-EmplaceConstructible.html"><span style="font-style:italic">&#21487;&#23601;&#20301;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(EmplaceConstructible)</span></a> &#21040; <code>C</code> &#20013;&#12290;</td>
+</tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">push_front</span><span class="br0">(</span>t<span class="br0">)</span></span></span></td>
+<td rowspan="3"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span></td>
+<td>&#23481;&#22120;</td>
+<td><code><a href="cpp-container-deque.html">deque</a>, <a href="cpp-container-list.html">list</a>, <a href="cpp-container-forward_list.html">forward_list</a></code></td>
+</tr>
+<tr>
+<td>&#25928;&#26524;</td>
+<td>&#21069;&#38468; <span class="t-c"><span class="mw-geshi cpp source-cpp">t</span></span> &#30340;&#19968;&#20010;&#21103;&#26412;&#12290;</td>
+</tr>
+<tr>
+<td>&#21069;&#26465;&#20214;</td>
+<td>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx11">
+<td>
+<p><code>T</code> <a href="cpp-named_req-CopyInsertable.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#25554;&#20837;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyInsertable)</span></a> &#21040; <code>C</code> &#20013;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">push_front</span><span class="br0">(</span>rv<span class="br0">)</span></span></span><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+<td rowspan="3"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span></td>
+<td>&#23481;&#22120;</td>
+<td><code><a href="cpp-container-deque.html">deque</a>, <a href="cpp-container-list.html">list</a>, <a href="cpp-container-forward_list.html">forward_list</a></code></td>
+</tr>
+<tr>
+<td>&#25928;&#26524;</td>
+<td>&#21069;&#38468; <span class="t-c"><span class="mw-geshi cpp source-cpp">rv</span></span> &#30340;&#19968;&#20010;&#21103;&#26412;&#65292;&#21487;&#33021;&#29992;&#31227;&#21160;&#35821;&#20041;&#12290;</td>
+</tr>
+<tr>
+<td>&#21069;&#26465;&#20214;</td>
+<td><code>T</code> <a href="cpp-named_req-MoveInsertable.html"><span style="font-style:italic">&#21487;&#31227;&#21160;&#25554;&#20837;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(MoveInsertable)</span></a> &#21040; <code>C</code> &#20013;&#12290;</td>
+</tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">prepend_range</span><span class="br0">(</span>rg<span class="br0">)</span></span></span><br />
+<span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+<td rowspan="3"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span></td>
+<td>&#23481;&#22120;</td>
+<td><code><a href="cpp-container-deque.html">deque</a>, <a href="cpp-container-list.html">list</a>, <a href="cpp-container-forward_list.html">forward_list</a></code></td>
+</tr>
+<tr>
+<td>&#25928;&#26524;</td>
+<td>&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span></span></span> &#21069;&#25554;&#20837;<sup id="cite_ref-range_6-0" class="reference"><a href="cpp-named_req-SequenceContainer.html#cite_note-range-6">[6]</a></sup> <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> &#20013;&#30340;&#20803;&#32032;&#30340;&#21103;&#26412;&#12290;
+<ul>
+<li>&#33539;&#22260; <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> &#20013;&#30340;&#27599;&#20010;&#36845;&#20195;&#22120;&#37117;&#21482;&#20250;&#24688;&#22909;&#35299;&#24341;&#29992;&#19968;&#27425;&#12290;</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>&#21069;&#26465;&#20214;</td>
+<td><code>T</code> &#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span><a href="../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/begin"><span class="kw2882">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>rg<span class="br0">)</span></span></span> &#21487;<a href="cpp-named_req-EmplaceConstructible.html"><span style="font-style:italic">&#21487;&#23601;&#20301;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(EmplaceConstructible)</span></a> &#21040; <code>C</code> &#20013;&#12290;</td>
+</tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">push_back</span><span class="br0">(</span>t<span class="br0">)</span></span></span></td>
+<td rowspan="3"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span></td>
+<td>&#23481;&#22120;</td>
+<td><code><a href="cpp-string-basic_string.html">basic_string</a>, <a href="cpp-container-vector.html">vector</a>, <a href="cpp-container-inplace_vector.html">inplace_vector</a>, <a href="cpp-container-deque.html">deque</a>, <a href="cpp-container-list.html">list</a></code></td>
+</tr>
+<tr>
+<td>&#25928;&#26524;</td>
+<td>&#21518;&#38468; <span class="t-c"><span class="mw-geshi cpp source-cpp">t</span></span> &#30340;&#19968;&#20010;&#21103;&#26412;&#12290;</td>
+</tr>
+<tr>
+<td>&#21069;&#26465;&#20214;</td>
+<td>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx11">
+<td>
+<p><code>T</code> <a href="cpp-named_req-CopyInsertable.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#25554;&#20837;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyInsertable)</span></a> &#21040; <code>C</code> &#20013;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">push_back</span><span class="br0">(</span>rv<span class="br0">)</span></span></span><br />
+<span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+<td rowspan="3"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span></td>
+<td>&#23481;&#22120;</td>
+<td><code><a href="cpp-string-basic_string.html">basic_string</a>, <a href="cpp-container-vector.html">vector</a>, <a href="cpp-container-inplace_vector.html">inplace_vector</a>, <a href="cpp-container-deque.html">deque</a>, <a href="cpp-container-list.html">list</a></code></td>
+</tr>
+<tr>
+<td>&#25928;&#26524;</td>
+<td>&#21518;&#38468; <span class="t-c"><span class="mw-geshi cpp source-cpp">rv</span></span> &#30340;&#19968;&#20010;&#21103;&#26412;&#65292;&#21487;&#33021;&#29992;&#31227;&#21160;&#35821;&#20041;&#12290;</td>
+</tr>
+<tr>
+<td>&#21069;&#26465;&#20214;</td>
+<td><code>T</code> <a href="cpp-named_req-MoveInsertable.html"><span style="font-style:italic">&#21487;&#31227;&#21160;&#25554;&#20837;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(MoveInsertable)</span></a> &#21040; <code>C</code> &#20013;&#12290;</td>
+</tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">append_range</span><span class="br0">(</span>rg<span class="br0">)</span></span></span><br />
+<span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+<td rowspan="3"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span></td>
+<td>&#23481;&#22120;</td>
+<td><code><a href="cpp-container-vector.html">vector</a>, <a href="cpp-container-inplace_vector.html">inplace_vector</a>, <a href="cpp-container-deque.html">deque</a>, <a href="cpp-container-list.html">list</a></code></td>
+</tr>
+<tr>
+<td>&#25928;&#26524;</td>
+<td>&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span></span></span> &#21069;&#25554;&#20837;<sup id="cite_ref-range_6-1" class="reference"><a href="cpp-named_req-SequenceContainer.html#cite_note-range-6">[6]</a></sup> <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> &#20013;&#30340;&#20803;&#32032;&#30340;&#21103;&#26412;&#12290;
+<ul>
+<li>&#33539;&#22260; <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> &#20013;&#30340;&#27599;&#20010;&#36845;&#20195;&#22120;&#37117;&#21482;&#20250;&#24688;&#22909;&#35299;&#24341;&#29992;&#19968;&#27425;&#12290;</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>&#21069;&#26465;&#20214;</td>
+<td><code>T</code> &#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span><a href="../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/begin"><span class="kw2882">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>rg<span class="br0">)</span></span></span> &#21487;<a href="cpp-named_req-EmplaceConstructible.html"><span style="font-style:italic">&#21487;&#23601;&#20301;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(EmplaceConstructible)</span></a> &#21040; <code>C</code> &#20013;&#12290;</td>
+</tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">pop_front</span><span class="br0">(</span><span class="br0">)</span></span></span></td>
+<td rowspan="3"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span></td>
+<td>&#23481;&#22120;</td>
+<td><code><a href="cpp-container-deque.html">deque</a>, <a href="cpp-container-list.html">list</a>, <a href="cpp-container-forward_list.html">forward_list</a></code></td>
+</tr>
+<tr>
+<td>&#25928;&#26524;</td>
+<td>&#38144;&#27585;&#39318;&#20803;&#32032;&#12290;</td>
+</tr>
+<tr>
+<td>&#21069;&#26465;&#20214;</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">a.<span class="me1">empty</span><span class="br0">(</span><span class="br0">)</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#12290;</td>
+</tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">pop_back</span><span class="br0">(</span><span class="br0">)</span></span></span></td>
+<td rowspan="3"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span></td>
+<td>&#23481;&#22120;</td>
+<td><code><a href="cpp-string-basic_string.html">basic_string</a>, <a href="cpp-container-vector.html">vector</a>, <a href="cpp-container-inplace_vector.html">inplace_vector</a>, <a href="cpp-container-deque.html">deque</a>, <a href="cpp-container-list.html">list</a></code></td>
+</tr>
+<tr>
+<td>&#25928;&#26524;</td>
+<td>&#38144;&#27585;&#26368;&#26411;&#20803;&#32032;&#12290;</td>
+</tr>
+<tr>
+<td>&#21069;&#26465;&#20214;</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">a.<span class="me1">empty</span><span class="br0">(</span><span class="br0">)</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#12290;</td>
+</tr>
+<tr>
+<td rowspan="2"><span class="t-c"><span class="mw-geshi cpp source-cpp">v<span class="br0">[</span>n<span class="br0">]</span></span></span></td>
+<td rowspan="2"><code>Ref</code></td>
+<td>&#23481;&#22120;</td>
+<td><code><a href="cpp-string-basic_string.html">basic_string</a>, <a href="cpp-container-array.html">array</a>, <a href="cpp-container-vector.html">vector</a>, <a href="cpp-container-inplace_vector.html">inplace_vector</a>, <a href="cpp-container-deque.html">deque</a></code></td>
+</tr>
+<tr>
+<td colspan="2">&#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">return</span> <span class="sy2">*</span><span class="br0">(</span>v.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> n<span class="br0">)</span><span class="sy4">;</span></span></span>&#12290;</td>
+</tr>
+<tr>
+<td rowspan="2"><span class="t-c"><span class="mw-geshi cpp source-cpp">cv<span class="br0">[</span>n<span class="br0">]</span></span></span></td>
+<td rowspan="2"><code>CRef</code></td>
+<td>&#23481;&#22120;</td>
+<td><code><a href="cpp-string-basic_string.html">basic_string</a>, <a href="cpp-container-array.html">array</a>, <a href="cpp-container-vector.html">vector</a>, <a href="cpp-container-inplace_vector.html">inplace_vector</a>, <a href="cpp-container-deque.html">deque</a></code></td>
+</tr>
+<tr>
+<td colspan="2">&#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">return</span> <span class="sy2">*</span><span class="br0">(</span>cv.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> n<span class="br0">)</span><span class="sy4">;</span></span></span>&#12290;</td>
+</tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">at</span><span class="br0">(</span>n<span class="br0">)</span></span></span></td>
+<td rowspan="3"><code>Ref</code></td>
+<td>&#23481;&#22120;</td>
+<td><code><a href="cpp-string-basic_string.html">basic_string</a>, <a href="cpp-container-array.html">array</a>, <a href="cpp-container-vector.html">vector</a>, <a href="cpp-container-inplace_vector.html">inplace_vector</a>, <a href="cpp-container-deque.html">deque</a></code></td>
+</tr>
+<tr>
+<td>&#36820;&#22238;&#20540;</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span><span class="br0">(</span>v.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> n<span class="br0">)</span></span></span></td>
+</tr>
+<tr>
+<td>&#24322;&#24120;</td>
+<td>&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">n <span class="sy1">&gt;=</span> v.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span> &#26102;&#25243;&#20986; <span class="t-lc"><a href="cpp-error-out_of_range.html">std::out_of_range</a></span>&#12290;</td>
+</tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">cv.<span class="me1">at</span><span class="br0">(</span>n<span class="br0">)</span></span></span></td>
+<td rowspan="3"><code>CRef</code></td>
+<td>&#23481;&#22120;</td>
+<td><code><a href="cpp-string-basic_string.html">basic_string</a>, <a href="cpp-container-array.html">array</a>, <a href="cpp-container-vector.html">vector</a>, <a href="cpp-container-inplace_vector.html">inplace_vector</a>, <a href="cpp-container-deque.html">deque</a></code></td>
+</tr>
+<tr>
+<td>&#36820;&#22238;&#20540;</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span><span class="br0">(</span>cv.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> n<span class="br0">)</span></span></span></td>
+</tr>
+<tr>
+<td>&#24322;&#24120;</td>
+<td>&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">n <span class="sy1">&gt;=</span> v.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span> &#26102;&#25243;&#20986; <span class="t-lc"><a href="cpp-error-out_of_range.html">std::out_of_range</a></span>&#12290;</td>
+</tr>
+<tr>
+<th colspan="4">&#27880;&#35299;</th>
+</tr>
+<tr>
+<td colspan="4">
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="cpp-named_req-SequenceContainer.html#cite_ref-1">&uarr;</a></span> <span class="reference-text">&#23545;&#20110;&#25928;&#26524;&#31561;&#20215;&#20110;&#20854;&#20182;&#25805;&#20316;&#30340;&#34920;&#36798;&#24335;&#65292;&#22312;&#34920;&#26684;&#20013;&#21015;&#20986;&#30340;&#26465;&#20214;&#30340;&#22522;&#30784;&#19978;&#20063;&#20250;&#32487;&#25215;&#37027;&#20123;&#25805;&#20316;&#20013;&#30340;&#34920;&#36798;&#24335;&#30340;&#26465;&#20214;&#12290;</span></li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="cpp-named_req-SequenceContainer.html#cite_ref-2">&uarr;</a></span> <span class="reference-text"><span class="t-lc"><a href="cpp-container-array.html">std::array</a></span> &#25903;&#25345;&#20174;<a href="cpp-language-initialization.html">&#33457;&#25324;&#21495;&#21253;&#22260;&#30340;&#21021;&#22987;&#21270;&#22120;&#21015;&#34920;</a>&#36171;&#20540;&#65292;&#20294;&#19981;&#25903;&#25345;&#20174; <span class="t-lc"><a href="cpp-utility-initializer_list.html">std::initializer_list</a></span> &#36171;&#20540;&#12290;</span></li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><a href="cpp-named_req-SequenceContainer.html#cite_ref-3">&uarr;</a></span> <span class="reference-text"><span class="t-rev-inl t-since-cxx23"><span>&#38500; <code>prepend_range</code> &#21644; <code>append_range</code> &#30340;</span><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></span></span>&#20197;&#19979;&#25152;&#26377;&#25805;&#20316;&#37117;&#20250;&#22312;&#22343;&#25674;&#24120;&#25968;&#26102;&#38388;&#20869;&#23436;&#25104;&#12290;</span></li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><a href="cpp-named_req-SequenceContainer.html#cite_ref-4">&uarr;</a></span> <span class="reference-text">&#22312; C++98 &#20013;&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">tmp</span></span> &#34987;&#22768;&#26126;&#20026;&#20855;&#26377; <code>C::iterator</code> &#31867;&#22411;&#12290;</span></li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><a href="cpp-named_req-SequenceContainer.html#cite_ref-5">&uarr;</a></span> <span class="reference-text">&#22312; C++98 &#20013;&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">tmp</span></span> &#34987;&#22768;&#26126;&#20026;&#20855;&#26377; <code>C::const_iterator</code> &#31867;&#22411;&#12290;</span></li>
+<li id="cite_note-range-6"><span class="mw-cite-backlink">&uarr; <sup><a href="cpp-named_req-SequenceContainer.html#cite_ref-range_6-0">6.0</a></sup> <sup><a href="cpp-named_req-SequenceContainer.html#cite_ref-range_6-1">6.1</a></sup></span> <span class="reference-text">&#25554;&#20837;&#39034;&#24207;&#23601;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> &#20013;&#20803;&#32032;&#30340;&#39034;&#24207;&#65292;&#19981;&#26159;&#36870;&#24207;&#12290;</span></li>
+</ol>
+</td>
+</tr>
+</table>
+</div>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;Add bits from <a rel="nofollow" class="external text" href="https://wg21.link/P2846">P2846</a> for (sequence) [containers]</td>
+</tr>
+</table>
+<p>&#21478;&#22806;&#65292;&#23545;&#20110;&#27599;&#20010;&#24207;&#21015;&#23481;&#22120;&#65306;</p>
+<ul>
+<li>&#23545;&#20110;&#25509;&#25910;&#20004;&#20010;&#36755;&#20837;&#36845;&#20195;&#22120;&#30340;&#26500;&#36896;&#20989;&#25968;&#27169;&#26495;&#65292;&#20197;&#21450;&#25104;&#21592;&#20989;&#25968; <code>insert()</code>&#12289;<code>append()</code>&#12289;<code>assign()</code>&#12289;<code>replace()</code> &#30340;&#25509;&#21463;&#20004;&#20010;&#36755;&#20837;&#36845;&#20195;&#22120;&#30340;&#27169;&#26495;&#37325;&#36733;&#65292;&#22914;&#26524;&#30456;&#24212;&#30340;&#27169;&#26495;&#23454;&#21442;&#19981;&#26159;<a href="cpp-named_req-InputIterator.html"><span style="font-style:italic">&#32769;&#24335;&#36755;&#20837;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyInputIterator)</span></a> &#65292;&#37027;&#20040;&#23427;&#20204;&#19981;&#20250;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#12290;</li>
+</ul>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx17">
+<td>
+<ul>
+<li>&#23545;&#20110;&#25317;&#26377; <a href="cpp-named_req-InputIterator.html"><span style="font-style:italic">&#32769;&#24335;&#36755;&#20837;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyInputIterator)</span></a> &#25110; <code>Allocator</code> &#27169;&#26495;&#24418;&#21442;&#30340;&#25512;&#23548;&#25351;&#24341;&#65292;&#22914;&#26524;&#35813;&#24418;&#21442;&#25512;&#23548;&#20986;&#30340;&#31867;&#22411;&#65288;&#20998;&#21035;&#65289;&#19981;&#26159;&#36755;&#20837;&#36845;&#20195;&#22120;&#25110;&#20998;&#37197;&#22120;&#65292;&#37027;&#20040;&#23427;&#20204;&#19981;&#20250;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#12290;</li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.A0.87.E5.87.86.E5.BA.93">&#26631;&#20934;&#24211;</span></h3>
+<p>&#19979;&#21015;&#26631;&#20934;&#24211;&#23383;&#31526;&#20018;&#31867;&#22411;&#21644;&#23481;&#22120;&#22343;&#28385;&#36275;<span style="font-style:italic">&#24207;&#21015;&#23481;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(SequenceContainer)</span> &#65306;</p>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-string-basic_string.html"><span class="t-lines"><span>basic_string</span></span></a></div>
+</div>
+</td>
+<td>&#23384;&#20648;&#24182;&#25805;&#20316;&#23383;&#31526;&#24207;&#21015;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-array.html"><span class="t-lines"><span>array</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#22266;&#23450;&#22823;&#23567;&#30340;&#21407;&#20301;&#36830;&#32493;&#25968;&#32452;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-vector.html"><span class="t-lines"><span>vector</span></span></a></div>
+</div>
+</td>
+<td>&#21160;&#24577;&#30340;&#36830;&#32493;&#25968;&#32452;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-inplace_vector.html"><span class="t-lines"><span>inplace_vector</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26)</span></span></span></div>
+</div>
+</td>
+<td>&#21487;&#21160;&#24577;&#35843;&#25972;&#22823;&#23567;&#30340;&#22266;&#23450;&#23481;&#37327;&#21407;&#20301;&#36830;&#32493;&#25968;&#32452;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-deque.html"><span class="t-lines"><span>deque</span></span></a></div>
+</div>
+</td>
+<td>&#21452;&#31471;&#38431;&#21015;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-forward_list.html"><span class="t-lines"><span>forward_list</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></span></span></div>
+</div>
+</td>
+<td>&#21333;&#21521;&#38142;&#34920;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list.html"><span class="t-lines"><span>list</span></span></a></div>
+</div>
+</td>
+<td>&#21452;&#21521;&#38142;&#34920;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+<h4><span class="mw-headline" id=".E4.BD.BF.E7.94.A8.E5.A4.87.E6.B3.A8">&#20351;&#29992;&#22791;&#27880;</span></h4>
+<table class="wikitable" style="text-align: center;">
+<tr>
+<th>&#23481;&#22120;</th>
+<th>&#20248;&#28857;</th>
+<th>&#32570;&#28857;</th>
+</tr>
+<tr>
+<td><span class="t-lc"><a href="cpp-container-vector.html">std::vector</a></span></td>
+<td>&#24555;&#36895;&#35775;&#38382;&#65292;&#36830;&#32493;&#23384;&#20648;</td>
+<td>&#22823;&#22810;&#24773;&#20917;&#30340;&#25554;&#20837;/&#21024;&#38500;&#20302;&#25928;</td>
+</tr>
+<tr>
+<td><span class="t-lc">std::inplace_vector</span></td>
+<td>&#24555;&#36895;&#35775;&#38382;&#65292;&#21407;&#20301;&#36830;&#32493;&#23384;&#20648;</td>
+<td>&#23481;&#37327;&#22266;&#23450;&#19988;&#22823;&#22810;&#24773;&#20917;&#30340;&#25554;&#20837;/&#21024;&#38500;&#20302;&#25928;</td>
+</tr>
+<tr>
+<td><span class="t-lc"><a href="cpp-container-array.html">std::array</a></span></td>
+<td>&#24555;&#36895;&#35775;&#38382;&#65292;&#21407;&#20301;&#36830;&#32493;&#23384;&#20648;</td>
+<td>&#20803;&#32032;&#25968;&#37327;&#22266;&#23450;&#19988;&#19981;&#25903;&#25345;&#25554;&#20837;/&#21024;&#38500;</td>
+</tr>
+<tr>
+<td><span class="t-lc"><a href="cpp-container-deque.html">std::deque</a></span></td>
+<td>&#24555;&#36895;&#35775;&#38382;&#65292;&#21487;&#22312;&#24207;&#21015;&#39318;/&#23614;&#39640;&#25928;&#22320;&#25554;&#20837;/&#21024;&#38500;</td>
+<td>&#24207;&#21015;&#20013;&#37096;&#30340;&#25554;&#20837;/&#21024;&#38500;&#20302;&#25928;</td>
+</tr>
+<tr>
+<td><span class="t-lc"><a href="cpp-container-list.html">std::list</a></span><br />
+<span class="t-lc"><a href="cpp-container-forward_list.html">std::forward_list</a></span></td>
+<td>&#22312;&#24207;&#21015;&#20013;&#37096;&#21487;&#39640;&#25928;&#22320;&#25554;&#20837;/&#21024;&#38500;</td>
+<td>&#35775;&#38382;&#25928;&#29575;&#22823;&#22810;&#20026;&#32447;&#24615;&#26102;&#38388;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue139">LWG 139</a></td>
+<td>C++98</td>
+<td>&#22312;&#25351;&#23450;&#30340;&#23481;&#22120;&#19978;&#20063;&#19981;&#38656;&#35201;&#23454;&#29616;&#21487;&#36873;&#25805;&#20316;</td>
+<td>&#38656;&#35201;&#20197;&#22343;&#25674;&#24120;&#25968;&#26102;&#38388;&#23454;&#29616;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue149">LWG 149</a></td>
+<td>C++98</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">insert</span><span class="br0">(</span>p, t<span class="br0">)</span></span></span> &#36820;&#22238; <code>Iter</code>&#65292;&#20294;
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">insert</span><span class="br0">(</span>p, n, t<span class="br0">)</span></span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">insert</span><span class="br0">(</span>p, n, t<span class="br0">)</span></span></span> &#36820;&#22238; <span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span></p>
+</td>
+<td>&#37117;&#36820;&#22238; <code>Iter</code></td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue151">LWG 151</a></td>
+<td>C++98</td>
+<td>&#35201;&#27714; <span class="t-c"><span class="mw-geshi cpp source-cpp">q1</span></span> &#21487;&#35299;&#24341;&#29992;<sup id="cite_ref-7" class="reference"><a href="cpp-named_req-SequenceContainer.html#cite_note-7">[1]</a></sup></td>
+<td>&#23427;&#19981;&#38656;&#35201;&#21487;&#35299;&#24341;&#29992;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue355">LWG 355</a></td>
+<td>C++98</td>
+<td>&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">back</span><span class="br0">(</span><span class="br0">)</span></span></span> &#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">pop_back</span><span class="br0">(</span><span class="br0">)</span></span></span> &#20250;&#25191;&#34892;&#21361;&#38505;<sup id="cite_ref-8" class="reference"><a href="cpp-named_req-SequenceContainer.html#cite_note-8">[2]</a></sup>&#30340;&#25805;&#20316; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">--</span>v.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span></span></span></td>
+<td>&#25913;&#25104;&#33258;&#20943; <span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span></span></span> &#30340;&#21103;&#26412;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue589">LWG 589</a></td>
+<td>C++98</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp">j</span></span> &#25351;&#20195;&#30340;&#23545;&#35937;&#19981;&#19968;&#23450;&#21487;&#36716;&#25442;&#21040; <code>C::value_type</code></td>
+<td>&#36825;&#20123;&#23545;&#35937;&#21487;&#20197;&#38544;&#24335;&#36716;&#25442;&#21040;<br />
+<code>C::value_type</code></td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue2194">LWG 2194</a></td>
+<td>C++11</td>
+<td><span class="t-lc"><a href="cpp-container-queue.html">std::queue</a></span>&#12289;<span class="t-lc"><a href="cpp-container-priority_queue.html">std::priority_queue</a></span> &#21644;<br />
+<span class="t-lc"><a href="cpp-container-stack.html">std::stack</a></span> &#20063;&#26159;<span style="font-style:italic">&#24207;&#21015;&#23481;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(SequenceContainer)</span> <sup id="cite_ref-9" class="reference"><a href="cpp-named_req-SequenceContainer.html#cite_note-9">[3]</a></sup></td>
+<td>&#23427;&#20204;&#19981;&#26159;<br />
+<span style="font-style:italic">&#24207;&#21015;&#23481;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(SequenceContainer)</span></td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue2231">LWG 2231</a></td>
+<td>C++11</td>
+<td>C++11 &#20013;&#38169;&#35823;&#22320;&#30465;&#30053;&#20102; <span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">clear</span><span class="br0">(</span><span class="br0">)</span></span></span> &#30340;&#22797;&#26434;&#24230;&#35201;&#27714;</td>
+<td>&#37325;&#30003;&#22797;&#26434;&#24230;&#20026;&#32447;&#24615;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue3927">LWG 3927</a></td>
+<td>C++98</td>
+<td><span class="mw-geshi cpp source-cpp">operator<span class="br0">[</span><span class="br0">]</span></span> &#27809;&#26377;&#38544;&#24335;&#35201;&#27714;</td>
+<td>&#28155;&#21152;&#38544;&#24335;&#35201;&#27714;</td>
+</tr>
+</table>
+<ol class="references">
+<li id="cite_note-7"><span class="mw-cite-backlink"><a href="cpp-named_req-SequenceContainer.html#cite_ref-7">&uarr;</a></span> <span class="reference-text">&#23427;&#26159;&#32570;&#38519;&#30340;&#21407;&#22240;&#26159;&#23427;&#20250;&#23548;&#33268;&#22312;&#31354;&#23481;&#22120; <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#19978;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">erase</span><span class="br0">(</span>v.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, v.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span> &#30340;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</span></li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><a href="cpp-named_req-SequenceContainer.html#cite_ref-8">&uarr;</a></span> <span class="reference-text">&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span></span></span> &#20855;&#26377;&#22522;&#30784;&#31867;&#22411;&#65292;&#37027;&#20040; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">--</span>v.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span></span></span> &#38750;&#33391;&#26500;&#12290;&#24403; <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#26102;&#27169;&#26495;&#21270;&#31867;&#22411;&#30340;&#26102;&#20505;&#36825;&#20010;&#25805;&#20316;&#23601;&#21464;&#25104;&#20102;&#21361;&#38505;&#25805;&#20316;&#65292;&#23427;&#20250;&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#30340;&#31867;&#22411;&#20174;&#38750;&#22522;&#30784;&#31867;&#22411;&#21464;&#25104;&#22522;&#30784;&#31867;&#22411;&#30340;&#26102;&#20505;&#23548;&#33268;&#32534;&#35793;&#22833;&#36133;&#65292;&#24182;&#19988;&#38590;&#20197;&#25490;&#26597;&#12290;</span></li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><a href="cpp-named_req-SequenceContainer.html#cite_ref-9">&uarr;</a></span> <span class="reference-text">&#23427;&#20204;&#22312; C++98 &#20013;&#27809;&#26377;&#34987;&#35760;&#36733;&#20026;<span style="font-style:italic">&#24207;&#21015;&#23481;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(SequenceContainer)</span> &#12290;</span></li>
+</ol>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>C++ &#20855;&#21517;&#35201;&#27714;&#65306;&#24067;&#23616;&#26144;&#23556; (LayoutMapping) (C++23 &#36215;)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_named_req_LayoutMapping skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">C++ &#20855;&#21517;&#35201;&#27714;&#65306;</span><span style="font-style:italic">&#24067;&#23616;&#26144;&#23556;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LayoutMapping)</span> <span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-named_req.html">named req</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<p><strong class="selflink"><span style="font-style:italic">&#24067;&#23616;&#26144;&#23556;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LayoutMapping)</span></strong> &#25511;&#21046; <span class="mw-geshi cpp source-cpp"><a href="cpp-container-mdspan.html"><span class="kw3333">std::<span class="me2">mdspan</span></span></a></span> &#20013;&#20174;&#22810;&#32500;&#32034;&#24341;&#21040;&#25968;&#25454;&#21477;&#26564;&#30340;&#19968;&#32500;&#20559;&#31227;&#37327;&#30340;&#26144;&#23556;&#12290;</p>
+<h3><span class="mw-headline" id=".E8.A6.81.E6.B1.82">&#35201;&#27714;</span></h3>
+<p>&#22914;&#26524;&#31867;&#22411; <code>M</code> &#23454;&#29616;&#20102; <a href="cpp-concepts-copyable.html"><code>copyable</code></a> &#21644; <a href="cpp-concepts-equality_comparable.html"><code>equality_comparable</code></a>&#65292;&#32780;&#19988;&#20197;&#19979;&#21508;&#39033;&#22343;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#21017;&#23427;&#28385;&#36275;<span style="font-style:italic">&#24067;&#23616;&#26144;&#23556;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LayoutMapping)</span> &#65306;</p>
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_move_constructible.html"><span class="kw550">std::<span class="me2">is_nothrow_move_constructible_v</span></span></a><span class="sy1">&lt;</span>M<span class="sy1">&gt;</span></span></span></li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_move_assignable.html"><span class="kw568">std::<span class="me2">is_nothrow_move_assignable_v</span></span></a><span class="sy1">&lt;</span>M<span class="sy1">&gt;</span></span></span></li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_swappable.html"><span class="kw580">std::<span class="me2">is_nothrow_swappable_v</span></span></a><span class="sy1">&lt;</span>M<span class="sy1">&gt;</span></span></span></li>
+</ul>
+<p>&#24182;&#19988;&#65292;&#32473;&#23450;&#20197;&#19979;&#21508;&#31867;&#22411;&#21644;&#20540;&#65292;&#19979;&#34920;&#25152;&#31034;&#30340;&#34920;&#36798;&#24335;&#22343;&#26377;&#25928;&#24182;&#20855;&#26377;&#25152;&#25351;&#23450;&#30340;&#35821;&#20041;&#65306;</p>
+<h4><span class="mw-headline" id=".E5.87.A1.E4.BE.8B">&#20961;&#20363;</span></h4>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#31867;&#22411;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>M</code></td>
+<td>&#24067;&#23616;&#26144;&#23556;&#31867;</td>
+</tr>
+<tr class="t-dsc-hitem">
+<td>&#20540;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">m</span></span></td>
+<td>&#65288;&#21487;&#33021; const &#38480;&#23450;&#30340;&#65289;<code>M</code> &#31867;&#22411;&#30340;&#20540;</td>
+</tr>
+<tr class="t-dsc">
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span>, <span class="t-c"><span class="mw-geshi cpp source-cpp">j</span></span></td>
+<td>&#65288;&#21487;&#33021; const &#38480;&#23450;&#30340;&#65289;&#25972;&#25968;&#21253;&#65292;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">m.<span class="me1">extents</span><span class="br0">(</span><span class="br0">)</span></span></span> &#20013;&#30340;&#22810;&#32500;&#32034;&#24341;</td>
+</tr>
+<tr class="t-dsc">
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">r</span></span></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw1">typename</span> M&#8203;<span class="sy4">::</span>&#8203;extents_type</span> &#30340;&#65288;&#21487;&#33021; const &#38480;&#23450;&#30340;&#65289;&#31209;&#32034;&#24341;</td>
+</tr>
+<tr class="t-dsc">
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">d_r</span></span></td>
+<td>&#65288;&#21487;&#33021; const &#38480;&#23450;&#30340;&#65289;&#25972;&#25968;&#21253;&#65292;&#28385;&#36275; <span class="t-c"><span class="mw-geshi cpp source-cpp">sizeof...<span class="br0">(</span>d_r<span class="br0">)</span> <span class="sy1">==</span> M&#8203;<span class="sy4">::</span>&#8203;extents_type&#8203;<span class="sy4">::</span>&#8203;rank<span class="br0">(</span><span class="br0">)</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#20301;&#20110;&#31209;&#32034;&#24341; <span class="t-c"><span class="mw-geshi cpp source-cpp">r</span></span> &#30340;&#20803;&#32032;&#31561;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="nu0">1</span></span></span>&#65292;&#19988;&#20854;&#20182;&#25152;&#26377;&#20803;&#32032;&#37117;&#31561;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">&#8203;<span class="nu0">0</span>&#8203;</span></span></td>
+</tr>
+</table>
+<h4><span class="mw-headline" id=".E6.88.90.E5.91.98.E7.B1.BB.E5.9E.8B">&#25104;&#21592;&#31867;&#22411;</span></h4>
+<table class="wikitable">
+<tr>
+<th>&#21517;&#31216;</th>
+<th>&#31867;&#22411;</th>
+<th>&#35201;&#27714;</th>
+</tr>
+<tr>
+<td><code>M::extents_type</code></td>
+<td>&#31867;&#27169;&#26495; <span class="mw-geshi cpp source-cpp"><a href="cpp-container-mdspan-extents.html"><span class="kw3336">std::<span class="me2">extents</span></span></a></span> &#30340;&#29305;&#21270;</td>
+<td></td>
+</tr>
+<tr>
+<td><code>M::index_type</code></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw1">typename</span> M<span class="sy4">::</span><span class="me2">extents_type</span><span class="sy4">::</span><span class="me2">index_type</span></span></td>
+<td></td>
+</tr>
+<tr>
+<td><code>M::rank_type</code></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw1">typename</span> M<span class="sy4">::</span><span class="me2">extents_type</span><span class="sy4">::</span><span class="me2">rank_type</span></span></td>
+<td></td>
+</tr>
+<tr>
+<td><code>M::layout_type</code></td>
+<td>&#24067;&#23616;&#26144;&#23556;&#31574;&#30053; <code>MP</code>&#65292;&#20854;&#20013; <span class="mw-geshi cpp source-cpp"><span class="kw1">typename</span> MP<span class="sy4">::</span><span class="kw1">template</span> mapping<span class="sy1">&lt;</span>E<span class="sy1">&gt;</span></span> &#23545;&#20110;&#23610;&#24230;&#31867;&#22411; <code>E</code> &#20026; <code>M</code></td>
+<td><a href="cpp-named_req-LayoutMappingPolicy.html"><span style="font-style:italic">&#24067;&#23616;&#26144;&#23556;&#31574;&#30053;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LayoutMappingPolicy)</span></a> &#65292;&#28385;&#36275; <code>M</code> &#26159; <code>MP</code> &#30340;&#26144;&#23556;&#31867;&#22411;</td>
+</tr>
+</table>
+<h4><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.87.BD.E6.95.B0.E4.B8.8E.E8.BF.90.E7.AE.97.E7.AC.A6">&#25104;&#21592;&#20989;&#25968;&#19982;&#36816;&#31639;&#31526;</span></h4>
+<div style="max-width: 100%; overflow-x: scroll;">
+<table class="wikitable">
+<tr>
+<th>&#34920;&#36798;&#24335;</th>
+<th>&#36820;&#22238;&#31867;&#22411;</th>
+<th>&#35821;&#20041;</th>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">m.<span class="me1">extents</span><span class="br0">(</span><span class="br0">)</span></span></span></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw4">const</span> <span class="kw1">typename</span> M&#8203;<span class="sy4">::</span>&#8203;extents_type<span class="sy3">&amp;</span></span></td>
+<td>&#36820;&#22238;&#21040;&#20851;&#32852;&#30340;&#22810;&#32500;&#32034;&#24341;&#31354;&#38388;&#30340;&#24120;&#37327;&#24341;&#29992;</td>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">m<span class="br0">(</span>i...<span class="br0">)</span></span></span></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw1">typename</span> M&#8203;<span class="sy4">::</span>&#8203;index_type</span></td>
+<td>
+<ul>
+<li>&#36820;&#22238;&#38750;&#36127;&#25972;&#25968; <span class="t-c"><span class="mw-geshi cpp source-cpp">o</span></span> &#20351;&#24471; <span class="t-c"><span class="mw-geshi cpp source-cpp">o <span class="sy1">&lt;</span> <a href="cpp-types-numeric_limits.html"><span class="kw351">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span><span class="kw1">typename</span> M&#8203;<span class="sy4">::</span>&#8203;index_type<span class="sy1">&gt;</span>&#8203;<span class="sy4">::</span>&#8203;max<span class="br0">(</span><span class="br0">)</span></span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp">o <span class="sy1">&lt;=</span> <a href="cpp-types-numeric_limits.html"><span class="kw351">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a><span class="sy1">&gt;</span>&#8203;<span class="sy4">::</span>&#8203;max<span class="br0">(</span><span class="br0">)</span></span></span> &#22343;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#12290;</li>
+<li>&#27492;&#34920;&#36798;&#24335;&#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">m<span class="br0">(</span><span class="kw1">static_cast</span><span class="sy1">&lt;</span><span class="kw1">typename</span> M<span class="sy4">::</span><span class="me2">index_type</span><span class="sy1">&gt;</span><span class="br0">(</span>i<span class="br0">)</span>...<span class="br0">)</span></span></span>&#12290;</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">m.<span class="me1">required_span_size</span><span class="br0">(</span><span class="br0">)</span></span></span></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw1">typename</span> M&#8203;<span class="sy4">::</span>&#8203;index_type</span></td>
+<td>
+<ul>
+<li>&#22914;&#26524;&#22810;&#32500;&#32034;&#24341;&#31354;&#38388; <span class="t-c"><span class="mw-geshi cpp source-cpp">m.<span class="me1">extents</span><span class="br0">(</span><span class="br0">)</span></span></span> &#19981;&#26159; 0&#65292;&#21017;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="nu0">1</span></span></span> &#21152;&#19978; <span class="t-c"><span class="mw-geshi cpp source-cpp">m<span class="br0">(</span>i...<span class="br0">)</span></span></span> &#23545;&#20110;&#25152;&#26377; <span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span> &#30340;&#26368;&#22823;&#20540;&#12290;</li>
+<li>&#21542;&#21017;&#65292;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp">&#8203;<span class="nu0">0</span>&#8203;</span></span>&#12290;</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">m.<span class="me1">is_unique</span><span class="br0">(</span><span class="br0">)</span></span></span></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span></td>
+<td>&#20165;&#24403;&#23545;&#20110;&#28385;&#36275; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span>i <span class="sy3">!</span><span class="sy1">=</span> j <span class="sy3">||</span> ...<span class="br0">)</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span> &#30340;&#25152;&#26377; <span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp">j</span></span>&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">m<span class="br0">(</span>i...<span class="br0">)</span> <span class="sy3">!</span><span class="sy1">=</span> m<span class="br0">(</span>j...<span class="br0">)</span></span></span> &#37117;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span> &#26102;&#65292;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#12290;<sup id="cite_ref-1" class="reference"><a href="cpp-named_req-LayoutMapping.html#cite_note-1">[note 1]</a></sup></td>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">m.<span class="me1">is_exhaustive</span><span class="br0">(</span><span class="br0">)</span></span></span></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span></td>
+<td>&#20165;&#24403;&#23545;&#20110;&#33539;&#22260; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">&#8203;<span class="nu0">0</span>&#8203;</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">m.<span class="me1">required_span_size</span><span class="br0">(</span><span class="br0">)</span></span></span><code>)</code> &#20013;&#30340;&#27599;&#20010; <span class="t-c"><span class="mw-geshi cpp source-cpp">k</span></span> &#37117;&#23384;&#22312;&#19968;&#20010; <span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span> &#20351;&#24471; <span class="t-c"><span class="mw-geshi cpp source-cpp">m<span class="br0">(</span>i...<span class="br0">)</span></span></span> &#31561;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">k</span></span> &#26102;&#65292;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#12290;<sup id="cite_ref-2" class="reference"><a href="cpp-named_req-LayoutMapping.html#cite_note-2">[note 2]</a></sup></td>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">m.<span class="me1">is_strided</span><span class="br0">(</span><span class="br0">)</span></span></span></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span></td>
+<td>&#20165;&#24403;&#23545;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">m.<span class="me1">extents</span><span class="br0">(</span><span class="br0">)</span></span></span> &#30340;&#27599;&#20010;&#31209;&#32034;&#24341; <span class="t-c"><span class="mw-geshi cpp source-cpp">r</span></span> &#37117;&#23384;&#22312;&#19968;&#20010;&#25972;&#25968; <span class="t-c"><span class="mw-geshi cpp source-cpp">s_r</span></span>&#65292;&#20351;&#24471;&#23545;&#20110;&#28385;&#36275; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span>i <span class="sy2">+</span> d_r<span class="br0">)</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp">m.<span class="me1">extents</span><span class="br0">(</span><span class="br0">)</span></span></span> &#20013;&#30340;&#22810;&#32500;&#32034;&#24341;&#30340;&#27599;&#20010; <span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span>&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">m<span class="br0">(</span><span class="br0">(</span>i <span class="sy2">+</span> d_r<span class="br0">)</span>...<span class="br0">)</span> <span class="sy2">-</span> m<span class="br0">(</span>i...<span class="br0">)</span></span></span> &#37117;&#31561;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">s_r</span></span> &#26102;&#65292;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#12290;<sup id="cite_ref-3" class="reference"><a href="cpp-named_req-LayoutMapping.html#cite_note-3">[note 3]</a></sup></td>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">m.<span class="me1">stride</span><span class="br0">(</span>r<span class="br0">)</span></span></span></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw1">typename</span> M&#8203;<span class="sy4">::</span>&#8203;index_type</span></td>
+<td>
+<ul>
+<li>&#21069;&#26465;&#20214;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp">m.<span class="me1">is_strided</span><span class="br0">(</span><span class="br0">)</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#12290;</li>
+<li>&#36820;&#22238;&#22914;&#19978;&#36848; <span class="t-c"><span class="mw-geshi cpp source-cpp">m.<span class="me1">is_strided</span><span class="br0">(</span><span class="br0">)</span></span></span> &#20013;&#31209;&#32034;&#24341; <span class="t-c"><span class="mw-geshi cpp source-cpp">r</span></span> &#22788;&#30340;&#27493;&#38271; <span class="t-c"><span class="mw-geshi cpp source-cpp">s_r</span></span>&#12290;</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">M<span class="sy4">::</span><span class="me2">is_always_unique</span><span class="br0">(</span><span class="br0">)</span></span></span></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span></td>
+<td>
+<ul>
+<li>&#20165;&#24403;&#23545;&#20110; <code>M</code> &#31867;&#22411;&#30340;&#25152;&#26377;&#21487;&#33021;&#23545;&#35937; <span class="t-c"><span class="mw-geshi cpp source-cpp">m</span></span>&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">m.<span class="me1">is_unique</span><span class="br0">(</span><span class="br0">)</span></span></span> &#37117;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span> &#26102;&#65292;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#12290;<sup id="cite_ref-4" class="reference"><a href="cpp-named_req-LayoutMapping.html#cite_note-4">[note 4]</a></sup></li>
+<li>&#36820;&#22238;&#20540;&#24635;&#26159;&#24120;&#37327;&#34920;&#36798;&#24335;&#12290;</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">M<span class="sy4">::</span><span class="me2">is_always_exhaustive</span><span class="br0">(</span><span class="br0">)</span></span></span></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span></td>
+<td>
+<ul>
+<li>&#20165;&#24403;&#23545;&#20110; <code>M</code> &#31867;&#22411;&#30340;&#25152;&#26377;&#21487;&#33021;&#23545;&#35937; <span class="t-c"><span class="mw-geshi cpp source-cpp">m</span></span>&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">m.<span class="me1">is_exhaustive</span><span class="br0">(</span><span class="br0">)</span></span></span> &#37117;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span> &#26102;&#65292;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#12290;<sup id="cite_ref-5" class="reference"><a href="cpp-named_req-LayoutMapping.html#cite_note-5">[note 5]</a></sup></li>
+<li>&#36820;&#22238;&#20540;&#24635;&#26159;&#24120;&#37327;&#34920;&#36798;&#24335;&#12290;</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">M<span class="sy4">::</span><span class="me2">is_always_strided</span><span class="br0">(</span><span class="br0">)</span></span></span></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span></td>
+<td>
+<ul>
+<li>&#20165;&#24403;&#23545;&#20110; <code>M</code> &#31867;&#22411;&#30340;&#25152;&#26377;&#21487;&#33021;&#23545;&#35937; <span class="t-c"><span class="mw-geshi cpp source-cpp">m</span></span>&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">m.<span class="me1">is_strided</span><span class="br0">(</span><span class="br0">)</span></span></span> &#37117;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span> &#26102;&#65292;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#12290;<sup id="cite_ref-6" class="reference"><a href="cpp-named_req-LayoutMapping.html#cite_note-6">[note 6]</a></sup></li>
+<li>&#36820;&#22238;&#20540;&#24635;&#26159;&#24120;&#37327;&#34920;&#36798;&#24335;&#12290;</li>
+</ul>
+</td>
+</tr>
+</table>
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="cpp-named_req-LayoutMapping.html#cite_ref-1">&uarr;</a></span> <span class="reference-text">&#21363;&#20415;&#28385;&#36275;&#26465;&#20214;&#65292;&#26144;&#23556;&#20063;&#21487;&#20197;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#12290;&#23545;&#20110;&#26576;&#20123;&#24067;&#23616;&#65292;&#39640;&#25928;&#22320;&#30830;&#23450;&#24067;&#23616;&#26159;&#21542;&#21807;&#19968;&#21487;&#33021;&#24182;&#19981;&#21487;&#34892;&#12290;</span></li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="cpp-named_req-LayoutMapping.html#cite_ref-2">&uarr;</a></span> <span class="reference-text">&#21516;&#19978;&#65292;&#20294;&#27492;&#20026;&#31351;&#23613;&#24067;&#23616;&#30340;&#24773;&#24418;&#12290;</span></li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><a href="cpp-named_req-LayoutMapping.html#cite_ref-3">&uarr;</a></span> <span class="reference-text">&#21516;&#19978;&#65292;&#20294;&#27492;&#20026;&#36328;&#27493;&#24067;&#23616;&#30340;&#24773;&#24418;&#12290;</span></li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><a href="cpp-named_req-LayoutMapping.html#cite_ref-4">&uarr;</a></span> <span class="reference-text">&#21363;&#20415;&#28385;&#36275;&#26465;&#20214;&#65292;&#26144;&#23556;&#20063;&#21487;&#20197;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#12290;&#23545;&#20110;&#26576;&#20123;&#24067;&#23616;&#26144;&#23556;&#65292;&#39640;&#25928;&#22320;&#30830;&#23450;&#27599;&#20010;&#23454;&#20363;&#26159;&#21542;&#21807;&#19968;&#21487;&#33021;&#24182;&#19981;&#21487;&#34892;&#12290;</span></li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><a href="cpp-named_req-LayoutMapping.html#cite_ref-5">&uarr;</a></span> <span class="reference-text">&#21516;&#19978;&#65292;&#20294;&#27492;&#20026;&#31351;&#23613;&#23454;&#20363;&#30340;&#24773;&#24418;&#12290;</span></li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><a href="cpp-named_req-LayoutMapping.html#cite_ref-6">&uarr;</a></span> <span class="reference-text">&#21516;&#19978;&#65292;&#20294;&#27492;&#20026;&#36328;&#27493;&#23454;&#20363;&#30340;&#24773;&#24418;&#12290;</span></li>
+</ol>
+</div>
+<h3><span class="mw-headline" id=".E6.A6.82.E5.BF.B5">&#27010;&#24565;</span></h3>
+<p>&#23450;&#20041;&#20102;&#22914;&#19979;&#20165;&#29992;&#20110;&#38416;&#37322;&#30340;&#27010;&#24565;&#65292;&#20197;&#29992;&#20110; <span class="t-lc">std::layout_stride::mapping</span> &#20013;&#30340;&#32422;&#26463;&#12290;</p>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td>
+<div><span id="layout-mapping-alike"></span><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> M <span class="sy1">&gt;</span><br /></span>
+<p>concept <span class="coMULTI">/*layout-mapping-alike*/</span> <span class="sy1">=</span> requires<br />
+<span class="br0">{</span><br />
+&nbsp; &nbsp; requires <span class="coMULTI">/*is-extents*/</span><span class="sy1">&lt;</span><span class="kw1">typename</span> M<span class="sy4">::</span><span class="me2">extents_type</span><span class="sy1">&gt;</span><span class="sy4">;</span><br />
+&nbsp; &nbsp; <span class="br0">{</span> M<span class="sy4">::</span><span class="me2">is_always_strided</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">}</span> &nbsp; &nbsp;<span class="sy2">-</span><span class="sy1">&gt;</span> <a href="cpp-concepts-same_as.html"><span class="kw2933">std::<span class="me2">same_as</span></span></a><span class="sy1">&lt;</span><span class="kw4">bool</span><span class="sy1">&gt;</span><span class="sy4">;</span><br />
+&nbsp; &nbsp; <span class="br0">{</span> M<span class="sy4">::</span><span class="me2">is_always_exhaustive</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">}</span> <span class="sy2">-</span><span class="sy1">&gt;</span> <a href="cpp-concepts-same_as.html"><span class="kw2933">std::<span class="me2">same_as</span></span></a><span class="sy1">&lt;</span><span class="kw4">bool</span><span class="sy1">&gt;</span><span class="sy4">;</span><br />
+&nbsp; &nbsp; <span class="br0">{</span> M<span class="sy4">::</span><span class="me2">is_always_unique</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">}</span> &nbsp; &nbsp; <span class="sy2">-</span><span class="sy1">&gt;</span> <a href="cpp-concepts-same_as.html"><span class="kw2933">std::<span class="me2">same_as</span></span></a><span class="sy1">&lt;</span><span class="kw4">bool</span><span class="sy1">&gt;</span><span class="sy4">;</span><br />
+&nbsp; &nbsp; <a href="cpp-types-integral_constant.html"><span class="kw651">std::<span class="me2">bool_constant</span></span></a><span class="sy1">&lt;</span>M<span class="sy4">::</span><span class="me2">is_always_strided</span><span class="br0">(</span><span class="br0">)</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">value</span><span class="sy4">;</span><br />
+&nbsp; &nbsp; <a href="cpp-types-integral_constant.html"><span class="kw651">std::<span class="me2">bool_constant</span></span></a><span class="sy1">&lt;</span>M<span class="sy4">::</span><span class="me2">is_always_exhaustive</span><span class="br0">(</span><span class="br0">)</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">value</span><span class="sy4">;</span><br />
+&nbsp; &nbsp; <a href="cpp-types-integral_constant.html"><span class="kw651">std::<span class="me2">bool_constant</span></span></a><span class="sy1">&lt;</span>M<span class="sy4">::</span><span class="me2">is_always_unique</span><span class="br0">(</span><span class="br0">)</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">value</span><span class="sy4">;</span><br /></p>
+<span class="br0">}</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"><span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;*</span>)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#23450;&#20041;<span style="font-style:italic">&#24067;&#23616;&#26144;&#23556;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LayoutMapping)</span> &#30340;&#26368;&#23567;&#21487;&#29992;&#32422;&#26463;&#12290;&#27492;&#27010;&#24565;&#26816;&#26597;&#19978;&#36848;&#30340;&#35859;&#35789;&#26144;&#23556;&#29305;&#24449;&#20989;&#25968;&#37117;&#23384;&#22312;&#65292;&#37117;&#26159;&#24120;&#37327;&#34920;&#36798;&#24335;&#65292;&#19988;&#36820;&#22238;&#31867;&#22411;&#37117;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span>&#12290;</p>
+<p>&#24403;&#19988;&#20165;&#24403; <code>E</code> &#26159; <span class="t-lc">std::extents</span> &#30340;&#29305;&#21270;&#26102;&#65292;<span class="mw-geshi cpp source-cpp"><span class="coMULTI">/*is-extents*/</span><span class="sy1">&lt;</span>E<span class="sy1">&gt;</span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E6.A0.87.E5.87.86.E5.BA.93">&#26631;&#20934;&#24211;</span></h3>
+<p>&#24207;&#21015;&#26631;&#20934;&#24211;&#31867;&#22411;&#22343;&#28385;&#36275;<span style="font-style:italic">&#24067;&#23616;&#26144;&#23556;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LayoutMapping)</span> &#65306;</p>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-mdspan-layout_left-mapping.html"><span class="t-lines"><span>mapping</span></span></a></div>
+</div>
+</td>
+<td><span class="t-lc">layout_left</span> &#30340;&#24067;&#23616;&#26144;&#23556;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::layout_left</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-mdspan-layout_right-mapping.html"><span class="t-lines"><span>mapping</span></span></a></div>
+</div>
+</td>
+<td><span class="t-lc">layout_right</span> &#30340;&#24067;&#23616;&#26144;&#23556;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::layout_right</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-mdspan-layout_stride-mapping.html"><span class="t-lines"><span>mapping</span></span></a></div>
+</div>
+</td>
+<td><span class="t-lc">layout_stride</span> &#30340;&#24067;&#23616;&#26144;&#23556;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::layout_stride</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="https://zh.cppreference.com/mwiki/index.php?title=cpp/container/mdspan/layout_left_padded/mapping&amp;action=edit&amp;redlink=1" class="new" title="cpp/container/mdspan/layout left padded/mapping&#65288;&#39029;&#38754;&#19981;&#23384;&#22312;&#65289;"><span class="t-lines"><span>mapping</span></span></a></div>
+</div>
+</td>
+<td><span class="t-lc">layout_left_padded</span> &#24067;&#23616;&#26144;&#23556;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::layout_left_padded&lt;PaddingValue&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="https://zh.cppreference.com/mwiki/index.php?title=cpp/container/mdspan/layout_right_padded/mapping&amp;action=edit&amp;redlink=1" class="new" title="cpp/container/mdspan/layout right padded/mapping&#65288;&#39029;&#38754;&#19981;&#23384;&#22312;&#65289;"><span class="t-lines"><span>mapping</span></span></a></div>
+</div>
+</td>
+<td><span class="t-lc">layout_right_padded</span> &#24067;&#23616;&#26144;&#23556;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::layout_right_padded&lt;PaddingValue&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<ul>
+<li><a href="cpp-named_req-LayoutMappingPolicy.html"><span style="font-style:italic">&#24067;&#23616;&#26144;&#23556;&#31574;&#30053;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LayoutMappingPolicy)</span></a></li>
+</ul>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

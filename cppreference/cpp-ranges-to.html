@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::ranges::to</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_ranges_to skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::ranges::</span>to</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-ranges.html">ranges</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-ranges.html">&lt;ranges&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span id=".E7.89.88.E6.9C.AC_1"></span><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> C, <a href="cpp-ranges-input_range.html"><span class="kw2901">ranges::<span class="me2">input_range</span></span></a> R, <span class="kw1">class</span>... <span class="me1">Args</span> <span class="sy1">&gt;</span><br /></span>
+<p>&nbsp; requires <span class="br0">(</span><span class="sy3">!</span><a href="cpp-ranges-view.html"><span class="kw2900">ranges::<span class="me2">view</span></span></a><span class="sy1">&lt;</span>C<span class="sy1">&gt;</span><span class="br0">)</span><br /></p>
+<span class="kw4">constexpr</span> C to<span class="br0">(</span> R<span class="sy3">&amp;&amp;</span> r, Args<span class="sy3">&amp;&amp;</span>... <span class="me1">args</span> <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span>... <span class="sy1">&gt;</span> <span class="kw1">class</span> C,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-ranges-input_range.html"><span class="kw2901">ranges::<span class="me2">input_range</span></span></a> R, <span class="kw1">class</span>... <span class="me1">Args</span> <span class="sy1">&gt;</span><br /></p>
+<span class="kw4">constexpr</span> <span class="kw4">auto</span> to<span class="br0">(</span> R<span class="sy3">&amp;&amp;</span> r, Args<span class="sy3">&amp;&amp;</span>... <span class="me1">args</span> <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span id=".E7.89.88.E6.9C.AC_3"></span><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> C, <span class="kw1">class</span>... <span class="me1">Args</span> <span class="sy1">&gt;</span><br /></span>
+<p>&nbsp; requires <span class="br0">(</span><span class="sy3">!</span><a href="cpp-ranges-view.html"><span class="kw2900">ranges::<span class="me2">view</span></span></a><span class="sy1">&lt;</span>C<span class="sy1">&gt;</span><span class="br0">)</span><br /></p>
+<span class="kw4">constexpr</span> <span class="coMULTI">/*range adaptor closure*/</span> to<span class="br0">(</span> Args<span class="sy3">&amp;&amp;</span>... <span class="me1">args</span> <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span>... <span class="sy1">&gt;</span> <span class="kw1">class</span> C, <span class="kw1">class</span>... <span class="me1">Args</span> <span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> <span class="coMULTI">/*range adaptor closure*/</span> to<span class="br0">(</span> Args<span class="sy3">&amp;&amp;</span>... <span class="me1">args</span> <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(4)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-h">
+<td>
+<div>&#36741;&#21161;&#27169;&#26495;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span id="reservable-container"></span><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Container <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw4">constexpr</span> <span class="kw4">bool</span> <span class="coMULTI">/*reservable-container*/</span> <span class="sy1">=</span><br />
+&nbsp; &nbsp; <a href="cpp-ranges-sized_range.html"><span class="kw2899">ranges::<span class="me2">sized_range</span></span></a><span class="sy1">&lt;</span>Container<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; requires <span class="br0">(</span>Container<span class="sy3">&amp;</span> c, <a href="cpp-ranges-iterator_t.html"><span class="kw2892">ranges::<span class="me2">range_size_t</span></span></a><span class="sy1">&lt;</span>Container<span class="sy1">&gt;</span> n<span class="br0">)</span><br />
+&nbsp; &nbsp; <span class="br0">{</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; c.<span class="me1">reserve</span><span class="br0">(</span>n<span class="br0">)</span><span class="sy4">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">{</span> c.<span class="me1">capacity</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">}</span> <span class="sy2">-</span><span class="sy1">&gt;</span> <a href="cpp-concepts-same_as.html"><span class="kw2932">std::<span class="me2">same_as</span></span></a><span class="sy1">&lt;</span>decltype<span class="br0">(</span>n<span class="br0">)</span><span class="sy1">&gt;</span><span class="sy4">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">{</span> c.<span class="me1">max_size</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">}</span> <span class="sy2">-</span><span class="sy1">&gt;</span> <a href="cpp-concepts-same_as.html"><span class="kw2932">std::<span class="me2">same_as</span></span></a><span class="sy1">&lt;</span>decltype<span class="br0">(</span>n<span class="br0">)</span><span class="sy1">&gt;</span><span class="sy4">;</span><br /></p>
+&nbsp; &nbsp; <span class="br0">}</span><span class="sy4">;</span></div>
+</td>
+<td>(5)</td>
+<td class="t-dcl-nopad"><span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;*</span>)</span></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span id="container-appendable"></span><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Container, <span class="kw1">class</span> Reference <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw4">constexpr</span> <span class="kw4">bool</span> <span class="coMULTI">/*container-appendable*/</span> <span class="sy1">=</span><br />
+&nbsp; &nbsp; requires <span class="br0">(</span>Container<span class="sy3">&amp;</span> c, Reference<span class="sy3">&amp;&amp;</span> ref<span class="br0">)</span><br />
+&nbsp; &nbsp; <span class="br0">{</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; requires<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">(</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; requires <span class="br0">{</span> c.<span class="me1">emplace_back</span><span class="br0">(</span><a href="cpp-utility-forward.html"><span class="kw1119">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Reference<span class="sy1">&gt;</span><span class="br0">(</span>ref<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span> &nbsp; &nbsp; <span class="sy3">||</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; requires <span class="br0">{</span> c.<span class="me1">push_back</span><span class="br0">(</span><a href="cpp-utility-forward.html"><span class="kw1119">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Reference<span class="sy1">&gt;</span><span class="br0">(</span>ref<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="sy3">||</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; requires <span class="br0">{</span> c.<span class="me1">emplace</span><span class="br0">(</span>c.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>, <a href="cpp-utility-forward.html"><span class="kw1119">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Reference<span class="sy1">&gt;</span><span class="br0">(</span>ref<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span> <span class="sy3">||</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; requires <span class="br0">{</span> c.<span class="me1">insert</span><span class="br0">(</span>c.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>, <a href="cpp-utility-forward.html"><span class="kw1119">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Reference<span class="sy1">&gt;</span><span class="br0">(</span>ref<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">)</span><span class="sy4">;</span><br /></p>
+&nbsp; &nbsp; <span class="br0">}</span><span class="sy4">;</span></div>
+</td>
+<td>(6)</td>
+<td class="t-dcl-nopad"><span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;*</span>)</span></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span id="container-appender"></span><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Reference, <span class="kw1">class</span> C <span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> <span class="kw4">auto</span> <span class="coMULTI">/*container-appender*/</span><span class="br0">(</span> C<span class="sy3">&amp;</span> c <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(7)</td>
+<td class="t-dcl-nopad"><span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;*</span>)</span></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span id="container-compatible-range"></span><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> R, <span class="kw1">class</span> T <span class="sy1">&gt;</span><br /></span>
+<p>concept <span class="coMULTI">/*container-compatible-range*/</span> <span class="sy1">=</span><br />
+&nbsp; &nbsp; <a href="cpp-ranges-input_range.html"><span class="kw2901">ranges::<span class="me2">input_range</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br /></p>
+&nbsp; &nbsp; <a href="cpp-concepts-convertible_to.html"><span class="kw2934">std::<span class="me2">convertible_to</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2894">ranges::<span class="me2">range_reference_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, T<span class="sy1">&gt;</span><span class="sy4">;</span></div>
+</td>
+<td>(8)</td>
+<td class="t-dcl-nopad"><span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;*</span>)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#33539;&#22260;&#36716;&#25442;&#20989;&#25968;&#30340;&#37325;&#36733;&#65292;&#36890;&#36807;&#20197;&#28304;&#33539;&#22260;&#20316;&#20026;&#31532;&#19968;&#20010;&#23454;&#21442;&#26469;&#35843;&#29992;&#25509;&#21463;&#33539;&#22260;&#30340;&#26500;&#36896;&#20989;&#25968;&#12289;&#24102;&#26377; <code>std::from_range_t</code> &#26631;&#35760;&#30340;&#33539;&#22260;&#26500;&#36896;&#20989;&#25968;&#12289;&#25509;&#21463;&#36845;&#20195;&#22120;-&#21736;&#20301;&#23545;&#30340;&#26500;&#36896;&#20989;&#25968;&#65292;&#25110;&#32773;&#36890;&#36807;&#23558;&#28304;&#33539;&#22260;&#30340;&#27599;&#20010;&#20803;&#32032;&#21518;&#25554;&#20837;&#21040;&#20197;&#23454;&#21442;&#26500;&#36896;&#30340;&#23545;&#35937;&#20013;&#65292;&#26469;&#26500;&#36896;&#26032;&#30340;&#38750;&#35270;&#22270;&#23545;&#35937;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#20197;&#19979;&#24773;&#20917;&#19979;&#65292;&#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp">r</span></span> &#30340;&#20803;&#32032;&#26500;&#36896;&#31867;&#22411;&#20026; <code>C</code> &#30340;&#23545;&#35937;&#65306;</div>
+<div class="t-li2"><span class="t-li">a)</span> &#22914;&#26524; <code>C</code> &#19981;&#28385;&#36275; <a href="cpp-ranges-input_range.html"><code>input_range</code></a> &#25110;&#32773; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-concepts-convertible_to.html"><span class="kw2934">std::<span class="me2">convertible_to</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2894">ranges::<span class="me2">range_reference_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, <a href="cpp-ranges-iterator_t.html"><span class="kw2893">ranges::<span class="me2">range_value_t</span></span></a><span class="sy1">&lt;</span>C<span class="sy1">&gt;&gt;</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65306;</div>
+<div class="t-li3"><span class="t-li">1)</span> &#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-concepts-constructible_from.html"><span class="kw2945">std::<span class="me2">constructible_from</span></span></a><span class="sy1">&lt;</span>C, R, Args...<span class="sy1">&gt;</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#21017;&#22914;&#21516;&#20174;&#28304;&#33539;&#22260; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-forward.html"><span class="kw1119">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span><span class="br0">(</span>r<span class="br0">)</span></span></span> &#21644;&#20854;&#20313;&#30340;&#20989;&#25968;&#23454;&#21442; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-forward.html"><span class="kw1119">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span>args<span class="br0">)</span>...</span></span> &#36827;&#34892;<a href="cpp-language-direct_initialization.html">&#30452;&#25509;&#21021;&#22987;&#21270;</a>&#65288;&#20294;&#19981;&#26159;&#30452;&#25509;&#21015;&#34920;&#21021;&#22987;&#21270;&#65289;&#19968;&#26679;&#65292;&#26500;&#36896;&#38750;&#35270;&#22270;&#23545;&#35937;&#12290;</div>
+<div class="t-li3"><span class="t-li">2)</span> &#21542;&#21017;&#65292;&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-concepts-constructible_from.html"><span class="kw2945">std::<span class="me2">constructible_from</span></span></a><span class="sy1">&lt;</span>C, <a href="cpp-ranges-from_range.html"><span class="kw3504">std::<span class="me2">from_range_t</span></span></a>, R, Args...<span class="sy1">&gt;</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#21017;&#22914;&#21516;&#20174;&#39069;&#22806;&#30340;&#28040;&#27495;&#26631;&#35760; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-ranges-from_range.html"><span class="kw3503">std::<span class="me2">from_range</span></span></a></span></span>&#12289;&#28304;&#33539;&#22260; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-forward.html"><span class="kw1119">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span><span class="br0">(</span>r<span class="br0">)</span></span></span> &#21644;&#20854;&#20313;&#30340;&#20989;&#25968;&#23454;&#21442; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-forward.html"><span class="kw1119">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span>args<span class="br0">)</span>...</span></span> &#36827;&#34892;<a href="cpp-language-direct_initialization.html">&#30452;&#25509;&#21021;&#22987;&#21270;</a>&#65288;&#20294;&#19981;&#26159;&#30452;&#25509;&#21015;&#34920;&#21021;&#22987;&#21270;&#65289;&#19968;&#26679;&#65292;&#26500;&#36896;&#38750;&#35270;&#22270;&#23545;&#35937;&#12290;</div>
+<div class="t-li3"><span class="t-li">3)</span> &#21542;&#21017;&#65292;&#22914;&#26524;&#20197;&#19979;&#25152;&#26377;&#26465;&#20214;&#37117;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#21017;&#22914;&#21516;&#20174;&#36845;&#20195;&#22120;-&#21736;&#20301;&#23545;&#65288;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/begin"><span class="kw2881">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>r<span class="br0">)</span></span></span> &#20026;&#36845;&#20195;&#22120;&#24182;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/end"><span class="kw2883">ranges::<span class="me2">end</span></span></a><span class="br0">(</span>r<span class="br0">)</span></span></span> &#20026;&#21736;&#20301;&#65292;&#20854;&#20013;&#36845;&#20195;&#22120;&#21644;&#21736;&#20301;&#20855;&#26377;&#30456;&#21516;&#30340;&#31867;&#22411;&#12290;&#25442;&#21477;&#35805;&#35828;&#65292;&#28304;&#33539;&#22260;&#24517;&#39035;&#26159; common_range&#65289;&#21644;&#20854;&#20313;&#30340;&#20989;&#25968;&#23454;&#21442; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-forward.html"><span class="kw1119">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span>args<span class="br0">)</span>...</span></span> <a href="cpp-language-direct_initialization.html">&#30452;&#25509;&#21021;&#22987;&#21270;</a>&#65288;&#20294;&#19981;&#26159;&#30452;&#25509;&#21015;&#34920;&#21021;&#22987;&#21270;&#65289;&#31867;&#22411;&#20026; <code>C</code> &#30340;&#23545;&#35937;&#19968;&#26679;&#65292;&#26500;&#36896;&#38750;&#35270;&#22270;&#23545;&#35937;&#65306;
+<ul>
+<li><span class="mw-geshi cpp source-cpp"><a href="cpp-ranges-common_range.html"><span class="kw2907">ranges::<span class="me2">common_range</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span></span></li>
+<li>&#22914;&#26524; <span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-iterator_traits.html"><span class="kw653">std::<span class="me2">iterator_traits</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2889">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;&gt;</span><span class="sy4">::</span><span class="me2">iterator_category</span></span> &#26159;&#26377;&#25928;&#30340;&#65292;&#24182;&#19988;&#20195;&#34920;&#28385;&#36275; <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">derived_fromstd</span><span class="sy4">::</span><span class="me2">input_iterator_tag</span></span></span> &#30340;&#31867;&#22411;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-concepts-constructible_from.html"><span class="kw2945">std::<span class="me2">constructible_from</span></span></a><span class="sy1">&lt;</span>C, <a href="cpp-ranges-iterator_t.html"><span class="kw2889">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, <a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">sentinel_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, Args...<span class="sy1">&gt;</span></span></span></li>
+</ul>
+</div>
+<div class="t-li3"><span class="t-li">4)</span> &#21542;&#21017;&#65292;&#22914;&#21516;&#20174;&#20854;&#20313;&#30340;&#20989;&#25968;&#23454;&#21442; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-forward.html"><span class="kw1119">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span>args<span class="br0">)</span>...</span></span> <a href="cpp-language-direct_initialization.html">&#30452;&#25509;&#21021;&#22987;&#21270;</a>&#65288;&#20294;&#19981;&#26159;&#30452;&#25509;&#21015;&#34920;&#21021;&#22987;&#21270;&#65289;&#31867;&#22411;&#20026; <code>C</code> &#30340;&#23545;&#35937;&#65292;&#24182;&#22312;&#26500;&#36896;&#21518;&#20351;&#29992;&#20197;&#19979;&#31561;&#25928;&#35843;&#29992;&#65292;&#26500;&#36896;&#38750;&#35270;&#22270;&#33539;&#22260;&#23545;&#35937;&#65306;
+<p><span id="reserve_hint"></span></p>
+<table class="t-rev-begin">
+<tr class="t-rev t-until-cxx26">
+<td>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">if</span> <span class="kw4">constexpr</span> <span class="br0">(</span><a href="cpp-ranges-sized_range.html"><span class="kw2899">ranges::<span class="me2">sized_range</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span> <span class="coMULTI">/*reservable-container*/</span><span class="sy1">&lt;</span>C<span class="sy1">&gt;</span><span class="br0">)</span><br />
+&nbsp; &nbsp; c.<span class="me1">reserve</span><span class="br0">(</span><span class="kw1">static_cast</span><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2892">ranges::<span class="me2">range_size_t</span></span></a><span class="sy1">&lt;</span>C<span class="sy1">&gt;&gt;</span><span class="br0">(</span><a href="cpp-ranges-size.html"><span class="kw3099">ranges::<span class="me2">size</span></span></a><span class="br0">(</span>r<span class="br0">)</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span><br />
+<a href="cpp-algorithm-ranges-for_each.html"><span class="kw2988">ranges::<span class="me2">for_each</span></span></a><span class="br0">(</span>r, <span class="coMULTI">/*container-appender*/</span><span class="br0">(</span>c<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span></span></span></p>
+</td>
+<td><span class="t-mark-rev t-until-cxx26" style="white-space: nowrap;">(C++26 &#21069;)</span></td>
+</tr>
+<tr class="t-rev t-since-cxx26">
+<td>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">if</span> <span class="kw4">constexpr</span> <span class="br0">(</span>ranges<span class="sy4">::</span><span class="me2">approximately_sized_range</span><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span> &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="sy3">&amp;&amp;</span> <span class="coMULTI">/*reservable-container*/</span><span class="sy1">&lt;</span>C<span class="sy1">&gt;</span><span class="br0">)</span><br />
+&nbsp; &nbsp; c.<span class="me1">reserve</span><span class="br0">(</span><span class="kw1">static_cast</span><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2892">ranges::<span class="me2">range_size_t</span></span></a><span class="sy1">&lt;</span>C<span class="sy1">&gt;&gt;</span><span class="br0">(</span>ranges<span class="sy4">::</span><span class="me2">reserve_hint</span><span class="br0">(</span>r<span class="br0">)</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span><br />
+<a href="cpp-algorithm-ranges-for_each.html"><span class="kw2988">ranges::<span class="me2">for_each</span></span></a><span class="br0">(</span>r, <span class="coMULTI">/*container-appender*/</span><span class="br0">(</span>c<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span></span></span></p>
+</td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+</table>
+<br />
+&#22914;&#26524; <code>R</code> &#28385;&#36275; <span class="t-rev-inl t-until-cxx26"><span><a href="cpp-ranges-sized_range.html"><code>sized_range</code></a></span><span><span class="t-mark-rev t-until-cxx26" style="white-space: nowrap;">(C++26 &#21069;)</span></span></span><span class="t-rev-inl t-since-cxx26"><span><a href="cpp-ranges-approximately_sized_range.html"><code>approximately_sized_range</code></a></span><span><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></span></span> &#24182;&#19988; <code>C</code> &#28385;&#36275; <code><i><a href="cpp-ranges-to.html#reservable-container">reservable-container</a></i></code>&#65292;&#21017;&#26500;&#36896;&#30340;&#31867;&#22411;&#20026; <code>C</code> &#30340;&#23545;&#35937; <span class="t-c"><span class="mw-geshi cpp source-cpp">c</span></span> &#33021;&#22815;&#20197;&#21021;&#22987;&#23384;&#20648;&#22823;&#23567; <span class="t-rev-inl t-until-cxx26"><span><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-ranges-size.html"><span class="kw3099">ranges::<span class="me2">size</span></span></a><span class="br0">(</span>r<span class="br0">)</span></span></span></span><span><span class="t-mark-rev t-until-cxx26" style="white-space: nowrap;">(C++26 &#21069;)</span></span></span><span class="t-rev-inl t-since-cxx26"><span><span class="t-c"><span class="mw-geshi cpp source-cpp">ranges<span class="sy4">::</span><span class="me2">reserve_hint</span><span class="br0">(</span>r<span class="br0">)</span></span></span></span><span><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></span></span> &#39044;&#30041;&#23384;&#20648;&#31354;&#38388;&#65292;&#20197;&#38450;&#27490;&#22312;&#25554;&#20837;&#26032;&#20803;&#32032;&#26102;&#36827;&#34892;&#39069;&#22806;&#30340;&#20998;&#37197;&#12290;&#21521; <span class="t-c"><span class="mw-geshi cpp source-cpp">c</span></span> &#36861;&#21152; <span class="t-c"><span class="mw-geshi cpp source-cpp">r</span></span> &#30340;&#27599;&#20010;&#20803;&#32032;&#12290;
+<p>&#19978;&#36848;&#25805;&#20316;&#22312;&#20197;&#19979;&#20004;&#20010;&#26465;&#20214;&#37117;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span> &#26102;&#26377;&#25928;&#65306;</p>
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-concepts-constructible_from.html"><span class="kw2945">std::<span class="me2">constructible_from</span></span></a><span class="sy1">&lt;</span>C, Args...<span class="sy1">&gt;</span></span></span></li>
+<li><span class="t-c"><code><i><a href="cpp-ranges-to.html#container-appendable">container-appendable</a></i></code><span class="mw-geshi cpp source-cpp"><span class="sy1">&lt;</span>C, <a href="cpp-ranges-iterator_t.html"><span class="kw2894">ranges::<span class="me2">range_reference_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;&gt;</span></span></span></li>
+</ul>
+</div>
+<div class="t-li2"><span class="t-li">b)</span> &#21542;&#21017;&#65292;&#36820;&#22238;&#34920;&#36798;&#24335;&#31561;&#25928;&#20110;&#65306;
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp">to<span class="sy1">&lt;</span>C<span class="sy1">&gt;</span><span class="br0">(</span><a href="cpp-ranges-ref_view.html"><span class="kw2917">ranges::<span class="me2">ref_view</span></span></a><span class="br0">(</span>r<span class="br0">)</span> <span class="sy3">|</span> <a href="cpp-ranges-transform_view.html"><span class="kw2921">views::<span class="me2">transform</span></span></a><span class="br0">(</span><span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">auto</span><span class="sy3">&amp;&amp;</span> elem<span class="br0">)</span></span><br />
+<span class="mw-geshi cpp source-cpp"><span class="br0">{</span></span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; &nbsp; <span class="kw1">return</span> to<span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2893">ranges::<span class="me2">range_value_t</span></span></a><span class="sy1">&lt;</span>C<span class="sy1">&gt;&gt;</span><span class="br0">(</span><a href="cpp-utility-forward.html"><span class="kw1119">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>decltype<span class="br0">(</span>elem<span class="br0">)</span><span class="sy1">&gt;</span><span class="br0">(</span>elem<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span></span><br />
+<span class="mw-geshi cpp source-cpp"><span class="br0">}</span><span class="br0">)</span>, <a href="cpp-utility-forward.html"><span class="kw1119">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span>args<span class="br0">)</span>...<span class="br0">)</span></span></span><br />
+&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-ranges-input_range.html"><span class="kw2901">ranges::<span class="me2">input_range</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2894">ranges::<span class="me2">range_reference_t</span></span></a><span class="sy1">&lt;</span>C<span class="sy1">&gt;&gt;</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span> &#21017;&#20801;&#35768;&#22312;&#33539;&#22260;&#20869;&#23884;&#22871;&#33539;&#22260;&#26500;&#36896;&#12290;</p>
+&#21542;&#21017;&#65292;&#31243;&#24207;&#38750;&#33391;&#26500;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp">r</span></span> &#30340;&#20803;&#32032;&#26500;&#36896;&#25512;&#23548;&#20986;&#30340;&#31867;&#22411;&#30340;&#23545;&#35937;&#12290;
+<p>&#20196; <span class="mw-geshi cpp source-cpp"><span class="coMULTI">/*input-iterator*/</span></span> &#20026;&#20165;&#29992;&#20110;&#38416;&#36848;&#30340;&#28385;&#36275; <a href="cpp-named_req-InputIterator.html"><span style="font-style:italic">&#32769;&#24335;&#36755;&#20837;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyInputIterator)</span></a> &#30340;&#31867;&#22411;&#65306;</p>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">struct</span> <span class="coMULTI">/*input-iterator*/</span><br /></span>
+<p><span class="br0">{</span><br />
+&nbsp; &nbsp; <span class="kw1">using</span> iterator_category <span class="sy1">=</span> <a href="cpp-iterator-iterator_tags.html"><span class="kw654">std::<span class="me2">input_iterator_tag</span></span></a><span class="sy4">;</span><br />
+&nbsp; &nbsp; <span class="kw1">using</span> value_type <span class="sy1">=</span> <a href="cpp-ranges-iterator_t.html"><span class="kw2893">ranges::<span class="me2">range_value_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span><span class="sy4">;</span><br />
+&nbsp; &nbsp; <span class="kw1">using</span> difference_type <span class="sy1">=</span> <a href="cpp-types-ptrdiff_t.html"><span class="kw107">std::<span class="me2">ptrdiff_t</span></span></a><span class="sy4">;</span><br />
+&nbsp; &nbsp; <span class="kw1">using</span> pointer <span class="sy1">=</span> <a href="cpp-types-add_pointer.html"><span class="kw617">std::<span class="me2">add_pointer_t</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2894">ranges::<span class="me2">range_reference_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;&gt;</span><span class="sy4">;</span><br />
+&nbsp; &nbsp; <span class="kw1">using</span> reference <span class="sy1">=</span> <a href="cpp-ranges-iterator_t.html"><span class="kw2894">ranges::<span class="me2">range_reference_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span><span class="sy4">;</span><br />
+&nbsp; &nbsp; reference operator<span class="sy2">*</span><span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">// &#19981;&#23450;&#20041;</span><br />
+&nbsp; &nbsp; pointer operator<span class="sy2">-</span><span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// &#19981;&#23450;&#20041;</span><br />
+&nbsp; &nbsp; <span class="coMULTI">/*input-iterator*/</span><span class="sy3">&amp;</span> operator<span class="sy2">++</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// &#19981;&#23450;&#20041;</span><br />
+&nbsp; &nbsp; <span class="coMULTI">/*input-iterator*/</span> operator<span class="sy2">++</span><span class="br0">(</span><span class="kw4">int</span><span class="br0">)</span><span class="sy4">;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// &#19981;&#23450;&#20041;</span><br />
+&nbsp; &nbsp; <span class="kw4">bool</span> operator<span class="sy1">==</span><span class="br0">(</span><span class="kw4">const</span> <span class="coMULTI">/*input-iterator*/</span><span class="sy3">&amp;</span><span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span> <span class="co1">// &#19981;&#23450;&#20041;</span><br /></p>
+<span class="br0">}</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"><span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;*</span>)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#23450;&#20041; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="coMULTI">/*DEDUCE-EXPR*/</span></span></span> &#20026;&#20197;&#19979;&#20869;&#23481;&#65306;</p>
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">C<span class="br0">(</span><a href="cpp-utility-declval.html"><span class="kw1122">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span>, <a href="cpp-utility-declval.html"><span class="kw1122">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span>...<span class="br0">)</span></span></span>&#65292;&#22914;&#26524;&#35813;&#34920;&#36798;&#24335;&#26159;&#26377;&#25928;&#30340;&#12290;</li>
+<li>&#21542;&#21017;&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">C<span class="br0">(</span><a href="cpp-ranges-from_range.html"><span class="kw3503">std::<span class="me2">from_range</span></span></a>, <a href="cpp-utility-declval.html"><span class="kw1122">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span>,</span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; <a href="cpp-utility-declval.html"><span class="kw1122">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span>...<span class="br0">)</span></span></span>&#65292;&#22914;&#26524;&#35813;&#34920;&#36798;&#24335;&#26159;&#26377;&#25928;&#30340;&#12290;</li>
+<li>&#21542;&#21017;&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">C<span class="br0">(</span><a href="cpp-utility-declval.html"><span class="kw1122">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span><span class="coMULTI">/*input-iterator*/</span><span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span>,</span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; <a href="cpp-utility-declval.html"><span class="kw1122">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span><span class="coMULTI">/*input-iterator*/</span><span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span>,</span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; <a href="cpp-utility-declval.html"><span class="kw1122">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span>...<span class="br0">)</span></span></span>&#65292;&#22914;&#26524;&#35813;&#34920;&#36798;&#24335;&#26159;&#26377;&#25928;&#30340;&#12290;</li>
+<li>&#21542;&#21017;&#65292;&#31243;&#24207;&#38750;&#33391;&#26500;&#12290;</li>
+</ul>
+&#35813;&#35843;&#29992;&#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">to<span class="sy1">&lt;</span>decltype<span class="br0">(</span><span class="coMULTI">/*DEDUCE-EXPR*/</span><span class="br0">)</span><span class="sy1">&gt;</span></span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; &nbsp; <span class="br0">(</span><a href="cpp-utility-forward.html"><span class="kw1119">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span><span class="br0">(</span>r<span class="br0">)</span>, <a href="cpp-utility-forward.html"><span class="kw1119">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span>args<span class="br0">)</span>...<span class="br0">)</span></span></span>&#12290;</div>
+<div class="t-li1"><span class="t-li">3,4)</span> &#36820;&#22238;&#23436;&#32654;&#36716;&#21457;&#35843;&#29992;&#21253;&#35013;&#22120;&#65292;&#23427;&#20063;&#26159;<a href="cpp-named_req-RangeAdaptorClosureObject.html"><span style="font-style:italic">&#33539;&#22260;&#36866;&#37197;&#22120;&#38381;&#21253;&#23545;&#35937;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(RangeAdaptorClosureObject)</span></a> &#12290;</div>
+<div class="t-li1"><span class="t-li">5)</span> &#22914;&#26524;&#28385;&#36275; <span class="mw-geshi cpp source-cpp"><a href="cpp-ranges-sized_range.html"><span class="kw2899">ranges::<span class="me2">sized_range</span></span></a></span> &#24182;&#19988;&#26377;&#36164;&#26684;&#34987;&#39044;&#30041;&#65292;&#21017;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#12290;</div>
+<div class="t-li1"><span class="t-li">6)</span> &#22914;&#26524; <code>Reference</code> &#31867;&#22411;&#30340;&#19968;&#20010;&#20803;&#32032;&#21487;&#20197;&#36890;&#36807;&#25104;&#21592;&#20989;&#25968;&#35843;&#29992; <code>emplace_back</code>&#12289;<code>push_back</code>&#12289;<code>emplace</code> &#25110; <code>insert</code> &#21521; <code>Container</code> &#36861;&#21152;&#65292;&#21017;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#12290;</div>
+<div class="t-li1"><span class="t-li">7)</span> &#36820;&#22238;&#19968;&#20010;&#20989;&#25968;&#23545;&#35937;&#65292;&#23545;&#25152;&#36820;&#22238;&#30340;&#20989;&#25968;&#23545;&#35937;&#30340;&#35843;&#29992;&#34920;&#36798;&#24335;&#31561;&#20215;&#20110;&#21521;&#23481;&#22120;&#36861;&#21152;&#19968;&#20010;&#20803;&#32032;&#12290;&#36820;&#22238;&#34920;&#36798;&#24335;&#31561;&#20215;&#20110;&#65306;
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">return</span> <span class="br0">[</span><span class="sy3">&amp;</span>c<span class="br0">]</span><span class="sy1">&lt;</span><span class="kw1">class</span> Reference<span class="sy1">&gt;</span><span class="br0">(</span>Reference<span class="sy3">&amp;&amp;</span> ref<span class="br0">)</span><br />
+<span class="br0">{</span><br />
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="kw4">constexpr</span> <span class="br0">(</span>requires <span class="br0">{</span> c.<span class="me1">emplace_back</span><span class="br0">(</span><a href="cpp-utility-declval.html"><span class="kw1122">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span>Reference<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="br0">)</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; c.<span class="me1">emplace_back</span><span class="br0">(</span><a href="cpp-utility-forward.html"><span class="kw1119">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Reference<span class="sy1">&gt;</span><span class="br0">(</span>ref<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span><br />
+&nbsp; &nbsp; <span class="kw1">else</span> <span class="kw1">if</span> <span class="kw4">constexpr</span> <span class="br0">(</span>requires <span class="br0">{</span> c.<span class="me1">push_back</span><span class="br0">(</span><a href="cpp-utility-declval.html"><span class="kw1122">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span>Reference<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="br0">)</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; c.<span class="me1">push_back</span><span class="br0">(</span><a href="cpp-utility-forward.html"><span class="kw1119">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Reference<span class="sy1">&gt;</span><span class="br0">(</span>ref<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span><br />
+&nbsp; &nbsp; <span class="kw1">else</span> <span class="kw1">if</span> <span class="kw4">constexpr</span> <span class="br0">(</span>requires <span class="br0">{</span> c.<span class="me1">emplace</span><span class="br0">(</span>c.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-utility-declval.html"><span class="kw1122">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span>Reference<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="br0">)</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; c.<span class="me1">emplace</span><span class="br0">(</span>c.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>, <a href="cpp-utility-forward.html"><span class="kw1119">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Reference<span class="sy1">&gt;</span><span class="br0">(</span>ref<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span><br />
+&nbsp; &nbsp; <span class="kw1">else</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; c.<span class="me1">insert</span><span class="br0">(</span>c.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>, <a href="cpp-utility-forward.html"><span class="kw1119">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Reference<span class="sy1">&gt;</span><span class="br0">(</span>ref<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span><br />
+<span class="br0">}</span></span></span></p>
+<span id=".E5.AE.B9.E5.99.A8.E5.85.BC.E5.AE.B9.E8.8C.83.E5.9B.B4"></span></div>
+<div class="t-li1"><span class="t-li">8)</span> &#29992;&#20110;&#36755;&#20837;&#33539;&#22260; <code>R</code> &#30340;&#26500;&#36896;&#20013;&#30340;&#23481;&#22120;&#23450;&#20041;&#65292;&#35813;&#33539;&#22260;&#30340;&#33539;&#22260;&#24341;&#29992;&#31867;&#22411;&#24517;&#39035;&#21487;&#36716;&#25442;&#20026; <code>T</code>&#12290;</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>r</td>
+<td>-</td>
+<td>&#28304;&#33539;&#22260;&#23545;&#35937;</td>
+</tr>
+<tr class="t-par">
+<td>args</td>
+<td>-</td>
+<td>&#29992;&#20110; <span class="t-v">(<a href="cpp-ranges-to.html#.E7.89.88.E6.9C.AC_1">1,2</a>)</span> &#26500;&#36896;&#33539;&#22260;&#25110; <span class="t-v">(<a href="cpp-ranges-to.html#.E7.89.88.E6.9C.AC_3">3,4</a>)</span> &#32465;&#23450;&#21040;&#33539;&#22260;&#36866;&#37197;&#22120;&#38381;&#21253;&#23545;&#35937;&#30340;&#26368;&#21518;&#24418;&#21442;&#30340;&#23454;&#21442;&#21015;&#34920;&#12290;</td>
+</tr>
+<tr class="t-par-hitem">
+<td colspan="3">&#31867;&#22411;&#35201;&#27714;</td>
+</tr>
+<tr class="t-par-req">
+<td colspan="3">-
+<div class="spacer"></div>
+<code>C</code> &#24517;&#39035;&#26159;&#26080; cv &#38480;&#23450;&#30340;&#31867;&#31867;&#22411; <span class="t-v">(<a href="cpp-ranges-to.html#.E7.89.88.E6.9C.AC_1">1,3</a>)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<div class="t-li1"><span class="t-li">1,2)</span> &#25152;&#26500;&#36896;&#30340;&#38750;&#35270;&#22270;&#23545;&#35937;</div>
+<div class="t-li1"><span class="t-li">3,4)</span> &#26410;&#25351;&#23450;&#31867;&#22411;&#30340;&#33539;&#22260;&#36866;&#37197;&#22120;&#38381;&#21253;&#23545;&#35937;&#65292;&#20855;&#26377;&#20197;&#19979;&#23646;&#24615;&#65306;
+<div class="t-member">
+<h2><span class="mw-headline" id="ranges::to_.E8.BF.94.E5.9B.9E.E7.B1.BB.E5.9E.8B"><span style="font-size:0.8em; line-height:125%">ranges::to</span> &#36820;&#22238;&#31867;&#22411;</span></h2>
+<h4><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.AF.B9.E8.B1.A1">&#25104;&#21592;&#23545;&#35937;</span></h4>
+<p>&#36820;&#22238;&#30340;&#23545;&#35937;&#30340;&#34892;&#20026;&#22914;&#21516;&#23427;&#27809;&#26377;&#30446;&#26631;&#23545;&#35937;&#65292;&#20197;&#21450;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-tuple.html"><span class="kw1100">std::<span class="me2">tuple</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-decay.html"><span class="kw631">std::<span class="me2">decay_t</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span>...<span class="sy1">&gt;</span><span class="br0">(</span><a href="cpp-utility-forward.html"><span class="kw1119">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span>args<span class="br0">)</span>...<span class="br0">)</span></span></span> &#26500;&#36896;&#30340; <span class="t-lc"><a href="cpp-utility-tuple.html">std::tuple</a></span> &#23545;&#35937; <span class="t-c"><span class="mw-geshi cpp source-cpp">tup</span></span> &#19968;&#26679;&#65292;&#20294;&#36820;&#22238;&#30340;&#23545;&#35937;&#30340;&#36171;&#20540;&#34892;&#20026;&#26159;&#26410;&#25351;&#23450;&#30340;&#65292;&#32780;&#19988;&#21517;&#23383;&#21482;&#26159;&#20026;&#20102;&#38416;&#36848;&#12290;</p>
+<h4><span class="mw-headline" id=".E6.9E.84.E9.80.A0.E5.87.BD.E6.95.B0">&#26500;&#36896;&#20989;&#25968;</span></h4>
+<p><code>ranges::to</code> <span class="t-v">(<a href="cpp-ranges-to.html#.E7.89.88.E6.9C.AC_3">3,4</a>)</span> &#30340;&#36820;&#22238;&#31867;&#22411;&#30340;&#34892;&#20026;&#22914;&#21516;&#23427;&#30340;&#22797;&#21046;/&#31227;&#21160;&#26500;&#36896;&#20989;&#25968;&#25191;&#34892;&#36880;&#25104;&#21592;&#22797;&#21046;/&#31227;&#21160;&#19968;&#26679;&#12290;&#22914;&#26524;&#23427;&#30340;&#65288;&#19978;&#38754;&#25351;&#23450;&#30340;&#65289;&#25152;&#26377;&#25104;&#21592;&#23545;&#35937;&#37117;&#26159;<span style="font-style:italic">&#21487;&#22797;&#21046;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyConstructible)</span> &#30340;&#65292;&#37027;&#20040;&#23427;&#26159;<a href="cpp-named_req-CopyConstructible.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyConstructible)</span></a> &#30340;&#65307;&#21542;&#21017;&#65292;&#23427;&#26159;<a href="cpp-named_req-MoveConstructible.html"><span style="font-style:italic">&#21487;&#31227;&#21160;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(MoveConstructible)</span></a> &#30340;&#12290;</p>
+<h4><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.87.BD.E6.95.B0_operator.28.29">&#25104;&#21592;&#20989;&#25968; <code>operator()</code></span></h4>
+<p>&#32473;&#23450;&#23545;&#35937; <code>G</code>&#65292;&#23427;&#26159;&#20174;&#20043;&#21069;&#30340;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">range<span class="sy4">::</span><span class="me2">to</span><span class="sy1">&lt;</span><span class="coMULTI">/* &#35265;&#19979;&#25991; */</span><span class="sy1">&gt;</span><span class="br0">(</span>args...<span class="br0">)</span></span></span> &#24471;&#21040;&#30340;&#65292;&#24403;&#25351;&#20195; <code>G</code> &#30340;&#27867;&#24038;&#20540; <span class="t-c"><span class="mw-geshi cpp source-cpp">g</span></span> &#22312;&#20989;&#25968;&#35843;&#29992;&#34920;&#36798;&#24335; <span class="t-c"><span class="mw-geshi cpp source-cpp">g<span class="br0">(</span>r<span class="br0">)</span></span></span> &#20013;&#34987;&#35843;&#29992;&#26102;&#65292;&#20250;&#21457;&#29983;&#23545;&#23384;&#20648;&#23545;&#35937;&#30340;&#35843;&#29992;&#65292;&#22914;&#21516;&#36890;&#36807;</p>
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">ranges<span class="sy4">::</span><span class="me2">to</span><span class="sy1">&lt;</span><span class="coMULTI">/* &#35265;&#19979;&#25991; */</span><span class="sy1">&gt;</span><span class="br0">(</span>r, <a href="cpp-utility-variant-get.html"><span class="kw3216">std::<span class="me2">get</span></span></a><span class="sy1">&lt;</span>Ns<span class="sy1">&gt;</span><span class="br0">(</span>g.<span class="me1">tup</span><span class="br0">)</span>...<span class="br0">)</span></span></span>&#65292;&#20854;&#20013;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">r</span></span> &#26159;&#24517;&#39035;&#28385;&#36275; <a href="cpp-ranges-input_range.html"><code>input_range</code></a> &#30340;&#28304;&#33539;&#22260;&#23545;&#35937;&#12290;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">Ns</span></span> &#26159;&#25972;&#25968;&#21253; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="nu0">0</span>, <span class="nu0">1</span>, ..., <span class="br0">(</span>sizeof...<span class="br0">(</span>Args<span class="br0">)</span> <span class="sy2">-</span> <span class="nu0">1</span><span class="br0">)</span></span></span>&#12290;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">g</span></span> &#22312;&#35843;&#29992;&#34920;&#36798;&#24335;&#20013;&#26159;&#24038;&#20540;&#25110;&#32773;&#21491;&#20540;&#12290;&#22240;&#27492; <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>g<span class="br0">)</span><span class="br0">(</span>r<span class="br0">)</span></span></span> &#21487;&#20197;&#23558;&#32465;&#23450;&#30340;&#23454;&#21442;&#31227;&#21160;&#21040;&#35843;&#29992;&#20013;&#65292;&#32780; <span class="t-c"><span class="mw-geshi cpp source-cpp">g<span class="br0">(</span>r<span class="br0">)</span></span></span> &#21017;&#20250;&#22797;&#21046;&#12290;</li>
+<li>&#25351;&#23450;&#30340;&#27169;&#26495;&#23454;&#21442;&#26159; <span class="t-v">(<a href="cpp-ranges-to.html#.E7.89.88.E6.9C.AC_3">3</a>)</span> <code>C</code> &#25110; <span class="t-v">(<a href="cpp-ranges-to.html#.E7.89.88.E6.9C.AC_4">4</a>)</span> &#20174;&#31867;&#27169;&#26495; <code>C</code> &#25512;&#23548;&#20986;&#30340;&#31867;&#22411;&#65292;&#23427;&#24517;&#39035;&#19981;&#28385;&#36275; <a href="cpp-ranges-view.html"><code>view</code></a>&#12290;</li>
+</ul>
+</dd>
+</dl>
+<p>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">g</span></span> &#20855;&#26377; volatile &#38480;&#23450;&#31867;&#22411;&#65292;&#21017;&#31243;&#24207;&#38750;&#33391;&#26500;&#12290;</p>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<p>&#20165;&#24403;&#38750;&#35270;&#22270;&#23545;&#35937;&#30340;&#26500;&#36896;&#25243;&#20986;&#24322;&#24120;&#26102;&#26377;&#25243;&#20986;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#21521;&#23481;&#22120;&#20013;&#25554;&#20837;&#20803;&#32032;&#21487;&#33021;&#28041;&#21450;&#22797;&#21046;&#65292;&#36825;&#21487;&#33021;&#27604;&#31227;&#21160;&#26356;&#20302;&#25928;&#65292;&#22240;&#20026;&#22312;&#38388;&#25509;&#35843;&#29992;&#36807;&#31243;&#20013;&#20250;&#20135;&#29983;&#24038;&#20540;&#24341;&#29992;&#12290;&#29992;&#25143;&#21487;&#20197;&#36873;&#25321;&#20351;&#29992; <span class="mw-geshi cpp source-cpp"><a href="cpp-ranges-as_rvalue_view.html"><span class="kw3579">views::<span class="me2">as_rvalue</span></span></a></span> &#26469;&#36866;&#37197;&#33539;&#22260;&#65292;&#20197;&#20415;&#23427;&#20204;&#30340;&#20803;&#32032;&#22312;&#38388;&#25509;&#35843;&#29992;&#36807;&#31243;&#20013;&#24635;&#26159;&#20135;&#29983;&#21491;&#20540;&#24341;&#29992;&#65292;&#36825;&#24847;&#21619;&#30528;&#31227;&#21160;&#12290;</p>
+<p>&#24403;&#20351;&#29992;&#31649;&#36947;&#35821;&#27861;&#26102;&#65292;&#25324;&#21495;&#26159;&#24517;&#39035;&#30340;&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw4">auto</span> vec <span class="sy1">=</span> r <span class="sy3">|</span> std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">to</span><span class="sy1">&lt;</span><a href="cpp-container-vector.html"><span class="kw1271">std::<span class="me2">vector</span></span></a><span class="sy1">&gt;</span><span class="sy4">;</span>   <span class="co1">// &#38169;&#35823;</span>
+<span class="kw4">auto</span> vec <span class="sy1">=</span> r <span class="sy3">|</span> std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">to</span><span class="sy1">&lt;</span><a href="cpp-container-vector.html"><span class="kw1271">std::<span class="me2">vector</span></span></a><span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK</span></pre></div>
+</div>
+<table class="wikitable">
+<tr>
+<th><a href="cpp-utility-feature_test.html">&#21151;&#33021;&#29305;&#24615;&#27979;&#35797;</a>&#23439;</th>
+<th><abbr title="&#37319;&#32435;&#35813;&#29305;&#24615;&#30340;&#24180;/&#26376;&#12290;&#27599;&#20010;&#20540;&#19979;&#38754;&#30340;&#38142;&#25509;&#25351;&#21521;&#32534;&#35793;&#26399;&#25903;&#25345;&#39029;&#38754;&#20013;&#32473;&#23450;&#21151;&#33021;&#29305;&#24615;&#30340;&#26465;&#30446;&#12290;">&#20540;</abbr></th>
+<th><abbr title="&#24341;&#20837;&#35813;&#29305;&#24615;&#30340;&#26631;&#20934;&#65307;DR &#24847;&#20026;&#38024;&#23545;&#35813;&#20462;&#35746;&#29256;&#30340;&#32570;&#38519;&#25253;&#21578;">&#26631;&#20934;</abbr></th>
+<th>&#21151;&#33021;&#29305;&#24615;</th>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lib_ranges_to_container"><code>__cpp_lib_ranges_to_container</code></a></td>
+<td><a href="cpp-compiler_support-23.html#cpp_lib_ranges_to_container_202202L"><code>202202L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++23)</span></td>
+<td><code>std::ranges::to</code></td>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lib_ranges_reserve_hint"><code>__cpp_lib_ranges_reserve_hint</code></a></td>
+<td><a href="cpp-compiler_support-26.html#cpp_lib_ranges_reserve_hint_202502L"><code>202502L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++26)</span></td>
+<td><span class="t-lc">ranges::approximately_sized_range</span>, <span class="t-lc">ranges::reserve_hint</span>, &#20197;&#21450;&#23545; <code>std::ranges::to</code> &#30340;<a href="cpp-ranges-to.html#reserve_hint">&#21464;&#21160;</a></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<p>&#39044;&#35272;&#38142;&#25509;&#65306;<a rel="nofollow" class="external text" href="https://godbolt.org/z/s4E3n8ed5">Compiler Explorer</a></p>
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;boost/container/devector.hpp&gt;</span>
+<span class="co2">#include &lt;concepts&gt;</span>
+<span class="co2">#include &lt;initializer_list&gt;</span>
+<span class="co2">#include &lt;list&gt;</span>
+<span class="co2">#include &lt;print&gt;</span>
+<span class="co2">#include &lt;ranges&gt;</span>
+<span class="co2">#include &lt;regex&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+<span class="co2">#include &lt;vector&gt;</span>
+ 
+<span class="co2">#ifndef __cpp_lib_format_ranges</span>
+<span class="co2">#include &lt;format&gt;</span>
+<span class="co2">#include &lt;sstream&gt;</span>
+ 
+<span class="kw4">auto</span> print_aid<span class="br0">(</span><span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> v<span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-basic_ostringstream.html"><span class="kw1739">std::<span class="me2">ostringstream</span></span></a> out<span class="sy4">;</span>
+    out <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;[&#39;</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> n<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span> <span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> e <span class="sy4">:</span> v<span class="br0">)</span>
+        out <span class="sy1">&lt;&lt;</span> <span class="br0">(</span>n<span class="sy2">++</span> <span class="sy4">?</span> <span class="st0">&quot;, &quot;</span> <span class="sy4">:</span> <span class="st0">&quot;&quot;</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> e<span class="sy4">;</span>
+    out <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;]&#39;</span><span class="sy4">;</span>
+    <span class="kw1">return</span> out<span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">typename</span> T<span class="sy1">&gt;</span>
+<span class="kw1">struct</span> <a href="cpp-utility-format-formatter.html"><span class="kw3153">std::<span class="me2">formatter</span></span></a><span class="sy1">&lt;</span><a href="cpp-container-vector.html"><span class="kw1271">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span>, <span class="kw4">char</span><span class="sy1">&gt;</span>
+<span class="br0">{</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> ParseContext<span class="sy1">&gt;</span>
+    <span class="kw4">constexpr</span> ParseContext<span class="sy4">::</span><span class="me2">iterator</span> parse<span class="br0">(</span>ParseContext<span class="sy3">&amp;</span> ctx<span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw1">return</span> ctx.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> FmtContext<span class="sy1">&gt;</span>
+    FmtContext<span class="sy4">::</span><span class="me2">iterator</span> format<span class="br0">(</span><span class="kw4">auto</span> <span class="kw4">const</span><span class="sy3">&amp;</span> s, FmtContext<span class="sy3">&amp;</span> ctx<span class="br0">)</span> <span class="kw4">const</span>
+    <span class="br0">{</span>
+        <span class="kw4">auto</span> out<span class="br0">{</span>print_aid<span class="br0">(</span>s<span class="br0">)</span><span class="br0">}</span><span class="sy4">;</span>
+        <span class="kw1">return</span> std<span class="sy4">::</span><a href="cpp-algorithm-ranges-copy.html"><span class="kw2849">ranges::<span class="me2">copy</span></span></a><span class="br0">(</span>std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>out<span class="br0">)</span>.<span class="me1">str</span><span class="br0">(</span><span class="br0">)</span>, ctx.<span class="me1">out</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>.<span class="me1">out</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+<span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">typename</span> T<span class="sy1">&gt;</span>
+<span class="kw1">struct</span> <a href="cpp-utility-format-formatter.html"><span class="kw3153">std::<span class="me2">formatter</span></span></a><span class="sy1">&lt;</span><a href="cpp-container-list.html"><span class="kw1277">std::<span class="me2">list</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span>, <span class="kw4">char</span><span class="sy1">&gt;</span>
+<span class="br0">{</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> ParseContext<span class="sy1">&gt;</span>
+    <span class="kw4">constexpr</span> ParseContext<span class="sy4">::</span><span class="me2">iterator</span> parse<span class="br0">(</span>ParseContext<span class="sy3">&amp;</span> ctx<span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw1">return</span> ctx.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> FmtContext<span class="sy1">&gt;</span>
+    FmtContext<span class="sy4">::</span><span class="me2">iterator</span> format<span class="br0">(</span><span class="kw4">auto</span> <span class="kw4">const</span><span class="sy3">&amp;</span> s, FmtContext<span class="sy3">&amp;</span> ctx<span class="br0">)</span> <span class="kw4">const</span>
+    <span class="br0">{</span>
+        <span class="kw4">auto</span> out<span class="br0">{</span>print_aid<span class="br0">(</span>s<span class="br0">)</span><span class="br0">}</span><span class="sy4">;</span>
+        <span class="kw1">return</span> std<span class="sy4">::</span><a href="cpp-algorithm-ranges-copy.html"><span class="kw2849">ranges::<span class="me2">copy</span></span></a><span class="br0">(</span>std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>out<span class="br0">)</span>.<span class="me1">str</span><span class="br0">(</span><span class="br0">)</span>, ctx.<span class="me1">out</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>.<span class="me1">out</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+<span class="co2">#end if</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">auto</span> vec <span class="sy1">=</span> std<span class="sy4">::</span><a href="cpp-ranges-iota_view.html"><span class="kw2913">views::<span class="me2">iota</span></span></a><span class="br0">(</span><span class="nu0">1</span>, <span class="nu0">5</span><span class="br0">)</span>
+             <span class="sy3">|</span> std<span class="sy4">::</span><a href="cpp-ranges-transform_view.html"><span class="kw2921">views::<span class="me2">transform</span></span></a><span class="br0">(</span><span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">int</span> v<span class="br0">)</span><span class="br0">{</span> <span class="kw1">return</span> v <span class="sy2">*</span> <span class="nu0">2</span><span class="sy4">;</span> <span class="br0">}</span><span class="br0">)</span>
+             <span class="sy3">|</span> std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">to</span><span class="sy1">&lt;</span><a href="cpp-container-vector.html"><span class="kw1271">std::<span class="me2">vector</span></span></a><span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    static_assert<span class="br0">(</span><a href="cpp-concepts-same_as.html"><span class="kw2932">std::<span class="me2">same_as</span></span></a><span class="sy1">&lt;</span>decltype<span class="br0">(</span>vec<span class="br0">)</span>, <a href="cpp-container-vector.html"><span class="kw1271">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-println.html"><span class="kw3363">std::<span class="me2">println</span></span></a><span class="br0">(</span><span class="st0">&quot;{}&quot;</span>, vec<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw4">auto</span> list <span class="sy1">=</span> vec <span class="sy3">|</span> std<span class="sy4">::</span><a href="cpp-ranges-take_view.html"><span class="kw2923">views::<span class="me2">take</span></span></a><span class="br0">(</span><span class="nu0">3</span><span class="br0">)</span> <span class="sy3">|</span> std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">to</span><span class="sy1">&lt;</span><a href="cpp-container-list.html"><span class="kw1277">std::<span class="me2">list</span></span></a><span class="sy1">&lt;</span><span class="kw4">double</span><span class="sy1">&gt;&gt;</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-println.html"><span class="kw3363">std::<span class="me2">println</span></span></a><span class="br0">(</span><span class="st0">&quot;{}&quot;</span>, list<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">void</span> ctor_demos<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="co1">// 1.a.1) &#30452;&#25509;&#21021;&#22987;&#21270;</span>
+    <span class="br0">{</span>
+        <span class="kw4">char</span> array<span class="br0">[</span><span class="br0">]</span><span class="br0">{</span><span class="st0">&#39;a&#39;</span>, <span class="st0">&#39;b&#39;</span>, <span class="st0">&#39;<span class="es5">\0</span>&#39;</span>, <span class="st0">&#39;c&#39;</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+        <span class="co1">// &#23454;&#21442;&#31867;&#22411;&#21487;&#20197;&#36716;&#25442;&#20026;&#32467;&#26524;&#20540;&#31867;&#22411;&#65306;</span>
+        <span class="kw4">auto</span> str_to <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">to</span><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1232">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span><span class="br0">(</span>array<span class="br0">)</span><span class="sy4">;</span>
+        <span class="co1">// &#31561;&#20215;&#20110;</span>
+        <a href="cpp-string-basic_string.html"><span class="kw1232">std::<span class="me2">string</span></span></a> str<span class="br0">(</span>array<span class="br0">)</span><span class="sy4">;</span>
+ 
+        <span class="co1">// &#32467;&#26524;&#31867;&#22411;&#19981;&#26159;&#36755;&#20837;&#33539;&#22260;&#65306;</span>
+        <span class="kw4">auto</span> re_to <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">to</span><span class="sy1">&lt;</span><a href="cpp-regex-basic_regex.html"><span class="kw2003">std::<span class="me2">regex</span></span></a><span class="sy1">&gt;</span><span class="br0">(</span>array<span class="br0">)</span><span class="sy4">;</span>
+        <span class="co1">// &#31561;&#20215;&#20110;</span>
+        <a href="cpp-regex-basic_regex.html"><span class="kw2003">std::<span class="me2">regex</span></span></a> re<span class="br0">(</span>array<span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="co1">// 1.a.2) from_range &#26500;&#36896;&#20989;&#25968;</span>
+    <span class="br0">{</span>
+        <span class="kw4">auto</span> list <span class="sy1">=</span> <span class="br0">{</span><span class="st0">&#39;a&#39;</span>, <span class="st0">&#39;b&#39;</span>, <span class="st0">&#39;<span class="es5">\0</span>&#39;</span>, <span class="st0">&#39;c&#39;</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+        <span class="co1">// &#23454;&#21442;&#31867;&#22411;&#21487;&#20197;&#36716;&#25442;&#20026;&#32467;&#26524;&#20540;&#31867;&#22411;&#65306;</span>
+        <span class="kw4">auto</span> str_to <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">to</span><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1232">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span><span class="br0">(</span>list<span class="br0">)</span><span class="sy4">;</span>
+        <span class="co1">// &#31561;&#20215;&#20110;</span>
+        <span class="co1">// std::string str(std::from_range, list);</span>
+ 
+        <span class="co1">// &#32467;&#26524;&#31867;&#22411;&#19981;&#26159;&#36755;&#20837;&#33539;&#22260;&#65306;</span>
+        <span class="br0">[</span><span class="br0">[</span>maybe_unused<span class="br0">]</span><span class="br0">]</span>
+        <span class="kw4">auto</span> pair_to <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">to</span><span class="sy1">&lt;</span><a href="cpp-utility-pair.html"><span class="kw1098">std::<span class="me2">pair</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-from_range.html"><span class="kw3504">std::<span class="me2">from_range_t</span></span></a>, <span class="kw4">bool</span><span class="sy1">&gt;&gt;</span><span class="br0">(</span><span class="kw2">true</span><span class="br0">)</span><span class="sy4">;</span>
+        <span class="co1">// &#31561;&#20215;&#20110;</span>
+        <a href="cpp-utility-pair.html"><span class="kw1098">std::<span class="me2">pair</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-from_range.html"><span class="kw3504">std::<span class="me2">from_range_t</span></span></a>, <span class="kw4">bool</span><span class="sy1">&gt;</span> pair<span class="br0">(</span><a href="cpp-ranges-from_range.html"><span class="kw3503">std::<span class="me2">from_range</span></span></a>, <span class="kw2">true</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="co1">// 1.a.3) &#36845;&#20195;&#22120;&#23545;&#26500;&#36896;&#20989;&#25968;</span>
+    <span class="br0">{</span>
+        <span class="kw4">auto</span> list <span class="sy1">=</span> <span class="br0">{</span><span class="st0">&#39;a&#39;</span>, <span class="st0">&#39;b&#39;</span>, <span class="st0">&#39;<span class="es5">\0</span>&#39;</span>, <span class="st0">&#39;c&#39;</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+        <span class="co1">// &#23454;&#21442;&#31867;&#22411;&#21487;&#20197;&#36716;&#25442;&#20026;&#32467;&#26524;&#20540;&#31867;&#22411;&#65306;</span>
+        <span class="kw4">auto</span> devector_to <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">to</span><span class="sy1">&lt;</span>boost<span class="sy4">::</span><span class="me2">container</span><span class="sy4">::</span><span class="me2">devector</span><span class="sy1">&lt;</span><span class="kw4">char</span><span class="sy1">&gt;&gt;</span><span class="br0">(</span>list<span class="br0">)</span><span class="sy4">;</span>
+        <span class="co1">// &#31561;&#20215;&#20110;</span>
+        boost<span class="sy4">::</span><span class="me2">container</span><span class="sy4">::</span><span class="me2">devector</span><span class="sy1">&lt;</span><span class="kw4">char</span><span class="sy1">&gt;</span> devector<span class="br0">(</span>std<span class="sy4">::</span><a href="../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/begin"><span class="kw2881">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>list<span class="br0">)</span>,
+                                                  std<span class="sy4">::</span><a href="../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/end"><span class="kw2883">ranges::<span class="me2">end</span></span></a><span class="br0">(</span>list<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+        <span class="co1">// &#32467;&#26524;&#31867;&#22411;&#19981;&#26159;&#36755;&#20837;&#33539;&#22260;&#65306;</span>
+        <a href="cpp-regex-basic_regex.html"><span class="kw2003">std::<span class="me2">regex</span></span></a> re<span class="sy4">;</span>
+        <span class="kw4">auto</span> it_to <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">to</span><span class="sy1">&lt;</span><a href="cpp-regex-regex_iterator.html"><span class="kw2019">std::<span class="me2">cregex_iterator</span></span></a><span class="sy1">&gt;</span><span class="br0">(</span>list, re<span class="br0">)</span><span class="sy4">;</span>
+        <span class="co1">// &#31561;&#20215;&#20110;</span>
+        <a href="cpp-regex-regex_iterator.html"><span class="kw2019">std::<span class="me2">cregex_iterator</span></span></a> it<span class="br0">(</span>std<span class="sy4">::</span><a href="../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/begin"><span class="kw2881">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>list<span class="br0">)</span>, std<span class="sy4">::</span><a href="../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/end"><span class="kw2883">ranges::<span class="me2">end</span></span></a><span class="br0">(</span>list<span class="br0">)</span>, re<span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">[2, 4, 6, 8]
+[2, 4, 6]</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue3984">LWG 3984</a></td>
+<td>C++23</td>
+<td>&#24403; <span class="t-c"><span class="mw-geshi cpp source-cpp">R<span class="sy3">&amp;</span></span></span> &#26410;&#23454;&#29616; <a href="cpp-ranges-viewable_range.html"><code>viewable_range</code></a> &#26102; <code>ranges::to</code> &#30340;&#23884;&#22871;&#26500;&#36896;&#20998;&#25903;&#20250;&#23548;&#33268;&#31243;&#24207;&#38750;&#33391;&#26500;</td>
+<td>&#20351;&#20043;&#33391;&#26500;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue4016">LWG 4016</a></td>
+<td>C++23</td>
+<td><code>ranges::to</code> &#30340;&#23481;&#22120;&#25554;&#20837;&#20998;&#25903;&#28041;&#21450;&#21040;&#20351;&#29992;&#25554;&#20837;&#36845;&#20195;&#22120;</td>
+<td>&#25913;&#20026;&#30452;&#25509;&#21521;&#23481;&#22120;&#36861;&#21152;&#20803;&#32032;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-c++23">
+<ul>
+<li>C++23 &#26631;&#20934;&#65288;ISO/IEC 14882:2024&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>26.5.7 Range conversions [range.utility.conv]</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

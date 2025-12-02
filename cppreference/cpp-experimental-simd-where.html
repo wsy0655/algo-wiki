@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::experimental::where</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_experimental_simd_where skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::experimental::</span>where</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-experimental.html">experimental</a>&lrm; | <a href="cpp-experimental-simd.html">simd</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-experimental-simd.html">&lt;experimental/simd&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-parallelism_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span> Abi <span class="sy1">&gt;</span><br /></span>
+<p>where_expression<span class="sy1">&lt;</span>simd_mask<span class="sy1">&lt;</span>T, Abi<span class="sy1">&gt;</span>, simd<span class="sy1">&lt;</span>T, Abi<span class="sy1">&gt;&gt;</span><br />
+&nbsp; &nbsp; where<span class="br0">(</span> <span class="kw4">const</span> <span class="kw1">typename</span> simd<span class="sy1">&lt;</span>T, Abi<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">mask_type</span><span class="sy3">&amp;</span> mask,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;simd<span class="sy1">&lt;</span>T, Abi<span class="sy1">&gt;</span><span class="sy3">&amp;</span> value <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></td>
+</tr>
+<tr class="t-dcl t-since-parallelism_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span> Abi <span class="sy1">&gt;</span><br /></span>
+<p>const_where_expression<span class="sy1">&lt;</span>simd_mask<span class="sy1">&lt;</span>T, Abi<span class="sy1">&gt;</span>, <span class="kw4">const</span> simd<span class="sy1">&lt;</span>T, Abi<span class="sy1">&gt;&gt;</span><br />
+&nbsp; &nbsp; where<span class="br0">(</span> <span class="kw4">const</span> <span class="kw1">typename</span> simd<span class="sy1">&lt;</span>T, Abi<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">mask_type</span><span class="sy3">&amp;</span> mask,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw4">const</span> simd<span class="sy1">&lt;</span>T, Abi<span class="sy1">&gt;</span><span class="sy3">&amp;</span> value <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></td>
+</tr>
+<tr class="t-dcl t-since-parallelism_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span> Abi <span class="sy1">&gt;</span><br /></span>
+<p>where_expression<span class="sy1">&lt;</span>simd_mask<span class="sy1">&lt;</span>T, Abi<span class="sy1">&gt;</span>, simd_mask<span class="sy1">&lt;</span>T, Abi<span class="sy1">&gt;&gt;</span><br />
+&nbsp; &nbsp; where<span class="br0">(</span> <span class="kw4">const</span> type_identity_t<span class="sy1">&lt;</span>simd_mask<span class="sy1">&lt;</span>T, Abi<span class="sy1">&gt;&gt;</span><span class="sy3">&amp;</span> mask,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;simd_mask<span class="sy1">&lt;</span>T, Abi<span class="sy1">&gt;</span><span class="sy3">&amp;</span> value <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></td>
+</tr>
+<tr class="t-dcl t-since-parallelism_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span> Abi <span class="sy1">&gt;</span><br /></span>
+<p>const_where_expression<span class="sy1">&lt;</span>simd_mask<span class="sy1">&lt;</span>T, Abi<span class="sy1">&gt;</span>, <span class="kw4">const</span> simd_mask<span class="sy1">&lt;</span>T, Abi<span class="sy1">&gt;&gt;</span><br />
+&nbsp; &nbsp; where<span class="br0">(</span> <span class="kw4">const</span> type_identity_t<span class="sy1">&lt;</span>simd_mask<span class="sy1">&lt;</span>T, Abi<span class="sy1">&gt;&gt;</span><span class="sy3">&amp;</span> mask,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw4">const</span> simd_mask<span class="sy1">&lt;</span>T, Abi<span class="sy1">&gt;</span><span class="sy3">&amp;</span> value <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></div>
+</td>
+<td>(4)</td>
+<td><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></td>
+</tr>
+<tr class="t-dcl t-since-parallelism_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T <span class="sy1">&gt;</span><br /></span>
+<p>where_expression<span class="sy1">&lt;</span><span class="kw4">bool</span>, T<span class="sy1">&gt;</span><br /></p>
+&nbsp; &nbsp; where<span class="br0">(</span> <span class="coMULTI">/* &#35265;&#19979;&#25991; */</span> mask, T<span class="sy3">&amp;</span> value <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></div>
+</td>
+<td>(5)</td>
+<td><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></td>
+</tr>
+<tr class="t-dcl t-since-parallelism_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T <span class="sy1">&gt;</span><br /></span>
+<p>const_where_expression<span class="sy1">&lt;</span><span class="kw4">bool</span>, <span class="kw4">const</span> T<span class="sy1">&gt;</span><br /></p>
+&nbsp; &nbsp; where<span class="br0">(</span> <span class="coMULTI">/* &#35265;&#19979;&#25991; */</span> mask, <span class="kw4">const</span> T<span class="sy3">&amp;</span> value <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></div>
+</td>
+<td>(6)</td>
+<td><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#26500;&#36896;&#26032;&#30340; <a href="cpp-experimental-simd-const_where_expression.html"><code>const_where_expression</code></a> &#25110; <a href="cpp-experimental-simd-where_expression.html"><code>where_expression</code></a>&#12290;</p>
+<div class="t-li1"><span class="t-li">1-6)</span> &#20174;&#32473;&#23450;&#30340;&#25513;&#30721;&#21644;&#20540;&#21442;&#25968;&#26500;&#36896; <i>where_expression</i>&#12290;</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<div class="t-li1"><span class="t-li">1-4)</span>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>mask</td>
+<td>-</td>
+<td><a href="cpp-experimental-simd-simd_mask.html"><code>simd_mask</code></a> &#23545;&#35937;</td>
+</tr>
+<tr class="t-par">
+<td>value</td>
+<td>-</td>
+<td>&#21040;&#24212;&#29992;&#25513;&#30721;&#20110;&#20854;&#19978;&#30340;&#23545;&#35937;&#30340;&#24341;&#29992;</td>
+</tr>
+</table>
+</div>
+<div class="t-li1"><span class="t-li">5,6)</span>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>mask</td>
+<td>-</td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span> &#31867;&#22411;&#25513;&#30721;</td>
+</tr>
+<tr class="t-par">
+<td>value</td>
+<td>-</td>
+<td>&#21040;&#24212;&#29992;&#25513;&#30721;&#20110;&#20854;&#19978;&#30340;&#26631;&#37327;&#30340;&#24341;&#29992;</td>
+</tr>
+</table>
+</div>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#26500;&#36896;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">const_where_expression</span></span> &#25110; <a href="cpp-experimental-simd-where_expression.html"><code>where_expression</code></a>&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<div class="t-li1"><span class="t-li">5,6)</span> &#20351;&#29992;&#25513;&#30721;&#30340;&#23454;&#29616;&#23450;&#20041;&#31867;&#22411;&#65292;&#20197;&#20043;&#31105;&#29992;&#20174;&#20854;&#20182;&#31867;&#22411;&#21040; <span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span> &#30340;&#38544;&#24335;&#36716;&#25442;&#12290;</div>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#26242;&#26080;&#31034;&#20363;</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

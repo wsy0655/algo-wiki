@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::extents, std::dextents, std::dims</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_container_mdspan_extents skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>extents, <span style="font-size:0.8em; line-height:125%">std::</span>dextents, <span style="font-size:0.8em; line-height:125%">std::</span>dims</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-container.html">container</a>&lrm; | <a href="cpp-container-mdspan.html">mdspan</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-mdspan.html">&lt;mdspan&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> IndexType, <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a>... <span class="me1">Extents</span> <span class="sy1">&gt;</span><br />
+<span class="kw1">class</span> extents<span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> IndexType, <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> Rank <span class="sy1">&gt;</span><br />
+<span class="kw1">using</span> dextents <span class="sy1">=</span> <span class="coMULTI">/* &#35265;&#19979;&#25991; */</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx26">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> Rank, <span class="kw1">class</span> IndexType <span class="sy1">=</span> <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> <span class="sy1">&gt;</span><br />
+<span class="kw1">using</span> dims <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">dextents</span><span class="sy1">&lt;</span>IndexType, Rank<span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#34920;&#31034;&#19968;&#20010;&#31209;&#31561;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">sizeof...<span class="br0">(</span>Extents<span class="br0">)</span></span></span> &#30340;&#22810;&#32500;&#32034;&#24341;&#31354;&#38388;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#29992;&#20110;&#20840;&#21160;&#24577; <code>extents</code> &#30340;&#20415;&#21033;&#21035;&#21517;&#27169;&#26495;&#12290;&#20196; <code>d</code> &#20195;&#34920; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-container-span-dynamic_extent.html"><span class="kw2630">std::<span class="me2">dynamic_extent</span></span></a></span></span>&#65292;&#20854;&#27599;&#20010;&#29305;&#21270; <span class="t-c"><span class="mw-geshi cpp source-cpp">dextents<span class="sy1">&lt;</span>IndexType, Rank<span class="sy1">&gt;</span></span></span> &#22343;&#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">extents<span class="sy1">&lt;</span>IndexType <span class="coMULTI">/*, d, d, ..., d*/</span><span class="sy1">&gt;</span></span></span>&#65288;&#21363;&#37325;&#22797;&#20849; <code>Rank</code> &#27425; <code><i>d</i></code>&#65289;&#12290;</div>
+<div class="t-li1"><span class="t-li">3)</span> &#29992;&#20110;&#20840;&#21160;&#24577; <code>extents</code> &#30340;&#20415;&#21033;&#21035;&#21517;&#27169;&#26495;&#65292;&#20854;&#20197; <span class="mw-geshi cpp source-cpp"><a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a></span> &#20316;&#20026;&#40664;&#35748;&#32034;&#24341;&#31867;&#22411;&#12290;</div>
+<p><code>extents</code> &#30340;&#27599;&#20010;&#29305;&#21270;&#22343;&#23454;&#29616; <a href="cpp-concepts-regular.html"><code>regular</code></a> &#19988;&#20026; <a href="cpp-named_req-TriviallyCopyable.html"><span style="font-style:italic">&#21487;&#24179;&#20961;&#22797;&#21046;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(TriviallyCopyable)</span></a> &#12290;</p>
+<h3><span class="mw-headline" id=".E6.A8.A1.E6.9D.BF.E5.BD.A2.E5.8F.82">&#27169;&#26495;&#24418;&#21442;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>IndexType</td>
+<td>-</td>
+<td>&#21508;&#20010;&#38750;&#21160;&#24577; <code>Extents</code> &#30340;&#31867;&#22411;&#12290;&#24212;&#24403;&#20026;&#26377;&#31526;&#21495;&#25110;&#26080;&#31526;&#21495;&#25972;&#25968;&#31867;&#22411;&#12290;&#21542;&#21017;&#31243;&#24207;&#38750;&#33391;&#26500;</td>
+</tr>
+<tr class="t-par">
+<td>Extents</td>
+<td>-</td>
+<td>&#34920;&#31034;&#27599;&#20010;&#31209;&#32034;&#24341;&#30340;&#23610;&#24230;&#65288;&#25972;&#25968;&#21306;&#38388;&#30340;&#22823;&#23567;&#65289;&#12290;&#20854;&#21508;&#20010;&#20803;&#32032;&#35201;&#20040;&#31561;&#20110; <span class="mw-geshi cpp source-cpp"><a href="cpp-container-span-dynamic_extent.html"><span class="kw2630">std::<span class="me2">dynamic_extent</span></span></a></span>&#65288;&#27492;&#31181;&#24773;&#20917;&#23427;&#34920;&#31034;&#19968;&#20010;<i>&#21160;&#24577;&#23610;&#24230;</i>&#65292;&#32780;&#23610;&#24230;&#22823;&#23567;&#21017;&#21160;&#24577;&#30830;&#23450;&#65289;&#65292;&#35201;&#20040;&#21487;&#34920;&#31034;&#20026; <code>IndexType</code> &#31867;&#22411;&#30340;&#20540;&#65288;&#30001;&#27492;&#23427;&#34920;&#31034;&#19968;&#20010;<i>&#38745;&#24577;&#23610;&#24230;</i>&#65292;&#23610;&#24230;&#22823;&#23567;&#23601;&#26159;&#23427;&#30340;&#20540;&#65289;&#65292;&#35201;&#20040;&#31243;&#24207;&#23601;&#38750;&#33391;&#26500;</td>
+</tr>
+<tr class="t-par">
+<td>Rank</td>
+<td>-</td>
+<td>&#20195;&#34920;&#20840;&#21160;&#24577; <code>extents</code> &#30340;&#31209;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E7.B1.BB.E5.9E.8B">&#25104;&#21592;&#31867;&#22411;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#25104;&#21592;&#31867;&#22411;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>index_type</code></td>
+<td><code>IndexType</code></td>
+</tr>
+<tr class="t-dsc">
+<td><code>size_type</code></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-types-make_unsigned.html"><span class="kw622">std::<span class="me2">make_unsigned_t</span></span></a><span class="sy1">&lt;</span>index_type<span class="sy1">&gt;</span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>rank_type</code></td>
+<td><span class="t-lc"><a href="cpp-types-size_t.html">std::size_t</a></span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.95.B0.E6.8D.AE.E6.88.90.E5.91.98">&#25968;&#25454;&#25104;&#21592;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#25104;&#21592;&#21517;&#23383;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><span class="t-dsc-small"><span class="mw-geshi cpp source-cpp"><a href="cpp-container-array.html"><span class="kw1271">std::<span class="me2">array</span></span></a><span class="sy1">&lt;</span>index_type, rank_dynamic<span class="br0">(</span><span class="br0">)</span><span class="sy1">&gt;</span></span></span> <code><i>dynamic-extents</i></code> <span class="t-mark" style="white-space: nowrap;">(&#31169;&#26377;)</span></td>
+<td>&#23384;&#20648;&#21508;&#20010;&#21160;&#24577;&#23610;&#24230;&#22823;&#23567;&#30340;&#25968;&#32452;&#12290;<br />
+<span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;&#30340;&#25104;&#21592;&#23545;&#35937;*</span>)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-container-mdspan-extents-extents.html"><span class="t-lines"><span>(&#26500;&#36896;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26500;&#36896; <code>extents</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E8.A7.82.E5.AF.9F.E5.99.A8">&#35266;&#23519;&#22120;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-mdspan-extents-rank.html"><span class="t-lines"><span>rank</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238; <code>extents</code> &#30340;&#38745;&#24577;&#31209;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-mdspan-extents-rank_dynamic.html"><span class="t-lines"><span>rank_dynamic</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238; <code>extents</code> &#30340;&#21160;&#24577;&#31209;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-mdspan-extents-static_extent.html"><span class="t-lines"><span>static_extent</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238; <code>extents</code> &#22312;&#29305;&#23450;&#31209;&#32034;&#24341;&#19978;&#30340;&#38745;&#24577;&#23610;&#24230;&#22823;&#23567;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-mdspan-extents-extent.html"><span class="t-lines"><span>extent</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238; <code>extents</code> &#22312;&#29305;&#23450;&#31209;&#32034;&#24341;&#19978;&#30340;&#21160;&#24577;&#23610;&#24230;&#22823;&#23567;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E8.BE.85.E5.8A.A9.E7.B1.BB.E5.9E.8B">&#36741;&#21161;&#31867;&#22411;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-mdspan-extents-fwd-prod-of-extents.html"><i><span class="t-lines"><span>fwd-prod-of-extents</span></span></i></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#33539;&#22260; <code>[</code><span class="mw-geshi cpp source-cpp">&#8203;<span class="nu0">0</span>&#8203;</span><code>,&nbsp;</code><span class="mw-geshi cpp source-cpp">i</span><code>)</code> &#20013;&#21508;&#23610;&#24230;&#22823;&#23567;&#30340;&#20056;&#31215;<br />
+<span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;&#30340;&#25104;&#21592;&#20989;&#25968;*</span>)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-mdspan-extents-rev-prod-of-extents.html"><i><span class="t-lines"><span>rev-prod-of-extents</span></span></i></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#33539;&#22260; <code>[</code><span class="mw-geshi cpp source-cpp">i <span class="sy2">+</span> <span class="nu0">1</span></span><code>,&nbsp;</code><span class="mw-geshi cpp source-cpp">rank<span class="br0">(</span><span class="br0">)</span></span><code>)</code> &#20013;&#30340;&#21508;&#23610;&#24230;&#22823;&#23567;&#30340;&#20056;&#31215;<br />
+<span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;&#30340;&#25104;&#21592;&#20989;&#25968;*</span>)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-mdspan-extents-index-cast.html"><i><span class="t-lines"><span>index-cast</span></span></i></a></div>
+</div>
+</td>
+<td>&#23558;&#36755;&#20837;&#36716;&#22411;&#20026;&#25972;&#25968;&#31867;&#22411;<br />
+<span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;&#30340;&#25104;&#21592;&#20989;&#25968;*</span>)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-mdspan-extents-dynamic-index.html"><i><span class="t-lines"><span>dynamic-index</span></span></i></a></div>
+<div><span class="t-lines"><span><span class="t-mark" style="white-space: nowrap;">(private)</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#29305;&#23450;&#31209;&#32034;&#24341;&#20197;&#19979;&#30340;&#21160;&#24577;&#23610;&#24230;&#30340;&#25968;&#37327;<br />
+<span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;&#30340;&#25104;&#21592;&#20989;&#25968;*</span>)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-mdspan-extents-dynamic-index-inv.html"><i><span class="t-lines"><span>dynamic-index-inv</span></span></i></a></div>
+<div><span class="t-lines"><span><span class="t-mark" style="white-space: nowrap;">(private)</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25968;&#20540; <code>r</code>&#65292;&#20351;&#24471;&#23545;&#20110;&#26576;&#20010;&#29305;&#23450;&#23454;&#21442; <code>i</code>&#65292;&#33539;&#22260; <code>[</code><span class="mw-geshi cpp source-cpp">&#8203;<span class="nu0">0</span>&#8203;</span><code>,&nbsp;</code><span class="mw-geshi cpp source-cpp">r <span class="sy2">+</span> <span class="nu0">1</span></span><code>)</code> &#20013;&#24688;&#22909;&#26377; <code>i + 1</code> &#20010;&#21160;&#24577;&#23610;&#24230;<br />
+<span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;&#30340;&#25104;&#21592;&#20989;&#25968;*</span>)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E9.9D.9E.E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#38750;&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-mdspan-extents-operator==.html"><span class="t-lines"><span>operator==</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#22312;&#20004;&#20010; <code>extents</code> &#30340;&#27599;&#20010;&#32500;&#24230;&#19978;&#27604;&#36739;&#24213;&#23618;&#23610;&#24230;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.8E.A8.E5.AF.BC.E6.8C.87.E5.BC.95.28C.2B.2B23.29"><a href="cpp-container-mdspan-extents-deduction_guides.html">&#25512;&#23548;&#25351;&#24341;</a><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></h3>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#26242;&#26080;&#31034;&#20363;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-types-rank.html"><span class="t-lines"><span>rank</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#33719;&#21462;&#25968;&#32452;&#31867;&#22411;&#30340;&#32500;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-types-extent.html"><span class="t-lines"><span>extent</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#33719;&#21462;&#25968;&#32452;&#31867;&#22411;&#22312;&#25351;&#23450;&#32500;&#25968;&#30340;&#22823;&#23567;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

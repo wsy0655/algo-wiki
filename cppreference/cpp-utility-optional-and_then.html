@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::optional&lt;T&gt;::and_then</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_utility_optional_and_then skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::optional&lt;T&gt;::</span>and_then</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-utility.html">utility</a>&lrm; | <a href="cpp-utility-optional.html">optional</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> F <span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> <span class="kw4">auto</span> and_then<span class="br0">(</span> F<span class="sy3">&amp;&amp;</span> f <span class="br0">)</span> <span class="sy3">&amp;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> F <span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> <span class="kw4">auto</span> and_then<span class="br0">(</span> F<span class="sy3">&amp;&amp;</span> f <span class="br0">)</span> <span class="kw4">const</span><span class="sy3">&amp;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> F <span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> <span class="kw4">auto</span> and_then<span class="br0">(</span> F<span class="sy3">&amp;&amp;</span> f <span class="br0">)</span> <span class="sy3">&amp;&amp;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> F <span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> <span class="kw4">auto</span> and_then<span class="br0">(</span> F<span class="sy3">&amp;&amp;</span> f <span class="br0">)</span> <span class="kw4">const</span><span class="sy3">&amp;&amp;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(4)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#21547;&#20540;&#21017;&#20197;&#25152;&#21547;&#20540;&#20026;&#23454;&#21442;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">f</span></span> &#24182;&#36820;&#22238;&#35813;&#35843;&#29992;&#30340;&#32467;&#26524;&#65307;&#21542;&#21017;&#65292;&#36820;&#22238;&#31354; <code>std::optional</code>&#12290;</p>
+<p>&#36820;&#22238;&#31867;&#22411;&#65288;&#35265;&#21518;&#36848;&#65289;&#24517;&#39035;&#20026; <span class="t-lc"><a href="cpp-utility-optional.html">std::optional</a></span> &#30340;&#29305;&#21270;&#65288;&#36825;&#19982; <a href="cpp-utility-optional-transform.html"><code>transform()</code></a> &#19981;&#21516;&#65289;&#12290;&#21542;&#21017;&#31243;&#24207;&#38750;&#33391;&#26500;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#31561;&#20215;&#20110;<br />
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">if</span> <span class="br0">(</span><span class="sy2">*</span>this<span class="br0">)</span>
+    <span class="kw1">return</span> <a href="cpp-utility-functional-invoke.html"><span class="kw1063">std::<span class="me2">invoke</span></span></a><span class="br0">(</span><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>F<span class="sy1">&gt;</span><span class="br0">(</span>f<span class="br0">)</span>, value<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="kw1">else</span>
+    <span class="kw1">return</span> <a href="cpp-types-remove_cvref.html"><span class="kw2644">std::<span class="me2">remove_cvref_t</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-result_of.html"><span class="kw3219">std::<span class="me2">invoke_result_t</span></span></a><span class="sy1">&lt;</span>F, T<span class="sy3">&amp;</span><span class="sy1">&gt;&gt;</span><span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+</div>
+<div class="t-li1"><span class="t-li">2)</span> &#31561;&#20215;&#20110;<br />
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">if</span> <span class="br0">(</span><span class="sy2">*</span>this<span class="br0">)</span>
+    <span class="kw1">return</span> <a href="cpp-utility-functional-invoke.html"><span class="kw1063">std::<span class="me2">invoke</span></span></a><span class="br0">(</span><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>F<span class="sy1">&gt;</span><span class="br0">(</span>f<span class="br0">)</span>, value<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="kw1">else</span>
+    <span class="kw1">return</span> <a href="cpp-types-remove_cvref.html"><span class="kw2644">std::<span class="me2">remove_cvref_t</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-result_of.html"><span class="kw3219">std::<span class="me2">invoke_result_t</span></span></a><span class="sy1">&lt;</span>F, <span class="kw4">const</span> T<span class="sy3">&amp;</span><span class="sy1">&gt;&gt;</span><span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+</div>
+<div class="t-li1"><span class="t-li">3)</span> &#31561;&#20215;&#20110;<br />
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">if</span> <span class="br0">(</span><span class="sy2">*</span>this<span class="br0">)</span>
+    <span class="kw1">return</span> <a href="cpp-utility-functional-invoke.html"><span class="kw1063">std::<span class="me2">invoke</span></span></a><span class="br0">(</span><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>F<span class="sy1">&gt;</span><span class="br0">(</span>f<span class="br0">)</span>, std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>value<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="kw1">else</span>
+    <span class="kw1">return</span> <a href="cpp-types-remove_cvref.html"><span class="kw2644">std::<span class="me2">remove_cvref_t</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-result_of.html"><span class="kw3219">std::<span class="me2">invoke_result_t</span></span></a><span class="sy1">&lt;</span>F, T<span class="sy1">&gt;&gt;</span><span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+</div>
+<div class="t-li1"><span class="t-li">4)</span> &#31561;&#20215;&#20110;<br />
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">if</span> <span class="br0">(</span><span class="sy2">*</span>this<span class="br0">)</span>
+    <span class="kw1">return</span> <a href="cpp-utility-functional-invoke.html"><span class="kw1063">std::<span class="me2">invoke</span></span></a><span class="br0">(</span><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>F<span class="sy1">&gt;</span><span class="br0">(</span>f<span class="br0">)</span>, std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>value<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="kw1">else</span>
+    <span class="kw1">return</span> <a href="cpp-types-remove_cvref.html"><span class="kw2644">std::<span class="me2">remove_cvref_t</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-result_of.html"><span class="kw3219">std::<span class="me2">invoke_result_t</span></span></a><span class="sy1">&lt;</span>F, <span class="kw4">const</span> T<span class="sy1">&gt;&gt;</span><span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>f</td>
+<td>-</td>
+<td>&#36866;&#21512;&#30340;&#20989;&#25968;&#25110;<a href="cpp-named_req-Callable.html"><span style="font-style:italic">&#21487;&#35843;&#29992;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(Callable)</span></a> &#23545;&#35937;&#65292;&#36820;&#22238; <span class="t-lc"><a href="cpp-utility-optional.html">std::optional</a></span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p><code>f</code> &#30340;&#32467;&#26524;&#25110;&#31354; <span class="t-lc"><a href="cpp-utility-optional.html">std::optional</a></span>&#65292;&#22914;&#19978;&#25152;&#36848;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#26377;&#20123;&#35821;&#35328;&#31216;&#27492;&#25805;&#20316;&#20026;<i>&#25289;&#24179;&#26144;&#23556;&#65288;flatmap&#65289;</i>&#12290;</p>
+<table class="wikitable ftm-begin">
+<tr>
+<th><a href="cpp-utility-feature_test.html">&#21151;&#33021;&#29305;&#24615;&#27979;&#35797;</a>&#23439;</th>
+<th><abbr title="&#37319;&#32435;&#35813;&#29305;&#24615;&#30340;&#24180;/&#26376;&#12290;&#27599;&#20010;&#20540;&#19979;&#38754;&#30340;&#38142;&#25509;&#25351;&#21521;&#32534;&#35793;&#26399;&#25903;&#25345;&#39029;&#38754;&#20013;&#32473;&#23450;&#21151;&#33021;&#29305;&#24615;&#30340;&#26465;&#30446;&#12290;">&#20540;</abbr></th>
+<th><abbr title="&#24341;&#20837;&#35813;&#29305;&#24615;&#30340;&#26631;&#20934;&#65307;DR &#24847;&#20026;&#38024;&#23545;&#35813;&#20462;&#35746;&#29256;&#30340;&#32570;&#38519;&#25253;&#21578;">&#26631;&#20934;</abbr></th>
+<th>&#21151;&#33021;&#29305;&#24615;</th>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lib_optional"><code>__cpp_lib_optional</code></a></td>
+<td><a href="cpp-compiler_support-23.html#cpp_lib_optional_202110L"><code>202110L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++23)</span></td>
+<td><span class="t-lc"><a href="cpp-utility-optional.html">std::optional</a></span> &#30340;<a href="cpp-utility-optional.html#.E5.8D.95.E5.AD.90.E5.BC.8F.E6.93.8D.E4.BD.9C">&#21333;&#23376;&#24335;&#25805;&#20316;</a></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;charconv&gt;</span>
+<span class="co2">#include &lt;iomanip&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;optional&gt;</span>
+<span class="co2">#include &lt;ranges&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+<span class="co2">#include &lt;string_view&gt;</span>
+<span class="co2">#include &lt;vector&gt;</span>
+ 
+<a href="cpp-utility-optional.html"><span class="kw1077">std::<span class="me2">optional</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span> to_int<span class="br0">(</span><a href="cpp-string-basic_string_view.html"><span class="kw1251">std::<span class="me2">string_view</span></span></a> sv<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">int</span> r<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw4">auto</span> <span class="br0">[</span>ptr, ec<span class="br0">]</span><span class="br0">{</span><a href="cpp-utility-from_chars.html"><span class="kw2639">std::<span class="me2">from_chars</span></span></a><span class="br0">(</span>sv.<span class="me1">data</span><span class="br0">(</span><span class="br0">)</span>, sv.<span class="me1">data</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> sv.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span>, r<span class="br0">)</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>ec <span class="sy1">==</span> <a href="cpp-error-errc.html"><span class="kw882">std::<span class="me2">errc</span></span></a><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+        <span class="kw1">return</span> r<span class="sy4">;</span>
+    <span class="kw1">else</span>
+        <span class="kw1">return</span> <a href="cpp-utility-optional-nullopt.html"><span class="kw1081">std::<span class="me2">nullopt</span></span></a><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">using</span> <span class="kw1">namespace</span> std<span class="sy4">::</span><span class="me2">literals</span><span class="sy4">;</span>
+ 
+    <span class="kw4">const</span> <a href="cpp-container-vector.html"><span class="kw1272">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><a href="cpp-utility-optional.html"><span class="kw1077">std::<span class="me2">optional</span></span></a><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy1">&gt;&gt;</span> v
+    <span class="br0">{</span>
+        <span class="st0">&quot;1234&quot;</span>, <span class="st0">&quot;15 foo&quot;</span>, <span class="st0">&quot;bar&quot;</span>, <span class="st0">&quot;42&quot;</span>, <span class="st0">&quot;5000000000&quot;</span>, <span class="st0">&quot; 5&quot;</span>, <a href="cpp-utility-optional-nullopt.html"><span class="kw1081">std::<span class="me2">nullopt</span></span></a>, <span class="st0">&quot;-43&quot;</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">auto</span><span class="sy3">&amp;&amp;</span> x <span class="sy4">:</span> v <span class="sy3">|</span> std<span class="sy4">::</span><a href="cpp-ranges-transform_view.html"><span class="kw2922">views::<span class="me2">transform</span></span></a><span class="br0">(</span>
+        <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">auto</span><span class="sy3">&amp;&amp;</span> o<span class="br0">)</span>
+        <span class="br0">{</span>
+            <span class="co1">// &#35843;&#35797;&#25171;&#21360;&#36755;&#20837;&#30340; optional&lt;string&gt; &#30340;&#20869;&#23481;</span>
+            <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-left.html"><span class="kw1783">std::<span class="me2">left</span></span></a> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-setw.html"><span class="kw1801">std::<span class="me2">setw</span></span></a><span class="br0">(</span><span class="nu0">13</span><span class="br0">)</span>
+                      <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-quoted.html"><span class="kw1806">std::<span class="me2">quoted</span></span></a><span class="br0">(</span>o.<span class="me1">value_or</span><span class="br0">(</span><span class="st0">&quot;nullopt&quot;</span><span class="br0">)</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; -&gt; &quot;</span><span class="sy4">;</span>
+ 
+            <span class="kw1">return</span> o
+                <span class="co1">// &#33509; optional &#20026; nullopt &#21017;&#36716;&#25442;&#23427;&#20026;&#25345;&#26377; &quot;&quot; &#23383;&#31526;&#20018;&#30340; optional</span>
+                .<span class="me1">or_else</span><span class="br0">(</span><span class="br0">[</span><span class="br0">]</span><span class="br0">{</span> <span class="kw1">return</span> <a href="cpp-utility-optional.html"><span class="kw1077">std::<span class="me2">optional</span></span></a><span class="br0">{</span><span class="st0">&quot;&quot;</span>s<span class="br0">}</span><span class="sy4">;</span> <span class="br0">}</span><span class="br0">)</span>
+                <span class="co1">// &#25289;&#24179;&#26144;&#23556; string &#20026; int &#65288;&#22833;&#36133;&#26102;&#20135;&#29983;&#31354;&#30340; optional&#65289;</span>
+                .<span class="me1">and_then</span><span class="br0">(</span>to_int<span class="br0">)</span>
+                <span class="co1">// &#26144;&#23556; int &#20026; int + 1</span>
+                .<span class="me1">transform</span><span class="br0">(</span><span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">int</span> n<span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> n <span class="sy2">+</span> <span class="nu0">1</span><span class="sy4">;</span> <span class="br0">}</span><span class="br0">)</span>
+                <span class="co1">// &#36716;&#25442;&#22238; string</span>
+                .<span class="me1">transform</span><span class="br0">(</span><span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">int</span> n<span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> <a href="cpp-string-basic_string-to_string.html"><span class="kw1268">std::<span class="me2">to_string</span></span></a><span class="br0">(</span>n<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="br0">)</span>
+                <span class="co1">// &#20197; and_then &#26367;&#25442;&#65292;&#24182;&#29992; &quot;NaN&quot; &#21464;&#25442;&#24182;&#24573;&#30053;&#25152;&#26377;&#21097;&#20313;&#30340;&#31354; optional</span>
+                <span class="co1">// and_then and ignored by transforms with &quot;NaN&quot;</span>
+                .<span class="me1">value_or</span><span class="br0">(</span><span class="st0">&quot;NaN&quot;</span>s<span class="br0">)</span><span class="sy4">;</span>
+        <span class="br0">}</span><span class="br0">)</span><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> x <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&quot;1234&quot;        -&gt; 1235
+&quot;15 foo&quot;      -&gt; 16
+&quot;bar&quot;         -&gt; NaN
+&quot;42&quot;          -&gt; 43
+&quot;5000000000&quot;  -&gt; NaN
+&quot; 5&quot;          -&gt; NaN
+&quot;nullopt&quot;     -&gt; NaN
+&quot;-43&quot;         -&gt; -42</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-optional-value_or.html"><span class="t-lines"><span>value_or</span></span></a></div>
+</div>
+</td>
+<td>&#22312;&#25152;&#21547;&#20540;&#21487;&#29992;&#26102;&#36820;&#22238;&#23427;&#65292;&#21542;&#21017;&#36820;&#22238;&#21478;&#19968;&#20010;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-optional-transform.html"><span class="t-lines"><span>transform</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#22312;&#25152;&#21547;&#20540;&#23384;&#22312;&#26102;&#36820;&#22238;&#21547;&#26377;&#21464;&#25442;&#21518;&#30340;&#25152;&#21547;&#20540;&#30340; <code>optional</code>&#65292;&#21542;&#21017;&#36820;&#22238;&#31354;&#30340; <code>optional</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-optional-or_else.html"><span class="t-lines"><span>or_else</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#22312; <code>optional</code> &#21547;&#20540;&#26102;&#36820;&#22238;&#33258;&#36523;&#65292;&#21542;&#21017;&#36820;&#22238;&#32473;&#23450;&#20989;&#25968;&#30340;&#32467;&#26524;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

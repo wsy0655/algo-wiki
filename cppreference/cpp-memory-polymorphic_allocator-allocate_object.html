@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::pmr::polymorphic_allocator&lt;T&gt;::allocate_object</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_memory_polymorphic_allocator_allocate_object skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::pmr::polymorphic_allocator&lt;T&gt;::</span>allocate_object</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-memory.html">memory</a>&lrm; | <a href="cpp-memory-polymorphic_allocator.html">polymorphic allocator</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> U <span class="sy1">&gt;</span><br />
+U<span class="sy2">*</span> allocate_object<span class="br0">(</span> <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> n <span class="sy1">=</span> <span class="nu0">1</span> <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#29992;&#24213;&#23618;&#20869;&#23384;&#36164;&#28304;&#20998;&#37197; <span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span> &#20010; <code>U</code> &#31867;&#22411;&#23545;&#35937;&#30340;&#23384;&#20648;&#12290;</p>
+<p>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-numeric_limits.html"><span class="kw351">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">max</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">/</span> sizeof<span class="br0">(</span>U<span class="br0">)</span> <span class="sy1">&lt;</span> n</span></span>&#65292;&#21017;&#25243;&#20986; <span class="t-lc"><a href="cpp-memory-new-bad_array_new_length.html">std::bad_array_new_length</a></span>&#65292;&#21542;&#21017;&#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">return</span> <span class="kw1">static_cast</span><span class="sy1">&lt;</span>U<span class="sy2">*</span><span class="sy1">&gt;</span><span class="br0">(</span>allocate_bytes<span class="br0">(</span>n <span class="sy2">*</span> sizeof<span class="br0">(</span>U<span class="br0">)</span>, alignof<span class="br0">(</span>U<span class="br0">)</span><span class="br0">)</span> <span class="br0">)</span><span class="sy4">;</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>n</td>
+<td>-</td>
+<td>&#35201;&#20998;&#37197;&#23384;&#20648;&#30340;&#23545;&#35937;&#25968;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#25351;&#21521;&#20998;&#37197;&#30340;&#23384;&#20648;&#30340;&#25351;&#38024;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#24341;&#20837;&#27492;&#20989;&#25968;&#26159;&#20026;&#20102;&#29992;&#20110;&#20840;&#29305;&#21270;&#20998;&#37197;&#22120; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-polymorphic_allocator.html"><span class="kw709">std::<span class="me2">pmr</span><span class="sy4">::</span><span class="me2">polymorphic_allocator</span></span></a><span class="sy1">&lt;&gt;</span></span></span>&#65292;&#20294;&#23427;&#21487;&#33021;&#22312;&#20219;&#20309;&#29305;&#21270;&#20013;&#37117;&#26377;&#29992;&#65292;&#20316;&#20026;&#36991;&#20813;&#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-polymorphic_allocator.html"><span class="kw709">std::<span class="me2">pmr</span><span class="sy4">::</span><span class="me2">polymorphic_allocator</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span></span></span> &#37325;&#32465;&#23450;&#21040; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-polymorphic_allocator.html"><span class="kw709">std::<span class="me2">pmr</span><span class="sy4">::</span><span class="me2">polymorphic_allocator</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span></span></span> &#30340;&#24555;&#25463;&#26041;&#24335;&#12290;</p>
+<p>&#22240;&#20026;&#19981;&#25512;&#23548; <code>U</code>&#65292;&#35843;&#29992;&#27492;&#20989;&#25968;&#26102;&#24517;&#39035;&#25552;&#20379;&#23427;&#20026;&#27169;&#26495;&#23454;&#21442;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<p>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">n <span class="sy1">&gt;</span> <a href="cpp-types-numeric_limits.html"><span class="kw351">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">max</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">/</span> sizeof<span class="br0">(</span>U<span class="br0">)</span></span></span> &#21017;&#25243;&#20986; <span class="t-lc"><a href="cpp-memory-new-bad_array_new_length.html">std::bad_array_new_length</a></span>&#65307;&#20134;&#21487;&#33021;&#25243;&#20986;&#20219;&#20309;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">resource<span class="br0">(</span><span class="br0">)</span><span class="sy2">-</span><span class="sy1">&gt;</span>allocate</span></span> &#25152;&#25243;&#30340;&#24322;&#24120;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-polymorphic_allocator-allocate_bytes.html"><span class="t-lines"><span>allocate_bytes</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#20174;&#24213;&#23618;&#36164;&#28304;&#20998;&#37197;&#26410;&#22788;&#29702;&#30340;&#23545;&#40784;&#20869;&#23384;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-polymorphic_allocator-new_object.html"><span class="t-lines"><span>new_object</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#20998;&#37197;&#24182;&#21019;&#24314;&#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-polymorphic_allocator-allocate.html"><span class="t-lines"><span>allocate</span></span></a></div>
+</div>
+</td>
+<td>&#20998;&#37197;&#20869;&#23384;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-allocator_traits-allocate.html"><span class="t-lines"><span>allocate</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td>&#29992;&#20998;&#37197;&#22120;&#20998;&#37197;&#26410;&#21021;&#22987;&#21270;&#30340;&#23384;&#20648;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::allocator_traits&lt;Alloc&gt;</code> &#30340;&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-memory_resource-allocate.html"><span class="t-lines"><span>allocate</span></span></a></div>
+</div>
+</td>
+<td>&#20998;&#37197;&#20869;&#23384;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::pmr::memory_resource</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

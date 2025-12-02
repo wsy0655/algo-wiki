@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>&#32467;&#26500;&#21270;&#32465;&#23450;&#22768;&#26126; (C++17 &#36215;)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_language_structured_binding skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">&#32467;&#26500;&#21270;&#32465;&#23450;&#22768;&#26126; <span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-language.html">language</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<p>&#23558;&#25351;&#23450;&#21517;&#31216;&#32465;&#23450;&#21040;&#21021;&#22987;&#21270;&#22120;&#30340;&#23376;&#23545;&#35937;&#25110;&#20803;&#32032;&#12290;</p>
+<p>&#19982;&#24341;&#29992;&#31867;&#20284;&#65292;&#32467;&#26500;&#21270;&#32465;&#23450;&#26159;&#26082;&#23384;&#23545;&#35937;&#30340;&#21035;&#21517;&#12290;&#19981;&#21516;&#20110;&#24341;&#29992;&#30340;&#26159;&#65292;&#32467;&#26500;&#21270;&#32465;&#23450;&#30340;&#31867;&#22411;&#19981;&#38656;&#35201;&#26159;&#24341;&#29992;&#31867;&#22411;&#12290;</p>
+<table class="t-sdsc-begin">
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td class="t-sdsc-nopad"><span class="t-spar">&#23646;&#24615;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#22768;&#26126;&#35828;&#26126;&#31526;&#24207;&#21015;</span> <span class="t-spar">&#24341;&#29992;&#38480;&#23450;&#31526;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <code><b>[</b></code> <span class="t-spar">&#32465;&#23450;&#26631;&#35782;&#31526;&#21015;&#34920;</span> <code><b>]</b></code> <span class="t-spar">&#21021;&#22987;&#21270;&#22120;</span>&#8202;&#65279;<code><b>;</b></code></td>
+<td class="t-sdsc-nopad"></td>
+<td class="t-sdsc-nopad"></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+</table>
+<table class="t-par-begin">
+<tr class="t-par">
+<td><span class="t-spar">&#23646;&#24615;</span></td>
+<td>-</td>
+<td>&#20219;&#24847;&#25968;&#37327;&#30340;<a href="cpp-language-attributes.html">&#23646;&#24615;</a>&#30340;&#24207;&#21015;</td>
+</tr>
+<tr class="t-par">
+<td><span class="t-spar">decl-specifier-seq</span></td>
+<td>-</td>
+<td>&#21253;&#21547;&#20197;&#19979;&#35828;&#26126;&#31526;&#30340;&#24207;&#21015;&#65288;&#36981;&#24490;<a href="cpp-language-declarations.html#.E7.AE.80.E5.8D.95.E5.A3.B0.E6.98.8E">&#31616;&#21333;&#22768;&#26126;</a>&#30340;&#35268;&#21017;&#65289;&#65306;
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx26">
+<td>
+<ul>
+<li><a href="cpp-language-constexpr.html"><code>constexpr</code></a></li>
+<li><a href="cpp-language-constinit.html"><code>constinit</code></a></li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+</table>
+<ul>
+<li><a href="cpp-keyword-static.html"><tt>static</tt></a></li>
+<li><a href="cpp-keyword-thread_local.html"><tt>thread_local</tt></a></li>
+<li><a href="cpp-keyword-const.html"><tt>const</tt></a></li>
+<li><a href="cpp-keyword-volatile.html"><tt>volatile</tt></a> <span class="t-mark-rev t-deprecated-cxx20" style="white-space: nowrap;">(C++20 &#24323;&#29992;)</span></li>
+<li><a href="cpp-language-auto.html"><code>auto</code></a></li>
+</ul>
+</td>
+</tr>
+<tr class="t-par">
+<td><span class="t-spar">&#24341;&#29992;&#38480;&#23450;&#31526;</span></td>
+<td>-</td>
+<td><code><b>&amp;</b></code> &#25110; <code><b>&amp;&amp;</b></code> &#20043;&#19968;</td>
+</tr>
+<tr class="t-par">
+<td><span class="t-spar">&#32465;&#23450;&#26631;&#35782;&#31526;&#21015;&#34920;</span></td>
+<td>-</td>
+<td>&#27492;&#22768;&#26126;&#25152;&#24341;&#20837;&#30340;&#21508;&#26631;&#35782;&#31526;&#30340;&#36887;&#21495;&#20998;&#38548;&#30340;&#21015;&#34920;<span class="t-rev-inl t-since-cxx26"><span>&#65292;&#27599;&#20010;&#26631;&#35782;&#31526;&#21487;&#20197;&#21518;&#38543;&#19968;&#20010;<a href="cpp-language-attributes.html">&#23646;&#24615;&#35828;&#26126;&#31526;&#24207;&#21015;</a></span><span><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></span></span></td>
+</tr>
+<tr class="t-par">
+<td><span class="t-spar">&#21021;&#22987;&#21270;&#22120;</span></td>
+<td>-</td>
+<td>&#21021;&#22987;&#21270;&#22120;&#65288;&#35265;&#19979;&#25991;&#65289;</td>
+</tr>
+</table>
+<p><br />
+<span class="t-spar">&#21021;&#22987;&#21270;&#22120;</span>&#8202;&#65279;&#24517;&#39035;&#26159;&#19979;&#21015;&#20043;&#19968;&#65306;</p>
+<table class="t-sdsc-begin">
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><code><b>=</b></code> <span class="t-spar">&#34920;&#36798;&#24335;</span></td>
+<td>(1)</td>
+<td class="t-sdsc-nopad"></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><code><b>{</b></code> <span class="t-spar">&#34920;&#36798;&#24335;</span> <code></code>}</td>
+<td>(2)</td>
+<td class="t-sdsc-nopad"></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><code><b>(</b></code> <span class="t-spar">&#34920;&#36798;&#24335;</span> <code><b>)</b></code></td>
+<td>(3)</td>
+<td class="t-sdsc-nopad"></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+</table>
+<table class="t-par-begin">
+<tr class="t-par">
+<td><span class="t-spar">&#34920;&#36798;&#24335;</span></td>
+<td>-</td>
+<td>&#65288;&#26080;&#25324;&#21495;&#30340;<a href="cpp-language-operator_other.html#.E5.86.85.E5.BB.BA.E7.9A.84.E9.80.97.E5.8F.B7.E8.BF.90.E7.AE.97.E7.AC.A6">&#36887;&#21495;&#34920;&#36798;&#24335;</a>&#20197;&#22806;&#30340;&#65289;&#20219;&#24847;&#34920;&#36798;&#24335;</td>
+</tr>
+</table>
+<p><br />
+&#32467;&#26500;&#21270;&#32465;&#23450;&#22768;&#26126;&#23558;<span class="t-spar">&#32465;&#23450;&#26631;&#35782;&#31526;&#21015;&#34920;</span>&#8202;&#65279;&#20013;&#30340;&#25152;&#26377;&#26631;&#35782;&#31526;&#24341;&#20837;&#20316;&#20026;&#20854;&#22806;&#22260;&#20316;&#29992;&#22495;&#20013;&#30340;&#21517;&#23383;&#65292;&#24182;&#23558;&#23427;&#20204;&#32465;&#23450;&#21040;<span class="t-spar">&#34920;&#36798;&#24335;</span>&#8202;&#65279;&#25152;&#25351;&#20195;&#30340;&#23545;&#35937;&#30340;&#21508;&#20010;&#23376;&#23545;&#35937;&#25110;&#20803;&#32032;&#12290;&#20197;&#27492;&#26041;&#24335;&#24341;&#20837;&#30340;&#32465;&#23450;&#34987;&#31216;&#20316;<i>&#32467;&#26500;&#21270;&#32465;&#23450;</i>&#12290;</p>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx26">
+<td>
+<p><span class="t-spar">&#32465;&#23450;&#26631;&#35782;&#31526;&#21015;&#34920;</span>&#8202;&#65279;&#20013;&#21487;&#20197;&#26377;&#19968;&#20010;&#21069;&#38468;&#30465;&#30053;&#21495;&#30340;&#26631;&#35782;&#31526;&#12290;&#36825;&#31181;&#26631;&#35782;&#31526;&#20250;&#24341;&#20837;<i>&#32467;&#26500;&#21270;&#32465;&#23450;&#21253;</i>&#12290;</p>
+<p>&#35813;&#26631;&#35782;&#31526;&#24517;&#39035;&#22768;&#26126;<a href="cpp-language-templates.html#.E6.A8.A1.E6.9D.BF.E5.8C.96.E5.AE.9E.E4.BD.93">&#27169;&#26495;&#21270;&#23454;&#20307;</a>&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+</table>
+<p>&#32467;&#26500;&#21270;&#32465;&#23450;&#26159;<span class="t-spar">&#32465;&#23450;&#26631;&#35782;&#31526;&#21015;&#34920;</span>&#8202;&#65279;&#20013;&#30340;&#19968;&#20010;<span class="t-rev-inl t-since-cxx26"><span>&#27809;&#26377;&#21069;&#23548;&#30465;&#30053;&#21495;&#30340;</span><span><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></span></span>&#26631;&#35782;&#31526;<span class="t-rev-inl t-since-cxx26"><span>&#65292;&#25110;&#32773;&#21516;&#19968;&#20010;&#26631;&#35782;&#31526;&#21015;&#34920;&#20013;&#24341;&#20837;&#30340;&#32467;&#26500;&#21270;&#32465;&#23450;&#21253;&#30340;&#19968;&#20010;&#20803;&#32032;</span><span><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E7.BB.91.E5.AE.9A.E8.BF.87.E7.A8.8B">&#32465;&#23450;&#36807;&#31243;</span></h3>
+<p>&#32467;&#26500;&#21270;&#32465;&#23450;&#22768;&#26126;&#39318;&#20808;&#24341;&#20837;&#19968;&#20010;&#21807;&#19968;&#21629;&#21517;&#30340;&#21464;&#37327;&#65288;&#27492;&#22788;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">e</span></span> &#25351;&#20195;&#65289;&#26469;&#20445;&#26377;&#20854;&#21021;&#22987;&#21270;&#22120;&#30340;&#20540;&#65292;&#26041;&#24335;&#22914;&#19979;&#65306;</p>
+<ul>
+<li>&#22914;&#26524;<span class="t-spar">&#34920;&#36798;&#24335;</span>&#8202;&#65279;&#20855;&#26377;&#25968;&#32452;&#31867;&#22411; <i>cv1</i> <code>A</code> &#19988;&#19981;&#23384;&#22312;<span class="t-spar">&#24341;&#29992;&#38480;&#23450;&#31526;</span>&#65292;&#37027;&#20040;&#36890;&#36807; <span class="t-c"><span class="t-spar">&#23646;&#24615;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#26631;&#35782;&#31526;</span> <code>A e;</code></span> &#26469;&#23450;&#20041; <span class="t-c"><span class="mw-geshi cpp source-cpp">e</span></span>&#65292;&#20854;&#20013;<span class="t-spar">&#26631;&#35782;&#31526;</span>&#8202;&#65279;&#26159;&#21253;&#21547;<span class="t-spar">&#22768;&#26126;&#35828;&#26126;&#31526;&#24207;&#21015;</span>&#8202;&#65279;&#30340;&#38500; <span class="mw-geshi cpp source-cpp"><span class="kw4">auto</span></span> &#20197;&#22806;&#30340;&#25152;&#26377;&#35828;&#26126;&#31526;&#30340;&#24207;&#21015;&#12290;</li>
+</ul>
+<dl>
+<dd>&#28982;&#21518;&#20197;<span class="t-spar">&#21021;&#22987;&#21270;&#22120;</span>&#8202;&#65279;&#23545;&#24212;&#30340;&#26041;&#24335;&#20197;<span class="t-spar">&#34920;&#36798;&#24335;</span>&#8202;&#65279;&#20013;&#30340;&#20803;&#32032;&#21021;&#22987;&#21270; <span class="t-c"><span class="mw-geshi cpp source-cpp">e</span></span> &#20013;&#30340;&#23545;&#24212;&#20803;&#32032;&#65306;
+<ul>
+<li>&#23545;&#20110;&#21021;&#22987;&#21270;&#22120;&#24418;&#24335; <span class="t-v">(1)</span>&#65292;&#20803;&#32032;&#20250;&#34987;<a href="cpp-language-copy_initialization.html">&#22797;&#21046;&#21021;&#22987;&#21270;</a>&#12290;</li>
+<li>&#23545;&#20110;&#21021;&#22987;&#21270;&#22120;&#24418;&#24335; <span class="t-v">(2,3)</span>&#65292;&#20803;&#32032;&#20250;&#34987;<a href="cpp-language-direct_initialization.html">&#30452;&#25509;&#21021;&#22987;&#21270;</a>&#12290;</li>
+</ul>
+</dd>
+</dl>
+<ul>
+<li>&#21542;&#21017;&#36890;&#36807; <span class="t-c"><span class="t-spar">&#23646;&#24615;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#22768;&#26126;&#35828;&#26126;&#31526;&#24207;&#21015;</span> <span class="t-spar">&#24341;&#29992;&#38480;&#23450;&#31526;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <code>e</code> <span class="t-spar">&#21021;&#22987;&#21270;&#22120;</span>&#8202;&#65279;<code>;</code></span> &#26469;&#23450;&#20041; <span class="t-c"><span class="mw-geshi cpp source-cpp">e</span></span>&#12290;</li>
+</ul>
+<p>&#25105;&#20204;&#29992; <code>E</code> &#20195;&#34920;&#26631;&#35782;&#34920;&#36798;&#24335; <span class="t-c"><span class="mw-geshi cpp source-cpp">e</span></span> &#30340;&#31867;&#22411;&#12290;&#65288;&#25442;&#35328;&#20043;&#65292;<code>E</code> &#31561;&#20215;&#20110; <span class="mw-geshi cpp source-cpp"><a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>decltype<span class="br0">(</span><span class="br0">(</span>e<span class="br0">)</span><span class="br0">)</span><span class="sy1">&gt;</span></span>&#65289;&#12290;</p>
+<p><code>E</code> &#30340;<i>&#32467;&#26500;&#21270;&#32465;&#23450;&#22823;&#23567;</i>&#8202;&#65279;&#26159;&#32467;&#26500;&#21270;&#32465;&#23450;&#22768;&#26126;&#25152;&#35201;&#24341;&#20837;&#30340;&#32467;&#26500;&#21270;&#32465;&#23450;&#30340;&#20010;&#25968;&#12290;</p>
+<table class="t-rev-begin">
+<tr class="t-rev t-until-cxx26">
+<td>
+<p><span class="t-spar">&#32465;&#23450;&#26631;&#35782;&#31526;&#21015;&#34920;</span>&#8202;&#65279;&#20013;&#26631;&#35782;&#31526;&#30340;&#20010;&#25968;&#24517;&#39035;&#31561;&#20110; <code>E</code> &#30340;&#32467;&#26500;&#21270;&#32465;&#23450;&#22823;&#23567;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-until-cxx26" style="white-space: nowrap;">(C++26 &#21069;)</span></td>
+</tr>
+<tr class="t-rev t-since-cxx26">
+<td>
+<p>&#32473;&#23450;<span class="t-spar">&#32465;&#23450;&#26631;&#35782;&#31526;&#21015;&#34920;</span>&#8202;&#65279;&#20013;&#26631;&#35782;&#31526;&#30340;&#20010;&#25968; <span class="t-c"><span class="mw-geshi cpp source-cpp">N</span></span> &#21644; <code>E</code> &#30340;&#32467;&#26500;&#21270;&#32465;&#23450;&#22823;&#23567; <span class="t-c"><span class="mw-geshi cpp source-cpp">S</span></span>&#65306;</p>
+<ul>
+<li>&#22914;&#26524;&#19981;&#23384;&#22312;&#32467;&#26500;&#21270;&#32465;&#23450;&#21253;&#65292;&#37027;&#20040; <span class="t-c"><span class="mw-geshi cpp source-cpp">N</span></span> &#24517;&#39035;&#31561;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">S</span></span>&#12290;</li>
+<li>&#21542;&#21017;&#38750;&#21253;&#20803;&#32032;&#30340;&#20010;&#25968;&#65288;&#21363; <span class="t-c"><span class="mw-geshi cpp source-cpp">N <span class="sy2">-</span> <span class="nu0">1</span></span></span>&#65289;&#24517;&#39035;&#23567;&#20110;&#25110;&#31561;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">S</span></span>&#65292;&#24182;&#19988;&#32467;&#26500;&#21270;&#32465;&#23450;&#21253;&#30340;&#20803;&#32032;&#20010;&#25968;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp">S <span class="sy2">-</span> N <span class="sy2">+</span> <span class="nu0">1</span></span></span>&#65288;&#35813;&#20540;&#21487;&#20197;&#20026;&#38646;&#65289;&#12290;</li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+</table>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">struct</span> C <span class="br0">{</span> <span class="kw4">int</span> x, y, z<span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw1">template</span> <span class="sy1">&lt;</span><span class="kw1">class</span> T<span class="sy1">&gt;</span>
+<span class="kw4">void</span> now_i_know_my<span class="br0">(</span><span class="br0">)</span> 
+<span class="br0">{</span>
+    <span class="kw4">auto</span> <span class="br0">[</span>a, b, c<span class="br0">]</span> <span class="sy1">=</span> C<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK: a, b, c &#20998;&#21035;&#25351;&#20195; x, y, z</span>
+    <span class="kw4">auto</span> <span class="br0">[</span>d, ...<span class="me1">e</span><span class="br0">]</span> <span class="sy1">=</span> C<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK: d &#25351;&#20195; x; ...e &#25351;&#20195; y &#21644; z</span>
+    <span class="kw4">auto</span> <span class="br0">[</span>...<span class="me1">f</span>, g<span class="br0">]</span> <span class="sy1">=</span> C<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK: ...f &#25351;&#20195; x &#21644; y; g &#25351;&#20195; z</span>
+    <span class="kw4">auto</span> <span class="br0">[</span>h, i, j, ...<span class="me1">k</span><span class="br0">]</span> <span class="sy1">=</span> C<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK: &#21253; k &#20026;&#31354;</span>
+    <span class="kw4">auto</span> <span class="br0">[</span>l, m, n, o, ...<span class="me1">p</span><span class="br0">]</span> <span class="sy1">=</span> C<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#38169;&#35823;: &#32467;&#26500;&#21270;&#32465;&#23450;&#22823;&#23567;&#22826;&#23567;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#32467;&#26500;&#21270;&#32465;&#23450;&#21487;&#20197;&#20197;&#19979;&#19977;&#31181;&#21487;&#33021;&#30340;&#26041;&#24335;&#20043;&#19968;&#36827;&#34892;&#32465;&#23450;&#65292;&#21462;&#20915;&#20110; <code>E</code>&#65306;</p>
+<ul>
+<li>&#24773;&#20917; 1&#65306;&#22914;&#26524; <code>E</code> &#26159;&#25968;&#32452;&#31867;&#22411;&#65292;&#37027;&#20040;&#32465;&#23450;&#21508;&#20010;&#21517;&#23383;&#21040;&#21508;&#20010;&#25968;&#32452;&#20803;&#32032;&#12290;</li>
+<li>&#24773;&#20917; 2&#65306;&#22914;&#26524; <code>E</code> &#26159;&#38750;&#32852;&#21512;&#31867;&#31867;&#22411;&#19988; <span class="mw-geshi cpp source-cpp"><a href="cpp-utility-tuple_size.html"><span class="kw1104">std::<span class="me2">tuple_size</span></span></a><span class="sy1">&lt;</span>E<span class="sy1">&gt;</span></span> &#26159;&#23436;&#25972;&#31867;&#22411;&#24182;&#25317;&#26377;&#21517;&#20026; <code>value</code> &#30340;&#25104;&#21592;&#65288;&#26080;&#20851;&#20046;&#36825;&#31181;&#25104;&#21592;&#30340;&#31867;&#22411;&#25110;&#21487;&#35775;&#38382;&#24615;&#65289;&#65292;&#37027;&#20040;&#20351;&#29992;&ldquo;&#20803;&#32452;&#24335;&rdquo;&#32465;&#23450;&#21327;&#35758;&#12290;</li>
+<li>&#24773;&#20917; 3&#65306;&#22914;&#26524; <code>E</code> &#26159;&#38750;&#32852;&#21512;&#31867;&#31867;&#22411;&#20294; <span class="mw-geshi cpp source-cpp"><a href="cpp-utility-tuple_size.html"><span class="kw1104">std::<span class="me2">tuple_size</span></span></a><span class="sy1">&lt;</span>E<span class="sy1">&gt;</span></span> &#19981;&#26159;&#23436;&#25972;&#31867;&#22411;&#65292;&#37027;&#20040;&#32465;&#23450;&#21508;&#20010;&#21517;&#23383;&#21040; <code>E</code> &#30340;&#21508;&#20010;&#21487;&#35775;&#38382;&#25968;&#25454;&#25104;&#21592;&#12290;</li>
+</ul>
+<p>&#19979;&#25991;&#23545;&#27599;&#31181;&#24773;&#20917;&#37117;&#26377;&#26356;&#35814;&#32454;&#30340;&#25551;&#36848;&#12290;</p>
+<p>&#27599;&#20010;&#32467;&#26500;&#21270;&#32465;&#23450;&#37117;&#26377;&#19968;&#20010;<i>&#34987;&#24341;&#29992;&#31867;&#22411;</i>&#65292;&#20250;&#22312;&#21518;&#25991;&#30340;&#25551;&#36848;&#20013;&#20104;&#20197;&#23450;&#20041;&#12290;&#27492;&#31867;&#22411;&#26159;&#23545;&#26080;&#25324;&#21495;&#30340;&#32467;&#26500;&#21270;&#32465;&#23450;&#24212;&#29992; <a href="cpp-language-decltype.html"><code>decltype</code></a> &#25152;&#36820;&#22238;&#30340;&#31867;&#22411;&#12290;</p>
+<h4><span class="mw-headline" id=".E6.83.85.E5.86.B5_1.EF.BC.9A.E7.BB.91.E5.AE.9A.E6.95.B0.E7.BB.84">&#24773;&#20917; 1&#65306;&#32465;&#23450;&#25968;&#32452;</span></h4>
+<p><span class="t-spar">&#32465;&#23450;&#26631;&#35782;&#31526;&#21015;&#34920;</span>&#8202;&#65279;&#20013;&#30340;&#27599;&#20010;&#32467;&#26500;&#21270;&#32465;&#23450;&#22343;&#25104;&#20026;&#25351;&#20195;&#25968;&#32452;&#30340;&#23545;&#24212;&#20803;&#32032;&#30340;&#24038;&#20540;&#30340;&#21517;&#23383;&#12290;<code>E</code> &#30340;&#32467;&#26500;&#21270;&#32465;&#23450;&#22823;&#23567;&#31561;&#20110;&#25968;&#32452;&#30340;&#20803;&#32032;&#25968;&#37327;&#12290;</p>
+<p>&#27599;&#20010;&#32467;&#26500;&#21270;&#32465;&#23450;&#30340;<i>&#34987;&#24341;&#29992;&#31867;&#22411;</i>&#8202;&#65279;&#37117;&#26159;&#25968;&#32452;&#30340;&#20803;&#32032;&#31867;&#22411;&#12290;&#27880;&#24847;&#22914;&#26524;&#25968;&#32452;&#31867;&#22411; <code>E</code> &#26377; cv &#38480;&#23450;&#65292;&#37027;&#20040;&#23427;&#30340;&#20803;&#32032;&#31867;&#22411;&#20063;&#26377;&#21516;&#26679;&#30340;&#38480;&#23450;&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw4">int</span> a<span class="br0">[</span><span class="nu0">2</span><span class="br0">]</span> <span class="sy1">=</span> <span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">2</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">auto</span> <span class="br0">[</span>x, y<span class="br0">]</span> <span class="sy1">=</span> a<span class="sy4">;</span>    <span class="co1">// &#21019;&#24314; e[2]&#65292;&#22797;&#21046; a &#21040; e&#65292;&#28982;&#21518; x &#25351;&#20195; e[0]&#65292;y &#25351;&#20195; e[1]</span>
+<span class="kw4">auto</span><span class="sy3">&amp;</span> <span class="br0">[</span>xr, yr<span class="br0">]</span> <span class="sy1">=</span> a<span class="sy4">;</span> <span class="co1">// xr &#25351;&#20195; a[0]&#65292;yr &#25351;&#20195; a[1]</span></pre></div>
+</div>
+<h4><span class="mw-headline" id=".E6.83.85.E5.86.B5_2.EF.BC.9A.E7.BB.91.E5.AE.9A.E5.AE.9E.E7.8E.B0.E5.85.83.E7.BB.84.E6.93.8D.E4.BD.9C.E7.9A.84.E7.B1.BB.E5.9E.8B">&#24773;&#20917; 2&#65306;&#32465;&#23450;&#23454;&#29616;&#20803;&#32452;&#25805;&#20316;&#30340;&#31867;&#22411;</span></h4>
+<p>&#34920;&#36798;&#24335; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-tuple_size.html"><span class="kw1104">std::<span class="me2">tuple_size</span></span></a><span class="sy1">&lt;</span>E<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">value</span></span></span> &#24517;&#39035;&#26159;&#33391;&#26500;&#30340;<a href="cpp-language-constant_expression.html#.E6.95.B4.E6.95.B0.E5.B8.B8.E9.87.8F.E8.A1.A8.E8.BE.BE.E5.BC.8F">&#25972;&#25968;&#24120;&#37327;&#34920;&#36798;&#24335;</a>&#65292;&#19988; <code>E</code> &#30340;&#32467;&#26500;&#21270;&#32465;&#23450;&#22823;&#23567;&#31561;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-tuple_size.html"><span class="kw1104">std::<span class="me2">tuple_size</span></span></a><span class="sy1">&lt;</span>E<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">value</span></span></span>&#12290;</p>
+<p>&#23545;&#20110;&#27599;&#20010;&#32467;&#26500;&#21270;&#32465;&#23450;&#65292;&#24341;&#20837;&#19968;&#20010;&#31867;&#22411;&#20026;&ldquo;<span class="mw-geshi cpp source-cpp"><a href="cpp-utility-tuple_element.html"><span class="kw1102">std::<span class="me2">tuple_element</span></span></a><span class="sy1">&lt;</span>I, E<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">type</span></span> &#30340;&#24341;&#29992;&rdquo;&#30340;&#21464;&#37327;&#65306;&#22914;&#26524;&#23427;&#23545;&#24212;&#30340;&#21021;&#22987;&#21270;&#22120;&#26159;&#24038;&#20540;&#65292;&#37027;&#20040;&#23427;&#26159;&#24038;&#20540;&#24341;&#29992;&#65292;&#21542;&#21017;&#23427;&#26159;&#21491;&#20540;&#24341;&#29992;&#12290;&#31532; <span class="t-c"><span class="mw-geshi cpp source-cpp">I</span></span> &#20010;&#21464;&#37327;&#30340;&#21021;&#22987;&#21270;&#22120;</p>
+<ul>
+<li>&#22914;&#26524;&#22312; <code>E</code> &#30340;&#20316;&#29992;&#22495;&#20013;&#23545;&#26631;&#35782;&#31526; <code>get</code> &#25353;&#31867;&#25104;&#21592;&#35775;&#38382;&#36827;&#34892;&#30340;&#26597;&#25214;&#20013;&#65292;&#33267;&#23569;&#25214;&#21040;&#19968;&#20010;&#22768;&#26126;&#26159;&#39318;&#20010;&#27169;&#26495;&#24418;&#21442;&#20026;&#38750;&#31867;&#22411;&#24418;&#21442;&#30340;&#20989;&#25968;&#27169;&#26495;&#65292;&#37027;&#20040;&#23427;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp">e.<span class="me1">get</span><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></li>
+<li>&#21542;&#21017;&#23427;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp">get<span class="sy1">&lt;</span>I<span class="sy1">&gt;</span><span class="br0">(</span>e<span class="br0">)</span></span></span>&#65292;&#20854;&#20013; <span class="t-c"><span class="mw-geshi cpp source-cpp">get</span></span> &#21482;&#20250;&#36827;&#34892;<a href="cpp-language-adl.html">&#23454;&#21442;&#20381;&#36182;&#26597;&#25214;</a>&#65292;&#24573;&#30053;&#20854;&#20182;&#26597;&#25214;&#12290;</li>
+</ul>
+<p>&#36825;&#20123;&#21021;&#22987;&#21270;&#22120;&#34920;&#36798;&#24335;&#20013;&#65292;&#22914;&#26524;&#23454;&#20307; <span class="t-c"><span class="mw-geshi cpp source-cpp">e</span></span> &#30340;&#31867;&#22411;&#26159;&#24038;&#20540;&#24341;&#29992;&#65288;&#21482;&#20250;&#22312;<span class="t-spar">&#24341;&#29992;&#38480;&#23450;&#31526;</span>&#8202;&#65279;&#26159; <code><b>&amp;</b></code>&#65292;&#25110;&#23427;&#26159; <code><b>&amp;&amp;</b></code> &#19988;&#21021;&#22987;&#21270;&#22120;&#26159;&#24038;&#20540;&#26102;&#21457;&#29983;&#65289;&#65292;&#37027;&#20040; <span class="t-c"><span class="mw-geshi cpp source-cpp">e</span></span> &#26159;&#24038;&#20540;&#65292;&#21542;&#21017;&#23427;&#26159;&#20129;&#20540;&#65288;&#36825;&#23454;&#38469;&#19978;&#36827;&#34892;&#20102;&#19968;&#31181;&#23436;&#32654;&#36716;&#21457;&#65289;&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">I</span></span> &#26159; <span class="t-lc"><a href="cpp-types-size_t.html">std::size_t</a></span> &#30340;&#32431;&#21491;&#20540;&#65292;&#32780;&#19988;&#22987;&#32456;&#23558; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span></span></span> &#35299;&#37322;&#20026;&#27169;&#26495;&#24418;&#21442;&#21015;&#34920;&#12290;</p>
+<p>&#35813;&#21464;&#37327;&#25317;&#26377;&#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">e</span></span> &#30456;&#21516;&#30340;<a href="cpp-language-storage_duration.html">&#23384;&#20648;&#26399;</a>&#12290;</p>
+<p>&#28982;&#21518;&#35813;&#32467;&#26500;&#21270;&#32465;&#23450;&#21464;&#25104;&#24038;&#20540;&#30340;&#21517;&#23383;&#65292;&#23427;&#25351;&#20195;&#19982;&#19978;&#36848;&#21464;&#37327;&#32465;&#23450;&#30340;&#23545;&#35937;&#12290;</p>
+<p>&#31532; <span class="t-c"><span class="mw-geshi cpp source-cpp">I</span></span> &#20010;&#32467;&#26500;&#21270;&#32465;&#23450;&#30340;<i>&#34987;&#24341;&#29992;&#31867;&#22411;</i>&#8202;&#65279;&#26159; <span class="mw-geshi cpp source-cpp"><a href="cpp-utility-tuple_element.html"><span class="kw1102">std::<span class="me2">tuple_element</span></span></a><span class="sy1">&lt;</span>I, E<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">type</span></span>&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw4">float</span> x<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+<span class="kw4">char</span>  y<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+<span class="kw4">int</span>   z<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+<a href="cpp-utility-tuple.html"><span class="kw1101">std::<span class="me2">tuple</span></span></a><span class="sy1">&lt;</span><span class="kw4">float</span><span class="sy3">&amp;</span>, <span class="kw4">char</span><span class="sy3">&amp;&amp;</span>, <span class="kw4">int</span><span class="sy1">&gt;</span> tpl<span class="br0">(</span>x, std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>y<span class="br0">)</span>, z<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> <span class="br0">[</span>a, b, c<span class="br0">]</span> <span class="sy1">=</span> tpl<span class="sy4">;</span>
+<span class="co1">// using Tpl = const std::tuple&lt;float&amp;, char&amp;&amp;, int&gt;;</span>
+<span class="co1">// a &#25351;&#21517;&#25351;&#20195; x &#30340;&#32467;&#26500;&#21270;&#32465;&#23450;&#65288;&#20197; get&lt;0&gt;(tpl) &#21021;&#22987;&#21270;&#65289;</span>
+<span class="co1">// decltype(a) &#26159; std::tuple_element&lt;0, Tpl&gt;::type&#65292;&#21363; float&amp;</span>
+<span class="co1">// b &#25351;&#21517;&#25351;&#20195; y &#30340;&#32467;&#26500;&#21270;&#32465;&#23450;&#65288;&#20197; get&lt;1&gt;(tpl) &#21021;&#22987;&#21270;&#65289;</span>
+<span class="co1">// decltype(b) &#26159; std::tuple_element&lt;1, Tpl&gt;::type&#65292;&#21363; char&amp;&amp;</span>
+<span class="co1">// c &#25351;&#21517;&#25351;&#20195; tpl &#30340;&#31532; 3 &#20803;&#32032;&#65288;get&lt;2&gt;(tpl)&#65289;&#30340;&#32467;&#26500;&#21270;&#32465;&#23450;</span>
+<span class="co1">// decltype(c) &#26159; std::tuple_element&lt;2, Tpl&gt;::type&#65292;&#21363; const int</span></pre></div>
+</div>
+<h4><span class="mw-headline" id=".E6.83.85.E5.86.B5_3.EF.BC.9A.E7.BB.91.E5.AE.9A.E5.88.B0.E6.95.B0.E6.8D.AE.E6.88.90.E5.91.98">&#24773;&#20917; 3&#65306;&#32465;&#23450;&#21040;&#25968;&#25454;&#25104;&#21592;</span></h4>
+<p><code>E</code> &#30340;&#25152;&#26377;&#38750;&#38745;&#24577;&#25968;&#25454;&#25104;&#21592;&#24517;&#39035;&#37117;&#26159; <code>E</code> &#25110; <code>E</code> &#30340;&#21516;&#19968;&#22522;&#31867;&#30340;&#30452;&#25509;&#25104;&#21592;&#65292;&#24517;&#39035;&#22312;&#25351;&#21517;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">e.<span class="me1">name</span></span></span> &#26102;&#22312;&#32467;&#26500;&#21270;&#32465;&#23450;&#30340;&#35821;&#22659;&#20013;&#26159;&#33391;&#26500;&#30340;&#12290;<code>E</code> &#19981;&#33021;&#26377;&#21311;&#21517;&#32852;&#21512;&#20307;&#25104;&#21592;&#12290;<code>E</code> &#30340;&#32467;&#26500;&#21270;&#32465;&#23450;&#22823;&#23567;&#31561;&#20110;&#38750;&#38745;&#24577;&#25968;&#25454;&#25104;&#21592;&#30340;&#25968;&#37327;&#12290;</p>
+<p><span class="t-spar">&#32465;&#23450;&#26631;&#35782;&#31526;&#21015;&#34920;</span>&#8202;&#65279;&#20013;&#30340;&#21508;&#20010;&#32467;&#26500;&#21270;&#32465;&#23450;&#65292;&#25353;&#22768;&#26126;&#39034;&#24207;&#20381;&#27425;&#25104;&#20026;&#25351;&#20195; <span class="t-c"><span class="mw-geshi cpp source-cpp">e</span></span> &#30340;&#21508;&#20010;&#25104;&#21592;&#30340;&#24038;&#20540;&#30340;&#21517;&#23383;&#65288;&#25903;&#25345;&#20301;&#22495;&#65289;&#65307;&#35813;&#24038;&#20540;&#30340;&#31867;&#22411;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp">e.<span class="me1">mI</span></span></span> &#30340;&#31867;&#22411;&#65292;&#20854;&#20013; <code>mI</code> &#20195;&#34920;&#31532; <span class="t-c"><span class="mw-geshi cpp source-cpp">I</span></span> &#20010;&#25104;&#21592;&#12290;</p>
+<p>&#31532; <span class="t-c"><span class="mw-geshi cpp source-cpp">I</span></span> &#20010;&#32467;&#26500;&#21270;&#32465;&#23450;&#30340;<i>&#34987;&#24341;&#29992;&#31867;&#22411;</i>&#8202;&#65279;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp">e.<span class="me1">mI</span></span></span>&#65288;&#22914;&#26524;&#23427;&#19981;&#26159;&#24341;&#29992;&#31867;&#22411;&#65289;&#65307;&#21542;&#21017;&#26159; <code>mI</code> &#30340;&#22768;&#26126;&#31867;&#22411;&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+ 
+<span class="kw1">struct</span> S
+<span class="br0">{</span>
+    mutable <span class="kw4">int</span> x1 <span class="sy4">:</span> <span class="nu0">2</span><span class="sy4">;</span>
+    <span class="kw4">volatile</span> <span class="kw4">double</span> y1<span class="sy4">;</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+S f<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> S<span class="br0">{</span><span class="nu0">1</span>, <span class="nu16">2.3</span><span class="br0">}</span><span class="sy4">;</span> <span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">const</span> <span class="kw4">auto</span> <span class="br0">[</span>x, y<span class="br0">]</span> <span class="sy1">=</span> f<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// x &#26159;&#26631;&#35782; 2 &#20301;&#20301;&#22495;&#30340; int &#24038;&#20540;</span>
+                             <span class="co1">// y &#26159; const volatile double &#24038;&#20540;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> x <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span> <span class="sy1">&lt;&lt;</span> y <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>  <span class="co1">// 1 2.3</span>
+    x <span class="sy1">=</span> <span class="sy2">-</span><span class="nu0">2</span><span class="sy4">;</span>   <span class="co1">// OK</span>
+<span class="co1">//  y = -2.;  // &#38169;&#35823;&#65306;y &#20855;&#26377; const &#38480;&#23450;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> x <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span> <span class="sy1">&lt;&lt;</span> y <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>  <span class="co1">// -2 2.3</span>
+<span class="br0">}</span></pre></div>
+</div>
+<h4><span class="mw-headline" id=".E5.88.9D.E5.A7.8B.E5.8C.96.E9.A1.BA.E5.BA.8F">&#21021;&#22987;&#21270;&#39034;&#24207;</span></h4>
+<p>&#35774; <span class="t-c"><span class="mw-geshi cpp source-cpp">valI</span></span> &#20026;<span class="t-spar">&#32465;&#23450;&#26631;&#35782;&#31526;&#21015;&#34920;</span>&#8202;&#65279;&#20013;&#31532; <span class="t-c"><span class="mw-geshi cpp source-cpp">I</span></span> &#20010;&#32467;&#26500;&#21270;&#32465;&#23450;&#25351;&#21517;&#30340;&#23545;&#35937;&#25110;&#24341;&#29992;&#65306;</p>
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">e</span></span> &#30340;&#21021;&#22987;&#21270;<a href="cpp-language-eval_order.html">&#25353;&#39034;&#24207;&#26089;&#20110;</a>&#20219;&#20309; <span class="t-c"><span class="mw-geshi cpp source-cpp">valI</span></span> &#30340;&#21021;&#22987;&#21270;&#12290;</li>
+<li>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">I</span></span> &#23567;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">J</span></span>&#65292;&#37027;&#20040;&#20219;&#20309; <span class="t-c"><span class="mw-geshi cpp source-cpp">valI</span></span> &#30340;&#21021;&#22987;&#21270;&#37117;&#25353;&#39034;&#24207;&#26089;&#20110;&#20219;&#20309; <span class="t-c"><span class="mw-geshi cpp source-cpp">valJ</span></span> &#30340;&#21021;&#22987;&#21270;&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx20">
+<td>
+<p>&#32467;&#26500;&#21270;&#32465;&#23450;&#19981;&#33021;<a href="cpp-language-constraints.html">&#21463;&#32422;&#26463;</a>&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> T<span class="sy1">&gt;</span>
+concept C <span class="sy1">=</span> <span class="kw2">true</span><span class="sy4">;</span>
+ 
+C <span class="kw4">auto</span> <span class="br0">[</span>x, y<span class="br0">]</span> <span class="sy1">=</span> <a href="cpp-utility-pair.html"><span class="kw1099">std::<span class="me2">pair</span></span></a><span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">2</span><span class="br0">}</span><span class="sy4">;</span> <span class="co1">// &#38169;&#35823;&#65306;&#21463;&#32422;&#26463;</span></pre></div>
+</div>
+</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+</table>
+<p>&#23545;&#25104;&#21592; <code>get</code> &#30340;&#26597;&#25214;&#29031;&#24120;&#24573;&#30053;&#21487;&#35775;&#38382;&#24615;&#65292;&#21516;&#26102;&#20063;&#24573;&#30053;&#38750;&#31867;&#22411;&#27169;&#26495;&#24418;&#21442;&#30340;&#30830;&#20999;&#31867;&#22411;&#12290;&#20986;&#29616;&#31169;&#26377;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw4">char</span><span class="sy2">*</span><span class="sy1">&gt;</span> <span class="kw4">void</span> get<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span></span></span> &#25104;&#21592;&#23558;&#23548;&#33268;&#20351;&#29992;&#25104;&#21592;&#35299;&#37322;&#26041;&#26696;&#65292;&#21363;&#20351;&#36825;&#20250;&#23548;&#33268;&#31243;&#24207;&#38750;&#33391;&#26500;&#20063;&#26159;&#22914;&#27492;&#12290;</p>
+<p>&#22768;&#26126;&#20013; <code><b>[</b></code> &#20043;&#21069;&#30340;&#37096;&#20998;&#24212;&#29992;&#20110;&#38544;&#34255;&#21464;&#37327; <span class="t-c"><span class="mw-geshi cpp source-cpp">e</span></span>&#65292;&#32780;&#38750;&#24341;&#20837;&#30340;&#21508;&#20010;&#32467;&#26500;&#21270;&#32465;&#23450;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw4">int</span> a <span class="sy1">=</span> <span class="nu0">1</span>, b <span class="sy1">=</span> <span class="nu0">2</span><span class="sy4">;</span>
+<span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> <span class="br0">[</span>x, y<span class="br0">]</span> <span class="sy1">=</span> <a href="cpp-utility-tuple-tie.html"><span class="kw1116">std::<span class="me2">tie</span></span></a><span class="br0">(</span>a, b<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// x &#19982; y &#30340;&#31867;&#22411;&#26159; int&amp;</span>
+<span class="kw4">auto</span> <span class="br0">[</span>z, w<span class="br0">]</span> <span class="sy1">=</span> <a href="cpp-utility-tuple-tie.html"><span class="kw1116">std::<span class="me2">tie</span></span></a><span class="br0">(</span>a, b<span class="br0">)</span><span class="sy4">;</span>        <span class="co1">// z &#19982; w &#30340;&#31867;&#22411;&#20173;&#28982;&#26159; int&amp;</span>
+<a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><span class="sy3">&amp;</span>z <span class="sy1">==</span> <span class="sy3">&amp;</span>a<span class="br0">)</span><span class="sy4">;</span>                    <span class="co1">// &#36890;&#36807;</span></pre></div>
+</div>
+<p>&#22914;&#26524; <span class="mw-geshi cpp source-cpp"><a href="cpp-utility-tuple_size.html"><span class="kw1104">std::<span class="me2">tuple_size</span></span></a><span class="sy1">&lt;</span>E<span class="sy1">&gt;</span></span> &#26159;&#23436;&#25972;&#31867;&#22411;&#65292;&#37027;&#20040;&#22987;&#32456;&#20351;&#29992;&#20803;&#32452;&#24335;&#35299;&#37322;&#26041;&#26696;&#65292;&#21363;&#20351;&#36825;&#20250;&#23548;&#33268;&#31243;&#24207;&#38750;&#33391;&#26500;&#20063;&#26159;&#22914;&#27492;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">struct</span> A <span class="br0">{</span> <span class="kw4">int</span> x<span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw1">namespace</span> std
+<span class="br0">{</span>
+    <span class="kw1">template</span><span class="sy1">&lt;&gt;</span>
+    <span class="kw1">struct</span> tuple_size<span class="sy1">&lt;</span><span class="sy4">::</span><span class="me2">A</span><span class="sy1">&gt;</span> <span class="br0">{</span> <span class="kw4">void</span> value<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">auto</span> <span class="br0">[</span>x<span class="br0">]</span> <span class="sy1">=</span> A<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span> <span class="co1">// &#38169;&#35823;&#65307;&#19981;&#32771;&#34385;&ldquo;&#25968;&#25454;&#25104;&#21592;&rdquo;&#35299;&#37322;&#26041;&#26696;&#12290;</span></pre></div>
+</div>
+<p>&#22914;&#26524;&#23384;&#22312;<span class="t-spar">&#24341;&#29992;&#38480;&#23450;&#31526;</span>&#8202;&#65279;&#19988;<span class="t-spar">&#34920;&#36798;&#24335;</span>&#8202;&#65279;&#26159;&#32431;&#21491;&#20540;&#65292;&#37027;&#20040;&#24212;&#29992;&#23558;&#24341;&#29992;&#32465;&#23450;&#21040;&#20020;&#26102;&#37327;&#30340;&#36890;&#24120;&#35268;&#21017;&#65288;&#21253;&#25324;&#29983;&#23384;&#26399;&#24310;&#32493;&#65289;&#12290;&#36825;&#20123;&#24773;&#20917;&#19979;&#65292;&#38544;&#34255;&#21464;&#37327; <span class="t-c"><span class="mw-geshi cpp source-cpp">e</span></span> &#26159;&#32465;&#23450;&#21040;&#20174;&#32431;&#21491;&#20540;&#34920;&#36798;&#24335;<a href="cpp-language-implicit_conversion.html#.E4.B8.B4.E6.97.B6.E9.87.8F.E5.AE.9E.E8.B4.A8.E5.8C.96">&#23454;&#36136;&#21270;</a>&#30340;&#20020;&#26102;&#21464;&#37327;&#65292;&#24182;&#24310;&#38271;&#23427;&#30340;&#29983;&#23384;&#26399;&#30340;&#19968;&#20010;&#24341;&#29992;&#12290;&#19982;&#20043;&#21069;&#19968;&#26679;&#65292;&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">e</span></span> &#26159;&#38750; const &#24038;&#20540;&#24341;&#29992;&#65292;&#37027;&#20040;&#32465;&#23450;&#22833;&#36133;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw4">int</span> a <span class="sy1">=</span> <span class="nu0">1</span><span class="sy4">;</span>
+ 
+<span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> <span class="br0">[</span>x<span class="br0">]</span> <span class="sy1">=</span> <a href="cpp-utility-tuple-make_tuple.html"><span class="kw1115">std::<span class="me2">make_tuple</span></span></a><span class="br0">(</span>a<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK&#65292;&#38750;&#24748;&#22402;&#24341;&#29992;</span>
+<span class="kw4">auto</span><span class="sy3">&amp;</span>       <span class="br0">[</span>y<span class="br0">]</span> <span class="sy1">=</span> <a href="cpp-utility-tuple-make_tuple.html"><span class="kw1115">std::<span class="me2">make_tuple</span></span></a><span class="br0">(</span>a<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#38169;&#35823;&#65292;&#19981;&#33021;&#32465;&#23450; auto&amp; &#21040;&#21491;&#20540; std::tuple</span>
+<span class="kw4">auto</span><span class="sy3">&amp;&amp;</span>      <span class="br0">[</span>z<span class="br0">]</span> <span class="sy1">=</span> <a href="cpp-utility-tuple-make_tuple.html"><span class="kw1115">std::<span class="me2">make_tuple</span></span></a><span class="br0">(</span>a<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#21516;&#26679; OK</span></pre></div>
+</div>
+<p><span class="mw-geshi cpp source-cpp">decltype<span class="br0">(</span>x<span class="br0">)</span></span> &#25351;&#21517;&#32467;&#26500;&#21270;&#32465;&#23450;&#30340;<i>&#34987;&#24341;&#29992;&#31867;&#22411;</i>&#65292;&#20854;&#20013; <span class="t-c"><span class="mw-geshi cpp source-cpp">x</span></span> &#20195;&#34920;&#19968;&#20010;&#32467;&#26500;&#21270;&#32465;&#23450;&#12290;&#22312;&#20803;&#32452;&#24335;&#30340;&#24773;&#20917;&#19979;&#65292;&#23427;&#26159; <span class="t-lc">std::tuple_element</span> &#36820;&#22238;&#30340;&#31867;&#22411;&#65292;&#23427;&#21487;&#20197;&#19981;&#26159;&#24341;&#29992;&#65292;&#21363;&#20351;&#22312;&#27492;&#24773;&#20917;&#19979;&#22987;&#32456;&#20250;&#24341;&#20837;&#38544;&#34255;&#30340;&#24341;&#29992;&#12290;&#36825;&#30456;&#24403;&#20110;&#27169;&#25311;&#20102;&#32465;&#23450;&#21040;&#20854;&#21508;&#20010;&#38750;&#38745;&#24577;&#25968;&#25454;&#25104;&#21592;&#20855;&#26377; <span class="t-lc">std::tuple_element</span> &#25152;&#36820;&#22238;&#30340;&#31867;&#22411;&#30340;&#32467;&#26500;&#20307;&#30340;&#34892;&#20026;&#65292;&#32780;&#32465;&#23450;&#33258;&#36523;&#30340;&#24341;&#29992;&#24615;&#36136;&#21017;&#21482;&#26159;&#23454;&#29616;&#32454;&#33410;&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><a href="cpp-utility-tuple.html"><span class="kw1101">std::<span class="me2">tuple</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span>, <span class="kw4">int</span><span class="sy3">&amp;</span><span class="sy1">&gt;</span> f<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+<span class="kw4">auto</span> <span class="br0">[</span>x, y<span class="br0">]</span> <span class="sy1">=</span> f<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>       <span class="co1">// decltype(x) &#26159; int</span>
+                         <span class="co1">// decltype(y) &#26159; int&amp;</span>
+ 
+<span class="kw4">const</span> <span class="kw4">auto</span> <span class="br0">[</span>z, w<span class="br0">]</span> <span class="sy1">=</span> f<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// decltype(z) &#26159; const int</span>
+                         <span class="co1">// decltype(w) &#26159; int&amp;</span></pre></div>
+</div>
+<table class="t-rev-begin">
+<tr class="t-rev t-until-cxx20">
+<td>
+<p><a href="cpp-language-lambda.html">lambda &#34920;&#36798;&#24335;</a>&#19981;&#33021;&#25429;&#33719;&#32467;&#26500;&#21270;&#32465;&#23450;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;cassert&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">struct</span> S <span class="br0">{</span> <span class="kw4">int</span> p<span class="br0">{</span><span class="nu0">6</span><span class="br0">}</span>, q<span class="br0">{</span><span class="nu0">7</span><span class="br0">}</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> <span class="br0">[</span>b, d<span class="br0">]</span> <span class="sy1">=</span> S<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw4">auto</span> l <span class="sy1">=</span> <span class="br0">[</span>b, d<span class="br0">]</span> <span class="br0">{</span> <span class="kw1">return</span> b <span class="sy2">*</span> d<span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span> <span class="co1">// C++20 &#36215;&#21512;&#27861;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span>l<span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> <span class="nu0">42</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</td>
+<td><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#21069;)</span></td>
+</tr>
+</table>
+<p><br /></p>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx26">
+<td>
+<p>&#22914;&#26524;<span class="t-spar">&#32465;&#23450;&#26631;&#35782;&#31526;&#21015;&#34920;</span>&#8202;&#65279;&#21018;&#22909;&#21253;&#21547;&#19968;&#20010;&#21482;&#24341;&#20837;&#31354;&#32467;&#26500;&#21270;&#32465;&#23450;&#21253;&#30340;&#26631;&#35782;&#31526;&#65292;&#37027;&#20040;&#32467;&#26500;&#21270;&#32465;&#23450;&#22823;&#23567;&#21487;&#20197;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp">&#8203;<span class="nu0">0</span>&#8203;</span></span>&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw4">auto</span> return_empty<span class="br0">(</span><span class="br0">)</span> <span class="sy2">-</span><span class="sy1">&gt;</span> <a href="cpp-utility-tuple.html"><span class="kw1101">std::<span class="me2">tuple</span></span></a><span class="sy1">&lt;&gt;</span><span class="sy4">;</span>
+ 
+<span class="kw1">template</span> <span class="sy1">&lt;</span><span class="kw1">class</span><span class="sy1">&gt;</span>
+<span class="kw4">void</span> test_empty<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">auto</span> <span class="br0">[</span><span class="br0">]</span> <span class="sy1">=</span> return_empty<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#38169;&#35823;</span>
+    <span class="kw4">auto</span> <span class="br0">[</span>...<span class="me1">args</span><span class="br0">]</span> <span class="sy1">=</span> return_empty<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK, args &#26159;&#31354;&#21253;</span>
+    <span class="kw4">auto</span> <span class="br0">[</span>one, ...<span class="me1">rest</span><span class="br0">]</span> <span class="sy1">=</span> return_empty<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#38169;&#35823;&#65292;&#32467;&#26500;&#21270;&#32465;&#23450;&#22823;&#23567;&#22826;&#23567;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+</table>
+<table class="wikitable">
+<tr>
+<th>&#21151;&#33021;&#29305;&#24615;&#27979;&#35797;&#23439;</th>
+<th><abbr title="&#37319;&#32435;&#35813;&#29305;&#24615;&#30340;&#24180;/&#26376;&#12290;&#27599;&#20010;&#20540;&#19979;&#38754;&#30340;&#38142;&#25509;&#25351;&#21521;&#32534;&#35793;&#26399;&#25903;&#25345;&#39029;&#38754;&#20013;&#32473;&#23450;&#21151;&#33021;&#29305;&#24615;&#30340;&#26465;&#30446;&#12290;">&#20540;</abbr></th>
+<th><abbr title="&#24341;&#20837;&#35813;&#29305;&#24615;&#30340;&#26631;&#20934;&#65307;DR &#24847;&#20026;&#38024;&#23545;&#35813;&#20462;&#35746;&#29256;&#30340;&#32570;&#38519;&#25253;&#21578;">&#26631;&#20934;</abbr></th>
+<th>&#21151;&#33021;&#29305;&#24615;</th>
+</tr>
+<tr>
+<td rowspan="4"><a href="cpp-feature_test.html#cpp_structured_bindings"><code>__cpp_structured_bindings</code></a></td>
+<td><a href="cpp-compiler_support-17.html#cpp_structured_bindings_201606L"><code>201606L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++17)</span></td>
+<td>&#32467;&#26500;&#21270;&#32465;&#23450;</td>
+</tr>
+<tr>
+<td><a href="cpp-compiler_support-26.html#cpp_structured_bindings_202403L"><code>202403L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++26)</span></td>
+<td>&#24102;&#23646;&#24615;&#30340;&#32467;&#26500;&#21270;&#32465;&#23450;</td>
+</tr>
+<tr>
+<td><a href="cpp-compiler_support-26.html#cpp_structured_bindings_202406L"><code>202406L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++26)</span></td>
+<td>&#32467;&#26500;&#21270;&#32465;&#23450;&#22768;&#26126;&#20316;&#20026;&#26465;&#20214;</td>
+</tr>
+<tr>
+<td><a href="cpp-compiler_support-26.html#cpp_structured_bindings_202411L"><code>202411L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++26)</span></td>
+<td>&#32467;&#26500;&#21270;&#32465;&#23450;&#21487;&#20197;&#24341;&#20837;&#21253;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.85.B3.E9.94.AE.E8.AF.8D">&#20851;&#38190;&#35789;</span></h3>
+<p><a href="cpp-keyword-auto.html"><tt>auto</tt></a></p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iomanip&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;set&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-container-set.html"><span class="kw1280">std::<span class="me2">set</span></span></a><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span> myset<span class="br0">{</span><span class="st0">&quot;hello&quot;</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> i<span class="br0">{</span><span class="nu0">2</span><span class="br0">}</span><span class="sy4">;</span> i<span class="sy4">;</span> <span class="sy2">--</span>i<span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw1">if</span> <span class="br0">(</span><span class="kw4">auto</span> <span class="br0">[</span>iter, success<span class="br0">]</span> <span class="sy1">=</span> myset.<span class="me1">insert</span><span class="br0">(</span><span class="st0">&quot;Hello&quot;</span><span class="br0">)</span><span class="sy4">;</span> success<span class="br0">)</span> 
+            <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#25554;&#20837;&#25104;&#21151;&#12290;&#20540;&#20026; &quot;</span> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-quoted.html"><span class="kw1806">std::<span class="me2">quoted</span></span></a><span class="br0">(</span><span class="sy2">*</span>iter<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#12290;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+        <span class="kw1">else</span>
+            <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#38598;&#21512;&#20013;&#24050;&#23384;&#22312;&#20540; &quot;</span> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-quoted.html"><span class="kw1806">std::<span class="me2">quoted</span></span></a><span class="br0">(</span><span class="sy2">*</span>iter<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#12290;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw1">struct</span> BitFields
+    <span class="br0">{</span>
+        <span class="co1">// C++20&#65306;&#20301;&#22495;&#30340;&#40664;&#35748;&#25104;&#21592;&#21021;&#22987;&#21270;&#22120;</span>
+        <span class="kw4">int</span> b <span class="sy4">:</span> <span class="nu0">4</span> <span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>, d <span class="sy4">:</span> <span class="nu0">4</span> <span class="br0">{</span><span class="nu0">2</span><span class="br0">}</span>, p <span class="sy4">:</span> <span class="nu0">4</span> <span class="br0">{</span><span class="nu0">3</span><span class="br0">}</span>, q <span class="sy4">:</span> <span class="nu0">4</span> <span class="br0">{</span><span class="nu0">4</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="br0">{</span>
+        <span class="kw4">const</span> <span class="kw4">auto</span> <span class="br0">[</span>b, d, p, q<span class="br0">]</span> <span class="sy1">=</span> BitFields<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> b <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span> <span class="sy1">&lt;&lt;</span> d <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span> <span class="sy1">&lt;&lt;</span> p <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span> <span class="sy1">&lt;&lt;</span> q <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="br0">{</span>
+        <span class="kw4">const</span> <span class="kw4">auto</span> <span class="br0">[</span>b, d, p, q<span class="br0">]</span> <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="br0">{</span> <span class="kw1">return</span> BitFields<span class="br0">{</span><span class="nu0">4</span>, <span class="nu0">3</span>, <span class="nu0">2</span>, <span class="nu0">1</span><span class="br0">}</span><span class="sy4">;</span> <span class="br0">}</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> b <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span> <span class="sy1">&lt;&lt;</span> d <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span> <span class="sy1">&lt;&lt;</span> p <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span> <span class="sy1">&lt;&lt;</span> q <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    
+    <span class="br0">{</span>
+        BitFields s<span class="sy4">;</span>
+        
+        <span class="kw4">auto</span><span class="sy3">&amp;</span> <span class="br0">[</span>b, d, p, q<span class="br0">]</span> <span class="sy1">=</span> s<span class="sy4">;</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> b <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span> <span class="sy1">&lt;&lt;</span> d <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span> <span class="sy1">&lt;&lt;</span> p <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span> <span class="sy1">&lt;&lt;</span> q <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+        
+        b <span class="sy1">=</span> <span class="nu0">4</span>, d <span class="sy1">=</span> <span class="nu0">3</span>, p <span class="sy1">=</span> <span class="nu0">2</span>, q <span class="sy1">=</span> <span class="nu0">1</span><span class="sy4">;</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> s.<span class="me1">b</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span> <span class="sy1">&lt;&lt;</span> s.<span class="me1">d</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span> <span class="sy1">&lt;&lt;</span> s.<span class="me1">p</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span> <span class="sy1">&lt;&lt;</span> s.<span class="me1">q</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#25554;&#20837;&#25104;&#21151;&#12290;&#20540;&#20026; &quot;Hello&quot;&#12290;
+&#38598;&#21512;&#20013;&#24050;&#23384;&#22312;&#20540; &quot;Hello&quot;&#12290;
+1 2 3 4
+4 3 2 1
+1 2 3 4
+4 3 2 1</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/2285.html">CWG 2285</a></td>
+<td>C++17</td>
+<td><span class="t-spar">&#34920;&#36798;&#24335;</span>&#8202;&#65279;&#21487;&#20197;&#28041;&#21450;&#26469;&#33258;<span class="t-spar">&#32465;&#23450;&#26631;&#35782;&#31526;&#21015;&#34920;</span>&#8202;&#65279;&#30340;&#21517;&#23383;</td>
+<td>&#27492;&#26102;&#22768;&#26126;&#38750;&#33391;&#26500;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/2312.html">CWG 2312</a></td>
+<td>C++17</td>
+<td><span class="mw-geshi cpp source-cpp">mutable</span> &#30340;&#21547;&#20041;&#22312;&#24773;&#20917; 3 &#20013;&#20002;&#22833;</td>
+<td>&#20445;&#25345;&#23427;&#30340;&#21547;&#20041;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/2313.html">CWG 2313</a></td>
+<td>C++17</td>
+<td>&#22312;&#24773;&#20917; 2 &#20013;&#21487;&#20197;&#37325;&#22768;&#26126;&#32467;&#26500;&#21270;&#32465;&#23450;&#21464;&#37327;</td>
+<td>&#19981;&#33021;&#37325;&#22768;&#26126;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/2339.html">CWG 2339</a></td>
+<td>C++17</td>
+<td>&#22312;&#24773;&#20917; 2 &#20013;&#32570;&#22833;&#20102; <span class="t-c"><span class="mw-geshi cpp source-cpp">I</span></span> &#30340;&#23450;&#20041;</td>
+<td>&#34917;&#20805;&#23450;&#20041;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/2341.html">CWG 2341</a><br />
+(<a rel="nofollow" class="external text" href="https://wg21.link/P1091R3">P1091R3</a>)</td>
+<td>C++17</td>
+<td>&#19981;&#33021;&#22768;&#26126;&#20855;&#26377;&#38745;&#24577;&#23384;&#20648;&#26399;&#30340;&#32467;&#26500;&#21270;&#32465;&#23450;</td>
+<td>&#21487;&#20197;&#22768;&#26126;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/2386.html">CWG 2386</a></td>
+<td>C++17</td>
+<td>&#21482;&#35201; <span class="mw-geshi cpp source-cpp"><a href="cpp-utility-tuple_size.html"><span class="kw1104">std::<span class="me2">tuple_size</span></span></a><span class="sy1">&lt;</span>E<span class="sy1">&gt;</span></span> &#26159;<br />
+&#23436;&#25972;&#31867;&#22411;&#26102;&#23601;&#20250;&#20351;&#29992;&ldquo;&#20803;&#32452;&#24335;&rdquo;&#32465;&#23450;&#21327;&#35758;</td>
+<td>&#21482;&#20250;&#22312; <span class="mw-geshi cpp source-cpp"><a href="cpp-utility-tuple_size.html"><span class="kw1104">std::<span class="me2">tuple_size</span></span></a><span class="sy1">&lt;</span>E<span class="sy1">&gt;</span></span><br />
+&#25317;&#26377;&#25104;&#21592; <code>value</code> &#26102;&#25165;&#20250;&#20351;&#29992;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/2506.html">CWG 2506</a></td>
+<td>C++17</td>
+<td><span class="t-spar">&#34920;&#36798;&#24335;</span>&#26159;&#20855;&#26377; cv &#38480;&#23450;&#30340;&#25968;&#32452;&#31867;&#22411;&#26102;&#65292;<code>E</code> &#20063;&#20250;&#20445;&#30041;&#35813; cv &#38480;&#23450;</td>
+<td>&#20002;&#24323;&#35813; cv &#38480;&#23450;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/2635.html">CWG 2635</a></td>
+<td>C++20</td>
+<td>&#32467;&#26500;&#21270;&#32465;&#23450;&#21487;&#20197;&#21463;&#32422;&#26463;</td>
+<td>&#24050;&#31105;&#27490;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/2867.html">CWG 2867</a></td>
+<td>C++17</td>
+<td>&#21021;&#22987;&#21270;&#39034;&#24207;&#19981;&#26126;&#30830;</td>
+<td>&#20351;&#20043;&#26126;&#30830;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://wg21.link/P0961R1">P0961R1</a></td>
+<td>C++17</td>
+<td>&#20803;&#32452;&#24335;&#24773;&#20917;&#20013;&#65292;&#26597;&#25214;&#25214;&#21040;&#20219;&#20309;&#31867;&#22411;&#30340; <code>get</code> &#26102;&#20351;&#29992;&#25104;&#21592; <code>get</code></td>
+<td>&#21482;&#26377;&#22312;&#26597;&#25214;&#25214;&#21040;&#25317;&#26377;&#38750;&#31867;&#22411;&#27169;&#26495;&#24418;&#21442;&#30340;&#20989;&#25968;&#27169;&#26495;&#25165;&#20351;&#29992;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://wg21.link/P0969R0">P0969R0</a></td>
+<td>C++17</td>
+<td>&#32465;&#23450;&#21040;&#25104;&#21592;&#24773;&#20917;&#20013;&#65292;&#35201;&#27714;&#36825;&#20123;&#25104;&#21592;&#20844;&#24320;</td>
+<td>&#21482;&#38656;&#35201;&#22312;&#22768;&#26126;&#30340;&#35821;&#22659;&#20013;&#21487;&#35775;&#38382;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-c++23">
+<ul>
+<li>C++23 &#26631;&#20934;&#65288;ISO/IEC 14882:2024&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>9.6 Structured binding declarations [dcl.struct.bind]&#65288;&#31532; 228-229 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c++20">
+<ul>
+<li>C++20 &#26631;&#20934;&#65288;ISO/IEC 14882:2020&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>9.6 Structured binding declarations [dcl.struct.bind]&#65288;&#31532; 219-220 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c++17">
+<ul>
+<li>C++17 &#26631;&#20934;&#65288;ISO/IEC 14882:2017&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>11.5 Structured binding declarations [dcl.struct.bind]&#65288;&#31532; 219-220 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-tuple-tie.html"><span class="t-lines"><span>tie</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#21019;&#24314;&#24038;&#20540;&#24341;&#29992;&#30340; <span class="t-lc"><a href="cpp-utility-tuple.html">tuple</a></span>&#65292;&#25110;&#23558;&#20803;&#32452;&#35299;&#21253;&#20026;&#29420;&#31435;&#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

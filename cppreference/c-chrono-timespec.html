@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>timespec</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_chrono_timespec skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">timespec</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-chrono.html">chrono</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-time.html"><tt>&lt;time.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-c11">
+<td>
+<div><span class="mw-geshi c source-c"><span class="kw1">struct</span> timespec<span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#20445;&#26377;&#26102;&#38388;&#38388;&#38548;&#30340;&#32467;&#26500;&#20307;&#65292;&#23558;&#20854;&#25286;&#20998;&#25104;&#31186;&#25968;&#21644;&#32435;&#31186;&#25968;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.AF.B9.E8.B1.A1">&#25104;&#21592;&#23545;&#35937;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#25104;&#21592;</td>
+<td>&#35828;&#26126;</td>
+</tr>
+<tr class="t-dsc">
+<td><span class="t-dsc-small"><span class="t-lc"><a href="c-chrono-time_t.html">time_t</a></span></span> <code>tv_sec</code></td>
+<td>&#25972;&#31186;&#25968;&#65288;&#21512;&#27861;&#20540; &gt;= 0&#65289;</td>
+</tr>
+<tr class="t-dsc">
+<td><span class="t-dsc-small"><span class="mw-geshi c source-c"><span class="coMULTI">/* see below */</span></span></span> <code>tv_nsec</code></td>
+<td>&#32435;&#31186;&#25968;&#65288;&#21512;&#27861;&#20540;&#20026; <code>[</code><span class="t-c"><span class="mw-geshi c source-c">&#8203;<span class="nu0">0</span>&#8203;</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi c source-c"><span class="nu0">999999999</span></span></span><code>]</code>&#65289;</td>
+</tr>
+</table>
+<table class="t-rev-begin">
+<tr class="t-rev t-until-c23">
+<td>
+<p><code>tv_nsec</code> &#30340;&#31867;&#22411;&#20026; <span class="mw-geshi c source-c"><span class="kw4">long</span></span>&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-until-c23" style="white-space: nowrap;">(C23 &#21069;)</span></td>
+</tr>
+<tr class="t-rev t-since-c23">
+<td>
+<p><code>tv_nsec</code> &#30340;&#31867;&#22411;&#20026;&#33021;&#34920;&#31034; <code>[</code><span class="t-c"><span class="mw-geshi c source-c">&#8203;<span class="nu0">0</span>&#8203;</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi c source-c"><span class="nu0">999999999</span></span></span><code>]</code> &#20013;&#30340;&#25972;&#25968;&#30340;&#26377;&#31526;&#21495;&#25972;&#25968;&#31867;&#22411;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-c23" style="white-space: nowrap;">(C23 &#36215;)</span></td>
+</tr>
+</table>
+<p><code>tv_sec</code> &#19982; <code>tv_nsec</code> &#30340;&#22768;&#26126;&#39034;&#24207;&#26410;&#25351;&#23450;&#12290;&#23454;&#29616;&#21487;&#20197;&#28155;&#21152;&#20854;&#20182;&#25104;&#21592;&#21040; <span class="mw-geshi c source-c"><span class="kw1">struct</span> timespec</span> &#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#22312;&#19968;&#20123;&#24179;&#21488;&#19978; <code>tv_nsec</code> &#30340;&#31867;&#22411;&#20026; <span class="mw-geshi c source-c"><span class="kw4">long</span> <span class="kw4">long</span></span>&#65292;&#36825;&#20165;&#20174; C23 &#36215;&#36981;&#24490;&#26631;&#20934;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#include &lt;stdint.h&gt;</span>
+<span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#include &lt;time.h&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">struct</span> timespec ts<span class="sy4">;</span>
+    timespec_get<span class="br0">(</span><span class="sy3">&amp;</span>ts, TIME_UTC<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">char</span> buff<span class="br0">[</span><span class="nu0">100</span><span class="br0">]</span><span class="sy4">;</span>
+    <a href="c-chrono-strftime.html"><span class="kw517">strftime</span></a><span class="br0">(</span>buff, <span class="kw4">sizeof</span> buff, <span class="st0">&quot;%D %T&quot;</span>, <a href="c-chrono-gmtime.html"><span class="kw519">gmtime</span></a><span class="br0">(</span><span class="sy3">&amp;</span>ts.<span class="me1">tv_sec</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;&#24403;&#21069;&#26102;&#38388;: %s.%09ld UTC<span class="es1">\n</span>&quot;</span>, buff, ts.<span class="me1">tv_nsec</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;&#21407;&#22987; timespec.tv_sec: %jd<span class="es1">\n</span>&quot;</span>, <span class="br0">(</span><a href="c-types-integer.html"><span class="kw118">intmax_t</span></a><span class="br0">)</span>ts.<span class="me1">tv_sec</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;&#21407;&#22987; timespec.tv_nsec: %09ld<span class="es1">\n</span>&quot;</span>, ts.<span class="me1">tv_nsec</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#24403;&#21069;&#26102;&#38388;: 04/04/24 14:45:17.885909786 UTC
+&#21407;&#22987; timespec.tv_sec: 1712241917
+&#21407;&#22987; timespec.tv_nsec: 885909786</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-23">
+<ul>
+<li>C23 &#26631;&#20934;&#65288;ISO/IEC 9899:2024&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.27.1/3 Components of time &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.27.1/3 Components of time &#65288;&#31532; 284 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.27.1/3 Components of time &#65288;&#31532; 388 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-chrono-timespec_get.html"><span class="t-lines"><span>timespec_get</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#22522;&#20110;&#32473;&#23450;&#26102;&#38388;&#22522;&#24213;&#30340;&#26085;&#21382;&#26102;&#38388;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-chrono-tm.html"><span class="t-lines"><span>tm</span></span></a></div>
+</div>
+</td>
+<td>&#26085;&#21382;&#26102;&#38388;&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#32467;&#26500;&#20307;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>timespec</span></span>&nbsp;&#30340; <span><span><a href="cpp-chrono-c-timespec.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::mem_fun_t, std::mem_fun1_t, std::const_mem_fun_t, std::const_mem_fun1_t</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_utility_functional_mem_fun_t skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>mem_fun_t, <span style="font-size:0.8em; line-height:125%">std::</span>mem_fun1_t, <span style="font-size:0.8em; line-height:125%">std::</span>const_mem_fun_t, <span style="font-size:0.8em; line-height:125%">std::</span>const_mem_fun1_t</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-utility.html">utility</a>&lrm; | <a href="cpp-utility-functional.html">functional</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-functional.html">&lt;functional&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-until-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> S, <span class="kw1">class</span> T <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw1">class</span> mem_fun_t <span class="sy4">:</span> <span class="kw1">public</span> unary_function<span class="sy1">&lt;</span>T<span class="sy2">*</span>,S<span class="sy1">&gt;</span> <span class="br0">{</span><br />
+<span class="kw1">public</span><span class="sy4">:</span><br />
+&nbsp; &nbsp; <span class="kw1">explicit</span> mem_fun_t<span class="br0">(</span>S <span class="br0">(</span>T<span class="sy4">::</span><span class="sy2">*</span>p<span class="br0">)</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span><br />
+&nbsp; &nbsp; S operator<span class="br0">(</span><span class="br0">)</span><span class="br0">(</span>T<span class="sy2">*</span> p<span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span><br /></p>
+<span class="br0">}</span><span class="sy4">;</span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++11 &#24323;&#29992;)</span><br />
+<span class="t-mark-rev t-until-cxx17" style="white-space: nowrap;">(C++17 &#31227;&#38500;)</span></td>
+</tr>
+<tr class="t-dcl t-until-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> S, <span class="kw1">class</span> T <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw1">class</span> const_mem_fun_t <span class="sy4">:</span> <span class="kw1">public</span> unary_function<span class="sy1">&lt;</span><span class="kw4">const</span> T<span class="sy2">*</span>,S<span class="sy1">&gt;</span> <span class="br0">{</span><br />
+<span class="kw1">public</span><span class="sy4">:</span><br />
+&nbsp; &nbsp; <span class="kw1">explicit</span> const_mem_fun_t<span class="br0">(</span>S <span class="br0">(</span>T<span class="sy4">::</span><span class="sy2">*</span>p<span class="br0">)</span><span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span><span class="br0">)</span><span class="sy4">;</span><br />
+&nbsp; &nbsp; S operator<span class="br0">(</span><span class="br0">)</span><span class="br0">(</span><span class="kw4">const</span> T<span class="sy2">*</span> p<span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span><br /></p>
+<span class="br0">}</span><span class="sy4">;</span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++11 &#24323;&#29992;)</span><br />
+<span class="t-mark-rev t-until-cxx17" style="white-space: nowrap;">(C++17 &#31227;&#38500;)</span></td>
+</tr>
+<tr class="t-dcl t-until-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> S, <span class="kw1">class</span> T, <span class="kw1">class</span> Arg <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw1">class</span> mem_fun1_t <span class="sy4">:</span> <span class="kw1">public</span> binary_function<span class="sy1">&lt;</span>T<span class="sy2">*</span>,A,S<span class="sy1">&gt;</span> <span class="br0">{</span><br />
+<span class="kw1">public</span><span class="sy4">:</span><br />
+&nbsp; &nbsp; <span class="kw1">explicit</span> mem_fun1_t<span class="br0">(</span>S <span class="br0">(</span>T<span class="sy4">::</span><span class="sy2">*</span>p<span class="br0">)</span><span class="br0">(</span>A<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span><br />
+&nbsp; &nbsp; S operator<span class="br0">(</span><span class="br0">)</span><span class="br0">(</span>T<span class="sy2">*</span> p, A x<span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span><br /></p>
+<span class="br0">}</span><span class="sy4">;</span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++11 &#24323;&#29992;)</span><br />
+<span class="t-mark-rev t-until-cxx17" style="white-space: nowrap;">(C++17 &#31227;&#38500;)</span></td>
+</tr>
+<tr class="t-dcl t-until-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> S, <span class="kw1">class</span> T, <span class="kw1">class</span> A <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw1">class</span> const_mem_fun1_t <span class="sy4">:</span> <span class="kw1">public</span> binary_function<span class="sy1">&lt;</span><span class="kw4">const</span> T<span class="sy2">*</span>,A,S<span class="sy1">&gt;</span> <span class="br0">{</span><br />
+<span class="kw1">public</span><span class="sy4">:</span><br />
+&nbsp; &nbsp; <span class="kw1">explicit</span> const_mem_fun1_t<span class="br0">(</span>S <span class="br0">(</span>T<span class="sy4">::</span><span class="sy2">*</span>p<span class="br0">)</span><span class="br0">(</span>A<span class="br0">)</span> <span class="kw4">const</span><span class="br0">)</span><span class="sy4">;</span><br />
+&nbsp; &nbsp; S operator<span class="br0">(</span><span class="br0">)</span><span class="br0">(</span><span class="kw4">const</span> T<span class="sy2">*</span> p, A x<span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span><br /></p>
+<span class="br0">}</span><span class="sy4">;</span></div>
+</td>
+<td>(4)</td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++11 &#24323;&#29992;)</span><br />
+<span class="t-mark-rev t-until-cxx17" style="white-space: nowrap;">(C++17 &#31227;&#38500;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#22260;&#32469;&#25104;&#21592;&#20989;&#25968;&#25351;&#38024;&#30340;&#21253;&#35013;&#22120;&#12290;&#23558;&#35201;&#35843;&#29992;&#20854;&#25104;&#21592;&#20989;&#25968;&#30340;&#31867;&#23454;&#20363;&#20316;&#20026;&#25351;&#38024;&#20256;&#36882;&#32473; <code>operator()</code>&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#21253;&#35013;&#26080;&#24418;&#21442;&#30340;&#38750; const &#25104;&#21592;&#20989;&#25968;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#21253;&#35013;&#26080;&#24418;&#21442;&#30340; const &#25104;&#21592;&#20989;&#25968;&#12290;</div>
+<div class="t-li1"><span class="t-li">3)</span> &#21253;&#35013;&#26377;&#21333;&#24418;&#21442;&#30340;&#38750; const &#25104;&#21592;&#20989;&#25968;&#12290;</div>
+<div class="t-li1"><span class="t-li">4)</span> &#21253;&#35013;&#26377;&#21333;&#24418;&#21442;&#30340; const &#25104;&#21592;&#20989;&#25968;&#12290;</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-functional-mem_fun.html"><span class="t-lines"><span>mem_fun</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-deprecated-cxx11" style="white-space: nowrap;">(C++11 &#24323;&#29992;)</span></span><span><span class="t-mark-rev t-until-cxx17" style="white-space: nowrap;">(C++17 &#31227;&#38500;)</span></span></span></div>
+</div>
+</td>
+<td>&#20174;&#25104;&#21592;&#20989;&#25968;&#25351;&#38024;&#21019;&#24314;&#21253;&#35013;&#22120;&#65292;&#21487;&#20197;&#19968;&#20010;&#23545;&#35937;&#25351;&#38024;&#35843;&#29992;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-functional-mem_fun_ref_t.html"><span class="t-lines"><span>mem_fun_ref_t</span><span>mem_fun1_ref_t</span><span>const_mem_fun_ref_t</span><span>const_mem_fun1_ref_t</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-deprecated-cxx11" style="white-space: nowrap;">(C++11 &#24323;&#29992;)</span></span><span><span class="t-mark-rev t-until-cxx17" style="white-space: nowrap;">(C++17 &#31227;&#38500;)</span></span></span></div>
+</div>
+</td>
+<td>&#25351;&#21521;&#38646;&#20803;&#25110;&#19968;&#20803;&#25104;&#21592;&#20989;&#25968;&#25351;&#38024;&#30340;&#21253;&#35013;&#22120;&#65292;&#21487;&#20197;&#19968;&#20010;&#23545;&#35937;&#24341;&#29992;&#35843;&#29992;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

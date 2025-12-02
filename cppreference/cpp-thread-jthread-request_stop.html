@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::jthread::request_stop</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_thread_jthread_request_stop skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::jthread::</span>request_stop</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-thread.html">thread</a>&lrm; | <a href="cpp-thread-jthread.html">jthread</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> request_stop<span class="br0">(</span><span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#33509;&#20869;&#37096;&#20572;&#27490;&#29366;&#24577;&#23578;&#26410;&#34987;&#35831;&#27714;&#20572;&#27490;&#65292;&#21017;&#23545;&#23427;&#21457;&#20986;&#20572;&#27490;&#35831;&#27714;&#12290;</p>
+<p>&#30830;&#23450;&#26159;&#21407;&#23376;&#22320;&#20316;&#20986;&#30340;&#65292;&#32780;&#33509;&#35831;&#27714;&#20102;&#20572;&#27490;&#65292;&#21017;&#21407;&#23376;&#22320;&#26356;&#26032;&#20849;&#20139;&#29366;&#24577;&#20197;&#36991;&#20813;&#31454;&#20105;&#26465;&#20214;&#65292;&#20351;&#24471;&#65306;</p>
+<ul>
+<li>&#33021;&#22312;&#21516;&#19968;&#20849;&#20139;&#29366;&#24577;&#30340; <span class="t-lc">std::stop_token</span> &#19982; <span class="t-lc">std::stop_source</span> &#19978;&#21516;&#26102;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">stop_requested<span class="br0">(</span><span class="br0">)</span></span></span> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">stop_possible<span class="br0">(</span><span class="br0">)</span></span></span></li>
+<li>&#33021;&#20174;&#22810;&#20010;&#32447;&#31243;&#22312;&#21516;&#19968; <code>jthread</code> &#23545;&#35937;&#25110;&#19982;&#21516;&#19968;&#20572;&#27490;&#29366;&#24577;&#20851;&#32852;&#30340;&#20854;&#20182; <span class="t-lc">std::stop_source</span> &#23545;&#35937;&#19978;&#24182;&#21457;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">request_stop<span class="br0">(</span><span class="br0">)</span></span></span>&#65292;&#32780;&#23558;&#21482;&#26377;&#19968;&#20010;&#32447;&#31243;&#23454;&#38469;&#36827;&#34892;&#20572;&#27490;&#35831;&#27714;</li>
+</ul>
+<p>&#28982;&#32780;&#65292;&#35265;&#27880;&#35299;&#33410;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#33509;&#35843;&#29992;&#20570;&#20986;&#20572;&#27490;&#35831;&#27714;&#21017;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#21542;&#21017;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.90.8E.E6.9D.A1.E4.BB.B6">&#21518;&#26465;&#20214;</span></h3>
+<p>&#23545;&#20110;&#30001; <span class="t-c"><span class="mw-geshi cpp source-cpp">get_stop_token<span class="br0">(</span><span class="br0">)</span></span></span> &#21462;&#24471;&#30340; <span class="t-lc">std::stop_token</span> &#25110;&#30001; <span class="t-c"><span class="mw-geshi cpp source-cpp">get_stop_source<span class="br0">(</span><span class="br0">)</span></span></span> &#21462;&#24471;&#30340; <span class="t-lc">std::stop_source</span>&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">stop_requested<span class="br0">(</span><span class="br0">)</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">request_stop<span class="br0">(</span><span class="br0">)</span></span></span> &#21457;&#20986;&#20572;&#27490;&#35831;&#27714;&#65288;&#21363;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65289;&#65292;&#21017;&#23558;&#22312;&#21457;&#20986; <span class="t-c"><span class="mw-geshi cpp source-cpp">request_stop<span class="br0">(</span><span class="br0">)</span></span></span> &#30340;&#21516;&#19968;&#32447;&#31243;&#19978;&#21516;&#27493;&#35843;&#29992;&#23545;&#21516;&#19968;&#20849;&#20139;&#20572;&#27490;&#29366;&#24577;&#27880;&#20876;&#30340;&#20219;&#20309; <span class="t-lc">std::stop_callbacks</span>&#12290;&#33509;&#20219;&#20309;&#22238;&#35843;&#30340;&#35843;&#29992;&#32463;&#30001;&#24322;&#24120;&#36864;&#20986;&#65292;&#21017;&#35843;&#29992; <span class="t-lc"><a href="cpp-error-terminate.html">std::terminate</a></span>&#12290;</p>
+<p>&#33509;&#24050;&#20316;&#20986;&#20572;&#27490;&#35831;&#27714;&#65292;&#21017;&#27492;&#20989;&#25968;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#12290;&#28982;&#32780;&#19981;&#20445;&#35777;&#27491;&#22909;&#23545;&#21516;&#19968;&#20572;&#27490;&#29366;&#24577;&#65288;&#25104;&#21151;&#65289;&#35831;&#27714;&#20572;&#27490;&#30340;&#21478;&#19968;&#32447;&#31243;&#25110; <span class="t-lc">std::stop_source</span> &#23545;&#35937;&#19981;&#20173;&#28982;&#22312;&#35843;&#29992; <span class="t-lc">std::stop_callback</span> &#20989;&#25968;&#30340;&#20013;&#38388;&#12290;</p>
+<p>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">request_stop<span class="br0">(</span><span class="br0">)</span></span></span> &#21457;&#20986;&#20572;&#27490;&#35831;&#27714;&#65288;&#21363;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65289;&#65292;&#21017;&#25552;&#37266;&#25152;&#26377;&#29992;&#19982; <code>jthread</code> &#30340;&#20869;&#37096;&#20572;&#27490;&#29366;&#24577;&#20851;&#32852;&#30340; <code>stop_token</code> &#30340;&#21487;&#20013;&#26029;&#31561;&#24453;&#27880;&#20876;&#30340;&#12289;&#22522;&#31867;&#22411;&#20026; <span class="t-lc"><a href="cpp-thread-condition_variable_any.html">std::condition_variable_any</a></span> &#30340;&#26465;&#20214;&#21464;&#37327;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;chrono&gt;</span>
+<span class="co2">#include &lt;condition_variable&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;mutex&gt;</span>
+<span class="co2">#include &lt;thread&gt;</span>
+ 
+<span class="kw1">using</span> <span class="kw1">namespace</span> std<span class="sy4">::</span><span class="me2">chrono_literals</span><span class="sy4">;</span>
+ 
+<span class="co1">// &#29992;&#20110;&#31616;&#20415;&#23637;&#31034;&#21738;&#20010;&#32447;&#31243;&#25171;&#21360;&#20102;&#20160;&#20040;&#20869;&#23481;&#30340;&#36741;&#21161;&#20989;&#25968;</span>
+<span class="kw4">void</span> print<span class="br0">(</span><span class="kw4">auto</span> txt<span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <a href="cpp-thread-get_id.html"><span class="kw2152">std::<span class="me2">this_thread</span><span class="sy4">::</span><span class="me2">get_id</span></span></a><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span> <span class="sy1">&lt;&lt;</span> txt<span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="co1">// &#21980;&#30561;&#30340;&#24037;&#20316;&#32447;&#31243;</span>
+    <a href="cpp-thread-jthread.html"><span class="kw3237">std::<span class="me2">jthread</span></span></a> sleepy_worker<span class="br0">(</span>
+        <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><a href="cpp-thread-stop_token.html"><span class="kw3257">std::<span class="me2">stop_token</span></span></a> stoken<span class="br0">)</span>
+        <span class="br0">{</span>
+            <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> i <span class="sy1">=</span> <span class="nu0">10</span><span class="sy4">;</span> i<span class="sy4">;</span> <span class="sy2">--</span>i<span class="br0">)</span>
+            <span class="br0">{</span>
+                <a href="cpp-thread-sleep_for.html"><span class="kw2153">std::<span class="me2">this_thread</span><span class="sy4">::</span><span class="me2">sleep_for</span></span></a><span class="br0">(</span>300ms<span class="br0">)</span><span class="sy4">;</span>
+                <span class="kw1">if</span> <span class="br0">(</span>stoken.<span class="me1">stop_requested</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+                <span class="br0">{</span>
+                    print<span class="br0">(</span><span class="st0">&quot;&#21980;&#30561;&#24037;&#20154;&#24050;&#34987;&#35831;&#27714;&#20572;&#27490;<span class="es1">\n</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+                    <span class="kw1">return</span><span class="sy4">;</span>
+                <span class="br0">}</span>
+                print<span class="br0">(</span><span class="st0">&quot;&#21980;&#30561;&#24037;&#20154;&#22238;&#21435;&#30561;&#35273;<span class="es1">\n</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+            <span class="br0">}</span>
+        <span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#31561;&#24453;&#24037;&#20316;&#32447;&#31243;</span>
+    <span class="co1">// &#26465;&#20214;&#21464;&#37327;&#23558;&#34987;&#20572;&#27490;&#35831;&#27714;&#21796;&#37266;&#12290;</span>
+    <a href="cpp-thread-jthread.html"><span class="kw3237">std::<span class="me2">jthread</span></span></a> waiting_worker<span class="br0">(</span>
+        <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><a href="cpp-thread-stop_token.html"><span class="kw3257">std::<span class="me2">stop_token</span></span></a> stoken<span class="br0">)</span>
+        <span class="br0">{</span>
+            <a href="cpp-thread-mutex.html"><span class="kw2158">std::<span class="me2">mutex</span></span></a> mutex<span class="sy4">;</span>
+            <a href="cpp-thread-unique_lock.html"><span class="kw2171">std::<span class="me2">unique_lock</span></span></a> lock<span class="br0">(</span>mutex<span class="br0">)</span><span class="sy4">;</span>
+            <a href="cpp-thread-condition_variable_any.html"><span class="kw2176">std::<span class="me2">condition_variable_any</span></span></a><span class="br0">(</span><span class="br0">)</span>.<span class="me1">wait</span><span class="br0">(</span>lock, stoken, <span class="br0">[</span><span class="br0">]</span><span class="br0">{</span> <span class="kw1">return</span> <span class="kw2">false</span><span class="sy4">;</span> <span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+            print<span class="br0">(</span><span class="st0">&quot;&#31561;&#24453;&#24037;&#20154;&#24050;&#34987;&#35831;&#27714;&#20572;&#27490;<span class="es1">\n</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+            <span class="kw1">return</span><span class="sy4">;</span>
+        <span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#27492;&#32447;&#31243;&#30561;&#30496;&#65292;&#35753;&#20854;&#20182;&#32447;&#31243;&#26377;&#26102;&#38388;&#20114;&#26059;</span>
+    <a href="cpp-thread-sleep_for.html"><span class="kw2153">std::<span class="me2">this_thread</span><span class="sy4">::</span><span class="me2">sleep_for</span></span></a><span class="br0">(</span>400ms<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#21487;&#20197;&#26174;&#24335;&#35843;&#29992; std::jthread::request_stop():</span>
+    print<span class="br0">(</span><span class="st0">&quot;&#35831;&#27714;&#21980;&#30561;&#24037;&#20154;&#20572;&#27490;<span class="es1">\n</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    sleepy_worker.<span class="me1">request_stop</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    sleepy_worker.<span class="me1">join</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    print<span class="br0">(</span><span class="st0">&quot;&#21980;&#30561;&#24037;&#20154;&#24050;&#21512;&#24182;<span class="es1">\n</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#25110;&#20351;&#29992; RAII &#33258;&#21160;&#35843;&#29992;:</span>
+    <span class="co1">// waiting_worker &#30340;&#26512;&#26500;&#20989;&#25968;&#20250;&#33258;&#21160;&#35843;&#29992; request_stop() &#24182;&#21512;&#24182;&#32447;&#31243;&#12290;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">140287602706176 &#21980;&#30561;&#24037;&#20154;&#22238;&#21435;&#30561;&#35273;
+140287623300928 &#35831;&#27714;&#21980;&#30561;&#24037;&#20154;&#20572;&#27490;
+140287602706176 &#21980;&#30561;&#24037;&#20154;&#24050;&#34987;&#35831;&#27714;&#20572;&#27490;
+140287623300928 &#21980;&#30561;&#24037;&#20154;&#24050;&#21512;&#24182;
+140287594313472 &#31561;&#24453;&#24037;&#20154;&#24050;&#34987;&#35831;&#27714;&#20572;&#27490;</pre></div>
+</div>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

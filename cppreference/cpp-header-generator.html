@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>&#26631;&#20934;&#24211;&#26631;&#22836; &lt;generator&gt;&nbsp;(C++23)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_header_generator skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">&#26631;&#20934;&#24211;&#26631;&#22836;</span> &lt;generator&gt;&nbsp;<span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-header.html">header</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<p>&#27492;&#26631;&#22836;&#26159;<a href="cpp-ranges.html">&#33539;&#22260;</a>&#24211;&#30340;&#19968;&#37096;&#20998;&#12290;</p>
+<table class="t-dsc-begin">
+<tr>
+<td colspan="2">
+<h3><span class="mw-headline" id=".E7.B1.BB">&#31867;</span></h3>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-coroutine-generator.html"><span class="t-lines"><span>generator</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#34920;&#31034;&#21516;&#27493;<a href="cpp-language-coroutines.html">&#21327;&#31243;</a>&#29983;&#25104;&#22120;&#30340; <a href="cpp-ranges-view.html"><code>view</code></a><br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.A6.82.E8.A6.81">&#27010;&#35201;</span></h3>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">namespace</span> std <span class="br0">{</span>
+  <span class="co1">// &#31867;&#27169;&#26495; generator</span>
+  <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Ref, <span class="kw1">class</span> V <span class="sy1">=</span> <span class="kw4">void</span>, <span class="kw1">class</span> Allocator <span class="sy1">=</span> <span class="kw4">void</span><span class="sy1">&gt;</span>
+  <span class="kw1">class</span> generator<span class="sy4">;</span>
+ 
+  <span class="kw1">namespace</span> pmr <span class="br0">{</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Ref, <span class="kw1">class</span> V <span class="sy1">=</span> <span class="kw4">void</span><span class="sy1">&gt;</span>
+    <span class="kw1">using</span> generator <span class="sy1">=</span> <a href="cpp-coroutine-generator.html"><span class="kw3344">std::<span class="me2">generator</span></span></a><span class="sy1">&lt;</span>Ref, V, polymorphic_allocator<span class="sy1">&lt;&gt;&gt;</span><span class="sy4">;</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+</div>
+<h4><span class="mw-headline" id=".E7.B1.BB.E6.A8.A1.E6.9D.BF_std::generator">&#31867;&#27169;&#26495; <span class="mw-geshi cpp source-cpp"><a href="cpp-coroutine-generator.html"><span class="kw3344">std::<span class="me2">generator</span></span></a></span></span></h4>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">namespace</span> std <span class="br0">{</span>
+  <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Ref, <span class="kw1">class</span> V <span class="sy1">=</span> <span class="kw4">void</span>, <span class="kw1">class</span> Allocator <span class="sy1">=</span> <span class="kw4">void</span><span class="sy1">&gt;</span>
+  <span class="kw1">class</span> generator <span class="sy4">:</span> <span class="kw1">public</span> <a href="cpp-ranges-view_interface.html"><span class="kw3103">ranges::<span class="me2">view_interface</span></span></a><span class="sy1">&lt;</span>generator<span class="sy1">&lt;</span>Ref, V, Allocator<span class="sy1">&gt;&gt;</span>
+  <span class="br0">{</span>
+  <span class="kw1">private</span><span class="sy4">:</span>
+    <span class="kw1">using</span> <span class="coMULTI">/*value*/</span> <span class="sy1">=</span>
+      conditional_t<span class="sy1">&lt;</span>is_void_v<span class="sy1">&lt;</span>V<span class="sy1">&gt;</span>, remove_cvref_t<span class="sy1">&lt;</span> Ref <span class="sy1">&gt;</span>, V<span class="sy1">&gt;</span><span class="sy4">;</span>       <span class="co1">// &#20165;&#29992;&#20110;&#38416;&#36848;</span>
+    <span class="kw1">using</span> <span class="coMULTI">/*reference*/</span> <span class="sy1">=</span> conditional_t<span class="sy1">&lt;</span>is_void_v<span class="sy1">&lt;</span>V<span class="sy1">&gt;</span>, Ref<span class="sy3">&amp;&amp;</span>, Ref<span class="sy1">&gt;</span><span class="sy4">;</span> <span class="co1">// &#20165;&#29992;&#20110;&#38416;&#36848;</span>
+ 
+    <span class="co1">// &#31867; generator::iterator</span>
+    <span class="kw1">class</span> <span class="coMULTI">/*iterator*/</span><span class="sy4">;</span> <span class="co1">// &#20165;&#29992;&#20110;&#38416;&#36848;</span>
+ 
+  <span class="kw1">public</span><span class="sy4">:</span>
+    <span class="kw1">using</span> yielded <span class="sy1">=</span>
+      conditional_t<span class="sy1">&lt;</span>is_reference_v<span class="sy1">&lt;</span><span class="coMULTI">/*reference*/</span><span class="sy1">&gt;</span>, <span class="coMULTI">/*reference*/</span>, <span class="kw4">const</span> <span class="coMULTI">/*reference*/</span><span class="sy3">&amp;</span><span class="sy1">&gt;</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#31867; generator::promise_type</span>
+    <span class="kw1">class</span> promise_type<span class="sy4">;</span>
+ 
+    generator<span class="br0">(</span><span class="kw4">const</span> generator<span class="sy3">&amp;</span><span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span>
+    generator<span class="br0">(</span>generator<span class="sy3">&amp;&amp;</span> other<span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+ 
+    ~generator<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    generator<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span>generator other<span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+ 
+    <span class="coMULTI">/*iterator*/</span> begin<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    default_sentinel_t end<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+ 
+  <span class="kw1">private</span><span class="sy4">:</span>
+    coroutine_handle<span class="sy1">&lt;</span>promise_type<span class="sy1">&gt;</span> <span class="coMULTI">/*coroutine_*/</span> <span class="sy1">=</span> nullptr<span class="sy4">;</span> <span class="co1">// &#20165;&#29992;&#20110;&#38416;&#36848;</span>
+    unique_ptr<span class="sy1">&lt;</span>stack<span class="sy1">&lt;</span>coroutine_handle<span class="sy1">&lt;&gt;&gt;&gt;</span> <span class="coMULTI">/*active_*/</span><span class="sy4">;</span>       <span class="co1">// &#20165;&#29992;&#20110;&#38416;&#36848;</span>
+  <span class="br0">}</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<h4><span class="mw-headline" id=".E7.B1.BB_std::generator::promise_type">&#31867; <span class="t-lc">std::generator::promise_type</span></span></h4>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">namespace</span> std <span class="br0">{</span>
+  <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Ref, <span class="kw1">class</span> V, <span class="kw1">class</span> Allocator<span class="sy1">&gt;</span>
+  <span class="kw1">class</span> generator<span class="sy1">&lt;</span>Ref, V, Allocator<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">promise_type</span>
+  <span class="br0">{</span>
+  <span class="kw1">public</span><span class="sy4">:</span>
+    generator get_return_object<span class="br0">(</span><span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+ 
+    suspend_always initial_suspend<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span> <span class="br0">{</span> <span class="kw1">return</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span> <span class="br0">}</span>
+    <span class="kw4">auto</span> final_suspend<span class="br0">(</span><span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+ 
+    suspend_always yield_value<span class="br0">(</span>yielded val<span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+ 
+    <span class="kw4">auto</span> yield_value<span class="br0">(</span><span class="kw4">const</span> remove_reference_t<span class="sy1">&lt;</span>yielded<span class="sy1">&gt;</span><span class="sy3">&amp;</span> lval<span class="br0">)</span>
+      requires is_rvalue_reference_v<span class="sy1">&lt;</span>yielded<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span>
+               constructible_from<span class="sy1">&lt;</span>remove_cvref_t<span class="sy1">&lt;</span>yielded<span class="sy1">&gt;</span>,
+                                  <span class="kw4">const</span> remove_reference_t<span class="sy1">&lt;</span>yielded<span class="sy1">&gt;</span><span class="sy3">&amp;</span><span class="sy1">&gt;</span><span class="sy4">;</span>
+ 
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> R2, <span class="kw1">class</span> V2, <span class="kw1">class</span> Alloc2, <span class="kw1">class</span> Unused<span class="sy1">&gt;</span>
+      requires same_as<span class="sy1">&lt;</span><span class="kw1">typename</span> generator<span class="sy1">&lt;</span>R2, V2, Alloc2<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">yielded</span>, yielded<span class="sy1">&gt;</span>
+    <span class="kw4">auto</span> yield_value<span class="br0">(</span>ranges<span class="sy4">::</span><span class="me2">elements_of</span><span class="sy1">&lt;</span>generator<span class="sy1">&lt;</span>R2, V2, Alloc2<span class="sy1">&gt;</span><span class="sy3">&amp;&amp;</span>, Unused<span class="sy1">&gt;</span> g<span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> R2, <span class="kw1">class</span> V2, <span class="kw1">class</span> Alloc2, <span class="kw1">class</span> Unused<span class="sy1">&gt;</span>
+      requires same_as<span class="sy1">&lt;</span><span class="kw1">typename</span> generator<span class="sy1">&lt;</span>R2, V2, Alloc2<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">yielded</span>, yielded<span class="sy1">&gt;</span>
+    <span class="kw4">auto</span> yield_value<span class="br0">(</span>ranges<span class="sy4">::</span><span class="me2">elements_of</span><span class="sy1">&lt;</span>generator<span class="sy1">&lt;</span>R2, V2, Alloc2<span class="sy1">&gt;</span><span class="sy3">&amp;</span>, Unused<span class="sy1">&gt;</span> g<span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+ 
+    <span class="kw1">template</span><span class="sy1">&lt;</span><a href="cpp-ranges-input_range.html"><span class="kw2902">ranges::<span class="me2">input_range</span></span></a> R, <span class="kw1">class</span> Alloc<span class="sy1">&gt;</span>
+      requires convertible_to<span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2895">ranges::<span class="me2">range_reference_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, yielded<span class="sy1">&gt;</span>
+    <span class="kw4">auto</span> yield_value<span class="br0">(</span>ranges<span class="sy4">::</span><span class="me2">elements_of</span><span class="sy1">&lt;</span>R, Alloc<span class="sy1">&gt;</span> r<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw4">void</span> await_transform<span class="br0">(</span><span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span>
+ 
+    <span class="kw4">void</span> return_void<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span> <span class="br0">{</span><span class="br0">}</span>
+    <span class="kw4">void</span> unhandled_exception<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw4">void</span><span class="sy2">*</span> <a href="cpp-memory-new-operator_new.html"><span class="kw690">operator new</span></a><span class="br0">(</span>size_t size<span class="br0">)</span>
+      requires same_as<span class="sy1">&lt;</span>Allocator, <span class="kw4">void</span><span class="sy1">&gt;</span> <span class="sy3">||</span> default_initializable<span class="sy1">&lt;</span>Allocator<span class="sy1">&gt;</span><span class="sy4">;</span>
+ 
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Alloc, <span class="kw1">class</span>... <span class="me1">Args</span><span class="sy1">&gt;</span>
+    <span class="kw4">void</span><span class="sy2">*</span> <a href="cpp-memory-new-operator_new.html"><span class="kw690">operator new</span></a><span class="br0">(</span>size_t size, allocator_arg_t, <span class="kw4">const</span> Alloc<span class="sy3">&amp;</span> alloc, <span class="kw4">const</span> Args<span class="sy3">&amp;</span>...<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> This, <span class="kw1">class</span> Alloc, <span class="kw1">class</span>... <span class="me1">Args</span><span class="sy1">&gt;</span>
+    <span class="kw4">void</span><span class="sy2">*</span> <a href="cpp-memory-new-operator_new.html"><span class="kw690">operator new</span></a><span class="br0">(</span>size_t size, <span class="kw4">const</span> This<span class="sy3">&amp;</span>, allocator_arg_t, <span class="kw4">const</span> Alloc<span class="sy3">&amp;</span> alloc,
+                       <span class="kw4">const</span> Args<span class="sy3">&amp;</span>...<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw4">void</span> <a href="cpp-memory-new-operator_delete.html"><span class="kw692">operator delete</span></a><span class="br0">(</span><span class="kw4">void</span><span class="sy2">*</span> pointer, size_t size<span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+ 
+  <span class="kw1">private</span><span class="sy4">:</span>
+    add_pointer_t<span class="sy1">&lt;</span>yielded<span class="sy1">&gt;</span> <span class="coMULTI">/*value_*/</span> <span class="sy1">=</span> nullptr<span class="sy4">;</span> <span class="co1">// &#20165;&#29992;&#20110;&#38416;&#36848;</span>
+    exception_ptr <span class="coMULTI">/*except_*/</span><span class="sy4">;</span>                   <span class="co1">// &#20165;&#29992;&#20110;&#38416;&#36848;</span>
+  <span class="br0">}</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<h4><span class="mw-headline" id=".E7.B1.BB_std::generator::iterator">&#31867; <span class="t-lc">std::generator::iterator</span></span></h4>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">namespace</span> std <span class="br0">{</span>
+  <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Ref, <span class="kw1">class</span> V, <span class="kw1">class</span> Allocator<span class="sy1">&gt;</span>
+  <span class="kw1">class</span> generator<span class="sy1">&lt;</span>Ref, V, Allocator<span class="sy1">&gt;</span><span class="sy4">::</span><span class="coMULTI">/*iterator*/</span>
+  <span class="br0">{</span>
+  <span class="kw1">public</span><span class="sy4">:</span>
+    <span class="kw1">using</span> value_type      <span class="sy1">=</span> <span class="coMULTI">/*value*/</span><span class="sy4">;</span>
+    <span class="kw1">using</span> difference_type <span class="sy1">=</span> ptrdiff_t<span class="sy4">;</span>
+ 
+    <span class="coMULTI">/*iterator*/</span><span class="br0">(</span><span class="coMULTI">/*iterator*/</span><span class="sy3">&amp;&amp;</span> other<span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+    <span class="coMULTI">/*iterator*/</span><span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span><span class="coMULTI">/*iterator*/</span><span class="sy3">&amp;&amp;</span> other<span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+ 
+    <span class="coMULTI">/*reference*/</span> operator<span class="sy2">*</span><span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span>
+      <span class="kw1">noexcept</span><span class="br0">(</span>is_nothrow_copy_constructible_v<span class="sy1">&lt;</span><span class="coMULTI">/*reference*/</span><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="coMULTI">/*iterator*/</span><span class="sy3">&amp;</span> operator<span class="sy2">++</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">void</span> operator<span class="sy2">++</span><span class="br0">(</span><span class="kw4">int</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw1">friend</span> <span class="kw4">bool</span> operator<span class="sy1">==</span><span class="br0">(</span><span class="kw4">const</span> <span class="coMULTI">/*iterator*/</span><span class="sy3">&amp;</span> i, default_sentinel_t<span class="br0">)</span><span class="sy4">;</span>
+ 
+  <span class="kw1">private</span><span class="sy4">:</span>
+    coroutine_handle<span class="sy1">&lt;</span>promise_type<span class="sy1">&gt;</span> <span class="coMULTI">/*coroutine_*/</span><span class="sy4">;</span> <span class="co1">// &#20165;&#29992;&#20110;&#38416;&#36848;</span>
+  <span class="br0">}</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-c++23">
+<ul>
+<li>C++23 &#26631;&#20934;&#65288;ISO/IEC 14882:2024&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>26.8.2 Header <code>&lt;generator&gt;</code> synopsis [generator.syn]</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>26.8.3 Class template generator [coro.generator.class]</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>26.8.5 Class generator::promise_type [coro.generator.promise]</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>26.8.6 Class generator::iterator [coro.generator.iterator]</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

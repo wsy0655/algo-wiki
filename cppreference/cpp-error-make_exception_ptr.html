@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::make_exception_ptr</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_error_make_exception_ptr skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>make_exception_ptr</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-error.html">error</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-exception.html">&lt;exception&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> E <span class="sy1">&gt;</span><br />
+<a href="cpp-error-exception_ptr.html"><span class="kw778">std::<span class="me2">exception_ptr</span></span></a> make_exception_ptr<span class="br0">(</span> E e <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span><br />
+<span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;&#20026; constexpr)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#21019;&#24314;&#19968;&#20010;&#20445;&#26377;&#21040; <span class="t-c"><span class="mw-geshi cpp source-cpp">e</span></span> &#21103;&#26412;&#30340;&#24341;&#29992;&#30340; <span class="t-lc"><a href="cpp-error-exception_ptr.html">std::exception_ptr</a></span>&#12290;&#36825;&#22914;&#21516;&#25191;&#34892;&#19979;&#21015;&#20195;&#30721;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">try</span>
+<span class="br0">{</span>
+    <span class="kw1">throw</span> e<span class="sy4">;</span>
+<span class="br0">}</span>
+<span class="kw1">catch</span><span class="br0">(</span>...<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">return</span> <a href="cpp-error-current_exception.html"><span class="kw779">std::<span class="me2">current_exception</span></span></a><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>e</td>
+<td>-</td>
+<td>&#35201;&#21019;&#24314;&#23545;&#20854;&#21103;&#26412;&#30340;&#24341;&#29992;&#30340;&#24322;&#24120;&#23545;&#35937;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p><span class="t-lc"><a href="cpp-error-exception_ptr.html">std::exception_ptr</a></span> &#23454;&#20363;&#65292;&#23427;&#20445;&#26377;&#21040; <code>e</code> &#21103;&#26412;&#65292;&#25110;&#21040; <span class="t-lc"><a href="cpp-memory-new-bad_alloc.html">std::bad_alloc</a></span> &#23454;&#20363;&#65292;&#25110;&#21040; <span class="t-lc"><a href="cpp-error-bad_exception.html">std::bad_exception</a></span> &#23454;&#20363;&#30340;&#24341;&#29992;&#65288;&#21442;&#38405; <span class="t-lc"><a href="cpp-error-current_exception.html">std::current_exception</a></span>&#65289;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#21442;&#25968;&#25353;&#20540;&#20256;&#36882;&#65292;&#24182;&#21463;&#20999;&#29255;&#24433;&#21709;&#12290;</p>
+<table class="wikitable">
+<tr>
+<th><a href="cpp-utility-feature_test.html">&#21151;&#33021;&#29305;&#24615;&#27979;&#35797;</a>&#23439;</th>
+<th><abbr title="&#37319;&#32435;&#35813;&#29305;&#24615;&#30340;&#24180;/&#26376;&#12290;&#27599;&#20010;&#20540;&#19979;&#38754;&#30340;&#38142;&#25509;&#25351;&#21521;&#32534;&#35793;&#26399;&#25903;&#25345;&#39029;&#38754;&#20013;&#32473;&#23450;&#21151;&#33021;&#29305;&#24615;&#30340;&#26465;&#30446;&#12290;">&#20540;</abbr></th>
+<th><abbr title="&#24341;&#20837;&#35813;&#29305;&#24615;&#30340;&#26631;&#20934;&#65307;DR &#24847;&#20026;&#38024;&#23545;&#35813;&#20462;&#35746;&#29256;&#30340;&#32570;&#38519;&#25253;&#21578;">&#26631;&#20934;</abbr></th>
+<th>&#21151;&#33021;&#29305;&#24615;</th>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lib_constexpr_exceptions"><code>__cpp_lib_constexpr_exceptions</code></a></td>
+<td><a href="cpp-compiler_support-26.html#cpp_lib_constexpr_exceptions_202411L"><code>202411L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++26)</span></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span></span> &#30340;&#24322;&#24120;&#31867;&#22411;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#26242;&#26080;&#31034;&#20363;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-error-current_exception.html"><span class="t-lines"><span>current_exception</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#25429;&#33719;&#24403;&#21069;&#24322;&#24120;&#21040; <span class="t-lc"><a href="cpp-error-exception_ptr.html">std::exception_ptr</a></span> &#20043;&#20013;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

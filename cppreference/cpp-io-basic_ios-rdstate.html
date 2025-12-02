@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::basic_ios&lt;CharT,Traits&gt;::rdstate</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_io_basic_ios_rdstate skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::basic_ios&lt;CharT,Traits&gt;::</span>rdstate</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-io.html">io</a>&lrm; | <a href="cpp-io-basic_ios.html">basic ios</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi cpp source-cpp">iostate rdstate<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36820;&#22238;&#24403;&#21069;&#27969;&#38169;&#35823;&#29366;&#24577;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#24403;&#21069;&#27969;&#38169;&#35823;&#29366;&#24577;&#12290;&#23427;&#26159;&#20301;&#25513;&#30721;&#31867;&#22411;&#65292;&#24182;&#19988;&#33021;&#26159;&#19979;&#21015;&#24120;&#37327;&#30340;&#32452;&#21512;&#65306;</p>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#24120;&#37327;</td>
+<td>&#35299;&#37322;</td>
+</tr>
+<tr class="t-dsc">
+<td><a href="cpp-io-ios_base-iostate.html"><tt>goodbit</tt></a></td>
+<td>&#26080;&#38169;&#35823;</td>
+</tr>
+<tr class="t-dsc">
+<td><a href="cpp-io-ios_base-iostate.html"><tt>badbit</tt></a></td>
+<td>&#19981;&#21487;&#24674;&#22797;&#30340;&#27969;&#38169;&#35823;</td>
+</tr>
+<tr class="t-dsc">
+<td><a href="cpp-io-ios_base-iostate.html"><tt>failbit</tt></a></td>
+<td>&#36755;&#20837;/&#36755;&#20986;&#25805;&#20316;&#22833;&#36133;&#65288;&#26684;&#24335;&#21270;&#25110;&#25552;&#21462;&#38169;&#35823;&#65289;</td>
+</tr>
+<tr class="t-dsc">
+<td><a href="cpp-io-ios_base-iostate.html"><tt>eofbit</tt></a></td>
+<td>&#20851;&#32852;&#30340;&#36755;&#20986;&#24207;&#21015;&#24050;&#25269;&#36798;&#25991;&#20214;&#23614;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;sstream&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-basic_ostringstream.html"><span class="kw1740">std::<span class="me2">ostringstream</span></span></a> stream<span class="sy4">;</span>
+ 
+    <span class="kw1">if</span> <span class="br0">(</span>stream.<span class="me1">rdstate</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> <a href="cpp-io-ios_base-iostate.html"><span class="kw1702">std::<span class="me2">ios_base</span><span class="sy4">::</span><span class="me2">goodbit</span></span></a><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#27969;&#29366;&#24577;&#20026; goodbit<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+ 
+    stream.<span class="me1">setstate</span><span class="br0">(</span><a href="cpp-io-ios_base-iostate.html"><span class="kw1705">std::<span class="me2">ios_base</span><span class="sy4">::</span><span class="me2">eofbit</span></span></a><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#26816;&#27979;&#29366;&#24577;&#26159;&#21542;&#24688;&#22909;&#20026; eofbit (&#27809;&#26377; failbit &#20063;&#27809;&#26377; badbit)</span>
+    <span class="kw1">if</span> <span class="br0">(</span>stream.<span class="me1">rdstate</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> <a href="cpp-io-ios_base-iostate.html"><span class="kw1705">std::<span class="me2">ios_base</span><span class="sy4">::</span><span class="me2">eofbit</span></span></a><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#27969;&#29366;&#24577;&#20026; eofbit<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#27969;&#29366;&#24577;&#20026; goodbit
+&#27969;&#29366;&#24577;&#20026; eofbit</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_ios-setstate.html"><span class="t-lines"><span>setstate</span></span></a></div>
+</div>
+</td>
+<td>&#35774;&#32622;&#29366;&#24577;&#26631;&#24535;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_ios-clear.html"><span class="t-lines"><span>clear</span></span></a></div>
+</div>
+</td>
+<td>&#20462;&#25913;&#29366;&#24577;&#26631;&#24535;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

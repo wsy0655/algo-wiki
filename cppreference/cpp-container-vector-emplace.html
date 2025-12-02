@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::vector&lt;T,Allocator&gt;::emplace</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_container_vector_emplace skin-cppreference2 action-view cpp-page-template cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::vector&lt;T,Allocator&gt;::</span>emplace</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-container.html">container</a>&lrm; | <a href="cpp-container-vector.html">vector</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<div class="t-page-template" style="">
+<p></p>
+</div>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span>... <span class="me1">Args</span> <span class="sy1">&gt;</span><br />
+iterator emplace<span class="br0">(</span> const_iterator pos, Args<span class="sy3">&amp;&amp;</span>... <span class="me1">args</span> <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span><br />
+<span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;&#20026; <code>constexpr</code>)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#22312;&#32039;&#25509; <span class="t-c"><span class="mw-geshi cpp source-cpp">pos</span></span> &#20043;&#21069;&#30340;&#20301;&#32622;&#21521;&#23481;&#22120;&#25554;&#20837;&#26032;&#20803;&#32032;&#12290;</p>
+<p>&#36890;&#36807; <span class="t-lc"><a href="cpp-memory-allocator_traits-construct.html">std::allocator_traits::construct</a></span> &#26500;&#36896;&#20803;&#32032;&#65292;&#24120;&#29992;&#24067;&#32622; <span class="mw-geshi cpp source-cpp">new</span> &#22312;&#23481;&#22120;&#25552;&#20379;&#30340;&#20301;&#32622;&#21407;&#20301;&#26500;&#36896;&#20803;&#32032;&#12290;&#28982;&#32780;&#22914;&#26524;&#35201;&#27714;&#30340;&#20301;&#32622;&#24050;&#34987;&#26082;&#23384;&#30340;&#20803;&#32032;&#21344;&#25454;&#65292;&#37027;&#20040;&#39318;&#20808;&#22312;&#21478;&#19968;&#20301;&#32622;&#26500;&#36896;&#34987;&#25554;&#20837;&#30340;&#20803;&#32032;&#65292;&#28982;&#21518;&#20877;&#23558;&#23427;&#31227;&#21160;&#36171;&#20540;&#21040;&#35201;&#27714;&#30340;&#20301;&#32622;&#20013;&#12290;</p>
+<p>&#23558;&#23454;&#21442; <span class="t-c"><span class="mw-geshi cpp source-cpp">args...</span></span> &#20316;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span>args<span class="br0">)</span>...</span></span> &#36716;&#21457;&#32473;&#26500;&#36896;&#20989;&#25968;&#12290; <span class="t-c"><span class="mw-geshi cpp source-cpp">args...</span></span> &#21487;&#20197;&#30452;&#25509;&#25110;&#38388;&#25509;&#22320;&#25351;&#20195;&#23481;&#22120;&#20013;&#30340;&#20540;&#12290;</p>
+<p>&#22914;&#26524;&#25805;&#20316;&#21518;&#26032;&#30340; <a href="cpp-container-vector-size.html"><code>size()</code></a> &#22823;&#20110;&#21407; <a href="cpp-container-vector-capacity.html"><code>capacity()</code></a> &#21017;&#20250;&#21457;&#29983;&#37325;&#20998;&#37197;&#65292;&#36825;&#31181;&#24773;&#20917;&#19979;&#65292;&#25351;&#20195;&#20803;&#32032;&#30340;&#25152;&#26377;&#36845;&#20195;&#22120;&#65288;&#21253;&#25324; <a href="cpp-container-vector-end.html"><code>end()</code></a> &#36845;&#20195;&#22120;&#65289;&#21644;&#25152;&#26377;&#24341;&#29992;&#22343;&#20250;&#22833;&#25928;&#12290;&#21542;&#21017;&#65292;&#20165;&#25554;&#20837;&#28857;&#20043;&#21069;&#30340;&#36845;&#20195;&#22120;&#21644;&#24341;&#29992;&#20445;&#25345;&#26377;&#25928;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>pos</td>
+<td>-</td>
+<td>&#23558;&#26500;&#36896;&#26032;&#20803;&#32032;&#21040;&#20854;&#21069;&#30340;&#36845;&#20195;&#22120;</td>
+</tr>
+<tr class="t-par">
+<td>args</td>
+<td>-</td>
+<td>&#36716;&#21457;&#32473;&#20803;&#32032;&#26500;&#36896;&#20989;&#25968;&#30340;&#21442;&#25968;</td>
+</tr>
+<tr class="t-par-hitem">
+<td colspan="3">&#31867;&#22411;&#35201;&#27714;</td>
+</tr>
+<tr class="t-par-req">
+<td colspan="3">-
+<div class="spacer"></div>
+<code>T</code> &#24517;&#39035;&#28385;&#36275;<a href="cpp-named_req-MoveAssignable.html"><span style="font-style:italic">&#21487;&#31227;&#21160;&#36171;&#20540;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(MoveAssignable)</span></a> &#12289;<a href="cpp-named_req-MoveInsertable.html"><span style="font-style:italic">&#21487;&#31227;&#21160;&#25554;&#20837;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(MoveInsertable)</span></a> &#21644;<a href="cpp-named_req-EmplaceConstructible.html"><span style="font-style:italic">&#21487;&#23601;&#20301;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(EmplaceConstructible)</span></a> &#12290;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#25351;&#21521;&#34987;&#23433;&#32622;&#30340;&#20803;&#32032;&#30340;&#36845;&#20195;&#22120;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<p>&#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">pos</span></span> &#21644; <span class="t-lc"><a href="cpp-container-vector-end.html">end()</a></span> &#30340;&#36317;&#31163;&#25104;&#32447;&#24615;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<p>&#22914;&#26524; <code>T</code> &#30340;&#22797;&#21046;&#26500;&#36896;&#20989;&#25968;&#12289;&#31227;&#21160;&#26500;&#36896;&#20989;&#25968;&#12289;&#36171;&#20540;&#36816;&#31639;&#31526;&#25110;&#31227;&#21160;&#36171;&#20540;&#36816;&#31639;&#31526;&#20197;&#22806;&#30340;&#25805;&#20316;&#25243;&#20986;&#20102;&#24322;&#24120;&#65292;&#25110;&#22312;&#29992; <code>emplace</code> &#22312;&#23614;&#37096;&#25554;&#20837;&#21333;&#20010;&#20803;&#32032;&#26102;&#25243;&#20986;&#20102;&#24322;&#24120;&#65292;&#19988; <code>T</code> <a href="cpp-named_req-CopyInsertable.html">&#21487;&#22797;&#21046;&#25554;&#20837;</a>&#25110;&#21487;&#19981;&#25243;&#20986;&#31227;&#21160;&#26500;&#36896;&#65292;&#37027;&#20040;&#27809;&#26377;&#25928;&#26524;&#65288;&#24378;&#24322;&#24120;&#20445;&#35777;&#65289;&#12290;</p>
+<p>&#21542;&#21017;&#65292;&#25928;&#26524;&#26410;&#25351;&#23450;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+<span class="co2">#include &lt;vector&gt;</span>
+ 
+<span class="kw1">struct</span> A
+<span class="br0">{</span>
+    <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a> s<span class="sy4">;</span>
+ 
+    A<span class="br0">(</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a> str<span class="br0">)</span> <span class="sy4">:</span> s<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>str<span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span> <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; &#26500;&#36896;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span> <span class="br0">}</span>
+ 
+    A<span class="br0">(</span><span class="kw4">const</span> A<span class="sy3">&amp;</span> o<span class="br0">)</span> <span class="sy4">:</span> s<span class="br0">(</span>o.<span class="me1">s</span><span class="br0">)</span> <span class="br0">{</span> <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; &#22797;&#21046;&#26500;&#36896;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span> <span class="br0">}</span>
+ 
+    A<span class="br0">(</span>A<span class="sy3">&amp;&amp;</span> o<span class="br0">)</span> <span class="sy4">:</span> s<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>o.<span class="me1">s</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span> <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; &#31227;&#21160;&#26500;&#36896;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span> <span class="br0">}</span>
+ 
+    A<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span><span class="kw4">const</span> A<span class="sy3">&amp;</span> other<span class="br0">)</span>
+    <span class="br0">{</span>
+        s <span class="sy1">=</span> other.<span class="me1">s</span><span class="sy4">;</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; &#22797;&#21046;&#36171;&#20540;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+        <span class="kw1">return</span> <span class="sy2">*</span>this<span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    A<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span>A<span class="sy3">&amp;&amp;</span> other<span class="br0">)</span>
+    <span class="br0">{</span>
+        s <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>other.<span class="me1">s</span><span class="br0">)</span><span class="sy4">;</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; &#31227;&#21160;&#36171;&#20540;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+        <span class="kw1">return</span> <span class="sy2">*</span>this<span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-container-vector.html"><span class="kw1272">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span>A<span class="sy1">&gt;</span> container<span class="sy4">;</span>
+    <span class="co1">// &#39044;&#30041;&#36275;&#22815;&#30340;&#31354;&#38388;&#20197;&#20351; vector &#19981;&#24517;&#37325;&#35774;&#22823;&#23567;</span>
+    container.<span class="me1">reserve</span><span class="br0">(</span><span class="nu0">10</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#26500;&#36896; 2 &#27425; A&#65306;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    A two<span class="br0">{</span><span class="st0">&quot;two&quot;</span><span class="br0">}</span><span class="sy4">;</span>
+    A three<span class="br0">{</span><span class="st0">&quot;three&quot;</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;emplace&#65306;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    container.<span class="me1">emplace</span><span class="br0">(</span>container.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>, <span class="st0">&quot;one&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#20197; A&amp; &#35843;&#29992; emplace&#65306;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    container.<span class="me1">emplace</span><span class="br0">(</span>container.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>, two<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#20197; A&amp;&amp; &#35843;&#29992; emplace&#65306;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    container.<span class="me1">emplace</span><span class="br0">(</span>container.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>, std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>three<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#20869;&#23481;&#65306;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> obj <span class="sy4">:</span> container<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span> <span class="sy1">&lt;&lt;</span> obj.<span class="me1">s</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#26500;&#36896; 2 &#27425; A&#65306;
+ &#26500;&#36896;
+ &#26500;&#36896;
+emplace&#65306;
+ &#26500;&#36896;
+&#20197; A&amp; &#35843;&#29992; emplace&#65306;
+ &#22797;&#21046;&#26500;&#36896;
+&#20197; A&amp;&amp; &#35843;&#29992; emplace&#65306;
+ &#31227;&#21160;&#26500;&#36896;
+&#20869;&#23481;&#65306;
+ one two three</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue2164">LWG 2164</a></td>
+<td>C++11</td>
+<td>&#19981;&#26126;&#30830;&#21442;&#25968;&#26159;&#21542;&#33021;&#25351;&#20195;&#23481;&#22120;</td>
+<td>&#20351;&#20043;&#26126;&#30830;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-vector-insert.html"><span class="t-lines"><span>insert</span></span></a></div>
+</div>
+</td>
+<td>&#25554;&#20837;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-vector-emplace_back.html"><span class="t-lines"><span>emplace_back</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#22312;&#23481;&#22120;&#26411;&#23614;&#21407;&#20301;&#26500;&#36896;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

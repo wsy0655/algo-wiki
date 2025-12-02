@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::future&lt;T&gt;::wait</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_thread_future_wait skin-cppreference2 action-view cpp-page-template cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::future&lt;T&gt;::</span>wait</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-thread.html">thread</a>&lrm; | <a href="cpp-thread-future.html">future</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<div class="t-page-template" style="">
+<p></p>
+</div>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span> wait<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#38459;&#22622;&#30452;&#33267;&#32467;&#26524;&#21464;&#24471;&#21487;&#29992;&#12290;&#35843;&#29992;&#21518; <span class="t-c"><span class="mw-geshi cpp source-cpp">valid<span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> <span class="kw2">true</span></span></span>&#12290;</p>
+<p>&#33509;&#35843;&#29992;&#27492;&#20989;&#25968;&#21069; <span class="t-c"><a href="cpp-thread-future-valid.html"><code>valid</code></a><span class="mw-geshi cpp source-cpp"><span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> <span class="kw2">false</span></span></span> &#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<p>&#21487;&#33021;&#20250;&#25243;&#20986;&#30001;&#23454;&#29616;&#23450;&#20041;&#30340;&#24322;&#24120;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#40723;&#21169;&#23454;&#29616;&#26816;&#27979;&#35843;&#29992;&#21069; <span class="t-c"><span class="mw-geshi cpp source-cpp">valid<span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> <span class="kw2">false</span></span></span> &#30340;&#24773;&#20917;&#24182;&#25243;&#20986;&#20197; <span class="t-lc"><a href="cpp-thread-future_errc.html">std::future_errc::no_state</a></span> &#20026;&#38169;&#35823;&#26465;&#20214;&#30340; <span class="t-lc"><a href="cpp-thread-future_error.html">std::future_error</a></span>&#12290;</p>
+<p><br /></p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;chrono&gt;</span>
+<span class="co2">#include &lt;future&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;thread&gt;</span>
+ 
+<span class="kw4">int</span> fib<span class="br0">(</span><span class="kw4">int</span> n<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">if</span> <span class="br0">(</span>n <span class="sy1">&lt;</span> <span class="nu0">3</span><span class="br0">)</span>
+        <span class="kw1">return</span> <span class="nu0">1</span><span class="sy4">;</span>
+    <span class="kw1">else</span>
+        <span class="kw1">return</span> fib<span class="br0">(</span>n <span class="sy2">-</span> <span class="nu0">1</span><span class="br0">)</span> <span class="sy2">+</span> fib<span class="br0">(</span>n <span class="sy2">-</span> <span class="nu0">2</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-thread-future.html"><span class="kw2184">std::<span class="me2">future</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span> f1 <span class="sy1">=</span> <a href="cpp-thread-async.html"><span class="kw2187">std::<span class="me2">async</span></span></a><span class="br0">(</span><a href="cpp-thread-launch.html"><span class="kw2189">std::<span class="me2">launch</span><span class="sy4">::</span><span class="me2">async</span></span></a>, <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> fib<span class="br0">(</span><span class="nu0">40</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-thread-future.html"><span class="kw2184">std::<span class="me2">future</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span> f2 <span class="sy1">=</span> <a href="cpp-thread-async.html"><span class="kw2187">std::<span class="me2">async</span></span></a><span class="br0">(</span><a href="cpp-thread-launch.html"><span class="kw2189">std::<span class="me2">launch</span><span class="sy4">::</span><span class="me2">async</span></span></a>, <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> fib<span class="br0">(</span><span class="nu0">43</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#31561;&#24453;... &quot;</span> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-flush.html"><span class="kw1794">std::<span class="me2">flush</span></span></a><span class="sy4">;</span>
+    <span class="kw4">const</span> <span class="kw4">auto</span> start <span class="sy1">=</span> <a href="cpp-chrono-system_clock-now.html"><span class="kw2676">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">system_clock</span><span class="sy4">::</span><span class="me2">now</span></span></a><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    f1.<span class="me1">wait</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    f2.<span class="me1">wait</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw4">const</span> <span class="kw4">auto</span> diff <span class="sy1">=</span> <a href="cpp-chrono-system_clock-now.html"><span class="kw2676">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">system_clock</span><span class="sy4">::</span><span class="me2">now</span></span></a><span class="br0">(</span><span class="br0">)</span> <span class="sy2">-</span> start<span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <a href="cpp-chrono-duration.html"><span class="kw995">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">duration</span></span></a><span class="sy1">&lt;</span><span class="kw4">double</span><span class="sy1">&gt;</span><span class="br0">(</span>diff<span class="br0">)</span>.<span class="me1">count</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; &#31186;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;f1: &quot;</span> <span class="sy1">&lt;&lt;</span> f1.<span class="me1">get</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;f2: &quot;</span> <span class="sy1">&lt;&lt;</span> f2.<span class="me1">get</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#31561;&#24453;... 1.61803 &#31186;
+f1: 102334155
+f2: 433494437</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-future-wait_for.html"><span class="t-lines"><span>wait_for</span></span></a></div>
+</div>
+</td>
+<td>&#31561;&#24453;&#32467;&#26524;&#65292;&#22914;&#26524;&#22312;&#25351;&#23450;&#30340;&#36229;&#26102;&#38388;&#38548;&#21518;&#20173;&#28982;&#26080;&#27861;&#24471;&#21040;&#32467;&#26524;&#65292;&#21017;&#36820;&#22238;&#12290;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-future-wait_until.html"><span class="t-lines"><span>wait_until</span></span></a></div>
+</div>
+</td>
+<td>&#31561;&#24453;&#32467;&#26524;&#65292;&#22914;&#26524;&#22312;&#24050;&#32463;&#21040;&#36798;&#25351;&#23450;&#30340;&#26102;&#38388;&#28857;&#26102;&#20173;&#28982;&#26080;&#27861;&#24471;&#21040;&#32467;&#26524;&#65292;&#21017;&#36820;&#22238;&#12290;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

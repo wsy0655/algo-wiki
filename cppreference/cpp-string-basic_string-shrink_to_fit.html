@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::basic_string&lt;CharT,Traits,Allocator&gt;::shrink_to_fit</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_string_basic_string_shrink_to_fit skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::basic_string&lt;CharT,Traits,Allocator&gt;::</span>shrink_to_fit</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-string.html">string</a>&lrm; | <a href="cpp-string-basic_string.html">basic string</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span> shrink_to_fit<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;&#20026; <code>constexpr</code>)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#35831;&#27714;&#31227;&#38500;&#26410;&#20351;&#29992;&#30340;&#23481;&#37327;&#12290;</p>
+<p>&#36825;&#26159;&#20943;&#23569; <span class="t-lc"><a href="cpp-string-basic_string-capacity.html">capacity()</a></span> &#21040; <span class="t-lc"><a href="cpp-string-basic_string-size.html">size()</a></span> &#30340;&#38750;&#24378;&#21046;&#35831;&#27714;&#12290;&#26159;&#21542;&#28385;&#36275;&#35831;&#27714;&#21462;&#20381;&#36182;&#20110;&#23454;&#29616;&#12290;</p>
+<p>&#24403;&#19988;&#20165;&#24403;&#21457;&#29983;&#37325;&#20998;&#37197;&#26102;&#20351;&#25152;&#26377;&#25351;&#38024;&#12289;&#24341;&#29992;&#21644;&#36845;&#20195;&#22120;&#22833;&#25928;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<p>&#19982;&#23383;&#31526;&#20018;&#30340;&#22823;&#23567;&#25104;&#32447;&#24615;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#22312; libstdc++ &#20013;&#65292;<code>shrink_to_fit()</code> <a rel="nofollow" class="external text" href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/strings.html#strings.string.shrink">&#19981;&#33021;</a>&#22312; C++98 &#27169;&#24335;&#20013;&#20351;&#29992;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a> s<span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;std::string &#30340;&#22823;&#23567;&#26159; &quot;</span> <span class="sy1">&lt;&lt;</span> sizeof s <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; &#20010;&#23383;&#33410;<span class="es1">\n</span>&quot;</span>
+        <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#40664;&#35748;&#26500;&#36896;&#21518;&#30340;&#23481;&#37327;&#26159; &quot;</span> <span class="sy1">&lt;&lt;</span> s.<span class="me1">capacity</span><span class="br0">(</span><span class="br0">)</span> 
+        <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#65292;&#22823;&#23567;&#26159; &quot;</span> <span class="sy1">&lt;&lt;</span> s.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> i <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span> i <span class="sy1">&lt;</span> <span class="nu0">42</span><span class="sy4">;</span> i<span class="sy2">++</span><span class="br0">)</span>
+        s.<span class="me1">append</span><span class="br0">(</span><span class="st0">&quot; 42 &quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#21518;&#38468; 42 &#27425;&#21518;&#30340;&#23481;&#37327;&#26159; &quot;</span> <span class="sy1">&lt;&lt;</span> s.<span class="me1">capacity</span><span class="br0">(</span><span class="br0">)</span> 
+        <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#65292;&#22823;&#23567;&#26159; &quot;</span> <span class="sy1">&lt;&lt;</span> s.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    s.<span class="me1">clear</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;clear() &#21518;&#30340;&#23481;&#37327;&#26159; &quot;</span> <span class="sy1">&lt;&lt;</span> s.<span class="me1">capacity</span><span class="br0">(</span><span class="br0">)</span> 
+        <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#65292;&#22823;&#23567;&#26159; &quot;</span> <span class="sy1">&lt;&lt;</span> s.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    s.<span class="me1">shrink_to_fit</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;shrink_to_fit() &#21518;&#30340;&#23481;&#37327;&#26159; &quot;</span> <span class="sy1">&lt;&lt;</span> s.<span class="me1">capacity</span><span class="br0">(</span><span class="br0">)</span> 
+        <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#65292;&#22823;&#23567;&#26159; &quot;</span> <span class="sy1">&lt;&lt;</span> s.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">GCC &#36755;&#20986;&#65306;
+std::string &#30340;&#22823;&#23567;&#26159; 32 &#20010;&#23383;&#33410;
+&#40664;&#35748;&#26500;&#36896;&#21518;&#30340;&#23481;&#37327;&#26159; 15&#65292;&#22823;&#23567;&#26159; 0
+&#21518;&#38468; 42 &#27425;&#21518;&#30340;&#23481;&#37327;&#26159; 240&#65292;&#22823;&#23567;&#26159; 168
+clear() &#21518;&#30340;&#23481;&#37327;&#26159; 240&#65292;&#22823;&#23567;&#26159; 0
+shrink_to_fit() &#21518;&#30340;&#23481;&#37327;&#26159; 15&#65292;&#22823;&#23567;&#26159; 0
+ 
+clang &#36755;&#20986;&#65288;-stdlib=libc++&#65289;&#65306;
+std::string &#30340;&#22823;&#23567;&#26159; 24 &#20010;&#23383;&#33410;
+&#40664;&#35748;&#26500;&#36896;&#21518;&#30340;&#23481;&#37327;&#26159; 22&#65292;&#22823;&#23567;&#26159; 0
+&#21518;&#38468; 42 &#27425;&#21518;&#30340;&#23481;&#37327;&#26159; 191&#65292;&#22823;&#23567;&#26159; 168
+clear() &#21518;&#30340;&#23481;&#37327;&#26159; 191&#65292;&#22823;&#23567;&#26159; 0
+shrink_to_fit() &#21518;&#30340;&#23481;&#37327;&#26159; 22&#65292;&#22823;&#23567;&#26159; 0</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue755">LWG 755</a></td>
+<td>C++98</td>
+<td><code>std::string</code> &#32570;&#23569;&#26174;&#24335;&#30340;&#31227;&#38500;&#26410;&#20351;&#29992;&#30340;&#23481;&#37327;&#30340;&#25805;&#20316;</td>
+<td>&#24050;&#25552;&#20379;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue2223">LWG 2223</a></td>
+<td>C++98</td>
+<td>1. &#24341;&#29992;&#12289;&#25351;&#38024;&#21644;&#36845;&#20195;&#22120;&#19981;&#20250;&#22833;&#25928;<br />
+2. &#27809;&#26377;&#22797;&#26434;&#24230;&#35201;&#27714;</td>
+<td>1. &#21487;&#33021;&#20250;&#22833;&#25928;<br />
+2. &#35201;&#27714;&#20026;&#32447;&#24615;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-string-basic_string-size.html"><span class="t-lines"><span>size</span><span>length</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#23383;&#31526;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-string-basic_string-capacity.html"><span class="t-lines"><span>capacity</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#24403;&#21069;&#23545;&#35937;&#20998;&#37197;&#30340;&#23384;&#20648;&#31354;&#38388;&#33021;&#20445;&#23384;&#30340;&#23383;&#31526;&#25968;&#37327;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-string-basic_string-resize.html"><span class="t-lines"><span>resize</span></span></a></div>
+</div>
+</td>
+<td>&#26356;&#25913;&#23384;&#20648;&#30340;&#23383;&#31526;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

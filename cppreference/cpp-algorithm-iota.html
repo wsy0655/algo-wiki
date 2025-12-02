@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::iota</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_algorithm_iota skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>iota</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-algorithm.html">algorithm</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-numeric.html">&lt;numeric&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> ForwardIt, <span class="kw1">class</span> T <span class="sy1">&gt;</span><br />
+<span class="kw4">void</span> iota<span class="br0">(</span> ForwardIt first, ForwardIt last, T value <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span><br />
+<span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;&#20026; <code>constexpr</code>)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#20197;&#22987;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">value</span></span> &#24182;&#37325;&#22797;&#22320;&#27714;&#20540; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">++</span>value</span></span> &#30340;&#39034;&#24207;&#36882;&#22686;&#20540;&#22635;&#20805;&#33539;&#22260; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">first</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">last</span></span><code>)</code>&#12290;</p>
+<p>&#31561;&#20215;&#25805;&#20316;&#65288;&#20551;&#35774; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">++</span>value</span></span> &#20250;&#36820;&#22238;&#33258;&#22686;&#21518;&#30340;&#20540;&#65289;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="sy2">*</span>first   <span class="sy1">=</span> value<span class="sy4">;</span>
+<span class="sy2">*++</span>first <span class="sy1">=</span> <span class="sy2">++</span>value<span class="sy4">;</span>
+<span class="sy2">*++</span>first <span class="sy1">=</span> <span class="sy2">++</span>value<span class="sy4">;</span>
+<span class="sy2">*++</span>first <span class="sy1">=</span> <span class="sy2">++</span>value<span class="sy4">;</span>
+<span class="co1">// &#25269;&#36798; &ldquo;last&rdquo; &#21069;&#37325;&#22797;</span></pre></div>
+</div>
+<p>&#22914;&#26524;&#28385;&#36275;&#20197;&#19979;&#20219;&#24847;&#26465;&#20214;&#65292;&#37027;&#20040;&#31243;&#24207;&#38750;&#33391;&#26500;&#65306;</p>
+<ul>
+<li><code>T</code> &#19981;&#21487;&#36716;&#25442;&#21040; <code>ForwardIt</code> &#30340;<a href="cpp-iterator.html#.E7.B1.BB.E5.9E.8B.E4.B8.8E.E5.8F.AF.E5.86.99.E6.80.A7">&#20540;&#31867;&#22411;</a>&#12290;</li>
+<li>&#34920;&#36798;&#24335; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">++</span>val</span></span> &#38750;&#33391;&#26500;&#65292;&#20854;&#20013; <span class="t-c"><span class="mw-geshi cpp source-cpp">val</span></span> &#26159; <code>T</code> &#31867;&#22411;&#21464;&#37327;&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>first, last</td>
+<td>-</td>
+<td>&#35201;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">value</span></span> &#24320;&#22987;&#25353;&#39034;&#24207;&#36882;&#22686;&#30340;&#20540;&#25152;&#22635;&#20805;&#30340;&#20803;&#32032;<a href="cpp-iterator.html#.E8.8C.83.E5.9B.B4">&#33539;&#22260;</a>&#30340;&#36845;&#20195;&#22120;&#23545;</td>
+</tr>
+<tr class="t-par">
+<td>value</td>
+<td>-</td>
+<td>&#35201;&#23384;&#20648;&#30340;&#21021;&#22987;&#20540;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<p>&#33258;&#22686;&#19982;&#36171;&#20540; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-distance.html"><span class="kw676">std::<span class="me2">distance</span></span></a><span class="br0">(</span>first, last<span class="br0">)</span></span></span> &#27425;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.AF.E8.83.BD.E7.9A.84.E5.AE.9E.E7.8E.B0">&#21487;&#33021;&#30340;&#23454;&#29616;</span></h3>
+<table class="eq-fun-cpp-table">
+<tr>
+<td>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> ForwardIt, <span class="kw1">class</span> T<span class="sy1">&gt;</span>
+<span class="kw4">constexpr</span> <span class="co1">// C++20 &#36215;</span>
+<span class="kw4">void</span> iota<span class="br0">(</span>ForwardIt first, ForwardIt last, T value<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="sy4">;</span> first <span class="sy3">!</span><span class="sy1">=</span> last<span class="sy4">;</span> <span class="sy2">++</span>first, <span class="sy2">++</span>value<span class="br0">)</span>
+        <span class="sy2">*</span>first <span class="sy1">=</span> value<span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#27492;&#20989;&#25968;&#21629;&#21517;&#26469;&#28304;&#20110;&#32534;&#31243;&#35821;&#35328; <a href="https://en.wikipedia.org/wiki/APL_(programming_language)" class="extiw" title="enwiki:APL (programming language)">APL</a> &#20013;&#30340;&#25972;&#25968;&#20989;&#25968; <span style="font-size: 1.5em">&#9075;</span> &#12290;&#23427;&#26159; C++98 &#25152;&#19981;&#26366;&#21253;&#21547;&#30340; <a rel="nofollow" class="external text" href="http://www.sgi.com/tech/stl/iota.html">STL &#32452;&#20214;</a>&#20043;&#19968;&#65292;&#20294;&#26368;&#32456;&#22312; C++11 &#36827;&#20837;&#20102;&#26631;&#20934;&#24211;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<p>&#19979;&#21015;&#20195;&#30721;&#24212;&#29992; <span class="t-lc"><a href="cpp-algorithm-random_shuffle.html">std::shuffle</a></span> &#21040; <span class="t-lc"><a href="cpp-container-list.html">std::list</a></span> &#30340;&#36845;&#20195;&#22120;&#32452;&#25104;&#30340; <span class="t-lc"><a href="cpp-container-vector.html">vector</a></span>&#65292;&#22240;&#20026;&#19981;&#33021;&#30452;&#25509;&#24212;&#29992; <span class="t-lc"><a href="cpp-algorithm-random_shuffle.html">std::shuffle</a></span> &#21040; <span class="t-lc"><a href="cpp-container-list.html">std::list</a></span>&#12290;&#29992; <code>std::iota</code> &#22635;&#20805;&#20004;&#20010;&#23481;&#22120;&#12290;</p>
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;algorithm&gt;</span>
+<span class="co2">#include &lt;iomanip&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;list&gt;</span>
+<span class="co2">#include &lt;numeric&gt;</span>
+<span class="co2">#include &lt;random&gt;</span>
+<span class="co2">#include &lt;vector&gt;</span>
+ 
+<span class="kw1">class</span> BigData <span class="co1">// &#22797;&#21046;&#25805;&#20316;&#20302;&#25928;</span>
+<span class="br0">{</span>
+    <span class="kw4">int</span> data<span class="br0">[</span><span class="nu0">1024</span><span class="br0">]</span><span class="sy4">;</span> <span class="coMULTI">/* &#19968;&#20123;&#21407;&#22987;&#25968;&#25454; */</span>
+<span class="kw1">public</span><span class="sy4">:</span>
+    <span class="kw1">explicit</span> BigData<span class="br0">(</span><span class="kw4">int</span> i <span class="sy1">=</span> <span class="nu0">0</span><span class="br0">)</span> <span class="br0">{</span> data<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span> <span class="sy1">=</span> i<span class="sy4">;</span> <span class="coMULTI">/* ... */</span> <span class="br0">}</span>
+    operator <span class="kw4">int</span><span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="br0">{</span> <span class="kw1">return</span> data<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span><span class="sy4">;</span> <span class="br0">}</span>
+    BigData<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span><span class="kw4">int</span> i<span class="br0">)</span> <span class="br0">{</span> data<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span> <span class="sy1">=</span> i<span class="sy4">;</span> <span class="kw1">return</span> <span class="sy2">*</span>this<span class="sy4">;</span> <span class="br0">}</span>
+    <span class="coMULTI">/* ... */</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-container-list.html"><span class="kw1278">std::<span class="me2">list</span></span></a><span class="sy1">&lt;</span>BigData<span class="sy1">&gt;</span> l<span class="br0">(</span><span class="nu0">10</span><span class="br0">)</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><span class="me2">iota</span><span class="br0">(</span>l.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, l.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>, <span class="sy2">-</span><span class="nu0">4</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-container-vector.html"><span class="kw1272">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><a href="cpp-container-list.html"><span class="kw1278">std::<span class="me2">list</span></span></a><span class="sy1">&lt;</span>BigData<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">iterator</span><span class="sy1">&gt;</span> v<span class="br0">(</span>l.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><span class="me2">iota</span><span class="br0">(</span>v.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, v.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>, l.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="co1">// &#29992;&#65288;&#25351;&#21521;&#21407;&#25968;&#25454;&#30340;&#65289;&#36845;&#20195;&#22120;&#30340;&#21521;&#37327;&#26469;&#36991;&#20813;&#26114;&#36149;&#22797;&#21046;&#25805;&#20316;&#65292;</span>
+    <span class="co1">// &#20063;&#26159;&#22240;&#20026;&#26080;&#27861;&#30452;&#25509;&#23545; std::list &#24212;&#29992; std::shuffle&#65288;&#35265;&#19979;&#65289;</span>
+ 
+    <a href="cpp-algorithm-random_shuffle.html"><span class="kw1611">std::<span class="me2">shuffle</span></span></a><span class="br0">(</span>v.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, v.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>, <a href="cpp-numeric-random-mersenne_twister_engine.html"><span class="kw1492">std::<span class="me2">mt19937</span></span></a><span class="br0">{</span><a href="cpp-numeric-random-random_device.html"><span class="kw1489">std::<span class="me2">random_device</span></span></a><span class="br0">{</span><span class="br0">}</span><span class="br0">(</span><span class="br0">)</span><span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;list l &#21407;&#26469;&#30340;&#20869;&#23481;&#65306;<span class="es1">\t</span><span class="es1">\t</span>&quot;</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> n <span class="sy4">:</span> l<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-setw.html"><span class="kw1800">std::<span class="me2">setw</span></span></a><span class="br0">(</span><span class="nu0">2</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> n <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#36890;&#36807;&#25171;&#20081;&#30340; v &#30475;&#21040;&#30340; l &#30340;&#20869;&#23481;&#65306;<span class="es1">\t</span>&quot;</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">const</span> <span class="kw4">auto</span> i <span class="sy4">:</span> v<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-setw.html"><span class="kw1800">std::<span class="me2">setw</span></span></a><span class="br0">(</span><span class="nu0">2</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="sy2">*</span>i <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">list l &#21407;&#26469;&#30340;&#20869;&#23481;&#65306;          -4 -3 -2 -1  0  1  2  3  4  5
+&#36890;&#36807;&#25171;&#20081;&#30340; v &#30475;&#21040;&#30340; l &#30340;&#20869;&#23481;&#65306;      -1  5 -4  0  2  1  4 -2  3 -3</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-iota.html"><span class="t-lines"><span>ranges::iota</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#20174;&#21021;&#22987;&#20540;&#24320;&#22987;&#36830;&#32493;&#36882;&#22686;&#22635;&#20805;&#33539;&#22260;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-fill.html"><span class="t-lines"><span>fill</span></span></a></div>
+</div>
+</td>
+<td>&#20197;&#22797;&#21046;&#30340;&#26041;&#24335;&#36171;&#32473;&#23450;&#20540;&#21040;&#33539;&#22260;&#20013;&#25152;&#26377;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-fill.html"><span class="t-lines"><span>ranges::fill</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#36171;&#32473;&#23450;&#20540;&#21040;&#33539;&#22260;&#20013;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-generate.html"><span class="t-lines"><span>generate</span></span></a></div>
+</div>
+</td>
+<td>&#36171;&#36830;&#32493;&#20989;&#25968;&#35843;&#29992;&#32467;&#26524;&#21040;&#33539;&#22260;&#20013;&#25152;&#26377;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-generate.html"><span class="t-lines"><span>ranges::generate</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#23558;&#20989;&#25968;&#32467;&#26524;&#20445;&#23384;&#21040;&#33539;&#22260;&#20013;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-iota_view.html"><span class="t-lines"><span>ranges::iota_view</span><span>views::iota</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#30001;&#36890;&#36807;&#37325;&#22797;&#23545;&#26576;&#20010;&#21021;&#20540;&#33258;&#22686;&#25152;&#29983;&#25104;&#30340;&#24207;&#21015;&#32452;&#25104;&#30340; <a href="cpp-ranges-view.html"><code>view</code></a><br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span> <span class="t-mark" style="white-space: nowrap;">(&#23450;&#21046;&#28857;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-enumerate_view.html"><span class="t-lines"><span>ranges::enumerate_view</span><span>views::enumerate</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#23558;&#34987;&#36866;&#37197;&#35270;&#22270;&#30340;&#21508;&#20803;&#32032;&#26144;&#23556;&#20026;&#20803;&#32032;&#20301;&#32622;&#21644;&#20854;&#20540;&#32452;&#25104;&#30340;&#20803;&#32452;&#30340; <a href="cpp-ranges-view.html"><code>view</code></a><br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span> <span class="t-mark" style="white-space: nowrap;">(&#33539;&#22260;&#36866;&#37197;&#22120;&#23545;&#35937;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

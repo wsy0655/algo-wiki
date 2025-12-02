@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::experimental::rebind_simd, std::experimental::resize_simd</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_experimental_simd_rebind_simd skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::experimental::</span>rebind_simd, <span style="font-size:0.8em; line-height:125%">std::experimental::</span>resize_simd</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-experimental.html">experimental</a>&lrm; | <a href="cpp-experimental-simd.html">simd</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-experimental-simd.html">&lt;experimental/simd&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-parallelism_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span> V <span class="sy1">&gt;</span><br />
+<span class="kw1">struct</span> rebind_simd<span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></td>
+</tr>
+<tr class="t-dcl t-since-parallelism_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw4">int</span> N, <span class="kw1">class</span> V <span class="sy1">&gt;</span><br />
+<span class="kw1">struct</span> resize_simd<span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#21019;&#24314;&#25317;&#26377;&#19981;&#21516;&#20803;&#32032;&#31867;&#22411;&#25110;&#22823;&#23567;&#30340; <a href="cpp-experimental-simd-simd.html"><code>simd</code></a> &#25110; <a href="cpp-experimental-simd-simd_mask.html"><code>simd_mask</code></a> &#31867;&#22411;&#12290;&#26032;&#31867;&#22411;&#21487;&#33021;&#20351;&#29992;&#24322;&#20110; <code>V::abi_type</code> &#30340; ABI &#26631;&#31614;&#31867;&#22411;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#26356;&#25913;&#20803;&#32032;&#31867;&#22411;&#20026; <code>T</code> &#24182;&#20445;&#25345;&#22823;&#23567;&#19981;&#21464;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#26356;&#25913;&#22823;&#23567;&#20026; <code>N</code> &#24182;&#20445;&#25345;&#20803;&#32032;&#31867;&#22411;&#19981;&#21464;&#12290;</div>
+<h3><span class="mw-headline" id=".E6.A8.A1.E6.9D.BF.E5.BD.A2.E5.8F.82">&#27169;&#26495;&#24418;&#21442;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>T</td>
+<td>-</td>
+<td>&#26032;&#20803;&#32032;&#31867;&#22411;&#65307;<code>bool</code> &#20197;&#22806;&#30340;&#31639;&#26415;&#31867;&#22411;</td>
+</tr>
+<tr class="t-par">
+<td>N</td>
+<td>-</td>
+<td>&#26032;&#30340;&#20803;&#32032;&#25968;</td>
+</tr>
+<tr class="t-par">
+<td>V</td>
+<td>-</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">simd</span></span> &#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp">simd_mask</span></span> &#31867;&#22411;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E7.B1.BB.E5.9E.8B">&#25104;&#21592;&#31867;&#22411;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#21517;&#31216;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>type</code></td>
+<td>&#25317;&#26377;&#19981;&#21516;&#20803;&#32032;&#31867;&#22411; <span class="t-v">(1)</span> &#25110;&#22823;&#23567; <span class="t-v">(2)</span> &#30340; <code>simd</code> &#25110; <code>simd_mask</code> &#31867;&#22411;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BE.85.E5.8A.A9.E7.B1.BB.E5.9E.8B">&#36741;&#21161;&#31867;&#22411;</span></h3>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-parallelism_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span> V <span class="sy1">&gt;</span><br />
+<span class="kw1">using</span> rebind_simd_t <span class="sy1">=</span> <span class="kw1">typename</span> rebind_simd<span class="sy1">&lt;</span>T, V<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">type</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></td>
+</tr>
+<tr class="t-dcl t-since-parallelism_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw4">int</span> N, <span class="kw1">class</span> V <span class="sy1">&gt;</span><br />
+<span class="kw1">using</span> resize_simd_t <span class="sy1">=</span> <span class="kw1">typename</span> resize_simd<span class="sy1">&lt;</span>N, V<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">type</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;experimental/simd&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+ 
+<span class="kw1">namespace</span> stdx <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">experimental</span><span class="sy4">;</span>
+<span class="kw1">using</span> floatv <span class="sy1">=</span> stdx<span class="sy4">::</span><span class="me2">native_simd</span><span class="sy1">&lt;</span><span class="kw4">float</span><span class="sy1">&gt;</span><span class="sy4">;</span>
+ 
+<span class="co1">// &#20869;&#37096;&#20351;&#29992;&#21452;&#31934;&#24230;</span>
+floatv dp<span class="br0">(</span>floatv x<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">using</span> doublev <span class="sy1">=</span> stdx<span class="sy4">::</span><span class="me2">rebind_simd_t</span><span class="sy1">&lt;</span><span class="kw4">double</span>, floatv<span class="sy1">&gt;</span><span class="sy4">;</span>
+    <span class="kw1">return</span> stdx<span class="sy4">::</span><span class="me2">static_simd_cast</span><span class="sy1">&lt;</span>floatv<span class="sy1">&gt;</span><span class="br0">(</span>stdx<span class="sy4">::</span><span class="me2">simd_cast</span><span class="sy1">&lt;</span>doublev<span class="sy1">&gt;</span><span class="br0">(</span>x<span class="br0">)</span> <span class="sy2">-</span> <span class="nu16">1.234</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> T<span class="sy1">&gt;</span>
+stdx<span class="sy4">::</span><span class="me2">resize_simd_t</span><span class="sy1">&lt;</span>T<span class="sy4">::</span><span class="me2">size</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">/</span> <span class="nu0">2</span>, T<span class="sy1">&gt;</span> partial_reduction<span class="br0">(</span>T x<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">auto</span> <span class="br0">[</span>lo, hi<span class="br0">]</span> <span class="sy1">=</span> stdx<span class="sy4">::</span><span class="me2">split</span><span class="sy1">&lt;</span>stdx<span class="sy4">::</span><span class="me2">resize_simd_t</span><span class="sy1">&lt;</span>T<span class="sy4">::</span><span class="me2">size</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">/</span> <span class="nu0">2</span>, T<span class="sy1">&gt;&gt;</span><span class="br0">(</span>x<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">return</span> lo <span class="sy2">+</span> hi<span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span> 
+<span class="br0">{</span>
+    floatv x<span class="br0">(</span><span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">auto</span> i<span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> <span class="nu17">1.234f</span> <span class="sy2">+</span> <a href="cpp-types-numeric_limits.html"><span class="kw351">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span><span class="kw4">float</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">epsilon</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">*</span> i<span class="sy4">;</span> <span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+    x <span class="sy1">=</span> dp<span class="br0">(</span>x<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">const</span> <span class="kw4">auto</span> y <span class="sy1">=</span> partial_reduction<span class="br0">(</span>x<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">unsigned</span> i <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span> i <span class="sy1">&lt;</span> y.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="sy2">++</span>i<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> y<span class="br0">[</span>i<span class="br0">]</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">1.73569e-07 4.11987e-07</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-experimental-simd-deduce.html"><span class="t-lines"><span>deduce</span><span>deduce_t</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></span></span></div>
+</div>
+</td>
+<td>&#33719;&#24471;&#32473;&#23450;&#30340;&#20803;&#32032;&#31867;&#22411;&#21450;&#20803;&#32032;&#25968;&#30340; ABI &#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

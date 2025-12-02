@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>strncpy, strncpy_s</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_string_byte_strncpy skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">strncpy, strncpy_s</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-string.html">string</a>&lrm; | <a href="c-string-byte.html">byte</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-string.html"><tt>&lt;string.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+<tbody class="t-dcl-rev t-dcl-rev-num">
+<tr class="t-dcl-rev-aux">
+<td></td>
+<td rowspan="142">(1)</td>
+<td></td>
+</tr>
+<tr class="t-dcl t-until-c99">
+<td>
+<div><span class="mw-geshi c source-c"><span class="kw4">char</span> <span class="sy2">*</span>strncpy<span class="br0">(</span> <span class="kw4">char</span> <span class="sy2">*</span>dest, <span class="kw4">const</span> <span class="kw4">char</span> <span class="sy2">*</span>src, <a href="c-types-size_t.html"><span class="kw100">size_t</span></a> count <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-until-c99" style="white-space: nowrap;">(C99 &#21069;)</span></td>
+</tr>
+<tr class="t-dcl t-since-c99">
+<td>
+<div><span class="mw-geshi c source-c"><span class="kw4">char</span> <span class="sy2">*</span>strncpy<span class="br0">(</span> <span class="kw4">char</span> <span class="sy2">*</span><span class="kw4">restrict</span> dest, <span class="kw4">const</span> <span class="kw4">char</span> <span class="sy2">*</span><span class="kw4">restrict</span> src, <a href="c-types-size_t.html"><span class="kw100">size_t</span></a> count <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99 &#36215;)</span></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="t-dcl t-since-c11">
+<td>
+<div><span class="mw-geshi c source-c">errno_t strncpy_s<span class="br0">(</span><span class="kw4">char</span> <span class="sy2">*</span><span class="kw4">restrict</span> dest, rsize_t destsz,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw4">const</span> <span class="kw4">char</span> <span class="sy2">*</span><span class="kw4">restrict</span> src, rsize_t count<span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#22797;&#21046; <code>src</code> &#25152;&#25351;&#21521;&#30340;&#23383;&#31526;&#25968;&#32452;&#30340;&#33267;&#22810; <code>count</code> &#20010;&#23383;&#31526;&#65288;&#21253;&#21547;&#31354;&#32456;&#27490;&#23383;&#31526;&#65292;&#20294;&#19981;&#21253;&#21547;&#21518;&#38543;&#31354;&#23383;&#31526;&#30340;&#20219;&#20309;&#23383;&#31526;&#65289;&#21040; <code>dest</code> &#25152;&#25351;&#21521;&#30340;&#23383;&#31526;&#25968;&#32452;&#12290;</div>
+<div class="t-li1"><span class="t-li"></span> &#33509;&#22312;&#23436;&#20840;&#22797;&#21046;&#25972;&#20010; <code>src</code> &#25968;&#32452;&#21069;&#25269;&#36798; <code>count</code>&#65292;&#21017;&#32467;&#26524;&#30340;&#23383;&#31526;&#25968;&#32452;&#19981;&#26159;&#31354;&#32456;&#27490;&#30340;&#12290;</div>
+<div class="t-li1"><span class="t-li"></span> &#33509;&#22312;&#22797;&#21046;&#26469;&#33258; <code>src</code> &#30340;&#31354;&#32456;&#27490;&#23383;&#31526;&#21518;&#26410;&#25269;&#36798; <code>count</code>&#65292;&#21017;&#20889;&#20837;&#39069;&#22806;&#30340;&#31354;&#23383;&#31526;&#21040; <code>dest</code>&#65292;&#30452;&#33267;&#20889;&#20837;&#24635;&#20849; <code>count</code> &#20010;&#23383;&#31526;&#12290;</div>
+<div class="t-li1"><span class="t-li"></span> &#33509;&#23383;&#31526;&#25968;&#32452;&#37325;&#21472;&#65292;&#33509; <code>dest</code> &#25110; <code>src</code> &#19981;&#26159;&#25351;&#21521;&#23383;&#31526;&#25968;&#32452;&#30340;&#25351;&#38024;&#65288;&#21253;&#21547;&#33509; <code>dest</code> &#25110; <code>src</code> &#20026;&#31354;&#25351;&#38024;&#65289;&#65292;&#33509; <code>dest</code> &#25152;&#25351;&#21521;&#30340;&#25968;&#32452;&#22823;&#23567;&#23567;&#20110; <code>count</code>&#65292;&#25110;&#33509; <code>src</code> &#25152;&#25351;&#21521;&#30340;&#25968;&#32452;&#22823;&#23567;&#23567;&#20110; <code>count</code> &#19988;&#23427;&#19981;&#21547;&#31354;&#23383;&#31526;&#65292;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#21516; <span class="t-v">(1)</span>&#65292;&#20294;&#27492;&#20989;&#25968;&#19981;&#25345;&#32493;&#20889;&#20837;&#38646;&#21040;&#30446;&#26631;&#25968;&#32452;&#20197;&#22635;&#28385; <code>count</code>&#65292;&#23427;&#22312;&#20889;&#20837;&#31354;&#32456;&#27490;&#23383;&#31526;&#21518;&#20572;&#27490;&#65288;&#33509;&#28304;&#20013;&#26080;&#31354;&#23383;&#31526;&#65292;&#21017;&#23427;&#20110; <span class="t-c"><span class="mw-geshi c source-c">dest<span class="br0">[</span>count<span class="br0">]</span></span></span> &#20889;&#20837;&#19968;&#20010;&#28982;&#21518;&#20572;&#27490;&#65289;&#12290;&#24182;&#19988;&#22312;&#36816;&#34892;&#26102;&#26816;&#27979;&#19979;&#21015;&#38169;&#35823;&#24182;&#35843;&#29992;&#24403;&#21069;&#23433;&#35013;&#30340;<a href="c-error-set_constraint_handler_s.html">&#21046;&#32422;&#22788;&#29702;</a>&#20989;&#25968;&#65306;
+<dl>
+<dd>
+<ul>
+<li><code>src</code> &#25110; <code>dest</code> &#26159;&#31354;&#25351;&#38024;</li>
+<li><code>destsz</code> &#38646;&#25110;&#22823;&#20110; <span class="t-lc">RSIZE_MAX</span></li>
+<li><code>count</code> &#22823;&#20110; <span class="t-lc">RSIZE_MAX</span></li>
+<li><code>count</code> &#22823;&#20110;&#25110;&#31561;&#20110; <code>destsz</code>&#65292;&#20294; <code>destsz</code> &#23567;&#20110;&#25110;&#31561;&#20110; <span class="t-c"><span class="mw-geshi c source-c">strnlen_s<span class="br0">(</span>src, count<span class="br0">)</span></span></span>&#65292;&#25442;&#35328;&#20043;&#65292;&#20250;&#20986;&#29616;&#25130;&#26029;</li>
+<li>&#28304;&#21644;&#30446;&#26631;&#23383;&#31526;&#20018;&#38388;&#20250;&#20986;&#29616;&#37325;&#21472;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-li1"><span class="t-li"></span> &#33509; <code>dest</code> &#25152;&#25351;&#30340;&#23383;&#31526;&#25968;&#32452;&#22823;&#23567; &lt; <span class="t-c"><span class="mw-geshi c source-c">strnlen_s<span class="br0">(</span>src, destsz<span class="br0">)</span></span></span> &lt;= <code>destsz</code> &#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#65307;&#25442;&#35328;&#20043;&#65292;&#38169;&#35823;&#30340; <code>destsz</code> &#20540;&#19981;&#26292;&#38706;&#34892;&#23558;&#21457;&#29983;&#30340;&#32531;&#20914;&#21306;&#28322;&#20986;&#12290;&#33509; <code>src</code> &#25152;&#25351;&#30340;&#23383;&#31526;&#25968;&#32452;&#22823;&#23567; &lt; <span class="t-c"><span class="mw-geshi c source-c">strnlen_s<span class="br0">(</span>src, count<span class="br0">)</span></span></span> &lt; <code>destsz</code> &#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#65307;&#25442;&#35328;&#20043;&#65292;&#38169;&#35823;&#30340; <code>count</code> &#20540;&#19981;&#26292;&#38706;&#34892;&#23558;&#21457;&#29983;&#30340;&#32531;&#20914;&#21306;&#28322;&#20986;&#12290;</div>
+<dl>
+<dd>&#21516;&#25152;&#26377;&#36793;&#30028;&#26816;&#26597;&#20989;&#25968;&#65292;<code>strncpy_s</code>&#65292;&#20165;&#33509;&#23454;&#29616;&#23450;&#20041; <span class="t-c"><span class="mw-geshi c source-c">__STDC_LIB_EXT1__</span></span> &#19988;&#29992;&#25143;&#22312;&#21253;&#21547; <a href="c-header-string.html"><tt>&lt;string.h&gt;</tt></a> &#21069;&#23450;&#20041; <span class="t-c"><span class="mw-geshi c source-c">__STDC_WANT_LIB_EXT1__</span></span> &#20026;&#25972;&#25968;&#24120;&#37327; 1 &#25165;&#20445;&#35777;&#21487;&#29992;&#12290;</dd>
+</dl>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>dest</td>
+<td>-</td>
+<td>&#25351;&#21521;&#35201;&#22797;&#21046;&#21040;&#30340;&#23383;&#31526;&#25968;&#32452;&#30340;&#25351;&#38024;</td>
+</tr>
+<tr class="t-par">
+<td>src</td>
+<td>-</td>
+<td>&#25351;&#21521;&#22797;&#21046;&#26469;&#28304;&#30340;&#23383;&#31526;&#25968;&#32452;&#30340;&#25351;&#38024;</td>
+</tr>
+<tr class="t-par">
+<td>count</td>
+<td>-</td>
+<td>&#35201;&#22797;&#21046;&#30340;&#26368;&#22823;&#23383;&#31526;&#25968;</td>
+</tr>
+<tr class="t-par">
+<td>destsz</td>
+<td>-</td>
+<td>&#30446;&#26631;&#32531;&#20914;&#21306;&#30340;&#22823;&#23567;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<div class="t-li1"><span class="t-li">1)</span> &#36820;&#22238; <code>dest</code> &#30340;&#21103;&#26412;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#25104;&#21151;&#26102;&#36820;&#22238;&#38646;&#65292;&#38169;&#35823;&#26102;&#36820;&#22238;&#38750;&#38646;&#12290;&#32780;&#19988;&#65292;&#22312;&#38169;&#35823;&#26102;&#20889;&#20837;&#38646;&#21040; <span class="t-c"><span class="mw-geshi c source-c">dest<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span></span></span>&#65288;&#38500;&#38750; <code>dest</code> &#20026;&#31354;&#25351;&#38024;&#65292;&#25110; <code>destsz</code> &#20026;&#38646;&#25110;&#22823;&#20110; <span class="t-lc">RSIZE_MAX</span>&#65289;&#65292;&#32780;&#19988;&#21487;&#33021;&#20197;&#26410;&#25351;&#23450;&#20540;&#30772;&#22351;&#30446;&#26631;&#25968;&#32452;&#30340;&#21097;&#20313;&#37096;&#20998;&#12290;</div>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#25353; C11 &#21518;&#30340; DR 468 &#26356;&#27491;&#65292;<code>strncpy_s</code> &#19981;&#21516;&#20110; <span class="t-lc"><a href="c-string-byte-strcpy.html">strcpy_s</a></span>&#65292;&#20165;&#33509;&#38169;&#35823;&#21457;&#29983;&#25165;&#34987;&#20801;&#35768;&#30772;&#22351;&#30446;&#26631;&#25968;&#32452;&#30340;&#21097;&#20313;&#37096;&#20998;&#12290;</p>
+<p>&#19981;&#21516;&#20110; <code>strncpy</code>&#65292;<code>strncpy_s</code> &#19981;&#20197;&#38646;&#22635;&#20805;&#30446;&#26631;&#25968;&#32452;&#12290;&#36825;&#26159;&#36716;&#25442;&#26082;&#23384;&#20195;&#30721;&#21040;&#36793;&#30028;&#26816;&#26597;&#29256;&#26412;&#30340;&#24120;&#35265;&#38169;&#35823;&#28304;&#12290;</p>
+<p>&#23613;&#31649;&#36866;&#21512;&#30446;&#26631;&#32531;&#20914;&#21306;&#30340;&#25130;&#26029;&#26159;&#23433;&#20840;&#39118;&#38505;&#65292;&#20174;&#32780;&#26159; <code>strncpy_s</code> &#30340;&#36816;&#34892;&#26102;&#21046;&#32422;&#36829;&#35268;&#65292;&#36824;&#26159;&#21487;&#36890;&#36807;&#25351;&#23450; <code>count</code> &#31561;&#20110;&#30446;&#26631;&#25968;&#32452;&#22823;&#23567;&#20943;&#19968;&#20197;&#33719;&#21462;&#25130;&#26029;&#34892;&#20026;&#65306;&#23427;&#20250;&#22797;&#21046;&#39318; <code>count</code> &#20010;&#23383;&#33410;&#65292;&#24182;&#29031;&#24120;&#28155;&#21152;&#31354;&#32456;&#27490;&#31526;&#65306;<span class="t-c"><span class="mw-geshi c source-c">strncpy_s<span class="br0">(</span>dst, <span class="kw4">sizeof</span> dst, src, <span class="br0">(</span><span class="kw4">sizeof</span> dst<span class="br0">)</span><span class="sy2">-</span><span class="nu0">1</span><span class="br0">)</span><span class="sy4">;</span></span></span></p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#define __STDC_WANT_LIB_EXT1__ 1</span>
+<span class="co2">#include &lt;string.h&gt;</span>
+<span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#include &lt;stdlib.h&gt;</span>
+<span class="co2">#include &lt;errno.h&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">char</span> src<span class="br0">[</span><span class="br0">]</span> <span class="sy1">=</span> <span class="st0">&quot;hi&quot;</span><span class="sy4">;</span>
+    <span class="kw4">char</span> dest<span class="br0">[</span><span class="nu0">6</span><span class="br0">]</span> <span class="sy1">=</span> <span class="st0">&quot;abcdef&quot;</span><span class="sy4">;</span> <span class="co1">// &#26080;&#31354;&#23383;&#31526;</span>
+    strncpy<span class="br0">(</span>dest, src, <span class="nu0">5</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#20889;&#20837;&#20116;&#20010;&#23383;&#31526; &#39;h&#39;, &#39;i&#39;, &#39;\0&#39;, &#39;\0&#39;, &#39;\0&#39; &#21040; dest</span>
+    <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;strncpy(dest, src, 5) to a 6-byte dest gives : &quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">for</span><span class="br0">(</span><a href="c-types-size_t.html"><span class="kw100">size_t</span></a> n <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span> n <span class="sy1">&lt;</span> <span class="kw4">sizeof</span> dest<span class="sy4">;</span> <span class="sy2">++</span>n<span class="br0">)</span> <span class="br0">{</span>
+        <span class="kw4">char</span> c <span class="sy1">=</span> dest<span class="br0">[</span>n<span class="br0">]</span><span class="sy4">;</span>
+        c <span class="sy4">?</span> <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;&#39;%c&#39; &quot;</span>, c<span class="br0">)</span> <span class="sy4">:</span> <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;&#39;<span class="es1">\\</span>0&#39; &quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;<span class="es1">\n</span>strncpy(dest2, src, 2) to a 2-byte dst gives : &quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">char</span> dest2<span class="br0">[</span><span class="nu0">2</span><span class="br0">]</span><span class="sy4">;</span>
+    strncpy<span class="br0">(</span>dest2, src, <span class="nu0">2</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#25130;&#26029;&#65306;&#20889;&#20837;&#20108;&#20010;&#23383;&#31526; &#39;h&#39;, &#39;i&#39;, &#21040; dest2</span>
+    <span class="kw1">for</span> <span class="br0">(</span><a href="c-types-size_t.html"><span class="kw100">size_t</span></a> n <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span> n <span class="sy1">&lt;</span> <span class="kw4">sizeof</span> dest2<span class="sy4">;</span> <span class="sy2">++</span>n<span class="br0">)</span> <span class="br0">{</span>
+        <span class="kw4">char</span> c <span class="sy1">=</span> dest2<span class="br0">[</span>n<span class="br0">]</span><span class="sy4">;</span>
+        c <span class="sy4">?</span> <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;&#39;%c&#39; &quot;</span>, c<span class="br0">)</span> <span class="sy4">:</span> <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;&#39;<span class="es1">\\</span>0&#39; &quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+<span class="co2">#ifdef __STDC_LIB_EXT1__</span>
+    set_constraint_handler_s<span class="br0">(</span>ignore_handler_s<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">char</span> dst1<span class="br0">[</span><span class="nu0">6</span><span class="br0">]</span>, src1<span class="br0">[</span><span class="nu0">100</span><span class="br0">]</span> <span class="sy1">=</span> <span class="st0">&quot;hello&quot;</span><span class="sy4">;</span>
+    <span class="kw4">int</span> r1 <span class="sy1">=</span> strncpy_s<span class="br0">(</span>dst1, <span class="nu0">6</span>, src1, <span class="nu0">100</span><span class="br0">)</span><span class="sy4">;</span>      <span class="co1">// &#20889;&#20837; 0 &#21040; r1&#65292;6 &#20010;&#23383;&#31526;&#21040; dst1</span>
+    <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;dst1 = <span class="es1">\&quot;</span>%s<span class="es1">\&quot;</span>, r1 = %d<span class="es1">\n</span>&quot;</span>, dst1,r1<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#39;h&#39;,&#39;e&#39;,&#39;l&#39;,&#39;l&#39;,&#39;o&#39;,&#39;\0&#39; &#21040; dst1</span>
+ 
+    <span class="kw4">char</span> dst2<span class="br0">[</span><span class="nu0">5</span><span class="br0">]</span>, src2<span class="br0">[</span><span class="nu0">7</span><span class="br0">]</span> <span class="sy1">=</span> <span class="br0">{</span><span class="st0">&#39;g&#39;</span>,<span class="st0">&#39;o&#39;</span>,<span class="st0">&#39;o&#39;</span>,<span class="st0">&#39;d&#39;</span>,<span class="st0">&#39;b&#39;</span>,<span class="st0">&#39;y&#39;</span>,<span class="st0">&#39;e&#39;</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw4">int</span> r2 <span class="sy1">=</span> strncpy_s<span class="br0">(</span>dst2, <span class="nu0">5</span>, src2, <span class="nu0">7</span><span class="br0">)</span><span class="sy4">;</span>        <span class="co1">// &#22797;&#21046;&#28322;&#20986;&#30446;&#26631;&#25968;&#32452;</span>
+    <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;dst2 = <span class="es1">\&quot;</span>%s<span class="es1">\&quot;</span>, r2 = %d<span class="es1">\n</span>&quot;</span>, dst2,r2<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#20889;&#20837;&#38750;&#38646;&#21040; r2&#65292;&#39;\0&#39; &#21040; dst2[0]</span>
+ 
+    <span class="kw4">char</span> dst3<span class="br0">[</span><span class="nu0">5</span><span class="br0">]</span><span class="sy4">;</span>
+    <span class="kw4">int</span> r3 <span class="sy1">=</span> strncpy_s<span class="br0">(</span>dst3, <span class="nu0">5</span>, src2, <span class="nu0">4</span><span class="br0">)</span><span class="sy4">;</span>        <span class="co1">// &#20889;&#20837; 0 &#21040; r3&#65292;5 &#20010;&#23383;&#31526;&#21040; dst3</span>
+    <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;dst3 = <span class="es1">\&quot;</span>%s<span class="es1">\&quot;</span>, r3 = %d<span class="es1">\n</span>&quot;</span>, dst3,r3<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#39;g&#39;, &#39;o&#39;, &#39;o&#39;, &#39;d&#39;, &#39;\0&#39; &#21040; dst3 </span>
+<span class="co2">#endif</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">strncpy(dest, src, 5) to a 6-byte dst gives : &#39;h&#39; &#39;i&#39; &#39;\0&#39; &#39;\0&#39; &#39;\0&#39; &#39;f&#39;
+strncpy(dest2, src, 2) to a 2-byte dst gives : &#39;h&#39; &#39;i&#39;
+dst1 = &quot;hello&quot;, r1 = 0
+dst2 = &quot;&quot;, r2 = 22
+dst3 = &quot;good&quot;, r3 = 0</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.24.2.4 The strncpy function &#65288;&#31532; 265 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.7.1.4 The strncpy_s function &#65288;&#31532; 447-448 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.24.2.4 The strncpy function &#65288;&#31532; 363-364 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.7.1.4 The strncpy_s function &#65288;&#31532; 616-617 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c99">
+<ul>
+<li>C99 &#26631;&#20934;&#65288;ISO/IEC 9899:1999&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.21.2.4 The strncpy function &#65288;&#31532; 326-327 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c89">
+<ul>
+<li>C89/C90 &#26631;&#20934;&#65288;ISO/IEC 9899:1990&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>4.11.2.4 The strncpy function</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-byte-strcpy.html"><span class="t-lines"><span>strcpy</span><span>strcpy_s</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#22797;&#21046;&#23383;&#31526;&#20018;&#32473;&#21478;&#19968;&#20010;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-byte-memcpy.html"><span class="t-lines"><span>memcpy</span><span>memcpy_s</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#22797;&#21046;&#32531;&#20914;&#21306;&#21040;&#21478;&#19968;&#20010;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-experimental-dynamic-strndup.html"><span class="t-lines"><span>strndup</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-dynamic-tr t-mark-ts" style="white-space: nowrap;">(&#21160;&#24577;&#20869;&#23384; TR)</span></span></span></div>
+</div>
+</td>
+<td>&#20998;&#37197;&#23383;&#31526;&#20018;&#21103;&#26412;&#65292;&#33267;&#22810;&#21040;&#25351;&#23450;&#30340;&#22823;&#23567;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>strncpy</span></span>&nbsp;&#30340; <span><span><a href="cpp-string-byte-strncpy.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

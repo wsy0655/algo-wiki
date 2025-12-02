@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::basic_stacktrace&lt;Allocator&gt;::max_size</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_utility_basic_stacktrace_max_size skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::basic_stacktrace&lt;Allocator&gt;::</span>max_size</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-utility.html">utility</a>&lrm; | <a href="cpp-utility-basic_stacktrace.html">basic stacktrace</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp">size_type max_size<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36820;&#22238;&#24213;&#23618;&#23481;&#22120;&#65288;&#24120;&#20026; <span class="t-lc"><a href="cpp-container-vector.html">std::vector</a></span>&#65289;&#30001;&#20110;&#31995;&#32479;&#25110;&#24211;&#23454;&#29616;&#38480;&#21046;&#33021;&#20445;&#26377;&#30340;&#26368;&#22823;&#20803;&#32032;&#20010;&#25968;&#65292;&#21363;&#26368;&#22823;&#30340;&#24213;&#23618;&#23481;&#22120;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-distance.html"><span class="kw676">std::<span class="me2">distance</span></span></a><span class="br0">(</span>begin<span class="br0">(</span><span class="br0">)</span>, end<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#26368;&#22823;&#20803;&#32032;&#20010;&#25968;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<p>&#24120;&#25968;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#27492;&#20540;&#24120;&#21453;&#26144;&#24213;&#23618;&#23481;&#22120;&#22823;&#23567;&#30340;&#29702;&#35770;&#26497;&#38480;&#65292;&#33267;&#22810;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-numeric_limits.html"><span class="kw351">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span>difference_type<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">max</span><span class="br0">(</span><span class="br0">)</span></span></span>&#12290;&#36816;&#34892;&#26102;&#65292;&#23481;&#22120;&#22823;&#23567;&#21487;&#33021;&#34987;&#21487;&#29992; RAM &#24635;&#37327;&#38480;&#21046;&#21040;&#19968;&#20010;&#23567;&#20110; <code>max_size()</code> &#30340;&#20540;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;stacktrace&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-utility-basic_stacktrace.html"><span class="kw3535">std::<span class="me2">stacktrace</span></span></a> trace<span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#39;basic_stacktrace&#39; &#30340;&#26368;&#22823;&#22823;&#23567;&#26159; &quot;</span> <span class="sy1">&lt;&lt;</span> trace.<span class="me1">max_size</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#39;basic_stacktrace&#39; &#30340;&#26368;&#22823;&#22823;&#23567;&#26159; 1152921504606846975</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-basic_stacktrace-size.html"><span class="t-lines"><span>size</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#26632;&#36394;&#36857;&#26465;&#30446;&#30340;&#25968;&#37327;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

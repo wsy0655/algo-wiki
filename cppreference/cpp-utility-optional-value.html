@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::optional&lt;T&gt;::value</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_utility_optional_value skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::optional&lt;T&gt;::</span>value</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-utility.html">utility</a>&lrm; | <a href="cpp-utility-optional.html">optional</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> T<span class="sy3">&amp;</span> value<span class="br0">(</span><span class="br0">)</span> <span class="sy3">&amp;</span><span class="sy4">;</span><br />
+<span class="kw4">constexpr</span> <span class="kw4">const</span> T<span class="sy3">&amp;</span> value<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span><span class="sy3">&amp;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> T<span class="sy3">&amp;&amp;</span> value<span class="br0">(</span><span class="br0">)</span> <span class="sy3">&amp;&amp;</span><span class="sy4">;</span><br />
+<span class="kw4">constexpr</span> <span class="kw4">const</span> T<span class="sy3">&amp;&amp;</span> value<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span><span class="sy3">&amp;&amp;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#21547;&#20540;&#65292;&#21017;&#36820;&#22238;&#21040;&#25152;&#21547;&#20540;&#30340;&#24341;&#29992;&#12290;</p>
+<p>&#21542;&#21017;&#65292;&#25243;&#20986; <span class="t-lc"><a href="cpp-utility-optional-bad_optional_access.html">std::bad_optional_access</a></span> &#24322;&#24120;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#21040;&#25152;&#21547;&#20540;&#30340;&#24341;&#29992;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<p>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#19981;&#21547;&#20540;&#21017;&#25243;&#20986; <span class="t-lc"><a href="cpp-utility-optional-bad_optional_access.html">std::bad_optional_access</a></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#35299;&#24341;&#29992;&#36816;&#31639;&#31526; <span class="t-lc"><a href="cpp-utility-optional-operator*.html">operator*()</a></span> &#19981;&#26816;&#26597;&#27492; <code>optional</code> &#26159;&#21542;&#21547;&#20540;&#65292;&#23427;&#21487;&#33021;&#27604; <code>value()</code> &#26356;&#26377;&#25928;&#29575;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;optional&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-utility-optional.html"><span class="kw1077">std::<span class="me2">optional</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span> opt <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="kw1">try</span>
+    <span class="br0">{</span>
+        <span class="br0">[</span><span class="br0">[</span>maybe_unused<span class="br0">]</span><span class="br0">]</span> <span class="kw4">int</span> n <span class="sy1">=</span> opt.<span class="me1">value</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">catch</span><span class="br0">(</span><span class="kw4">const</span> <a href="cpp-utility-optional-bad_optional_access.html"><span class="kw1079">std::<span class="me2">bad_optional_access</span></span></a><span class="sy3">&amp;</span> e<span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> e.<span class="me1">what</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw1">try</span>
+    <span class="br0">{</span>
+        opt.<span class="me1">value</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">=</span> <span class="nu0">42</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">catch</span><span class="br0">(</span><span class="kw4">const</span> <a href="cpp-utility-optional-bad_optional_access.html"><span class="kw1079">std::<span class="me2">bad_optional_access</span></span></a><span class="sy3">&amp;</span> e<span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> e.<span class="me1">what</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    opt <span class="sy1">=</span> <span class="nu0">43</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="sy2">*</span>opt <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    opt.<span class="me1">value</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">=</span> <span class="nu0">44</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> opt.<span class="me1">value</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">bad optional access
+bad optional access
+43
+44</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-optional-value_or.html"><span class="t-lines"><span>value_or</span></span></a></div>
+</div>
+</td>
+<td>&#22312;&#25152;&#21547;&#20540;&#21487;&#29992;&#26102;&#36820;&#22238;&#23427;&#65292;&#21542;&#21017;&#36820;&#22238;&#21478;&#19968;&#20010;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-optional-operator*.html"><span class="t-lines"><span>operator-&gt;</span><span>operator*</span></span></a></div>
+</div>
+</td>
+<td>&#35775;&#38382;&#25152;&#21547;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-optional-bad_optional_access.html"><span class="t-lines"><span>bad_optional_access</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span></span></span></div>
+</div>
+</td>
+<td>&#25351;&#31034;&#36827;&#34892;&#20102;&#21040;&#19981;&#21547;&#20540;&#30340; <code>optional</code> &#30340;&#26377;&#26816;&#26597;&#35775;&#38382;&#30340;&#24322;&#24120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

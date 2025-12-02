@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::isblank(std::locale)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_locale_isblank skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>isblank<span style="font-size:0.8em; line-height:125%">(std::locale)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-locale.html">locale</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-locale.html">&lt;locale&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> CharT <span class="sy1">&gt;</span><br />
+<span class="kw4">bool</span> isblank<span class="br0">(</span> CharT ch, <span class="kw4">const</span> locale<span class="sy3">&amp;</span> loc <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#26816;&#26597;&#32473;&#23450;&#23383;&#31526;&#25353;&#32473;&#23450;&#26412;&#22320;&#29615;&#22659;&#30340; ctype &#21051;&#38754;&#26159;&#21542;&#20998;&#31867;&#20026;&#31354;&#26684;&#23383;&#31526;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>ch</td>
+<td>-</td>
+<td>&#23383;&#31526;</td>
+</tr>
+<tr class="t-par">
+<td>loc</td>
+<td>-</td>
+<td>&#26412;&#22320;&#29615;&#22659;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#33509;&#23383;&#31526;&#34987;&#20998;&#31867;&#20026;&#31354;&#26684;&#23383;&#31526;&#21017;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#21542;&#21017;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.AF.E8.83.BD.E7.9A.84.E5.AE.9E.E7.8E.B0">&#21487;&#33021;&#30340;&#23454;&#29616;</span></h3>
+<table class="eq-fun-cpp-table">
+<tr>
+<td>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> CharT<span class="sy1">&gt;</span>
+<span class="kw4">bool</span> isblank<span class="br0">(</span>CharT ch, <span class="kw4">const</span> <a href="cpp-locale-locale.html"><span class="kw1898">std::<span class="me2">locale</span></span></a><span class="sy3">&amp;</span> loc<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">return</span> <a href="cpp-locale-use_facet.html"><span class="kw1901">std::<span class="me2">use_facet</span></span></a><span class="sy1">&lt;</span><a href="cpp-locale-ctype.html"><span class="kw1942">std::<span class="me2">ctype</span></span></a><span class="sy1">&lt;</span>CharT<span class="sy1">&gt;&gt;</span><span class="br0">(</span>loc<span class="br0">)</span>.<span class="me1">is</span><span class="br0">(</span><a href="cpp-locale-ctype_base.html"><span class="kw1916">std::<span class="me2">ctype_base</span><span class="sy4">::</span><span class="me2">blank</span></span></a>, ch<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<p>&#28436;&#31034;&#20197;&#19981;&#21516;&#26412;&#22320;&#29615;&#22659;&#20351;&#29992; <code>isblank()</code>&#65288;OS &#38480;&#23450;&#65289;</p>
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;locale&gt;</span>
+ 
+<span class="kw4">void</span> try_with<span class="br0">(</span><span class="kw4">wchar_t</span> c, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> loc<span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1763">std::<span class="me2">wcout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;isblank(&#39;&quot;</span> <span class="sy1">&lt;&lt;</span> c <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#39;, locale(<span class="es1">\&quot;</span>&quot;</span> <span class="sy1">&lt;&lt;</span> loc <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;<span class="es1">\&quot;</span>)) &#36820;&#22238; &quot;</span> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-boolalpha.html"><span class="kw1768">std::<span class="me2">boolalpha</span></span></a>
+               <span class="sy1">&lt;&lt;</span> <a href="cpp-string-byte-isblank.html"><span class="kw3508">std::<span class="me2">isblank</span></span></a><span class="br0">(</span>c, <a href="cpp-locale-locale.html"><span class="kw1898">std::<span class="me2">locale</span></span></a><span class="br0">(</span>loc<span class="br0">)</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">const</span> <span class="kw4">wchar_t</span> IDEO_SPACE <span class="sy1">=</span> L<span class="st0">&#39;<span class="es3">\u3000</span>&#39;</span><span class="sy4">;</span> <span class="co1">// Unicode &#23383;&#31526;&lsquo;&#35937;&#24418;&#23383;&#38388;&#38548;&rsquo;</span>
+    try_with<span class="br0">(</span>IDEO_SPACE, <span class="st0">&quot;C&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    try_with<span class="br0">(</span>IDEO_SPACE, <span class="st0">&quot;en_US.UTF-8&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">isblank(&#39; &#39;, locale(&quot;C&quot;)) &#36820;&#22238; false
+isblank(&#39; &#39;, locale(&quot;en_US.UTF-8&quot;)) &#36820;&#22238; true</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-string-byte-isblank.html"><span class="t-lines"><span>isblank</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#23383;&#31526;&#26159;&#21542;&#20026;&#31354;&#30333;&#23383;&#31526;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-string-wide-iswblank.html"><span class="t-lines"><span>iswblank</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#23485;&#23383;&#31526;&#26159;&#21542;&#20026;&#31354;&#30333;&#23383;&#31526;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

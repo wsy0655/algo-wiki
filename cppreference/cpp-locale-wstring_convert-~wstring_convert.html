@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::wstring_convert&lt;Codecvt,Elem,Wide_alloc,Byte_alloc&gt;:: ~wstring_convert</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_locale_wstring_convert_wstring_convert skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::wstring_convert&lt;Codecvt,Elem,Wide_alloc,Byte_alloc&gt;::</span> ~wstring_convert</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-locale.html">locale</a>&lrm; | <a href="cpp-locale-wstring_convert.html">wstring convert</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi cpp source-cpp">~wstring_convert<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#38144;&#27585; <code>wstring_convert</code> &#23545;&#35937;&#24182;&#21024;&#38500; <code><i><a href="cpp-locale-wstring_convert.html#cvtptr">cvtptr</a></i></code>&#8202;&#65279;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#19968;&#20123;&#23454;&#29616;&#33021;&#21024;&#38500;&#20219;&#20309;&#21051;&#38754;&#65292;&#21253;&#21547;&#25317;&#26377;&#21463;&#20445;&#25252;&#26512;&#26500;&#20989;&#25968;&#30340;&#26412;&#22320;&#29615;&#22659;&#29305;&#26377;&#30340;&#21051;&#38754;&#12290;&#20854;&#20182;&#23454;&#29616;&#35201;&#27714;&#21051;&#38754;&#25317;&#26377;&#20844;&#24320;&#26512;&#26500;&#20989;&#25968;&#65292;&#31867;&#20284;&#20110; <a href="cpp-header-codecvt.html"><tt>&lt;codecvt&gt;</tt></a> &#30340;&#26412;&#22320;&#29615;&#22659;&#29420;&#31435;&#24179;&#38754;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;codecvt&gt;</span>
+<span class="co2">#include &lt;locale&gt;</span>
+<span class="co2">#include &lt;utility&gt;</span>
+ 
+<span class="co1">// &#21253;&#35013; wstring/wbuffer_convert &#25152;&#29992;&#30340;&#32465;&#23450;&#26412;&#22320;&#29615;&#22659;&#24179;&#38754;&#30340;&#24037;&#20855;</span>
+<span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Facet<span class="sy1">&gt;</span>
+<span class="kw1">struct</span> deletable_facet <span class="sy4">:</span> Facet
+<span class="br0">{</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span>... <span class="me1">Args</span><span class="sy1">&gt;</span>
+    deletable_facet<span class="br0">(</span>Args<span class="sy3">&amp;&amp;</span>... <span class="me1">args</span><span class="br0">)</span> <span class="sy4">:</span> Facet<span class="br0">(</span><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span>args<span class="br0">)</span>...<span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+    ~deletable_facet<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="co1">// GB18030 / UCS4 &#36716;&#25442;&#65292;&#30452;&#25509;&#20351;&#29992;&#22522;&#20110;&#26412;&#22320;&#29615;&#22659;&#30340;&#21051;&#38754;</span>
+    <span class="co1">// typedef std::codecvt_byname&lt;char32_t, char, std::mbstate_t&gt; gbfacet_t;</span>
+    <span class="co1">// &#32534;&#35793;&#38169;&#35823;&#65306;&quot;calling a protected destructor of codecvt_byname&lt;&gt; in ~wstring_convert&quot;</span>
+    <span class="co1">// std::wstring_convert&lt;gbfacet_t&gt; gbto32(new gbfacet_t(&quot;zh_CN.gb18030&quot;));</span>
+ 
+    <span class="co1">// GB18030 / UCS4 &#36716;&#25442;&#21051;&#38754;&#20351;&#29992;&#25317;&#26377;&#20844;&#24320;&#26512;&#26500;&#20989;&#25968;&#30340;&#21051;&#38754;</span>
+    <span class="kw1">typedef</span> deletable_facet<span class="sy1">&lt;</span><a href="cpp-locale-codecvt_byname.html"><span class="kw1980">std::<span class="me2">codecvt_byname</span></span></a><span class="sy1">&lt;</span><span class="kw4">char32_t</span>, <span class="kw4">char</span>, <a href="cpp-string-multibyte-mbstate_t.html"><span class="kw1182">std::<span class="me2">mbstate_t</span></span></a><span class="sy1">&gt;&gt;</span> gbfacet_t<span class="sy4">;</span>
+    <a href="cpp-locale-wstring_convert.html"><span class="kw1903">std::<span class="me2">wstring_convert</span></span></a><span class="sy1">&lt;</span>gbfacet_t<span class="sy1">&gt;</span> gbto32<span class="br0">(</span>new gbfacet_t<span class="br0">(</span><span class="st0">&quot;zh_CN.gb18030&quot;</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span> <span class="co1">// &#26512;&#26500;&#20989;&#25968;&#20250;&#22312;&#36825;&#37324;&#35843;&#29992;</span></pre></div>
+</div>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

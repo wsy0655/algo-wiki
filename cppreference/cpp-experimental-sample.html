@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::experimental::sample</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_experimental_sample skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::experimental::</span>sample</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-experimental.html">experimental</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="https://zh.cppreference.com/mwiki/index.php?title=cpp/header/experimental/algorithm&amp;action=edit&amp;redlink=1" class="new" title="cpp/header/experimental/algorithm&#65288;&#39029;&#38754;&#19981;&#23384;&#22312;&#65289;">&lt;experimental/algorithm&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-libfund_ts">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> PopulationIterator, <span class="kw1">class</span> SampleIterator,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span> Distance, <span class="kw1">class</span> URBG <span class="sy1">&gt;</span><br />
+SampleIterator sample<span class="br0">(</span> PopulationIterator first, PopulationIterator last,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SampleIterator out, Distance n,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;URBG<span class="sy3">&amp;&amp;</span> g <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-libfund-ts t-mark-ts" style="white-space: nowrap;">(&#24211;&#22522;&#30784; TS)</span></td>
+</tr>
+<tr class="t-dcl t-since-libfund_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> PopulationIterator, <span class="kw1">class</span> SampleIterator, <span class="kw1">class</span> Distance <span class="sy1">&gt;</span><br /></span>
+<p>SampleIterator sample<span class="br0">(</span> PopulationIterator first, PopulationIterator last,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SampleIterator out, Distance n <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-libfund-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24211;&#22522;&#30784; TS v2)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#20174;&#24207;&#21015; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">first</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">last</span></span><code>)</code> &#20013;&#36873;&#25321; <span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span> &#20010;&#20803;&#32032;&#65292;&#20351;&#24471;&#27599;&#20010;&#20803;&#32032;&#25317;&#26377;&#30456;&#31561;&#30340;&#20986;&#29616;&#27010;&#29575;&#65292;&#24182;&#20889;&#20837;&#34987;&#36873;&#25321;&#20803;&#32032;&#21040;&#36755;&#20986;&#36845;&#20195;&#22120; <span class="t-c"><span class="mw-geshi cpp source-cpp">out</span></span>&#12290;</p>
+<p>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span> &#22823;&#20110;&#24207;&#21015;&#20013;&#30340;&#20803;&#32032;&#25968;&#65292;&#21017;&#36873;&#25321; <span class="t-c"><span class="mw-geshi cpp source-cpp">last <span class="sy2">-</span> first</span></span> &#20010;&#20803;&#32032;&#12290;</p>
+<p>&#20165;&#33509; <code>PopulationIterator</code> &#28385;&#36275;<a href="cpp-named_req-ForwardIterator.html">&#21521;&#21069;&#36845;&#20195;&#22120;</a>&#30340;&#35201;&#27714;&#65292;&#31639;&#27861;&#25165;&#31283;&#23450;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#29992;&#38543;&#26426;&#25968;&#29983;&#25104;&#22120; <span class="t-c"><span class="mw-geshi cpp source-cpp">g</span></span> &#29983;&#25104;&#38543;&#26426;&#25968;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#29992;<a href="cpp-experimental-lib_extensions_2.html#.E7.AE.80.E5.8D.95.E7.9A.84.E9.9A.8F.E6.9C.BA.E6.95.B0.E7.94.9F.E6.88.90.E8.AE.BE.E6.96.BD">&#36880;&#32447;&#31243;&#24341;&#25806;</a>&#29983;&#25104;&#38543;&#26426;&#25968;&#12290;</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>first, last</td>
+<td>-</td>
+<td>&#25351;&#31034;&#20174;&#20013;&#25277;&#26679;&#30340;&#33539;&#22260;&#65288;&#24635;&#20307;&#65289;&#30340;&#19968;&#23545;&#36845;&#20195;&#22120;</td>
+</tr>
+<tr class="t-par">
+<td>out</td>
+<td>-</td>
+<td>&#35201;&#20889;&#20837;&#26679;&#26412;&#21040;&#20854;&#20013;&#30340;&#36755;&#20986;&#36845;&#20195;&#22120;&#12290;&#24517;&#39035;&#19981;&#22312; <span class="texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">[first;last)</span> &#33539;&#22260;&#20013;</td>
+</tr>
+<tr class="t-par">
+<td>n</td>
+<td>-</td>
+<td>&#26679;&#26412;&#25968;</td>
+</tr>
+<tr class="t-par">
+<td>g</td>
+<td>-</td>
+<td>&#29992;&#20316;&#38543;&#26426;&#28304;&#30340;&#38543;&#26426;&#25968;&#29983;&#25104;&#22120;</td>
+</tr>
+<tr class="t-par-req">
+<td colspan="3">-
+<div class="spacer"></div>
+<code>PopulationIterator</code> &#24517;&#39035;&#28385;&#36275;<a href="cpp-named_req-InputIterator.html"><span style="font-style:italic">&#32769;&#24335;&#36755;&#20837;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyInputIterator)</span></a> &#12290;</td>
+</tr>
+<tr class="t-par-req">
+<td colspan="3">-
+<div class="spacer"></div>
+<code>SampleIterator</code> &#24517;&#39035;&#28385;&#36275;<a href="cpp-named_req-OutputIterator.html"><span style="font-style:italic">&#32769;&#24335;&#36755;&#20986;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyOutputIterator)</span></a> &#12290;</td>
+</tr>
+<tr class="t-par-req">
+<td colspan="3">-
+<div class="spacer"></div>
+&#33509; <code>PopulationIterator</code> &#19981;&#28385;&#36275;<a href="cpp-named_req-ForwardIterator.html">&#21521;&#21069;&#36845;&#20195;&#22120;</a>&#65292;&#21017; <code>SampleIterator</code> &#24517;&#39035;&#20134;&#28385;&#36275;<a href="cpp-named_req-RandomAccessIterator.html">&#38543;&#26426;&#35775;&#38382;&#36845;&#20195;&#22120;</a>&#30340;&#35201;&#27714;</td>
+</tr>
+<tr class="t-par-req">
+<td colspan="3">-
+<div class="spacer"></div>
+<code>PopulationIterator</code> &#30340; value_type &#24517;&#39035;&#21487;&#20889;&#20837;&#21040; <code>out</code></td>
+</tr>
+<tr class="t-par-req">
+<td colspan="3">-
+<div class="spacer"></div>
+<code>Distance</code> &#24517;&#39035;&#20026;&#25972;&#25968;&#31867;&#22411;</td>
+</tr>
+<tr class="t-par-req">
+<td colspan="3">-
+<div class="spacer"></div>
+<code>URBG</code> &#24517;&#39035;&#28385;&#36275;<a href="cpp-named_req-UniformRandomBitGenerator.html">&#22343;&#21248;&#38543;&#26426;&#20301;&#29983;&#25104;&#22120;</a>&#30340;&#35201;&#27714;&#65292;&#32780;&#20854;&#36820;&#22238;&#31867;&#22411;&#24517;&#39035;&#21487;&#36716;&#25442;&#20026; <code>Distance</code></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#36820;&#22238;&#36755;&#20986;&#30340;&#26368;&#21518;&#26679;&#26412;&#21518;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">out</span></span> &#30340;&#21103;&#26412;&#65292;&#21363;&#26679;&#26412;&#33539;&#22260;&#30340;&#26411;&#23614;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<p>&#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-distance.html"><span class="kw676">std::<span class="me2">distance</span></span></a><span class="br0">(</span>first,last<span class="br0">)</span></span></span> &#25104;&#32447;&#24615;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#27492;&#20989;&#25968;&#21487;&#20197;&#23454;&#29616;&#36873;&#25321;&#25277;&#26679;&#25110;&#33988;&#27700;&#27744;&#25277;&#26679;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;experimental/algorithm&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;iterator&gt;</span>
+<span class="co2">#include &lt;random&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a> in <span class="sy1">=</span> <span class="st0">&quot;abcdefgh&quot;</span>, out<span class="sy4">;</span>
+    std<span class="sy4">::</span><span class="me2">experimental</span><span class="sy4">::</span><span class="me2">sample</span><span class="br0">(</span>in.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, in.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>, <a href="cpp-iterator-back_inserter.html"><span class="kw668">std::<span class="me2">back_inserter</span></span></a><span class="br0">(</span>out<span class="br0">)</span>,
+                              <span class="nu0">5</span>, <a href="cpp-numeric-random-mersenne_twister_engine.html"><span class="kw1492">std::<span class="me2">mt19937</span></span></a><span class="br0">{</span><a href="cpp-numeric-random-random_device.html"><span class="kw1489">std::<span class="me2">random_device</span></span></a><span class="br0">{</span><span class="br0">}</span><span class="br0">(</span><span class="br0">)</span><span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;five random letters out of &quot;</span> <span class="sy1">&lt;&lt;</span> in <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; : &quot;</span> <span class="sy1">&lt;&lt;</span> out <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">five random letters out of abcdefgh : cdefg</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-random_shuffle.html"><span class="t-lines"><span>random_shuffle</span><span>shuffle</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-until-cxx17" style="white-space: nowrap;">(C++17 &#21069;)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#38543;&#26426;&#37325;&#25490;&#33539;&#22260;&#20013;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

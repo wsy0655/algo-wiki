@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::ranges::common_view&lt;V&gt;::base</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_ranges_common_view_base skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::ranges::common_view&lt;V&gt;::</span>base</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-ranges.html">ranges</a>&lrm; | <a href="cpp-ranges-common_view.html">common view</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> V base<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span><span class="sy3">&amp;</span> requires <a href="cpp-concepts-copy_constructible.html"><span class="kw2949">std::<span class="me2">copy_constructible</span></span></a><span class="sy1">&lt;</span>V<span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> V base<span class="br0">(</span><span class="br0">)</span> <span class="sy3">&amp;&amp;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36820;&#22238;&#24213;&#23618;&#35270;&#22270;&#30340;&#21103;&#26412;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#20174;&#24213;&#23618;&#35270;&#22270;&#22797;&#21046;&#26500;&#36896;&#32467;&#26524;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#20174;&#24213;&#23618;&#35270;&#22270;&#31227;&#21160;&#26500;&#36896;&#32467;&#26524;&#12290;</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#24213;&#23618;&#35270;&#22270;&#30340;&#21103;&#26412;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;ranges&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a> str <span class="br0">{</span> <span class="st0">&quot;C++20&quot;</span> <span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw4">auto</span> view <span class="sy1">=</span> std<span class="sy4">::</span><a href="cpp-ranges-common_view.html"><span class="kw3113">views::<span class="me2">common</span></span></a><span class="br0">(</span>str<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a> copy_of_str <span class="sy1">=</span> view.<span class="me1">base</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;copy of str: [&quot;</span> <span class="sy1">&lt;&lt;</span> copy_of_str <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;]<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;view.base(): [&quot;</span> <span class="sy1">&lt;&lt;</span> view.<span class="me1">base</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;]<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+ 
+    <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a> move_str <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>view.<span class="me1">base</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;moved str:   [&quot;</span> <span class="sy1">&lt;&lt;</span> move_str <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;]<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;view.base(): [&quot;</span> <span class="sy1">&lt;&lt;</span> view.<span class="me1">base</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;]<span class="es1">\n</span>&quot;</span><span class="sy4">;</span> <span class="co1">// &#26410;&#25351;&#23450;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">copy of str: [C++20]
+view.base(): [C++20]
+moved str:   [C++20]
+view.base(): []</pre></div>
+</div>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

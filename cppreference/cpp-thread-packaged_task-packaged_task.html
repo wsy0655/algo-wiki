@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::packaged_task&lt;R(Args...)&gt;::packaged_task</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_thread_packaged_task_packaged_task skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::packaged_task&lt;R(Args...)&gt;::</span>packaged_task</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-thread.html">thread</a>&lrm; | <a href="cpp-thread-packaged_task.html">packaged task</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp">packaged_task<span class="br0">(</span><span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> F <span class="sy1">&gt;</span><br />
+<span class="kw1">explicit</span> packaged_task<span class="br0">(</span> F<span class="sy3">&amp;&amp;</span> f <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx11 t-until-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> F, <span class="kw1">class</span> Allocator <span class="sy1">&gt;</span><br />
+<span class="kw1">explicit</span> packaged_task<span class="br0">(</span> <a href="cpp-memory-allocator_arg.html"><span class="kw704">std::<span class="me2">allocator_arg_t</span></span></a>, <span class="kw4">const</span> Allocator<span class="sy3">&amp;</span> a, F<span class="sy3">&amp;&amp;</span> f <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span><br />
+<span class="t-mark-rev t-until-cxx17" style="white-space: nowrap;">(C++17 &#21069;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp">packaged_task<span class="br0">(</span> <span class="kw4">const</span> packaged_task<span class="sy3">&amp;</span> <span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span></span></div>
+</td>
+<td>(4)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp">packaged_task<span class="br0">(</span> packaged_task<span class="sy3">&amp;&amp;</span> rhs <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(5)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#26500;&#36896;&#26032;&#30340; <code>std::packaged_task</code> &#23545;&#35937;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#26500;&#36896;&#26080;&#20219;&#21153;&#19988;&#26080;&#20849;&#20139;&#29366;&#24577;&#30340; <code>std::packaged_task</code> &#23545;&#35937;&#12290;</div>
+<div class="t-li1"><span class="t-li">2,3)</span> &#26500;&#36896;&#25317;&#26377; <span class="mw-geshi cpp source-cpp"><a href="cpp-types-decay.html"><span class="kw631">std::<span class="me2">decay</span></span></a><span class="sy1">&lt;</span>F<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">type</span></span> &#31867;&#22411;&#20219;&#21153;&#21644;&#20849;&#20139;&#29366;&#24577;&#30340; <code>std::packaged_task</code> &#23545;&#35937;&#65292;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>F<span class="sy1">&gt;</span><span class="br0">(</span>f<span class="br0">)</span></span></span> &#21021;&#22987;&#21270;&#20219;&#21153;&#24182;&#23384;&#20648;&#12290;
+<table class="t-rev-begin">
+<tr class="t-rev t-until-cxx20">
+<td>
+<p>&#36825;&#20123;&#37325;&#36733;&#21482;&#26377;&#22312;<span class="mw-geshi cpp source-cpp"><a href="cpp-types-decay.html"><span class="kw631">std::<span class="me2">decay</span></span></a><span class="sy1">&lt;</span>F<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">type</span></span> &#21644; <span class="mw-geshi cpp source-cpp"><a href="cpp-thread-packaged_task.html"><span class="kw2186">std::<span class="me2">packaged_task</span></span></a><span class="sy1">&lt;</span>R<span class="br0">(</span>Args...<span class="br0">)</span><span class="sy1">&gt;</span></span> &#19981;&#26159;&#21516;&#19968;&#31867;&#22411;&#26102;&#25165;&#20250;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#12290;</p>
+<p>&#35774; <span class="t-c"><span class="mw-geshi cpp source-cpp">t1</span></span>&#12289;<span class="t-c"><span class="mw-geshi cpp source-cpp">t2</span></span>&#12289;...&#12289;<span class="t-c"><span class="mw-geshi cpp source-cpp">tN</span></span> &#20026; <code>Args</code> &#20013;&#23545;&#24212;&#31867;&#22411;&#30340;&#20540;&#65292;&#22914;&#26524; <span class="t-c"><a href="cpp-utility-functional.html"><tt><i>INVOKE&lt;R&gt;</i></tt></a><span class="mw-geshi cpp source-cpp"><span class="br0">(</span>f, t1, t2, ..., tN<span class="br0">)</span></span></span> &#19981;&#26159;&#21512;&#27861;&#30340;&#34920;&#36798;&#24335;&#65292;&#37027;&#20040;&#31243;&#24207;&#38750;&#33391;&#26500;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#21069;)</span></td>
+</tr>
+<tr class="t-rev t-since-cxx20">
+<td>
+<p>&#27492;&#37325;&#36733;&#21482;&#26377;&#22312;<span class="mw-geshi cpp source-cpp"><a href="cpp-types-remove_cvref.html"><span class="kw2644">std::<span class="me2">remove_cvref_t</span></span></a><span class="sy1">&lt;</span>F<span class="sy1">&gt;</span></span> &#21644; <span class="mw-geshi cpp source-cpp"><a href="cpp-thread-packaged_task.html"><span class="kw2186">std::<span class="me2">packaged_task</span></span></a><span class="sy1">&lt;</span>R<span class="br0">(</span>Args...<span class="br0">)</span><span class="sy1">&gt;</span></span> &#19981;&#26159;&#21516;&#19968;&#31867;&#22411;&#26102;&#25165;&#20250;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#12290;</p>
+<p>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_invocable.html"><span class="kw2716">std::<span class="me2">is_invocable_r_v</span></span></a><span class="sy1">&lt;</span>R, <a href="cpp-types-decay.html"><span class="kw632">std::<span class="me2">decay_t</span></span></a><span class="sy1">&lt;</span>F<span class="sy1">&gt;</span><span class="sy3">&amp;</span>, Args...<span class="sy1">&gt;</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#65292;&#37027;&#20040;&#31243;&#24207;&#38750;&#33391;&#26500;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+</table>
+</div>
+<div class="t-li2"><span class="t-li">3)</span> &#29992;&#20998;&#37197;&#22120; <span class="t-c"><span class="mw-geshi cpp source-cpp">a</span></span> &#20998;&#37197;&#23384;&#20648;&#20219;&#21153;&#25152;&#38656;&#30340;&#20869;&#23384;&#12290;</div>
+<div class="t-li1"><span class="t-li">4)</span> &#22797;&#21046;&#26500;&#36896;&#20989;&#25968;&#34987;&#24323;&#32622;&#65292;<code>std::packaged_task</code> &#21482;&#33021;&#31227;&#21160;&#12290;</div>
+<div class="t-li1"><span class="t-li">5)</span> &#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">rhs</span></span> &#20043;&#21069;&#25152;&#21344;&#26377;&#30340;&#20849;&#20139;&#29366;&#24577;&#21644;&#20219;&#21153;&#26500;&#36896; <code>std::packaged_task</code>&#65292;&#20196; <span class="t-c"><span class="mw-geshi cpp source-cpp">rhs</span></span> &#30041;&#22312;&#26080;&#20849;&#20139;&#29366;&#24577;&#19988;&#25317;&#26377;&#34987;&#31227;&#21160;&#21518;&#30340;&#20219;&#21153;&#30340;&#29366;&#24577;&#12290;</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>f</td>
+<td>-</td>
+<td>&#35201;&#25191;&#34892;&#30340;&#21487;&#35843;&#29992;&#30446;&#26631;</td>
+</tr>
+<tr class="t-par">
+<td>a</td>
+<td>-</td>
+<td>&#23384;&#20648;&#20219;&#21153;&#26102;&#25152;&#29992;&#30340;&#20998;&#37197;&#22120;</td>
+</tr>
+<tr class="t-par">
+<td>rhs</td>
+<td>-</td>
+<td>&#35201;&#20174;&#20043;&#31227;&#21160;&#30340; <code>std::packaged_task</code></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<div class="t-li1"><span class="t-li">2)</span> <span class="t-c"><span class="mw-geshi cpp source-cpp">f</span></span> &#30340;&#22797;&#21046;/&#31227;&#21160;&#26500;&#36896;&#20989;&#25968;&#25152;&#25243;&#30340;&#20219;&#20309;&#24322;&#24120;&#65292;&#22312;&#20869;&#23384;&#20998;&#37197;&#22833;&#36133;&#26102;&#21487;&#33021;&#26159; <span class="t-lc"><a href="cpp-memory-new-bad_alloc.html">std::bad_alloc</a></span>&#12290;</div>
+<div class="t-li1"><span class="t-li">3)</span> <span class="t-c"><span class="mw-geshi cpp source-cpp">f</span></span> &#30340;&#22797;&#21046;/&#31227;&#21160;&#26500;&#36896;&#20989;&#25968;&#65292;&#22312;&#20869;&#23384;&#20998;&#37197;&#22833;&#36133;&#26102;&#26377;&#20998;&#37197;&#22120;&#30340; <code>allocate</code> &#20989;&#25968;&#25152;&#25243;&#30340;&#20219;&#20309;&#24322;&#24120;&#12290;</div>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;future&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;thread&gt;</span>
+ 
+<span class="kw4">int</span> fib<span class="br0">(</span><span class="kw4">int</span> n<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">if</span> <span class="br0">(</span>n <span class="sy1">&lt;</span> <span class="nu0">3</span><span class="br0">)</span>
+        <span class="kw1">return</span> <span class="nu0">1</span><span class="sy4">;</span>
+    <span class="kw1">else</span>
+        <span class="kw1">return</span> fib<span class="br0">(</span>n <span class="sy2">-</span> <span class="nu0">1</span><span class="br0">)</span> <span class="sy2">+</span> fib<span class="br0">(</span>n <span class="sy2">-</span> <span class="nu0">2</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-thread-packaged_task.html"><span class="kw2186">std::<span class="me2">packaged_task</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="br0">(</span><span class="kw4">int</span><span class="br0">)</span><span class="sy1">&gt;</span> fib_task<span class="br0">(</span><span class="sy3">&amp;</span>fib<span class="br0">)</span><span class="sy4">;</span> 
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#24320;&#22987;&#20219;&#21153;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    <span class="kw4">auto</span> result <span class="sy1">=</span> fib_task.<span class="me1">get_future</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-thread-thread.html"><span class="kw2150">std::<span class="me2">thread</span></span></a> t<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>fib_task<span class="br0">)</span>, <span class="nu0">42</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#31561;&#24453;&#20219;&#21153;&#32467;&#26463;...&quot;</span> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-endl.html"><span class="kw1795">std::<span class="me2">endl</span></span></a><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> result.<span class="me1">get</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#20219;&#21153;&#23436;&#25104;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    t.<span class="me1">join</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#24320;&#22987;&#20219;&#21153;
+&#31561;&#24453;&#20219;&#21153;&#32467;&#26463;...
+267914296
+&#20219;&#21153;&#23436;&#25104;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue2067">LWG 2067</a></td>
+<td>C++11</td>
+<td>&#22797;&#21046;&#26500;&#36896;&#20989;&#25968;&#30340;&#21442;&#25968;&#31867;&#22411;&#26159; <code>packaged_task&amp;</code></td>
+<td>&#28155;&#21152; <span class="mw-geshi cpp source-cpp"><span class="kw4">const</span></span></td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue2097">LWG 2097</a></td>
+<td>C++11</td>
+<td>&#23545;&#20110;&#37325;&#36733; <span class="t-v">(2,3)</span>&#65292;<code>F</code> &#21487;&#20197;&#26159; <span class="t-lc">std::packaged_task&lt;R(Args...)&gt;</span></td>
+<td>&#23545; <code>F</code> &#36827;&#34892;&#32422;&#26463;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue4154">LWG 4154</a></td>
+<td>C++11</td>
+<td>&#37325;&#36733; <span class="t-v">(2,3)</span> &#26410;&#32771;&#34385;&#36864;&#21270;</td>
+<td>&#32771;&#34385;&#36864;&#21270;</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

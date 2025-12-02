@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ctime, ctime_s</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_chrono_ctime skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">ctime, ctime_s</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-chrono.html">chrono</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-time.html"><tt>&lt;time.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+<tbody class="t-dcl-rev t-dcl-rev-num">
+<tr class="t-dcl-rev-aux">
+<td></td>
+<td rowspan="142">(1)</td>
+<td></td>
+</tr>
+<tr class="t-dcl t-until-c23">
+<td>
+<div><span id=".E7.89.88.E6.9C.AC_1"></span><span class="mw-geshi c source-c"><span class="kw4">char</span><span class="sy2">*</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ctime<span class="br0">(</span> <span class="kw4">const</span> <a href="c-chrono-time_t.html"><span class="kw523">time_t</span></a><span class="sy2">*</span> timer <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-until-c23" style="white-space: nowrap;">(C23 &#21069;)</span></td>
+</tr>
+<tr class="t-dcl t-since-c23">
+<td>
+<div><span class="mw-geshi c source-c"><span class="br0">[</span><span class="br0">[</span>deprecated<span class="br0">]</span><span class="br0">]</span> <span class="kw4">char</span><span class="sy2">*</span> ctime<span class="br0">(</span> <span class="kw4">const</span> <a href="c-chrono-time_t.html"><span class="kw523">time_t</span></a><span class="sy2">*</span> timer <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-c23" style="white-space: nowrap;">(C23 &#36215;)</span></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="t-dcl t-since-c11">
+<td>
+<div><span class="mw-geshi c source-c">errno_t ctime_s<span class="br0">(</span> <span class="kw4">char</span> <span class="sy2">*</span>buf, rsize_t bufsz, <span class="kw4">const</span> <a href="c-chrono-time_t.html"><span class="kw523">time_t</span></a><span class="sy2">*</span> timer <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#36716;&#25442;&#20174;&#32426;&#20803;&#36215;&#30340;&#32473;&#23450;&#26102;&#38388;&#20026;&#21382;&#27861;&#26412;&#22320;&#26102;&#38388;&#65292;&#20877;&#36716;&#25442;&#20026;&#25991;&#26412;&#34920;&#31034;&#65292;&#22914;&#21516;&#36890;&#36807;&#35843;&#29992; <span class="t-c"><span class="mw-geshi c source-c"><a href="c-chrono-asctime.html"><span class="kw515">asctime</span></a><span class="br0">(</span><a href="c-chrono-localtime.html"><span class="kw519">localtime</span></a><span class="br0">(</span>timer<span class="br0">)</span><span class="br0">)</span></span></span><span class="t-rev-inl t-since-c23"><span>&#25110; <span class="t-c"><span class="mw-geshi c source-c"><a href="c-chrono-asctime.html"><span class="kw515">asctime</span></a><span class="br0">(</span>localtime_r<span class="br0">(</span>timer, <span class="sy3">&amp;</span><span class="br0">(</span><span class="kw1">struct</span> <a href="c-chrono-tm.html"><span class="kw522">tm</span></a><span class="br0">)</span><span class="br0">{</span><span class="nu0">0</span><span class="br0">}</span><span class="br0">)</span><span class="br0">)</span></span></span></span><span><span class="t-mark-rev t-since-c23" style="white-space: nowrap;">(C23 &#36215;)</span></span></span> &#12290;<span class="t-rev-inl t-since-c23"><span>&#27492;&#20989;&#25968;&#34987;&#24323;&#29992;&#65292;&#20174;&#32780;&#19981;&#24212;&#34987;&#29992;&#20110;&#26032;&#30340;&#20195;&#30721;&#12290;</span><span><span class="t-mark-rev t-since-c23" style="white-space: nowrap;">(C23 &#36215;)</span></span></span></div>
+<div class="t-li1"><span class="t-li">2)</span> &#21516; <span class="t-v">(1)</span> &#65292;&#38500;&#20102;&#20989;&#25968;&#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi c source-c">asctime_s<span class="br0">(</span>buf, bufsz, localtime_s<span class="br0">(</span>timer, <span class="sy3">&amp;</span><span class="br0">(</span><span class="kw1">struct</span> <a href="c-chrono-tm.html"><span class="kw522">tm</span></a><span class="br0">)</span><span class="br0">{</span><span class="nu0">0</span><span class="br0">}</span><span class="br0">)</span><span class="br0">)</span></span></span> &#12290;&#24182;&#22312;&#36816;&#34892;&#26102;&#26816;&#27979;&#19979;&#21015;&#38169;&#35823;&#24182;&#35843;&#29992;&#24403;&#21069;&#23433;&#35013;&#30340;<a href="c-error-set_constraint_handler_s.html">&#21046;&#32422;&#22788;&#29702;</a>&#20989;&#25968;&#65306;
+<dl>
+<dd>
+<ul>
+<li><code>buf</code> &#25110; <code>timer</code> &#20026;&#31354;&#25351;&#38024;</li>
+<li><code>bufsz</code> &#23567;&#20110; <span class="t-c"><span class="mw-geshi c source-c"><span class="nu0">26</span></span></span> &#25110;&#22823;&#20110; <span class="t-lc">RSIZE_MAX</span></li>
+</ul>
+</dd>
+<dd>&#21516;&#25152;&#26377;&#36793;&#30028;&#26816;&#26597;&#20989;&#25968;&#65292;<code>ctime_s</code>&#65292;&#20165;&#33509;&#23454;&#29616;&#23450;&#20041; <span class="t-c"><span class="mw-geshi c source-c">__STDC_LIB_EXT1__</span></span> &#19988;&#29992;&#25143;&#22312;&#21253;&#21547; <a href="c-header-time.html"><tt>&lt;time.h&gt;</tt></a> &#21069;&#23450;&#20041; <span class="t-c"><span class="mw-geshi c source-c">__STDC_WANT_LIB_EXT1__</span></span> &#20026;&#25972;&#25968;&#24120;&#37327; 1 &#25165;&#20445;&#35777;&#21487;&#29992;&#12290;</dd>
+</dl>
+</div>
+<p>&#32467;&#26524;&#23383;&#31526;&#20018;&#25317;&#26377;&#19979;&#21015;&#26684;&#24335;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1">Www Mmm dd hh<span class="sy4">:</span>mm<span class="sy4">:</span>ss yyyy\n</pre></div>
+</div>
+<ul>
+<li><code>Www</code> &mdash;&mdash;&#26143;&#26399;&#65288; <code>Mon</code> &#12289; <code>Tue</code> &#12289; <code>Wed</code> &#12289; <code>Thu</code> &#12289; <code>Fri</code> &#12289; <code>Sat</code> &#12289; <code>Sun</code> &#20043;&#19968;&#65289;&#12290;</li>
+<li><code>Mmm</code> &mdash;&mdash;&#26376;&#20221;&#65288; <code>Jan</code> &#12289; <code>Feb</code> &#12289; <code>Mar</code> &#12289; <code>Apr</code> &#12289; <code>May</code> &#12289; <code>Jun</code> &#12289; <code>Jul</code> &#12289; <code>Aug</code> &#12289; <code>Sep</code> &#12289; <code>Oct</code> &#12289; <code>Nov</code> &#12289; <code>Dec</code> &#20043;&#19968;&#65289;&#12290;</li>
+<li><code>dd</code> &mdash;&mdash;&#26376;&#20043;&#26085;</li>
+<li><code>hh</code> &mdash;&mdash;&#26102;</li>
+<li><code>mm</code> &mdash;&mdash;&#20998;</li>
+<li><code>ss</code> &mdash;&mdash;&#31186;</li>
+<li><code>yyyy</code> &mdash;&mdash;&#24180;</li>
+</ul>
+<p>&#20989;&#25968;&#19981;&#25903;&#25345;&#26412;&#22320;&#21270;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>timer</td>
+<td>-</td>
+<td>&#25351;&#21521;&#25351;&#23450;&#24453;&#25171;&#21360;&#26102;&#38388;&#30340; <span class="t-lc"><a href="c-chrono-time_t.html">time_t</a></span> &#23545;&#35937;&#30340;&#25351;&#38024;</td>
+</tr>
+<tr class="t-par">
+<td>buf</td>
+<td>-</td>
+<td>&#25351;&#21521;&#22823;&#23567;&#33267;&#23569;&#20026; <code>bufsz</code> &#30340; char &#25968;&#32452;&#39318;&#20803;&#32032;&#30340;&#25351;&#38024;</td>
+</tr>
+<tr class="t-par">
+<td>bufsz</td>
+<td>-</td>
+<td>&#36755;&#20986;&#30340;&#26368;&#22823;&#23383;&#33410;&#25968;&#65292;&#24120;&#20026; <code>buf</code> &#25152;&#25351;&#21521;&#30340;&#32531;&#20914;&#21306;&#30340;&#22823;&#23567;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<div class="t-li1"><span class="t-li">1)</span> &#25351;&#21521;&#20445;&#26377;&#26085;&#26399;&#19982;&#26102;&#38388;&#30340;&#25991;&#26412;&#34920;&#31034;&#30340;&#38745;&#24577;&#31354;&#32456;&#27490;&#23383;&#31526;&#20018;&#30340;&#25351;&#38024;&#12290;&#35813;&#23383;&#31526;&#20018;&#21487;&#33021;&#22312; <span class="t-lc"><a href="c-chrono-asctime.html">asctime</a></span> &#19982; <code>ctime</code> &#20043;&#38388;&#20849;&#20139;&#65292;&#19988;&#21487;&#33021;&#22312;&#27599;&#27425;&#35843;&#29992;&#20219;&#20309;&#36825;&#20123;&#20989;&#25968;&#26102;&#34987;&#37325;&#20889;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#25104;&#21151;&#26102;&#20026;&#38646;&#65288;&#35813;&#24773;&#20917;&#19979;&#23558;&#26085;&#26399;&#19982;&#26102;&#38388;&#30340;&#23383;&#31526;&#20018;&#34920;&#31034;&#20889;&#21040; <code>buf</code> &#25152;&#25351;&#21521;&#30340;&#25968;&#32452;&#65289;&#65292;&#25110;&#22312;&#22833;&#36133;&#26102;&#20026;&#38750;&#38646;&#65288;&#35813;&#24773;&#20917;&#19979;&#22987;&#32456;&#20889;&#20837;&#31354;&#32456;&#27490;&#23383;&#31526;&#21040; <span class="t-c"><span class="mw-geshi c source-c">buf<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span></span></span> &#65292;&#38500;&#38750; <code>buf</code> &#20026;&#31354;&#25351;&#38024;&#25110; <code>bufsz</code> &#20026;&#38646;&#25110;&#22823;&#20110; <span class="t-lc">RSIZE_MAX</span> &#65289;&#12290;</div>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p><code>ctime</code> &#36820;&#22238;&#25351;&#21521;&#38745;&#24577;&#25968;&#25454;&#30340;&#25351;&#38024;&#19988;&#38750;&#32447;&#31243;&#23433;&#20840;&#12290;&#21478;&#22806;&#65292;&#23427;&#20462;&#25913;&#21487;&#33021;&#19982; <span class="t-lc"><a href="c-chrono-gmtime.html">gmtime</a></span> &#21450; <span class="t-lc"><a href="c-chrono-localtime.html">localtime</a></span> &#20849;&#20139;&#30340;&#38745;&#24577; <span class="t-lc"><a href="c-chrono-tm.html">tm</a></span> &#23545;&#35937;&#12290; POSIX &#26631;&#35760;&#27492;&#20989;&#25968;&#20026;&#36807;&#26102;&#24182;&#25512;&#33616; <span class="t-lc"><a href="c-chrono-strftime.html">strftime</a></span> &#20195;&#26367;&#12290; C &#26631;&#20934;&#20134;&#25512;&#33616; <span class="t-lc"><a href="c-chrono-strftime.html">strftime</a></span> &#20195;&#26367; <code>ctime</code> &#21644; <code>ctime_s</code> &#65292;&#22240; <code>strftime</code> &#26356;&#28789;&#27963;&#19988;&#20026;&#26412;&#22320;&#29615;&#22659;&#30456;&#20851;&#12290;</p>
+<p><code>ctime</code> &#30340;&#34892;&#20026;&#23545;&#20110;&#23548;&#33268;&#23383;&#31526;&#20018;&#38271;&#20110; 25 &#23383;&#31526;&#30340; <span class="t-lc"><a href="c-chrono-time_t.html">time_t</a></span> &#20540;&#65288;&#20363;&#22914; 10000 &#24180;&#65289;&#26410;&#23450;&#20041;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#define __STDC_WANT_LIB_EXT1__ 1</span>
+<span class="co2">#include &lt;time.h&gt;</span>
+<span class="co2">#include &lt;stdio.h&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="c-chrono-time_t.html"><span class="kw523">time_t</span></a> result <span class="sy1">=</span> <a href="c-chrono-time.html"><span class="kw513">time</span></a><span class="br0">(</span><a href="c-types-NULL.html"><span class="kw103">NULL</span></a><span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;%s&quot;</span>, ctime<span class="br0">(</span><span class="sy3">&amp;</span>result<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+<span class="co2">#ifdef __STDC_LIB_EXT1__</span>
+    <span class="kw4">char</span> str<span class="br0">[</span><span class="nu0">26</span><span class="br0">]</span><span class="sy4">;</span>
+    ctime_s<span class="br0">(</span>str,<span class="kw4">sizeof</span> str,<span class="sy3">&amp;</span>result<span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;%s&quot;</span>, str<span class="br0">)</span><span class="sy4">;</span>
+<span class="co2">#endif</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">Tue May 26 21:51:03 2015
+Tue May 26 21:51:03 2015</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.27.3.2 The ctime function &#65288;&#31532; 287-288 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.8.2.2 The ctime_s function &#65288;&#31532; 454 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.27.3.2 The ctime function &#65288;&#31532; 393 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.8.2.2 The ctime_s function &#65288;&#31532; 626 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c99">
+<ul>
+<li>C99 &#26631;&#20934;&#65288;ISO/IEC 9899:1999&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.23.3.2 The ctime function &#65288;&#31532; 342 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c89">
+<ul>
+<li>C89/C90 &#26631;&#20934;&#65288;ISO/IEC 9899:1990&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>4.12.3.2 The ctime function</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-chrono-asctime.html"><span class="t-lines"><span>asctime</span><span>asctime_s</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-deprecated-c23" style="white-space: nowrap;">(C23 &#24323;&#29992;)</span></span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#23558; <code>struct tm</code> &#23545;&#35937;&#36716;&#25442;&#25104;&#25991;&#26412;&#34920;&#31034;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-chrono-strftime.html"><span class="t-lines"><span>strftime</span></span></a></div>
+</div>
+</td>
+<td>&#23558; <code>struct tm</code> &#23545;&#35937;&#36716;&#25442;&#25104;&#33258;&#23450;&#20041;&#25991;&#26412;&#34920;&#31034;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>ctime</span></span>&nbsp;&#30340; <span><span><a href="cpp-chrono-c-ctime.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

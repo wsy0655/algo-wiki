@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::recursive_timed_mutex::try_lock</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_thread_recursive_timed_mutex_try_lock skin-cppreference2 action-view cpp-page-template cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::recursive_timed_mutex::</span>try_lock</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-thread.html">thread</a>&lrm; | <a href="cpp-thread-recursive_timed_mutex.html">recursive timed mutex</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<div class="t-page-template" style="">
+<p></p>
+</div>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> try_lock<span class="br0">(</span><span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#23581;&#35797;&#38145;&#23450;&#20114;&#26021;&#20307;&#12290;&#31435;&#21363;&#36820;&#22238;&#12290;&#25104;&#21151;&#33719;&#24471;&#38145;&#26102;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#21542;&#21017;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#12290;</p>
+<p>&#20801;&#35768;&#27492;&#20989;&#25968;&#34394;&#20551;&#22320;&#22833;&#36133;&#32780;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#65292;&#21363;&#20351;&#20114;&#26021;&#20307;&#24403;&#21069;&#26410;&#34987;&#20219;&#20309;&#20854;&#20182;&#32447;&#31243;&#38145;&#23450;&#12290;</p>
+<p>&#32447;&#31243;&#21487;&#20197;&#37325;&#22797;&#35843;&#29992; <code>try_lock</code>&#12290;&#23545; <code>try_lock</code> &#30340;&#25104;&#21151;&#35843;&#29992;&#22686;&#21152;&#25152;&#26377;&#26435;&#35745;&#25968;&#65306;&#32447;&#31243;&#35843;&#29992; <span class="t-lc"><a href="cpp-thread-recursive_timed_mutex-unlock.html">unlock</a></span> &#21305;&#37197;&#27425;&#25968;&#21518;&#20114;&#26021;&#20307;&#25165;&#20250;&#24471;&#21040;&#37322;&#25918;&#12290;</p>
+<p>&#25152;&#26377;&#26435;&#23618;&#25968;&#30340;&#26368;&#22823;&#20540;&#26159;&#26410;&#25351;&#23450;&#30340;&#12290;&#33509;&#36229;&#20986;&#27492;&#25968;&#65292;&#21017;&#21040; <code>try_lock</code> &#30340;&#35843;&#29992;&#23558;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#12290;</p>
+<p>&#33509;&#27492;&#25805;&#20316;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#21017;&#21516;&#19968;&#20114;&#26021;&#20307;&#19978;&#30340;&#20808;&#21069; <span class="t-lc"><a href="cpp-thread-recursive_timed_mutex-unlock.html">unlock()</a></span> &#25805;&#20316;<i>&#21516;&#27493;&#20110;</i>&#65288;&#23450;&#20041;&#20110; <span class="t-lc"><a href="cpp-atomic-memory_order.html">std::memory_order</a></span>&#65289;&#23427;&#12290;&#27880;&#24847;&#33509;&#27492;&#25805;&#20316;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#65292;&#21017;&#20808;&#21069;&#30340; <span class="t-lc"><a href="cpp-thread-recursive_timed_mutex-lock.html">lock()</a></span> &#19981;&#19982;&#20043;&#21516;&#27493;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#33509;&#25104;&#21151;&#21462;&#24471;&#38145;&#21017;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#21542;&#21017;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<p>&#19981;&#25243;&#20986;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-template-editlink" style=""></div>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#26242;&#26080;&#31034;&#20363;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-recursive_timed_mutex-lock.html"><span class="t-lines"><span>lock</span></span></a></div>
+</div>
+</td>
+<td>&#38145;&#23450;&#20114;&#26021;&#20307;&#65292;&#33509;&#20114;&#26021;&#20307;&#19981;&#21487;&#29992;&#21017;&#38459;&#22622;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-recursive_timed_mutex-try_lock_for.html"><span class="t-lines"><span>try_lock_for</span></span></a></div>
+</div>
+</td>
+<td>&#23581;&#35797;&#38145;&#23450;&#20114;&#26021;&#20307;&#65292;&#33509;&#20114;&#26021;&#20307;&#22312;&#25351;&#23450;&#30340;&#26102;&#38480;&#26102;&#26399;&#20013;&#19981;&#21487;&#29992;&#21017;&#36820;&#22238;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-recursive_timed_mutex-try_lock_until.html"><span class="t-lines"><span>try_lock_until</span></span></a></div>
+</div>
+</td>
+<td>&#23581;&#35797;&#38145;&#23450;&#20114;&#26021;&#20307;&#65292;&#33509;&#30452;&#33267;&#25269;&#36798;&#25351;&#23450;&#26102;&#38388;&#28857;&#20114;&#26021;&#20307;&#19981;&#21487;&#29992;&#21017;&#36820;&#22238;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-recursive_timed_mutex-unlock.html"><span class="t-lines"><span>unlock</span></span></a></div>
+</div>
+</td>
+<td>&#35299;&#38145;&#20114;&#26021;&#20307;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>mtx_trylock</span></span>&nbsp;&#30340; <span><span><a href="c-thread-mtx_trylock.html">C &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

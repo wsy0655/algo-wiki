@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::execution::sync_wait</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_thread_this_thread_sync_wait skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::execution::</span>sync_wait</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-thread.html">thread</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-execution.html">&lt;execution&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx26">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">auto</span> sync_wait<span class="br0">(</span> execution<span class="sy4">::</span><span class="me2">sender</span> <span class="kw4">auto</span> sender <span class="br0">)</span><br /></span>
+<p>&nbsp; &nbsp; requires <span class="br0">(</span><span class="coMULTI">/*always-sends-some-values*/</span><span class="br0">(</span>sender<span class="br0">)</span><span class="br0">)</span><br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy2">-</span><span class="sy1">&gt;</span> <a href="cpp-utility-optional.html"><span class="kw1077">std::<span class="me2">optional</span></span></a><span class="sy1">&lt;</span><a href="cpp-utility-tuple.html"><span class="kw1101">std::<span class="me2">tuple</span></span></a><span class="sy1">&lt;</span><span class="coMULTI">/*value-sent-by*/</span><span class="br0">(</span>sender<span class="br0">)</span><span class="sy1">&gt;&gt;</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>sender</td>
+<td>-</td>
+<td><span class="t-lc">sync_wait</span> &#38459;&#22622;&#19982;&#20854;&#25805;&#20316;&#23436;&#25104;&#30340;&#21457;&#36865;&#22120;&#12290;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#36820;&#22238;&#25152;&#25552;&#20379;&#30340;&#21457;&#36865;&#22120;&#22312;&#20854;&#24037;&#20316;&#23436;&#25104;&#26102;&#21457;&#36865;&#30340;&#21508;&#20010;&#20540;&#30340;&#21487;&#36873;&#20803;&#32452;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<ul>
+<li><code>sync_wait</code> &#25152;&#36820;&#22238;&#30340;&#21457;&#36865;&#22120;&#19982; <code>ensure_started</code> &#30456;&#20284;&#65292;&#20294;&#23427;&#20250;&#38459;&#22622;&#24403;&#21069; <span class="t-lc"><a href="cpp-thread-thread.html">std::thread</a></span> &#25110;&#20027;&#32447;&#31243;&#30452;&#21040;&#20854;&#24037;&#20316;&#23436;&#25104;&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-execution-ensure_started.html"><span class="t-lines"><span>ensure_started</span></span></a></div>
+</div>
+</td>
+<td>&#24613;&#20999;&#22320;&#21551;&#21160;&#19968;&#20010;&#21457;&#36865;&#22120;&#65292;&#23427;&#25152;&#36820;&#22238;&#30340;&#21457;&#36865;&#22120;&#23558;&#20250;&#25226;&#32467;&#26524;&#36882;&#20132;&#32473;&#20854;&#25152;&#36830;&#25509;&#24182;&#21551;&#21160;&#30340;&#25509;&#25910;&#22120;&#65288;&#22914;&#26524;&#26377;&#65289;&#12290;&#22914;&#26524;&#32467;&#26524;&#21457;&#36865;&#22120;&#26410;&#36830;&#25509;&#21040;&#25509;&#25910;&#22120;&#65292;&#25110;&#32773;&#32467;&#26524;&#25805;&#20316;&#29366;&#24577;&#24182;&#26410;&#21551;&#21160;&#65292;&#21017;&#24573;&#30053;&#20854;&#32467;&#26524;&#12290;&#22914;&#26524;&#36825;&#31181;&#21457;&#36865;&#22120;&#22312;&#24213;&#23618;&#25805;&#20316;&#23436;&#25104;&#20043;&#21069;&#34987;&#38144;&#27585;&#65292;&#21017;&#35813;&#25805;&#20316;&#33073;&#31163;&#24182;&#32487;&#32493;&#25191;&#34892;&#12290;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

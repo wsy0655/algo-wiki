@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::experimental::memory_alignment</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_experimental_simd_memory_alignment skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::experimental::</span>memory_alignment</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-experimental.html">experimental</a>&lrm; | <a href="cpp-experimental-simd.html">simd</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-experimental-simd.html">&lt;experimental/simd&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-parallelism_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span> U <span class="sy1">=</span> <span class="kw1">typename</span> T<span class="sy4">::</span><span class="me2">value_type</span> <span class="sy1">&gt;</span><br />
+<span class="kw1">struct</span> memory_alignment<span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#22914;&#26524; <code>is_simd_mask_v&lt;T&gt;</code> &#20026; <code>true</code> &#19988; <code>U</code> &#26159; <code>bool</code>&#65292;&#25110;&#32773;&#22914;&#26524; <code>is_simd_v&lt;T&gt;</code> &#20026; <code>true</code> &#19988; <code>U</code> &#26159;&#21487;&#21521;&#37327;&#21270;&#31867;&#22411;&#65292;&#25552;&#20379;&#30340;&#25104;&#21592;&#24120;&#37327; <code>value</code>&#65292;&#20854;&#20540;&#31561;&#20110;&#20256;&#36882;&#32473;&#21152;&#36733;&#26500;&#36896;&#20989;&#25968;&#65292;<code>copy_from</code> &#20989;&#25968;&#25110; <code>copy_to</code> &#20989;&#25968;&#30340;&#25351;&#38024;&#30340;&#26368;&#23567;&#23545;&#40784;&#12290;&#23545;&#20110;&#20219;&#20309;&#20854;&#20182;&#31867;&#22411;&#30340; <code>T</code> &#21644; <code>U</code>&#65292;&#26080;&#25104;&#21592;&#24120;&#37327; <code>value</code>&#12290;</p>
+<p>&#22914;&#26524;&#31243;&#24207;&#28155;&#21152;&#20102; <code>std::memory_alignment</code> <span class="t-rev-inl t-since-cxx17"><span>&#25110; <code>std::memory_alignment_v</code></span><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></span></span> &#30340;&#29305;&#21270;&#65292;&#37027;&#20040;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<h3><span class="mw-headline" id=".E8.BE.85.E5.8A.A9.E5.8F.98.E9.87.8F.E6.A8.A1.E6.9D.BF">&#36741;&#21161;&#21464;&#37327;&#27169;&#26495;</span></h3>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-parallelism_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span> U <span class="sy1">=</span> <span class="kw1">typename</span> T<span class="sy4">::</span><span class="me2">value_type</span> <span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> memory_alignment_v <span class="sy1">=</span> memory_alignment<span class="sy1">&lt;</span>T, U<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">value</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-inherited">
+<h2><span class="mw-headline" id=".E7.BB.A7.E6.89.BF.E8.87.AA_std::integral_constant">&#32487;&#25215;&#33258; <a href="cpp-types-integral_constant.html"><span style="font-size:0.8em; line-height:125%">std::</span>integral_constant</a></span></h2>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.B8.B8.E9.87.8F">&#25104;&#21592;&#24120;&#37327;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span>value</span></span></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td>&#20256;&#36882;&#32473;&#21152;&#36733;&#26500;&#36896;&#20989;&#25968;&#65292;<code>copy_from</code> &#20989;&#25968;&#25110; <code>copy_to</code> &#20989;&#25968;&#30340;&#25351;&#38024;&#30340;&#26368;&#23567;&#23545;&#40784;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#24120;&#37327;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span>operator std::size_t</span></span></div>
+</div>
+</td>
+<td>&#23558;&#23545;&#35937;&#36716;&#25442;&#21040; <span class="mw-geshi cpp source-cpp">&nbsp;<a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a></span>&#65292;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp">value</span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span>operator()</span></span></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14)</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp">value</span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E7.B1.BB.E5.9E.8B">&#25104;&#21592;&#31867;&#22411;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#31867;&#22411;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>value_type</code></td>
+<td><span class="mw-geshi cpp source-cpp">&nbsp;<a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>type</code></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-types-integral_constant.html"><span class="kw650">std::<span class="me2">integral_constant</span></span></a><span class="sy1">&lt;</span> <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a>, value<span class="sy1">&gt;</span></span></td>
+</tr>
+</table>
+</div>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#26242;&#26080;&#31034;&#20363;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-experimental-simd-vector_aligned.html"><span class="t-lines"><span>vector_aligned_tag</span> <span>vector_aligned</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></span></span></div>
+</div>
+</td>
+<td>&#25351;&#31034;&#21521;&#37327;&#31867;&#22411;&#23545;&#40784;&#30340;&#26631;&#31614;&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-experimental-simd-simd-simd.html"><span class="t-lines"><span>(&#26500;&#36896;&#20989;&#25968;)</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></span></span></div>
+</div>
+</td>
+<td>&#26500;&#36896; <a href="cpp-experimental-simd-simd.html"><tt>simd</tt></a> &#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::experimental::simd&lt;T,Abi&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-experimental-simd-simd-copy_from.html"><span class="t-lines"><span>copy_from</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></span></span></div>
+</div>
+</td>
+<td>&#20174;&#36830;&#32493;&#20869;&#23384;&#21152;&#36733; <a href="cpp-experimental-simd-simd.html"><tt>simd</tt></a> &#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::experimental::simd&lt;T,Abi&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-experimental-simd-simd-copy_to.html"><span class="t-lines"><span>copy_to</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></span></span></div>
+</div>
+</td>
+<td>&#21521;&#36830;&#32493;&#20869;&#23384;&#23384;&#20648; <a href="cpp-experimental-simd-simd.html"><tt>simd</tt></a> &#30340;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::experimental::simd&lt;T,Abi&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-experimental-simd-simd_mask-simd_mask.html"><span class="t-lines"><span>(&#26500;&#36896;&#20989;&#25968;)</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></span></span></div>
+</div>
+</td>
+<td>&#26500;&#36896; <a href="cpp-experimental-simd-simd_mask.html"><tt>simd_mask</tt></a> &#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::experimental::simd_mask&lt;T,Abi&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-experimental-simd-simd_mask-copy_from.html"><span class="t-lines"><span>copy_from</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></span></span></div>
+</div>
+</td>
+<td>&#20174;&#36830;&#32493;&#20869;&#23384;&#21152;&#36733; <a href="cpp-experimental-simd-simd_mask.html"><tt>simd_mask</tt></a> &#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::experimental::simd_mask&lt;T,Abi&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-experimental-simd-simd_mask-copy_to.html"><span class="t-lines"><span>copy_to</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></span></span></div>
+</div>
+</td>
+<td>&#21521;&#36830;&#32493;&#20869;&#23384;&#23384;&#20648; <a href="cpp-experimental-simd-simd_mask.html"><tt>simd_mask</tt></a> &#30340;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::experimental::simd_mask&lt;T,Abi&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>&#32467;&#26500;&#20307;&#19982;&#32852;&#21512;&#20307;&#21021;&#22987;&#21270;</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_language_struct_initialization skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">&#32467;&#26500;&#20307;&#19982;&#32852;&#21512;&#20307;&#21021;&#22987;&#21270;</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-language.html">language</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<p><a href="c-language-initialization.html">&#21021;&#22987;&#21270;</a><a href="c-language-struct.html">&#32467;&#26500;&#20307;</a>&#25110;<a href="c-language-union.html">&#32852;&#21512;&#20307;</a>&#31867;&#22411;&#30340;&#23545;&#35937;&#26102;&#65292;&#21021;&#22987;&#21270;&#24335;&#24517;&#39035;&#26159;&#25104;&#21592;&#21021;&#22987;&#21270;&#24335;&#30340;<span class="t-rev-inl t-until-c23"><span>&#38750;&#31354;&#12289;</span><span><span class="t-mark-rev t-until-c23" style="white-space: nowrap;">(C23 &#21069;)</span></span></span>&#33457;&#25324;&#21495;&#29615;&#32469;&#12289;&#36887;&#21495;&#20998;&#38548;&#30340;&#21015;&#34920;&#65306;</p>
+<table class="t-sdsc-begin">
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><code><b>=</b></code> <code><b>{</b></code> <span class="t-spar">&#34920;&#36798;&#24335;</span> <code><b>,</b></code> <code><b>...</b></code> <code><b>}</b></code></td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-until-c99" style="white-space: nowrap;">(C99 &#21069;)</span></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><code><b>=</b></code> <code><b>{</b></code> <span class="t-spar">&#25351;&#27966;&#31526;</span><span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#34920;&#36798;&#24335;</span> <code><b>,</b></code> <code><b>...</b></code> <code><b>}</b></code></td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99 &#36215;)</span></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><code><b>=</b></code> <code><b>{</b></code> <code><b>}</b></code></td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-c23" style="white-space: nowrap;">(C23 &#36215;)</span></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+</table>
+<p>&#20854;&#20013; <span class="t-spar">&#25351;&#27966;&#31526;</span> &#26159;&#19968;&#24207;&#21015;&#65288;&#31354;&#30333;&#31526;&#20998;&#38548;&#25110;&#30456;&#37051;&#30340;&#65289;<code><b>.</b></code> <span class="t-spar">&#25104;&#21592;</span> &#24418;&#24335;&#30340;&#21333;&#29420;&#25104;&#21592;&#25351;&#27966;&#31526;&#65292;&#21644; <code><b>[</b></code> <span class="t-spar">&#32034;&#24341;</span> <code><b>]</b></code> &#24418;&#24335;&#30340;<a href="c-language-array_initialization.html">&#25968;&#32452;&#25351;&#27966;&#31526;</a>&#12290;</p>
+<p><a href="c-language-initialization.html#.E9.9A.90.E5.BC.8F.E5.88.9D.E5.A7.8B.E5.8C.96">&#38544;&#24335;&#22320;&#21021;&#22987;&#21270;</a>&#25152;&#26377;&#26410;&#26174;&#24335;&#21021;&#22987;&#21270;&#30340;&#25104;&#21592;&#22343;&#34987;<a href="c-language-initialization.html#.E9.9B.B6.E5.88.9D.E5.A7.8B.E5.8C.96">&#38646;&#21021;&#22987;&#21270;</a>&#12290;</p>
+<h3><span class="mw-headline" id=".E8.A7.A3.E9.87.8A">&#35299;&#37322;</span></h3>
+<p>&#21021;&#22987;&#21270;<a href="c-language-union.html">&#32852;&#21512;&#20307;</a>&#26102;&#65292;&#21021;&#22987;&#21270;&#24335;&#21015;&#34920;&#24517;&#39035;&#21482;&#26377;&#19968;&#20010;&#25104;&#21592;&#65292;&#23427;&#21021;&#22987;&#21270;&#32852;&#21512;&#20307;&#30340;&#39318;&#20010;&#25104;&#21592;<span class="t-rev-inl t-since-c99"><span>&#65292;&#38500;&#38750;&#20351;&#29992;&#25351;&#27966;&#21021;&#22987;&#21270;&#24335;</span><span><span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99 &#36215;)</span></span></span>&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="kw1">union</span> <span class="br0">{</span> <span class="kw4">int</span> x<span class="sy4">;</span> <span class="kw4">char</span> c<span class="br0">[</span><span class="nu0">4</span><span class="br0">]</span><span class="sy4">;</span> <span class="br0">}</span>
+  u <span class="sy1">=</span> <span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>,           <span class="co1">// &#20196; u.x &#27963;&#36291;&#65292;&#25317;&#26377;&#20540; 1</span>
+ u2 <span class="sy1">=</span> <span class="br0">{</span> .<span class="me1">c</span><span class="sy1">=</span><span class="br0">{</span><span class="st0">&#39;<span class="es5">\1</span>&#39;</span><span class="br0">}</span> <span class="br0">}</span><span class="sy4">;</span> <span class="co1">// &#20196; u2.c &#27963;&#36291;&#65292;&#25317;&#26377;&#20540; {&#39;\1&#39;,&#39;\0&#39;,&#39;\0&#39;,&#39;\0&#39;}</span></pre></div>
+</div>
+<p>&#21021;&#22987;&#21270;<a href="c-language-struct.html">&#32467;&#26500;&#20307;</a>&#26102;&#65292;&#21015;&#34920;&#20013;&#30340;&#39318;&#20010;&#21021;&#22987;&#21270;&#24335;&#21021;&#22987;&#21270;&#39318;&#20010;&#34987;&#22768;&#26126;&#25104;&#21592;<span class="t-rev-inl t-since-c99"><span>&#65288;&#38500;&#38750;&#25351;&#23450;&#20102;&#25351;&#27966;&#31526;&#65289;</span><span><span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99 &#36215;)</span></span></span>&#65292;&#32780;&#25152;&#26377;&#21518;&#32487;&#30340;<span class="t-rev-inl t-since-c99"><span>&#26080;&#25351;&#27966;&#31526;</span><span><span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99 &#36215;)</span></span></span>&#21021;&#22987;&#21270;&#24335;&#65292;&#21021;&#22987;&#21270;&#20808;&#21069;&#34920;&#36798;&#24335;&#25152;&#21021;&#22987;&#21270;&#32773;&#20043;&#21518;&#30340;&#32467;&#26500;&#20307;&#25104;&#21592;&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="kw1">struct</span> point <span class="br0">{</span><span class="kw4">double</span> x,y,z<span class="sy4">;</span><span class="br0">}</span> p <span class="sy1">=</span> <span class="br0">{</span><span class="nu16">1.2</span>, <span class="nu16">1.3</span><span class="br0">}</span><span class="sy4">;</span> <span class="co1">// p.x=1.2, p.y=1.3, p.z=0.0</span>
+div_t answer <span class="sy1">=</span> <span class="br0">{</span>.<span class="me1">quot</span> <span class="sy1">=</span> <span class="nu0">2</span>, .<span class="me1">rem</span> <span class="sy1">=</span> <span class="sy2">-</span><span class="nu0">1</span> <span class="br0">}</span><span class="sy4">;</span>      <span class="co1">// div_t &#20013;&#30340;&#25104;&#21592;&#39034;&#24207;&#21487;&#20197;&#19981;&#21516;</span></pre></div>
+</div>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-c99">
+<td>
+<p>&#25351;&#27966;&#31526;&#23548;&#33268;&#21518;&#38543;&#30340;&#21021;&#22987;&#21270;&#24335;&#21021;&#22987;&#21270;&#35813;&#25351;&#27966;&#31526;&#25152;&#25551;&#36848;&#30340;&#32467;&#26500;&#20307;&#25104;&#21592;&#12290;&#28982;&#21518;&#21021;&#22987;&#21270;&#32487;&#32493;&#25353;&#22768;&#26126;&#39034;&#24207;&#21521;&#21069;&#65292;&#20174;&#25351;&#27966;&#31526;&#25152;&#25551;&#36848;&#25104;&#21592;&#30340;&#19979;&#20010;&#25104;&#21592;&#24320;&#22987;&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="kw1">struct</span> <span class="br0">{</span><span class="kw4">int</span> sec,min,hour,day,mon,year<span class="sy4">;</span><span class="br0">}</span> z
+   <span class="sy1">=</span> <span class="br0">{</span>.<span class="me1">day</span><span class="sy1">=</span><span class="nu0">31</span>,<span class="nu0">12</span>,<span class="nu0">2014</span>,.<span class="me1">sec</span><span class="sy1">=</span><span class="nu0">30</span>,<span class="nu0">15</span>,<span class="nu0">17</span><span class="br0">}</span><span class="sy4">;</span> <span class="co1">// &#21021;&#22987;&#21270; z &#20026; {30,15,17,31,12,2014}</span></pre></div>
+</div>
+</td>
+<td><span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99 &#36215;)</span></td>
+</tr>
+</table>
+<p>&#25552;&#20379;&#22810;&#20110;&#25104;&#21592;&#30340;&#21021;&#22987;&#21270;&#24335;&#26159;&#38169;&#35823;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.B5.8C.E5.A5.97.E5.88.9D.E5.A7.8B.E5.8C.96">&#23884;&#22871;&#21021;&#22987;&#21270;</span></h3>
+<p>&#33509;&#32467;&#26500;&#20307;&#25110;&#32852;&#21512;&#20307;&#30340;&#25104;&#21592;&#26159;&#25968;&#32452;&#12289;&#32467;&#26500;&#20307;&#25110;&#32852;&#21512;&#20307;&#65292;&#21017;&#21021;&#22987;&#21270;&#24335;&#30340;&#33457;&#25324;&#21495;&#29615;&#32469;&#21015;&#34920;&#20013;&#30340;&#23545;&#24212;&#21021;&#22987;&#21270;&#24335;&#65292;&#26159;&#23545;&#36825;&#20123;&#25104;&#21592;&#21512;&#27861;&#30340;&#20219;&#20309;&#21021;&#22987;&#21270;&#24335;&#65292;&#38500;&#20102;&#21487;&#20197;&#20197;&#19979;&#21015;&#26041;&#24335;&#30465;&#30053;&#20854;&#25324;&#21495;&#65306;</p>
+<p>&#33509;&#23884;&#22871;&#21021;&#22987;&#21270;&#24335;&#20197;&#24038;&#33457;&#25324;&#21495;&#24320;&#22987;&#65292;&#21017;&#30452;&#21040;&#20854;&#21491;&#33457;&#25324;&#21495;&#20026;&#27490;&#30340;&#25972;&#20010;&#23884;&#22871;&#21021;&#22987;&#21270;&#24335;&#65292;&#21021;&#22987;&#21270;&#23545;&#24212;&#30340;&#25104;&#21592;&#23545;&#35937;&#12290;&#27599;&#20010;&#24038;&#24320;&#33457;&#25324;&#21495;&#24314;&#31435;&#19968;&#20010;&#26032;&#30340;<i>&#24403;&#21069;&#23545;&#35937;</i>&#12290;&#24403;&#21069;&#23545;&#35937;&#30340;&#25104;&#21592;&#20197;&#20854;&#33258;&#28982;&#39034;&#24207;&#21021;&#22987;&#21270;<span class="t-rev-inl t-since-c99"><span>&#65292;&#38500;&#38750;&#20351;&#29992;&#25351;&#27966;&#31526;</span><span><span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99 &#36215;)</span></span></span>&#65306;&#25968;&#32452;&#20197;&#19979;&#26631;&#39034;&#24207;&#12289;&#32467;&#26500;&#20307;&#25104;&#21592;&#20197;&#22768;&#26126;&#39034;&#24207;&#12289;&#20165;&#21021;&#22987;&#21270;&#20219;&#20309;&#32852;&#21512;&#20307;&#30340;&#39318;&#20010;&#34987;&#22768;&#26126;&#25104;&#21592;&#12290;<a href="c-language-initialization.html#.E7.A9.BA.E5.88.9D.E5.A7.8B.E5.8C.96">&#31354;&#21021;&#22987;&#21270;</a>&#24403;&#21069;&#23545;&#35937;&#20869;&#26410;&#30001;&#38381;&#33457;&#25324;&#21495;&#26174;&#24335;&#21021;&#22987;&#21270;&#30340;&#23376;&#23545;&#35937;&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="kw1">struct</span> example <span class="br0">{</span>
+    <span class="kw1">struct</span> addr_t <span class="br0">{</span>
+       <a href="c-types-integer.html"><span class="kw122">uint32_t</span></a> port<span class="sy4">;</span>
+    <span class="br0">}</span> addr<span class="sy4">;</span>
+    <span class="kw1">union</span> <span class="br0">{</span>
+       <a href="c-types-integer.html"><span class="kw120">uint8_t</span></a> a8<span class="br0">[</span><span class="nu0">4</span><span class="br0">]</span><span class="sy4">;</span>
+       <a href="c-types-integer.html"><span class="kw121">uint16_t</span></a> a16<span class="br0">[</span><span class="nu0">2</span><span class="br0">]</span><span class="sy4">;</span>
+    <span class="br0">}</span> in_u<span class="sy4">;</span>
+<span class="br0">}</span><span class="sy4">;</span>
+<span class="kw1">struct</span> example ex <span class="sy1">=</span> <span class="br0">{</span> <span class="co1">// struct example &#30340;&#21021;&#22987;&#21270;&#24335;&#21015;&#34920;&#24320;&#22987;</span>
+                     <span class="br0">{</span> <span class="co1">// ex.addr &#30340;&#21021;&#22987;&#21270;&#24335;&#21015;&#34920;&#24320;&#22987;</span>
+                        <span class="nu0">80</span> <span class="co1">// &#21021;&#22987;&#21270; struct addr_t &#30340;&#21807;&#19968;&#25104;&#21592;</span>
+                     <span class="br0">}</span>, <span class="co1">// ex.addr &#30340;&#21021;&#22987;&#21270;&#24335;&#21015;&#34920;&#32467;&#26463;</span>
+                     <span class="br0">{</span> <span class="co1">// ex.in_u &#30340;&#21021;&#22987;&#21270;&#24335;&#21015;&#34920;&#24320;&#22987;</span>
+                        <span class="br0">{</span><span class="nu0">127</span>,<span class="nu0">0</span>,<span class="nu0">0</span>,<span class="nu0">1</span><span class="br0">}</span> <span class="co1">// &#21021;&#22987;&#21270; union in_u &#30340;&#39318;&#20010;&#25104;&#21592;</span>
+                     <span class="br0">}</span> <span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+<p>&#33509;&#23884;&#22871;&#21021;&#22987;&#21270;&#24335;&#19981;&#20197;&#24038;&#33457;&#25324;&#21495;&#24320;&#22987;&#65292;&#21017;&#20165;&#20174;&#21015;&#34920;&#37319;&#29992;&#36275;&#22815;&#30340;&#21021;&#22987;&#21270;&#24335;&#65292;&#20197;&#29992;&#20110;&#35813;&#25104;&#21592;&#25968;&#32452;&#12289;&#32467;&#26500;&#20307;&#25110;&#32852;&#21512;&#20307;&#30340;&#20803;&#32032;&#25110;&#25104;&#21592;&#65307;&#20219;&#20309;&#21097;&#19979;&#30340;&#21021;&#22987;&#21270;&#24335;&#30041;&#24453;&#21021;&#22987;&#21270;&#19979;&#20010;&#32467;&#26500;&#20307;&#25104;&#21592;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="kw1">struct</span> example ex <span class="sy1">=</span> <span class="br0">{</span><span class="nu0">80</span>, <span class="nu0">127</span>, <span class="nu0">0</span>, <span class="nu0">0</span>, <span class="nu0">1</span><span class="br0">}</span><span class="sy4">;</span> <span class="co1">// 80 &#21021;&#22987;&#21270; ex.addr.port</span>
+                                        <span class="co1">// 127 &#21021;&#22987;&#21270; ex.in_u.a8[0]</span>
+                                        <span class="co1">// 0 &#21021;&#22987;&#21270; ex.in_u.a8[1]</span>
+                                        <span class="co1">// 0 &#21021;&#22987;&#21270; ex.in_u.a8[2]</span>
+                                        <span class="co1">// 1 &#21021;&#22987;&#21270; ex.in_u.a8[3]</span></pre></div>
+</div>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-c99">
+<td>
+<p>&#23884;&#22871;&#25351;&#27966;&#31526;&#26102;&#65292;&#25104;&#21592;&#30340;&#25351;&#27966;&#31526;&#21518;&#38543;&#22806;&#22260;&#32467;&#26500;&#20307;/&#32852;&#21512;&#20307;/&#25968;&#32452;&#30340;&#25351;&#27966;&#31526;&#12290;&#22312;&#20219;&#20309;&#23884;&#22871;&#30340;&#26041;&#25324;&#21495;&#21021;&#22987;&#21270;&#24335;&#21015;&#34920;&#20013;&#65292;&#26368;&#22806;&#23618;&#25351;&#27966;&#31526;&#25351;&#20195;<i>&#24403;&#21069;&#23545;&#35937;</i>&#65292;&#32780;&#19988;&#21482;&#22312;<i>&#24403;&#21069;&#23545;&#35937;</i>&#20013;&#36873;&#25321;&#35201;&#21021;&#22987;&#21270;&#30340;&#23376;&#23545;&#35937;&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="kw1">struct</span> example ex2 <span class="sy1">=</span> <span class="br0">{</span> <span class="co1">// &#24403;&#21069;&#23545;&#35937;&#20026; ex2&#65292;&#25351;&#27966;&#31526;&#23646;&#20110; struct example &#30340;&#25104;&#21592;</span>
+                       .<span class="me1">in_u</span>.<span class="me1">a8</span><span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span><span class="sy1">=</span><span class="nu0">127</span>, <span class="nu0">0</span>, <span class="nu0">0</span>, <span class="nu0">1</span>, .<span class="me1">addr</span><span class="sy1">=</span><span class="nu0">80</span><span class="br0">}</span><span class="sy4">;</span> 
+<span class="kw1">struct</span> example ex3 <span class="sy1">=</span> <span class="br0">{</span><span class="nu0">80</span>, .<span class="me1">in_u</span><span class="sy1">=</span><span class="br0">{</span> <span class="co1">// &#26356;&#25913;&#24403;&#21069;&#23545;&#35937;&#20026;&#32852;&#21512;&#20307; ex.in_u</span>
+                           <span class="nu0">127</span>,
+                           .<span class="me1">a8</span><span class="br0">[</span><span class="nu0">2</span><span class="br0">]</span><span class="sy1">=</span><span class="nu0">1</span> <span class="co1">// &#27492;&#25351;&#27966;&#31526;&#25351;&#20195; union in_u &#30340;&#25104;&#21592;</span>
+                      <span class="br0">}</span> <span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+<p>&#33509;&#26174;&#24335;&#21021;&#22987;&#21270;&#20219;&#20309;&#23376;&#23545;&#35937;&#20108;&#27425;&#65288;&#22312;&#20351;&#29992;&#25351;&#27966;&#31526;&#26102;&#21487;&#33021;&#21457;&#29983;&#65289;&#65292;&#21017;&#20351;&#29992;&#30340;&#21021;&#22987;&#21270;&#24335;&#65292;&#26159;&#36739;&#21518;&#20986;&#29616;&#20110;&#21015;&#34920;&#20013;&#30340;&#21021;&#22987;&#21270;&#24335;&#65288;&#21487;&#33021;&#19981;&#27714;&#20540;&#36739;&#26089;&#30340;&#21021;&#22987;&#21270;&#24335;&#65289;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="kw1">struct</span> <span class="br0">{</span><span class="kw4">int</span> n<span class="sy4">;</span><span class="br0">}</span> s <span class="sy1">=</span> <span class="br0">{</span><a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;a<span class="es1">\n</span>&quot;</span><span class="br0">)</span>, <span class="co1">// &#21487;&#33021;&#25171;&#21360;&#25110;&#36339;&#36807;&#23427;</span>
+                     .<span class="me1">n</span><span class="sy1">=</span><a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;b<span class="es1">\n</span>&quot;</span><span class="br0">)</span><span class="br0">}</span><span class="sy4">;</span> <span class="co1">// &#22987;&#32456;&#25171;&#21360;</span></pre></div>
+</div>
+<p>&#23613;&#31649;&#20219;&#20309;&#26410;&#21021;&#22987;&#21270;&#30340;&#23376;&#23545;&#35937;&#37117;&#34987;&#38544;&#24335;&#21021;&#22987;&#21270;&#65292;&#33509;&#23376;&#23545;&#35937;&#30340;&#26174;&#24335;&#21021;&#22987;&#21270;&#22312;&#21021;&#22987;&#21270;&#24335;&#21015;&#34920;&#20013;&#20986;&#29616;&#36739;&#26089;&#65292;&#21017;&#21516;&#19968;&#23376;&#23545;&#35937;&#30340;&#38544;&#24335;&#21021;&#22987;&#21270;&#20915;&#19981;&#20250;&#35206;&#30422;&#26174;&#24335;&#21021;&#22987;&#21270;&#65288;&#36873;&#25321; clang &#20197;&#35266;&#23519;&#27491;&#30830;&#30340;&#36755;&#20986;&#65289;&#65306;</p>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="kw1">typedef</span> <span class="kw1">struct</span> <span class="br0">{</span> <span class="kw4">int</span> k<span class="sy4">;</span> <span class="kw4">int</span> l<span class="sy4">;</span> <span class="kw4">int</span> a<span class="br0">[</span><span class="nu0">2</span><span class="br0">]</span><span class="sy4">;</span> <span class="br0">}</span> T<span class="sy4">;</span>
+<span class="kw1">typedef</span> <span class="kw1">struct</span> <span class="br0">{</span> <span class="kw4">int</span> i<span class="sy4">;</span>  T t<span class="sy4">;</span> <span class="br0">}</span> S<span class="sy4">;</span>
+T x <span class="sy1">=</span> <span class="br0">{</span>.<span class="me1">l</span> <span class="sy1">=</span> <span class="nu0">43</span>, .<span class="me1">k</span> <span class="sy1">=</span> <span class="nu0">42</span>, .<span class="me1">a</span><span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> <span class="sy1">=</span> <span class="nu0">19</span>, .<span class="me1">a</span><span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span> <span class="sy1">=</span> <span class="nu0">18</span> <span class="br0">}</span><span class="sy4">;</span>
+ <span class="co1">// &#21021;&#22987;&#21270; x &#20026; {42, 43, {18, 19} }</span>
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    S l <span class="sy1">=</span> <span class="br0">{</span> <span class="nu0">1</span>,          <span class="co1">// &#21021;&#22987;&#21270; l.i &#20026; 1</span>
+           .<span class="me1">t</span> <span class="sy1">=</span> x,      <span class="co1">// &#21021;&#22987;&#21270; l.t &#20026; {42, 43, {18, 19} }</span>
+           .<span class="me1">t</span>.<span class="me1">l</span> <span class="sy1">=</span> <span class="nu0">41</span>,   <span class="co1">// &#26356;&#25913; l.t &#20026; {42, 41, {18, 19} }</span>
+           .<span class="me1">t</span>.<span class="me1">a</span><span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> <span class="sy1">=</span> <span class="nu0">17</span> <span class="co1">// &#26356;&#25913; l.t &#20026; {42, 41, {18, 17} }</span>
+          <span class="br0">}</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;l.t.k is %d<span class="es1">\n</span>&quot;</span>, l.<span class="me1">t</span>.<span class="me1">k</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// .t = x &#26174;&#24335;&#35774;&#32622; l.t.k &#20026; 42</span>
+                                    <span class="co1">// .t.l = 41 &#20250;&#38544;&#24335;&#28165;&#38646; l.t.k</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">l.t.k is 42</pre></div>
+</div>
+</div>
+<p>&#28982;&#32780;&#65292;&#24403;&#21021;&#22987;&#21270;&#24335;&#20197;&#24038;&#24320;&#33457;&#25324;&#21495;&#24320;&#22987;&#26102;&#65292;&#20250;&#23436;&#20840;&#37325;&#21021;&#22987;&#21270;&#20854;<i>&#24403;&#21069;&#23545;&#35937;</i>&#65292;&#24182;&#24573;&#30053;&#20854;&#20219;&#20309;&#23376;&#23545;&#35937;&#30340;&#20808;&#21069;&#30340;&#26174;&#24335;&#21021;&#22987;&#21270;&#24335;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="kw1">struct</span> fred <span class="br0">{</span> <span class="kw4">char</span> s<span class="br0">[</span><span class="nu0">4</span><span class="br0">]</span><span class="sy4">;</span> <span class="kw4">int</span> n<span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+<span class="kw1">struct</span> fred x<span class="br0">[</span> <span class="br0">]</span> <span class="sy1">=</span> <span class="br0">{</span> <span class="br0">{</span> <span class="br0">{</span> <span class="st0">&quot;abc&quot;</span> <span class="br0">}</span>, <span class="nu0">1</span> <span class="br0">}</span>, <span class="co1">// &#21021;&#22987;&#21270; x[0] &#20026; { {&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;\0&#39;}, 1 }</span>
+                      <span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span>.<span class="me1">s</span><span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span> <span class="sy1">=</span> <span class="st0">&#39;q&#39;</span>   <span class="co1">// &#26356;&#25913; x[0] &#20026; { {&#39;q&#39;,&#39;b&#39;,&#39;c&#39;,&#39;\0&#39;}, 1 }</span>
+                   <span class="br0">}</span><span class="sy4">;</span>
+<span class="kw1">struct</span> fred y<span class="br0">[</span> <span class="br0">]</span> <span class="sy1">=</span> <span class="br0">{</span> <span class="br0">{</span> <span class="br0">{</span> <span class="st0">&quot;abc&quot;</span> <span class="br0">}</span>, <span class="nu0">1</span> <span class="br0">}</span>, <span class="co1">// &#21021;&#22987;&#21270; y[0] &#20026; { {&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;\0&#39;}, 1 }</span>
+                     <span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span> <span class="sy1">=</span> <span class="br0">{</span> <span class="co1">// &#24403;&#21069;&#23545;&#35937;&#29616;&#22312;&#26159;&#25972;&#20010; y[0] &#23545;&#35937;</span>
+                             .<span class="me1">s</span><span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span> <span class="sy1">=</span> <span class="st0">&#39;q&#39;</span> 
+                            <span class="br0">}</span> <span class="co1">// &#20197; { {&#39;q&#39;,&#39;\0&#39;,&#39;\0&#39;,&#39;\0&#39;}, 0 } &#26367;&#25442; y[0]</span>
+                    <span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+</td>
+<td><span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99 &#36215;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#21021;&#22987;&#21270;&#24335;&#21015;&#34920;&#21487;&#25317;&#26377;&#23614;&#38543;&#30340;&#36887;&#21495;&#65292;&#23427;&#34987;&#24573;&#30053;&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="kw1">struct</span> <span class="br0">{</span><span class="kw4">double</span> x,y<span class="sy4">;</span><span class="br0">}</span> p <span class="sy1">=</span> <span class="br0">{</span><span class="nu16">1.0</span>,
+                          <span class="nu16">2.0</span>, <span class="co1">// &#23614;&#38543;&#36887;&#21495; OK</span>
+                          <span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+<table class="t-rev-begin">
+<tr class="t-rev t-until-c23">
+<td>
+<p>C &#20013;&#65292;&#21021;&#22987;&#21270;&#22120;&#30340;&#33457;&#25324;&#21495;&#21015;&#34920;&#19981;&#33021;&#20026;&#31354;&#65288;&#27880;&#24847; C++ &#20801;&#35768;&#31354;&#21015;&#34920;&#65292;&#24182;&#19988;&#27880;&#24847; C &#20013;<a href="c-language-struct.html">&#32467;&#26500;&#20307;</a>&#19981;&#33021;&#20026;&#31354;&#65289;&#65306;</p>
+</td>
+<td><span class="t-mark-rev t-until-c23" style="white-space: nowrap;">(C23 &#21069;)</span></td>
+</tr>
+<tr class="t-rev t-since-c23">
+<td>
+<p>&#19982; C++ &#30456;&#21516;&#65292;C &#20013;&#21021;&#22987;&#21270;&#24335;&#21015;&#34920;&#21487;&#20026;&#31354;&#65306;</p>
+</td>
+<td><span class="t-mark-rev t-since-c23" style="white-space: nowrap;">(C23 &#36215;)</span></td>
+</tr>
+</table>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="kw1">struct</span> <span class="br0">{</span><span class="kw4">int</span> n<span class="sy4">;</span><span class="br0">}</span> s <span class="sy1">=</span> <span class="br0">{</span><span class="nu0">0</span><span class="br0">}</span><span class="sy4">;</span> <span class="co1">// OK</span>
+<span class="kw1">struct</span> <span class="br0">{</span><span class="kw4">int</span> n<span class="sy4">;</span><span class="br0">}</span> s <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span> <span class="co1">// C23 &#21069;&#38169;&#35823;&#65306;&#21021;&#22987;&#21270;&#24335;&#21015;&#34920;&#19981;&#33021;&#20026;&#31354;</span>
+                        <span class="co1">// C23 &#36215; OK&#65306;&#21021;&#22987;&#21270; s.n &#20026; 0</span>
+<span class="kw1">struct</span> <span class="br0">{</span><span class="br0">}</span> s <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span> <span class="co1">// &#38169;&#35823;&#65306;&#32467;&#26500;&#20307;&#19981;&#33021;&#20026;&#31354;</span></pre></div>
+</div>
+<table class="t-rev-begin">
+<tr class="t-rev t-until-c99">
+<td>
+<p>&#22312;&#21021;&#22987;&#21270;&#20219;&#20309;&#23384;&#20648;&#26399;&#30340;&#32858;&#21512;&#20307;&#26102;&#65292;&#21021;&#22987;&#21270;&#24335;&#21015;&#34920;&#20013;&#30340;&#27599;&#20010;&#34920;&#36798;&#24335;&#24517;&#39035;&#37117;&#26159;<a href="c-language-constant_expression.html">&#24120;&#37327;&#34920;&#36798;&#24335;</a>&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-until-c99" style="white-space: nowrap;">(C99 &#21069;)</span></td>
+</tr>
+<tr class="t-rev t-since-c99">
+<td>
+<p>&#21516;&#25152;&#26377;&#20854;&#20182;&#21021;&#22987;&#21270;&#65292;&#22312;&#21021;&#22987;&#21270;&#38745;&#24577;&#25110;<span class="t-rev-inl t-since-c11"><span>&#32447;&#31243;&#23616;&#22495;</span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11 &#36215;)</span></span></span><a href="c-language-storage_duration.html">&#23384;&#20648;&#26399;</a>&#30340;&#32858;&#21512;&#20307;&#26102;&#65292;&#21021;&#22987;&#21270;&#24335;&#21015;&#34920;&#20013;&#30340;&#27599;&#20010;&#34920;&#36798;&#24335;&#24517;&#39035;&#20026;<a href="c-language-constant_expression.html">&#24120;&#37327;&#34920;&#36798;&#24335;</a>&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="kw4">static</span> <span class="kw1">struct</span> <span class="br0">{</span><span class="kw4">char</span><span class="sy2">*</span> p<span class="br0">}</span> s <span class="sy1">=</span> <span class="br0">{</span><a href="c-memory-malloc.html"><span class="kw403">malloc</span></a><span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span><span class="br0">}</span><span class="sy4">;</span> <span class="co1">// &#38169;&#35823;</span></pre></div>
+</div>
+<p>&#20219;&#20309;&#21021;&#22987;&#21270;&#24335;&#20013;&#30340;&#23376;&#34920;&#36798;&#24335;<a href="c-language-eval_order.html">&#27714;&#20540;&#39034;&#24207;</a>&#20026;&#38750;&#30830;&#23450;&#39034;&#24207;&#65288;&#20294; C++11 &#36215;&#30340; C++ &#20013;&#19981;&#21516;&#65289;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="kw4">int</span> n <span class="sy1">=</span> <span class="nu0">1</span><span class="sy4">;</span>
+<span class="kw1">struct</span> <span class="br0">{</span><span class="kw4">int</span> x,y<span class="sy4">;</span><span class="br0">}</span> p <span class="sy1">=</span> <span class="br0">{</span>n<span class="sy2">++</span>, n<span class="sy2">++</span><span class="br0">}</span><span class="sy4">;</span> <span class="co1">// &#26410;&#25351;&#23450;&#65292;&#20294;&#26159;&#33391;&#23450;&#20041;&#30340;&#34892;&#20026;&#65306;</span>
+                                  <span class="co1">// n &#20197;&#20219;&#24847;&#39034;&#24207;&#33258;&#22686;&#20108;&#27425;</span>
+                                  <span class="co1">// p &#31561;&#20110; {1,2} &#21644; {2,1} &#37117;&#26159;&#21512;&#27861;&#30340;</span></pre></div>
+</div>
+</td>
+<td><span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99 &#36215;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#26356;&#22810;&#23454;&#29992;&#30340;&#31034;&#20363;&#65292;&#26368;&#22909;&#21021;&#22987;&#21270;&#26576;&#20123;&#25509;&#22836;&#32467;&#26500;&#20307;</td>
+</tr>
+</table>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#include &lt;time.h&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">char</span> buff<span class="br0">[</span><span class="nu0">70</span><span class="br0">]</span><span class="sy4">;</span>
+    <span class="co1">// &#25351;&#27966;&#21021;&#22987;&#21270;&#24335;&#31616;&#21270;&#25104;&#21592;&#39034;&#24207;&#26410;&#25351;&#23450;&#30340;&#32467;&#26500;&#20307;&#30340;&#20351;&#29992;</span>
+    <span class="kw1">struct</span> <a href="c-chrono-tm.html"><span class="kw523">tm</span></a> my_time <span class="sy1">=</span> <span class="br0">{</span> .<span class="me1">tm_year</span><span class="sy1">=</span><span class="nu0">2012</span><span class="sy2">-</span><span class="nu0">1900</span>, .<span class="me1">tm_mon</span><span class="sy1">=</span><span class="nu0">9</span>, .<span class="me1">tm_mday</span><span class="sy1">=</span><span class="nu0">9</span>,
+                          .<span class="me1">tm_hour</span><span class="sy1">=</span><span class="nu0">8</span>, .<span class="me1">tm_min</span><span class="sy1">=</span><span class="nu0">10</span>, .<span class="me1">tm_sec</span><span class="sy1">=</span><span class="nu0">20</span> <span class="br0">}</span><span class="sy4">;</span>
+    <a href="c-chrono-strftime.html"><span class="kw517">strftime</span></a><span class="br0">(</span>buff, <span class="kw4">sizeof</span> buff, <span class="st0">&quot;%A %c&quot;</span>, <span class="sy3">&amp;</span>my_time<span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-puts.html"><span class="kw836">puts</span></a><span class="br0">(</span>buff<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">Sunday Sun Oct  9 08:10:20 2012</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>6.7.9/12-39 Initialization &#65288;&#31532; 101-105 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>6.7.9/12-38 Initialization &#65288;&#31532; 140-144 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c99">
+<ul>
+<li>C99 &#26631;&#20934;&#65288;ISO/IEC 9899:1999&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>6.7.8/12-38 Initialization &#65288;&#31532; 126-130 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c89">
+<ul>
+<li>C89/C90 &#26631;&#20934;&#65288;ISO/IEC 9899:1990&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>6.5.7 Initialization</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class=""><span>&#32858;&#21512;&#21021;&#22987;&#21270;</span></span>&#30340; <span><span><a href="cpp-language-aggregate_initialization.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

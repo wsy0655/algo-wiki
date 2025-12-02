@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::scoped_allocator_adaptor</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_memory_scoped_allocator_adaptor skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>scoped_allocator_adaptor</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-memory.html">memory</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-scoped_allocator.html">&lt;scoped_allocator&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> OuterAlloc, <span class="kw1">class</span>... <span class="me1">InnerAllocs</span> <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw1">class</span> scoped_allocator_adaptor<br /></p>
+&nbsp; &nbsp; <span class="sy4">:</span> <span class="kw1">public</span> OuterAlloc<span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>std::scoped_allocator_adaptor</code> &#31867;&#27169;&#26495;&#26159;&#21487;&#29992;&#20110;&#22810;&#23618;&#23481;&#22120;&#65288;&#27604;&#22914; map &#30340; tuple &#30340; list &#30340; set &#30340; vector &#31561;&#31561;&#65289;&#30340;&#20998;&#37197;&#22120;&#12290;&#23427;&#20197;&#22806;&#23618;&#20998;&#37197;&#22120;&#31867;&#22411; <code>OuterAlloc</code> &#19982;&#38646;&#25110;&#26356;&#22810;&#20010;&#20869;&#23618;&#20998;&#37197;&#22120;&#31867;&#22411; <code>InnerAlloc...</code> &#23454;&#20363;&#21270;&#12290;&#30452;&#25509;&#20197; <code>scoped_allocator_adaptor</code> &#26500;&#36896;&#30340;&#23481;&#22120;&#29992; <code>OuterAlloc</code> &#20998;&#37197;&#20854;&#20803;&#32032;&#65292;&#20294;&#33509;&#20803;&#32032;&#33258;&#36523;&#26159;&#23481;&#22120;&#65292;&#21017;&#23427;&#20351;&#29992;&#39318;&#20010;&#20869;&#23384;&#20998;&#37197;&#22120;&#12290;&#35813;&#23481;&#22120;&#30340;&#20803;&#32032;&#65292;&#33509;&#20854;&#33258;&#36523;&#26159;&#23481;&#22120;&#65292;&#21017;&#20351;&#29992;&#31532;&#20108;&#20010;&#20869;&#23384;&#20998;&#37197;&#22120;&#65292;&#20197;&#27492;&#31867;&#25512;&#12290;&#33509;&#23481;&#22120;&#30340;&#23618;&#32423;&#22810;&#20110;&#20869;&#23618;&#20998;&#37197;&#22120;&#30340;&#25968;&#37327;&#65292;&#21017;&#26368;&#20869;&#23618;&#20998;&#37197;&#22120;&#20026;&#25152;&#26377;&#36827;&#19968;&#27493;&#20869;&#23884;&#30340;&#23481;&#22120;&#20877;&#24230;&#20351;&#29992;&#12290;</p>
+<p>&#27492;&#36866;&#37197;&#22120;&#30340;&#30446;&#30340;&#26159;&#22312;&#20869;&#23884;&#23481;&#22120;&#20013;&#27491;&#30830;&#21021;&#22987;&#21270;&#26377;&#29366;&#24577;&#20998;&#37197;&#22120;&#65292;&#20363;&#22914;&#22312;&#25152;&#26377;&#23618;&#27425;&#30340;&#23884;&#22871;&#23481;&#22120;&#37117;&#24517;&#39035;&#32622;&#20110;&#21516;&#19968;&#20849;&#20139;&#20869;&#23384;&#27573;&#26102;&#12290;&#36866;&#37197;&#22120;&#30340;&#26500;&#36896;&#20989;&#25968;&#25509;&#25910;&#21015;&#34920;&#20013;&#25152;&#26377;&#20998;&#37197;&#22120;&#30340;&#21442;&#25968;&#65292;&#32780;&#27599;&#20010;&#20869;&#23884;&#23481;&#22120;&#20174;&#36866;&#37197;&#22120;&#25353;&#38656;&#33719;&#24471;&#20854;&#20998;&#37197;&#22120;&#30340;&#29366;&#24577;&#12290;</p>
+<p>&#20026;&#20102; <code>scoped_allocator_adaptor</code> &#30340;&#30446;&#30340;&#65292;&#33509;&#19979;&#20010;&#20869;&#23618;&#20998;&#37197;&#22120;&#26159; <code>A</code>&#65292;&#21017;&#20219;&#20309;&#28385;&#36275; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-uses_allocator.html"><span class="kw706">std::<span class="me2">uses_allocator</span></span></a><span class="sy1">&lt;</span>T,A<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">value</span> <span class="sy1">==</span> <span class="kw2">true</span></span></span> &#30340;&#31867; <code>T</code> &#22914;&#21516;&#23427;&#26159;&#23481;&#22120;&#19968;&#26679;&#21442;&#19982;&#36882;&#24402;&#65292;&#21478;&#22806;&#65292;<span class="t-lc"><a href="cpp-utility-pair.html">std::pair</a></span> &#36890;&#36807; <a href="cpp-memory-scoped_allocator_adaptor-construct.html"><tt>scoped_allocator_adaptor::construct</tt></a> &#30340;&#29305;&#23450;&#37325;&#36733;&#20134;&#34987;&#24403;&#20570;&#36825;&#31181;&#23481;&#22120;&#12290;</p>
+<p>&#20856;&#22411;&#23454;&#29616;&#20445;&#26377;&#19968;&#20010; <code>std::scoped_allocator_adaptor&lt;InnerAllocs...&gt;</code> &#20316;&#20026;&#25104;&#21592;&#23545;&#35937;&#12290;</p>
+<p>&#27880;&#24847;&#65292;<a href="cpp-memory-polymorphic_allocator.html"><tt>std::pmr::polymorphic_allocator</tt></a> &#36981;&#24490;<a href="cpp-memory-uses_allocator.html#.E4.BD.BF.E7.94.A8.E5.88.86.E9.85.8D.E5.99.A8.E6.9E.84.E9.80.A0">&#20351;&#29992;&#20998;&#37197;&#22120;&#26500;&#36896;</a>&#20256;&#25773;&#32473;&#23884;&#22871;&#23481;&#22120;&#65292;&#32780;&#26080;&#38656; <code>std::scoped_allocator_adaptor</code>&#65288;&#19988;&#26080;&#27861;&#19982;&#20854;&#21512;&#20316;&#65289;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E7.B1.BB.E5.9E.8B">&#25104;&#21592;&#31867;&#22411;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#31867;&#22411;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>outer_allocator_type</code></td>
+<td><code>OuterAlloc</code></td>
+</tr>
+<tr class="t-dsc">
+<td><code>inner_allocator_type</code></td>
+<td>
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">sizeof...<span class="br0">(</span>OuterAlloc<span class="br0">)</span></span></span> &#20026;&#38646;&#26102;&#26159; <span class="mw-geshi cpp source-cpp">scoped_allocator_adaptor<span class="sy1">&lt;</span>InnerAllocs...<span class="sy1">&gt;</span></span></li>
+<li>&#21542;&#21017;&#26159; <span class="mw-geshi cpp source-cpp">scoped_allocator_adaptor<span class="sy1">&lt;</span>InnerAllocs<span class="sy1">&gt;</span></span></li>
+</ul>
+</td>
+</tr>
+<tr class="t-dsc">
+<td><code>value_type</code></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-allocator_traits.html"><span class="kw703">std::<span class="me2">allocator_traits</span></span></a><span class="sy1">&lt;</span>OuterAlloc<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">value_type</span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>size_type</code></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-allocator_traits.html"><span class="kw703">std::<span class="me2">allocator_traits</span></span></a><span class="sy1">&lt;</span>OuterAlloc<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">size_type</span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>difference_type</code></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-allocator_traits.html"><span class="kw703">std::<span class="me2">allocator_traits</span></span></a><span class="sy1">&lt;</span>OuterAlloc<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">difference_type</span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>pointer</code></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-allocator_traits.html"><span class="kw703">std::<span class="me2">allocator_traits</span></span></a><span class="sy1">&lt;</span>OuterAlloc<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">pointer</span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>const_pointer</code></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-allocator_traits.html"><span class="kw703">std::<span class="me2">allocator_traits</span></span></a><span class="sy1">&lt;</span>OuterAlloc<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">const_pointer</span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>void_pointer</code></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-allocator_traits.html"><span class="kw703">std::<span class="me2">allocator_traits</span></span></a><span class="sy1">&lt;</span>OuterAlloc<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">void_pointer</span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>const_void_pointer</code></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-allocator_traits.html"><span class="kw703">std::<span class="me2">allocator_traits</span></span></a><span class="sy1">&lt;</span>OuterAlloc<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">const_void_pointer</span></span></td>
+</tr>
+</table>
+<p><br />
+&#32473;&#23450;&#21253;&#21547; <code>OuterAlloc</code> &#21644; <code>InnerAlloc...</code> &#30340;&#25152;&#26377;&#31867;&#22411;&#30340;&#38598;&#21512;&#20026; <code>Allocs</code>&#65306;</p>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#31867;&#22411;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>propagate_on_container_copy_assignment</code></td>
+<td>
+<ul>
+<li><code>Allocs</code> &#20013;&#23384;&#22312;&#31867;&#22411; <code>A</code> &#20351;&#24471; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-allocator_traits.html"><span class="kw703">std::<span class="me2">allocator_traits</span></span></a><span class="sy1">&lt;</span>A<span class="sy1">&gt;</span><span class="sy4">::</span></span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; &nbsp; propagate_on_container_copy_assignment<span class="sy4">::</span><span class="me2">value</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span> &#26102;&#26159; <span class="t-lc"><a href="cpp-types-integral_constant.html">std::true_type</a></span></li>
+<li>&#21542;&#21017;&#26159; <span class="t-lc"><a href="cpp-types-integral_constant.html">std::false_type</a></span></li>
+</ul>
+</td>
+</tr>
+<tr class="t-dsc">
+<td><code>propagate_on_container_move_assignment</code></td>
+<td>
+<ul>
+<li><code>Allocs</code> &#20013;&#23384;&#22312;&#31867;&#22411; <code>A</code> &#20351;&#24471; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-allocator_traits.html"><span class="kw703">std::<span class="me2">allocator_traits</span></span></a><span class="sy1">&lt;</span>A<span class="sy1">&gt;</span><span class="sy4">::</span></span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; &nbsp; propagate_on_container_move_assignment<span class="sy4">::</span><span class="me2">value</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span> &#26102;&#26159; <span class="t-lc"><a href="cpp-types-integral_constant.html">std::true_type</a></span></li>
+<li>&#21542;&#21017;&#26159; <span class="t-lc"><a href="cpp-types-integral_constant.html">std::false_type</a></span></li>
+</ul>
+</td>
+</tr>
+<tr class="t-dsc">
+<td><code>propagate_on_container_swap</code></td>
+<td>
+<ul>
+<li><code>Allocs</code> &#20013;&#23384;&#22312;&#31867;&#22411; <code>A</code> &#20351;&#24471; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-allocator_traits.html"><span class="kw703">std::<span class="me2">allocator_traits</span></span></a><span class="sy1">&lt;</span>A<span class="sy1">&gt;</span><span class="sy4">::</span></span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; &nbsp; propagate_on_container_swap<span class="sy4">::</span><span class="me2">value</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span> &#26102;&#26159; <span class="t-lc"><a href="cpp-types-integral_constant.html">std::true_type</a></span></li>
+<li>&#21542;&#21017;&#26159; <span class="t-lc"><a href="cpp-types-integral_constant.html">std::false_type</a></span></li>
+</ul>
+</td>
+</tr>
+<tr class="t-dsc">
+<td><code>is_always_equal</code></td>
+<td>
+<ul>
+<li><code>Allocs</code> &#20013;&#23384;&#22312;&#31867;&#22411; <code>A</code> &#20351;&#24471; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-allocator_traits.html"><span class="kw703">std::<span class="me2">allocator_traits</span></span></a><span class="sy1">&lt;</span>A<span class="sy1">&gt;</span><span class="sy4">::</span></span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; &nbsp; is_always_equal<span class="sy4">::</span><span class="me2">value</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span> &#26102;&#26159; <span class="t-lc"><a href="cpp-types-integral_constant.html">std::true_type</a></span></li>
+<li>&#21542;&#21017;&#26159; <span class="t-lc"><a href="cpp-types-integral_constant.html">std::false_type</a></span></li>
+</ul>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-memory-scoped_allocator_adaptor-scoped_allocator_adaptor.html"><span class="t-lines"><span>(&#26500;&#36896;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#21019;&#24314;&#26032;&#30340; <code>scoped_allocator_adaptor</code> &#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-memory-scoped_allocator_adaptor-~scoped_allocator_adaptor.html"><span class="t-lines"><span>(&#26512;&#26500;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26512;&#26500; <code>scoped_allocator_adaptor</code> &#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-scoped_allocator_adaptor-operator=.html"><span class="t-lines"><span>operator=</span></span></a></div>
+</div>
+</td>
+<td>&#36171;&#20540;&#19968;&#20010; <code>scoped_allocator_adaptor</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-scoped_allocator_adaptor-inner_allocator.html"><span class="t-lines"><span>inner_allocator</span></span></a></div>
+</div>
+</td>
+<td>&#33719;&#24471;&#19968;&#20010; <code>inner_allocator</code> &#24341;&#29992;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-scoped_allocator_adaptor-outer_allocator.html"><span class="t-lines"><span>outer_allocator</span></span></a></div>
+</div>
+</td>
+<td>&#33719;&#24471;&#19968;&#20010; <code>outer_allocator</code> &#24341;&#29992;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-scoped_allocator_adaptor-allocate.html"><span class="t-lines"><span>allocate</span></span></a></div>
+</div>
+</td>
+<td>&#29992;&#22806;&#23618;&#20998;&#37197;&#22120;&#20998;&#37197;&#26410;&#21021;&#22987;&#21270;&#23384;&#20648;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-scoped_allocator_adaptor-deallocate.html"><span class="t-lines"><span>deallocate</span></span></a></div>
+</div>
+</td>
+<td>&#29992;&#22806;&#23618;&#20998;&#37197;&#22120;&#35299;&#20998;&#37197;&#23384;&#20648;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-scoped_allocator_adaptor-max_size.html"><span class="t-lines"><span>max_size</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#22806;&#23618;&#20998;&#37197;&#22120;&#25152;&#25903;&#25345;&#30340;&#26368;&#22823;&#20998;&#37197;&#22823;&#23567;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-scoped_allocator_adaptor-construct.html"><span class="t-lines"><span>construct</span></span></a></div>
+</div>
+</td>
+<td>&#22312;&#20998;&#37197;&#30340;&#23384;&#20648;&#19978;&#26500;&#36896;&#19968;&#20010;&#23545;&#35937;&#65292;&#33509;&#36866;&#21512;&#21017;&#20256;&#36882;&#20869;&#23384;&#20998;&#37197;&#22120;&#33267;&#20854;&#26500;&#36896;&#20989;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-scoped_allocator_adaptor-destroy.html"><span class="t-lines"><span>destroy</span></span></a></div>
+</div>
+</td>
+<td>&#26512;&#26500;&#22788;&#20110;&#24050;&#20998;&#37197;&#23384;&#20648;&#30340;&#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-scoped_allocator_adaptor-select_on_container_copy_construction.html"><span class="t-lines"><span>select_on_container_copy_construction</span></span></a></div>
+</div>
+</td>
+<td>&#22797;&#21046; <code>scoped_allocator_adaptor</code> &#19982;&#20854;&#25152;&#26377;&#20998;&#37197;&#22120;&#30340;&#29366;&#24577;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E4.BB.85.E7.94.A8.E4.BA.8E.E9.98.90.E8.BF.B0.E7.9A.84.E5.87.BD.E6.95.B0.E6.A8.A1.E6.9D.BF">&#20165;&#29992;&#20110;&#38416;&#36848;&#30340;&#20989;&#25968;&#27169;&#26495;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-scoped_allocator_adaptor-helpers.html"><i><span class="t-lines"><span><i>outermost</i></span></span></i></a></div>
+</div>
+</td>
+<td>&#33719;&#21462;&#26368;&#22806;&#23618;&#20998;&#37197;&#22120;<br />
+<span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;&#30340;&#25104;&#21592;&#20989;&#25968;*</span>)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-scoped_allocator_adaptor-helpers.html"><i><span class="t-lines"><span><i>outermost-construct</i></span></span></i></a></div>
+</div>
+</td>
+<td>&#20351;&#29992;&#26368;&#22806;&#23618;&#20998;&#37197;&#22120;&#26500;&#36896;&#23545;&#35937;<br />
+<span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;&#30340;&#25104;&#21592;&#20989;&#25968;*</span>)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-scoped_allocator_adaptor-helpers.html"><i><span class="t-lines"><span><i>outermost-destroy</i></span></span></i></a></div>
+</div>
+</td>
+<td>&#20351;&#29992;&#26368;&#22806;&#23618;&#20998;&#37197;&#22120;&#38144;&#27585;&#23545;&#35937;<br />
+<span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;&#30340;&#25104;&#21592;&#20989;&#25968;*</span>)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E9.9D.9E.E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#38750;&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-scoped_allocator_adaptor-operator_cmp.html"><span class="t-lines"><span>operator==</span><span>operator!=</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#31227;&#38500;)</span></span></span></div>
+</div>
+</td>
+<td>&#27604;&#36739;&#20004;&#20010; <code>scoped_allocator_adaptor</code> &#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.8E.A8.E5.AF.BC.E6.8C.87.E5.BC.95.28C.2B.2B17_.E8.B5.B7.29"><a href="cpp-memory-scoped_allocator_adaptor-deduction_guides.html">&#25512;&#23548;&#25351;&#24341;</a><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></span></h3>
+<h3><span class="mw-headline" id=".E5.B5.8C.E5.A5.97.E7.B1.BB">&#23884;&#22871;&#31867;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#31867;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>rebind</code>&nbsp;</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T <span class="sy1">&gt;</span><br /></span></span>
+<p><span class="kw1">struct</span> rebind<br />
+<span class="br0">{</span><br />
+&nbsp; &nbsp; <span class="kw1">using</span> other <span class="sy1">=</span> scoped_allocator_adaptor<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy1">&lt;</span><a href="cpp-memory-allocator_traits.html"><span class="kw703">std::<span class="me2">allocator_traits</span></span></a><span class="sy1">&lt;</span>OuterAlloc<span class="sy1">&gt;</span><span class="sy4">::</span><span class="kw1">template</span> rebind_alloc<span class="sy1">&lt;</span>T<span class="sy1">&gt;</span>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;InnerAllocs...<span class="sy1">&gt;</span><span class="sy4">;</span><br />
+<span class="br0">}</span><span class="sy4">;</span></p>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;boost/interprocess/allocators/adaptive_pool.hpp&gt;</span>
+<span class="co2">#include &lt;boost/interprocess/managed_shared_memory.hpp&gt;</span>
+<span class="co2">#include &lt;scoped_allocator&gt;</span>
+<span class="co2">#include &lt;vector&gt;</span>
+ 
+<span class="kw1">namespace</span> bi <span class="sy1">=</span> boost<span class="sy4">::</span><span class="me2">interprocess</span><span class="sy4">;</span>
+ 
+<span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> T<span class="sy1">&gt;</span>
+<span class="kw1">using</span> alloc <span class="sy1">=</span> bi<span class="sy4">::</span><span class="me2">adaptive_pool</span><span class="sy1">&lt;</span>T, bi<span class="sy4">::</span><span class="me2">managed_shared_memory</span><span class="sy4">::</span><span class="me2">segment_manager</span><span class="sy1">&gt;</span><span class="sy4">;</span>
+ 
+<span class="kw1">using</span> ipc_row <span class="sy1">=</span> <a href="cpp-container-vector.html"><span class="kw1271">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span>, alloc<span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;&gt;</span><span class="sy4">;</span>
+ 
+<span class="kw1">using</span> ipc_matrix <span class="sy1">=</span> <a href="cpp-container-vector.html"><span class="kw1271">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span>ipc_row, std<span class="sy4">::</span><span class="me2">scoped_allocator_adaptor</span><span class="sy1">&lt;</span>alloc<span class="sy1">&lt;</span>ipc_row<span class="sy1">&gt;&gt;&gt;</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    bi<span class="sy4">::</span><span class="me2">managed_shared_memory</span> s<span class="br0">(</span>bi<span class="sy4">::</span><span class="me2">create_only</span>, <span class="st0">&quot;Demo&quot;</span>, <span class="nu0">65536</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#22312;&#20849;&#20139;&#20869;&#23384;&#20013;&#21019;&#24314; vector &#30340; vector</span>
+    ipc_matrix v<span class="br0">(</span>s.<span class="me1">get_segment_manager</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span> 
+ 
+    <span class="co1">// &#23545;&#20110;&#25152;&#26377;&#36825;&#20123;&#38468;&#21152;&#39033;&#65292;&#20869;&#23618; vector &#20174;&#22806;&#23618; vector &#30340; scoped_allocator_adaptor</span>
+    <span class="co1">// &#33719;&#24471;&#20854;&#20998;&#37197;&#22120;&#23454;&#21442;</span>
+    v.<span class="me1">resize</span><span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span><span class="sy4">;</span>
+    v<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span>.<span class="me1">push_back</span><span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span><span class="sy4">;</span>
+    v.<span class="me1">emplace_back</span><span class="br0">(</span><span class="nu0">2</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-container-vector.html"><span class="kw1271">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span> local_row <span class="sy1">=</span> <span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">2</span>, <span class="nu0">3</span><span class="br0">}</span><span class="sy4">;</span>
+    v.<span class="me1">emplace_back</span><span class="br0">(</span>local_row.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, local_row.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    bi<span class="sy4">::</span><span class="me2">shared_memory_object</span><span class="sy4">::</span><span class="me2">remove</span><span class="br0">(</span><span class="st0">&quot;Demo&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue2108">LWG 2108</a></td>
+<td>C++11</td>
+<td>&#27809;&#26377;&#26041;&#27861;&#35777;&#26126; <code>scoped_allocator_adaptor</code> &#26159;&#21542;&#26377;&#29366;&#24577;</td>
+<td>&#25552;&#20379;&#20102; <code>is_always_equal</code></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-allocator_traits.html"><span class="t-lines"><span>allocator_traits</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#25552;&#20379;&#20851;&#20110;&#20998;&#37197;&#22120;&#31867;&#22411;&#30340;&#20449;&#24687;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-uses_allocator.html"><span class="t-lines"><span>uses_allocator</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#25351;&#23450;&#30340;&#31867;&#22411;&#26159;&#21542;&#25903;&#25345;&#20351;&#29992;&#20998;&#37197;&#22120;&#30340;&#26500;&#36896;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-allocator.html"><span class="t-lines"><span>allocator</span></span></a></div>
+</div>
+</td>
+<td>&#40664;&#35748;&#30340;&#20998;&#37197;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::three_way_comparable, std::three_way_comparable_with</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_utility_compare_three_way_comparable skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>three_way_comparable, <span style="font-size:0.8em; line-height:125%">std::</span>three_way_comparable_with</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-utility.html">utility</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-compare.html">&lt;compare&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span> Cat <span class="sy1">=</span> <a href="cpp-utility-compare-partial_ordering.html"><span class="kw2659">std::<span class="me2">partial_ordering</span></span></a> <span class="sy1">&gt;</span><br /></span>
+<p>concept three_way_comparable <span class="sy1">=</span><br />
+&nbsp; &nbsp; __WeaklyEqualityComparableWith<span class="sy1">&lt;</span>T, T<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; __PartiallyOrderedWith<span class="sy1">&lt;</span>T, T<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; requires<span class="br0">(</span><span class="kw4">const</span> <a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy3">&amp;</span> a,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw4">const</span> <a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy3">&amp;</span> b<span class="br0">)</span> <span class="br0">{</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">{</span> a <span class="sy1">&lt;=&gt;</span> b <span class="br0">}</span> <span class="sy2">-</span><span class="sy1">&gt;</span> __ComparesAs<span class="sy1">&lt;</span>Cat<span class="sy1">&gt;</span><span class="sy4">;</span><br /></p>
+&nbsp; &nbsp; <span class="br0">}</span><span class="sy4">;</span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span> U, <span class="kw1">class</span> Cat <span class="sy1">=</span> <a href="cpp-utility-compare-partial_ordering.html"><span class="kw2659">std::<span class="me2">partial_ordering</span></span></a> <span class="sy1">&gt;</span><br /></span>
+<p>concept three_way_comparable_with <span class="sy1">=</span><br />
+&nbsp; &nbsp; std<span class="sy4">::</span><span class="me2">three_way_comparable</span><span class="sy1">&lt;</span>T, Cat<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; std<span class="sy4">::</span><span class="me2">three_way_comparable</span><span class="sy1">&lt;</span>U, Cat<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; __ComparisonCommonTypeWith<span class="sy1">&lt;</span>T, U<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; std<span class="sy4">::</span><span class="me2">three_way_comparable</span><span class="sy1">&lt;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-types-common_reference.html"><span class="kw2710">std::<span class="me2">common_reference_t</span></span></a><span class="sy1">&lt;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw4">const</span> <a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy3">&amp;</span>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw4">const</span> <a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span><span class="sy3">&amp;</span><span class="sy1">&gt;</span>, Cat<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; __WeaklyEqualityComparableWith<span class="sy1">&lt;</span>T, U<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; __PartiallyOrderedWith<span class="sy1">&lt;</span>T, U<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; requires<span class="br0">(</span><span class="kw4">const</span> <a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy3">&amp;</span> t,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw4">const</span> <a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span><span class="sy3">&amp;</span> u<span class="br0">)</span> <span class="br0">{</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">{</span> t <span class="sy1">&lt;=&gt;</span> u <span class="br0">}</span> <span class="sy2">-</span><span class="sy1">&gt;</span> __ComparesAs<span class="sy1">&lt;</span>Cat<span class="sy1">&gt;</span><span class="sy4">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">{</span> u <span class="sy1">&lt;=&gt;</span> t <span class="br0">}</span> <span class="sy2">-</span><span class="sy1">&gt;</span> __ComparesAs<span class="sy1">&lt;</span>Cat<span class="sy1">&gt;</span><span class="sy4">;</span><br /></p>
+&nbsp; &nbsp; <span class="br0">}</span><span class="sy4">;</span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span> Cat <span class="sy1">&gt;</span><br /></span>
+<p>concept __ComparesAs <span class="sy1">=</span><br /></p>
+&nbsp; &nbsp; <a href="cpp-concepts-same_as.html"><span class="kw2933">std::<span class="me2">same_as</span></span></a><span class="sy1">&lt;</span><a href="cpp-utility-compare-common_comparison_category.html"><span class="kw2665">std::<span class="me2">common_comparison_category_t</span></span></a><span class="sy1">&lt;</span>T, Cat<span class="sy1">&gt;</span>, Cat<span class="sy1">&gt;</span><span class="sy4">;</span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;*</span>)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#27010;&#24565; <code>std::three_way_comparable</code> &#25351;&#23450;&#19977;&#36335;&#27604;&#36739;&#36816;&#31639;&#31526; <code>&lt;=&gt;</code> &#22312; <code>T</code> &#19978;&#29983;&#25104;&#19982; <code>Cat</code> &#25152;&#34164;&#21547;&#30340;&#27604;&#36739;&#31867;&#21035;&#19968;&#33268;&#30340;&#32467;&#26524;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#27010;&#24565; <code>three_way_comparable_with&lt;T, U, Cat&gt;</code> &#25351;&#23450;&#19977;&#36335;&#27604;&#36739;&#36816;&#31639;&#31526; <code>&lt;=&gt;</code> &#22312;&#65288;&#21487;&#33021;&#28151;&#21512;&#30340;&#65289; <code>T</code> &#19982; <code>U</code> &#25805;&#20316;&#25968;&#19978;&#29983;&#25104;&#19982; <code>Cat</code> &#25152;&#34164;&#21547;&#30340;&#27604;&#36739;&#31867;&#21035;&#19968;&#33268;&#30340;&#32467;&#26524;&#12290;&#27604;&#36739;&#28151;&#21512;&#30340;&#25805;&#20316;&#25968;&#29983;&#25104;&#30340;&#32467;&#26524;&#31561;&#20215;&#20110;&#27604;&#36739;&#36716;&#25442;&#21040;&#20854;&#20844;&#20849;&#31867;&#22411;&#30340;&#25805;&#20316;&#25968;&#12290;</div>
+<p><a href="cpp-concepts-equality_comparable.html"><tt><i>__WeaklyEqualityComparableWith</i></tt></a>&#12289;<a href="cpp-concepts-totally_ordered.html"><tt><i>__PartiallyOrderedWith</i></tt></a> &#21644; <a href="cpp-concepts-equality_comparable.html"><tt><i>__ComparisonCommonTypeWith</i></tt></a> &#26159;&#20165;&#29992;&#20110;&#38416;&#37322;&#30340;&#27010;&#24565;&#12290;&#21442;&#35265; <a href="cpp-concepts-equality_comparable.html"><code>equality_comparable</code></a> &#21644; <a href="cpp-concepts-totally_ordered.html"><code>totally_ordered</code></a> &#30340;&#35828;&#26126;&#12290;</p>
+<h3><span class="mw-headline" id=".E8.AF.AD.E4.B9.89.E8.A6.81.E6.B1.82">&#35821;&#20041;&#35201;&#27714;</span></h3>
+<p>&#36825;&#20123;&#27010;&#24565;&#20165;&#33509;&#20854;&#25152;&#34164;&#21547;&#30340;&#27010;&#24565;&#22343;&#34987;&#23454;&#29616;&#25165;&#24471;&#21040;&#23454;&#29616;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> <code>T</code> &#19982; <code>Cat</code> &#23454;&#29616; <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">three_way_comparable</span><span class="sy1">&lt;</span>T, Cat<span class="sy1">&gt;</span></span></span>&#65292;&#20165;&#33509;&#32473;&#23450; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">const</span> <a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span></span></span> &#31867;&#22411;&#24038;&#20540; <code>a</code> &#19982; <code>b</code>&#65292;&#19979;&#21015;&#20026;&#30495;&#65306;
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span>a <span class="sy1">&lt;=&gt;</span> b <span class="sy1">==</span> <span class="nu0">0</span><span class="br0">)</span> <span class="sy1">==</span> <span class="kw4">bool</span><span class="br0">(</span>a <span class="sy1">==</span> b<span class="br0">)</span></span></span>&#65292;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span>a <span class="sy1">&lt;=&gt;</span> b <span class="sy3">!</span><span class="sy1">=</span> <span class="nu0">0</span><span class="br0">)</span> <span class="sy1">==</span> <span class="kw4">bool</span><span class="br0">(</span>a <span class="sy3">!</span><span class="sy1">=</span> b<span class="br0">)</span></span></span>&#65292;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span><span class="br0">(</span>a <span class="sy1">&lt;=&gt;</span> b<span class="br0">)</span> <span class="sy1">&lt;=&gt;</span> <span class="nu0">0</span><span class="br0">)</span></span></span> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span><span class="nu0">0</span> <span class="sy1">&lt;=&gt;</span> <span class="br0">(</span>b <span class="sy1">&lt;=&gt;</span> a<span class="br0">)</span><span class="br0">)</span></span></span> &#30456;&#31561;&#65292;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span><span class="br0">(</span>a <span class="sy1">&gt;</span> b<span class="br0">)</span> <span class="sy1">==</span> <span class="kw4">bool</span><span class="br0">(</span>b <span class="sy1">&lt;</span> a<span class="br0">)</span></span></span>&#65292;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span><span class="br0">(</span>a <span class="sy1">&gt;=</span> b<span class="br0">)</span> <span class="sy1">==</span> <span class="sy3">!</span><span class="kw4">bool</span><span class="br0">(</span>a <span class="sy1">&lt;</span> b<span class="br0">)</span></span></span>&#65292;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span><span class="br0">(</span>a <span class="sy1">&lt;=</span> b<span class="br0">)</span> <span class="sy1">==</span> <span class="sy3">!</span><span class="kw4">bool</span><span class="br0">(</span>b <span class="sy1">&lt;</span> a<span class="br0">)</span></span></span>&#65292;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span>a <span class="sy1">&lt;=&gt;</span> b <span class="sy1">&lt;</span> <span class="nu0">0</span><span class="br0">)</span> <span class="sy1">==</span> <span class="kw4">bool</span><span class="br0">(</span>a <span class="sy1">&lt;</span> b<span class="br0">)</span></span></span>&#65292;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span>a <span class="sy1">&lt;=&gt;</span> b <span class="sy1">&gt;</span> <span class="nu0">0</span><span class="br0">)</span> <span class="sy1">==</span> <span class="kw4">bool</span><span class="br0">(</span>a <span class="sy1">&gt;</span> b<span class="br0">)</span></span></span>&#65292;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span>a <span class="sy1">&lt;=&gt;</span> b <span class="sy1">&lt;=</span> <span class="nu0">0</span><span class="br0">)</span> <span class="sy1">==</span> <span class="kw4">bool</span><span class="br0">(</span>a <span class="sy1">&lt;=</span> b<span class="br0">)</span></span></span>&#65292;&#19988;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span>a <span class="sy1">&lt;=&gt;</span> b <span class="sy1">&gt;=</span> <span class="nu0">0</span><span class="br0">)</span> <span class="sy1">==</span> <span class="kw4">bool</span><span class="br0">(</span>a <span class="sy1">&gt;=</span> b<span class="br0">)</span></span></span>&#65307;&#32780;</li>
+<li>&#33509; <code>Cat</code> &#21487;&#36716;&#25442;&#20026; <span class="t-lc">std::strong_ordering</span>&#65292;&#21017; <code>T</code> &#23454;&#29616; <a href="cpp-concepts-totally_ordered.html"><code>totally_ordered</code></a>&#12290;</li>
+</ul>
+</div>
+<div class="t-li1"><span class="t-li">2)</span> <code>T</code>&#12289;<code>U</code> &#21450; <code>Cat</code> &#23454;&#29616; <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">three_way_comparable_with</span><span class="sy1">&lt;</span>T, U, Cat<span class="sy1">&gt;</span></span></span> &#20165;&#33509;&#32473;&#23450;
+<ul>
+<li><code>t</code> &#21644; <code>t2</code> &#20998;&#21035;&#20026;&#25351;&#20195;&#19981;&#21516;&#30340;&#30456;&#31561;&#23545;&#35937;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">const</span> <a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span></span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span></span></span> &#31867;&#22411;&#30340;&#24038;&#20540;&#65292;</li>
+<li><code>u</code> &#21644; <code>u2</code> &#20998;&#21035;&#20026;&#25351;&#20195;&#19981;&#21516;&#30340;&#30456;&#31561;&#23545;&#35937;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">const</span> <a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span></span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span></span></span> &#31867;&#22411;&#30340;&#24038;&#20540;&#12290;</li>
+</ul>
+<p>&#20196; <code>C</code> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-common_reference.html"><span class="kw2710">std::<span class="me2">common_reference_t</span></span></a><span class="sy1">&lt;</span><span class="kw4">const</span> <a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy3">&amp;</span>, <span class="kw4">const</span> <a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span><span class="sy3">&amp;</span><span class="sy1">&gt;</span></span></span>&#65292;&#24182;&#32473;&#23450;&#34920;&#36798;&#24335; <code>E</code> &#21644;&#31867;&#22411; <code>C</code>&#65292;&#20196; <span class="t-c"><span class="mw-geshi cpp source-cpp">CONVERT_TO<span class="sy1">&lt;</span>C<span class="sy1">&gt;</span><span class="br0">(</span>E<span class="br0">)</span></span></span> &#20026;&#65306;</p>
+<table class="t-rev-begin">
+<tr class="t-rev t-until-cxx23">
+<td>
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">static_cast</span><span class="sy1">&lt;</span>C<span class="sy1">&gt;</span><span class="br0">(</span><a href="cpp-utility-as_const.html"><span class="kw1124">std::<span class="me2">as_const</span></span></a><span class="br0">(</span>E<span class="br0">)</span><span class="br0">)</span></span></span>.</li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-until-cxx23" style="white-space: nowrap;">(C++23 &#21069;)</span></td>
+</tr>
+<tr class="t-rev t-since-cxx23">
+<td>
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">static_cast</span><span class="sy1">&lt;</span><span class="kw4">const</span> C<span class="sy3">&amp;</span><span class="sy1">&gt;</span><span class="br0">(</span><a href="cpp-utility-as_const.html"><span class="kw1124">std::<span class="me2">as_const</span></span></a><span class="br0">(</span>E<span class="br0">)</span><span class="br0">)</span></span></span> &#33509;&#36825;&#26159;&#21512;&#27861;&#34920;&#36798;&#24335;&#65292;</li>
+<li>&#21542;&#21017;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">static_cast</span><span class="sy1">&lt;</span><span class="kw4">const</span> C<span class="sy3">&amp;</span><span class="sy1">&gt;</span><span class="br0">(</span>std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>E<span class="br0">)</span><span class="br0">)</span></span></span>&#12290;</li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+</table>
+<p>&#19979;&#21015;&#20026;&#30495;&#65306;</p>
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">t <span class="sy1">&lt;=&gt;</span> u</span></span> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">u <span class="sy1">&lt;=&gt;</span> t</span></span> &#25317;&#26377;&#30456;&#21516;&#23450;&#20041;&#22495;&#65292;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span><span class="br0">(</span>t <span class="sy1">&lt;=&gt;</span> u<span class="br0">)</span> <span class="sy1">&lt;=&gt;</span> <span class="nu0">0</span><span class="br0">)</span></span></span> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span><span class="nu0">0</span> <span class="sy1">&lt;=&gt;</span> <span class="br0">(</span>u <span class="sy1">&lt;=&gt;</span> t<span class="br0">)</span><span class="br0">)</span></span></span> &#30456;&#31561;&#65292;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span>t <span class="sy1">&lt;=&gt;</span> u <span class="sy1">==</span> <span class="nu0">0</span><span class="br0">)</span> <span class="sy1">==</span> <span class="kw4">bool</span><span class="br0">(</span>t <span class="sy1">==</span> u<span class="br0">)</span></span></span>&#65292;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span>t <span class="sy1">&lt;=&gt;</span> u <span class="sy3">!</span><span class="sy1">=</span> <span class="nu0">0</span><span class="br0">)</span> <span class="sy1">==</span> <span class="kw4">bool</span><span class="br0">(</span>t <span class="sy3">!</span><span class="sy1">=</span> u<span class="br0">)</span></span></span>&#65292;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">Cat<span class="br0">(</span>t <span class="sy1">&lt;=&gt;</span> u<span class="br0">)</span> <span class="sy1">==</span> Cat<span class="br0">(</span>C<span class="br0">(</span>t<span class="br0">)</span> <span class="sy1">&lt;=&gt;</span> C<span class="br0">(</span>u<span class="br0">)</span><span class="br0">)</span></span></span>&#65292;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span>t <span class="sy1">&lt;=&gt;</span> u <span class="sy1">&lt;</span> <span class="nu0">0</span><span class="br0">)</span> <span class="sy1">==</span> <span class="kw4">bool</span><span class="br0">(</span>t <span class="sy1">&lt;</span> u<span class="br0">)</span></span></span>&#65292;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span>t <span class="sy1">&lt;=&gt;</span> u <span class="sy1">&gt;</span> <span class="nu0">0</span><span class="br0">)</span> <span class="sy1">==</span> <span class="kw4">bool</span><span class="br0">(</span>t <span class="sy1">&gt;</span> u<span class="br0">)</span></span></span>&#65292;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span>t <span class="sy1">&lt;=&gt;</span> u <span class="sy1">&lt;=</span> <span class="nu0">0</span><span class="br0">)</span> <span class="sy1">==</span> <span class="kw4">bool</span><span class="br0">(</span>t <span class="sy1">&lt;=</span> u<span class="br0">)</span></span></span>&#65292;&#19988;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span>t <span class="sy1">&lt;=&gt;</span> u <span class="sy1">&gt;=</span> <span class="nu0">0</span><span class="br0">)</span> <span class="sy1">==</span> <span class="kw4">bool</span><span class="br0">(</span>t <span class="sy1">&gt;=</span> u<span class="br0">)</span></span></span>&#65307;&#32780;</li>
+<li>&#33509; <code>Cat</code> &#21487;&#36716;&#25442;&#20026; <span class="t-lc">std::strong_ordering</span>&#65292;&#21017; <code>T</code> &#19982; <code>U</code> &#23454;&#29616; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-concepts-totally_ordered.html"><span class="kw2953">std::<span class="me2">totally_ordered_with</span></span></a><span class="sy1">&lt;</span>T, U<span class="sy1">&gt;</span></span></span>&#12290;</li>
+</ul>
+</div>
+<h3><span class="mw-headline" id=".E7.9B.B8.E7.AD.89.E6.80.A7.E4.BF.9D.E6.8C.81">&#30456;&#31561;&#24615;&#20445;&#25345;</span></h3>
+<p>&#26631;&#20934;&#24211;&#27010;&#24565;&#30340; <a href="cpp-language-requires.html"><span class="mw-geshi cpp source-cpp">requires</span> &#34920;&#36798;&#24335;</a>&#20013;&#22768;&#26126;&#30340;&#34920;&#36798;&#24335;&#37117;&#35201;&#27714;<a href="cpp-concepts.html#.E7.9B.B8.E7.AD.89.E6.80.A7.E4.BF.9D.E6.8C.81">&#20445;&#25345;&#30456;&#31561;&#24615;</a>&#65288;&#38500;&#38750;&#21478;&#22806;&#35828;&#26126;&#65289;&#12290;</p>
+<h3><span class="mw-headline" id=".E9.9A.90.E5.BC.8F.E8.A1.A8.E8.BE.BE.E5.BC.8F.E5.8F.98.E7.A7.8D">&#38544;&#24335;&#34920;&#36798;&#24335;&#21464;&#31181;</span></h3>
+<p>&#20351;&#29992;&#20102;&#19981;&#20462;&#25913;&#26576;&#24120;&#37327;&#24038;&#20540;&#25805;&#20316;&#25968;&#30340;&#34920;&#36798;&#24335;&#30340; <a href="cpp-language-requires.html"><span class="mw-geshi cpp source-cpp">requires</span> &#34920;&#36798;&#24335;</a>&#65292;&#20063;&#20250;&#35201;&#27714;&#20854;<a href="cpp-concepts.html#.E9.9A.90.E5.BC.8F.E7.9A.84.E8.A1.A8.E8.BE.BE.E5.BC.8F.E5.8F.98.E7.A7.8D">&#38544;&#24335;&#30340;&#34920;&#36798;&#24335;&#21464;&#31181;</a>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-concepts-equality_comparable.html"><span class="t-lines"><span>equality_comparable</span><span>equality_comparable_with</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#25351;&#23450;&#36816;&#31639;&#31526; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy1">==</span></span></span> &#20026;&#31561;&#20215;&#20851;&#31995;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#27010;&#24565;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-concepts-totally_ordered.html"><span class="t-lines"><span>totally_ordered</span><span>totally_ordered_with</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#25351;&#23450;&#27604;&#36739;&#36816;&#31639;&#31526;&#22312;&#35813;&#31867;&#22411;&#19978;&#20135;&#29983;&#20840;&#24207;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#27010;&#24565;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

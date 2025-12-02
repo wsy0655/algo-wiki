@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::bitset&lt;N&gt;::to_ulong</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_utility_bitset_to_ulong skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::bitset&lt;N&gt;::</span>to_ulong</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-utility.html">utility</a>&lrm; | <a href="cpp-utility-bitset.html">bitset</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">unsigned</span> <span class="kw4">long</span> to_ulong<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;&#20026; <code>constexpr</code>)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36716;&#25442; <code>bitset</code> &#30340;&#20869;&#23481;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">unsigned</span> <span class="kw4">long</span></span></span> &#25972;&#25968;&#12290;</p>
+<p><code>bitset</code> &#30340;&#39318;&#20301;&#23545;&#24212;&#25968;&#20540;&#30340;&#26368;&#20302;&#26377;&#25928;&#20301;&#65292;&#32780;&#23614;&#20301;&#23545;&#24212;&#26368;&#39640;&#26377;&#25928;&#20301;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#36716;&#25442;&#20986;&#30340;&#25972;&#25968;</p>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<p>&#33509;&#20540;&#19981;&#33021;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">unsigned</span> <span class="kw4">long</span></span></span> &#34920;&#31034;&#21017;&#25243;&#20986; <span class="t-lc"><a href="cpp-error-overflow_error.html">std::overflow_error</a></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;bitset&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;stdexcept&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">unsigned</span> <span class="kw4">long</span> i <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span> i <span class="sy1">&lt;</span> <span class="nu0">10</span><span class="sy4">;</span> <span class="sy2">++</span>i<span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-utility-bitset.html"><span class="kw1032">std::<span class="me2">bitset</span></span></a><span class="sy1">&lt;</span><span class="nu0">5</span><span class="sy1">&gt;</span> b<span class="br0">(</span>i<span class="br0">)</span><span class="sy4">;</span>
+        <a href="cpp-utility-bitset.html"><span class="kw1032">std::<span class="me2">bitset</span></span></a><span class="sy1">&lt;</span><span class="nu0">5</span><span class="sy1">&gt;</span> b_inverted <span class="sy1">=</span> ~b<span class="sy4">;</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> i <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\t</span>&#39;</span> <span class="sy1">&lt;&lt;</span> b <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\t</span>&#39;</span> <span class="sy1">&lt;&lt;</span> b_inverted <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\t</span>&#39;</span>
+                  <span class="sy1">&lt;&lt;</span> b_inverted.<span class="me1">to_ulong</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <a href="cpp-utility-bitset.html"><span class="kw1032">std::<span class="me2">bitset</span></span></a><span class="sy1">&lt;</span><span class="nu0">32</span><span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span>.<span class="me1">to_string</span><span class="br0">(</span><span class="st0">&#39;-&#39;</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="kw1">try</span>
+    <span class="br0">{</span>
+        <a href="cpp-utility-bitset.html"><span class="kw1032">std::<span class="me2">bitset</span></span></a><span class="sy1">&lt;</span><span class="nu0">128</span><span class="sy1">&gt;</span> x<span class="br0">(</span><span class="nu0">42</span><span class="br0">)</span><span class="sy4">;</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> x.<span class="me1">to_ulong</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+        x.<span class="me1">flip</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> x.<span class="me1">to_ulong</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span> <span class="co1">// &#25243;&#20986;&#24322;&#24120;</span>
+    <span class="br0">}</span>
+    <span class="kw1">catch</span> <span class="br0">(</span><span class="kw4">const</span> <a href="cpp-error-overflow_error.html"><span class="kw774">std::<span class="me2">overflow_error</span></span></a><span class="sy3">&amp;</span> ex<span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;ex: &quot;</span> <span class="sy1">&lt;&lt;</span> ex.<span class="me1">what</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">0   00000   11111   31
+1   00001   11110   30
+2   00010   11101   29
+3   00011   11100   28
+4   00100   11011   27
+5   00101   11010   26
+6   00110   11001   25
+7   00111   11000   24
+8   01000   10111   23
+9   01001   10110   22
+--------------------------------
+42
+ex: bitset to_ulong overflow error</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-bitset-to_string.html"><span class="t-lines"><span>to_string</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25968;&#25454;&#30340;&#23383;&#31526;&#20018;&#34920;&#31034;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-bitset-to_ullong.html"><span class="t-lines"><span>to_ullong</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25968;&#25454;&#30340; <span class="mw-geshi cpp source-cpp"><span class="kw4">unsigned</span> <span class="kw4">long</span> <span class="kw4">long</span></span> &#25972;&#25968;&#34920;&#31034;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

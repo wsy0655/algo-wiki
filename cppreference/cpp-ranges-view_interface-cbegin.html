@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::ranges::view_interface&lt;D&gt;::cbegin</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_ranges_view_interface_cbegin skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::ranges::view_interface&lt;D&gt;::</span>cbegin</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-ranges.html">ranges</a>&lrm; | <a href="cpp-ranges-view_interface.html">view interface</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="kw4">auto</span> cbegin<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="kw4">auto</span> cbegin<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> requires <a href="cpp-ranges-range.html"><span class="kw2898">ranges::<span class="me2">range</span></span></a><span class="sy1">&lt;</span><span class="kw4">const</span> D<span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>cbegin()</code> &#25104;&#21592;&#20989;&#25968;&#30340;&#40664;&#35748;&#23454;&#29616;&#36820;&#22238;&#33539;&#22260;&#30340;&#24120;&#37327;&#36215;&#22987;&#36845;&#20195;&#22120;&#12290;</p>
+<div class="t-image">
+<p><img alt="range-begin-end.svg" src="range-begin-end.svg" width="546" height="157" /></p>
+</div>
+<div class="t-li1"><span class="t-li">1)</span> &#20196; <span class="t-c"><span class="mw-geshi cpp source-cpp">derived</span></span> &#20026;&#32465;&#23450;&#21040; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">static_cast</span><span class="sy1">&lt;</span>D<span class="sy3">&amp;</span><span class="sy1">&gt;</span><span class="br0">(</span><span class="sy2">*</span>this<span class="br0">)</span></span></span> &#30340;&#24341;&#29992;&#12290;</div>
+<div class="t-li1"><span class="t-li"></span> &#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">return</span> <a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/cbegin"><span class="kw2883">ranges::<span class="me2">cbegin</span></span></a><span class="br0">(</span>derived<span class="br0">)</span><span class="sy4">;</span></span></span>&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#21516; <span class="t-v">(1)</span>&#65292;&#20294; <span class="t-c"><span class="mw-geshi cpp source-cpp">derived</span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">static_cast</span><span class="sy1">&lt;</span><span class="kw4">const</span> D<span class="sy3">&amp;</span><span class="sy1">&gt;</span><span class="br0">(</span><span class="sy2">*</span>this<span class="br0">)</span></span></span>&#12290;</div>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#33539;&#22260;&#30340;&#24120;&#37327;&#36215;&#22987;&#36845;&#20195;&#22120;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#26631;&#20934;&#24211;&#20013;&#30340;&#25152;&#26377;&#33539;&#22260;&#36866;&#37197;&#22120;&#21450;&#33539;&#22260;&#24037;&#21378;&#21644; <span class="t-lc">std::ranges::subrange</span> &#37117;&#20351;&#29992; <code>cbegin</code> &#30340;&#40664;&#35748;&#23454;&#29616;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#26242;&#26080;&#31034;&#20363;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-begin.html"><span class="t-lines"><span>begin</span><span>cbegin</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14)</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#21521;&#23481;&#22120;&#25110;&#25968;&#32452;&#36215;&#22987;&#30340;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-cbegin.html"><span class="t-lines"><span>ranges::cbegin</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#21521;&#21482;&#35835;&#33539;&#22260;&#36215;&#22987;&#30340;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#23450;&#21046;&#28857;&#23545;&#35937;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

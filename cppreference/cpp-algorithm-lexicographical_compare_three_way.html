@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::lexicographical_compare_three_way</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_algorithm_lexicographical_compare_three_way skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>lexicographical_compare_three_way</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-algorithm.html">algorithm</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-algorithm.html">&lt;algorithm&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> InputIt1, <span class="kw1">class</span> InputIt2, <span class="kw1">class</span> Cmp <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw4">constexpr</span> <span class="kw4">auto</span> lexicographical_compare_three_way<br />
+&nbsp; &nbsp; <span class="br0">(</span> InputIt1 first1, InputIt1 last1, InputIt2 first2, InputIt2 last2,<br /></p>
+&nbsp; &nbsp; &nbsp; Cmp comp <span class="br0">)</span> <span class="sy2">-</span><span class="sy1">&gt;</span> decltype<span class="br0">(</span>comp<span class="br0">(</span><span class="sy2">*</span>first1, <span class="sy2">*</span>first2<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> InputIt1, <span class="kw1">class</span> InputIt2 <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw4">constexpr</span> <span class="kw4">auto</span> lexicographical_compare_three_way<br /></p>
+&nbsp; &nbsp; <span class="br0">(</span> InputIt1 first1, InputIt1 last1, InputIt2 first2, InputIt2 last2 <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#29992;&#19977;&#36335;&#27604;&#36739;&#65292;&#20197;&#23383;&#20856;&#24207;&#27604;&#36739;&#20004;&#20010;&#33539;&#22260; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">first1</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">last1</span></span><code>)</code> &#21644; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">first2</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">last2</span></span><code>)</code>&#65292;&#24182;&#20135;&#29983;&#25152;&#36866;&#29992;&#26368;&#24378;&#30340;&#27604;&#36739;&#31867;&#21035;&#31867;&#22411;&#30340;&#32467;&#26524;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#36820;&#22238;&#20004;&#20010;&#33539;&#22260;&#20013;&#39318;&#23545;&#25353;&#29031; <span class="t-c"><span class="mw-geshi cpp source-cpp">comp</span></span> &#19981;&#31561;&#20215;&#30340;&#20803;&#32032;&#38388;&#30340;&#27425;&#24207;&#65288;&#22914;&#26524;&#23384;&#22312;&#65289;&#65292;&#21542;&#21017;&#65288;&#33509;&#19968;&#20010;&#33539;&#22260;&#25353;&#29031; <span class="t-c"><span class="mw-geshi cpp source-cpp">comp</span></span> &#31561;&#20215;&#20110;&#21478;&#19968;&#20010;&#33539;&#22260;&#30340;&#21069;&#32512;&#65289;&#36820;&#22238;&#20004;&#20010;&#33539;&#22260;&#38271;&#24230;&#38388;&#30340;&#27425;&#24207;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">return</span> std<span class="sy4">::</span><span class="me2">lexicographical_compare_three_way</span><span class="br0">(</span></span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; &nbsp; first1, last1, first2, last2, <a href="cpp-utility-compare-compare_three_way.html"><span class="kw3172">std::<span class="me2">compare_three_way</span></span></a><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span></span></span>&#12290;</div>
+<p>&#22914;&#26524;&#36820;&#22238;&#31867;&#22411;&#19981;&#26159;&#19977;&#20010;&#27604;&#36739;&#31867;&#21035;&#31867;&#22411;&#20043;&#19968;&#65292;&#37027;&#20040;&#31243;&#24207;&#38750;&#33391;&#26500;&#65306;</p>
+<ul>
+<li><a href="cpp-utility-compare-strong_ordering.html"><tt>std::strong_ordering</tt></a></li>
+<li><a href="cpp-utility-compare-weak_ordering.html"><tt>std::weak_ordering</tt></a></li>
+<li><a href="cpp-utility-compare-partial_ordering.html"><tt>std::partial_ordering</tt></a></li>
+</ul>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>first1, last1</td>
+<td>-</td>
+<td>&#35201;&#26816;&#39564;&#30340;&#31532;&#19968;&#20010;&#20803;&#32032;<a href="cpp-iterator.html#.E8.8C.83.E5.9B.B4">&#33539;&#22260;</a>&#30340;&#36845;&#20195;&#22120;&#23545;</td>
+</tr>
+<tr class="t-par">
+<td>first2, last2</td>
+<td>-</td>
+<td>&#35201;&#26816;&#39564;&#30340;&#31532;&#20108;&#20010;&#20803;&#32032;<a href="cpp-iterator.html#.E8.8C.83.E5.9B.B4">&#33539;&#22260;</a>&#30340;&#36845;&#20195;&#22120;&#23545;</td>
+</tr>
+<tr class="t-par">
+<td>comp</td>
+<td>-</td>
+<td>&#20989;&#25968;&#23545;&#35937;</td>
+</tr>
+<tr class="t-par-hitem">
+<td colspan="3">&#31867;&#22411;&#35201;&#27714;</td>
+</tr>
+<tr class="t-par-req">
+<td colspan="3">-
+<div class="spacer"></div>
+<code>InputIt1, InputIt2</code> &#24517;&#39035;&#28385;&#36275;<a href="cpp-named_req-InputIterator.html"><span style="font-style:italic">&#32769;&#24335;&#36755;&#20837;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyInputIterator)</span></a> &#12290;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#23450;&#20041;&#22914;&#19978;&#30340;&#27604;&#36739;&#31867;&#21035;&#31867;&#22411;&#30340;&#20540;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<p>&#32473;&#23450; <span class="mjax" style="display:none">\(\scriptsize N_1\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">N<span class="t-su t-su-b">1</span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-distance.html"><span class="kw676">std::<span class="me2">distance</span></span></a><span class="br0">(</span>first1, last1<span class="br0">)</span></span></span>&#65292;<span class="mjax" style="display:none">\(\scriptsize N_2\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">N<span class="t-su t-su-b">2</span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-distance.html"><span class="kw676">std::<span class="me2">distance</span></span></a><span class="br0">(</span>first2, last2<span class="br0">)</span></span></span>&#65306;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#26368;&#22810;&#24212;&#29992; <span class="mjax" style="display:none">\(\scriptsize \min(N_1,N_2)\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">min(N<span class="t-su t-su-b">1</span>,N<span class="t-su t-su-b">2</span>)</span> &#27425; <span class="t-c"><span class="mw-geshi cpp source-cpp">comp</span></span>&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#26368;&#22810;&#24212;&#29992; <span class="mjax" style="display:none">\(\scriptsize \min(N_1,N_2)\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">min(N<span class="t-su t-su-b">1</span>,N<span class="t-su t-su-b">2</span>)</span> &#27425; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-compare-compare_three_way.html"><span class="kw3172">std::<span class="me2">compare_three_way</span></span></a><span class="br0">(</span><span class="br0">)</span></span></span>&#12290;</div>
+<h3><span class="mw-headline" id=".E5.8F.AF.E8.83.BD.E7.9A.84.E5.AE.9E.E7.8E.B0">&#21487;&#33021;&#30340;&#23454;&#29616;</span></h3>
+<table class="eq-fun-cpp-table">
+<tr>
+<td>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> I1, <span class="kw1">class</span> I2, <span class="kw1">class</span> Cmp<span class="sy1">&gt;</span>
+<span class="kw4">constexpr</span> <span class="kw4">auto</span> lexicographical_compare_three_way<span class="br0">(</span>I1 f1, I1 l1, I2 f2, I2 l2, Cmp comp<span class="br0">)</span>
+    <span class="sy2">-</span><span class="sy1">&gt;</span> decltype<span class="br0">(</span>comp<span class="br0">(</span><span class="sy2">*</span>f1, <span class="sy2">*</span>f2<span class="br0">)</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">using</span> ret_t <span class="sy1">=</span> decltype<span class="br0">(</span>comp<span class="br0">(</span><span class="sy2">*</span>f1, <span class="sy2">*</span>f2<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span><a href="cpp-types-disjunction.html"><span class="kw647">std::<span class="me2">disjunction_v</span></span></a><span class="sy1">&lt;</span>
+                      <a href="cpp-types-is_same.html"><span class="kw591">std::<span class="me2">is_same</span></span></a><span class="sy1">&lt;</span>ret_t, <a href="cpp-utility-compare-strong_ordering.html"><span class="kw2661">std::<span class="me2">strong_ordering</span></span></a><span class="sy1">&gt;</span>,
+                      <a href="cpp-types-is_same.html"><span class="kw591">std::<span class="me2">is_same</span></span></a><span class="sy1">&lt;</span>ret_t, <a href="cpp-utility-compare-weak_ordering.html"><span class="kw2663">std::<span class="me2">weak_ordering</span></span></a><span class="sy1">&gt;</span>,
+                      <a href="cpp-types-is_same.html"><span class="kw591">std::<span class="me2">is_same</span></span></a><span class="sy1">&lt;</span>ret_t, <a href="cpp-utility-compare-partial_ordering.html"><span class="kw2659">std::<span class="me2">partial_ordering</span></span></a><span class="sy1">&gt;&gt;</span>,
+                  <span class="st0">&quot;&#36820;&#22238;&#31867;&#22411;&#24517;&#39035;&#26159;&#27604;&#36739;&#31867;&#21035;&#31867;&#22411;&#12290;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw4">bool</span> exhaust1 <span class="sy1">=</span> <span class="br0">(</span>f1 <span class="sy1">==</span> l1<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">bool</span> exhaust2 <span class="sy1">=</span> <span class="br0">(</span>f2 <span class="sy1">==</span> l2<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="sy4">;</span> <span class="sy3">!</span>exhaust1 <span class="sy3">&amp;&amp;</span> <span class="sy3">!</span>exhaust2<span class="sy4">;</span> exhaust1 <span class="sy1">=</span> <span class="br0">(</span><span class="sy2">++</span>f1 <span class="sy1">==</span> l1<span class="br0">)</span>, exhaust2 <span class="sy1">=</span> <span class="br0">(</span><span class="sy2">++</span>f2 <span class="sy1">==</span> l2<span class="br0">)</span><span class="br0">)</span>
+        <span class="kw1">if</span> <span class="br0">(</span><span class="kw4">auto</span> c <span class="sy1">=</span> comp<span class="br0">(</span><span class="sy2">*</span>f1, <span class="sy2">*</span>f2<span class="br0">)</span><span class="sy4">;</span> c <span class="sy3">!</span><span class="sy1">=</span> <span class="nu0">0</span><span class="br0">)</span>
+            <span class="kw1">return</span> c<span class="sy4">;</span>
+ 
+    <span class="kw1">return</span> <span class="sy3">!</span>exhaust1 <span class="sy4">?</span> std<span class="sy4">::</span><span class="me2">strong_ordering</span><span class="sy4">::</span><span class="me2">greater</span><span class="sy4">:</span>
+           <span class="sy3">!</span>exhaust2 <span class="sy4">?</span> std<span class="sy4">::</span><span class="me2">strong_ordering</span><span class="sy4">::</span><span class="me2">less</span><span class="sy4">:</span>
+                       std<span class="sy4">::</span><span class="me2">strong_ordering</span><span class="sy4">::</span><span class="me2">equal</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;algorithm&gt;</span>
+<span class="co2">#include &lt;cctype&gt;</span>
+<span class="co2">#include &lt;compare&gt;</span>
+<span class="co2">#include &lt;iomanip&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;string_view&gt;</span>
+<span class="co2">#include &lt;utility&gt;</span>
+ 
+<span class="kw1">using</span> <span class="kw1">namespace</span> std<span class="sy4">::</span><span class="me2">literals</span><span class="sy4">;</span>
+ 
+<span class="kw4">void</span> show_result<span class="br0">(</span><a href="cpp-string-basic_string_view.html"><span class="kw1251">std::<span class="me2">string_view</span></span></a> s1, <a href="cpp-string-basic_string_view.html"><span class="kw1251">std::<span class="me2">string_view</span></span></a> s2, <a href="cpp-utility-compare-strong_ordering.html"><span class="kw2661">std::<span class="me2">strong_ordering</span></span></a> o<span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> quoted<span class="br0">(</span>s1<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; &quot;</span><span class="sy4">;</span>
+    <span class="br0">(</span>o <span class="sy1">&lt;</span> <span class="nu0">0</span><span class="br0">)</span> <span class="sy4">?</span> <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#23567;&#20110; &quot;</span> <span class="sy4">:</span>
+    <span class="br0">(</span>o <span class="sy1">&gt;</span> <span class="nu0">0</span><span class="br0">)</span> <span class="sy4">?</span> <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#22823;&#20110; &quot;</span> <span class="sy4">:</span>
+              <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#31561;&#20110; &quot;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> quoted<span class="br0">(</span>s2<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<a href="cpp-utility-compare-strong_ordering.html"><span class="kw2661">std::<span class="me2">strong_ordering</span></span></a> cmp_icase<span class="br0">(</span><span class="kw4">unsigned</span> <span class="kw4">char</span> x, <span class="kw4">unsigned</span> <span class="kw4">char</span> y<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">return</span> <a href="cpp-string-byte-toupper.html"><span class="kw3518">std::<span class="me2">toupper</span></span></a><span class="br0">(</span>x<span class="br0">)</span> <span class="sy1">&lt;=&gt;</span> <a href="cpp-string-byte-toupper.html"><span class="kw3518">std::<span class="me2">toupper</span></span></a><span class="br0">(</span>y<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> <span class="br0">[</span>s1, s2<span class="br0">]</span> <span class="sy4">:</span>
+    <span class="br0">{</span>
+        <a href="cpp-utility-pair.html"><span class="kw1099">std::<span class="me2">pair</span></span></a><span class="br0">{</span><span class="st0">&quot;one&quot;</span>sv, <span class="st0">&quot;ONE&quot;</span>sv<span class="br0">}</span>, <span class="br0">{</span><span class="st0">&quot;two&quot;</span>sv, <span class="st0">&quot;four&quot;</span>sv<span class="br0">}</span>, <span class="br0">{</span><span class="st0">&quot;three&quot;</span>sv, <span class="st0">&quot;two&quot;</span>sv<span class="br0">}</span>
+    <span class="br0">}</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw4">const</span> <span class="kw4">auto</span> res <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">lexicographical_compare_three_way</span><span class="br0">(</span>
+            s1.<span class="me1">cbegin</span><span class="br0">(</span><span class="br0">)</span>, s1.<span class="me1">cend</span><span class="br0">(</span><span class="br0">)</span>, s2.<span class="me1">cbegin</span><span class="br0">(</span><span class="br0">)</span>, s2.<span class="me1">cend</span><span class="br0">(</span><span class="br0">)</span>, cmp_icase<span class="br0">)</span><span class="sy4">;</span>
+        show_result<span class="br0">(</span>s1, s2, res<span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&quot;one&quot; &#31561;&#20110; &quot;ONE&quot;
+&quot;two&quot; &#22823;&#20110; &quot;four&quot;
+&quot;three&quot; &#23567;&#20110; &quot;two&quot;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue3410">LWG 3410</a></td>
+<td>C++20</td>
+<td>&#35201;&#27714;&#20102;&#39069;&#22806;&#30340;&#36845;&#20195;&#22120;&#38388;&#27604;&#36739;</td>
+<td>&#31227;&#38500;&#35813;&#35201;&#27714;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-lexicographical_compare.html"><span class="t-lines"><span>lexicographical_compare</span></span></a></div>
+</div>
+</td>
+<td>&#24403;&#19968;&#20010;&#33539;&#22260;&#23383;&#20856;&#24207;&#23567;&#20110;&#21478;&#19968;&#20010;&#26102;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-compare-compare_three_way.html"><span class="t-lines"><span>compare_three_way</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#23454;&#29616; <span class="t-c"><span class="mw-geshi cpp source-cpp">x <span class="sy1">&lt;=&gt;</span> y</span></span> &#30340;&#21463;&#32422;&#26463;&#20989;&#25968;&#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-lexicographical_compare.html"><span class="t-lines"><span>ranges::lexicographical_compare</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#24403;&#19968;&#20010;&#33539;&#22260;&#23383;&#20856;&#24207;&#23567;&#20110;&#21478;&#19968;&#20010;&#26102;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

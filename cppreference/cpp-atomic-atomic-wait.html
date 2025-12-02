@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::atomic&lt;T&gt;::wait</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_atomic_atomic_wait skin-cppreference2 action-view cpp-page-template cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::atomic&lt;T&gt;::</span>wait</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-atomic.html">atomic</a>&lrm; | <a href="cpp-atomic-atomic.html">atomic</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<div class="t-page-template" style="">
+<p></p>
+</div>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span id=".E7.89.88.E6.9C.AC_1"></span><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span> wait<span class="br0">(</span> T old, <a href="cpp-atomic-memory_order.html"><span class="kw2096">std::<span class="me2">memory_order</span></span></a> order <span class="sy1">=</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-atomic-memory_order.html"><span class="kw2102">std::<span class="me2">memory_order_seq_cst</span></span></a> <span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span><br />
+<span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;&#20026; constexpr)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span> wait<span class="br0">(</span> T old,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="cpp-atomic-memory_order.html"><span class="kw2096">std::<span class="me2">memory_order</span></span></a> order <span class="sy1">=</span><br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="cpp-atomic-memory_order.html"><span class="kw2102">std::<span class="me2">memory_order_seq_cst</span></span></a> <span class="br0">)</span> <span class="kw4">const</span> <span class="kw4">volatile</span> <span class="kw1">noexcept</span><span class="sy4">;</span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36827;&#34892;&#21407;&#23376;&#31561;&#24453;&#25805;&#20316;&#12290;&#34920;&#29616;&#22914;&#21516;&#37325;&#22797;&#36827;&#34892;&#19979;&#21015;&#27493;&#39588;&#65306;</p>
+<ul>
+<li>&#27604;&#36739; <span class="t-c"><span class="mw-geshi cpp source-cpp">this<span class="sy2">-</span><span class="sy1">&gt;</span>load<span class="br0">(</span>order<span class="br0">)</span></span></span> &#30340;<a href="cpp-language-object.html">&#20540;&#34920;&#31034;</a>&#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">old</span></span>&#12290;
+<ul>
+<li>&#22914;&#26524;&#23427;&#20204;&#30456;&#31561;&#65292;&#37027;&#20040;&#38459;&#22622;&#30452;&#21040; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#34987; <span class="t-lc">notify_one()</span> &#25110; <span class="t-lc">notify_all()</span> &#25552;&#37266;&#65292;&#25110;&#32447;&#31243;&#34987;&#34394;&#20551;&#35299;&#38500;&#38145;&#23450;&#12290;</li>
+<li>&#21542;&#21017;&#30452;&#25509;&#36820;&#22238;&#12290;</li>
+</ul>
+</li>
+</ul>
+<p>&#36825;&#20123;&#20989;&#25968;&#20445;&#35777;&#21482;&#26377;&#22312;&#20540;&#26356;&#25913;&#26102;&#25165;&#36820;&#22238;&#65292;&#21363;&#20351;&#24213;&#23618;&#23454;&#29616;&#21457;&#29983;&#20102;&#34394;&#20551;&#35299;&#38500;&#38145;&#23450;&#12290;</p>
+<p>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">order</span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">memory_order</span><span class="sy4">::</span><span class="me2">release</span></span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">memory_order</span><span class="sy4">::</span><span class="me2">acq_rel</span></span></span> &#20043;&#19968;&#65292;&#37027;&#20040;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>old</td>
+<td>-</td>
+<td>&#35201;&#26816;&#27979; <code>atomic</code> &#30340;&#23545;&#35937;&#19981;&#20877;&#21547;&#26377;&#30340;&#20540;</td>
+</tr>
+<tr class="t-par">
+<td>order</td>
+<td>-</td>
+<td>&#24378;&#21046;&#30340;&#20869;&#23384;&#23450;&#24207;&#32422;&#26463;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#26356;&#25913;&#26816;&#27979;&#30340;&#36825;&#31181;&#24418;&#24335;&#36890;&#24120;&#27604;&#31616;&#21333;&#36718;&#35810;&#25110;&#32431;&#33258;&#26059;&#38145;&#39640;&#25928;&#12290;</p>
+<p>&#30001;&#20110; <a href="https://en.wikipedia.org/wiki/ABA_problem" class="extiw" title="enwiki:ABA problem">ABA &#38382;&#39064;</a>&#65292;&#21487;&#33021;&#38169;&#22833;&#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp">old</span></span> &#21040;&#21478;&#19968;&#20540;&#20877;&#22238;&#21040; <span class="t-c"><span class="mw-geshi cpp source-cpp">old</span></span> &#30340;&#26356;&#25913;&#65292;&#32780;&#19981;&#35299;&#38500;&#38145;&#23450;&#12290;</p>
+<p>&#27604;&#36739;&#26159;&#36880;&#20301;&#30340;&#65288;&#31867;&#20284; <span class="t-lc"><a href="cpp-string-byte-memcmp.html">std::memcmp</a></span>&#65289;&#65307;&#19981;&#20351;&#29992;&#27604;&#36739;&#36816;&#31639;&#31526;&#12290;&#24573;&#30053;&#20915;&#19981;&#21442;&#19982;&#23545;&#35937;&#20540;&#34920;&#31034;&#30340;&#22635;&#20805;&#20301;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;atomic&gt;</span>
+<span class="co2">#include &lt;chrono&gt;</span>
+<span class="co2">#include &lt;future&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;thread&gt;</span>
+ 
+<span class="kw1">using</span> <span class="kw1">namespace</span> std<span class="sy4">::</span><span class="me2">literals</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-atomic-atomic.html"><span class="kw2070">std::<span class="me2">atomic</span></span></a><span class="sy1">&lt;</span><span class="kw4">bool</span><span class="sy1">&gt;</span> all_tasks_completed<span class="br0">{</span><span class="kw2">false</span><span class="br0">}</span><span class="sy4">;</span>
+    <a href="cpp-atomic-atomic.html"><span class="kw2070">std::<span class="me2">atomic</span></span></a><span class="sy1">&lt;</span><span class="kw4">unsigned</span><span class="sy1">&gt;</span> completion_count<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+    <a href="cpp-thread-future.html"><span class="kw2184">std::<span class="me2">future</span></span></a><span class="sy1">&lt;</span><span class="kw4">void</span><span class="sy1">&gt;</span> task_futures<span class="br0">[</span><span class="nu0">16</span><span class="br0">]</span><span class="sy4">;</span>
+    <a href="cpp-atomic-atomic.html"><span class="kw2070">std::<span class="me2">atomic</span></span></a><span class="sy1">&lt;</span><span class="kw4">unsigned</span><span class="sy1">&gt;</span> outstanding_task_count<span class="br0">{</span><span class="nu0">16</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#29983;&#25104;&#25968;&#20010;&#38656;&#35201;&#33457;&#36153;&#19981;&#21516;&#26102;&#38388;&#30340;&#20219;&#21153;&#65292;&#28982;&#21518;&#20943;&#23569;&#26410;&#23436;&#25104;&#20219;&#21153;&#35745;&#25968;&#12290;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><a href="cpp-thread-future.html"><span class="kw2184">std::<span class="me2">future</span></span></a><span class="sy1">&lt;</span><span class="kw4">void</span><span class="sy1">&gt;</span><span class="sy3">&amp;</span> task_future <span class="sy4">:</span> task_futures<span class="br0">)</span>
+        task_future <span class="sy1">=</span> <a href="cpp-thread-async.html"><span class="kw2187">std::<span class="me2">async</span></span></a><span class="br0">(</span><span class="br0">[</span><span class="sy3">&amp;</span><span class="br0">]</span>
+        <span class="br0">{</span>
+            <span class="co1">// &#27492; sleep &#34920;&#31034;&#24037;&#20316;&#36827;&#34892;&#20013;</span>
+            <a href="cpp-thread-sleep_for.html"><span class="kw2153">std::<span class="me2">this_thread</span><span class="sy4">::</span><span class="me2">sleep_for</span></span></a><span class="br0">(</span>50ms<span class="br0">)</span><span class="sy4">;</span>
+ 
+            <span class="sy2">++</span>completion_count<span class="sy4">;</span>
+            <span class="sy2">--</span>outstanding_task_count<span class="sy4">;</span>
+ 
+            <span class="co1">// &#24403;&#20219;&#21153;&#35745;&#25968;&#38477;&#21040;&#38646;&#30340;&#26102;&#20505;&#65292;&#36890;&#30693;&#31561;&#24453;&#32773;&#65288;&#22312;&#36825;&#37324;&#26159;&#20027;&#32447;&#31243;&#65289;&#12290;</span>
+            <span class="kw1">if</span> <span class="br0">(</span>outstanding_task_count.<span class="me1">load</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> <span class="nu0">0</span><span class="br0">)</span>
+            <span class="br0">{</span>
+                all_tasks_completed <span class="sy1">=</span> <span class="kw2">true</span><span class="sy4">;</span>
+                all_tasks_completed.<span class="me1">notify_one</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+            <span class="br0">}</span>
+        <span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    all_tasks_completed.<span class="me1">wait</span><span class="br0">(</span><span class="kw2">false</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#23436;&#25104;&#20219;&#21153;&#25968; = &quot;</span> <span class="sy1">&lt;&lt;</span> completion_count.<span class="me1">load</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#23436;&#25104;&#20219;&#21153;&#25968; = 16</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-atomic-atomic-notify_one.html"><span class="t-lines"><span>notify_one</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#25552;&#37266;&#33267;&#23569;&#19968;&#20010;&#22312;&#21407;&#23376;&#23545;&#35937;&#19978;&#30340;&#31561;&#24453;&#20013;&#38459;&#22622;&#30340;&#32447;&#31243;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-atomic-atomic-notify_all.html"><span class="t-lines"><span>notify_all</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#25552;&#37266;&#25152;&#26377;&#22312;&#21407;&#23376;&#23545;&#35937;&#19978;&#30340;&#31561;&#24453;&#20013;&#38459;&#22622;&#30340;&#32447;&#31243;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-atomic-atomic_notify_one.html"><span class="t-lines"><span>atomic_notify_one</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#25552;&#37266;&#19968;&#20010;&#22312; <code>atomic_wait</code> &#20013;&#38459;&#22622;&#30340;&#32447;&#31243;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-atomic-atomic_notify_all.html"><span class="t-lines"><span>atomic_notify_all</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#25552;&#37266;&#25152;&#26377;&#22312; <code>atomic_wait</code> &#20013;&#38459;&#22622;&#30340;&#32447;&#31243;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

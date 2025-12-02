@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::rotate_copy</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_algorithm_rotate_copy skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>rotate_copy</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-algorithm.html">algorithm</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-algorithm.html">&lt;algorithm&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> ForwardIt, <span class="kw1">class</span> OutputIt <span class="sy1">&gt;</span><br /></span>
+<p>OutputIt rotate_copy<span class="br0">(</span> ForwardIt first, ForwardIt middle,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ForwardIt last, OutputIt d_first <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;&#20026; <code>constexpr</code>)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> ExecutionPolicy,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span> ForwardIt1, <span class="kw1">class</span> ForwardIt2 <span class="sy1">&gt;</span><br />
+ForwardIt2 rotate_copy<span class="br0">(</span> ExecutionPolicy<span class="sy3">&amp;&amp;</span> policy,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ForwardIt1 first, ForwardIt1 middle,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ForwardIt1 last, ForwardIt2 d_first <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#20174;&#33539;&#22260; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">first</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">last</span></span><code>)</code> &#22797;&#21046;&#20803;&#32032;&#21040;&#22987;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">d_first</span></span>&#65292;&#20351;&#24471;&#30446;&#26631;&#33539;&#22260;&#20013;&#65292;<code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">first</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">middle</span></span><code>)</code> &#30340;&#20803;&#32032;&#22312; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">middle</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">last</span></span><code>)</code> &#21518;&#38754;&#24182;&#19988;&#20445;&#30041;&#36825;&#20004;&#20010;&#33539;&#22260;&#20013;&#20803;&#32032;&#30340;&#21407;&#26412;&#39034;&#24207;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#21516; <span class="t-v">(1)</span>&#65292;&#20294;&#25353;&#29031; <span class="t-c"><span class="mw-geshi cpp source-cpp">policy</span></span> &#25191;&#34892;&#12290;</div>
+<div class="t-li1"><span class="t-li"></span> &#27492;&#37325;&#36733;&#21482;&#26377;&#22312;&#28385;&#36275;&#20197;&#19979;&#25152;&#26377;&#26465;&#20214;&#26102;&#25165;&#20250;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#65306;
+<table class="t-rev-begin">
+<tr class="t-rev t-until-cxx20">
+<td>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-algorithm-is_execution_policy.html"><span class="kw1568">std::<span class="me2">is_execution_policy_v</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-decay.html"><span class="kw632">std::<span class="me2">decay_t</span></span></a><span class="sy1">&lt;</span>ExecutionPolicy<span class="sy1">&gt;&gt;</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#21069;)</span></td>
+</tr>
+<tr class="t-rev t-since-cxx20">
+<td>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-algorithm-is_execution_policy.html"><span class="kw1568">std::<span class="me2">is_execution_policy_v</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-remove_cvref.html"><span class="kw2643">std::<span class="me2">remove_cvref_t</span></span></a><span class="sy1">&lt;</span>ExecutionPolicy<span class="sy1">&gt;&gt;</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+</table>
+</div>
+<p>&#22914;&#26524;&#28385;&#36275;&#20197;&#19979;&#20219;&#24847;&#26465;&#20214;&#65292;&#37027;&#20040;&#34892;&#20026;&#26410;&#23450;&#20041;&#65306;</p>
+<ul>
+<li><code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">first</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">middle</span></span><code>)</code> &#25110; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">middle</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">last</span></span><code>)</code> &#19981;&#26159;<a href="cpp-iterator.html#.E8.8C.83.E5.9B.B4">&#26377;&#25928;&#33539;&#22260;</a>&#12290;</li>
+<li>&#28304;&#21644;&#30446;&#26631;&#33539;&#22260;&#26377;&#37325;&#21472;&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>first, last</td>
+<td>-</td>
+<td>&#35201;&#22797;&#21046;&#30340;&#28304;&#20803;&#32032;<a href="cpp-iterator.html#.E8.8C.83.E5.9B.B4">&#33539;&#22260;</a>&#30340;&#36845;&#20195;&#22120;&#23545;</td>
+</tr>
+<tr class="t-par">
+<td>middle</td>
+<td>-</td>
+<td>&#25351;&#21521; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">first</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">last</span></span><code>)</code> &#20013;&#24212;&#20986;&#29616;&#22312;&#26032;&#33539;&#22260;&#36215;&#22987;&#30340;&#20803;&#32032;&#30340;&#36845;&#20195;&#22120;</td>
+</tr>
+<tr class="t-par">
+<td>d_first</td>
+<td>-</td>
+<td>&#30446;&#26631;&#33539;&#22260;&#30340;&#36215;&#22987;</td>
+</tr>
+<tr class="t-par">
+<td>policy</td>
+<td>-</td>
+<td>&#25152;&#29992;&#30340;<a href="cpp-algorithm-execution_policy_tag_t.html">&#25191;&#34892;&#31574;&#30053;</a></td>
+</tr>
+<tr class="t-par-hitem">
+<td colspan="3">&#31867;&#22411;&#35201;&#27714;</td>
+</tr>
+<tr class="t-par-req">
+<td colspan="3">-
+<div class="spacer"></div>
+<code>ForwardIt, ForwardIt1, ForwardIt2</code> &#24517;&#39035;&#28385;&#36275;<a href="cpp-named_req-ForwardIterator.html"><span style="font-style:italic">&#32769;&#24335;&#21521;&#21069;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyForwardIterator)</span></a> &#12290;</td>
+</tr>
+<tr class="t-par-req">
+<td colspan="3">-
+<div class="spacer"></div>
+<code>OutputIt</code> &#24517;&#39035;&#28385;&#36275;<a href="cpp-named_req-OutputIterator.html"><span style="font-style:italic">&#32769;&#24335;&#36755;&#20986;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyOutputIterator)</span></a> &#12290;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#25351;&#21521;&#26368;&#21518;&#34987;&#22797;&#21046;&#20803;&#32032;&#21518;&#19968;&#20803;&#32032;&#30340;&#36755;&#20986;&#36845;&#20195;&#22120;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-distance.html"><span class="kw676">std::<span class="me2">distance</span></span></a><span class="br0">(</span>first, last<span class="br0">)</span></span></span> &#27425;&#36171;&#20540;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<p>&#25317;&#26377;&#21517;&#20026; <code>ExecutionPolicy</code> &#30340;&#27169;&#26495;&#24418;&#21442;&#30340;&#37325;&#36733;&#25353;&#19979;&#21015;&#26041;&#24335;&#25253;&#21578;&#38169;&#35823;&#65306;</p>
+<ul>
+<li>&#22914;&#26524;&#20316;&#20026;&#31639;&#27861;&#19968;&#37096;&#20998;&#35843;&#29992;&#30340;&#20989;&#25968;&#30340;&#25191;&#34892;&#25243;&#20986;&#24322;&#24120;&#65292;&#19988; <code>ExecutionPolicy</code> &#26159;<a href="cpp-algorithm-execution_policy_tag_t.html">&#26631;&#20934;&#31574;&#30053;</a>&#20043;&#19968;&#65292;&#37027;&#20040;&#35843;&#29992; <span class="t-lc"><a href="cpp-error-terminate.html">std::terminate</a></span>&#12290;&#23545;&#20110;&#20219;&#20309;&#20854;&#20182; <code>ExecutionPolicy</code>&#65292;&#34892;&#20026;&#30001;&#23454;&#29616;&#23450;&#20041;&#12290;</li>
+<li>&#22914;&#26524;&#31639;&#27861;&#26080;&#27861;&#20998;&#37197;&#20869;&#23384;&#65292;&#37027;&#20040;&#25243;&#20986; <span class="t-lc"><a href="cpp-memory-new-bad_alloc.html">std::bad_alloc</a></span>&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E5.8F.AF.E8.83.BD.E7.9A.84.E5.AE.9E.E7.8E.B0">&#21487;&#33021;&#30340;&#23454;&#29616;</span></h3>
+<p>&#21442;&#38405; <a rel="nofollow" class="external text" href="https://github.com/gcc-mirror/gcc/blob/14d8a5ae472ca5743016f37da2dd4770d83dea21/libstdc%2B%2B-v3/include/bits/stl_algo.h#L1440-L1455">libstdc++</a>&#12289;<a rel="nofollow" class="external text" href="https://github.com/llvm/llvm-project/tree/f221d905b131158cbe3cbc4320d1ecd1376c3f22/libcxx/include/__algorithm/rotate_copy.h">libc++</a> &#19982; <a rel="nofollow" class="external text" href="https://github.com/microsoft/STL/blob/472161105d596192194d4715ccad307c6c163b4a/stl/inc/algorithm#L4438-L4459">MSVC STL</a> &#20013;&#30340;&#23454;&#29616;&#12290;</p>
+<table class="eq-fun-cpp-table">
+<tr>
+<td>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> ForwardIt, <span class="kw1">class</span> OutputIt<span class="sy1">&gt;</span>
+<span class="kw4">constexpr</span> <span class="co1">// C++20 &#36215;</span>
+OutputIt rotate_copy<span class="br0">(</span>ForwardIt first, ForwardIt middle,
+                     ForwardIt last, OutputIt d_first<span class="br0">)</span>
+<span class="br0">{</span>
+    d_first <span class="sy1">=</span> <a href="cpp-algorithm-copy.html"><span class="kw1586">std::<span class="me2">copy</span></span></a><span class="br0">(</span>middle, last, d_first<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">return</span> <a href="cpp-algorithm-copy.html"><span class="kw1586">std::<span class="me2">copy</span></span></a><span class="br0">(</span>first, middle, d_first<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;algorithm&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;iterator&gt;</span>
+<span class="co2">#include &lt;vector&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-container-vector.html"><span class="kw1272">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span> src<span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">2</span>, <span class="nu0">3</span>, <span class="nu0">4</span>, <span class="nu0">5</span><span class="br0">}</span><span class="sy4">;</span>
+    <a href="cpp-container-vector.html"><span class="kw1272">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span> dest<span class="br0">(</span>src.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">auto</span> pivot <span class="sy1">=</span> <a href="cpp-algorithm-find.html"><span class="kw1578">std::<span class="me2">find</span></span></a><span class="br0">(</span>src.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, src.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>, <span class="nu0">3</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    std<span class="sy4">::</span><span class="me2">rotate_copy</span><span class="br0">(</span>src.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, pivot, src.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>, dest.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> i <span class="sy4">:</span> dest<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> i <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="co1">// copy the rotation result directly to the std::cout</span>
+    pivot <span class="sy1">=</span> <a href="cpp-algorithm-find.html"><span class="kw1578">std::<span class="me2">find</span></span></a><span class="br0">(</span>dest.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, dest.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>, <span class="nu0">1</span><span class="br0">)</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><span class="me2">rotate_copy</span><span class="br0">(</span>dest.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, pivot, dest.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>,
+                     <a href="cpp-iterator-ostream_iterator.html"><span class="kw673">std::<span class="me2">ostream_iterator</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span><span class="br0">(</span><a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a>, <span class="st0">&quot; &quot;</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">3 4 5 1 2
+1 2 3 4 5</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-rotate.html"><span class="t-lines"><span>rotate</span></span></a></div>
+</div>
+</td>
+<td>&#26059;&#36716;&#33539;&#22260;&#20013;&#30340;&#20803;&#32032;&#39034;&#24207;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-rotate_copy.html"><span class="t-lines"><span>ranges::rotate_copy</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#22797;&#21046;&#24182;&#26059;&#36716;&#20803;&#32032;&#33539;&#22260;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

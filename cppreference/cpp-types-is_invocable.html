@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::is_invocable, std::is_invocable_r, std::is_nothrow_invocable, std::is_nothrow_invocable_r</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_types_is_invocable skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>is_invocable, <span style="font-size:0.8em; line-height:125%">std::</span>is_invocable_r, <span style="font-size:0.8em; line-height:125%">std::</span>is_nothrow_invocable, <span style="font-size:0.8em; line-height:125%">std::</span>is_nothrow_invocable_r</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-types.html">types</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-type_traits.html">&lt;type_traits&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Fn, <span class="kw1">class</span>... <span class="me1">ArgTypes</span> <span class="sy1">&gt;</span><br />
+<span class="kw1">struct</span> is_invocable<span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> R, <span class="kw1">class</span> Fn, <span class="kw1">class</span>... <span class="me1">ArgTypes</span> <span class="sy1">&gt;</span><br />
+<span class="kw1">struct</span> is_invocable_r<span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Fn, <span class="kw1">class</span>... <span class="me1">ArgTypes</span> <span class="sy1">&gt;</span><br />
+<span class="kw1">struct</span> is_nothrow_invocable<span class="sy4">;</span></span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> R, <span class="kw1">class</span> Fn, <span class="kw1">class</span>... <span class="me1">ArgTypes</span> <span class="sy1">&gt;</span><br />
+<span class="kw1">struct</span> is_nothrow_invocable_r<span class="sy4">;</span></span></div>
+</td>
+<td>(4)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#30830;&#23450; <span class="t-c"><a href="cpp-utility-functional.html"><tt><i>INVOKE</i></tt></a><span class="mw-geshi cpp source-cpp"><span class="br0">(</span><a href="cpp-utility-declval.html"><span class="kw1123">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span>Fn<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span>, <a href="cpp-utility-declval.html"><span class="kw1123">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span>ArgTypes<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span>...<span class="br0">)</span></span></span> &#22312;&#20316;&#20026;&#19981;&#27714;&#20540;&#25805;&#20316;&#25968;&#26102;&#26159;&#21542;&#33391;&#26500;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#30830;&#23450; <span class="t-c"><a href="cpp-utility-functional.html"><tt><i>INVOKE&lt;R&gt;</i></tt></a><span class="mw-geshi cpp source-cpp"><span class="br0">(</span><a href="cpp-utility-declval.html"><span class="kw1123">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span>Fn<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span>, <a href="cpp-utility-declval.html"><span class="kw1123">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span>ArgTypes<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span>...<span class="br0">)</span></span></span> &#22312;&#20316;&#20026;&#19981;&#27714;&#20540;&#25805;&#20316;&#25968;&#26102;&#26159;&#21542;&#33391;&#26500;&#12290;</div>
+<div class="t-li1"><span class="t-li">3)</span> &#30830;&#23450; <span class="t-c"><a href="cpp-utility-functional.html"><tt><i>INVOKE</i></tt></a><span class="mw-geshi cpp source-cpp"><span class="br0">(</span><a href="cpp-utility-declval.html"><span class="kw1123">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span>Fn<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span>, <a href="cpp-utility-declval.html"><span class="kw1123">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span>ArgTypes<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span>...<span class="br0">)</span></span></span> &#22312;&#20316;&#20026;&#19981;&#27714;&#20540;&#25805;&#20316;&#25968;&#26102;&#26159;&#21542;&#33391;&#26500;&#65292;&#20197;&#21450;&#26159;&#21542;&#24050;&#30693;&#36825;&#31181;&#35843;&#29992;&#19981;&#25243;&#20219;&#20309;&#24322;&#24120;&#12290;</div>
+<div class="t-li1"><span class="t-li">4)</span> &#30830;&#23450; <span class="t-c"><a href="cpp-utility-functional.html"><tt><i>INVOKE&lt;R&gt;</i></tt></a><span class="mw-geshi cpp source-cpp"><span class="br0">(</span><a href="cpp-utility-declval.html"><span class="kw1123">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span>Fn<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span>, <a href="cpp-utility-declval.html"><span class="kw1123">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span>ArgTypes<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span>...<span class="br0">)</span></span></span> &#22312;&#20316;&#20026;&#19981;&#27714;&#20540;&#25805;&#20316;&#25968;&#26102;&#26159;&#21542;&#33391;&#26500;&#65292;&#20197;&#21450;&#26159;&#21542;&#24050;&#30693;&#36825;&#31181;&#35843;&#29992;&#19981;&#25243;&#20219;&#20309;&#24322;&#24120;&#12290;</div>
+<p>&#22914;&#26524;&nbsp;<code>Fn, R</code>&nbsp;&#25110;&#24418;&#21442;&#21253; <code>ArgTypes</code> &#20013;&#30340;&#20219;&#20309;&#31867;&#22411;&#19981;&#26159;&#23436;&#25972;&#31867;&#22411;&#65292;&#65288;&#21487;&#26377; cv &#38480;&#23450;&#30340;&#65289;<span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span> &#25110;&#26410;&#30693;&#36793;&#30028;&#25968;&#32452;&#65292;&#37027;&#20040;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<p>&#22914;&#26524;&#19978;&#36848;&#27169;&#26495;&#30340;&#23454;&#20363;&#21270;&#30452;&#25509;&#25110;&#38388;&#25509;&#22320;&#20381;&#36182;&#20110;&#19981;&#23436;&#25972;&#31867;&#22411;&#65292;&#24182;&#19988;&#20551;&#35774;&#22312;&#35813;&#31867;&#22411;&#23436;&#25972;&#30340;&#24773;&#20917;&#19979;&#23454;&#20363;&#21270;&#23601;&#20250;&#20135;&#29983;&#19981;&#21516;&#30340;&#32467;&#26524;&#65292;&#37027;&#20040;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<p>&#22914;&#26524;&#31243;&#24207;&#28155;&#21152;&#20102;&#27492;&#39029;&#38754;&#19978;&#25551;&#36848;&#30340;&#20219;&#20309;&#27169;&#26495;&#30340;&#29305;&#21270;&#65292;&#37027;&#20040;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<h3><span class="mw-headline" id=".E8.BE.85.E5.8A.A9.E5.8F.98.E9.87.8F.E6.A8.A1.E6.9D.BF">&#36741;&#21161;&#21464;&#37327;&#27169;&#26495;</span></h3>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-type_traits.html">&lt;type_traits&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Fn, <span class="kw1">class</span>... <span class="me1">ArgTypes</span> <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw1">inline</span> <span class="kw4">constexpr</span> <span class="kw4">bool</span> is_invocable_v <span class="sy1">=</span><br /></p>
+&nbsp; &nbsp; std<span class="sy4">::</span><span class="me2">is_invocable</span><span class="sy1">&lt;</span>Fn, ArgTypes...<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">value</span><span class="sy4">;</span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> R, <span class="kw1">class</span> Fn, <span class="kw1">class</span>... <span class="me1">ArgTypes</span> <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw1">inline</span> <span class="kw4">constexpr</span> <span class="kw4">bool</span> is_invocable_r_v <span class="sy1">=</span><br /></p>
+&nbsp; &nbsp; std<span class="sy4">::</span><span class="me2">is_invocable_r</span><span class="sy1">&lt;</span>R, Fn, ArgTypes...<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">value</span><span class="sy4">;</span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Fn, <span class="kw1">class</span>... <span class="me1">ArgTypes</span> <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw1">inline</span> <span class="kw4">constexpr</span> <span class="kw4">bool</span> is_nothrow_invocable_v <span class="sy1">=</span><br /></p>
+&nbsp; &nbsp; std<span class="sy4">::</span><span class="me2">is_nothrow_invocable</span><span class="sy1">&lt;</span>Fn, ArgTypes...<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">value</span><span class="sy4">;</span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> R, <span class="kw1">class</span> Fn, <span class="kw1">class</span>... <span class="me1">ArgTypes</span> <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw1">inline</span> <span class="kw4">constexpr</span> <span class="kw4">bool</span> is_nothrow_invocable_r_v <span class="sy1">=</span><br /></p>
+&nbsp; &nbsp; std<span class="sy4">::</span><span class="me2">is_nothrow_invocable_r</span><span class="sy1">&lt;</span>R, Fn, ArgTypes...<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">value</span><span class="sy4">;</span></div>
+</td>
+<td>(4)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-template-editlink" style=""></div>
+<div class="t-inherited">
+<h2><span class="mw-headline" id=".E7.BB.A7.E6.89.BF.E8.87.AA_std::integral_constant">&#32487;&#25215;&#33258; <a href="cpp-types-integral_constant.html"><span style="font-size:0.8em; line-height:125%">std::</span>integral_constant</a></span></h2>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.B8.B8.E9.87.8F">&#25104;&#21592;&#24120;&#37327;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span>value</span></span></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td>&#22914;&#26524; &#65288;&#23545;&#20110;&#37325;&#36733; <span class="t-v">(1)</span>&#65289;<span class="t-c"><a href="cpp-utility-functional.html"><tt><i>INVOKE</i></tt></a><span class="mw-geshi cpp source-cpp"><span class="br0">(</span><a href="cpp-utility-declval.html"><span class="kw1123">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span>Fn<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span>, <a href="cpp-utility-declval.html"><span class="kw1123">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span>ArgTypes<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span>...<span class="br0">)</span></span></span> &#22312;&#34987;&#24403;&#20570;&#19981;&#27714;&#20540;&#25805;&#20316;&#25968;&#26102;&#20026;&#33391;&#26500;&#37027;&#20040;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#21542;&#21017;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#24120;&#37327;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span>operator bool</span></span></div>
+</div>
+</td>
+<td>&#23558;&#23545;&#35937;&#36716;&#25442;&#21040; <span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span>&#65292;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp">value</span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span>operator()</span></span></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14)</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp">value</span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E7.B1.BB.E5.9E.8B">&#25104;&#21592;&#31867;&#22411;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#31867;&#22411;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>value_type</code></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>type</code></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-types-integral_constant.html"><span class="kw650">std::<span class="me2">integral_constant</span></span></a><span class="sy1">&lt;</span><span class="kw4">bool</span>, value<span class="sy1">&gt;</span></span></td>
+</tr>
+</table>
+</div>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<table class="wikitable">
+<tr>
+<th><a href="cpp-utility-feature_test.html">&#21151;&#33021;&#29305;&#24615;&#27979;&#35797;</a>&#23439;</th>
+<th><abbr title="&#37319;&#32435;&#35813;&#29305;&#24615;&#30340;&#24180;/&#26376;&#12290;&#27599;&#20010;&#20540;&#19979;&#38754;&#30340;&#38142;&#25509;&#25351;&#21521;&#32534;&#35793;&#26399;&#25903;&#25345;&#39029;&#38754;&#20013;&#32473;&#23450;&#21151;&#33021;&#29305;&#24615;&#30340;&#26465;&#30446;&#12290;">&#20540;</abbr></th>
+<th><abbr title="&#24341;&#20837;&#35813;&#29305;&#24615;&#30340;&#26631;&#20934;&#65307;DR &#24847;&#20026;&#38024;&#23545;&#35813;&#20462;&#35746;&#29256;&#30340;&#32570;&#38519;&#25253;&#21578;">&#26631;&#20934;</abbr></th>
+<th>&#21151;&#33021;&#29305;&#24615;</th>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lib_is_invocable"><code>__cpp_lib_is_invocable</code></a></td>
+<td><a href="cpp-compiler_support-17.html#cpp_lib_is_invocable_201703L"><code>201703L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++17)</span></td>
+<td><code>std::is_invocable</code>, <span class="t-lc">std::invoke_result</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;type_traits&gt;</span>
+ 
+<span class="kw4">auto</span> func2<span class="br0">(</span><span class="kw4">char</span><span class="br0">)</span> <span class="sy2">-</span><span class="sy1">&gt;</span> <span class="kw4">int</span> <span class="br0">(</span><span class="sy2">*</span><span class="br0">)</span><span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">return</span> nullptr<span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    static_assert<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">is_invocable_v</span><span class="sy1">&lt;</span><span class="kw4">int</span><span class="br0">(</span><span class="br0">)</span><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span>not std<span class="sy4">::</span><span class="me2">is_invocable_v</span><span class="sy1">&lt;</span><span class="kw4">int</span><span class="br0">(</span><span class="br0">)</span>, <span class="kw4">int</span><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">is_invocable_r_v</span><span class="sy1">&lt;</span><span class="kw4">int</span>, <span class="kw4">int</span><span class="br0">(</span><span class="br0">)</span><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span>not std<span class="sy4">::</span><span class="me2">is_invocable_r_v</span><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy2">*</span>, <span class="kw4">int</span><span class="br0">(</span><span class="br0">)</span><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">is_invocable_r_v</span><span class="sy1">&lt;</span><span class="kw4">void</span>, <span class="kw4">void</span><span class="br0">(</span><span class="kw4">int</span><span class="br0">)</span>, <span class="kw4">int</span><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span>not std<span class="sy4">::</span><span class="me2">is_invocable_r_v</span><span class="sy1">&lt;</span><span class="kw4">void</span>, <span class="kw4">void</span><span class="br0">(</span><span class="kw4">int</span><span class="br0">)</span>, <span class="kw4">void</span><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">is_invocable_r_v</span><span class="sy1">&lt;</span><span class="kw4">int</span><span class="br0">(</span><span class="sy2">*</span><span class="br0">)</span><span class="br0">(</span><span class="br0">)</span>, decltype<span class="br0">(</span>func2<span class="br0">)</span>, <span class="kw4">char</span><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span>not std<span class="sy4">::</span><span class="me2">is_invocable_r_v</span><span class="sy1">&lt;</span><span class="kw4">int</span><span class="br0">(</span><span class="sy2">*</span><span class="br0">)</span><span class="br0">(</span><span class="br0">)</span>, decltype<span class="br0">(</span>func2<span class="br0">)</span>, <span class="kw4">void</span><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-functional-invoke.html"><span class="t-lines"><span>invoke</span><span>invoke_r</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span></span><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#20197;&#32473;&#23450;&#23454;&#21442;<span class="t-rev-inl t-since-cxx23"><span>&#21644;&#21487;&#33021;&#25351;&#23450;&#30340;&#36820;&#22238;&#31867;&#22411;</span><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></span></span>&#35843;&#29992;&#20219;&#24847;<a href="cpp-named_req-Callable.html"><span style="font-style:italic">&#21487;&#35843;&#29992;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(Callable)</span></a> &#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-types-result_of.html"><span class="t-lines"><span>result_of</span><span></span><span>invoke_result</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#31227;&#38500;)</span></span><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span></span></span></div>
+</div>
+</td>
+<td>&#25512;&#23548;&#20197;&#19968;&#32452;&#23454;&#21442;&#35843;&#29992;&#19968;&#20010;&#21487;&#35843;&#29992;&#23545;&#35937;&#30340;&#32467;&#26524;&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-declval.html"><span class="t-lines"><span>declval</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#22312;&#19981;&#27714;&#20540;&#35821;&#22659;&#20013;&#33719;&#21462;&#21040;&#27169;&#26495;&#31867;&#22411;&#23454;&#21442;&#30340;&#23545;&#35937;&#30340;&#24341;&#29992;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-concepts-invocable.html"><span class="t-lines"><span>invocable</span><span>regular_invocable</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#25351;&#23450;&#33021;&#20197;&#32473;&#23450;&#30340;&#19968;&#32452;&#23454;&#21442;&#31867;&#22411;&#35843;&#29992;&#30340;&#21487;&#35843;&#29992;&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#27010;&#24565;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

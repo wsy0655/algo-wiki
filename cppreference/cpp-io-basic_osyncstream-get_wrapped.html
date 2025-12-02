@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::basic_osyncstream&lt;CharT,Traits,Allocator&gt;::get_wrapped</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_io_basic_osyncstream_get_wrapped skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::basic_osyncstream&lt;CharT,Traits,Allocator&gt;::</span>get_wrapped</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-io.html">io</a>&lrm; | <a href="cpp-io-basic_osyncstream.html">basic osyncstream</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi cpp source-cpp">streambuf_type<span class="sy2">*</span> get_wrapped<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36820;&#22238;&#25351;&#21521;&#34987;&#21253;&#35013;&#30340; <span class="t-lc"><a href="cpp-io-basic_streambuf.html">std::basic_streambuf</a></span> &#30340;&#25351;&#38024;&#65292;&#36890;&#36807;&#22312;&#24213;&#23618; <span class="t-lc">std::basic_syncbuf</span> &#19978;&#35843;&#29992; <a href="cpp-io-basic_syncbuf-get_wrapped.html"><tt>get_wrapped()</tt></a> &#33719;&#24471;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<p>&#33021;&#23433;&#20840;&#22320;&#22312;&#19981;&#21516;&#30340;&#21516;&#27493;&#36755;&#20986;&#27969;&#20013;&#20877;&#27425;&#21253;&#35013;&#34987;&#21253;&#35013;&#32531;&#20914;</p>
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;syncstream&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-basic_osyncstream.html"><span class="kw2650">std::<span class="me2">osyncstream</span></span></a> bout1<span class="br0">(</span><a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a><span class="br0">)</span><span class="sy4">;</span>
+    bout1 <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;Hello, &quot;</span><span class="sy4">;</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-basic_osyncstream.html"><span class="kw2650">std::<span class="me2">osyncstream</span></span></a><span class="br0">(</span>bout1.<span class="me1">get_wrapped</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;Goodbye, &quot;</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;Planet!&quot;</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="br0">}</span> <span class="co1">// &#21457;&#20986;&#20020;&#26102;&#32531;&#20914;&#30340;&#20869;&#23481;</span>
+    bout1 <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;World!&quot;</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span> <span class="co1">// &#21457;&#20986; bout1 &#30340;&#20869;&#23481;</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">Goodbye, Planet!
+Hello, World!</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-io-basic_osyncstream-~basic_osyncstream.html"><span class="t-lines"><span>(&#26512;&#26500;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#38144;&#27585; <code>basic_osyncstream</code> &#24182;&#21457;&#20986;&#23427;&#30340;&#20869;&#37096;&#32531;&#20914;&#21306;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_syncbuf-get_wrapped.html"><span class="t-lines"><span>get_wrapped</span></span></a></div>
+</div>
+</td>
+<td>&#33719;&#24471;&#34987;&#21253;&#35013;&#30340; streambuf &#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_syncbuf&lt;CharT,Traits,Allocator&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

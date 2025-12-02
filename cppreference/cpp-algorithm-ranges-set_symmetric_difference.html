@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::ranges::set_symmetric_difference, std::ranges::set_symmetric_difference_result</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_algorithm_ranges_set_symmetric_difference skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::ranges::</span>set_symmetric_difference, <span style="font-size:0.8em; line-height:125%">std::ranges::</span>set_symmetric_difference_result</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-algorithm.html">algorithm</a>&lrm; | <a href="cpp-algorithm-ranges.html">ranges</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-algorithm.html">&lt;algorithm&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl-h">
+<td>
+<div>&#35843;&#29992;&#31614;&#21517;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-iterator-input_iterator.html"><span class="kw2864">std::<span class="me2">input_iterator</span></span></a> I1, <a href="cpp-iterator-sentinel_for.html"><span class="kw2862">std::<span class="me2">sentinel_for</span></span></a><span class="sy1">&lt;</span>I1<span class="sy1">&gt;</span> S1,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-iterator-input_iterator.html"><span class="kw2864">std::<span class="me2">input_iterator</span></span></a> I2, <a href="cpp-iterator-sentinel_for.html"><span class="kw2862">std::<span class="me2">sentinel_for</span></span></a><span class="sy1">&lt;</span>I2<span class="sy1">&gt;</span> S2,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-iterator-weakly_incrementable.html"><span class="kw2859">std::<span class="me2">weakly_incrementable</span></span></a> O, <span class="kw1">class</span> Comp <span class="sy1">=</span> <a href="cpp-utility-functional-ranges-less.html"><span class="kw2844">ranges::<span class="me2">less</span></span></a>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span> Proj1 <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a>, <span class="kw1">class</span> Proj2 <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a> <span class="sy1">&gt;</span><br />
+requires <a href="cpp-iterator-mergeable.html"><span class="kw3133">std::<span class="me2">mergeable</span></span></a><span class="sy1">&lt;</span>I1, I2, O, Comp, Proj1, Proj2<span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> set_symmetric_difference_result<span class="sy1">&lt;</span>I1, I2, O<span class="sy1">&gt;</span><br />
+&nbsp; &nbsp; set_symmetric_difference<span class="br0">(</span> I1 first1, S1 last1, I2 first2, S2 last2,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; O result, Comp comp <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span>,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Proj1 proj1 <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span>, Proj2 proj2 <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span> <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-ranges-input_range.html"><span class="kw2902">ranges::<span class="me2">input_range</span></span></a> R1, <a href="cpp-ranges-input_range.html"><span class="kw2902">ranges::<span class="me2">input_range</span></span></a> R2,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-iterator-weakly_incrementable.html"><span class="kw2859">std::<span class="me2">weakly_incrementable</span></span></a> O, <span class="kw1">class</span> Comp <span class="sy1">=</span> <a href="cpp-utility-functional-ranges-less.html"><span class="kw2844">ranges::<span class="me2">less</span></span></a>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span> Proj1 <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a>, <span class="kw1">class</span> Proj2 <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a> <span class="sy1">&gt;</span><br />
+requires <a href="cpp-iterator-mergeable.html"><span class="kw3133">std::<span class="me2">mergeable</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R1<span class="sy1">&gt;</span>, <a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R2<span class="sy1">&gt;</span>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; O, Comp, Proj1, Proj2<span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> set_symmetric_difference_result<span class="sy1">&lt;</span><a href="cpp-ranges-borrowed_iterator_t.html"><span class="kw2855">ranges::<span class="me2">borrowed_iterator_t</span></span></a><span class="sy1">&lt;</span>R1<span class="sy1">&gt;</span>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-ranges-borrowed_iterator_t.html"><span class="kw2855">ranges::<span class="me2">borrowed_iterator_t</span></span></a><span class="sy1">&lt;</span>R2<span class="sy1">&gt;</span>, O<span class="sy1">&gt;</span><br />
+&nbsp; &nbsp; set_symmetric_difference<span class="br0">(</span> R1<span class="sy3">&amp;&amp;</span> r1, R2<span class="sy3">&amp;&amp;</span> r2, O result, Comp comp <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span>,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Proj1 proj1 <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span>, Proj2 proj2 <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span> <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-h">
+<td>
+<div>&#36741;&#21161;&#31867;&#22411;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> I1, <span class="kw1">class</span> I2, <span class="kw1">class</span> O <span class="sy1">&gt;</span><br />
+<span class="kw1">using</span> set_symmetric_difference_result <span class="sy1">=</span> <a href="cpp-algorithm-ranges-return_types-in_in_out_result.html"><span class="kw3091">ranges::<span class="me2">in_in_out_result</span></span></a><span class="sy1">&lt;</span>I1, I2, O<span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#35745;&#31639;&#20004;&#20010;&#26377;&#24207;&#33539;&#22260;&#30340;&#23545;&#31216;&#24046;&#65306;&#23558;&#22312;&#19968;&#20010;&#20294;&#38750;&#20004;&#20010;&#33539;&#22260;&#20013;&#25214;&#21040;&#30340;&#20803;&#32032;&#36171;&#20540;&#21040;&#22987;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">result</span></span> &#30340;&#33539;&#22260;&#12290;&#32467;&#26524;&#33539;&#22260;&#20134;&#26377;&#24207;&#12290;</p>
+<p>&#33509;&#22312; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">first1</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">last1</span></span><code>)</code> &#20013;&#25214;&#21040;&#26576;&#20803;&#32032; <code>m</code> &#27425;&#24182;&#22312; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">first2</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">last2</span></span><code>)</code> &#20013;&#25214;&#21040; <code>n</code> &#27425;&#65292;&#21017;&#23427;&#23558;&#24688;&#22909;&#34987;&#22797;&#21046; <code>&#9474;m - n&#9474;</code> &#27425;&#21040; <span class="t-c"><span class="mw-geshi cpp source-cpp">result</span></span>&#12290;&#33509; <code>m &gt; n</code>&#65292;&#21017;&#20174; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">first1</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">last1</span></span><code>)</code> &#22797;&#21046;&#21518; <code>m - n</code> &#20010;&#36825;&#20123;&#20803;&#32032;&#65292;&#21542;&#21017;&#20174; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">first2</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">last2</span></span><code>)</code> &#22797;&#21046;&#21518; <code>n - m</code> &#20010;&#20803;&#32032;&#12290;&#32467;&#26524;&#33539;&#22260;&#19981;&#33021;&#19982;&#20219;&#19968;&#36755;&#20837;&#33539;&#22260;&#37325;&#21472;&#12290;</p>
+<p>&#33509;</p>
+<ul>
+<li>&#36755;&#20837;&#33539;&#22260;&#26410;&#20998;&#21035;&#30456;&#23545;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">comp</span></span> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">proj1</span></span> &#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp">proj2</span></span> &#25490;&#24207;&#65292;&#25110;</li>
+<li>&#32467;&#26524;&#33539;&#22260;&#19982;&#20219;&#19968;&#36755;&#20837;&#33539;&#22260;&#37325;&#21472;&#65292;</li>
+</ul>
+<p>&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#29992;&#32473;&#23450;&#30340;&#20108;&#20803;&#27604;&#36739;&#20989;&#25968; <span class="t-c"><span class="mw-geshi cpp source-cpp">comp</span></span> &#27604;&#36739;&#20803;&#32032;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#21516; <span class="t-v">(1)</span>&#65292;&#20294;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">r1</span></span> &#20026;&#31532;&#19968;&#33539;&#22260;&#65292;&#24182;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">r2</span></span> &#20026;&#31532;&#20108;&#33539;&#22260;&#65292;&#22914;&#21516;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/begin"><span class="kw2882">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>r1<span class="br0">)</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">first1</span></span>&#65292;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/end"><span class="kw2884">ranges::<span class="me2">end</span></span></a><span class="br0">(</span>r1<span class="br0">)</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">last1</span></span>&#65292;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/begin"><span class="kw2882">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>r2<span class="br0">)</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">first2</span></span>&#65292;&#24182;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/end"><span class="kw2884">ranges::<span class="me2">end</span></span></a><span class="br0">(</span>r2<span class="br0">)</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">last2</span></span>&#12290;</div>
+<p>&#27492;&#39029;&#38754;&#19978;&#25551;&#36848;&#30340;&#20989;&#25968;&#24335;&#23454;&#20307;&#26159;<i><a href="cpp-algorithm-ranges.html#.E7.AE.97.E6.B3.95.E5.87.BD.E6.95.B0.E5.AF.B9.E8.B1.A1">&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;</a></i>&#65288;&#38750;&#27491;&#24335;&#22320;&#31216;&#20026; <i>niebloid</i>&#65289;&#65292;&#21363;&#65306;</p>
+<ul>
+<li>&#35843;&#29992;&#23427;&#20204;&#20013;&#30340;&#20219;&#20309;&#19968;&#20010;&#26102;&#19981;&#33021;&#26174;&#24335;&#25351;&#23450;&#27169;&#26495;&#23454;&#21442;&#12290;</li>
+<li>&#23427;&#20204;&#37117;&#19981;&#23545;<a href="cpp-language-adl.html">&#23454;&#21442;&#20381;&#36182;&#26597;&#25214;</a>&#21487;&#35265;&#12290;</li>
+<li>&#22312;&#36890;&#36807;&#20989;&#25968;&#35843;&#29992;&#36816;&#31639;&#31526;&#24038;&#20391;&#30340;&#21517;&#23383;&#36827;&#34892;<a href="cpp-language-unqualified_lookup.html">&#26080;&#38480;&#23450;&#26597;&#25214;</a>&#65292;&#25214;&#21040;&#23427;&#20204;&#20043;&#19968;&#26102;&#65292;&#31105;&#27490;<a href="cpp-language-adl.html">&#23454;&#21442;&#20381;&#36182;&#26597;&#25214;</a>&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>first1, last1</td>
+<td>-</td>
+<td>&#31532;&#19968;&#20010;&#36755;&#20837;&#30340;&#26377;&#24207;&#20803;&#32032;<a href="cpp-iterator.html#.E8.8C.83.E5.9B.B4">&#33539;&#22260;</a>&#30340;&#36845;&#20195;&#22120;-&#21736;&#20301;&#23545;</td>
+</tr>
+<tr class="t-par">
+<td>first2, last2</td>
+<td>-</td>
+<td>&#31532;&#20108;&#20010;&#36755;&#20837;&#30340;&#26377;&#24207;&#20803;&#32032;<a href="cpp-iterator.html#.E8.8C.83.E5.9B.B4">&#33539;&#22260;</a>&#30340;&#36845;&#20195;&#22120;-&#21736;&#20301;&#23545;</td>
+</tr>
+<tr class="t-par">
+<td>r1</td>
+<td>-</td>
+<td>&#31532;&#19968;&#20010;&#36755;&#20837;&#30340;&#26377;&#24207;&#33539;&#22260;</td>
+</tr>
+<tr class="t-par">
+<td>r2</td>
+<td>-</td>
+<td>&#31532;&#20108;&#20010;&#36755;&#20837;&#30340;&#26377;&#24207;&#33539;&#22260;</td>
+</tr>
+<tr class="t-par">
+<td>result</td>
+<td>-</td>
+<td>&#36755;&#20986;&#33539;&#22260;&#30340;&#36215;&#22987;</td>
+</tr>
+<tr class="t-par">
+<td>comp</td>
+<td>-</td>
+<td>&#24212;&#29992;&#21040;&#25237;&#24433;&#21518;&#20803;&#32032;&#30340;&#27604;&#36739;&#22120;</td>
+</tr>
+<tr class="t-par">
+<td>proj1</td>
+<td>-</td>
+<td>&#24212;&#29992;&#21040;&#31532;&#19968;&#20010;&#33539;&#22260;&#20803;&#32032;&#30340;&#25237;&#24433;</td>
+</tr>
+<tr class="t-par">
+<td>proj2</td>
+<td>-</td>
+<td>&#24212;&#29992;&#21040;&#31532;&#20108;&#20010;&#33539;&#22260;&#20803;&#32032;&#30340;&#25237;&#24433;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">{</span>last1, result_last<span class="br0">}</span></span></span>&#65292;&#20854;&#20013; <span class="t-c"><span class="mw-geshi cpp source-cpp">result_last</span></span> &#20026;&#25152;&#26500;&#36896;&#33539;&#22260;&#30340;&#26411;&#23614;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<p>&#33267;&#22810;&#27604;&#36739;&#21644;&#24212;&#29992;&#27599;&#20010;&#25237;&#24433; <span class="mjax" style="display:none">\(\scriptsize 2\cdot(N_1+N_2)-1\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">2&middot;(N<span class="t-su t-su-b">1</span>+N<span class="t-su t-su-b">2</span>)-1</span> &#27425;&#65292;&#20854;&#20013; <span class="mjax" style="display:none">\(\scriptsize N_1\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">N<span class="t-su t-su-b">1</span></span> &#19982; <span class="mjax" style="display:none">\(\scriptsize N_2\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">N<span class="t-su t-su-b">2</span></span> &#20998;&#21035;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-ranges-distance.html"><span class="kw3140">ranges::<span class="me2">distance</span></span></a><span class="br0">(</span>first1, last1<span class="br0">)</span></span></span> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-ranges-distance.html"><span class="kw3140">ranges::<span class="me2">distance</span></span></a><span class="br0">(</span>first2, last2<span class="br0">)</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.AF.E8.83.BD.E7.9A.84.E5.AE.9E.E7.8E.B0">&#21487;&#33021;&#30340;&#23454;&#29616;</span></h3>
+<table class="eq-fun-cpp-table">
+<tr>
+<td>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">struct</span> set_symmetric_difference_fn
+<span class="br0">{</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span><a href="cpp-iterator-input_iterator.html"><span class="kw2864">std::<span class="me2">input_iterator</span></span></a> I1, <a href="cpp-iterator-sentinel_for.html"><span class="kw2862">std::<span class="me2">sentinel_for</span></span></a><span class="sy1">&lt;</span>I1<span class="sy1">&gt;</span> S1,
+             <a href="cpp-iterator-input_iterator.html"><span class="kw2864">std::<span class="me2">input_iterator</span></span></a> I2, <a href="cpp-iterator-sentinel_for.html"><span class="kw2862">std::<span class="me2">sentinel_for</span></span></a><span class="sy1">&lt;</span>I2<span class="sy1">&gt;</span> S2,
+             <a href="cpp-iterator-weakly_incrementable.html"><span class="kw2859">std::<span class="me2">weakly_incrementable</span></span></a> O, <span class="kw1">class</span> Comp <span class="sy1">=</span> <a href="cpp-utility-functional-ranges-less.html"><span class="kw2844">ranges::<span class="me2">less</span></span></a>,
+             <span class="kw1">class</span> Proj1 <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a>, <span class="kw1">class</span> Proj2 <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a><span class="sy1">&gt;</span>
+    requires <a href="cpp-iterator-mergeable.html"><span class="kw3133">std::<span class="me2">mergeable</span></span></a><span class="sy1">&lt;</span>I1, I2, O, Comp, Proj1, Proj2<span class="sy1">&gt;</span>
+    <span class="kw4">constexpr</span> ranges<span class="sy4">::</span><span class="me2">set_symmetric_difference_result</span><span class="sy1">&lt;</span>I1, I2, O<span class="sy1">&gt;</span>
+        operator<span class="br0">(</span><span class="br0">)</span><span class="br0">(</span>I1 first1, S1 last1, I2 first2, S2 last2, O result, Comp comp <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span>,
+                   Proj1 proj1 <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span>, Proj2 proj2 <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span><span class="br0">)</span> <span class="kw4">const</span>
+    <span class="br0">{</span>
+        <span class="kw1">while</span> <span class="br0">(</span><span class="sy3">!</span><span class="br0">(</span>first1 <span class="sy1">==</span> last1 or first2 <span class="sy1">==</span> last2<span class="br0">)</span><span class="br0">)</span>
+        <span class="br0">{</span>
+            <span class="kw1">if</span> <span class="br0">(</span><a href="cpp-utility-functional-invoke.html"><span class="kw1063">std::<span class="me2">invoke</span></span></a><span class="br0">(</span>comp, <a href="cpp-utility-functional-invoke.html"><span class="kw1063">std::<span class="me2">invoke</span></span></a><span class="br0">(</span>proj1, <span class="sy2">*</span>first1<span class="br0">)</span>, <a href="cpp-utility-functional-invoke.html"><span class="kw1063">std::<span class="me2">invoke</span></span></a><span class="br0">(</span>proj2, <span class="sy2">*</span>first2<span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>
+            <span class="br0">{</span>
+                <span class="sy2">*</span>result <span class="sy1">=</span> <span class="sy2">*</span>first1<span class="sy4">;</span>
+                <span class="sy2">++</span>first1<span class="sy4">;</span>
+                <span class="sy2">++</span>result<span class="sy4">;</span>
+            <span class="br0">}</span>
+            <span class="kw1">else</span> <span class="kw1">if</span> <span class="br0">(</span><a href="cpp-utility-functional-invoke.html"><span class="kw1063">std::<span class="me2">invoke</span></span></a><span class="br0">(</span>comp, <a href="cpp-utility-functional-invoke.html"><span class="kw1063">std::<span class="me2">invoke</span></span></a><span class="br0">(</span>proj2, <span class="sy2">*</span>first2<span class="br0">)</span>,
+                                       <a href="cpp-utility-functional-invoke.html"><span class="kw1063">std::<span class="me2">invoke</span></span></a><span class="br0">(</span>proj1, <span class="sy2">*</span>first1<span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>
+            <span class="br0">{</span>
+                <span class="sy2">*</span>result <span class="sy1">=</span> <span class="sy2">*</span>first2<span class="sy4">;</span>
+                <span class="sy2">++</span>first2<span class="sy4">;</span>
+                <span class="sy2">++</span>result<span class="sy4">;</span>
+            <span class="br0">}</span>
+            <span class="kw1">else</span>
+            <span class="br0">{</span>
+                <span class="sy2">++</span>first1<span class="sy4">;</span>
+                <span class="sy2">++</span>first2<span class="sy4">;</span>
+            <span class="br0">}</span>
+        <span class="br0">}</span>
+        <span class="kw4">auto</span> res1 <span class="br0">{</span><a href="cpp-algorithm-ranges-copy.html"><span class="kw2850">ranges::<span class="me2">copy</span></span></a><span class="br0">(</span>std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>first1<span class="br0">)</span>, std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>last1<span class="br0">)</span>, std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>result<span class="br0">)</span><span class="br0">)</span><span class="br0">}</span><span class="sy4">;</span>
+        <span class="kw4">auto</span> res2 <span class="br0">{</span><a href="cpp-algorithm-ranges-copy.html"><span class="kw2850">ranges::<span class="me2">copy</span></span></a><span class="br0">(</span>std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>first2<span class="br0">)</span>, std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>last2<span class="br0">)</span>, std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>res1.<span class="me1">out</span><span class="br0">)</span><span class="br0">)</span><span class="br0">}</span><span class="sy4">;</span>
+        <span class="kw1">return</span> <span class="br0">{</span>std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>res1.<span class="me1">in</span><span class="br0">)</span>, std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>res2.<span class="me1">in</span><span class="br0">)</span>, std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>res2.<span class="me1">out</span><span class="br0">)</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw1">template</span><span class="sy1">&lt;</span><a href="cpp-ranges-input_range.html"><span class="kw2902">ranges::<span class="me2">input_range</span></span></a> R1, <a href="cpp-ranges-input_range.html"><span class="kw2902">ranges::<span class="me2">input_range</span></span></a> R2,
+             <a href="cpp-iterator-weakly_incrementable.html"><span class="kw2859">std::<span class="me2">weakly_incrementable</span></span></a> O, <span class="kw1">class</span> Comp <span class="sy1">=</span> <a href="cpp-utility-functional-ranges-less.html"><span class="kw2844">ranges::<span class="me2">less</span></span></a>,
+             <span class="kw1">class</span> Proj1 <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a>, <span class="kw1">class</span> Proj2 <span class="sy1">=</span> <a href="cpp-utility-functional-identity.html"><span class="kw2723">std::<span class="me2">identity</span></span></a><span class="sy1">&gt;</span>
+    requires <a href="cpp-iterator-mergeable.html"><span class="kw3133">std::<span class="me2">mergeable</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R1<span class="sy1">&gt;</span>, <a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R2<span class="sy1">&gt;</span>,
+                            O, Comp, Proj1, Proj2<span class="sy1">&gt;</span>
+    <span class="kw4">constexpr</span> ranges<span class="sy4">::</span><span class="me2">set_symmetric_difference_result</span><span class="sy1">&lt;</span>
+        <a href="cpp-ranges-borrowed_iterator_t.html"><span class="kw2855">ranges::<span class="me2">borrowed_iterator_t</span></span></a><span class="sy1">&lt;</span>R1<span class="sy1">&gt;</span>, <a href="cpp-ranges-borrowed_iterator_t.html"><span class="kw2855">ranges::<span class="me2">borrowed_iterator_t</span></span></a><span class="sy1">&lt;</span>R2<span class="sy1">&gt;</span>, O<span class="sy1">&gt;</span>
+        operator<span class="br0">(</span><span class="br0">)</span><span class="br0">(</span>R1<span class="sy3">&amp;&amp;</span> r1, R2<span class="sy3">&amp;&amp;</span> r2, O result, Comp comp <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span>,
+                   Proj1 proj1 <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span>, Proj2 proj2 <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span><span class="br0">)</span> <span class="kw4">const</span>
+    <span class="br0">{</span>
+        <span class="kw1">return</span> <span class="br0">(</span><span class="sy2">*</span>this<span class="br0">)</span><span class="br0">(</span><a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/begin"><span class="kw2882">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>r1<span class="br0">)</span>, <a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/end"><span class="kw2884">ranges::<span class="me2">end</span></span></a><span class="br0">(</span>r1<span class="br0">)</span>,
+                       <a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/begin"><span class="kw2882">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>r2<span class="br0">)</span>, <a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/end"><span class="kw2884">ranges::<span class="me2">end</span></span></a><span class="br0">(</span>r2<span class="br0">)</span>,
+                       std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>result<span class="br0">)</span>, std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>comp<span class="br0">)</span>,
+                       std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>proj1<span class="br0">)</span>, std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>proj2<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw1">inline</span> <span class="kw4">constexpr</span> set_symmetric_difference_fn set_symmetric_difference <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;algorithm&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;iterator&gt;</span>
+<span class="co2">#include &lt;vector&gt;</span>
+ 
+<span class="kw4">void</span> visualize_this<span class="br0">(</span><span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> v, <span class="kw4">int</span> min <span class="sy1">=</span> <span class="nu0">1</span>, <span class="kw4">int</span> max <span class="sy1">=</span> <span class="nu0">9</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">auto</span> i <span class="br0">{</span>min<span class="br0">}</span><span class="sy4">;</span> i <span class="sy1">&lt;=</span> max<span class="sy4">;</span> <span class="sy2">++</span>i<span class="br0">)</span>
+    <span class="br0">{</span>
+        std<span class="sy4">::</span><a href="cpp-algorithm-ranges-binary_search.html"><span class="kw2965">ranges::<span class="me2">binary_search</span></span></a><span class="br0">(</span>v, i<span class="br0">)</span> <span class="sy4">?</span> <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> i <span class="sy4">:</span> <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;.&#39;</span><span class="sy4">;</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">const</span> <span class="kw4">auto</span> in1 <span class="sy1">=</span> <span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">3</span>, <span class="nu0">4</span>,    <span class="nu0">6</span>, <span class="nu0">7</span>, <span class="nu0">9</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw4">const</span> <span class="kw4">auto</span> in2 <span class="sy1">=</span> <span class="br0">{</span><span class="nu0">1</span>,    <span class="nu0">4</span>, <span class="nu0">5</span>, <span class="nu0">6</span>,    <span class="nu0">9</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+    <a href="cpp-container-vector.html"><span class="kw1272">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span> out<span class="sy4">;</span>
+ 
+    std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">set_symmetric_difference</span><span class="br0">(</span>in1, in2, <a href="cpp-iterator-back_inserter.html"><span class="kw668">std::<span class="me2">back_inserter</span></span></a><span class="br0">(</span>out<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    visualize_this<span class="br0">(</span>in1<span class="br0">)</span><span class="sy4">;</span>
+    visualize_this<span class="br0">(</span>in2<span class="br0">)</span><span class="sy4">;</span>
+    visualize_this<span class="br0">(</span>out<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">1 . 3 4 . 6 7 . 9
+1 . . 4 5 6 . . 9
+. . 3 . 5 . 7 . .</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-set_union.html"><span class="t-lines"><span>ranges::set_union</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#35745;&#31639;&#20004;&#20010;&#38598;&#21512;&#30340;&#24182;&#38598;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-set_difference.html"><span class="t-lines"><span>ranges::set_difference</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#35745;&#31639;&#20004;&#20010;&#38598;&#21512;&#30340;&#24046;&#38598;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-set_intersection.html"><span class="t-lines"><span>ranges::set_intersection</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#35745;&#31639;&#20004;&#20010;&#38598;&#21512;&#30340;&#20132;&#38598;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-includes.html"><span class="t-lines"><span>ranges::includes</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#24403;&#19968;&#20010;&#24207;&#21015;&#26159;&#21478;&#19968;&#20010;&#30340;&#23376;&#24207;&#21015;&#26102;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-set_symmetric_difference.html"><span class="t-lines"><span>set_symmetric_difference</span></span></a></div>
+</div>
+</td>
+<td>&#35745;&#31639;&#20004;&#20010;&#38598;&#21512;&#30340;&#23545;&#31216;&#24046;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

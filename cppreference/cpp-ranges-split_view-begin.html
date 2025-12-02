@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::ranges::split_view&lt;V,Pattern&gt;::begin</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_ranges_split_view_begin skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::ranges::split_view&lt;V,Pattern&gt;::</span>begin</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-ranges.html">ranges</a>&lrm; | <a href="cpp-ranges-split_view.html">split view</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="coMULTI">/*iterator*/</span> begin<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36820;&#22238;&#25351;&#21521;&#25214;&#21040;&#30340;&#31532;&#19968;&#20010;&#23376;&#33539;&#22260;&#30340;<a href="cpp-ranges-split_view-iterator.html">&#36845;&#20195;&#22120;</a>&#12290;</p>
+<p>&#20026;&#25552;&#20379; <a href="cpp-ranges-range.html"><code>range</code></a> &#27010;&#24565;&#35201;&#27714;&#30340;&#22343;&#25674;&#24120;&#25968;&#22797;&#26434;&#24230;&#65292;&#27492;&#20989;&#25968;&#22312; <code>split_view</code> &#20013;&#32531;&#23384;&#20102;&#32467;&#26524;&#65288;&#36890;&#36807; <code><i><a href="cpp-ranges-split_view.html#cached_begin">cached_begin_</a></i></code> &#25104;&#21592;&#65289;&#20197;&#20379;&#21518;&#32493;&#35843;&#29992;&#25152;&#29992;&#12290;</p>
+<p>&#35753; <code><i><a href="cpp-ranges-split_view.html#base">base_</a></i></code> &#20316;&#20026;&#24213;&#23618;&#25968;&#25454;&#25104;&#21592;&#12290;&#31561;&#20215;&#20110;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw4">constexpr</span> <span class="coMULTI">/*iterator*/</span> begin<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">if</span> <span class="br0">(</span><span class="sy3">!</span>cached_begin_.<span class="me1">has_value</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+        cached_begin_ <span class="sy1">=</span> this<span class="sy2">-</span><span class="sy1">&gt;</span>find_next<span class="br0">(</span><a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/begin"><span class="kw2882">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>base_<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">return</span> <span class="br0">{</span><span class="sy2">*</span>this, <a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/begin"><span class="kw2882">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>base_<span class="br0">)</span>, cached_begin_.<span class="me1">value</span><span class="br0">(</span><span class="br0">)</span><span class="br0">}</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p><a href="cpp-ranges-split_view-iterator.html">&#36845;&#20195;&#22120;</a>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<p>&#22343;&#25674;&#30340; <span class="mjax" style="display:none">\(\scriptsize \mathcal{O}(1)\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">O(1)</span>&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iomanip&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;ranges&gt;</span>
+<span class="co2">#include &lt;string_view&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">constexpr</span> <a href="cpp-string-basic_string_view.html"><span class="kw1251">std::<span class="me2">string_view</span></span></a> sentence<span class="br0">{</span><span class="st0">&quot;Keep..moving..forward..&quot;</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw4">constexpr</span> <a href="cpp-string-basic_string_view.html"><span class="kw1251">std::<span class="me2">string_view</span></span></a> delim<span class="br0">{</span><span class="st0">&quot;..&quot;</span><span class="br0">}</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><a href="cpp-ranges-split_view.html"><span class="kw3110">ranges::<span class="me2">split_view</span></span></a> words<span class="br0">{</span>sentence, delim<span class="br0">}</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;begin(): &quot;</span> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-quoted.html"><span class="kw1806">std::<span class="me2">quoted</span></span></a><span class="br0">(</span><a href="cpp-string-basic_string_view.html"><span class="kw1251">std::<span class="me2">string_view</span></span></a><span class="br0">{</span><span class="sy2">*</span>words.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span><span class="br0">}</span><span class="br0">)</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;<span class="es1">\n</span>&#23376;&#23383;&#31526;&#20018;: &quot;</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">auto</span> word <span class="sy4">:</span> words<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-quoted.html"><span class="kw1806">std::<span class="me2">quoted</span></span></a><span class="br0">(</span><a href="cpp-string-basic_string_view.html"><span class="kw1251">std::<span class="me2">string_view</span></span></a><span class="br0">(</span>word<span class="br0">)</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span><span class="sy4">;</span>
+ 
+    std<span class="sy4">::</span><a href="cpp-ranges-split_view.html"><span class="kw3110">ranges::<span class="me2">split_view</span></span></a> letters<span class="br0">{</span>sentence, <a href="cpp-string-basic_string_view.html"><span class="kw1251">std::<span class="me2">string_view</span></span></a><span class="br0">{</span><span class="st0">&quot;&quot;</span><span class="br0">}</span><span class="br0">}</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;<span class="es1">\n</span>begin(): &quot;</span> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-quoted.html"><span class="kw1806">std::<span class="me2">quoted</span></span></a><span class="br0">(</span><a href="cpp-string-basic_string_view.html"><span class="kw1251">std::<span class="me2">string_view</span></span></a><span class="br0">{</span><span class="sy2">*</span>letters.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span><span class="br0">}</span><span class="br0">)</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;<span class="es1">\n</span>&#23383;&#27597;: &quot;</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">auto</span> letter <span class="sy4">:</span> letters<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <a href="cpp-string-basic_string_view.html"><span class="kw1251">std::<span class="me2">string_view</span></span></a><span class="br0">(</span>letter<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">begin(): &quot;Keep&quot;
+&#23376;&#23383;&#31526;&#20018;: &quot;Keep&quot; &quot;moving&quot; &quot;forward&quot; &quot;&quot;
+begin(): &quot;K&quot;
+&#23383;&#27597;: K e e p . . m o v i n g . . f o r w a r d . .</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-split_view-end.html"><span class="t-lines"><span>end</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238; &#25351;&#21521;&#26411;&#23614;&#30340;&#36845;&#20195;&#22120;&#25110;&#21736;&#20301;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-lazy_split_view-begin.html"><span class="t-lines"><span>begin</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#21521;&#36215;&#22987;&#30340;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::ranges::lazy_split_view&lt;V,Pattern&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-begin.html"><span class="t-lines"><span>ranges::begin</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#21521;&#33539;&#22260;&#36215;&#22987;&#30340;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#23450;&#21046;&#28857;&#23545;&#35937;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

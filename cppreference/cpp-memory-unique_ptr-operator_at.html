@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::unique_ptr&lt;T,Deleter&gt;::operator[]</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_memory_unique_ptr_operator_at skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::unique_ptr&lt;T,Deleter&gt;::</span>operator[]</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-memory.html">memory</a>&lrm; | <a href="cpp-memory-unique_ptr.html">unique ptr</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp">T<span class="sy3">&amp;</span> operator<span class="br0">[</span><span class="br0">]</span><span class="br0">(</span> <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> i <span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span><br />
+<span class="t-mark" style="white-space: nowrap;">(constexpr since C++23)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>operator[]</code> &#25552;&#20379;&#23545; <code>unique_ptr</code> &#25152;&#31649;&#29702;&#30340;&#25968;&#32452;&#20803;&#32032;&#30340;&#35775;&#38382;&#12290;</p>
+<p>&#21442;&#25968; <span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span> &#24212;&#24403;&#23567;&#20110;&#25968;&#32452;&#20013;&#30340;&#20803;&#32032;&#25968;&#65307;&#21542;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<p>&#20165;&#20026;&#38024;&#23545;&#25968;&#32452;&#31867;&#22411;&#30340;&#29305;&#21270;&#25552;&#20379;&#27492;&#25104;&#21592;&#20989;&#25968;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>i</td>
+<td>-</td>
+<td>&#35201;&#36820;&#22238;&#30340;&#20803;&#32032;&#30340;&#32034;&#24341;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#36820;&#22238;&#22312;&#32034;&#24341; <span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span> &#30340;&#20803;&#32032;&#65292;&#21363; <a href="cpp-memory-unique_ptr-get.html"><code>get()[i]</code></a>&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;memory&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span> 
+<span class="br0">{</span>
+    <span class="kw4">const</span> <span class="kw4">int</span> size <span class="sy1">=</span> <span class="nu0">10</span><span class="sy4">;</span> 
+    <a href="cpp-memory-unique_ptr.html"><span class="kw735">std::<span class="me2">unique_ptr</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="br0">[</span><span class="br0">]</span><span class="sy1">&gt;</span> fact<span class="br0">(</span>new <span class="kw4">int</span><span class="br0">[</span>size<span class="br0">]</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> i <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span> i <span class="sy1">&lt;</span> size<span class="sy4">;</span> <span class="sy2">++</span>i<span class="br0">)</span>
+        fact<span class="br0">[</span>i<span class="br0">]</span> <span class="sy1">=</span> <span class="br0">(</span>i <span class="sy1">==</span> <span class="nu0">0</span><span class="br0">)</span> <span class="sy4">?</span> <span class="nu0">1</span> <span class="sy4">:</span> i <span class="sy2">*</span> fact<span class="br0">[</span>i <span class="sy2">-</span> <span class="nu0">1</span><span class="br0">]</span><span class="sy4">;</span>
+ 
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> i <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span> i <span class="sy1">&lt;</span> size<span class="sy4">;</span> <span class="sy2">++</span>i<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> i <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;! = &quot;</span> <span class="sy1">&lt;&lt;</span> fact<span class="br0">[</span>i<span class="br0">]</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">0! = 1
+1! = 1
+2! = 2
+3! = 6
+4! = 24
+5! = 120
+6! = 720
+7! = 5040
+8! = 40320
+9! = 362880</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-unique_ptr-get.html"><span class="t-lines"><span>get</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#21521;&#34987;&#31649;&#29702;&#23545;&#35937;&#30340;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

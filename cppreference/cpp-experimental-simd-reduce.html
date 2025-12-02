@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::experimental::reduce, std::experimental::hmin, std::experimental::hmax</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_experimental_simd_reduce skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::experimental::</span>reduce, <span style="font-size:0.8em; line-height:125%">std::experimental::</span>hmin, <span style="font-size:0.8em; line-height:125%">std::experimental::</span>hmax</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-experimental.html">experimental</a>&lrm; | <a href="cpp-experimental-simd.html">simd</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-experimental-simd.html">&lt;experimental/simd&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-parallelism_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span> Abi, <span class="kw1">class</span> BinaryOperation <span class="sy1">=</span> <a href="cpp-utility-functional-plus.html"><span class="kw1034">std::<span class="me2">plus</span></span></a><span class="sy1">&lt;&gt;</span> <span class="sy1">&gt;</span><br />
+T reduce<span class="br0">(</span> <span class="kw4">const</span> simd<span class="sy1">&lt;</span>T, Abi<span class="sy1">&gt;</span><span class="sy3">&amp;</span> v, BinaryOperation binary_op <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span> <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></td>
+</tr>
+<tr class="t-dcl t-since-parallelism_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> M, <span class="kw1">class</span> V, <span class="kw1">class</span> BinaryOperation <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw1">typename</span> V<span class="sy4">::</span><span class="me2">value_type</span><br />
+reduce<span class="br0">(</span> <span class="kw4">const</span> const_where_expression<span class="sy1">&lt;</span>M, V<span class="sy1">&gt;</span><span class="sy3">&amp;</span> x,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">typename</span> V<span class="sy4">::</span><span class="me2">value_type</span> identity_element, BinaryOperation binary_op <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span> <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></td>
+</tr>
+<tr class="t-dcl t-since-parallelism_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> M, <span class="kw1">class</span> V <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw1">typename</span> V<span class="sy4">::</span><span class="me2">value_type</span><br /></p>
+reduce<span class="br0">(</span> <span class="kw4">const</span> const_where_expression<span class="sy1">&lt;</span>M, V<span class="sy1">&gt;</span><span class="sy3">&amp;</span> x, <a href="cpp-utility-functional-plus.html"><span class="kw1034">std::<span class="me2">plus</span></span></a><span class="sy1">&lt;&gt;</span> binary_op <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></td>
+</tr>
+<tr class="t-dcl t-since-parallelism_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> M, <span class="kw1">class</span> V <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw1">typename</span> V<span class="sy4">::</span><span class="me2">value_type</span><br /></p>
+reduce<span class="br0">(</span> <span class="kw4">const</span> const_where_expression<span class="sy1">&lt;</span>M, V<span class="sy1">&gt;</span><span class="sy3">&amp;</span> x, <a href="cpp-utility-functional-multiplies.html"><span class="kw1036">std::<span class="me2">multiplies</span></span></a><span class="sy1">&lt;&gt;</span> binary_op <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></div>
+</td>
+<td>(4)</td>
+<td><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></td>
+</tr>
+<tr class="t-dcl t-since-parallelism_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> M, <span class="kw1">class</span> V <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw1">typename</span> V<span class="sy4">::</span><span class="me2">value_type</span><br /></p>
+reduce<span class="br0">(</span> <span class="kw4">const</span> const_where_expression<span class="sy1">&lt;</span>M, V<span class="sy1">&gt;</span><span class="sy3">&amp;</span> x, <a href="cpp-utility-functional-bit_and.html"><span class="kw1049">std::<span class="me2">bit_and</span></span></a><span class="sy1">&lt;&gt;</span> binary_op <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></div>
+</td>
+<td>(5)</td>
+<td><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></td>
+</tr>
+<tr class="t-dcl t-since-parallelism_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> M, <span class="kw1">class</span> V <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw1">typename</span> V<span class="sy4">::</span><span class="me2">value_type</span><br /></p>
+reduce<span class="br0">(</span> <span class="kw4">const</span> const_where_expression<span class="sy1">&lt;</span>M, V<span class="sy1">&gt;</span><span class="sy3">&amp;</span> x, <a href="cpp-utility-functional-bit_or.html"><span class="kw1050">std::<span class="me2">bit_or</span></span></a><span class="sy1">&lt;&gt;</span> binary_op <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></div>
+</td>
+<td>(6)</td>
+<td><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></td>
+</tr>
+<tr class="t-dcl t-since-parallelism_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> M, <span class="kw1">class</span> V <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw1">typename</span> V<span class="sy4">::</span><span class="me2">value_type</span><br /></p>
+reduce<span class="br0">(</span> <span class="kw4">const</span> const_where_expression<span class="sy1">&lt;</span>M, V<span class="sy1">&gt;</span><span class="sy3">&amp;</span> x, <a href="cpp-utility-functional-bit_xor.html"><span class="kw3545">std::<span class="me2">bit_xor</span></span></a><span class="sy1">&lt;&gt;</span> binary_op <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></div>
+</td>
+<td>(7)</td>
+<td><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></td>
+</tr>
+<tr class="t-dcl t-since-parallelism_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span> Abi <span class="sy1">&gt;</span><br />
+T hmin<span class="br0">(</span> <span class="kw4">const</span> simd<span class="sy1">&lt;</span>T, Abi<span class="sy1">&gt;</span><span class="sy3">&amp;</span> v <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(8)</td>
+<td><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></td>
+</tr>
+<tr class="t-dcl t-since-parallelism_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> M, <span class="kw1">class</span> V <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw1">typename</span> V<span class="sy4">::</span><span class="me2">value_type</span><br /></p>
+hmin<span class="br0">(</span> <span class="kw4">const</span> const_where_expression<span class="sy1">&lt;</span>M, V<span class="sy1">&gt;</span><span class="sy3">&amp;</span> x <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></div>
+</td>
+<td>(9)</td>
+<td><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></td>
+</tr>
+<tr class="t-dcl t-since-parallelism_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span> Abi <span class="sy1">&gt;</span><br />
+T hmax<span class="br0">(</span> <span class="kw4">const</span> simd<span class="sy1">&lt;</span>T, Abi<span class="sy1">&gt;</span><span class="sy3">&amp;</span> v <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(10)</td>
+<td><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></td>
+</tr>
+<tr class="t-dcl t-since-parallelism_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> M, <span class="kw1">class</span> V <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw1">typename</span> V<span class="sy4">::</span><span class="me2">value_type</span><br /></p>
+hmax<span class="br0">(</span> <span class="kw4">const</span> const_where_expression<span class="sy1">&lt;</span>M, V<span class="sy1">&gt;</span><span class="sy3">&amp;</span> x <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></div>
+</td>
+<td>(11)</td>
+<td><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">binary_op</span></span> &#19978;&#24402;&#32422; <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#20013;&#30340;&#25152;&#26377;&#32773;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">binary_op</span></span> &#19978;&#24402;&#32422; <span class="t-c"><span class="mw-geshi cpp source-cpp">x</span></span> &#20013;&#20851;&#32852;&#25513;&#30721;&#20803;&#32032;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span> &#30340;&#25152;&#26377;&#20540;&#12290;</div>
+<div class="t-li1"><span class="t-li">3)</span> &#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp">x</span></span> &#20013;&#20851;&#32852;&#25513;&#30721;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span> &#30340;&#25152;&#26377;&#20540;&#30340;&#21644;&#12290;</div>
+<div class="t-li1"><span class="t-li">4)</span> &#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp">x</span></span> &#20013;&#20851;&#32852;&#25513;&#30721;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span> &#30340;&#25152;&#26377;&#20540;&#30340;&#20056;&#31215;&#12290;</div>
+<div class="t-li1"><span class="t-li">5)</span> &#36820;&#22238;&#23545; <span class="t-c"><span class="mw-geshi cpp source-cpp">x</span></span> &#20013;&#20851;&#32852;&#25513;&#30721;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span> &#30340;&#25152;&#26377;&#20540;&#20351;&#29992;&#25353;&#20301;&#19982;&#30340;&#32858;&#21512;&#12290;</div>
+<div class="t-li1"><span class="t-li">6)</span> &#36820;&#22238;&#23545; <span class="t-c"><span class="mw-geshi cpp source-cpp">x</span></span> &#20013;&#20851;&#32852;&#25513;&#30721;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span> &#30340;&#25152;&#26377;&#20540;&#20351;&#29992;&#25353;&#20301;&#25110;&#30340;&#32858;&#21512;&#12290;</div>
+<div class="t-li1"><span class="t-li">7)</span> &#36820;&#22238;&#23545; <span class="t-c"><span class="mw-geshi cpp source-cpp">x</span></span> &#20013;&#20851;&#32852;&#25513;&#30721;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span> &#30340;&#25152;&#26377;&#20540;&#20351;&#29992;&#25353;&#20301;&#24322;&#25110;&#30340;&#32858;&#21512;&#12290;</div>
+<div class="t-li1"><span class="t-li">8)</span> &#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-algorithm-min.html"><span class="kw1646">std::<span class="me2">min</span></span></a></span></span> &#19978;&#24402;&#32422; <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#20013;&#30340;&#25152;&#26377;&#32773;&#12290;</div>
+<div class="t-li1"><span class="t-li">9)</span> &#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-algorithm-min.html"><span class="kw1646">std::<span class="me2">min</span></span></a></span></span> &#19978;&#24402;&#32422; <span class="t-c"><span class="mw-geshi cpp source-cpp">x</span></span> &#20013;&#20851;&#32852;&#25513;&#30721;&#20803;&#32032;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span> &#30340;&#25152;&#26377;&#20540;&#12290;</div>
+<div class="t-li1"><span class="t-li">10)</span> &#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-algorithm-max.html"><span class="kw1644">std::<span class="me2">max</span></span></a></span></span> &#19978;&#24402;&#32422; <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#20013;&#30340;&#25152;&#26377;&#32773;&#12290;</div>
+<div class="t-li1"><span class="t-li">11)</span> &#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-algorithm-max.html"><span class="kw1644">std::<span class="me2">max</span></span></a></span></span> &#19978;&#24402;&#32422; <span class="t-c"><span class="mw-geshi cpp source-cpp">x</span></span> &#20013;&#20851;&#32852;&#25513;&#30721;&#20803;&#32032;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span> &#30340;&#25152;&#26377;&#20540;&#12290;</div>
+<p>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">binary_op</span></span> &#24182;&#26080;&#32467;&#21512;&#24615;&#25110;&#20132;&#25442;&#24615;&#65292;&#21017;&#20854;&#34892;&#20026;&#19981;&#30830;&#23450;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>v</td>
+<td>-</td>
+<td>&#35201;&#36816;&#29992;&#24402;&#32422;&#30340; <a href="cpp-experimental-simd-simd.html"><code>simd</code></a> &#21521;&#37327;</td>
+</tr>
+<tr class="t-par">
+<td>x</td>
+<td>-</td>
+<td>&#35201;&#36816;&#29992;&#24402;&#32422;&#30340; <a href="cpp-experimental-simd-where.html"><code>where</code></a> &#34920;&#36798;&#24335;&#30340;&#36820;&#22238;&#20540;</td>
+</tr>
+<tr class="t-par">
+<td>identity_element</td>
+<td>-</td>
+<td>&#23545;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">binary_op</span></span> &#34920;&#29616;&#20026;&#30456;&#21516;&#20803;&#32032;&#30340;&#20540;&#65307;<span class="t-c"><span class="mw-geshi cpp source-cpp">binary_op<span class="br0">(</span>identity_element, a<span class="br0">)</span> <span class="sy1">==</span> a</span></span> &#24517;&#39035;&#25345;&#26377;&#31867;&#22411; <span class="t-c"><span class="mw-geshi cpp source-cpp">V<span class="sy4">::</span><span class="me2">value_type</span></span></span> &#30340;&#25152;&#26377;&#26377;&#31351;&#20540;</td>
+</tr>
+<tr class="t-par">
+<td>binary_op</td>
+<td>-</td>
+<td>&#20197;&#26410;&#25351;&#26126;&#30340; ABI &#26631;&#31614; <code>A</code>&#65292;&#20197;&#26410;&#25351;&#26126;&#30340;&#39034;&#24207;&#65292;&#36816;&#29992;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">V<span class="sy4">::</span><span class="me2">value_type</span></span></span> &#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp">simd<span class="sy1">&lt;</span>V<span class="sy4">::</span><span class="me2">value_type</span>, A<span class="sy1">&gt;</span></span></span> &#31867;&#22411;&#30340;&#23454;&#21442;&#30340;&#20108;&#20803; <a href="cpp-named_req-FunctionObject.html"><span style="font-style:italic">&#20989;&#25968;&#23545;&#35937;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(FunctionObject)</span></a> &#12290;<span class="t-c"><span class="mw-geshi cpp source-cpp">binary_op<span class="br0">(</span>v, v<span class="br0">)</span></span></span> &#24517;&#39035;&#21487;&#36716;&#25442;&#20026; <code>V</code></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#31867;&#22411;&#25805;&#20316;&#30340;&#32467;&#26524;&#65306;</p>
+<div class="t-li1"><span class="t-li">1,8,10)</span> <code>T</code></div>
+<div class="t-li1"><span class="t-li">2-7,9,11)</span> <span class="t-c"><span class="mw-geshi cpp source-cpp">V<span class="sy4">::</span><span class="me2">value_type</span></span></span></div>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;array&gt;</span>
+<span class="co2">#include &lt;cassert&gt;</span>
+<span class="co2">#include &lt;cstddef&gt;</span>
+<span class="co2">#include &lt;experimental/simd&gt;</span>
+<span class="co2">#include &lt;functional&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;numeric&gt;</span>
+<span class="kw1">namespace</span> stdx <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">experimental</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">using</span> V <span class="sy1">=</span> stdx<span class="sy4">::</span><span class="me2">native_simd</span><span class="sy1">&lt;</span><span class="kw4">double</span><span class="sy1">&gt;</span><span class="sy4">;</span>
+ 
+    alignas<span class="br0">(</span>stdx<span class="sy4">::</span><span class="me2">memory_alignment_v</span><span class="sy1">&lt;</span>V<span class="sy1">&gt;</span><span class="br0">)</span> <a href="cpp-container-array.html"><span class="kw1271">std::<span class="me2">array</span></span></a><span class="sy1">&lt;</span>V<span class="sy4">::</span><span class="me2">value_type</span>, <span class="nu0">1024</span><span class="sy1">&gt;</span> data<span class="sy4">;</span>
+    <a href="cpp-algorithm-iota.html"><span class="kw1659">std::<span class="me2">iota</span></span></a><span class="br0">(</span>data.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, data.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>, <span class="nu0">0</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    V<span class="sy4">::</span><span class="me2">value_type</span> acc<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> i <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span> i <span class="sy1">&lt;</span> data.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> i <span class="sy2">+</span><span class="sy1">=</span> V<span class="sy4">::</span><span class="me2">size</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+        acc <span class="sy2">+</span><span class="sy1">=</span> stdx<span class="sy4">::</span><span class="me2">reduce</span><span class="br0">(</span>V<span class="br0">(</span><span class="sy3">&amp;</span>data<span class="br0">[</span>i<span class="br0">]</span>, stdx<span class="sy4">::</span><span class="me2">vector_aligned</span><span class="br0">)</span>, <a href="cpp-utility-functional-plus.html"><span class="kw1034">std::<span class="me2">plus</span></span></a><span class="br0">{</span><span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;sum of data = &quot;</span> <span class="sy1">&lt;&lt;</span> acc <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="kw1">using</span> W <span class="sy1">=</span> stdx<span class="sy4">::</span><span class="me2">fixed_size_simd</span><span class="sy1">&lt;</span><span class="kw4">int</span>, <span class="nu0">4</span><span class="sy1">&gt;</span><span class="sy4">;</span>
+    alignas<span class="br0">(</span>stdx<span class="sy4">::</span><span class="me2">memory_alignment_v</span><span class="sy1">&lt;</span>W<span class="sy1">&gt;</span><span class="br0">)</span> <a href="cpp-container-array.html"><span class="kw1271">std::<span class="me2">array</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span>, <span class="nu0">4</span><span class="sy1">&gt;</span> arr<span class="br0">{</span><span class="nu0">2</span>, <span class="nu0">5</span>, <span class="nu0">4</span>, <span class="nu0">1</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw4">auto</span> w <span class="sy1">=</span> W<span class="br0">(</span><span class="sy3">&amp;</span>arr<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span>, stdx<span class="sy4">::</span><span class="me2">vector_aligned</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span>stdx<span class="sy4">::</span><span class="me2">hmin</span><span class="br0">(</span>w<span class="br0">)</span> <span class="sy1">==</span> <span class="nu0">1</span> and stdx<span class="sy4">::</span><span class="me2">hmax</span><span class="br0">(</span>w<span class="br0">)</span> <span class="sy1">==</span> <span class="nu0">5</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">sum of data = 523776</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-reduce.html"><span class="t-lines"><span>reduce</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span></span></span></div>
+</div>
+</td>
+<td>&#31867;&#20284; <span class="t-lc"><a href="cpp-algorithm-accumulate.html">std::accumulate</a></span>&#65292;&#20294;&#19981;&#20381;&#24207;&#25191;&#34892;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

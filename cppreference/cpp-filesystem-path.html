@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::filesystem::path</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_filesystem_path skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::filesystem::</span>path</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-filesystem.html">filesystem</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-filesystem.html">&lt;filesystem&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">class</span> path<span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#31867;&#22411; <code>path</code> &#30340;&#23545;&#35937;&#34920;&#31034;&#25991;&#20214;&#31995;&#32479;&#19978;&#30340;&#36335;&#24452;&#12290;&#21482;&#26377;&#36335;&#24452;&#30340;&#35821;&#27861;&#22806;&#35266;&#24471;&#21040;&#22788;&#29702;&#65306;&#36335;&#24452;&#21517;&#21487;&#33021;&#34920;&#31034;&#19981;&#23384;&#22312;&#30340;&#36335;&#24452;&#65292;&#25110;&#29978;&#33267;&#19981;&#20801;&#35768;&#23384;&#22312;&#20110;&#24403;&#21069;&#25991;&#20214;&#31995;&#32479;&#25110;&#25805;&#20316;&#31995;&#32479;&#30340;&#36335;&#24452;&#12290;</p>
+<p>&#36335;&#24452;&#21517;&#25317;&#26377;&#19979;&#21015;&#35821;&#27861;&#65306;</p>
+<ol>
+<li><span class="t-spar">&#26681;&#21517;</span><span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span>&#65306;&#26631;&#35782;&#20855;&#26377;&#22810;&#26681;&#30340;&#25991;&#20214;&#31995;&#32479;&#65288;&#22914; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="st0">&quot;C:&quot;</span></span></span> &#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="st0">&quot;//myserver&quot;</span></span></span>&#65289;&#30340;&#26681;&#12290;&#26377;&#27495;&#20041;&#30340;&#24773;&#20917;&#19979;&#65292;&#23558;&#32452;&#25104;&#21512;&#27861; <span class="t-spar">&#26681;&#21517;</span> &#30340;&#26368;&#38271;&#24207;&#21015;&#24403;&#20570; <span class="t-spar">&#26681;&#21517;</span>&#12290;&#26631;&#20934;&#24211;&#21487;&#20197;&#22312; OS API &#25152;&#20102;&#35299;&#30340; <span class="t-spar">&#26681;&#21517;</span> &#22806;&#65292;&#23450;&#20041;&#39069;&#22806;&#30340; <span class="t-spar">&#26681;&#21517;</span>&#12290;</li>
+<li><span class="t-spar">&#26681;&#30446;&#24405;</span><span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span>&#65306;&#30446;&#24405;&#20998;&#38548;&#31526;&#65292;&#33509;&#23384;&#22312;&#65292;&#21017;&#26631;&#35760;&#27492;&#36335;&#24452;&#20026;<i>&#32477;&#23545;</i>&#12290;&#33509;&#32570;&#22833;&#65288;&#19988;&#24322;&#20110;&#26681;&#21517;&#30340;&#39318;&#20803;&#32032;&#26159;&#25991;&#20214;&#21517;&#65289;&#65292;&#21017;&#36335;&#24452;&#20026;<i>&#30456;&#23545;</i>&#19988;&#35201;&#27714;&#21478;&#19968;&#36335;&#24452;&#20316;&#20026;&#35299;&#20915;&#27492;&#25991;&#20214;&#21517;&#30340;&#36215;&#22987;&#20301;&#32622;&#12290;</li>
+<li>&#38646;&#25110;&#22810;&#20010;&#19979;&#21015;&#32773;&#65306;</li>
+</ol>
+<dl>
+<dd>
+<ul>
+<li><span class="t-spar">&#25991;&#20214;&#21517;</span>&#65306;&#19981;&#30001;&#30446;&#24405;&#20998;&#38548;&#31526;&#25110;&#20559;&#22909;&#30446;&#24405;&#20998;&#38548;&#31526;&#32452;&#25104;&#30340;&#23383;&#31526;&#24207;&#21015;&#65288;&#25805;&#20316;&#31995;&#32479;&#25110;&#25991;&#20214;&#31995;&#32479;&#21487;&#33021;&#21152;&#19978;&#38468;&#21152;&#38480;&#21046;&#65289;&#12290;&#27492;&#21517;&#31216;&#21487;&#33021;&#26631;&#35782;&#19968;&#20010;&#25991;&#20214;&#12289;&#30828;&#38142;&#25509;&#25110;&#30446;&#24405;&#12290;&#36776;&#21035;&#20004;&#31181;&#29305;&#27530;&#30340; <span class="t-spar">&#25991;&#20214;&#21517;</span>&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li><span class="t-spar">&#28857;</span>&#65306;&#30001;&#21333;&#20010;&#28857;&#23383;&#31526; <span class="t-c"><span class="mw-geshi cpp source-cpp">.</span></span> &#26500;&#25104;&#30340;&#25991;&#20214;&#21517;&#26159;&#25351;&#20195;&#24403;&#21069;&#30446;&#24405;&#30340;&#30446;&#24405;&#21517;</li>
+<li><span class="t-spar">&#28857;&#28857;</span>&#65306;&#30001;&#20004;&#20010;&#28857;&#23383;&#31526; <span class="t-c"><span class="mw-geshi cpp source-cpp">..</span></span> &#26500;&#25104;&#30340;&#25991;&#20214;&#21517;&#26159;&#25351;&#20195;&#29238;&#30446;&#24405;&#30340;&#30446;&#24405;&#21517;&#12290;</li>
+</ul>
+</dd>
+</dl>
+<ul>
+<li><span class="t-spar">&#30446;&#24405;&#20998;&#38548;&#31526;</span>&#65306;&#27491;&#26012;&#26464;&#23383;&#31526; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">/</span></span></span> &#25110;&#20316;&#20026; <code>path::preferred_separator</code> &#25552;&#20379;&#30340;&#21478;&#19968;&#31181;&#23383;&#31526;&#12290;&#33509;&#37325;&#22797;&#27492;&#23383;&#31526;&#65292;&#21017;&#23427;&#34987;&#22788;&#29702;&#25104;&#21333;&#20010;&#30446;&#24405;&#20998;&#38548;&#31526;&#65306;<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">/</span>usr<span class="co1">///////lib</span></span></span> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">/</span>usr<span class="sy2">/</span>lib</span></span> &#30456;&#21516;&#12290;</li>
+</ul>
+</dd>
+</dl>
+<p>&#36335;&#24452;&#33021;&#20197;&#19979;&#21015;&#31639;&#27861;<i>&#27491;&#24120;&#21270;</i>&#65306;</p>
+<ol>
+<li>&#33509;&#36335;&#24452;&#20026;&#31354;&#65292;&#21017;&#20572;&#27490;&#65288;&#31354;&#36335;&#24452;&#30340;&#27491;&#24120;&#24418;&#24335;&#26159;&#31354;&#36335;&#24452;&#65289;&#12290;</li>
+<li>&#26367;&#25442;&#27599;&#20010; <span class="t-spar">&#30446;&#24405;&#20998;&#38548;&#31526;</span>&#65288;&#21487;&#20197;&#30001;&#22810;&#37325;&#26012;&#26464;&#32452;&#25104;&#65289;&#20026;&#21333;&#20010; <code>path::preferred_separator</code>&#12290;</li>
+<li>&#26367;&#25442; <span class="t-spar">&#26681;&#21517;</span> &#20013;&#30340;&#27599;&#20010;&#26012;&#26464;&#23383;&#31526;&#20026; <code>path::preferred_separator</code>&#12290;</li>
+<li>&#31227;&#38500;&#27599;&#20010; <span class="t-spar">&#28857;</span> &#21644;&#31435;&#21363;&#21518;&#38543;&#30340; <span class="t-spar">&#30446;&#24405;&#20998;&#38548;&#31526;</span>&#12290;</li>
+<li>&#31227;&#38500;&#27599;&#20010;&#31435;&#21363;&#21518;&#38543; <span class="t-spar">&#30446;&#24405;&#20998;&#38548;&#31526;</span> &#21644;&#19968;&#20010; <span class="t-spar">&#28857;&#28857;</span> &#30340;&#38750; <span class="t-spar">&#28857;&#28857;</span> &#25991;&#20214;&#21517;&#65292;&#36824;&#26377;&#31435;&#21363;&#36319;&#38543;&#30340; <span class="t-spar">&#30446;&#24405;&#20998;&#38548;&#31526;</span>&#12290;</li>
+<li>&#33509;&#23384;&#22312; <span class="t-spar">&#26681;&#30446;&#24405;</span>&#65292;&#21017;&#31227;&#38500;&#31435;&#21363;&#36319;&#38543;&#23427;&#20204;&#30340;&#25152;&#26377; <span class="t-spar">&#28857;&#28857;</span> &#21450;&#20219;&#20309; <span class="t-spar">&#30446;&#24405;&#20998;&#38548;&#31526;</span>&#12290;</li>
+<li>&#33509;&#26368;&#32456;&#25991;&#20214;&#21517;&#26159; <span class="t-spar">&#28857;&#28857;</span>&#65292;&#21017;&#31227;&#38500;&#20219;&#20309;&#23614;&#38543;&#30340; <span class="t-spar">&#30446;&#24405;&#20998;&#38548;&#31526;</span>&#12290;</li>
+<li>&#33509;&#36335;&#24452;&#20026;&#31354;&#65292;&#21017;&#28155;&#21152;&#19968;&#20010; <span class="t-spar">&#28857;</span>&#65288;<span class="t-c"><span class="mw-geshi cpp source-cpp">.<span class="sy2">/</span></span></span> &#30340;&#27491;&#24120;&#24418;&#24335;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp">.</span></span>&#65289;&#12290;</li>
+</ol>
+<p>&#36335;&#24452;&#21487;&#30001; <span class="t-lc"><a href="cpp-filesystem-path-begin.html">begin()</a></span> &#19982; <span class="t-lc"><a href="cpp-filesystem-path-begin.html">end()</a></span> &#20989;&#25968;&#36820;&#22238;&#30340;&#36845;&#20195;&#22120;&#36880;&#20803;&#32032;&#36827;&#34892;&#36941;&#21382;&#65292;&#36825;&#20250;&#20197;&#36890;&#29992;&#26684;&#24335;&#26597;&#30475;&#36335;&#24452;&#65292;&#24182;&#22312;&#26681;&#21517;&#12289;&#26681;&#30446;&#24405;&#21450;&#21518;&#32487;&#25991;&#20214;&#21517;&#20803;&#32032;&#19978;&#36845;&#20195;&#65288;&#36339;&#36807;&#30446;&#24405;&#20998;&#38548;&#31526;&#65292;&#38500;&#20102;&#26631;&#35782;&#26681;&#30446;&#24405;&#32773;&#65289;&#12290;&#33509;&#36335;&#24452;&#20013;&#30340;&#26368;&#21518;&#20803;&#32032;&#26159;&#30446;&#24405;&#20998;&#38548;&#31526;&#65292;&#21017;&#26368;&#21518;&#30340;&#36845;&#20195;&#22120;&#23558;&#35299;&#24341;&#29992;&#20026;&#31354;&#20803;&#32032;&#12290;</p>
+<p>&#35843;&#29992;&#20219;&#20309;&#30340; <code>path</code> &#38750; const &#25104;&#21592;&#20989;&#25968;&#20250;&#20196;&#25152;&#26377;&#24341;&#29992;&#35813;&#23545;&#35937;&#20803;&#32032;&#30340;&#36845;&#20195;&#22120;&#22833;&#25928;&#12290;</p>
+<p>&#33509; OS &#20351;&#29992;&#24322;&#20110;&#19978;&#36848;&#21487;&#31227;&#26893;<i>&#36890;&#29992;</i>&#35821;&#27861;&#30340;<i>&#21407;&#29983;</i>&#35821;&#27861;&#65292;&#21017;&#24211;&#20989;&#25968;&#34987;&#23450;&#20041;&#20026;&#25509;&#21463;&ldquo;&#21463;&#26816;&#27979;&#26684;&#24335;&rdquo;&#65292;&#20197;&#25509;&#21463;&#20004;&#31181;&#26684;&#24335;&#30340;&#36335;&#24452;&#21517;&#65306;&#24403;&#19988;&#20165;&#24403;&#21463;&#26816;&#27979;&#26684;&#24335;&#21305;&#37197;&#36890;&#29992;&#26684;&#24335;&#65292;&#20294;&#19981;&#20026;&#25805;&#20316;&#31995;&#32479;&#20316;&#20026;&#21407;&#29983;&#36335;&#24452;&#25509;&#21463;&#65292;&#25165;&#37319;&#29992;&#21463;&#26816;&#27979;&#26684;&#24335;&#21442;&#25968;&#12290;&#21407;&#29983;&#26684;&#24335;&#22312;&#30446;&#24405;&#36335;&#24452;&#21517;&#21644;&#25991;&#20214;&#36335;&#24452;&#21517;&#26377;&#21035;&#30340; OS &#19978;&#65292;&#33509;&#36890;&#29992;&#36335;&#24452;&#21517;&#20197;&#30446;&#24405;&#20998;&#38548;&#31526;&#32456;&#27490;&#65292;&#21017;&#23558;&#23427;&#24403;&#20570;&#30446;&#24405;&#36335;&#24452;&#65292;&#21542;&#21017;&#24403;&#20570;&#24120;&#35268;&#25991;&#20214;&#12290;</p>
+<p>&#20219;&#20309;&#24773;&#20917;&#19979;&#65292;path &#31867;&#34920;&#29616;&#22914;&#21516;&#23427;&#20197;&#21407;&#29983;&#26684;&#24335;&#23384;&#20648;&#36335;&#24452;&#21517;&#65292;&#24182;&#33258;&#21160;&#20110;&#25152;&#38656;&#22330;&#21512;&#36716;&#25442;&#23427;&#20026;&#36890;&#29992;&#26684;&#24335;&#65288;&#27599;&#20010;&#25104;&#21592;&#20989;&#25968;&#37117;&#25351;&#23450;&#23427;&#36716;&#35793;&#30340;&#36335;&#24452;&#26684;&#24335;&#65289;&#12290;</p>
+<p>POSIX &#31995;&#32479;&#19978;&#65292;&#36890;&#29992;&#26684;&#24335;&#23601;&#26159;&#21407;&#29983;&#26684;&#24335;&#65292;&#24182;&#19988;&#27809;&#26377;&#24517;&#35201;&#21306;&#21035;&#25110;&#36716;&#25442;&#23427;&#20204;&#12290;</p>
+<p>&#36335;&#24452;&#21487;&#38544;&#24335;&#36716;&#25442;&#33258;&#21450;&#36716;&#25442;&#25104; <span class="t-lc"><a href="cpp-string-basic_string.html">std::basic_string</a></span>&#65292;&#36825;&#20351;&#24471;&#22312;&#25991;&#20214; API &#19978;&#20351;&#29992;&#23427;&#20204;&#21487;&#34892;&#12290;</p>
+<p><a href="cpp-filesystem-path-operator_ltltgtgt.html">&#27969;&#36816;&#31639;&#31526;</a>&#20351;&#29992; <span class="t-lc"><a href="cpp-io-manip-quoted.html">std::quoted</a></span> &#20197;&#20351;&#31354;&#30333;&#19981;&#20250;&#23548;&#33268;&#20854;&#21518;&#36890;&#36807;<a href="cpp-filesystem-path-operator_ltltgtgt.html">&#27969;&#36755;&#20837;&#36816;&#31639;&#31526;</a>&#30340;&#35835;&#21462;&#21457;&#29983;&#25130;&#26029;&#12290;</p>
+<p><a href="cpp-filesystem-path.html#.E5.88.86.E8.A7.A3">&#20998;&#35299;&#25104;&#21592;&#20989;&#25968;</a>&#65288;&#22914; <span class="t-lc"><a href="cpp-filesystem-path-extension.html">extension</a></span>&#65289;&#36820;&#22238; <code>filesystem::path</code> &#23545;&#35937;&#32780;&#19981;&#26159;&#22914;&#20854;&#20182; API &#37027;&#26679;&#36820;&#22238;&#23383;&#31526;&#20018;&#23545;&#35937;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E7.B1.BB.E5.9E.8B">&#25104;&#21592;&#31867;&#22411;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#31867;&#22411;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>value_type</code></td>
+<td>&#25991;&#20214;&#31995;&#32479;&#21407;&#29983;&#32534;&#30721;&#25152;&#29992;&#30340;&#23383;&#31526;&#31867;&#22411;&#65306;POSIX &#19978;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw4">char</span></span>&#65292;Windows &#19978;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw4">wchar_t</span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>string_type</code></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-string-basic_string.html"><span class="kw1231">std::<span class="me2">basic_string</span></span></a><span class="sy1">&lt;</span>value_type<span class="sy1">&gt;</span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>const_iterator</code></td>
+<td><code>value_type</code> &#20026; <code>path</code> &#30340;&#24120;&#37327;<a href="cpp-named_req-InputIterator.html"><span style="font-style:italic">&#32769;&#24335;&#36755;&#20837;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyInputIterator)</span></a> &#65292;&#31526;&#21512;<a href="cpp-named_req-BidirectionalIterator.html"><span style="font-style:italic">&#32769;&#24335;&#21452;&#21521;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyBidirectionalIterator)</span></a> &#30340;&#25152;&#26377;&#35201;&#27714;&#65292;&#20294;&#23545;&#20110;&#20004;&#20010;&#30456;&#31561;&#19988;&#21487;&#35299;&#24341;&#29992;&#30340; <code>const_iterator</code> &#31867;&#22411;&#30340;&#36845;&#20195;&#22120; <code>a</code> &#19982; <code>b</code>&#65292;&#19981;&#35201;&#27714; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>a</span></span> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>b</span></span> &#25351;&#20195;&#21516;&#19968;&#23545;&#35937;&#12290;
+<p><code>const_iterator</code> &#26159;&#21542;&#23454;&#38469;&#20026;<a href="cpp-named_req-BidirectionalIterator.html"><span style="font-style:italic">&#32769;&#24335;&#21452;&#21521;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyBidirectionalIterator)</span></a> &#26159;&#26410;&#25351;&#23450;&#30340;&#12290;</p>
+</td>
+</tr>
+<tr class="t-dsc">
+<td><code>iterator</code></td>
+<td><code>const_iterator</code></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-format.html"><span class="t-lines"><span>format</span></span></a></div>
+</div>
+</td>
+<td>&#30830;&#23450;&#22914;&#20309;&#35299;&#35835;&#36335;&#24452;&#21517;&#30340;&#23383;&#31526;&#20018;&#34920;&#31034;
+<p>&#20134;&#23450;&#20041;&#19979;&#21015;&#26522;&#20030;&#39033;&#65306;</p>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#21517;&#31216;</td>
+<td>&#35299;&#37322;</td>
+</tr>
+<tr class="t-dsc">
+<td><a href="cpp-filesystem-path-format.html"><tt>native_format</tt></a></td>
+<td>&#21407;&#29983;&#36335;&#24452;&#26684;&#24335;</td>
+</tr>
+<tr class="t-dsc">
+<td><a href="cpp-filesystem-path-format.html"><tt>generic_format</tt></a></td>
+<td>&#36890;&#29992;&#36335;&#24452;&#26684;&#24335;</td>
+</tr>
+<tr class="t-dsc">
+<td><a href="cpp-filesystem-path-format.html"><tt>auto_format</tt></a></td>
+<td>&#23454;&#29616;&#23450;&#20041;&#26684;&#24335;&#65292;&#22914;&#26524;&#21487;&#33021;&#23601;&#33258;&#21160;&#26816;&#27979;</td>
+</tr>
+</table>
+<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#26522;&#20030;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.B8.B8.E9.87.8F">&#25104;&#21592;&#24120;&#37327;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span><span class="t-dsc-small">constexpr value_type</span> preferred_separator</span></span></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td>&#22312;&#21487;&#31227;&#26893;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">/</span></span></span> &#20043;&#22806;&#21487;&#29992;&#30340;&#21478;&#19968;&#31181;&#30446;&#24405;&#20998;&#38548;&#31526;&#12290;Windows &#19978;&#23427;&#26159;&#21453;&#26012;&#26464;&#23383;&#31526; <span class="t-c"><span class="mw-geshi cpp source-cpp">\</span></span>&#12290;POSIX &#19978;&#23427;&#26159;&#19982;&#21487;&#31227;&#26893;&#20998;&#38548;&#31526;&#30456;&#21516;&#30340;&#26012;&#26464; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">/</span></span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#24120;&#37327;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-filesystem-path-path.html"><span class="t-lines"><span>(&#26500;&#36896;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26500;&#36896;&#19968;&#20010; <code>path</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-filesystem-path-~path.html"><span class="t-lines"><span>(&#26512;&#26500;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#38144;&#27585; <code>path</code> &#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-operator=.html"><span class="t-lines"><span>operator=</span></span></a></div>
+</div>
+</td>
+<td>&#36171;&#20540;&#21478;&#19968;&#20010;&#36335;&#24452;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-assign.html"><span class="t-lines"><span>assign</span></span></a></div>
+</div>
+</td>
+<td>&#36171;&#20540;&#20869;&#23481;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E8.BF.9E.E6.8E.A5">&#36830;&#25509;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-append.html"><span class="t-lines"><span>append</span><span>operator/=</span></span></a></div>
+</div>
+</td>
+<td>&#20197;&#30446;&#24405;&#20998;&#38548;&#31526;&#21521;&#36335;&#24452;&#28155;&#21152;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-concat.html"><span class="t-lines"><span>concat</span><span>operator+=</span></span></a></div>
+</div>
+</td>
+<td>&#36830;&#25509;&#20004;&#20010;&#36335;&#24452;&#32780;&#19981;&#21152;&#20837;&#30446;&#24405;&#20998;&#38548;&#31526;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E4.BF.AE.E6.94.B9.E5.99.A8">&#20462;&#25913;&#22120;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-clear.html"><span class="t-lines"><span>clear</span></span></a></div>
+</div>
+</td>
+<td>&#25830;&#38500;&#20869;&#23481;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-make_preferred.html"><span class="t-lines"><span>make_preferred</span></span></a></div>
+</div>
+</td>
+<td>&#36716;&#25442;&#30446;&#24405;&#20998;&#38548;&#31526;&#20026;&#39318;&#36873;&#30446;&#24405;&#20998;&#38548;&#31526;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-remove_filename.html"><span class="t-lines"><span>remove_filename</span></span></a></div>
+</div>
+</td>
+<td>&#31227;&#38500;&#25991;&#20214;&#21517;&#36335;&#24452;&#32452;&#20998;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-replace_filename.html"><span class="t-lines"><span>replace_filename</span></span></a></div>
+</div>
+</td>
+<td>&#20197;&#21478;&#19968;&#36335;&#24452;&#26367;&#25442;&#26368;&#26411;&#30340;&#36335;&#24452;&#32452;&#20998;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-replace_extension.html"><span class="t-lines"><span>replace_extension</span></span></a></div>
+</div>
+</td>
+<td>&#26367;&#25442;&#25193;&#23637;&#21517;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-swap.html"><span class="t-lines"><span>swap</span></span></a></div>
+</div>
+</td>
+<td>&#20132;&#25442;&#20004;&#20010;&#36335;&#24452;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E6.A0.BC.E5.BC.8F.E8.A7.82.E5.AF.9F.E5.99.A8">&#26684;&#24335;&#35266;&#23519;&#22120;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-native.html"><span class="t-lines"><span>c_str</span><span>native</span><span>operator string_type</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#36335;&#24452;&#30340;&#21407;&#29983;&#29256;&#26412;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-string.html"><span class="t-lines"><span>string</span><span>wstring</span><span>u8string</span><span>u16string</span><span>u32string</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#36716;&#25442;&#21040;&#23383;&#31526;&#20018;&#30340;&#21407;&#29983;&#36335;&#24452;&#21517;&#26684;&#24335;&#30340;&#36335;&#24452;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-generic_string.html"><span class="t-lines"><span>generic_string</span><span>generic_wstring</span><span>generic_u8string</span><span>generic_u16string</span><span>generic_u32string</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#36716;&#25442;&#21040;&#23383;&#31526;&#20018;&#30340;&#36890;&#29992;&#36335;&#24452;&#21517;&#26684;&#24335;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E6.AF.94.E8.BE.83">&#27604;&#36739;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-compare.html"><span class="t-lines"><span>compare</span></span></a></div>
+</div>
+</td>
+<td>&#20197;&#23383;&#20856;&#24207;&#27604;&#36739;&#20004;&#20010;&#36335;&#24452;&#30340;&#35789;&#27861;&#34920;&#31034;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E7.94.9F.E6.88.90">&#29983;&#25104;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-lexically_normal.html"><span class="t-lines"><span>lexically_normal</span><span>lexically_relative</span><span>lexically_proximate</span></span></a></div>
+</div>
+</td>
+<td>&#36716;&#25442;&#36335;&#24452;&#21040;&#27491;&#24120;&#24418;&#24335;<br />
+&#36716;&#25442;&#36335;&#24452;&#21040;&#30456;&#23545;&#24418;&#24335;<br />
+&#36716;&#25442;&#36335;&#24452;&#21040;&#36817;&#20284;&#24418;&#24335;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E5.88.86.E8.A7.A3">&#20998;&#35299;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-root_name.html"><span class="t-lines"><span>root_name</span></span></a></div>
+</div>
+</td>
+<td>&#33509;&#23384;&#22312;&#21017;&#36820;&#22238;&#36335;&#24452;&#30340;&#26681;&#21517;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-root_directory.html"><span class="t-lines"><span>root_directory</span></span></a></div>
+</div>
+</td>
+<td>&#33509;&#23384;&#22312;&#21017;&#36820;&#22238;&#36335;&#24452;&#30340;&#26681;&#30446;&#24405;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-root_path.html"><span class="t-lines"><span>root_path</span></span></a></div>
+</div>
+</td>
+<td>&#33509;&#23384;&#22312;&#21017;&#36820;&#22238;&#36335;&#24452;&#30340;&#26681;&#36335;&#24452;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-relative_path.html"><span class="t-lines"><span>relative_path</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#30456;&#23545;&#26681;&#36335;&#24452;&#30340;&#36335;&#24452;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-parent_path.html"><span class="t-lines"><span>parent_path</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#29238;&#36335;&#24452;&#30340;&#36335;&#24452;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-filename.html"><span class="t-lines"><span>filename</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25991;&#20214;&#21517;&#36335;&#24452;&#32452;&#20998;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-stem.html"><span class="t-lines"><span>stem</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#20027;&#24178;&#36335;&#24452;&#32452;&#20998;&#65288;&#19981;&#24102;&#25193;&#23637;&#21517;&#30340;&#25991;&#20214;&#21517;&#65289;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-extension.html"><span class="t-lines"><span>extension</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25991;&#20214;&#25193;&#23637;&#21517;&#36335;&#24452;&#32452;&#20998;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E6.9F.A5.E8.AF.A2">&#26597;&#35810;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-empty.html"><span class="t-lines"><span>empty</span></span></a></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#36335;&#24452;&#26159;&#21542;&#20026;&#31354;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-has_path.html"><span class="t-lines"><span>has_root_path</span><span>has_root_name</span><span>has_root_directory</span><span>has_relative_path</span><span>has_parent_path</span><span>has_filename</span><span>has_stem</span><span>has_extension</span></span></a></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#23545;&#24212;&#36335;&#24452;&#20803;&#32032;&#26159;&#21542;&#38750;&#31354;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-is_absrel.html"><span class="t-lines"><span>is_absolute</span><span>is_relative</span></span></a></div>
+</div>
+</td>
+<td>&#26816;&#26597; <span class="t-lc"><a href="cpp-filesystem-path-root_path.html">root_path()</a></span> &#26159;&#21542;&#21807;&#19968;&#26631;&#35782;&#25991;&#20214;&#31995;&#32479;&#20301;&#32622;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E8.BF.AD.E4.BB.A3.E5.99.A8">&#36845;&#20195;&#22120;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-begin.html"><span class="t-lines"><span>begin</span><span>end</span></span></a></div>
+</div>
+</td>
+<td>&#23558;&#36335;&#24452;&#20316;&#20026;&#20803;&#32032;&#24207;&#21015;&#35775;&#38382;&#30340;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E9.9D.9E.E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#38750;&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-header">
+<td colspan="2">
+<div>&#22312;&#21629;&#21517;&#31354;&#38388; <code>std::filesystem</code> &#23450;&#20041;</div>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-swap2.html"><span class="t-lines"><span>swap<span class="t-dsc-small">(std::filesystem::path)</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span></span></span></div>
+</div>
+</td>
+<td>&#29305;&#21270; <span class="t-lc"><a href="cpp-algorithm-swap.html">std::swap</a></span> &#31639;&#27861;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-hash_value.html"><span class="t-lines"><span>hash_value</span></span></a></div>
+</div>
+</td>
+<td>&#35745;&#31639;&#36335;&#24452;&#23545;&#35937;&#30340;&#25955;&#21015;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-operator_cmp.html"><span class="t-lines"><span>operator==</span><span>operator!=</span><span>operator&lt;</span><span>operator&lt;=</span><span>operator&gt;</span><span>operator&gt;=</span><span>operator&lt;=&gt;</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#21069;)</span></span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#21069;)</span></span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#21069;)</span></span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#21069;)</span></span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#21069;)</span></span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#20197;&#23383;&#20856;&#24207;&#27604;&#36739;&#20004;&#20010;&#36335;&#24452;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-operator_slash.html"><span class="t-lines"><span>operator/</span></span></a></div>
+</div>
+</td>
+<td>&#29992;&#30446;&#24405;&#20998;&#38548;&#31526;&#36830;&#25509;&#20004;&#20010;&#36335;&#24452;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-operator_ltltgtgt.html"><span class="t-lines"><span>operator&lt;&lt;</span><span>operator&gt;&gt;</span></span></a></div>
+</div>
+</td>
+<td>&#36827;&#34892;&#36335;&#24452;&#19978;&#30340;&#27969;&#36755;&#20837;&#21450;&#36755;&#20986;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-u8path.html"><span class="t-lines"><span>u8path</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span><span class="t-mark-rev t-deprecated-cxx20" style="white-space: nowrap;">(C++20 &#24323;&#29992;)</span></span></span></div>
+</div>
+</td>
+<td>&#20174; UTF-8 &#32534;&#30721;&#30340;&#28304;&#21019;&#24314; <code>path</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BE.85.E5.8A.A9.E7.B1.BB">&#36741;&#21161;&#31867;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-header">
+<td colspan="2">
+<div>&#22312;&#21629;&#21517;&#31354;&#38388; <code>std</code> &#23450;&#20041;</div>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-hash.html"><span class="t-lines"><span>std::hash<span class="t-dsc-small">&lt;std::filesystem::path&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span></span></span></div>
+</div>
+</td>
+<td><strong class="selflink"><tt>std::filesystem::path</tt></strong> &#30340;&#25955;&#21015;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-path-formatter.html"><span class="t-lines"><span>std::formatter<span class="t-dsc-small">&lt;std::filesystem::path&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26)</span></span></span></div>
+</div>
+</td>
+<td><code>filesystem::path</code> &#30340;&#26684;&#24335;&#21270;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue3657">LWG 3657</a></td>
+<td>C++17</td>
+<td><code>path</code> &#30340; <a href="cpp-filesystem-path-hash.html"><code>hash</code></a> &#34987;&#31105;&#29992;</td>
+<td>&#24050;&#21551;&#29992;</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

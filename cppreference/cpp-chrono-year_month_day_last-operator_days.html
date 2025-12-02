@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::chrono::year_month_day_last::operator sys_days, std::chrono::year_month_day_last::operator local_days</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_chrono_year_month_day_last_operator_days skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::chrono::year_month_day_last::</span>operator sys_days, <span style="font-size:0.8em; line-height:125%">std::chrono::year_month_day_last::</span>operator local_days</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-chrono.html">chrono</a>&lrm; | <a href="cpp-chrono-year_month_day_last.html">year month day last</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> operator <a href="cpp-chrono-system_clock.html"><span class="kw2626">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">sys_days</span></span></a><span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="kw1">explicit</span> operator <a href="cpp-chrono-local_t.html"><span class="kw2623">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">local_days</span></span></a><span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36716;&#25442; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#20026;&#19982;&#27492; <code>year_month_day_last</code> &#34920;&#31034;&#30456;&#21516;&#26085;&#26399;&#30340; <span class="t-lc"><a href="cpp-chrono-time_point.html">std::chrono::time_point</a></span>&#12290;&#36825;&#31561;&#20215;&#20110;&#20174; <code>year()</code>&#12289;<code>month()</code> &#21644; <code>day()</code> &#21512;&#25104; <code>year_month_day</code>&#65292;&#20877;&#23558;&#35813; <code>year_month_day</code> &#36716;&#25442;&#25104;&#30446;&#26631;&#31867;&#22411;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-chrono-system_clock.html"><span class="kw2626">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">sys_days</span></span></a><span class="br0">(</span>year<span class="br0">(</span><span class="br0">)</span><span class="sy2">/</span>month<span class="br0">(</span><span class="br0">)</span><span class="sy2">/</span>day<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span>&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-chrono-local_t.html"><span class="kw2623">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">local_days</span></span></a><span class="br0">(</span>year<span class="br0">(</span><span class="br0">)</span><span class="sy2">/</span>month<span class="br0">(</span><span class="br0">)</span><span class="sy2">/</span>day<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span>&#12290;</div>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;array&gt;</span>
+<span class="co2">#include &lt;chrono&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;string_view&gt;</span>
+<span class="kw1">using</span> <span class="kw1">namespace</span> std<span class="sy4">::</span><span class="me2">chrono</span><span class="sy4">;</span>
+<span class="kw1">using</span> <span class="kw1">namespace</span> std<span class="sy4">::</span><span class="me2">literals</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">constexpr</span> <a href="cpp-chrono-year.html"><span class="kw2619">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">year</span></span></a> y<span class="br0">{</span>2023y<span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw4">constexpr</span> <a href="cpp-container-array.html"><span class="kw1271">std::<span class="me2">array</span></span></a> quarters<span class="br0">{</span><span class="st0">&quot;1st&quot;</span>sv, <span class="st0">&quot;2nd&quot;</span>sv, <span class="st0">&quot;3rd&quot;</span>sv, <span class="st0">&quot;4th&quot;</span>sv<span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw4">constexpr</span> <span class="kw4">auto</span> mq<span class="br0">{</span><span class="nu0">12</span> <span class="sy2">/</span> <span class="nu0">4</span><span class="br0">}</span><span class="sy4">;</span> <span class="co1">// &#27599;&#23395;&#24230;&#30340;&#26376;&#25968;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="kw1">static_cast</span><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span><span class="br0">(</span>y<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; &#24180;&#20013;<span class="es1">\n</span>&ldquo;;
+    for (auto q = 1; q &lt; 5; ++q)
+    {
+        const auto ls = y / std::chrono::month(q * mq) / Sunday[last];
+        const auto ld = y / std::chrono::month(q * mq) / last;
+        // &#20174;&#26368;&#21518;&#19968;&#22825;&#20943;&#21435;&#26368;&#21518;&#19968;&#20010;&#26143;&#26399;&#26085;&#33719;&#24471;&#26143;&#26399;&#20043;&#26085;&#25968;
+        const auto index = (sys_days(ld) - sys_days(ls)).count();
+        std::cout &lt;&lt; &quot;</span>&#31532; <span class="st0">&quot; &lt;&lt; quarters[q - 1] &lt;&lt; &quot;</span> &#23395;&#24230;&#32467;&#26463;&#20110; <span class="st0">&quot;  
+                  &lt;&lt; std::chrono::weekday(index) &lt;&lt; &#39;<span class="es1">\n</span>&#39;;
+    }
+}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">2023 &#24180;&#20013;
+&#31532; 1st &#23395;&#24230;&#32467;&#26463;&#20110; Fri
+&#31532; 2nd &#23395;&#24230;&#32467;&#26463;&#20110; Fri
+&#31532; 3rd &#23395;&#24230;&#32467;&#26463;&#20110; Sat
+&#31532; 4th &#23395;&#24230;&#32467;&#26463;&#20110; Sun</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-year_month_day-operator_days.html"><span class="t-lines"><span>operator sys_days</span><span>operator local_days</span></span></a></div>
+</div>
+</td>
+<td>&#36716;&#25442;&#21040; <span class="t-lc"><a href="cpp-chrono-time_point.html">std::chrono::time_point</a></span><br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::chrono::year_month_day</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

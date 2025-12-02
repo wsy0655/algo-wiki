@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::tuple_element&lt;std::array&gt;</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_container_array_tuple_element skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>tuple_element<span style="font-size:0.8em; line-height:125%">&lt;std::array&gt;</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-container.html">container</a>&lrm; | <a href="cpp-container-array.html">array</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-array.html">&lt;array&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> I, <span class="kw1">class</span> T, <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> N <span class="sy1">&gt;</span><br />
+<span class="kw1">struct</span> tuple_element<span class="sy1">&lt;</span> I, <a href="cpp-container-array.html"><span class="kw1271">std::<span class="me2">array</span></span></a><span class="sy1">&lt;</span>T, N<span class="sy1">&gt;</span> <span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#20351;&#29992; tuple &#24335;&#25509;&#21475;&#65292;&#25552;&#20379; array &#20803;&#32032;&#31867;&#22411;&#30340;&#32534;&#35793;&#26102;&#32034;&#24341;&#35775;&#38382;</p>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E7.B1.BB.E5.9E.8B">&#25104;&#21592;&#31867;&#22411;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#25104;&#21592;&#31867;&#22411;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td>type</td>
+<td>array &#30340;&#20803;&#32032;&#31867;&#22411;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.AF.E8.83.BD.E7.9A.84.E5.AE.9E.E7.8E.B0">&#21487;&#33021;&#30340;&#23454;&#29616;</span></h3>
+<table class="eq-fun-cpp-table">
+<tr>
+<td>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">template</span><span class="sy1">&lt;</span><a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> I, <span class="kw1">class</span> T<span class="sy1">&gt;</span>
+<span class="kw1">struct</span> tuple_element<span class="sy4">;</span>
+ 
+<span class="kw1">template</span><span class="sy1">&lt;</span><a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> I, <span class="kw1">class</span> T, <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> N<span class="sy1">&gt;</span>
+<span class="kw1">struct</span> tuple_element<span class="sy1">&lt;</span>I, <a href="cpp-container-array.html"><span class="kw1271">std::<span class="me2">array</span></span></a><span class="sy1">&lt;</span>T,N<span class="sy1">&gt;&gt;</span>
+<span class="br0">{</span>
+    <span class="kw1">using</span> type <span class="sy1">=</span> T<span class="sy4">;</span>
+<span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;array&gt;</span>
+<span class="co2">#include &lt;tuple&gt;</span>
+<span class="co2">#include &lt;type_traits&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="co1">// &#23450;&#20041; array &#24182;&#33719;&#21462;&#20301;&#20110;&#20301;&#32622; 0 &#30340;&#20803;&#32032;&#31867;&#22411;</span>
+    <a href="cpp-container-array.html"><span class="kw1271">std::<span class="me2">array</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span>, <span class="nu0">10</span><span class="sy1">&gt;</span> data<span class="br0">{</span><span class="nu0">0</span>, <span class="nu0">1</span>, <span class="nu0">2</span>, <span class="nu0">3</span>, <span class="nu0">4</span>, <span class="nu0">5</span>, <span class="nu0">6</span>, <span class="nu0">7</span>, <span class="nu0">8</span>, <span class="nu0">9</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw1">using</span> T <span class="sy1">=</span> <a href="cpp-utility-tuple_element.html"><span class="kw1102">std::<span class="me2">tuple_element</span></span></a><span class="sy1">&lt;</span><span class="nu0">0</span>, decltype<span class="br0">(</span>data<span class="br0">)</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">type</span><span class="sy4">;</span> <span class="co1">// int</span>
+    static_assert<span class="br0">(</span><a href="cpp-types-is_same.html"><span class="kw592">std::<span class="me2">is_same_v</span></span></a><span class="sy1">&lt;</span>T, <span class="kw4">int</span><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw4">const</span> <span class="kw4">auto</span> const_data <span class="sy1">=</span> data<span class="sy4">;</span>
+    <span class="kw1">using</span> CT <span class="sy1">=</span> <a href="cpp-utility-tuple_element.html"><span class="kw1102">std::<span class="me2">tuple_element</span></span></a><span class="sy1">&lt;</span><span class="nu0">0</span>, decltype<span class="br0">(</span>const_data<span class="br0">)</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">type</span><span class="sy4">;</span> <span class="co1">// const int</span>
+ 
+    <span class="co1">// tuple_element &#30340;&#32467;&#26524;&#21462;&#20915;&#20110; tuple &#24335;&#31867;&#22411;&#30340; cv &#38480;&#23450;</span>
+    static_assert<span class="br0">(</span><span class="sy3">!</span><a href="cpp-types-is_same.html"><span class="kw592">std::<span class="me2">is_same_v</span></span></a><span class="sy1">&lt;</span>T, CT<span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span><a href="cpp-types-is_same.html"><span class="kw592">std::<span class="me2">is_same_v</span></span></a><span class="sy1">&lt;</span>CT, <span class="kw4">const</span> <span class="kw4">int</span><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td><a href="cpp-language-structured_binding.html">&#32467;&#26500;&#21270;&#32465;&#23450;</a> <span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span></td>
+<td>&#32465;&#23450;&#25351;&#23450;&#30340;&#21517;&#23383;&#21040;&#21021;&#22987;&#21270;&#24335;&#30340;&#23376;&#23545;&#35937;&#25110;&#20803;&#32452;&#20803;&#32032;</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-tuple-tuple_element.html"><span class="t-lines"><span>std::tuple_element<span class="t-dsc-small">&lt;std::tuple&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#33719;&#24471;&#25351;&#23450;&#20803;&#32032;&#30340;&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-pair-tuple_element.html"><span class="t-lines"><span>std::tuple_element<span class="t-dsc-small">&lt;std::pair&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#33719;&#24471; <code>pair</code> &#20013;&#20803;&#32032;&#30340;&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

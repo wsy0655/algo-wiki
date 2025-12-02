@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::chrono::floor(std::chrono::duration)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_chrono_duration_floor skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::chrono::</span>floor<span style="font-size:0.8em; line-height:125%">(std::chrono::duration)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-chrono.html">chrono</a>&lrm; | <a href="cpp-chrono-duration.html">duration</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-chrono.html">&lt;chrono&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> ToDuration, <span class="kw1">class</span> Rep, <span class="kw1">class</span> Period <span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> ToDuration floor<span class="br0">(</span> <span class="kw4">const</span> <a href="cpp-chrono-duration.html"><span class="kw995">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">duration</span></span></a><span class="sy1">&lt;</span>Rep, Period<span class="sy1">&gt;</span><span class="sy3">&amp;</span> d <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36820;&#22238;&#21487;&#34920;&#31034;&#20026; <code>ToDuration</code> &#30340;&#23567;&#20110;&#25110;&#31561;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">d</span></span> &#30340;&#26368;&#22823;&#26102;&#38271; <code>t</code>&#12290;</p>
+<p>&#38500;&#38750; <code>ToDuration</code> &#26159; <span class="t-lc"><a href="cpp-chrono-duration.html">std::chrono::duration</a></span> &#30340;&#29305;&#21270;&#65292;&#21542;&#21017;&#20989;&#25968;&#19981;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>d</td>
+<td>-</td>
+<td>&#35201;&#36716;&#25442;&#30340;&#26102;&#38271;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp">d</span></span> &#21521;&#19979;&#21462;&#25972;&#21040; <code>ToDuration</code> &#31867;&#22411;&#30340;&#26102;&#38271;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.AF.E8.83.BD.E7.9A.84.E5.AE.9E.E7.8E.B0">&#21487;&#33021;&#30340;&#23454;&#29616;</span></h3>
+<table class="eq-fun-cpp-table">
+<tr>
+<td>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">namespace</span> detail
+<span class="br0">{</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span><span class="sy1">&gt;</span> <span class="kw1">inline</span> <span class="kw4">constexpr</span> <span class="kw4">bool</span> is_duration_v <span class="sy1">=</span> <span class="kw2">false</span><span class="sy4">;</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Rep, <span class="kw1">class</span> Period<span class="sy1">&gt;</span> <span class="kw1">inline</span> <span class="kw4">constexpr</span> <span class="kw4">bool</span> is_duration_v<span class="sy1">&lt;</span>
+        <a href="cpp-chrono-duration.html"><span class="kw995">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">duration</span></span></a><span class="sy1">&lt;</span>Rep, Period<span class="sy1">&gt;&gt;</span> <span class="sy1">=</span> <span class="kw2">true</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> To, <span class="kw1">class</span> Rep, <span class="kw1">class</span> Period,
+         <span class="kw1">class</span> <span class="sy1">=</span> <a href="cpp-types-enable_if.html"><span class="kw634">std::<span class="me2">enable_if_t</span></span></a><span class="sy1">&lt;</span>detail<span class="sy4">::</span><span class="me2">is_duration_v</span><span class="sy1">&lt;</span>To<span class="sy1">&gt;&gt;&gt;</span>
+<span class="kw4">constexpr</span> To floor<span class="br0">(</span><span class="kw4">const</span> duration<span class="sy1">&lt;</span>Rep, Period<span class="sy1">&gt;</span><span class="sy3">&amp;</span> d<span class="br0">)</span>
+<span class="br0">{</span>
+    To t <span class="sy1">=</span> <a href="cpp-chrono-duration-duration_cast.html"><span class="kw1006">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">duration_cast</span></span></a><span class="sy1">&lt;</span>To<span class="sy1">&gt;</span><span class="br0">(</span>d<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>t <span class="sy1">&gt;</span> d<span class="br0">)</span>
+        <span class="kw1">return</span> t <span class="sy2">-</span> To<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw1">return</span> t<span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;iomanip&gt;</span>
+<span class="co2">#include &lt;chrono&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">using</span> <span class="kw1">namespace</span> std<span class="sy4">::</span><span class="me2">chrono_literals</span><span class="sy4">;</span>
+    <span class="kw1">using</span> Sec <span class="sy1">=</span> <a href="cpp-chrono-duration.html"><span class="kw999">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">seconds</span></span></a><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;Duration<span class="es1">\t</span>Floor<span class="es1">\t</span>Round<span class="es1">\t</span>Ceil<span class="es1">\n</span>&quot;</span>
+                      <span class="st0">&quot;(ms)<span class="es1">\t</span><span class="es1">\t</span>(sec)<span class="es1">\t</span>(sec)<span class="es1">\t</span>(sec)<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+        <span class="kw4">auto</span> <span class="kw4">const</span> d<span class="sy4">:</span> <span class="br0">{</span>
+            <span class="sy2">+</span>4999ms, <span class="sy2">+</span>5000ms, <span class="sy2">+</span>5001ms, <span class="sy2">+</span>5499ms, <span class="sy2">+</span>5500ms, <span class="sy2">+</span>5999ms,
+            <span class="sy2">-</span>4999ms, <span class="sy2">-</span>5000ms, <span class="sy2">-</span>5001ms, <span class="sy2">-</span>5499ms, <span class="sy2">-</span>5500ms, <span class="sy2">-</span>5999ms, <span class="br0">}</span><span class="br0">)</span> <span class="br0">{</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-showpos.html"><span class="kw1774">std::<span class="me2">showpos</span></span></a> <span class="sy1">&lt;&lt;</span> d.<span class="me1">count</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;<span class="es1">\t</span><span class="es1">\t</span>&quot;</span>
+                  <span class="sy1">&lt;&lt;</span> std<span class="sy4">::</span><span class="me2">chrono</span><span class="sy4">::</span><span class="me2">floor</span><span class="sy1">&lt;</span>Sec<span class="sy1">&gt;</span><span class="br0">(</span>d<span class="br0">)</span>.<span class="me1">count</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\t</span>&#39;</span>
+                  <span class="sy1">&lt;&lt;</span> <a href="cpp-chrono-duration-round.html"><span class="kw3290">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">round</span></span></a><span class="sy1">&lt;</span>Sec<span class="sy1">&gt;</span><span class="br0">(</span>d<span class="br0">)</span>.<span class="me1">count</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\t</span>&#39;</span>
+                  <span class="sy1">&lt;&lt;</span> <a href="cpp-chrono-duration-ceil.html"><span class="kw3278">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">ceil</span></span></a> <span class="sy1">&lt;</span>Sec<span class="sy1">&gt;</span><span class="br0">(</span>d<span class="br0">)</span>.<span class="me1">count</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">Duration   Floor   Round   Ceil
+(ms)       (sec)   (sec)   (sec)
++4999      +4      +5      +5
++5000      +5      +5      +5
++5001      +5      +5      +6
++5499      +5      +5      +6
++5500      +5      +6      +6
++5999      +5      +6      +6
+-4999      -5      -5      -4
+-5000      -5      -5      -5
+-5001      -6      -5      -5
+-5499      -6      -5      -5
+-5500      -6      -6      -5
+-5999      -6      -6      -5</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-duration-duration_cast.html"><span class="t-lines"><span>duration_cast</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#36716;&#25442;&#26102;&#38271;&#21040;&#21478;&#19968;&#20010;&#25317;&#26377;&#19981;&#21516;&#35745;&#27425;&#38388;&#38548;&#30340;&#26102;&#38271;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-duration-ceil.html"><span class="t-lines"><span>ceil<span class="t-dsc-small">(std::chrono::duration)</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span></span></span></div>
+</div>
+</td>
+<td>&#20197;&#21521;&#19978;&#21462;&#25972;&#30340;&#26041;&#24335;&#65292;&#23558;&#19968;&#20010;&#26102;&#38271;&#36716;&#25442;&#20026;&#21478;&#19968;&#20010;&#26102;&#38271;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-duration-round.html"><span class="t-lines"><span>round<span class="t-dsc-small">(std::chrono::duration)</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span></span></span></div>
+</div>
+</td>
+<td>&#36716;&#25442;&#26102;&#38271;&#21040;&#21478;&#19968;&#20010;&#26102;&#38271;&#65292;&#23601;&#36817;&#21462;&#25972;&#65292;&#20598;&#25968;&#20248;&#20808;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-chrono-time_point-floor.html"><span class="t-lines"><span>floor<span class="t-dsc-small">(std::chrono::time_point)</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span></span></span></div>
+</div>
+</td>
+<td>&#36716;&#25442; time_point &#21040;&#21478;&#19968;&#20010;&#65292;&#21521;&#19979;&#21462;&#25972;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-math-floor.html"><span class="t-lines"><span>floor</span><span>floorf</span><span>floorl</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#19981;&#22823;&#20110;&#32473;&#23450;&#20540;&#30340;&#26368;&#25509;&#36817;&#25972;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

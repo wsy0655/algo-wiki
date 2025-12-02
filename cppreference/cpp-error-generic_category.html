@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::generic_category</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_error_generic_category skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>generic_category</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-error.html">error</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-system_error.html">&lt;system_error&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">const</span> <a href="cpp-error-error_category.html"><span class="kw873">std::<span class="me2">error_category</span></span></a><span class="sy3">&amp;</span> generic_category<span class="br0">(</span><span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#33719;&#21462;&#21040;&#20195;&#34920;&#36890;&#29992;&#38169;&#35823;&#30340;&#38745;&#24577;&#38169;&#35823;&#31867;&#21035;&#23545;&#35937;&#30340;&#24341;&#29992;&#12290;&#35201;&#27714;&#35813;&#23545;&#35937;&#35206;&#20889;&#34394;&#20989;&#25968; <span class="t-c"><span class="mw-geshi cpp source-cpp">error_category<span class="sy4">::</span><span class="me2">name</span><span class="br0">(</span><span class="br0">)</span></span></span> &#24050;&#36820;&#22238;&#25351;&#21521;&#23383;&#31526;&#20018; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="st0">&quot;generic&quot;</span></span></span> &#30340;&#25351;&#38024;&#12290;&#23427;&#29992;&#20110;&#37492;&#21035;&#23545;&#24212; POSIX <span class="t-lc"><a href="cpp-error-errno.html">errno</a></span> &#30721;&#30340;&#38169;&#35823;&#26465;&#20214;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#21040;&#27966;&#29983;&#20110; <span class="t-lc"><a href="cpp-error-error_category.html">std::error_category</a></span> &#30340;&#26410;&#25351;&#23450;&#36816;&#34892;&#26102;&#31867;&#22411;&#30340;&#38745;&#24577;&#23545;&#35937;&#30340;&#24341;&#29992;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;cerrno&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+<span class="co2">#include &lt;system_error&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-error-error_condition.html"><span class="kw875">std::<span class="me2">error_condition</span></span></a> econd <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">generic_category</span><span class="br0">(</span><span class="br0">)</span>.<span class="me1">default_error_condition</span><span class="br0">(</span><a href="cpp-error-errno_macros.html"><span class="kw812">EDOM</span></a><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;Category: &quot;</span> <span class="sy1">&lt;&lt;</span> econd.<span class="me1">category</span><span class="br0">(</span><span class="br0">)</span>.<span class="me1">name</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;Value: &quot;</span> <span class="sy1">&lt;&lt;</span> econd.<span class="me1">value</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;Message: &quot;</span> <span class="sy1">&lt;&lt;</span> econd.<span class="me1">message</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">Category: generic
+Value: 33
+Message: Numerical argument out of domain</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-error-system_category.html"><span class="t-lines"><span>system_category</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#37492;&#21035;&#25805;&#20316;&#31995;&#32479;&#38169;&#35823;&#31867;&#21035;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-error-errc.html"><span class="t-lines"><span>errc</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#21015;&#20986;&#25152;&#26377;&#26631;&#20934; <a href="cpp-header-cerrno.html"><tt>&lt;cerrno&gt;</tt></a> &#23439;&#24120;&#37327;&#30340; <span class="t-lc"><a href="cpp-error-error_condition.html">std::error_condition</a></span> &#26522;&#20030;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

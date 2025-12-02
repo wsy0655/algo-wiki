@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>C++ &#20851;&#38190;&#35789;&#65306;continue</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_keyword_continue skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">C++ &#20851;&#38190;&#35789;&#65306;</span><code>continue</code></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-keyword.html">keyword</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<h3><span class="mw-headline" id=".E7.94.A8.E6.B3.95">&#29992;&#27861;</span></h3>
+<ul>
+<li><a href="cpp-language-continue.html"><code>continue</code> &#35821;&#21477;</a>&#65306;&#29992;&#20316;&#35813;&#35821;&#21477;&#30340;&#22768;&#26126;</li>
+</ul>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+ 
+<span class="br0">[</span><span class="br0">[</span>nodiscard<span class="br0">]</span><span class="br0">]</span> <span class="kw4">constexpr</span> <span class="kw4">auto</span> get_digits<span class="br0">(</span><span class="kw4">const</span> <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy3">&amp;</span> string<span class="br0">)</span> <span class="kw1">noexcept</span>
+<span class="br0">{</span>
+    <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a> digits <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> character<span class="sy4">:</span> string<span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw1">if</span> <span class="br0">(</span>character <span class="sy1">&lt;</span> <span class="st0">&#39;0&#39;</span> <span class="sy3">||</span> character <span class="sy1">&gt;</span> <span class="st0">&#39;9&#39;</span><span class="br0">)</span> <span class="br0">[</span><span class="br0">[</span>likely<span class="br0">]</span><span class="br0">]</span>
+            <span class="kw1">continue</span><span class="sy4">;</span> <span class="co1">// &#25353;&#26465;&#20214;&#36339;&#36807;&#20197;&#19979;&#35821;&#21477;</span>
+        digits <span class="sy2">+</span><span class="sy1">=</span> character<span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw1">return</span> digits<span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span> <span class="kw1">noexcept</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> get_digits<span class="br0">(</span><span class="st0">&quot;H3LL0, W0RLD!&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">300</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<ul>
+<li><a href="cpp-language-if.html"><tt>if</tt></a> &#35821;&#21477;&#65306;<a href="cpp-keyword-if.html"><code>if</code></a>, <a href="cpp-keyword-else.html"><code>else</code></a></li>
+</ul>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx17">
+<td>
+<ul>
+<li><a href="cpp-language-if.html#constexpr_if"><code>constexpr</code> <code>if</code> &#35821;&#21477;</a>: <a href="cpp-keyword-constexpr.html"><code>constexpr</code></a> <small>(<code>constexpr</code> <code>if</code> statement)</small></li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-rev t-since-cxx23">
+<td>
+<ul>
+<li><a href="cpp-language-if.html#consteval_if"><code>consteval</code> <code>if</code> &#35821;&#21477;</a>&#65306;<a href="cpp-keyword-consteval.html"><code>consteval</code></a> <small>(<code>consteval</code> <code>if</code> statement)</small></li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+</table>
+<ul>
+<li><a href="cpp-language-switch.html"><tt>switch</tt></a> &#35821;&#21477;&#65306;<a href="cpp-keyword-switch.html"><code>switch</code></a>, <a href="cpp-keyword-case.html"><code>case</code></a></li>
+<li><a href="cpp-language-switch.html"><tt>default</tt></a> <small>(&#29992;&#20316; case &#26631;&#21495;&#30340;&#22768;&#26126;)</small> &#31561;&#65306;<a href="cpp-keyword-default.html"><code>default</code></a></li>
+<li><a href="cpp-language-goto.html"><tt>goto</tt></a> &#35821;&#21477;&#65306;<a href="cpp-keyword-goto.html"><code>goto</code></a></li>
+</ul>
+<ul>
+<li><a href="cpp-language-break.html"><tt>break</tt></a> &#35821;&#21477;&#65306;<a href="cpp-keyword-break.html"><code>break</code></a></li>
+<li><a href="cpp-language-return.html"><tt>return</tt></a> &#35821;&#21477;&#65306;<a href="cpp-keyword-return.html"><code>return</code></a></li>
+</ul>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx20">
+<td>
+<ul>
+<li><a href="cpp-language-return.html"><tt>co_return</tt></a> &#35821;&#21477; <small>(&#20174;&#21327;&#31243;&#36820;&#22238;)</small>&#65306;<a href="cpp-keyword-co_return.html"><code>co_return</code></a></li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+</table>
+<ul>
+<li><a href="cpp-language-do.html"><tt>do-while</tt></a> &#24490;&#29615;&#19982; <a href="cpp-language-while.html"><code>while</code> &#24490;&#29615;</a>&#65306;<a href="cpp-keyword-do.html"><code>do</code></a>, <a href="cpp-keyword-while.html"><code>while</code></a></li>
+<li><a href="cpp-language-for.html"><tt>for</tt></a> &#24490;&#29615;&#19982; <a href="cpp-language-range-for.html">&#22522;&#20110;&#33539;&#22260;&#30340; <code>for</code> &#24490;&#29615;</a>&#65306;<a href="cpp-keyword-for.html"><code>for</code></a></li>
+</ul>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

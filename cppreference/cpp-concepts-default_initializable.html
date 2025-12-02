@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::default_initializable</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_concepts_default_initializable skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>default_initializable</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-concepts.html">concepts</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-concepts.html">&lt;concepts&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T <span class="sy1">&gt;</span><br /></span>
+<p>concept default_initializable <span class="sy1">=</span> <a href="cpp-concepts-constructible_from.html"><span class="kw2946">std::<span class="me2">constructible_from</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span> requires <span class="br0">{</span> T<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span> <span class="br0">}</span> <span class="sy3">&amp;&amp;</span><br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="coMULTI">/* T t; &#20026;&#33391;&#26500;&#65292;&#35265;&#21518;&#36848; */</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>default_initializable</code> &#27010;&#24565;&#26816;&#26597; <code>T</code> &#31867;&#22411;&#30340;&#21464;&#37327;&#33021;&#21542;</p>
+<ul>
+<li><a href="cpp-language-value_initialization.html">&#20540;&#21021;&#22987;&#21270;</a>&#65288;&#21363;&#26159;&#21542; <span class="t-c"><span class="mw-geshi cpp source-cpp">T<span class="br0">(</span><span class="br0">)</span></span></span> &#33391;&#26500;&#65289;</li>
+<li>&#20174;&#31354;&#21021;&#22987;&#21270;&#22120;&#21015;&#34920;<a href="cpp-language-list_initialization.html">&#30452;&#25509;&#21015;&#34920;&#21021;&#22987;&#21270;</a>&#65288;&#21363;&#26159;&#21542; <span class="t-c"><span class="mw-geshi cpp source-cpp">T<span class="br0">{</span><span class="br0">}</span></span></span> &#33391;&#26500;&#65289;&#65307;&#20197;&#21450;</li>
+<li><a href="cpp-language-default_initialization.html">&#40664;&#35748;&#21021;&#22987;&#21270;</a>&#65288;&#21363;&#26159;&#21542; <span class="t-c"><span class="mw-geshi cpp source-cpp">T t<span class="sy4">;</span></span></span> &#33391;&#26500;&#65289;&#12290;</li>
+</ul>
+<p>&#35775;&#38382;&#26816;&#26597;&#22914;&#21516;&#22312;&#19982; T &#26080;&#20851;&#30340;&#35821;&#22659;&#20013;&#36827;&#34892;&#12290;&#20165;&#32771;&#34385;&#21464;&#37327;&#21021;&#22987;&#21270;&#30340;&#30452;&#25509;&#35821;&#22659;&#30340;&#21512;&#27861;&#24615;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.AF.E8.83.BD.E7.9A.84.E5.AE.9E.E7.8E.B0">&#21487;&#33021;&#30340;&#23454;&#29616;</span></h3>
+<table class="eq-fun-cpp-table">
+<tr>
+<td>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> T<span class="sy1">&gt;</span>
+concept default_initializable <span class="sy1">=</span>
+    <a href="cpp-concepts-constructible_from.html"><span class="kw2946">std::<span class="me2">constructible_from</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span>
+    requires <span class="br0">{</span> T<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span> <span class="sy4">::</span><span class="me2">new</span> T<span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-c++23">
+<ul>
+<li>C++23 &#26631;&#20934;&#65288;ISO/IEC 14882:2024&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>18.4.12 Concept <code>default_initializable</code> [concept.default.init]</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c++20">
+<ul>
+<li>C++20 &#26631;&#20934;&#65288;ISO/IEC 14882:2020&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>18.4.12 Concept <code>default_initializable</code> [concept.default.init]</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-concepts-constructible_from.html"><span class="t-lines"><span>constructible_from</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#25351;&#23450;&#35813;&#31867;&#22411;&#30340;&#21464;&#37327;&#33021;&#20174;&#19968;&#32452;&#23454;&#21442;&#31867;&#22411;&#36827;&#34892;&#26500;&#36896;&#65292;&#25110;&#32465;&#23450;&#21040;&#19968;&#32452;&#23454;&#21442;&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#27010;&#24565;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-types-is_default_constructible.html"><span class="t-lines"><span>is_default_constructible</span><span>is_trivially_default_constructible</span><span>is_nothrow_default_constructible</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#31867;&#22411;&#26159;&#21542;&#26377;&#40664;&#35748;&#26500;&#36896;&#20989;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

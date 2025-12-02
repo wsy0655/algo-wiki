@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::format_kind</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_utility_format_format_kind skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>format_kind</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-utility.html">utility</a>&lrm; | <a href="cpp-utility-format.html">format</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-format.html">&lt;format&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> R <span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> <span class="coMULTI">/* &#26410;&#25351;&#26126; */</span> format_kind <span class="sy1">=</span> <span class="coMULTI">/* &#26410;&#25351;&#26126; */</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-ranges-input_range.html"><span class="kw2902">ranges::<span class="me2">input_range</span></span></a> R <span class="sy1">&gt;</span><br /></span>
+<p>&nbsp; &nbsp; requires <a href="cpp-concepts-same_as.html"><span class="kw2933">std::<span class="me2">same_as</span></span></a><span class="sy1">&lt;</span>R, <a href="cpp-types-remove_cvref.html"><span class="kw2644">std::<span class="me2">remove_cvref_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;&gt;</span><br /></p>
+<span class="kw4">constexpr</span> range_format format_kind<span class="sy1">&lt;</span>R<span class="sy1">&gt;</span> <span class="sy1">=</span> <span class="coMULTI">/* &#35265;&#35828;&#26126; */</span><span class="sy4">;</span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#21464;&#37327;&#27169;&#26495; <code>format_kind</code> &#20026;&#33539;&#22260; <code>R</code> &#36873;&#25321;&#36866;&#24403;&#30340; <span class="t-lc">std::range_format</span>&#12290;</p>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">format_kind</span><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span></span></span> &#30340;&#23450;&#20041;&#22914;&#19979;&#65306;</p>
+<ul>
+<li>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-concepts-same_as.html"><span class="kw2933">std::<span class="me2">same_as</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-remove_cvref.html"><span class="kw2644">std::<span class="me2">remove_cvref_t</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2895">ranges::<span class="me2">range_reference_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;&gt;</span>, R<span class="sy1">&gt;</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#37027;&#20040; <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">format_kind</span><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">range_format</span><span class="sy4">::</span><span class="me2">disabled</span></span></span>&#12290;</li>
+<li>&#21542;&#21017;&#65292;&#22914;&#26524; <code>R::key_type</code> &#26377;&#25928;&#19988;&#20195;&#34920;&#26576;&#20010;&#31867;&#22411;&#65306;
+<ul>
+<li>&#22914;&#26524; <code>R::mapped_type</code> &#26377;&#25928;&#19988;&#20195;&#34920;&#26576;&#20010;&#31867;&#22411;&#65292;&#20196; <code>U</code> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-remove_cvref.html"><span class="kw2644">std::<span class="me2">remove_cvref_t</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2895">ranges::<span class="me2">range_reference_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;&gt;</span></span></span>&#12290;</li>
+</ul>
+</li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd>&#22914;&#26524;&#35201;&#20040; <code>U</code> &#26159; <span class="t-lc"><a href="cpp-utility-pair.html">std::pair</a></span> &#30340;&#29305;&#21270;&#35201;&#20040; <code>U</code> &#26159; <span class="t-lc"><a href="cpp-utility-tuple.html">std::tuple</a></span> &#30340;&#29305;&#21270;&#19988; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-tuple_size.html"><span class="kw1105">std::<span class="me2">tuple_size_v</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span> <span class="sy1">==</span> <span class="nu0">2</span></span></span>&#65292;&#37027;&#20040; <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">format_kind</span><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">range_format</span><span class="sy4">::</span><span class="me2">map</span></span></span>&#12290;</dd>
+</dl>
+<ul>
+<li>&#21542;&#21017;&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">format_kind</span><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">range_format</span><span class="sy4">::</span><span class="me2">set</span></span></span>&#12290;</li>
+</ul>
+</dd>
+</dl>
+<ul>
+<li>&#21542;&#21017;&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">format_kind</span><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">range_format</span><span class="sy4">::</span><span class="me2">sequence</span></span></span>&#12290;</li>
+</ul>
+<p>&#23454;&#20363;&#21270;&#21464;&#37327;&#27169;&#26495; <code>format_kind</code> &#30340;&#20027;&#27169;&#26495;&#30340;&#31243;&#24207;&#38750;&#33391;&#26500;&#12290;</p>
+<p>&#32473;&#23450;&#26080; cv &#38480;&#23450;&#30340;&#23454;&#29616; <a href="cpp-ranges-input_range.html"><code>input_range</code></a> &#30340;<a href="cpp-language-type.html#.E7.A8.8B.E5.BA.8F.E5.AE.9A.E4.B9.89.E7.B1.BB.E5.9E.8B">&#31243;&#24207;&#23450;&#20041;&#31867;&#22411;</a> <code>T</code>&#65292;&#31243;&#24207;&#21487;&#20197;&#20026; <code>T</code> &#29305;&#21270; <code>format_kind</code>&#12290;&#36825;&#31181;&#29305;&#21270;&#21487;&#20197;&#29992;&#22312;&#24120;&#37327;&#34920;&#36798;&#24335;&#20013;&#65292;&#19988;&#20855;&#26377; <span class="mw-geshi cpp source-cpp"><span class="kw4">const</span> std<span class="sy4">::</span><span class="me2">range_format</span></span> &#31867;&#22411;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.AF.E8.83.BD.E7.9A.84.E5.AE.9E.E7.8E.B0">&#21487;&#33021;&#30340;&#23454;&#29616;</span></h3>
+<table class="eq-fun-cpp-table">
+<tr>
+<td>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">namespace</span> detail
+<span class="br0">{</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">typename</span> <span class="sy1">&gt;</span>
+    <span class="kw4">constexpr</span> <span class="kw4">bool</span> is_pair_or_tuple_2 <span class="sy1">=</span> <span class="kw2">false</span><span class="sy4">;</span>
+ 
+    <span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">typename</span> T, <span class="kw1">typename</span> U <span class="sy1">&gt;</span>
+    <span class="kw4">constexpr</span> <span class="kw4">bool</span> is_pair_or_tuple_2<span class="sy1">&lt;</span><a href="cpp-utility-pair.html"><span class="kw1099">std::<span class="me2">pair</span></span></a><span class="sy1">&lt;</span>T, U<span class="sy1">&gt;&gt;</span> <span class="sy1">=</span> <span class="kw2">true</span><span class="sy4">;</span>
+ 
+    <span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">typename</span> T, <span class="kw1">typename</span> U <span class="sy1">&gt;</span>
+    <span class="kw4">constexpr</span> <span class="kw4">bool</span> is_pair_or_tuple_2<span class="sy1">&lt;</span><a href="cpp-utility-tuple.html"><span class="kw1101">std::<span class="me2">tuple</span></span></a><span class="sy1">&lt;</span>T, U<span class="sy1">&gt;&gt;</span> <span class="sy1">=</span> <span class="kw2">true</span><span class="sy4">;</span>
+ 
+    <span class="kw1">template</span> <span class="sy1">&lt;</span> <span class="kw1">typename</span> T <span class="sy1">&gt;</span>
+        requires <a href="cpp-types-is_reference.html"><span class="kw488">std::<span class="me2">is_reference_v</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> <span class="sy3">||</span> <a href="cpp-types-is_const.html"><span class="kw502">std::<span class="me2">is_const_v</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span>
+    <span class="kw4">constexpr</span> <span class="kw4">bool</span> is_pair_or_tuple_2<span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> <span class="sy1">=</span>
+        is_pair_or_tuple_2<span class="sy1">&lt;</span><a href="cpp-types-remove_cvref.html"><span class="kw2644">std::<span class="me2">remove_cvref_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;&gt;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> R <span class="sy1">&gt;</span>
+<span class="kw4">constexpr</span> range_format format_kind <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span>
+<span class="br0">{</span>
+    static_assert<span class="br0">(</span><span class="kw2">false</span>, <span class="st0">&quot;&#19981;&#20801;&#35768;&#23454;&#20363;&#21270;&#20027;&#27169;&#26495;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">return</span> range_format<span class="sy4">::</span><span class="me2">disabled</span><span class="sy4">;</span>
+<span class="br0">}</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+<span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-ranges-input_range.html"><span class="kw2902">ranges::<span class="me2">input_range</span></span></a> R <span class="sy1">&gt;</span>
+    requires <a href="cpp-concepts-same_as.html"><span class="kw2933">std::<span class="me2">same_as</span></span></a><span class="sy1">&lt;</span>R, <a href="cpp-types-remove_cvref.html"><span class="kw2644">std::<span class="me2">remove_cvref_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;&gt;</span>
+<span class="kw4">constexpr</span> range_format format_kind<span class="sy1">&lt;</span>R<span class="sy1">&gt;</span> <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span>
+<span class="br0">{</span>
+    <span class="kw1">if</span> <span class="kw4">constexpr</span> <span class="br0">(</span><a href="cpp-concepts-same_as.html"><span class="kw2933">std::<span class="me2">same_as</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-remove_cvref.html"><span class="kw2644">std::<span class="me2">remove_cvref_t</span></span></a><span class="sy1">&lt;</span>std<span class="sy4">::</span><a href="cpp-ranges-iterator_t.html"><span class="kw2895">ranges::<span class="me2">range_reference_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;&gt;</span>, R<span class="sy1">&gt;</span><span class="br0">)</span>
+        <span class="kw1">return</span> range_format<span class="sy4">::</span><span class="me2">disabled</span><span class="sy4">;</span>
+    <span class="kw1">else</span> <span class="kw1">if</span> <span class="kw4">constexpr</span> <span class="br0">(</span>requires <span class="br0">{</span> <span class="kw1">typename</span> R<span class="sy4">::</span><span class="me2">key_type</span><span class="sy4">;</span> <span class="br0">}</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw1">if</span> <span class="kw4">constexpr</span> <span class="br0">(</span>requires <span class="br0">{</span> <span class="kw1">typename</span> R<span class="sy4">::</span><span class="me2">mapped_type</span><span class="sy4">;</span> <span class="br0">}</span> <span class="sy3">&amp;&amp;</span>
+                      detail<span class="sy4">::</span><span class="me2">is_pair_or_tuple_2</span><span class="sy1">&lt;</span>std<span class="sy4">::</span><a href="cpp-ranges-iterator_t.html"><span class="kw2895">ranges::<span class="me2">range_reference_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;&gt;</span><span class="br0">)</span>
+            <span class="kw1">return</span> range_format<span class="sy4">::</span><span class="me2">map</span><span class="sy4">;</span>
+        <span class="kw1">else</span>
+            <span class="kw1">return</span> range_format<span class="sy4">::</span><span class="me2">set</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">else</span>
+        <span class="kw1">return</span> range_format<span class="sy4">::</span><span class="me2">sequence</span><span class="sy4">;</span>
+<span class="br0">}</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span></pre></div>
+</div>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;filesystem&gt;</span>
+<span class="co2">#include &lt;format&gt;</span>
+<span class="co2">#include &lt;map&gt;</span>
+<span class="co2">#include &lt;set&gt;</span>
+<span class="co2">#include &lt;vector&gt;</span>
+ 
+<span class="kw1">struct</span> A <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+static_assert<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">format_kind</span><span class="sy1">&lt;</span><a href="cpp-container-vector.html"><span class="kw1272">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;&gt;</span> <span class="sy1">==</span> std<span class="sy4">::</span><span class="me2">range_format</span><span class="sy4">::</span><span class="me2">sequence</span><span class="br0">)</span><span class="sy4">;</span>
+static_assert<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">format_kind</span><span class="sy1">&lt;</span><a href="cpp-container-map.html"><span class="kw1284">std::<span class="me2">map</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;&gt;</span> <span class="sy1">==</span> std<span class="sy4">::</span><span class="me2">range_format</span><span class="sy4">::</span><span class="me2">map</span><span class="br0">)</span><span class="sy4">;</span>
+static_assert<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">format_kind</span><span class="sy1">&lt;</span><a href="cpp-container-set.html"><span class="kw1280">std::<span class="me2">set</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;&gt;</span> <span class="sy1">==</span> std<span class="sy4">::</span><span class="me2">range_format</span><span class="sy4">::</span><span class="me2">set</span><span class="br0">)</span><span class="sy4">;</span>
+static_assert<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">format_kind</span><span class="sy1">&lt;</span><a href="cpp-filesystem-path.html"><span class="kw2202">std::<span class="me2">filesystem</span><span class="sy4">::</span><span class="me2">path</span></span></a><span class="sy1">&gt;</span> <span class="sy1">==</span> std<span class="sy4">::</span><span class="me2">range_format</span><span class="sy4">::</span><span class="me2">disabled</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="co1">// &#38750;&#33391;&#26500;&#65306;</span>
+<span class="co1">// static_assert(std::format_kind&lt;A&gt; == std::range_format::disabled);</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span></pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-format-range_format.html"><span class="t-lines"><span>range_format</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#25351;&#31034;&#19968;&#20010;&#33539;&#22260;&#24212;&#35813;&#22914;&#20309;&#34987;&#26684;&#24335;&#21270;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#26522;&#20030;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

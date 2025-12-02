@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>memmove, memmove_s</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_string_byte_memmove skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">memmove, memmove_s</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-string.html">string</a>&lrm; | <a href="c-string-byte.html">byte</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-string.html"><tt>&lt;string.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi c source-c"><span class="kw4">void</span><span class="sy2">*</span> memmove<span class="br0">(</span> <span class="kw4">void</span><span class="sy2">*</span> dest, <span class="kw4">const</span> <span class="kw4">void</span><span class="sy2">*</span> src, <a href="c-types-size_t.html"><span class="kw100">size_t</span></a> count <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl t-since-c11">
+<td>
+<div><span class="mw-geshi c source-c">errno_t memmove_s<span class="br0">(</span><span class="kw4">void</span><span class="sy2">*</span> dest, rsize_t destsz, <span class="kw4">const</span> <span class="kw4">void</span><span class="sy2">*</span> src, rsize_t count<span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#20174; <span class="t-c"><span class="mw-geshi c source-c">src</span></span> &#25152;&#25351;&#21521;&#30340;&#23545;&#35937;&#22797;&#21046; <span class="t-c"><span class="mw-geshi c source-c">count</span></span> &#20010;&#23383;&#33410;&#21040; <span class="t-c"><span class="mw-geshi c source-c">dest</span></span> &#25152;&#25351;&#21521;&#30340;&#23545;&#35937;&#12290;&#20004;&#20010;&#23545;&#35937;&#37117;&#34987;&#36716;&#35793;&#25104; <span class="mw-geshi c source-c"><span class="kw4">unsigned</span> <span class="kw4">char</span></span> &#30340;&#25968;&#32452;&#12290;&#23545;&#35937;&#21487;&#20197;&#37325;&#21472;&#65306;&#22914;&#21516;&#22797;&#21046;&#23383;&#31526;&#21040;&#20020;&#26102;&#25968;&#32452;&#65292;&#20877;&#20174;&#35813;&#25968;&#32452;&#21040; <span class="t-c"><span class="mw-geshi c source-c">dest</span></span> &#19968;&#33324;&#36827;&#34892;&#22797;&#21046;&#12290;</div>
+<div class="t-li1"><span class="t-li"></span> &#33509;&#22312; dest &#25968;&#32452;&#26411;&#23614;&#20043;&#21518;&#21457;&#29983;&#35775;&#38382;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;&#33509; <span class="t-c"><span class="mw-geshi c source-c">dest</span></span> &#25110; <span class="t-c"><span class="mw-geshi c source-c">src</span></span> &#20026;&#38750;&#27861;&#25110;&#31354;&#25351;&#38024;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#21516; <span class="t-v">(1)</span>&#65292;&#20294;&#38169;&#35823;&#26102;&#28165;&#38646;&#25972;&#20010;&#33539;&#22260; <span class="t-c"><span class="mw-geshi c source-c"><span class="br0">[</span>dest, dest<span class="sy2">+</span>destsz<span class="br0">)</span></span></span>&#65288;&#33509; <span class="t-c"><span class="mw-geshi c source-c">dest</span></span> &#21644; <span class="t-c"><span class="mw-geshi c source-c">destsz</span></span> &#22343;&#21512;&#27861;&#65289;&#12290;&#23427;&#22312;&#36816;&#34892;&#26102;&#26816;&#27979;&#19979;&#21015;&#38169;&#35823;&#65292;&#24182;&#35843;&#29992;&#24403;&#21069;&#23433;&#35013;&#30340;<a href="c-error-set_constraint_handler_s.html">&#32422;&#26463;&#22788;&#29702;&#20989;&#25968;</a>&#65306;
+<dl>
+<dd>
+<ul>
+<li><span class="t-c"><span class="mw-geshi c source-c">dest</span></span> &#25110; <span class="t-c"><span class="mw-geshi c source-c">src</span></span> &#20026;&#31354;&#25351;&#38024;</li>
+<li><span class="t-c"><span class="mw-geshi c source-c">destsz</span></span> &#25110; <span class="t-c"><span class="mw-geshi c source-c">count</span></span> &#22823;&#20110; <span class="t-lc">RSIZE_MAX</span></li>
+<li><span class="t-c"><span class="mw-geshi c source-c">count</span></span> &#22823;&#20110; <span class="t-c"><span class="mw-geshi c source-c">destsz</span></span>&#65288;&#20250;&#20986;&#29616;&#28322;&#20986;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-li1"><span class="t-li"></span> &#33509; <span class="t-c"><span class="mw-geshi c source-c">dest</span></span> &#25152;&#25351;&#21521;&#30340;&#23383;&#31526;&#25968;&#32452;&#22823;&#23567; &lt; <span class="t-c"><span class="mw-geshi c source-c">count</span></span> &lt;= <span class="t-c"><span class="mw-geshi c source-c">destsz</span></span> &#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#65307;&#25442;&#35328;&#20043;&#65292;<span class="t-c"><span class="mw-geshi c source-c">destsz</span></span> &#30340;&#38169;&#35823;&#20540;&#19981;&#26292;&#38706;&#34892;&#23558;&#21457;&#29983;&#30340;&#32531;&#20914;&#21306;&#28322;&#20986;&#12290;
+<dl>
+<dd>&#21516;&#25152;&#26377;&#36793;&#30028;&#26816;&#26597;&#20989;&#25968;&#65292;<code>memmove_s</code>&#65292;&#20165;&#33509;&#23454;&#29616;&#23450;&#20041; <span class="t-c"><span class="mw-geshi c source-c">__STDC_LIB_EXT1__</span></span> &#19988;&#29992;&#25143;&#22312;&#21253;&#21547; <a href="c-header-string.html"><tt>&lt;string.h&gt;</tt></a> &#21069;&#23450;&#20041; <span class="t-c"><span class="mw-geshi c source-c">__STDC_WANT_LIB_EXT1__</span></span> &#20026;&#25972;&#25968;&#24120;&#37327; 1 &#25165;&#20445;&#35777;&#21487;&#29992;&#12290;</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>dest</td>
+<td>-</td>
+<td>&#25351;&#21521;&#22797;&#21046;&#30446;&#26631;&#23545;&#35937;&#30340;&#25351;&#38024;</td>
+</tr>
+<tr class="t-par">
+<td>destsz</td>
+<td>-</td>
+<td>&#35201;&#20110;&#30446;&#26631;&#20462;&#25913;&#30340;&#26368;&#22823;&#23383;&#33410;&#25968;&#65288;&#20856;&#22411;&#22320;&#20026;&#30446;&#26631;&#23545;&#35937;&#30340;&#22823;&#23567;&#65289;</td>
+</tr>
+<tr class="t-par">
+<td>src</td>
+<td>-</td>
+<td>&#25351;&#21521;&#22797;&#21046;&#26469;&#28304;&#23545;&#35937;&#30340;&#25351;&#38024;</td>
+</tr>
+<tr class="t-par">
+<td>count</td>
+<td>-</td>
+<td>&#35201;&#22797;&#21046;&#30340;&#23383;&#33410;&#25968;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<div class="t-li1"><span class="t-li">1)</span> &#36820;&#22238; <span class="t-c"><span class="mw-geshi c source-c">dest</span></span> &#30340;&#21103;&#26412;&#65292;&#26412;&#36136;&#20026;&#26356;&#24213;&#23618;&#25805;&#20316;&#30340;&#20020;&#26102;&#20869;&#23384;&#22320;&#22336;&#65292;&#22312;&#23454;&#38469;&#25805;&#20316;&#20013;&#19981;&#24314;&#35758;&#30452;&#25509;&#20351;&#29992;&#27492;&#22320;&#22336;&#65292;&#25805;&#20316;&#23436;&#25104;&#20197;&#21518;&#65292;&#30495;&#27491;&#26377;&#24847;&#20041;&#30340;&#22320;&#22336;&#26159;dest&#26412;&#36523;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#25104;&#21151;&#26102;&#36820;&#22238;&#38646;&#65292;&#22833;&#36133;&#26102;&#36820;&#22238;&#38750;&#38646;&#20540;&#12290;&#22312;&#22833;&#36133;&#26102;&#65292;&#33509; <span class="t-c"><span class="mw-geshi c source-c">dest</span></span> &#19981;&#26159;&#31354;&#25351;&#38024;&#19988; <span class="t-c"><span class="mw-geshi c source-c">destsz</span></span> &#21512;&#27861;&#65292;&#21017;&#20134;&#20250;&#20889;&#20837; <span class="t-c"><span class="mw-geshi c source-c">destsz</span></span> &#20010;&#38646;&#23383;&#33410;&#21040;&#30446;&#26631;&#25968;&#32452;&#12290;</div>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p><code>memmove</code> &#21487;&#29992;&#20110;&#35774;&#32622;&#30001;&#20998;&#37197;&#20989;&#25968;&#33719;&#24471;&#30340;&#23545;&#35937;&#30340;<a href="c-language-object.html#.E6.9C.89.E6.95.88.E7.B1.BB.E5.9E.8B">&#26377;&#25928;&#31867;&#22411;</a>&#12290;</p>
+<p>&#23613;&#31649;&#35828;&#26126;&#20102;&ldquo;&#22914;&#21516;&rdquo;&#20351;&#29992;&#20020;&#26102;&#32531;&#20914;&#21306;&#65292;&#27492;&#20989;&#25968;&#30340;&#23454;&#38469;&#23454;&#29616;&#19981;&#20250;&#24102;&#26469;&#20108;&#27425;&#22797;&#21046;&#25110;&#39069;&#22806;&#20869;&#23384;&#30340;&#24320;&#38144;&#12290;&#24120;&#29992;&#26041;&#27861;&#65288;glibc &#21644; bsd libc&#65289;&#26159;&#33509;&#30446;&#26631;&#22312;&#28304;&#20043;&#21069;&#24320;&#22987;&#65292;&#21017;&#20174;&#32531;&#20914;&#21306;&#24320;&#22987;&#27491;&#21521;&#22797;&#21046;&#65292;&#21542;&#21017;&#20174;&#26411;&#23614;&#21453;&#21521;&#22797;&#21046;&#65292;&#23436;&#20840;&#26080;&#37325;&#21472;&#26102;&#22238;&#33853;&#21040;&#26356;&#39640;&#25928;&#30340; <span class="t-lc"><a href="c-string-byte-memcpy.html">memcpy</a></span>&#12290;</p>
+<p>&#22312;<a href="c-language-object.html#.E4.B8.A5.E6.A0.BC.E5.88.AB.E5.90.8D.E4.BD.BF.E7.94.A8">&#20005;&#26684;&#21035;&#21517;&#20351;&#29992;</a>&#31105;&#27490;&#26816;&#39564;&#21516;&#19968;&#20869;&#23384;&#20026;&#20108;&#20010;&#19981;&#21516;&#31867;&#22411;&#30340;&#20540;&#26102;&#65292;&#21487;&#20351;&#29992; <code>memmove</code> &#36716;&#25442;&#20540;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#define __STDC_WANT_LIB_EXT1__ 1</span>
+<span class="co2">#include &lt;inttypes.h&gt;</span>
+<span class="co2">#include &lt;stdint.h&gt;</span>
+<span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#include &lt;stdlib.h&gt;</span>
+<span class="co2">#include &lt;string.h&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">char</span> str<span class="br0">[</span><span class="br0">]</span> <span class="sy1">=</span> <span class="st0">&quot;1234567890&quot;</span><span class="sy4">;</span>
+    <a href="c-io-puts.html"><span class="kw835">puts</span></a><span class="br0">(</span>str<span class="br0">)</span><span class="sy4">;</span>
+    memmove<span class="br0">(</span>str <span class="sy2">+</span> <span class="nu0">4</span>, str <span class="sy2">+</span> <span class="nu0">3</span>, <span class="nu0">3</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#20174; [4,5,6] &#22797;&#21046;&#21040; [5,6,7]</span>
+    <a href="c-io-puts.html"><span class="kw835">puts</span></a><span class="br0">(</span>str<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#35774;&#32622;&#20998;&#37197;&#30340;&#20869;&#23384;&#30340;&#26377;&#25928;&#31867;&#22411;&#20026; int</span>
+    <span class="kw4">int</span> <span class="sy2">*</span>p <span class="sy1">=</span> <a href="c-memory-malloc.html"><span class="kw403">malloc</span></a><span class="br0">(</span><span class="nu0">3</span><span class="sy2">*</span><span class="kw4">sizeof</span><span class="br0">(</span><span class="kw4">int</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#20998;&#37197;&#30340;&#20869;&#23384;&#26080;&#26377;&#25928;&#31867;&#22411;</span>
+    <span class="kw4">int</span> arr<span class="br0">[</span><span class="nu0">3</span><span class="br0">]</span> <span class="sy1">=</span> <span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">2</span>, <span class="nu0">3</span><span class="br0">}</span><span class="sy4">;</span>
+    memmove<span class="br0">(</span>p,arr,<span class="nu0">3</span><span class="sy2">*</span><span class="kw4">sizeof</span><span class="br0">(</span><span class="kw4">int</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#20998;&#37197;&#30340;&#20869;&#23384;&#29616;&#22312;&#25317;&#26377;&#26377;&#25928;&#31867;&#22411;</span>
+ 
+    <span class="co1">// &#36716;&#35793;&#25968;&#25454;</span>
+    <span class="kw4">double</span> d <span class="sy1">=</span> <span class="nu16">0.1</span><span class="sy4">;</span>
+    <span class="co1">// int64_t n = *(int64_t*)(&amp;d); // &#20005;&#26684;&#21035;&#21517;&#20351;&#29992;&#36829;&#35268;</span>
+    <a href="c-types-integer.html"><span class="kw109">int64_t</span></a> n<span class="sy4">;</span>
+    memmove<span class="br0">(</span><span class="sy3">&amp;</span>n, <span class="sy3">&amp;</span>d, <span class="kw4">sizeof</span> d<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK</span>
+    <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;%a &#20316;&#20026; int64_t &#20026; %&quot;</span> <a href="c-types-integer.html"><span class="kw235">PRIx64</span></a> <span class="st0">&quot;<span class="es1">\n</span>&quot;</span>, d, n<span class="br0">)</span><span class="sy4">;</span>
+ 
+<span class="co2">#ifdef __STDC_LIB_EXT1__</span>
+    set_constraint_handler_s<span class="br0">(</span>ignore_handler_s<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">char</span> src<span class="br0">[</span><span class="br0">]</span> <span class="sy1">=</span> <span class="st0">&quot;aaaaaaaaaa&quot;</span><span class="sy4">;</span>
+    <span class="kw4">char</span> dst<span class="br0">[</span><span class="br0">]</span> <span class="sy1">=</span> <span class="st0">&quot;xyxyxyxyxy&quot;</span><span class="sy4">;</span>
+    <span class="kw4">int</span> r <span class="sy1">=</span> memmove_s<span class="br0">(</span>dst, <span class="kw4">sizeof</span> dst, src, <span class="nu0">5</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;dst = <span class="es1">\&quot;</span>%s<span class="es1">\&quot;</span>, r = %d<span class="es1">\n</span>&quot;</span>, dst, r<span class="br0">)</span><span class="sy4">;</span>
+    r <span class="sy1">=</span> memmove_s<span class="br0">(</span>dst, <span class="nu0">5</span>, src, <span class="nu0">10</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// count &#22823;&#20110; destsz  </span>
+    <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;dst = <span class="es1">\&quot;</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><a href="c-types-size_t.html"><span class="kw100">size_t</span></a> ndx <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span> ndx <span class="sy1">&lt;</span> <span class="kw4">sizeof</span> dst<span class="sy4">;</span> <span class="sy2">++</span>ndx<span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw4">char</span> c <span class="sy1">=</span> dst<span class="br0">[</span>ndx<span class="br0">]</span><span class="sy4">;</span>
+        c <span class="sy4">?</span> <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;%c&quot;</span>, c<span class="br0">)</span> <span class="sy4">:</span> <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;<span class="es1">\\</span>0&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;<span class="es1">\&quot;</span>, r = %d<span class="es1">\n</span>&quot;</span>, r<span class="br0">)</span><span class="sy4">;</span>
+<span class="co2">#endif</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">1234567890
+1234456890
+0x1.999999999999ap-4 &#20316;&#20026; int64_t &#20026; 3fb999999999999a
+dst = &quot;aaaaayxyxy&quot;, r = 0
+dst = &quot;\0\0\0\0\0yxyxy&quot;, r = 22</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.24.2.2 The memmove function &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.7.1.2 The memmove_s function &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.24.2.2 The memmove function &#65288;&#31532; 264 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.7.1.2 The memmove_s function &#65288;&#31532; 446 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.24.2.2 The memmove function &#65288;&#31532; 363 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.7.1.2 The memmove_s function &#65288;&#31532; 615 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c99">
+<ul>
+<li>C99 &#26631;&#20934;&#65288;ISO/IEC 9899:1999&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.21.2.2 The memmove function &#65288;&#31532; 326 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c89">
+<ul>
+<li>C89/C90 &#26631;&#20934;&#65288;ISO/IEC 9899:1990&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>4.11.2.2 The memmove function</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-byte-memcpy.html"><span class="t-lines"><span>memcpy</span><span>memcpy_s</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#22797;&#21046;&#32531;&#20914;&#21306;&#21040;&#21478;&#19968;&#20010;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-wide-wmemmove.html"><span class="t-lines"><span>wmemmove</span><span>wmemmove_s</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c95" style="white-space: nowrap;">(C95)</span></span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#22312;&#20004;&#20010;&#21487;&#33021;&#37325;&#21472;&#30340;&#25968;&#32452;&#38388;&#22797;&#21046;&#19968;&#23450;&#25968;&#37327;&#30340;&#23485;&#23383;&#31526;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>memmove</span></span>&nbsp;&#30340; <span><span><a href="cpp-string-byte-memmove.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

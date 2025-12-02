@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::valarray</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_numeric_valarray skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>valarray</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-numeric.html">numeric</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-valarray.html">&lt;valarray&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T <span class="sy1">&gt;</span><br />
+<span class="kw1">class</span> valarray<span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>std::valarray</code> &#26159;&#34920;&#31034;&#24182;&#25805;&#20316;&#20540;&#25968;&#32452;&#30340;&#31867;&#12290;&#23427;&#25903;&#25345;&#23545;&#20803;&#32032;&#36880;&#20010;&#36827;&#34892;&#25968;&#23398;&#36816;&#31639;&#65292;&#24182;&#19988;&#25903;&#25345;&#22810;&#31181;&#24418;&#24335;&#30340;&#24191;&#20041;&#19979;&#26631;&#36816;&#31639;&#31526;&#12289;&#20999;&#29255;&#21450;&#38388;&#25509;&#35775;&#38382;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p><code>std::valarray</code> &#21450;&#24110;&#21161;&#31867;&#23450;&#20041;&#20026;&#20813;&#38500;&#26576;&#20123;&#24418;&#24335;&#30340;&#21035;&#21517;&#20351;&#29992;&#65292;&#20174;&#32780;&#20801;&#35768;&#36825;&#20123;&#31867;&#19978;&#30340;&#25805;&#20316;&#34987;&#20248;&#21270;&#24471;&#31867;&#20284; C &#31243;&#24207;&#35821;&#35328;&#20013;&#20851;&#38190;&#35789; <a href="c-language-restrict.html"><tt>restrict</tt></a> &#30340;&#25928;&#26524;&#12290;&#32780;&#19988;&#65292;&#25509;&#25910; <code>valarray</code> &#23454;&#21442;&#30340;&#20989;&#25968;&#21644;&#36816;&#31639;&#31526;&#20801;&#35768;&#36820;&#22238;&#20195;&#29702;&#23545;&#35937;&#65292;&#20197;&#20351;&#24471;&#32534;&#35793;&#22120;&#23558;&#35832;&#22914; <span class="t-c"><span class="mw-geshi cpp source-cpp">v1 <span class="sy1">=</span> a <span class="sy2">*</span> v2 <span class="sy2">+</span> v3<span class="sy4">;</span></span></span> &#30340;&#34920;&#36798;&#24335;&#20248;&#21270;&#25104;&#25191;&#34892; <span class="t-c"><span class="mw-geshi cpp source-cpp">v1<span class="br0">[</span>i<span class="br0">]</span> <span class="sy1">=</span> a <span class="sy2">*</span> v2<span class="br0">[</span>i<span class="br0">]</span> <span class="sy2">+</span> v3<span class="br0">[</span>i<span class="br0">]</span><span class="sy4">;</span></span></span> &#30340;&#21333;&#20010;&#24490;&#29615;&#65292;&#36991;&#20813;&#20219;&#20309;&#20020;&#26102;&#37327;&#25110;&#22810;&#36255;&#36816;&#31639;&#12290;&#28982;&#32780;&#65292;<a href="https://en.wikipedia.org/wiki/expression_templates" class="extiw" title="enwiki:expression templates">&#34920;&#36798;&#24335;&#27169;&#26495;</a>&#20351;&#24471;&#21516;&#26679;&#30340;&#20248;&#21270;&#25216;&#24039;&#23545;&#20219;&#20309; C++ &#23481;&#22120;&#21487;&#29992;&#65292;&#32780;&#25968;&#20540;&#24211;&#30340;&#20027;&#27969;&#21017;&#22240;&#28789;&#27963;&#24615;&#32780;&#20559;&#22909;&#34920;&#36798;&#24335;&#27169;&#26495;&#29978;&#20110; <code>valarray</code>&#12290;&#26576;&#20123; C++ &#26631;&#20934;&#24211;&#23454;&#29616;&#20351;&#29992;&#34920;&#36798;&#24335;&#27169;&#26495;&#20197;&#23454;&#29616; <code>std::valarray</code> &#19978;&#30340;&#39640;&#25928;&#36816;&#31639;&#65288;&#20363;&#22914; GNU libstdc++ &#19982; LLVM libc++&#65289;&#12290;&#21482;&#26377;&#23569;&#25968;&#24211;&#36827;&#19968;&#27493;&#20248;&#21270;&#20102; <code>valarray</code>&#65292;&#20363;&#22914; <a rel="nofollow" class="external text" href="https://software.intel.com/en-us/node/684140">Intel Integrated Performance Primitives</a>&#12290;</p>
+<h3><span class="mw-headline" id=".E6.A8.A1.E6.9D.BF.E5.BD.A2.E5.8F.82">&#27169;&#26495;&#24418;&#21442;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>T</td>
+<td>-</td>
+<td>&#20803;&#32032;&#30340;&#31867;&#22411;&#12290;&#31867;&#22411;&#24517;&#39035;&#28385;&#36275;<a href="cpp-named_req-NumericType.html"><span style="font-style:italic">&#25968;&#20540;&#31867;&#22411;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(NumericType)</span></a></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E7.B1.BB.E5.9E.8B">&#25104;&#21592;&#31867;&#22411;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#25104;&#21592;&#31867;&#22411;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>value_type</code></td>
+<td><code>T</code></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-numeric-valarray-valarray.html"><span class="t-lines"><span>(&#26500;&#36896;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26500;&#36896;&#26032;&#30340;&#25968;&#20540;&#25968;&#32452;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-numeric-valarray-~valarray.html"><span class="t-lines"><span>(&#26512;&#26500;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26512;&#26500;&#25968;&#20540;&#25968;&#32452;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-operator=.html"><span class="t-lines"><span>operator=</span></span></a></div>
+</div>
+</td>
+<td>&#20026;&#20869;&#23481;&#36171;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-operator_at.html"><span class="t-lines"><span>operator[]</span></span></a></div>
+</div>
+</td>
+<td>&#33719;&#21462;/&#35774;&#32622; valarray &#25968;&#32452;&#20803;&#32032;&#12289;&#20999;&#29255;&#25110;&#25513;&#30721;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-operator_arith.html"><span class="t-lines"><span>operator+</span><span>operator-</span><span>operator~</span><span>operator!</span></span></a></div>
+</div>
+</td>
+<td>&#23545; valarray &#30340;&#27599;&#20010;&#20803;&#32032;&#36816;&#29992;&#19968;&#20803;&#31639;&#26415;&#36816;&#31639;&#31526;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-operator_arith2.html"><span class="t-lines"><span>operator+=</span><span>operator-=</span><span>operator*=</span><span>operator/=</span><span>operator%=</span><span>operator&amp;=</span><span>operator|=</span><span>operator^=</span><span>operator&lt;&lt;=</span><span>operator&gt;&gt;=</span></span></a></div>
+</div>
+</td>
+<td>&#23545; valarray &#30340;&#27599;&#20010;&#20803;&#32032;&#24212;&#29992;&#22797;&#21512;&#36171;&#20540;&#36816;&#31639;&#31526;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-swap.html"><span class="t-lines"><span>swap</span></span></a></div>
+</div>
+</td>
+<td>&#19982;&#21478;&#19968; valarray &#20132;&#25442;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-size.html"><span class="t-lines"><span>size</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238; <code>valarray</code> &#30340;&#22823;&#23567;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-resize.html"><span class="t-lines"><span>resize</span></span></a></div>
+</div>
+</td>
+<td>&#26356;&#25913; valarray &#30340;&#22823;&#23567;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-sum.html"><span class="t-lines"><span>sum</span></span></a></div>
+</div>
+</td>
+<td>&#35745;&#31639;&#25152;&#26377;&#20803;&#32032;&#30340;&#21644;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-min.html"><span class="t-lines"><span>min</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#26368;&#23567;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-max.html"><span class="t-lines"><span>max</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#26368;&#22823;&#30340;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-shift.html"><span class="t-lines"><span>shift</span></span></a></div>
+</div>
+</td>
+<td>&#20197;&#22635;&#20837;&#38646;&#30340;&#26041;&#24335;&#31227;&#21160; valarray &#30340;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-cshift.html"><span class="t-lines"><span>cshift</span></span></a></div>
+</div>
+</td>
+<td>&#24490;&#29615;&#31227;&#21160; valarray &#30340;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-apply.html"><span class="t-lines"><span>apply</span></span></a></div>
+</div>
+</td>
+<td>&#23545; <code>valarray</code> &#30340;&#27599;&#20010;&#20803;&#32032;&#24212;&#29992;&#19968;&#20010;&#20989;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E9.9D.9E.E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#38750;&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-swap2.html"><span class="t-lines"><span>std::swap<span class="t-dsc-small">(std::valarray)</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#29305;&#21270; <span class="t-lc"><a href="cpp-algorithm-swap.html">std::swap</a></span> &#31639;&#27861;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-begin2.html"><span class="t-lines"><span>std::begin<span class="t-dsc-small">(std::valarray)</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#37325;&#36733; <span class="t-lc"><a href="cpp-iterator-begin.html">std::begin</a></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-end2.html"><span class="t-lines"><span>std::end<span class="t-dsc-small">(std::valarray)</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#29305;&#21270;&#30340; <span class="t-lc"><a href="cpp-iterator-end.html">std::end</a></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-operator_arith3.html"><span class="t-lines"><span>operator+</span><span>operator-</span><span>operator*</span><span>operator/</span><span>operator%</span><span>operator&amp;</span><span>operator|</span><span>operator^</span><span>operator&lt;&lt;</span><span>operator&gt;&gt;</span><span>operator&amp;&amp;</span><span>operator||</span></span></a></div>
+</div>
+</td>
+<td>&#24212;&#29992;&#20108;&#20803;&#36816;&#31639;&#31526;&#21040;&#20004;&#20010; valarray &#30340;&#27599;&#20010;&#20803;&#32032;&#65292;&#25110;&#19968;&#20010; valarray &#30340;&#27599;&#20010;&#20803;&#32032;&#21644;&#19968;&#20010;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-operator_cmp.html"><span class="t-lines"><span>operator==</span><span>operator!=</span><span>operator&lt;</span><span>operator&lt;=</span><span>operator&gt;</span><span>operator&gt;=</span></span></a></div>
+</div>
+</td>
+<td>&#27604;&#36739;&#20004;&#20010; valarrays&#65292;&#25110;&#27604;&#36739;&#19968;&#20010; valarray &#21644;&#19968;&#20010;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-abs.html"><span class="t-lines"><span>abs<span class="t-dsc-small">(std::valarray)</span></span></span></a></div>
+</div>
+</td>
+<td>&#24212;&#29992;&#20989;&#25968; <span class="t-c"><span class="mw-geshi cpp source-cpp">abs</span></span> &#21040; <code>valarray</code> &#30340;&#27599;&#20010;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E6.8C.87.E6.95.B0.E5.87.BD.E6.95.B0">&#25351;&#25968;&#20989;&#25968;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-exp.html"><span class="t-lines"><span>exp<span class="t-dsc-small">(std::valarray)</span></span></span></a></div>
+</div>
+</td>
+<td>&#24212;&#29992;&#20989;&#25968; <span class="t-lc"><a href="cpp-numeric-math-exp.html">std::exp</a></span> &#21040; valarray &#30340;&#27599;&#20010;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-log.html"><span class="t-lines"><span>log<span class="t-dsc-small">(std::valarray)</span></span></span></a></div>
+</div>
+</td>
+<td>&#24212;&#29992;&#20989;&#25968; <span class="t-lc"><a href="cpp-numeric-math-log.html">std::log</a></span> &#21040; valarray &#30340;&#27599;&#20010;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-log10.html"><span class="t-lines"><span>log10<span class="t-dsc-small">(std::valarray)</span></span></span></a></div>
+</div>
+</td>
+<td>&#24212;&#29992;&#20989;&#25968; <span class="t-lc"><a href="cpp-numeric-math-log10.html">std::log10</a></span> &#21040; valarray &#30340;&#27599;&#20010;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E5.B9.82.E5.87.BD.E6.95.B0">&#24130;&#20989;&#25968;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-pow.html"><span class="t-lines"><span>pow<span class="t-dsc-small">(std::valarray)</span></span></span></a></div>
+</div>
+</td>
+<td>&#24212;&#29992;&#20989;&#25968; <span class="t-lc"><a href="cpp-numeric-math-pow.html">std::pow</a></span> &#21040;&#20108;&#20010; valarray &#25110;&#19968;&#20010; valarray &#19982;&#19968;&#20010;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-sqrt.html"><span class="t-lines"><span>sqrt<span class="t-dsc-small">(std::valarray)</span></span></span></a></div>
+</div>
+</td>
+<td>&#24212;&#29992;&#20989;&#25968; <span class="t-lc"><a href="cpp-numeric-math-sqrt.html">std::sqrt</a></span> &#21040; valarray &#30340;&#27599;&#20010;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E4.B8.89.E8.A7.92.E5.87.BD.E6.95.B0">&#19977;&#35282;&#20989;&#25968;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-sin.html"><span class="t-lines"><span>sin<span class="t-dsc-small">(std::valarray)</span></span></span></a></div>
+</div>
+</td>
+<td>&#24212;&#29992;&#20989;&#25968; <span class="t-lc"><a href="cpp-numeric-math-sin.html">std::sin</a></span> &#21040; <code>valarray</code> &#30340;&#27599;&#20010;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-cos.html"><span class="t-lines"><span>cos<span class="t-dsc-small">(std::valarray)</span></span></span></a></div>
+</div>
+</td>
+<td>&#24212;&#29992;&#20989;&#25968; <span class="t-lc"><a href="cpp-numeric-math-cos.html">std::cos</a></span> &#21040; valarray &#30340;&#27599;&#20010;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-tan.html"><span class="t-lines"><span>tan<span class="t-dsc-small">(std::valarray)</span></span></span></a></div>
+</div>
+</td>
+<td>&#24212;&#29992;&#20989;&#25968; <span class="t-lc"><a href="cpp-numeric-math-tan.html">std::tan</a></span> &#21040; valarray &#30340;&#27599;&#20010;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-asin.html"><span class="t-lines"><span>asin<span class="t-dsc-small">(std::valarray)</span></span></span></a></div>
+</div>
+</td>
+<td>&#24212;&#29992;&#20989;&#25968; <span class="t-lc"><a href="cpp-numeric-math-asin.html">std::asin</a></span> &#21040; valarray &#30340;&#27599;&#20010;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-acos.html"><span class="t-lines"><span>acos<span class="t-dsc-small">(std::valarray)</span></span></span></a></div>
+</div>
+</td>
+<td>&#24212;&#29992;&#20989;&#25968; <span class="t-lc"><a href="cpp-numeric-math-acos.html">std::acos</a></span> &#21040; valarray &#30340;&#27599;&#20010;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-atan.html"><span class="t-lines"><span>atan<span class="t-dsc-small">(std::valarray)</span></span></span></a></div>
+</div>
+</td>
+<td>&#24212;&#29992;&#20989;&#25968; <span class="t-lc"><a href="cpp-numeric-math-atan.html">std::atan</a></span> &#21040; valarray &#30340;&#27599;&#20010;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-atan2.html"><span class="t-lines"><span>atan2<span class="t-dsc-small">(std::valarray)</span></span></span></a></div>
+</div>
+</td>
+<td>&#24212;&#29992;&#20989;&#25968; <span class="t-lc"><a href="cpp-numeric-math-atan2.html">std::atan2</a></span> &#21040;&#19968;&#20010; valarray &#21644;&#19968;&#20010;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E5.8F.8C.E6.9B.B2.E5.87.BD.E6.95.B0">&#21452;&#26354;&#20989;&#25968;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-sinh.html"><span class="t-lines"><span>sinh<span class="t-dsc-small">(std::valarray)</span></span></span></a></div>
+</div>
+</td>
+<td>&#24212;&#29992;&#20989;&#25968; <span class="t-lc"><a href="cpp-numeric-math-sinh.html">std::sinh</a></span> &#21040; <code>valarray</code> &#30340;&#27599;&#20010;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-cosh.html"><span class="t-lines"><span>cosh<span class="t-dsc-small">(std::valarray)</span></span></span></a></div>
+</div>
+</td>
+<td>&#24212;&#29992;&#20989;&#25968; <span class="t-lc"><a href="cpp-numeric-math-cosh.html">std::cosh</a></span> &#21040; <code>valarray</code> &#30340;&#27599;&#20010;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-tanh.html"><span class="t-lines"><span>tanh<span class="t-dsc-small">(std::valarray)</span></span></span></a></div>
+</div>
+</td>
+<td>&#24212;&#29992;&#20989;&#25968; <span class="t-lc"><a href="cpp-numeric-math-tanh.html">std::tanh</a></span> &#21040; valarray &#30340;&#27599;&#20010;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BE.85.E5.8A.A9.E7.B1.BB">&#36741;&#21161;&#31867;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-slice.html"><span class="t-lines"><span>slice</span></span></a></div>
+</div>
+</td>
+<td>valarray &#30340; BLAS &#24335;&#20999;&#29255;&#65306;&#36215;&#22987;&#19979;&#26631;&#12289;&#38271;&#24230;&#12289;&#36328;&#24230;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-slice_array.html"><span class="t-lines"><span>slice_array</span></span></a></div>
+</div>
+</td>
+<td>&#21040; <code>valarray</code> &#24212;&#29992;&#20999;&#29255;&#21518;&#30340;&#23376;&#38598;&#30340;&#20195;&#29702;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-gslice.html"><span class="t-lines"><span>gslice</span></span></a></div>
+</div>
+</td>
+<td>valarray &#30340;&#36890;&#29992;&#20999;&#29255;&#65306;&#36215;&#22987;&#19979;&#26631;&#12289;&#38271;&#24230;&#38598;&#12289;&#27493;&#24133;&#38598;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-gslice_array.html"><span class="t-lines"><span>gslice_array</span></span></a></div>
+</div>
+</td>
+<td>valarray &#24212;&#29992; gslice &#21518;&#30340;&#23376;&#38598;&#30340;&#20195;&#29702;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-mask_array.html"><span class="t-lines"><span>mask_array</span></span></a></div>
+</div>
+</td>
+<td>&#21040;&#24212;&#29992;&#24067;&#23572;&#25513;&#30721; <code>operator[]</code> &#21518;&#30340; valarray &#23376;&#38598;&#30340;&#20195;&#29702;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-valarray-indirect_array.html"><span class="t-lines"><span>indirect_array</span></span></a></div>
+</div>
+</td>
+<td>&#21040;&#24212;&#29992;&#38388;&#25509; <code>operator[]</code> &#21518;&#30340; valarray &#23376;&#38598;&#30340;&#20195;&#29702;&#12290;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.8E.A8.E5.AF.BC.E6.8C.87.E5.BC.95.28C.2B.2B17_.E8.B5.B7.29"><a href="cpp-numeric-valarray-deduction_guides.html">&#25512;&#23548;&#25351;&#24341;</a><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></span></h3>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-simd-basic_simd.html"><span class="t-lines"><span>datapar::simd</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26)</span></span></span></div>
+</div>
+</td>
+<td>&#21487;&#20197;&#25351;&#23450;&#23485;&#24230;&#30340; <code>basic_simd</code> &#30340;&#20415;&#21033;&#21035;&#21517;&#27169;&#26495;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#21035;&#21517;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="https://zh.cppreference.com/mwiki/index.php?title=cpp/numeric/simd/basic_simd_mask&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/simd/basic simd mask&#65288;&#39029;&#38754;&#19981;&#23384;&#22312;&#65289;"><span class="t-lines"><span>datapar::simd_mask</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26)</span></span></span></div>
+</div>
+</td>
+<td>&#21487;&#20197;&#25351;&#23450;&#23485;&#24230;&#30340; <code>basic_simd_mask</code> &#30340;&#20415;&#21033;&#21035;&#21517;&#27169;&#26495;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#21035;&#21517;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-experimental-simd-simd.html"><span class="t-lines"><span>simd</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></span></span></div>
+</div>
+</td>
+<td>&#25968;&#25454;&#24182;&#34892;&#21521;&#37327;&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-experimental-simd-simd_mask.html"><span class="t-lines"><span>simd_mask</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></span></span></div>
+</div>
+</td>
+<td>&#20803;&#32032;&#31867;&#22411;&#20026; bool &#30340;&#25968;&#25454;&#24182;&#34892;&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

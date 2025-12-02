@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>thrd_create</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_thread_thrd_create skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">thrd_create</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-thread.html">thread</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-threads.html"><tt>&lt;threads.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-c11">
+<td>
+<div><span class="mw-geshi c source-c"><span class="kw4">int</span> thrd_create<span class="br0">(</span> <a href="c-thread.html"><span class="kw996">thrd_t</span></a> <span class="sy2">*</span>thr, <a href="c-thread.html"><span class="kw1009">thrd_start_t</span></a> func, <span class="kw4">void</span> <span class="sy2">*</span>arg <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#21019;&#24314;&#19968;&#20010;&#25191;&#34892;&#20989;&#25968; <code>func</code> &#30340;&#26032;&#32447;&#31243;&#65292;&#20197; <span class="t-c"><span class="mw-geshi c source-c">func<span class="br0">(</span>arg<span class="br0">)</span></span></span> &#35843;&#29992;&#27492;&#20989;&#25968;&#12290;</p>
+<p>&#33509;&#25104;&#21151;&#65292;&#21017;&#35774;&#32622; <code>thr</code> &#25152;&#25351;&#21521;&#30340;&#23545;&#35937;&#20026;&#26032;&#32447;&#31243;&#30340;&#26631;&#35782;&#31526;&#12290;</p>
+<p>&#27492;&#20989;&#25968;&#30340;&#23436;&#25104;<i>&#21516;&#27493;&#20110;</i>&#32447;&#31243;&#30340;&#24320;&#22987;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>thr</td>
+<td>-</td>
+<td>&#25351;&#21521;&#25918;&#32622;&#26032;&#32447;&#31243;&#26631;&#35782;&#31526;&#30340;&#20869;&#23384;&#20301;&#32622;&#30340;&#25351;&#38024;</td>
+</tr>
+<tr class="t-par">
+<td>func</td>
+<td>-</td>
+<td>&#35201;&#25191;&#34892;&#30340;&#20989;&#25968;</td>
+</tr>
+<tr class="t-par">
+<td>arg</td>
+<td>-</td>
+<td>&#20256;&#36882;&#32473;&#20989;&#25968;&#30340;&#21442;&#25968;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#33509;&#26032;&#32447;&#31243;&#21019;&#24314;&#25104;&#21151;&#21017;&#20026; <span class="t-lc"><a href="c-thread-thrd_errors.html">thrd_success</a></span>&#12290;&#21542;&#21017;&#33509;&#20869;&#23384;&#19981;&#36275;&#21017;&#36820;&#22238; <span class="t-lc"><a href="c-thread-thrd_errors.html">thrd_nomem</a></span>&#65292;&#33509;&#20986;&#29616;&#20854;&#20182;&#38169;&#35823;&#21017;&#36820;&#22238; <code>thrd_error</code>&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E6.84.8F">&#27880;&#24847;</span></h3>
+<p>&#19968;&#26086;&#32447;&#31243;&#23436;&#32467;&#24182;&#34701;&#21512;&#25110;&#33073;&#38468;&#65292;&#21017;&#21487;&#33021;&#37325;&#26032;&#20351;&#29992;&#32447;&#31243;&#26631;&#35782;&#31526;&#12290;</p>
+<p>&#31867;&#22411; <code>thrd_start_t</code> &#26159; <span class="t-c"><span class="mw-geshi c source-c"><span class="kw4">int</span><span class="br0">(</span><span class="sy2">*</span><span class="br0">)</span><span class="br0">(</span><span class="kw4">void</span><span class="sy2">*</span><span class="br0">)</span></span></span> &#30340; typedef&#65292;&#26377;&#21035;&#20110; POSIX &#30340;&#31561;&#20215;&#29256;&#26412; <span class="t-c"><span class="mw-geshi c source-c"><span class="kw4">void</span><span class="sy2">*</span><span class="br0">(</span><span class="sy2">*</span><span class="br0">)</span><span class="br0">(</span><span class="kw4">void</span><span class="sy2">*</span><span class="br0">)</span></span></span>&#12290;</p>
+<p>&#23558;&#25152;&#26377;&#25152;&#26377;&#32447;&#31243;&#29305;&#23450;&#23384;&#20648;&#20540;&#65288;&#35265; <span class="t-lc"><a href="c-thread-tss_create.html">tss_create</a></span>&#65289;&#21021;&#22987;&#21270;&#20026; <span class="t-lc"><a href="c-types-NULL.html">NULL</a></span>&#12290;</p>
+<p>&#20174;&#20989;&#25968; <code>func</code> &#36820;&#22238;&#31561;&#20215;&#20110;&#20197;&#31561;&#20110; <code>func</code> &#36820;&#22238;&#20540;&#30340;&#21442;&#25968;&#35843;&#29992; <span class="t-lc"><a href="c-thread-thrd_exit.html">thrd_exit</a></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.26.5.1 The thrd_create function &#65288;&#31532; 279 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.26.5.1 The thrd_create function &#65288;&#31532; 383 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-thread-thrd_detach.html"><span class="t-lines"><span>thrd_detach</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#20998;&#31163;&#32447;&#31243;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-thread-thrd_join.html"><span class="t-lines"><span>thrd_join</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#38459;&#22622;&#21040;&#32447;&#31243;&#32456;&#27490;&#20026;&#27490;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>thread</span></span>&nbsp;&#30340; <span><span><a href="cpp-thread-thread-thread.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>&#26631;&#20934;&#24211;&#26631;&#22836; &lt;typeinfo&gt;</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_header_typeinfo skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">&#26631;&#20934;&#24211;&#26631;&#22836;</span> &lt;typeinfo&gt;</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-header.html">header</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<p>&#27492;&#22836;&#25991;&#20214;&#26159;<a href="cpp-types.html">&#31867;&#22411;&#25903;&#25345;</a>&#24211;&#30340;&#19968;&#37096;&#20998;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.B1.BB">&#31867;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-types-type_info.html"><span class="t-lines"><span>type_info</span></span></a></div>
+</div>
+</td>
+<td>&#21253;&#21547;&#26576;&#20010;&#31867;&#22411;&#30340;&#20449;&#24687;&#65292;<a href="cpp-language-typeid.html">typeid</a> &#36816;&#31639;&#31526;&#25152;&#36820;&#22238;&#30340;&#31867;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-types-bad_typeid.html"><span class="t-lines"><span>bad_typeid</span></span></a></div>
+</div>
+</td>
+<td>&#24403; <a href="cpp-language-typeid.html">typeid &#34920;&#36798;&#24335;</a>&#20013;&#30340;&#23454;&#21442;&#20026;&#31354;&#20540;&#26102;&#25243;&#20986;&#30340;&#24322;&#24120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-types-bad_cast.html"><span class="t-lines"><span>bad_cast</span></span></a></div>
+</div>
+</td>
+<td>&#30001;&#38750;&#27861;&#30340; <a href="cpp-language-dynamic_cast.html"><tt>dynamic_cast</tt></a> &#34920;&#36798;&#24335;&#65288;&#21363;&#24341;&#29992;&#31867;&#22411;&#36716;&#22411;&#22833;&#36133;&#65289;&#25243;&#20986;&#30340;&#24322;&#24120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.A6.82.E8.A6.81">&#27010;&#35201;</span></h3>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">namespace</span> std <span class="br0">{</span>
+  <span class="kw1">class</span> type_info<span class="sy4">;</span>
+  <span class="kw1">class</span> bad_cast<span class="sy4">;</span>
+  <span class="kw1">class</span> bad_typeid<span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<h4><span class="mw-headline" id=".E7.B1.BB_std::type_info">&#31867; <span class="t-lc"><a href="cpp-types-type_info.html">std::type_info</a></span></span></h4>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">namespace</span> std <span class="br0">{</span>
+  <span class="kw1">class</span> type_info <span class="br0">{</span>
+  <span class="kw1">public</span><span class="sy4">:</span>
+    <span class="kw1">virtual</span> ~type_info<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">constexpr</span> <span class="kw4">bool</span> operator<span class="sy1">==</span><span class="br0">(</span><span class="kw4">const</span> type_info<span class="sy3">&amp;</span> rhs<span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+    <span class="kw4">bool</span> before<span class="br0">(</span><span class="kw4">const</span> type_info<span class="sy3">&amp;</span> rhs<span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+    size_t hash_code<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+    <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> name<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+ 
+    type_info<span class="br0">(</span><span class="kw4">const</span> type_info<span class="sy3">&amp;</span><span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span>                   <span class="co1">// &#19981;&#33021;&#22797;&#21046;</span>
+    type_info<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span><span class="kw4">const</span> type_info<span class="sy3">&amp;</span><span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span>        <span class="co1">// &#19981;&#33021;&#22797;&#21046;</span>
+  <span class="br0">}</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<h4><span class="mw-headline" id=".E7.B1.BB_std::bad_cast">&#31867; <span class="t-lc"><a href="cpp-types-bad_cast.html">std::bad_cast</a></span></span></h4>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">namespace</span> std <span class="br0">{</span>
+  <span class="kw1">class</span> bad_cast <span class="sy4">:</span> <span class="kw1">public</span> exception <span class="br0">{</span>
+  <span class="kw1">public</span><span class="sy4">:</span>
+    <span class="co1">// &#29305;&#27530;&#25104;&#21592;&#20989;&#25968;&#30340;&#35268;&#23450;&#35265; [exception]</span>
+    <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> what<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span> override<span class="sy4">;</span>
+  <span class="br0">}</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<h4><span class="mw-headline" id=".E7.B1.BB_std::bad_typeid">&#31867; <span class="t-lc"><a href="cpp-types-bad_typeid.html">std::bad_typeid</a></span></span></h4>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">namespace</span> std <span class="br0">{</span>
+  <span class="kw1">class</span> bad_typeid <span class="sy4">:</span> <span class="kw1">public</span> exception <span class="br0">{</span>
+  <span class="kw1">public</span><span class="sy4">:</span>
+    <span class="co1">// &#29305;&#27530;&#25104;&#21592;&#20989;&#25968;&#30340;&#35268;&#23450;&#35265; [exception]</span>
+    <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> what<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span> override<span class="sy4">;</span>
+  <span class="br0">}</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::input_iterator_tag, std::output_iterator_tag, std::forward_iterator_tag, std::bidirectional_iterator_tag, std::random_access_iterator_tag, std::contiguous_iterator_tag</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_iterator_iterator_tags skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>input_iterator_tag, <span style="font-size:0.8em; line-height:125%">std::</span>output_iterator_tag, <span style="font-size:0.8em; line-height:125%">std::</span>forward_iterator_tag, <span style="font-size:0.8em; line-height:125%">std::</span>bidirectional_iterator_tag, <span style="font-size:0.8em; line-height:125%">std::</span>random_access_iterator_tag, <span style="font-size:0.8em; line-height:125%">std::</span>contiguous_iterator_tag</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-iterator.html">iterator</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-iterator.html">&lt;iterator&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">struct</span> input_iterator_tag <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">struct</span> output_iterator_tag <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">struct</span> forward_iterator_tag <span class="sy4">:</span> <span class="kw1">public</span> input_iterator_tag <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span></span></div>
+</td>
+<td>(3)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">struct</span> bidirectional_iterator_tag <span class="sy4">:</span> <span class="kw1">public</span> forward_iterator_tag <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span></span></div>
+</td>
+<td>(4)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">struct</span> random_access_iterator_tag <span class="sy4">:</span> <span class="kw1">public</span> bidirectional_iterator_tag <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span></span></div>
+</td>
+<td>(5)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">struct</span> contiguous_iterator_tag <span class="sy4">:</span> <span class="kw1">public</span> random_access_iterator_tag <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span></span></div>
+</td>
+<td>(6)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#23450;&#20041;&#36845;&#20195;&#22120;&#30340;&#20998;&#31867;&#12290;&#27599;&#20010;&#26631;&#31614;&#22343;&#20026;&#31354;&#31867;&#22411;&#12290;</p>
+<h3><span class="mw-headline" id=".E8.BF.AD.E4.BB.A3.E5.99.A8.E7.B1.BB.E5.88.AB">&#36845;&#20195;&#22120;&#31867;&#21035;</span></h3>
+<p>&#23545;&#20110;&#27599;&#20010;<a href="cpp-named_req-Iterator.html"><span style="font-style:italic">&#32769;&#24335;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyIterator)</span></a> &#31867;&#22411; <code>It</code>&#65292;<code>typedef</code> <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-iterator_traits.html"><span class="kw654">std::<span class="me2">iterator_traits</span></span></a><span class="sy1">&lt;</span>It<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">iterator_category</span></span></span> &#24517;&#39035;&#23450;&#20041;&#20026;&#36825;&#20123;&#26631;&#31614;&#31867;&#22411;&#20043;&#19968;&#30340;&#21035;&#21517;&#65292;&#20197;&#25351;&#31034; <code>It</code> &#25152;&#22312;&#30340;&#26368;&#29305;&#23450;&#30340;&#31867;&#21035;&#12290;</p>
+<ol>
+<li><code>input_iterator_tag</code> &#23545;&#24212;<a href="cpp-named_req-InputIterator.html"><span style="font-style:italic">&#32769;&#24335;&#36755;&#20837;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyInputIterator)</span></a> &#12290;</li>
+<li><code>output_iterator_tag</code> &#23545;&#24212;<a href="cpp-named_req-OutputIterator.html"><span style="font-style:italic">&#32769;&#24335;&#36755;&#20986;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyOutputIterator)</span></a> &#12290;</li>
+<li><code>forward_iterator_tag</code> &#23545;&#24212;<a href="cpp-named_req-ForwardIterator.html"><span style="font-style:italic">&#32769;&#24335;&#21521;&#21069;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyForwardIterator)</span></a> &#12290;</li>
+<li><code>bidirectional_iterator_tag</code> &#23545;&#24212;<a href="cpp-named_req-BidirectionalIterator.html"><span style="font-style:italic">&#32769;&#24335;&#21452;&#21521;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyBidirectionalIterator)</span></a> &#12290;</li>
+<li><code>random_access_iterator_tag</code> &#23545;&#24212;<a href="cpp-named_req-RandomAccessIterator.html"><span style="font-style:italic">&#32769;&#24335;&#38543;&#26426;&#35775;&#38382;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyRandomAccessIterator)</span></a> &#12290;</li>
+</ol>
+<p>&#36845;&#20195;&#22120;&#20998;&#31867;&#26631;&#31614;&#25658;&#24102;&#20449;&#24687;&#65292;&#21487;&#20197;&#29992;&#20110;&#26681;&#25454;&#36825;&#19968;&#20998;&#31867;&#25152;&#34164;&#21547;&#30340;&#29305;&#23450;&#35201;&#27714;&#38598;&#21512;&#36873;&#25321;&#26368;&#39640;&#25928;&#31639;&#27861;&#12290;</p>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx20">
+<td>
+<h3><span class="mw-headline" id=".E8.BF.AD.E4.BB.A3.E5.99.A8.E6.A6.82.E5.BF.B5">&#36845;&#20195;&#22120;&#27010;&#24565;</span></h3>
+<p>&#23545;&#27599;&#20010; <a href="cpp-iterator-input_iterator.html"><code>input_iterator</code></a> &#31867;&#22411; <code>It</code>&#65292;&#21487;&#20197;&#22768;&#26126; <span class="t-c"><span class="mw-geshi cpp source-cpp">It<span class="sy4">::</span><span class="me2">iterator_concept</span></span></span>&#65288;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-iterator_traits.html"><span class="kw654">std::<span class="me2">iterator_traits</span></span></a><span class="sy1">&lt;</span>It<span class="sy1">&gt;</span></span></span> &#20174;&#20027;&#27169;&#26495;&#29983;&#25104;&#65289;&#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-iterator_traits.html"><span class="kw654">std::<span class="me2">iterator_traits</span></span></a><span class="sy1">&lt;</span>It<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">iterator_concept</span></span></span>&#65288;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-iterator_traits.html"><span class="kw654">std::<span class="me2">iterator_traits</span></span></a><span class="sy1">&lt;</span>It<span class="sy1">&gt;</span></span></span> &#34987;&#29305;&#21270;&#65289;&#20026;&#36825;&#20123;&#26631;&#31614;&#20043;&#19968;&#30340;&#21035;&#21517;&#65292;&#20197;&#25351;&#31034; <code>It</code> &#26377;&#24847;&#23454;&#29616;&#30340;&#26368;&#24378;&#36845;&#20195;&#22120;&#27010;&#24565;&#12290;</p>
+<ol>
+<li><code>input_iterator_tag</code> &#23545;&#24212; <a href="cpp-iterator-input_iterator.html"><code>input_iterator</code></a>&#12290;</li>
+<li><code>forward_iterator_tag</code> &#23545;&#24212; <a href="cpp-iterator-forward_iterator.html"><code>forward_iterator</code></a>&#12290;</li>
+<li><code>bidirectional_iterator_tag</code> &#23545;&#24212; <a href="cpp-iterator-bidirectional_iterator.html"><code>bidirectional_iterator</code></a>&#12290;</li>
+<li><code>random_access_iterator_tag</code> &#23545;&#24212; <a href="cpp-iterator-random_access_iterator.html"><code>random_access_iterator</code></a>&#12290;</li>
+<li><code>contiguous_iterator_tag</code> &#23545;&#24212; <a href="cpp-iterator-contiguous_iterator.html"><code>contiguous_iterator</code></a>&#12290;</li>
+</ol>
+<p>&#33509;&#26410;&#25552;&#20379; <code>iterator_concept</code>&#65292;&#21017;&#20197; <code>iterator_category</code> &#20026;&#21518;&#22791;&#12290;&#33509;&#20134;&#26410;&#25552;&#20379; <code>iterator_category</code>&#65288;&#21363; <code>It</code> &#38750; <a href="cpp-named_req-Iterator.html"><span style="font-style:italic">&#32769;&#24335;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyIterator)</span></a> &#65289;&#65292;&#19988;&#26410;&#29305;&#21270; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-iterator_traits.html"><span class="kw654">std::<span class="me2">iterator_traits</span></span></a><span class="sy1">&lt;</span>It<span class="sy1">&gt;</span></span></span>&#65292;&#21017;&#20551;&#35774;&#20026; <code>random_access_iterator_tag</code>&#12290;</p>
+<p>&#20219;&#20309;&#24773;&#20917;&#19979;&#65292;&#33509;&#19981;&#25903;&#25345;&#35201;&#27714;&#30340;&#25805;&#20316;&#21017;&#19981;&#28385;&#36275;&#21508;&#20010;&#27010;&#24565;&#65292;&#26080;&#20851;&#20046;&#26631;&#31614;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#27809;&#26377;&#29992;&#20110;<a href="cpp-named_req-ContiguousIterator.html"><span style="font-style:italic">&#32769;&#24335;&#36830;&#32493;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyContiguousIterator)</span></a> &#30340;&#29420;&#31435;&#26631;&#31614;&#12290;&#21363;&#19981;&#21487;&#33021;&#22522;&#20110;&#20854; <code>iterator_category</code> &#20998;&#36776;<a href="cpp-named_req-ContiguousIterator.html"><span style="font-style:italic">&#32769;&#24335;&#36830;&#32493;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyContiguousIterator)</span></a> &#12290;<span class="t-rev-inl t-since-cxx20"><span>&#35201;&#23450;&#20041;&#29992;&#20110;&#36830;&#32493;&#36845;&#20195;&#22120;&#30340;&#29305;&#21270;&#31639;&#27861;&#65292;&#39035;&#20351;&#29992; <a href="cpp-iterator-contiguous_iterator.html"><code>contiguous_iterator</code></a> &#27010;&#24565;&#12290;</span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></span></span></p>
+<p><code>output_iterator_tag</code> &#21644; <a href="cpp-iterator-output_iterator.html"><code>output_iterator</code></a> &#27010;&#24565;&#20043;&#38388;&#27809;&#26377;&#23545;&#24212;&#20851;&#31995;&#12290;&#23558; <code>iterator_concept</code> &#35774;&#20026; <code>output_iterator_tag</code> &#21482;&#34920;&#26126;&#35813;&#31867;&#22411;&#24182;&#19981;&#23454;&#29616; <a href="cpp-iterator-input_iterator.html"><code>input_iterator</code></a>&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<p>&#22914;&#26524;&#38656;&#35201;&#26681;&#25454;&#36845;&#20195;&#22120;&#20998;&#31867;&#26631;&#31614;&#36873;&#25321;&#31639;&#27861;&#65292;&#24120;&#29992;&#20570;&#27861;&#26159;&#20351;&#29992;&#20998;&#21457;&#20989;&#25968;&#65288;&#20063;&#21487;&#20197;&#36890;&#36807; <span class="t-lc"><a href="cpp-types-enable_if.html">std::enable_if</a></span> &#23454;&#29616;&#65289;&#12290;<span class="t-rev-inl t-since-cxx20"><span>&#21508;&#36845;&#20195;&#22120;&#26631;&#31614;&#31867;&#20063;&#29992;&#20110;&#22312;&#30456;&#24212;&#30340;&#27010;&#24565;&#23450;&#20041;&#20013;&#34920;&#31034;&#35201;&#27714;&#65292;&#23427;&#20204;&#26080;&#27861;&#21333;&#29420;&#22522;&#20110;&#20351;&#29992;&#27169;&#24335;&#20104;&#20197;&#34920;&#36798;&#12290;</span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></span></span></p>
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;iterator&gt;</span>
+<span class="co2">#include &lt;list&gt;</span>
+<span class="co2">#include &lt;vector&gt;</span>
+ 
+<span class="co1">// &#20351;&#29992;&#27010;&#24565;&#65288;&#26631;&#31614;&#26816;&#26597;&#26159;&#27010;&#24565;&#33258;&#36523;&#30340;&#19968;&#37096;&#20998;&#65289;</span>
+ 
+<span class="kw1">template</span><span class="sy1">&lt;</span><a href="cpp-iterator-bidirectional_iterator.html"><span class="kw2862">std::<span class="me2">bidirectional_iterator</span></span></a> BDIter<span class="sy1">&gt;</span>
+<span class="kw4">void</span> alg<span class="br0">(</span>BDIter, BDIter<span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1757">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;1. alg() <span class="es1">\t</span> &#20026;&#21452;&#21521;&#36845;&#20195;&#22120;&#35843;&#29992;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw1">template</span><span class="sy1">&lt;</span><a href="cpp-iterator-random_access_iterator.html"><span class="kw2863">std::<span class="me2">random_access_iterator</span></span></a> RAIter<span class="sy1">&gt;</span>
+<span class="kw4">void</span> alg<span class="br0">(</span>RAIter, RAIter<span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1757">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;2. alg() <span class="es1">\t</span> &#20026;&#38543;&#26426;&#35775;&#38382;&#36845;&#20195;&#22120;&#35843;&#29992;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="co1">// &#36951;&#30041;&#65292;&#20351;&#29992;&#26631;&#31614;&#27966;&#21457;</span>
+ 
+ 
+<span class="kw1">namespace</span> legacy
+<span class="br0">{</span>
+    <span class="co1">// &#32463;&#24120;&#25226;&#23454;&#29616;&#32454;&#33410;&#38544;&#34255;&#20110;&#19987;&#38376;&#30340;&#21629;&#21517;&#31354;&#38388;</span>
+    <span class="kw1">namespace</span> implementation_details
+    <span class="br0">{</span>
+        <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> BDIter<span class="sy1">&gt;</span>
+        <span class="kw4">void</span> alg<span class="br0">(</span>BDIter, BDIter, std<span class="sy4">::</span><span class="me2">bidirectional_iterator_tag</span><span class="br0">)</span>
+        <span class="br0">{</span>
+            <a href="cpp-io-cout.html"><span class="kw1757">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;3. legacy::alg() &#20026;&#21452;&#21521;&#36845;&#20195;&#22120;&#35843;&#29992;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+        <span class="br0">}</span>
+ 
+        <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> RAIter<span class="sy1">&gt;</span>
+        <span class="kw4">void</span> alg<span class="br0">(</span>RAIter, RAIter, std<span class="sy4">::</span><span class="me2">random_access_iterator_tag</span><span class="br0">)</span>
+        <span class="br0">{</span>
+            <a href="cpp-io-cout.html"><span class="kw1757">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;4. legacy::alg() &#20026;&#38543;&#26426;&#35775;&#38382;&#36845;&#20195;&#22120;&#35843;&#29992;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+        <span class="br0">}</span>
+    <span class="br0">}</span> <span class="co1">// namespace implementation_details</span>
+ 
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Iter<span class="sy1">&gt;</span>
+    <span class="kw4">void</span> alg<span class="br0">(</span>Iter first, Iter last<span class="br0">)</span>
+    <span class="br0">{</span>
+        implementation_details<span class="sy4">::</span><span class="me2">alg</span><span class="br0">(</span>first, last,
+            <span class="kw1">typename</span> <a href="cpp-iterator-iterator_traits.html"><span class="kw654">std::<span class="me2">iterator_traits</span></span></a><span class="sy1">&lt;</span>Iter<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">iterator_category</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span> <span class="co1">// namespace legacy</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-container-list.html"><span class="kw1273">std::<span class="me2">list</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span> l<span class="sy4">;</span>
+    alg<span class="br0">(</span>l.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, l.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// 1.</span>
+    legacy<span class="sy4">::</span><span class="me2">alg</span><span class="br0">(</span>l.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, l.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// 3.</span>
+ 
+    <a href="cpp-container-vector.html"><span class="kw1267">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span> v<span class="sy4">;</span>
+    alg<span class="br0">(</span>v.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, v.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// 2.</span>
+    legacy<span class="sy4">::</span><span class="me2">alg</span><span class="br0">(</span>v.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, v.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// 4.</span>
+ 
+<span class="co1">//  std::istreambuf_iterator&lt;char&gt; i1(std::cin), i2;</span>
+<span class="co1">//  alg(i1, i2);         // &#32534;&#35793;&#38169;&#35823;&#65306;&#27809;&#26377;&#21305;&#37197;&#30340;&#20989;&#25968;&#21487;&#20197;&#35843;&#29992;</span>
+<span class="co1">//  legacy::alg(i1, i2); // &#32534;&#35793;&#38169;&#35823;&#65306;&#27809;&#26377;&#21305;&#37197;&#30340;&#20989;&#25968;&#21487;&#20197;&#35843;&#29992;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">1. alg()        &#20026;&#21452;&#21521;&#36845;&#20195;&#22120;&#35843;&#29992;
+3. legacy::alg() &#20026;&#21452;&#21521;&#36845;&#20195;&#22120;&#35843;&#29992;
+2. alg()         &#20026;&#38543;&#26426;&#35775;&#38382;&#36845;&#20195;&#22120;&#35843;&#29992;
+4. legacy::alg() &#20026;&#38543;&#26426;&#35775;&#38382;&#36845;&#20195;&#22120;&#35843;&#29992;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-iterator.html"><span class="t-lines"><span>iterator</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-deprecated-cxx17" style="white-space: nowrap;">(C++17 &#24323;&#29992;)</span></span></span></div>
+</div>
+</td>
+<td>&#31616;&#21270;&#31616;&#21333;&#30340;&#36845;&#20195;&#22120;&#30340;&#24517;&#35201;&#31867;&#22411;&#23450;&#20041;&#30340;&#22522;&#31867;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-iterator_traits.html"><span class="t-lines"><span>iterator_traits</span></span></a></div>
+</div>
+</td>
+<td>&#20026;&#36845;&#20195;&#22120;&#21508;&#39033;&#24615;&#36136;&#25552;&#20379;&#32479;&#19968;&#25509;&#21475;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

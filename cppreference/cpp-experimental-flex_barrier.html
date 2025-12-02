@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::experimental::flex_barrier</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_experimental_flex_barrier skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::experimental::</span>flex_barrier</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-experimental.html">experimental</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="https://zh.cppreference.com/mwiki/index.php?title=cpp/header/experimental/barrier&amp;action=edit&amp;redlink=1" class="new" title="cpp/header/experimental/barrier&#65288;&#39029;&#38754;&#19981;&#23384;&#22312;&#65289;">&lt;experimental/barrier&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-concurrency">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">class</span> flex_barrier<span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-concurrency-ts t-mark-ts" style="white-space: nowrap;">(&#24182;&#21457; TS)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#31867; <code>std::experimental::flex_barrier</code> &#25552;&#20379;&#19968;&#31181;&#32447;&#31243;&#21327;&#35843;&#26426;&#21046;&#65292;&#20801;&#35768;&#21442;&#19982;&#32447;&#31243;&#30340;&#38598;&#21512;&#38459;&#22622;&#30452;&#33267;&#25805;&#20316;&#23436;&#25104;&#12290;&#19981;&#21516;&#20110; <span class="t-lc">std::experimental::latch</span>&#65292;&#23631;&#38556;&#21487;&#37325;&#29992;&#65307;&#19968;&#26086;&#20174;&#23631;&#38556;&#30340;&#21516;&#27493;&#28857;&#37322;&#25918;&#21442;&#19982;&#32447;&#31243;&#65292;&#23427;&#20204;&#23601;&#33021;&#37325;&#29992;&#21516;&#19968;&#23631;&#38556;&#12290;</p>
+<p>&#23631;&#38556;&#25317;&#26377;&#23436;&#25104;&#38454;&#27573;&#65292;&#19968;&#26086;&#21442;&#19982;&#32447;&#31243;&#38598;&#21512;&#20013;&#30340;&#25152;&#26377;&#32447;&#31243;&#37117;&#21040;&#36798;&#21516;&#27493;&#28857;&#65292;&#21017;&#30001;&#21442;&#19982;&#32447;&#31243;&#20043;&#19968;&#25191;&#34892;&#23436;&#25104;&#38454;&#27573;&#12290; <code>arrive_and_wait</code> &#21644; <code>arrive_and_drop</code> &#30340;&#35843;&#29992;<a href="cpp-atomic-memory_order.html">&#21516;&#27493;&#20110;</a>&#23436;&#25104;&#38454;&#27573;&#30340;&#24320;&#22987;&#65307;&#23436;&#25104;&#38454;&#27573;&#30340;&#32467;&#26463;&#21516;&#27493;&#20110;&#38459;&#22622;&#20110;&#20854;&#23436;&#25104;&#30340;&#25152;&#26377;&#35843;&#29992;&#30340;&#36820;&#22238;&#12290;</p>
+<p><code>std::experimental::flex_barrier</code> &#20801;&#35768;&#29992;&#25143;&#20197;&#19968;&#20010;&#20989;&#25968;&#23545;&#35937;&#25511;&#21046;&#23436;&#25104;&#38454;&#27573;&#12290;&#33509;&#20989;&#25968;&#23545;&#35937;&#36820;&#22238; -1&#65292;&#21017;&#19981;&#26356;&#25913;&#21442;&#19982;&#32447;&#31243;&#38598;&#21512;&#65288;&#32780;&#19979;&#20010;&#24490;&#29615;&#20013;&#21516;&#19968;&#21442;&#19982;&#32447;&#31243;&#38598;&#21512;&#24517;&#39035;&#25269;&#36798;&#21516;&#27493;&#28857;&#65289;&#65307;&#21542;&#21017;&#21442;&#19982;&#32447;&#31243;&#38598;&#21512;&#21464;&#20026;&#25317;&#26377;&#31561;&#20110;&#36820;&#22238;&#20540; <code>N</code> &#30340;&#26032;&#22823;&#23567;&#30340;&#38598;&#21512;&#65292;&#24182;&#30001;&#21040;&#36798;&#23631;&#38556;&#21516;&#27493;&#28857;&#30340;&#19979; <code>N</code> &#20010;&#32447;&#31243;&#32452;&#25104;&#12290;</p>
+<p>&#19981;&#38656;&#35201;&#27492;&#21151;&#33021;&#30340;&#29992;&#25143;&#21487;&#20197;&#20351;&#29992; <span class="t-lc">std::experimental::barrier</span>&#12290;</p>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-experimental-flex_barrier-flex_barrier.html"><span class="t-lines"><span>(&#26500;&#36896;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26500;&#36896; <code>flex_barrier</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-experimental-flex_barrier-~flex_barrier.html"><span class="t-lines"><span>(&#26512;&#26500;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#38144;&#27585; <code>flex_barrier</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span>operator=</span></span></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#24323;&#32622;]</span></span></span></div>
+</div>
+</td>
+<td>&#38750;&#21487;&#22797;&#21046;&#36171;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-experimental-flex_barrier-arrive_and_wait.html"><span class="t-lines"><span>arrive_and_wait</span></span></a></div>
+</div>
+</td>
+<td>&#21040;&#36798;&#21516;&#27493;&#28857;&#24182;&#38459;&#22622;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-experimental-flex_barrier-arrive_and_drop.html"><span class="t-lines"><span>arrive_and_drop</span></span></a></div>
+</div>
+</td>
+<td>&#21040;&#36798;&#21516;&#27493;&#28857;&#24182;&#20174;&#21442;&#19982;&#32447;&#31243;&#38598;&#21512;&#20013;&#31227;&#38500;&#24403;&#21069;&#32447;&#31243;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

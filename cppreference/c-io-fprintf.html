@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>printf, fprintf, sprintf, snprintf, printf_s, fprintf_s, sprintf_s, snprintf_s</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_io_fprintf skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">printf, fprintf, sprintf, snprintf, printf_s, fprintf_s, sprintf_s, snprintf_s</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-io.html">io</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-stdio.html"><tt>&lt;stdio.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+<tbody class="t-dcl-rev t-dcl-rev-num">
+<tr class="t-dcl-rev-aux">
+<td></td>
+<td rowspan="142">(1)</td>
+<td></td>
+</tr>
+<tr class="t-dcl t-until-c99">
+<td>
+<div><span class="mw-geshi c source-c"><span class="kw4">int</span> printf<span class="br0">(</span> <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;format, ... <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-until-c99" style="white-space: nowrap;">(C99 &#21069;)</span></td>
+</tr>
+<tr class="t-dcl t-since-c99">
+<td>
+<div><span class="mw-geshi c source-c"><span class="kw4">int</span> printf<span class="br0">(</span> <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, ... <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99 &#36215;)</span></td>
+</tr>
+</tbody>
+<tbody></tbody>
+<tbody class="t-dcl-rev t-dcl-rev-num">
+<tr class="t-dcl-rev-aux">
+<td></td>
+<td rowspan="142">(2)</td>
+<td></td>
+</tr>
+<tr class="t-dcl t-until-c99">
+<td>
+<div><span class="mw-geshi c source-c"><span class="kw4">int</span> fprintf<span class="br0">(</span> <a href="c-io.html"><span class="kw880">FILE</span></a><span class="sy2">*</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;stream, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;format, ... <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-until-c99" style="white-space: nowrap;">(C99 &#21069;)</span></td>
+</tr>
+<tr class="t-dcl t-since-c99">
+<td>
+<div><span class="mw-geshi c source-c"><span class="kw4">int</span> fprintf<span class="br0">(</span> <a href="c-io.html"><span class="kw880">FILE</span></a><span class="sy2">*</span> <span class="kw4">restrict</span> stream, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, ... <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99 &#36215;)</span></td>
+</tr>
+</tbody>
+<tbody></tbody>
+<tbody class="t-dcl-rev t-dcl-rev-num">
+<tr class="t-dcl-rev-aux">
+<td></td>
+<td rowspan="142">(3)</td>
+<td></td>
+</tr>
+<tr class="t-dcl t-until-c99">
+<td>
+<div><span class="mw-geshi c source-c"><span class="kw4">int</span> sprintf<span class="br0">(</span> <span class="kw4">char</span><span class="sy2">*</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;buffer, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;format, ... <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-until-c99" style="white-space: nowrap;">(C99 &#21069;)</span></td>
+</tr>
+<tr class="t-dcl t-since-c99">
+<td>
+<div><span class="mw-geshi c source-c"><span class="kw4">int</span> sprintf<span class="br0">(</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> buffer, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, ... <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99 &#36215;)</span></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="t-dcl t-since-c99">
+<td>
+<div><span class="mw-geshi c source-c"><span class="kw4">int</span> snprintf<span class="br0">(</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> buffer, <a href="c-types-size_t.html"><span class="kw100">size_t</span></a> bufsz,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, ... <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(4)</td>
+<td><span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-c11">
+<td>
+<div><span class="mw-geshi c source-c"><span class="kw4">int</span> printf_s<span class="br0">(</span> <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, ... <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(5)</td>
+<td><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-c11">
+<td>
+<div><span class="mw-geshi c source-c"><span class="kw4">int</span> fprintf_s<span class="br0">(</span> <a href="c-io.html"><span class="kw880">FILE</span></a><span class="sy2">*</span> <span class="kw4">restrict</span> stream, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, ... <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(6)</td>
+<td><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-c11">
+<td>
+<div><span class="mw-geshi c source-c"><span class="kw4">int</span> sprintf_s<span class="br0">(</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> buffer, rsize_t bufsz,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, ... <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(7)</td>
+<td><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-c11">
+<td>
+<div><span class="mw-geshi c source-c"><span class="kw4">int</span> snprintf_s<span class="br0">(</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> buffer, rsize_t bufsz,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, ... <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(8)</td>
+<td><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#20174;&#32473;&#23450;&#20301;&#32622;&#21152;&#36733;&#25968;&#25454;&#65292;&#36716;&#25442;&#20026;&#23383;&#31526;&#20018;&#31561;&#20215;&#29289;&#65292;&#24182;&#20889;&#32467;&#26524;&#21040;&#21508;&#31181;&#27744;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#23558;&#32467;&#26524;&#20889;&#20837;&#36755;&#20986;&#27969; <span class="t-lc"><a href="c-io.html">stdout</a></span>&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#23558;&#32467;&#26524;&#20889;&#20837;&#36755;&#20986;&#27969; <span class="t-c"><span class="mw-geshi c source-c">stream</span></span>&#12290;</div>
+<div class="t-li1"><span class="t-li">3)</span> &#23558;&#32467;&#26524;&#20889;&#20837;&#23383;&#31526;&#20018; <span class="t-c"><span class="mw-geshi c source-c">buffer</span></span>&#12290;&#22914;&#26524;&#25152;&#20889;&#20837;&#30340;&#23383;&#31526;&#20018;&#65288;&#21152;&#19978;&#32456;&#27490;&#31354;&#23383;&#31526;&#65289;&#36229;&#20986;&#30001; <span class="t-c"><span class="mw-geshi c source-c">buffer</span></span> &#25152;&#25351;&#21521;&#30340;&#25968;&#32452;&#30340;&#22823;&#23567;&#65292;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</div>
+<div class="t-li1"><span class="t-li">4)</span> &#23558;&#32467;&#26524;&#20889;&#20837;&#23383;&#31526;&#20018; <span class="t-c"><span class="mw-geshi c source-c">buffer</span></span>&#12290;&#33267;&#22810;&#20889; <span class="t-c"><span class="mw-geshi c source-c">bufsz <span class="sy2">-</span> <span class="nu0">1</span></span></span> &#20010;&#23383;&#31526;&#12290;&#20135;&#29983;&#30340;&#23383;&#31526;&#20018;&#20250;&#20197;&#31354;&#23383;&#31526;&#32456;&#27490;&#65292;&#38500;&#38750; <span class="t-c"><span class="mw-geshi c source-c">bufsz</span></span> &#20026;&#38646;&#12290;&#33509; <span class="t-c"><span class="mw-geshi c source-c">bufsz</span></span> &#20026;&#38646;&#65292;&#21017;&#19981;&#20889;&#20837;&#20219;&#20309;&#20869;&#23481;&#65292;&#19988; <span class="t-c"><span class="mw-geshi c source-c">buffer</span></span> &#21487;&#20197;&#26159;&#31354;&#25351;&#38024;&#65292;&#28982;&#32780;&#20381;&#26087;&#35745;&#31639;&#36820;&#22238;&#20540;&#65288;&#20250;&#20889;&#20837;&#30340;&#23383;&#31526;&#25968;&#65292;&#19981;&#21253;&#21547;&#31354;&#32456;&#27490;&#31526;&#65289;&#24182;&#36820;&#22238;&#12290;</div>
+<div class="t-li1"><span class="t-li">5-8)</span> &#21516; <span class="t-v">(1-4)</span> &#65292;&#38500;&#20102;&#22312;&#36816;&#34892;&#26102;&#26816;&#27979;&#19979;&#21015;&#38169;&#35823;&#65292;&#24182;&#35843;&#29992;&#24403;&#21069;&#23433;&#35013;&#30340;<a href="c-error-set_constraint_handler_s.html">&#32422;&#26463;&#22788;&#29702;&#20989;&#25968;</a>&#65306;
+<dl>
+<dd>
+<ul>
+<li><span class="t-c"><span class="mw-geshi c source-c">format</span></span> &#20013;&#23384;&#22312;&#36716;&#25442;&#35828;&#26126;&#31526; <code>%n</code></li>
+<li>&#20219;&#20309;&#19968;&#20010;&#23545;&#24212; <code>%s</code> &#30340;&#21442;&#25968;&#26159;&#31354;&#25351;&#38024;</li>
+<li><span class="t-c"><span class="mw-geshi c source-c">stream</span></span>&#12289;<span class="t-c"><span class="mw-geshi c source-c">format</span></span> &#25110; <span class="t-c"><span class="mw-geshi c source-c">buffer</span></span> &#26159;&#31354;&#25351;&#38024;</li>
+<li><span class="t-c"><span class="mw-geshi c source-c">bufsz</span></span> &#20026;&#38646;&#25110;&#22823;&#20110; <span class="t-lc">RSIZE_MAX</span></li>
+<li>&#22312;&#20219;&#20309;&#19968;&#20010;&#23383;&#31526;&#20018;&#21450;&#23383;&#31526;&#36716;&#25442;&#35828;&#26126;&#31526;&#20013;&#20986;&#29616;&#32534;&#30721;&#38169;&#35823;</li>
+<li>&#65288;&#20165;&#23545;&#20110; <code>sprintf_s</code> &#65289;&#23384;&#20648;&#20110; <span class="t-c"><span class="mw-geshi c source-c">buffer</span></span> &#30340;&#23383;&#31526;&#20018;&#65288;&#21253;&#25324;&#23614;&#38543;&#31354;&#23383;&#31526;&#65289;&#38271;&#24230;&#23558;&#36229;&#20986; <span class="t-c"><span class="mw-geshi c source-c">bufsz</span></span></li>
+</ul>
+</dd>
+<dd>&#21516;&#25152;&#26377;&#36793;&#30028;&#26816;&#26597;&#20989;&#25968;&#65292;<code>printf_s</code>&#12289;<code>fprintf_s</code>&#12289;<code>sprintf_s</code> &#19982; <code>snprintf_s</code>&#65292;&#20165;&#33509;&#23454;&#29616;&#23450;&#20041; <span class="t-c"><span class="mw-geshi c source-c">__STDC_LIB_EXT1__</span></span> &#19988;&#29992;&#25143;&#22312;&#21253;&#21547; <a href="c-header-stdio.html"><tt>&lt;stdio.h&gt;</tt></a> &#21069;&#23450;&#20041; <span class="t-c"><span class="mw-geshi c source-c">__STDC_WANT_LIB_EXT1__</span></span> &#20026;&#25972;&#25968;&#24120;&#37327; 1 &#25165;&#20445;&#35777;&#21487;&#29992;&#12290;</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>stream</td>
+<td>-</td>
+<td>&#35201;&#20889;&#20837;&#30340;&#36755;&#20986;&#25991;&#20214;&#27969;</td>
+</tr>
+<tr class="t-par">
+<td>buffer</td>
+<td>-</td>
+<td>&#25351;&#21521;&#35201;&#20889;&#20837;&#30340;&#23383;&#31526;&#20018;&#30340;&#25351;&#38024;</td>
+</tr>
+<tr class="t-par">
+<td>bufsz</td>
+<td>-</td>
+<td>&#26368;&#22810;&#20250;&#20889;&#20837; <span class="t-c"><span class="mw-geshi c source-c">bufsz <span class="sy2">-</span> <span class="nu0">1</span></span></span> &#20010;&#23383;&#31526;&#65292;&#20877;&#21152;&#31354;&#32456;&#27490;&#31526;</td>
+</tr>
+<tr class="t-par">
+<td>format</td>
+<td>-</td>
+<td>&#25351;&#21521;&#25351;&#23450;&#25968;&#25454;&#36716;&#25442;&#26041;&#24335;&#30340;&#31354;&#32456;&#27490;&#22810;&#23383;&#33410;&#23383;&#31526;&#20018;&#30340;&#25351;&#38024;</td>
+</tr>
+<tr class="t-par">
+<td>...</td>
+<td>-</td>
+<td>&#25351;&#23450;&#35201;&#25171;&#21360;&#25968;&#25454;&#30340;&#21442;&#25968;&#12290;&#33509;&#20219;&#20309;<a href="c-language-conversion.html#.E9.BB.98.E8.AE.A4.E5.AE.9E.E5.8F.82.E6.8F.90.E5.8D.87">&#40664;&#35748;&#23454;&#21442;&#25552;&#21319;</a>&#21518;&#30340;&#21442;&#25968;&#19981;&#25317;&#26377;&#23545;&#24212;&#36716;&#25442;&#35828;&#26126;&#25152;&#26399;&#24453;&#30340;&#31867;&#22411;&#65288;&#26399;&#24453;&#31867;&#22411;&#26159;&#25552;&#21319;&#21518;&#30340;&#31867;&#22411;&#25110;&#32773;&#25552;&#21319;&#21518;&#31867;&#22411;&#30340;&#20860;&#23481;&#31867;&#22411;&#65289;&#65292;&#25110;&#33509;&#21442;&#25968;&#25968;&#37327;&#23569;&#20110; <span class="t-c"><span class="mw-geshi c source-c">format</span></span> &#30340;&#35201;&#27714;&#65292;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;&#33509;&#26377;&#22810;&#20110; <span class="t-c"><span class="mw-geshi c source-c">format</span></span> &#35201;&#27714;&#30340;&#21442;&#25968;&#65292;&#21017;&#27714;&#20540;&#24182;&#24573;&#30053;&#22810;&#20986;&#30340;&#21442;&#25968;&#12290;</td>
+</tr>
+</table>
+<p><b>&#26684;&#24335;</b>&#23383;&#31526;&#20018;&#30001;&#26222;&#36890;&#22810;&#23383;&#33410;&#23383;&#31526;&#65288;&#38500;&#20102; <code><b>%</b></code>&#65289;&#21644;&#36716;&#25442;&#25351;&#31034;&#26500;&#25104;&#65292;&#21069;&#32773;&#34987;&#19981;&#25913;&#21160;&#22320;&#22797;&#21046;&#21040;&#36755;&#20986;&#27969;&#12290;&#27599;&#20010;&#36716;&#25442;&#25351;&#31034;&#22343;&#25317;&#26377;&#19979;&#21015;&#26684;&#24335;&#65306;</p>
+<dl>
+<dd>
+<ul>
+<li>&#24341;&#20837;&#30340; <code><b>%</b></code> &#23383;&#31526;&#12290;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li><span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> &#19968;&#25110;&#22810;&#20010;&#20462;&#25913;&#36716;&#25442;&#34892;&#20026;&#30340;&#26631;&#24535;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li><code><b>-</b></code>&#65306;&#36716;&#25442;&#32467;&#26524;&#22312;&#22495;&#20869;&#24038;&#23545;&#40784;&#65288;&#40664;&#35748;&#20026;&#21491;&#23545;&#40784;&#65289;&#12290;</li>
+<li><code><b>+</b></code>&#65306;&#26377;&#31526;&#21495;&#36716;&#25442;&#30340;&#31526;&#21495;&#22987;&#32456;&#21069;&#32622;&#20110;&#36716;&#25442;&#32467;&#26524;&#65288;&#40664;&#35748;&#20165;&#24403;&#32467;&#26524;&#20026;&#36127;&#26102;&#21069;&#32622;&#36127;&#21495;&#65289;&#12290;</li>
+<li><i>&#31354;&#26684;</i>&#65306;&#22914;&#26524;&#26377;&#31526;&#21495;&#36716;&#25442;&#30340;&#32467;&#26524;&#19981;&#20197;&#31526;&#21495;&#24320;&#22987;&#65292;&#25110;&#20026;&#31354;&#65292;&#37027;&#20040;&#21069;&#32622;&#31354;&#26684;&#20110;&#32467;&#26524;&#12290;&#23384;&#22312; <code>+</code> &#26631;&#24535;&#26102;&#24573;&#30053;<i>&#31354;&#26684;</i>&#12290;</li>
+<li><code><b>#</b></code>&#65306;&#36827;&#34892;<i>&#26367;&#29992;&#24418;&#24335;</i>&#8202;&#65279;&#30340;&#36716;&#25442;&#12290;&#30830;&#20999;&#30340;&#25928;&#26524;&#35265;&#19979;&#34920;&#65292;&#20854;&#20182;&#24773;&#20917;&#19979;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</li>
+<li><code><b>0</b></code>&#65306;&#23545;&#20110;&#25972;&#25968;&#21644;&#28014;&#28857;&#25968;&#36716;&#25442;&#65292;&#20351;&#29992;&#21069;&#23548;&#38646;&#20195;&#26367;<i>&#31354;&#26684;</i>&#8202;&#65279;&#23383;&#31526;&#22635;&#20805;&#23383;&#27573;&#12290;&#23545;&#20110;&#25972;&#25968;&#65292;&#22914;&#26524;&#26174;&#24335;&#25351;&#23450;&#20102;&#31934;&#24230;&#65292;&#37027;&#20040;&#24573;&#30053;&#27492;&#26631;&#24535;&#12290;&#23545;&#20110;&#20854;&#20182;&#36716;&#25442;&#65292;&#20351;&#29992;&#27492;&#26631;&#24535;&#23548;&#33268;&#26410;&#23450;&#20041;&#34892;&#20026;&#12290;&#23384;&#22312; <code>-</code> &#26631;&#24535;&#26102;&#24573;&#30053; <code>0</code>&#12290;</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li><span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> &#25972;&#25968;&#25110; <code>*</code>&#65292;&#25351;&#23450;&#26368;&#23567;&#23383;&#27573;&#23485;&#24230;&#12290;&#22914;&#26524;&#26377;&#35201;&#27714;&#65292;&#37027;&#20040;&#32467;&#26524;&#20250;&#20197;<i>&#31354;&#26684;</i>&#8202;&#65279;&#23383;&#31526;&#65288;&#40664;&#35748;&#24773;&#20917;&#65289;&#22635;&#20805;&#65292;&#22312;&#21491;&#23545;&#40784;&#26102;&#20110;&#24038;&#65292;&#24038;&#23545;&#40784;&#26102;&#20110;&#21491;&#12290;&#20351;&#29992; <code>*</code> &#30340;&#24773;&#20917;&#19979;&#65292;&#20197;&#19968;&#20010;&#39069;&#22806;&#30340; <span class="mw-geshi c source-c"><span class="kw4">int</span></span> &#31867;&#22411;&#23454;&#21442;&#25351;&#23450;&#23485;&#24230;&#12290;&#22914;&#26524;&#23454;&#21442;&#20540;&#26159;&#36127;&#25968;&#65292;&#37027;&#20040;&#23427;&#23548;&#33268;&#25351;&#23450; <code>-</code> &#26631;&#24535;&#21644;&#27491;&#30340;&#23383;&#27573;&#23485;&#24230;&#12290;&#65288;&#27880;&#24847;&#65306;&#36825;&#26159;&#26368;&#23567;&#23485;&#24230;&#65306;&#20540;&#20915;&#19981;&#20250;&#34987;&#25130;&#26029;&#65289;&#12290;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li><span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> &#21518;&#38543;&#25972;&#25968;&#25110; <code><b>*</b></code> &#25110;&#20004;&#32773;&#30342;&#26080;&#30340; <code><b>.</b></code>&#65292;&#25351;&#31034;&#36716;&#25442;&#30340;<i>&#31934;&#24230;</i>&#8202;&#65279;&#12290;&#22312;&#20351;&#29992; <code>*</code> &#30340;&#24773;&#20917;&#19979;&#65292;<i>&#31934;&#24230;</i>&#8202;&#65279;&#30001;&#39069;&#22806;&#30340; <span class="mw-geshi c source-c"><span class="kw4">int</span></span> &#31867;&#22411;&#30340;&#23454;&#21442;&#25351;&#23450;&#12290;&#22914;&#26524;&#27492;&#23454;&#21442;&#30340;&#20540;&#26159;&#36127;&#25968;&#65292;&#37027;&#20040;&#23427;&#34987;&#24573;&#30053;&#12290;&#22914;&#26524;&#26082;&#19981;&#20351;&#29992;&#25968;&#23383;&#20063;&#19981;&#20351;&#29992; <code><b>*</b></code>&#65292;&#37027;&#20040;&#31934;&#24230;&#37319;&#29992;&#38646;&#12290;<i>&#31934;&#24230;</i>&#8202;&#65279;&#30340;&#30830;&#20999;&#25928;&#26524;&#35265;&#19979;&#34920;&#12290;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li><span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> &#25351;&#23450;&#23454;&#21442;&#22823;&#23567;&#30340;<i>&#38271;&#24230;&#20462;&#39280;&#31526;</i>&#65288;&#20854;&#19982;&#26684;&#24335;&#25351;&#31034;&#31526;&#32452;&#21512;&#65292;&#25351;&#23450;&#23545;&#24212;&#23454;&#21442;&#30340;&#31867;&#22411;&#65289;&#12290;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>&#36716;&#25442;&#26684;&#24335;&#25351;&#31034;&#31526;</li>
+</ul>
+</dd>
+</dl>
+<p>&#19979;&#21015;&#26684;&#24335;&#25351;&#31034;&#31526;&#21487;&#29992;&#65306;</p>
+<table class="wikitable" style="text-align: center;">
+<tr>
+<th style="word-break: keep-all;">&nbsp;&#36716;&#25442;&#25351;&#31034;&#31526;&nbsp;</th>
+<th>&#35299;&#37322;</th>
+<th colspan="9">&#26399;&#26395;&#30340;&#23454;&#21442;&#31867;&#22411;</th>
+</tr>
+<tr>
+<th colspan="2" style="text-align: right;">&#38271;&#24230;&#20462;&#39280;&#31526;&rarr;</th>
+<th>hh</th>
+<th>h</th>
+<th style="font-weight: normal;">&#26080;</th>
+<th>l</th>
+<th>ll</th>
+<th>j</th>
+<th>z</th>
+<th>t</th>
+<th>L</th>
+</tr>
+<tr>
+<th colspan="2" style="text-align: right;">&#20165;&#20174; C99 &#36215;&#21487;&#29992;&rarr;</th>
+<th style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><span style="font-weight: normal;">&#26159;</span></th>
+<th></th>
+<th></th>
+<th></th>
+<th style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><span style="font-weight: normal;">&#26159;</span></th>
+<th style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><span style="font-weight: normal;">&#26159;</span></th>
+<th style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><span style="font-weight: normal;">&#26159;</span></th>
+<th style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><span style="font-weight: normal;">&#26159;</span></th>
+<th></th>
+</tr>
+<tr>
+<th><code>%</code></th>
+<td style="text-align: left;">
+<p>&#20889;&#20837;&#23383;&#38754;&#30340; <code><b>%</b></code>&#12290;&#23436;&#25972;&#30340;&#36716;&#25442;&#25351;&#31034;&#24517;&#39035;&#26159; <code><b>%%</b></code>&#12290;</p>
+</td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+</tr>
+<tr>
+<th><code>c</code></th>
+<td style="text-align: left;">
+<p>&#20889;&#20837;<b>&#21333;&#20010;&#23383;&#31526;</b>&#12290;</p>
+<ul>
+<li>&#23454;&#21442;&#39318;&#20808;&#34987;&#36716;&#25442;&#25104; <span class="mw-geshi c source-c"><span class="kw4">unsigned</span> <span class="kw4">char</span></span>&#12290;</li>
+<li>&#22914;&#26524;&#20351;&#29992; <b>l</b> &#20462;&#39280;&#31526;&#65292;&#37027;&#20040;&#23454;&#21442;&#39318;&#20808;&#34987;&#36716;&#25442;&#25104;&#23383;&#31526;&#20018;&#65292;&#22914;&#21516;&#36890;&#36807;&#20197; <span class="mw-geshi c source-c"><span class="kw4">wchar_t</span><span class="br0">[</span><span class="nu0">2</span><span class="br0">]</span></span> &#23454;&#21442;&#20351;&#29992; <b>%ls</b>&#12290;</li>
+</ul>
+</td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td>
+<div class="t-vertical">
+<div><span class="mw-geshi c source-c"><span class="kw4">int</span></span></div>
+</div>
+</td>
+<td>
+<div class="t-vertical">
+<div><span class="t-lc">wint_t</span></div>
+</div>
+</td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+</tr>
+<tr>
+<th><code>s</code></th>
+<td style="text-align: left;">
+<p>&#20889;&#20837;<b>&#23383;&#31526;&#20018;</b>&#12290;</p>
+<ul>
+<li>&#23454;&#21442;&#24517;&#39035;&#26159;&#25351;&#21521;&#23383;&#31526;&#25968;&#32452;&#39318;&#20803;&#32032;&#30340;&#25351;&#38024;&#12290;</li>
+<li><i>&#31934;&#24230;</i>&#8202;&#65279;&#25351;&#23450;&#20889;&#20837;&#26368;&#22823;&#30340;&#23383;&#31526;&#25968;&#12290;&#22914;&#26524;&#27809;&#26377;&#25351;&#23450;<i>&#31934;&#24230;</i>&#65292;&#37027;&#20040;&#20889;&#27599;&#20010;&#23383;&#33410;&#30452;&#21040;&#32780;&#19981;&#21547;&#39318;&#20010;&#31354;&#32456;&#27490;&#31526;&#12290;</li>
+<li>&#22914;&#26524;&#20351;&#29992; <b>l</b> &#25351;&#31034;&#31526;&#65292;&#37027;&#20040;&#23454;&#21442;&#24517;&#39035;&#26159;&#25351;&#21521; <span class="mw-geshi c source-c"><span class="kw4">wchar_t</span></span> &#25968;&#32452;&#39318;&#20803;&#32032;&#30340;&#25351;&#38024;&#65292;&#25968;&#32452;&#20250;&#34987;&#36716;&#25442;&#25104; <span class="mw-geshi c source-c"><span class="kw4">char</span></span> &#25968;&#32452;&#65292;&#22914;&#21516;&#36890;&#36807;&#20197;&#38646;&#21021;&#22987;&#21270;&#36716;&#25442;&#29366;&#24577;&#35843;&#29992; <span class="t-lc"><a href="c-string-multibyte-wcrtomb.html">wcrtomb</a></span>&#12290;</li>
+</ul>
+</td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td>
+<div class="t-vertical">
+<div><span class="mw-geshi c source-c"><span class="kw4">char</span><span class="sy2">*</span></span></div>
+</div>
+</td>
+<td>
+<div class="t-vertical">
+<div><span class="mw-geshi c source-c"><span class="kw4">wchar_t</span><span class="sy2">*</span></span></div>
+</div>
+</td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+</tr>
+<tr>
+<th><code>d</code><br />
+<code>i</code></th>
+<td style="text-align: left;">
+<p>&#36716;&#25442;<b>&#26377;&#31526;&#21495;&#25972;&#25968;</b>&#20026;&#21313;&#36827;&#21046;&#34920;&#31034; <i>[-]dddd</i>&#12290;</p>
+<ul>
+<li><i>&#31934;&#24230;</i>&#8202;&#65279;&#25351;&#23450;&#20986;&#29616;&#30340;&#26368;&#23567;&#25968;&#20301;&#25968;&#12290;&#40664;&#35748;&#31934;&#24230;&#26159; <span class="t-c"><span class="mw-geshi c source-c"><span class="nu0">1</span></span></span>&#12290;</li>
+<li>&#22914;&#26524;&#34987;&#36716;&#25442;&#30340;&#20540;&#21644;&#31934;&#24230;&#37117;&#26159; <span class="t-c"><span class="mw-geshi c source-c">&#8203;<span class="nu0">0</span>&#8203;</span></span>&#65292;&#37027;&#20040;&#36716;&#25442;&#32467;&#26524;&#26080;&#23383;&#31526;&#12290;</li>
+<li>&#23545;&#20110; <code><b>z</b></code> &#20462;&#39280;&#31526;&#65292;&#26399;&#26395;&#30340;&#23454;&#21442;&#31867;&#22411;&#26159; <span class="t-lc"><a href="c-types-size_t.html">size_t</a></span> &#30340;&#26377;&#31526;&#21495;&#29256;&#26412;&#12290;</li>
+</ul>
+</td>
+<td>
+<div class="t-vertical">
+<div><span class="mw-geshi c source-c"><span class="kw4">signed</span> <span class="kw4">char</span></span></div>
+</div>
+</td>
+<td>
+<div class="t-vertical">
+<div><span class="mw-geshi c source-c"><span class="kw4">short</span></span></div>
+</div>
+</td>
+<td>
+<div class="t-vertical">
+<div><span class="mw-geshi c source-c"><span class="kw4">int</span></span></div>
+</div>
+</td>
+<td>
+<div class="t-vertical">
+<div><span class="mw-geshi c source-c"><span class="kw4">long</span></span></div>
+</div>
+</td>
+<td>
+<div class="t-vertical">
+<div><span class="mw-geshi c source-c"><span class="kw4">long</span> <span class="kw4">long</span></span></div>
+</div>
+</td>
+<td>
+<div class="t-vertical">
+<div><span class="t-lc"><a href="c-types-integer.html">intmax_t</a></span></div>
+</div>
+</td>
+<td>
+<div class="t-vertical">
+<div>&#8251;</div>
+</div>
+</td>
+<td>
+<div class="t-vertical">
+<div><span class="t-lc"><a href="c-types-ptrdiff_t.html">ptrdiff_t</a></span></div>
+</div>
+</td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+</tr>
+<tr>
+<th><code>o</code></th>
+<td style="text-align: left;">
+<p>&#36716;&#25442;<b>&#26080;&#31526;&#21495;&#25972;&#25968;</b>&#20026;&#20843;&#36827;&#21046;&#34920;&#31034; <i>oooo</i>&#12290;</p>
+<ul>
+<li><i>&#31934;&#24230;</i>&#8202;&#65279;&#25351;&#23450;&#20986;&#29616;&#25968;&#23383;&#30340;&#26368;&#23567;&#20010;&#25968;&#12290;&#40664;&#35748;&#31934;&#24230;&#26159; <span class="t-c"><span class="mw-geshi c source-c"><span class="nu0">1</span></span></span>&#12290;</li>
+<li>&#22914;&#26524;&#34987;&#36716;&#25442;&#20540;&#21644;&#31934;&#24230;&#37117;&#26159; <span class="t-c"><span class="mw-geshi c source-c">&#8203;<span class="nu0">0</span>&#8203;</span></span>&#65292;&#37027;&#20040;&#36716;&#25442;&#32467;&#26524;&#26080;&#23383;&#31526;&#12290;</li>
+<li>&#22312;<i>&#26367;&#29992;&#23454;&#29616;</i>&#8202;&#65279;&#20013;&#31934;&#24230;&#25353;&#38656;&#22686;&#21152;&#65292;&#20197;&#20889;&#20837;&#19968;&#20010;&#21069;&#23548;&#38646;&#12290;&#22312;&#27492;&#24773;&#20917;&#19979;&#22914;&#26524;&#34987;&#36716;&#25442;&#20540;&#21644;&#31934;&#24230;&#37117;&#26159; <span class="t-c"><span class="mw-geshi c source-c">&#8203;<span class="nu0">0</span>&#8203;</span></span>&#65292;&#37027;&#20040;&#20889;&#20837;&#21333;&#20010; <span class="t-c"><span class="mw-geshi c source-c">&#8203;<span class="nu0">0</span>&#8203;</span></span>&#12290;</li>
+</ul>
+</td>
+<td rowspan="3">
+<div class="t-vertical">
+<div><span class="mw-geshi c source-c"><span class="kw4">unsigned</span> <span class="kw4">char</span></span></div>
+</div>
+</td>
+<td rowspan="3">
+<div class="t-vertical">
+<div><span class="mw-geshi c source-c"><span class="kw4">unsigned</span> <span class="kw4">short</span></span></div>
+</div>
+</td>
+<td rowspan="3">
+<div class="t-vertical">
+<div><span class="mw-geshi c source-c"><span class="kw4">unsigned</span> <span class="kw4">int</span></span></div>
+</div>
+</td>
+<td rowspan="3">
+<div class="t-vertical">
+<div><span class="mw-geshi c source-c"><span class="kw4">unsigned</span> <span class="kw4">long</span></span></div>
+</div>
+</td>
+<td rowspan="3">
+<div class="t-vertical">
+<div><span class="mw-geshi c source-c"><span class="kw4">unsigned</span> <span class="kw4">long</span> <span class="kw4">long</span></span></div>
+</div>
+</td>
+<td rowspan="3">
+<div class="t-vertical">
+<div><span class="t-lc"><a href="c-types-integer.html">uintmax_t</a></span></div>
+</div>
+</td>
+<td rowspan="3">
+<div class="t-vertical">
+<div><span class="t-lc"><a href="c-types-size_t.html">size_t</a></span></div>
+</div>
+</td>
+<td rowspan="3">
+<div class="t-vertical">
+<div><span class="t-lc"><a href="c-types-ptrdiff_t.html">ptrdiff_t</a></span> &#30340;&#26080;&#31526;&#21495;&#29256;&#26412;</div>
+</div>
+</td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+</tr>
+<tr>
+<th><code>x</code><br />
+<code>X</code></th>
+<td style="text-align: left;">
+<p>&#36716;&#25442;<b>&#26080;&#31526;&#21495;&#25972;&#25968;</b>&#20026;&#21313;&#20845;&#36827;&#21046;&#34920;&#31034; <i>hhhh</i>&#12290;</p>
+<ul>
+<li><code><b>x</b></code> &#36716;&#25442;&#20351;&#29992;&#23383;&#27597; <code>abcdef</code>&#12290;</li>
+<li><code><b>X</b></code> &#36716;&#25442;&#20351;&#29992; <code>ABCDEF</code>&#12290;</li>
+<li><i>&#31934;&#24230;</i>&#25351;&#23450;&#20986;&#29616;&#25968;&#20301;&#30340;&#26368;&#23567;&#20010;&#25968;&#12290;&#40664;&#35748;&#31934;&#24230;&#26159; <span class="t-c"><span class="mw-geshi c source-c"><span class="nu0">1</span></span></span>&#12290;</li>
+<li>&#22914;&#26524;&#34987;&#36716;&#25442;&#20540;&#21644;&#31934;&#24230;&#37117;&#26159; <span class="t-c"><span class="mw-geshi c source-c">&#8203;<span class="nu0">0</span>&#8203;</span></span>&#65292;&#37027;&#20040;&#36716;&#25442;&#32467;&#26524;&#26080;&#23383;&#31526;&#12290;</li>
+<li>&#22312;<i>&#26367;&#29992;&#23454;&#29616;&#20013;</i>&#8202;&#65279;&#22914;&#26524;&#34987;&#36716;&#25442;&#20540;&#38750;&#38646;&#65292;&#37027;&#20040;&#32467;&#26524;&#26377; <code><b>0x</b></code> &#25110; <code><b>0X</b></code> &#21069;&#32512;&#12290;</li>
+</ul>
+</td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+</tr>
+<tr>
+<th><code>u</code></th>
+<td style="text-align: left;">
+<p>&#36716;&#25442;<b>&#26080;&#31526;&#21495;&#25972;&#25968;</b>&#20026;&#21313;&#36827;&#21046;&#34920;&#31034; <i>dddd</i>&#12290;</p>
+<ul>
+<li><i>&#31934;&#24230;</i>&#8202;&#65279;&#25351;&#23450;&#20986;&#29616;&#30340;&#25968;&#20301;&#26368;&#23567;&#20010;&#25968;&#12290;</li>
+<li>&#40664;&#35748;&#31934;&#24230;&#26159; <span class="t-c"><span class="mw-geshi c source-c"><span class="nu0">1</span></span></span>&#12290;</li>
+<li>&#22914;&#26524;&#34987;&#36716;&#25442;&#20540;&#21644;&#31934;&#24230;&#37117;&#26159; <span class="t-c"><span class="mw-geshi c source-c">&#8203;<span class="nu0">0</span>&#8203;</span></span>&#65292;&#37027;&#20040;&#36716;&#25442;&#32467;&#26524;&#26080;&#23383;&#31526;&#12290;</li>
+</ul>
+</td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+</tr>
+<tr>
+<th><code>f</code><br />
+<span style="display: inline-block;"><code>F</code>&nbsp;<span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99)</span></span></th>
+<td style="text-align: left;">
+<p>&#36716;&#25442;<b>&#28014;&#28857;&#25968;</b>&#20026; <i>[-]ddd.ddd</i> &#26679;&#24335;&#30340;&#21313;&#36827;&#21046;&#35760;&#27861;&#12290;</p>
+<ul>
+<li><i>&#31934;&#24230;</i>&#8202;&#65279;&#25351;&#23450;&#23567;&#25968;&#28857;&#23383;&#31526;&#21518;&#20986;&#29616;&#30340;&#30830;&#20999;&#25968;&#20301;&#25968;&#12290;</li>
+<li>&#40664;&#35748;&#31934;&#24230;&#26159; <span class="t-c"><span class="mw-geshi c source-c"><span class="nu0">6</span></span></span>&#12290;</li>
+<li>&#22312;<i>&#26367;&#29992;&#23454;&#29616;</i>&#8202;&#65279;&#20013;&#21363;&#20351;&#27809;&#26377;&#23567;&#25968;&#28857;&#21518;&#25968;&#20301;&#20063;&#20889;&#23567;&#25968;&#28857;&#12290;</li>
+<li>&#26080;&#31351;&#22823;&#21644;&#38750;&#25968;&#30340;&#36716;&#25442;&#26679;&#24335;&#35265;<a href="c-io-fprintf.html#.E6.B3.A8.E8.A7.A3">&#27880;&#35299;</a>&#12290;</li>
+</ul>
+</td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td rowspan="4">
+<div class="t-vertical">
+<div><span class="mw-geshi c source-c"><span class="kw4">double</span></span></div>
+</div>
+</td>
+<td rowspan="4">
+<div class="t-vertical">
+<div><span class="mw-geshi c source-c"><span class="kw4">double</span></span> <span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99)</span></div>
+</div>
+</td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td rowspan="4">
+<div class="t-vertical">
+<div><span class="mw-geshi c source-c"><span class="kw4">long</span> <span class="kw4">double</span></span></div>
+</div>
+</td>
+</tr>
+<tr>
+<th><code>e</code><br />
+<code>E</code></th>
+<td style="text-align: left;">
+<p>&#36716;&#25442;<b>&#28014;&#28857;&#25968;</b>&#20026;&#21313;&#36827;&#21046;&#25351;&#25968;&#35760;&#27861;&#12290;</p>
+<ul>
+<li><code><b>e</b></code> &#36716;&#25442;&#26679;&#24335;&#20351;&#29992; <i>[-]d.ddd</i>&#8202;&#65279;<code><b>e</b></code><i>&plusmn;dd</i>&#12290;</li>
+<li><code><b>E</b></code> &#36716;&#25442;&#26679;&#24335;&#20351;&#29992; <i>[-]d.ddd</i>&#8202;&#65279;<code><b>E</b></code><i>&plusmn;dd</i>&#12290;</li>
+<li>&#25351;&#25968;&#33267;&#23569;&#21547;&#20004;&#20010;&#25968;&#20301;&#65292;&#20165;&#24403;&#38656;&#35201;&#26102;&#25165;&#20351;&#29992;&#26356;&#22810;&#25968;&#20301;&#12290;</li>
+<li>&#22914;&#26524;&#20540;&#26159; <span class="t-c"><span class="mw-geshi c source-c">&#8203;<span class="nu0">0</span>&#8203;</span></span>&#65292;&#37027;&#20040;&#25351;&#25968;&#20063;&#26159; <span class="t-c"><span class="mw-geshi c source-c">&#8203;<span class="nu0">0</span>&#8203;</span></span>&#12290;</li>
+<li><i>&#31934;&#24230;</i>&#8202;&#65279;&#25351;&#23450;&#23567;&#25968;&#28857;&#23383;&#31526;&#21518;&#20986;&#29616;&#25968;&#20301;&#30340;&#26368;&#23567;&#20010;&#25968;&#12290;</li>
+<li>&#40664;&#35748;&#31934;&#24230;&#26159; <span class="t-c"><span class="mw-geshi c source-c"><span class="nu0">6</span></span></span>&#12290;</li>
+<li>&#22312;<i>&#26367;&#29992;&#23454;&#29616;</i>&#8202;&#65279;&#20013;&#21363;&#20351;&#27809;&#26377;&#23567;&#25968;&#28857;&#21518;&#25968;&#20301;&#20063;&#20889;&#23567;&#25968;&#28857;&#12290;</li>
+<li>&#26080;&#31351;&#22823;&#21644;&#38750;&#25968;&#30340;&#36716;&#25442;&#26679;&#24335;&#35265;<a href="c-io-fprintf.html#.E6.B3.A8.E8.A7.A3">&#27880;&#35299;</a>&#12290;</li>
+</ul>
+</td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+</tr>
+<tr>
+<th><code>a</code><br />
+<code>A</code>
+<p><span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99)</span></p>
+</th>
+<td style="text-align: left;">
+<p>&#36716;&#25442;<b>&#28014;&#28857;&#25968;</b>&#20026;&#21313;&#20845;&#36827;&#21046;&#25351;&#25968;&#35760;&#27861;&#12290;</p>
+<ul>
+<li><code><b>a</b></code> &#36716;&#25442;&#26679;&#24335;&#20351;&#29992; <i>[-]</i>&#8202;&#65279;<code><b>0x</b></code><i>h.hhh</i>&#8202;&#65279;<code><b>p</b></code><i>&plusmn;d</i>&#12290;</li>
+<li><code><b>A</b></code> &#36716;&#25442;&#26679;&#24335;&#20351;&#29992; <i>[-]</i>&#8202;&#65279;<code><b>0X</b></code><i>h.hhh</i>&#8202;&#65279;<code><b>P</b></code><i>&plusmn;d</i>&#12290;</li>
+<li>&#22914;&#26524;&#21442;&#25968;&#26159;&#27491;&#35268;&#21270;&#30340;&#28014;&#28857;&#25968;&#65292;&#37027;&#20040;&#39318;&#20010;&#21313;&#20845;&#36827;&#21046;&#25968;&#20301;&#38750; <code>0</code>&#12290;</li>
+<li>&#22914;&#26524;&#20540;&#26159; <span class="t-c"><span class="mw-geshi c source-c">&#8203;<span class="nu0">0</span>&#8203;</span></span>&#65292;&#37027;&#20040;&#25351;&#25968;&#20063;&#26159; <span class="t-c"><span class="mw-geshi c source-c">&#8203;<span class="nu0">0</span>&#8203;</span></span>&#12290;</li>
+<li><i>&#31934;&#24230;</i>&#25351;&#23450;&#23567;&#25968;&#28857;&#23383;&#31526;&#21518;&#20986;&#29616;&#25968;&#20301;&#30340;&#26368;&#23567;&#20010;&#25968;&#12290;</li>
+<li>&#40664;&#35748;&#31934;&#24230;&#36275;&#20197;&#31934;&#30830;&#34920;&#31034;&#35813;&#20540;&#12290;</li>
+<li>&#22312;<i>&#26367;&#29992;&#23454;&#29616;</i>&#20013;&#21363;&#20351;&#27809;&#26377;&#23567;&#25968;&#28857;&#21518;&#25968;&#20301;&#20063;&#20889;&#23567;&#25968;&#28857;&#12290;</li>
+<li>&#26080;&#31351;&#22823;&#21644;&#38750;&#25968;&#30340;&#36716;&#25442;&#26679;&#24335;&#35265;<a href="c-io-fprintf.html#.E6.B3.A8.E8.A7.A3">&#27880;&#35299;</a>&#12290;</li>
+</ul>
+</td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+</tr>
+<tr>
+<th><code>g</code><br />
+<code>G</code></th>
+<td style="text-align: left;">
+<p>&#36716;&#25442;<b>&#28014;&#28857;&#25968;</b>&#20026;&#21313;&#36827;&#21046;&#23567;&#25968;&#25110;&#21313;&#36827;&#21046;&#25351;&#25968;&#35760;&#27861;&#65292;&#20381;&#36182;&#20110;&#20540;&#21644;<i>&#31934;&#24230;</i>&#12290;</p>
+<ul>
+<li><code><b>g</b></code> &#36716;&#25442;&#26679;&#24335;&#23558;&#36827;&#34892;&#24102;&#26679;&#24335; <code><b>e</b></code> &#25110; <code><b>f</b></code> &#30340;&#36716;&#25442;&#12290;</li>
+<li><code><b>G</b></code> &#36716;&#25442;&#26679;&#24335;&#23558;&#36827;&#34892;&#24102;&#26679;&#24335; <code><b>E</b></code> &#25110; <span class="t-rev-inl t-until-c99"><span><code><b>f</b></code></span><span><span class="t-mark-rev t-until-c99" style="white-space: nowrap;">(C99 &#21069;)</span></span></span><span class="t-rev-inl t-since-c99"><span><code><b>F</b></code></span><span><span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99 &#36215;)</span></span></span> &#30340;&#36716;&#25442;&#12290;</li>
+<li>&#20196; <code>P</code> &#31561;&#20110;&#31934;&#24230;&#65292;&#22914;&#26524;&#23427;&#38750;&#38646;&#65292;&#37027;&#20040;&#31934;&#24230;&#22312;&#26410;&#25351;&#23450;&#26102;&#26159; <span class="t-c"><span class="mw-geshi c source-c"><span class="nu0">6</span></span></span>&#65292;&#22914;&#26524;&#31934;&#24230;&#26159; <span class="t-c"><span class="mw-geshi c source-c">&#8203;<span class="nu0">0</span>&#8203;</span></span> &#37027;&#20040;&#31561;&#20110; <span class="t-c"><span class="mw-geshi c source-c"><span class="nu0">1</span></span></span>&#12290;&#28982;&#21518;&#65292;&#22914;&#26524;&#24102;&#26679;&#24335; <code>E</code> &#30340;&#36716;&#25442;&#20250;&#26377;&#25351;&#25968; <code>X</code>&#65292;&#37027;&#20040;&#65306;
+<ul>
+<li>&#22914;&#26524; <i>P &gt; X &ge; &minus;4</i>&#65292;&#37027;&#20040;&#36716;&#25442;&#24102; <code><b>f</b></code> <span class="t-rev-inl t-since-c99"><span>&#25110; <code><b>F</b></code></span><span><span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99 &#36215;)</span></span></span> &#39118;&#26684;&#65292;&#21450;&#31934;&#24230; <i>P &minus; 1 &minus; X</i>&#12290;</li>
+<li>&#21542;&#21017;&#65292;&#36716;&#25442;&#24102; <code><b>e</b></code> &#25110; <code><b>E</b></code> &#39118;&#26684;&#65292;&#21450;&#31934;&#24230; <i>P &minus; 1</i>&#12290;</li>
+</ul>
+</li>
+<li>&#38500;&#38750;&#35201;&#27714;<i>&#26367;&#29992;&#34920;&#31034;</i>&#65292;&#21542;&#21017;&#26411;&#23614;&#38646;&#20250;&#34987;&#31227;&#38500;&#65292;&#19988;&#22312;&#19981;&#30041;&#19979;&#23567;&#25968;&#37096;&#20998;&#26102;&#23567;&#25968;&#28857;&#20063;&#20250;&#34987;&#31227;&#38500;&#12290;</li>
+<li>&#26080;&#31351;&#22823;&#21644;&#38750;&#25968;&#30340;&#36716;&#25442;&#26679;&#24335;&#35265;<a href="c-io-fprintf.html#.E6.B3.A8.E8.A7.A3">&#27880;&#35299;</a>&#12290;</li>
+</ul>
+</td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+</tr>
+<tr>
+<th><code>n</code></th>
+<td style="text-align: left;">
+<p>&#36820;&#22238;&#23545;&#20989;&#25968;&#30340;&#27492;&#35843;&#29992;&#36804;&#20170;&#20026;&#27490;<b>&#20889;&#20837;&#30340;&#23383;&#31526;&#25968;</b>&#12290;</p>
+<ul>
+<li>&#32467;&#26524;&#34987;<i>&#20889;&#20837;</i>&#8202;&#65279;&#21040;&#23454;&#21442;&#25152;&#25351;&#21521;&#30340;&#20540;&#12290;</li>
+<li>&#35813;&#25351;&#31034;&#19981;&#21487;&#21547;&#26377;&#20219;&#20309;<i>&#26631;&#31614;</i>&#12289;<i>&#22495;&#23485;</i>&#8202;&#65279;&#25110;<i>&#31934;&#24230;</i>&#12290;</li>
+<li>&#23545;&#20110; <code><b>z</b></code> &#20462;&#39280;&#31526;&#65292;&#23454;&#21442;&#31867;&#22411;&#26159; <span class="mw-geshi c source-c">S<span class="sy2">*</span></span>&#65292;&#20854;&#20013; <code>S</code> &#26159; <span class="mw-geshi c source-c"><a href="c-types-size_t.html"><span class="kw100">size_t</span></a></span> &#30340;&#26377;&#31526;&#21495;&#29256;&#26412;&#12290;</li>
+</ul>
+</td>
+<td>
+<div class="t-vertical">
+<div><span class="mw-geshi c source-c"><span class="kw4">signed</span> <span class="kw4">char</span><span class="sy2">*</span></span></div>
+</div>
+</td>
+<td>
+<div class="t-vertical">
+<div><span class="mw-geshi c source-c"><span class="kw4">short</span><span class="sy2">*</span></span></div>
+</div>
+</td>
+<td>
+<div class="t-vertical">
+<div><span class="mw-geshi c source-c"><span class="kw4">int</span><span class="sy2">*</span></span></div>
+</div>
+</td>
+<td>
+<div class="t-vertical">
+<div><span class="mw-geshi c source-c"><span class="kw4">long</span><span class="sy2">*</span></span></div>
+</div>
+</td>
+<td>
+<div class="t-vertical">
+<div><span class="mw-geshi c source-c"><span class="kw4">long</span> <span class="kw4">long</span><span class="sy2">*</span></span></div>
+</div>
+</td>
+<td>
+<div class="t-vertical">
+<div><span class="t-lc"><a href="c-types-integer.html">intmax_t</a></span><span class="mw-geshi c source-c"><span class="sy2">*</span></span></div>
+</div>
+</td>
+<td>
+<div class="t-vertical">
+<div>&#8251;</div>
+</div>
+</td>
+<td>
+<div class="t-vertical">
+<div>&nbsp;<span class="t-lc"><a href="c-types-ptrdiff_t.html">ptrdiff_t</a></span><span class="mw-geshi c source-c"><span class="sy2">*</span></span>&nbsp;</div>
+</div>
+</td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+</tr>
+<tr>
+<th><code>p</code></th>
+<td style="text-align: left;">
+<div style="width: 430px;">&#20889;&#20837;&#23450;&#20041;&#20102;<b>&#25351;&#38024;</b>&#30340;&#30001;&#23454;&#29616;&#23450;&#20041;&#30340;&#23383;&#31526;&#24207;&#21015;&#12290;</div>
+</td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td>
+<div class="t-vertical">
+<div><span class="mw-geshi c source-c"><span class="kw4">void</span><span class="sy2">*</span></span></div>
+</div>
+</td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+<td style="background: #ececec; color: grey; vertical-align: middle; text-align: center;" class="table-na"><small>&#19981;&#36866;&#29992;</small></td>
+</tr>
+<tr>
+<th colspan="11">&#27880;&#35299;<span id=".E6.B3.A8.E8.A7.A3"></span></th>
+</tr>
+<tr>
+<td colspan="11" style="text-align: start;">
+<p>&#28014;&#28857;&#25968;&#36716;&#25442;&#20989;&#25968;&#36716;&#25442;&#26080;&#31351;&#22823;&#20026; <code>inf</code> &#25110; <code>infinity</code>&#12290;&#30001;&#23454;&#29616;&#23450;&#20041;&#20351;&#29992;&#20854;&#20013;&#21738;&#19968;&#20010;&#12290;</p>
+<p>&#38750;&#25968;&#36716;&#25442;&#25104; <code>nan</code> &#25110; <code>nan(<i>char_sequence</i>)</code>&#12290;&#30001;&#23454;&#29616;&#23450;&#20041;&#20351;&#29992;&#20854;&#20013;&#21738;&#19968;&#20010;&#12290;</p>
+<p>&#36716;&#25442; <code><b>F</b></code>&#12289;<code><b>E</b></code>&#12289;<code><b>G</b></code>&#12289;<code><b>A</b></code> &#26367;&#20195;&#19978;&#38754;&#36755;&#20986; <code>INF</code>&#12289;<code>INFINITY</code>&#12289;<code>NAN</code>&#12290;</p>
+<p>&#29992;&#20110;&#25171;&#21360; <span class="mw-geshi c source-c"><span class="kw4">char</span></span>&#12289;<span class="mw-geshi c source-c"><span class="kw4">unsigned</span> <span class="kw4">char</span></span>&#12289;<span class="mw-geshi c source-c"><span class="kw4">signed</span> <span class="kw4">char</span></span>&#12289;<span class="mw-geshi c source-c"><span class="kw4">short</span></span> &#21644; <span class="mw-geshi c source-c"><span class="kw4">unsigned</span> <span class="kw4">short</span></span> &#30340;&#36716;&#25442;&#25351;&#31034;&#31526;&#23454;&#38469;&#26399;&#24453;<a href="c-language-conversion.html#.E9.BB.98.E8.AE.A4.E5.AE.9E.E5.8F.82.E6.8F.90.E5.8D.87">&#40664;&#35748;&#23454;&#21442;&#25552;&#21319;</a>&#21518;&#30340;&#31867;&#22411;&#65292;&#20294;&#22312;&#25171;&#21360;&#21069;&#20250;&#36716;&#25442;&#21040; <span class="mw-geshi c source-c"><span class="kw4">char</span></span>&#12289;<span class="mw-geshi c source-c"><span class="kw4">unsigned</span> <span class="kw4">char</span></span>&#12289;<span class="mw-geshi c source-c"><span class="kw4">signed</span> <span class="kw4">char</span></span>&#12289;<span class="mw-geshi c source-c"><span class="kw4">short</span></span> &#21644; <span class="mw-geshi c source-c"><span class="kw4">unsigned</span> <span class="kw4">short</span></span>&#12290;&#30452;&#25509;&#21521;&#20989;&#25968;&#20256;&#36882;&#36825;&#20123;&#31867;&#22411;&#30340;&#20540;&#26159;&#23433;&#20840;&#30340;&#65292;&#22240;&#20026;&#22312;&#35843;&#29992;&#21464;&#21442;&#25968;&#20989;&#25968;&#26102;&#20250;&#21457;&#29983;&#25552;&#21319;&#12290;</p>
+<p>&#23450;&#23485;&#23383;&#31526;&#31867;&#22411;&#65288;<span class="t-lc"><a href="c-types-integer.html">int8_t</a></span> &#31561;&#65289;&#30340;&#27491;&#30830;&#36716;&#25442;&#25351;&#31034;&#22312;&#26631;&#22836; <a href="c-header-inttypes.html"><tt>&lt;inttypes.h&gt;</tt></a> &#23450;&#20041;&#65288;&#23613;&#31649; <span class="t-lc"><a href="c-types-integer.html">PRIdMAX</a></span>&#12289;<span class="t-lc"><a href="c-types-integer.html">PRIuMAX</a></span> &#31561;&#23601;&#26159; <code>%jd</code>&#12289;<code>%ju</code> &#31561;&#30340;&#21035;&#21517;&#65289;&#12290;</p>
+<p>&#20869;&#23384;&#20889;&#20837;&#36716;&#25442;&#25351;&#31034;&#31526; <code>%n</code> &#26159;&#23433;&#20840;&#28431;&#27934;&#30340;&#24120;&#35265;&#30446;&#26631;&#65292;&#36825;&#37324;&#26684;&#24335;&#23383;&#31526;&#20018;&#20381;&#36182;&#29992;&#25143;&#36755;&#20837;<span class="t-rev-inl t-since-c11"><span>&#65292;&#32780;&#26377;&#36793;&#30028;&#26816;&#26597;&#30340; <code>printf_s</code> &#31995;&#21015;&#20989;&#25968;&#19981;&#25903;&#25345;&#27492;&#36716;&#25442;&#25351;&#31034;&#31526;</span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11 &#36215;)</span></span></span>&#12290;</p>
+<p>&#22312;&#27599;&#20010;&#36716;&#25442;&#25351;&#31034;&#31526;&#30340;&#34892;&#21160;&#21518;&#26377;&#19968;&#20010;<a href="c-language-eval_order.html">&#24207;&#21015;&#28857;</a>&#65307;&#36825;&#20801;&#35768;&#20110;&#21516;&#19968;&#21464;&#37327;&#22810;&#27425;&#23384;&#20837; <code>%n</code> &#30340;&#32467;&#26524;&#65292;&#24182;&#22312;&#21516;&#19968;&#27492;&#35843;&#29992;&#20013;&#25171;&#21360;&#20986;&#20808;&#21069;&#20197; <code>%n</code> &#23384;&#20648;&#30340;&#20540;&#12290;</p>
+<p>&#22914;&#26524;&#36716;&#25442;&#25351;&#31034;&#38750;&#27861;&#65292;&#37027;&#20040;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<div class="t-li1"><span class="t-li">1,2)</span> &#20256;&#36755;&#21040;&#36755;&#20986;&#27969;&#30340;&#23383;&#31526;&#25968;&#65292;&#25110;&#33509;&#20986;&#29616;&#36755;&#20986;&#38169;&#35823;&#25110;&#32534;&#30721;&#38169;&#35823;&#65288;&#23545;&#20110;&#23383;&#31526;&#20018;&#21644;&#23383;&#31526;&#36716;&#25442;&#35828;&#26126;&#31526;&#65289;&#21017;&#20026;&#36127;&#20540;&#12290;</div>
+<div class="t-li1"><span class="t-li">3)</span> &#20889;&#20837;&#21040; <span class="t-c"><span class="mw-geshi c source-c">buffer</span></span> &#30340;&#23383;&#31526;&#25968;&#65288;&#19981;&#35745;&#31354;&#32456;&#27490;&#23383;&#31526;&#65289;&#65292;&#25110;&#33509;&#36755;&#20986;&#38169;&#35823;&#25110;&#32534;&#30721;&#38169;&#35823;&#65288;&#23545;&#20110;&#23383;&#31526;&#20018;&#21644;&#23383;&#31526;&#36716;&#25442;&#35828;&#26126;&#31526;&#65289;&#21457;&#29983;&#21017;&#20026;&#36127;&#20540;&#12290;</div>
+<div class="t-li1"><span class="t-li">4)</span> &#20551;&#22914;&#24573;&#30053; <span class="t-c"><span class="mw-geshi c source-c">bufsz</span></span> &#21017;&#26412;&#24212;&#20889;&#20837;&#21040; <span class="t-c"><span class="mw-geshi c source-c">buffer</span></span> &#30340;&#23383;&#31526;&#25968;&#65288;&#19981;&#35745;&#31354;&#32456;&#27490;&#23383;&#31526;&#65289;&#65292;&#25110;&#33509;&#20986;&#29616;&#36755;&#20986;&#38169;&#35823;&#25110;&#32534;&#30721;&#38169;&#35823;&#65288;&#23545;&#20110;&#23383;&#31526;&#20018;&#21644;&#23383;&#31526;&#36716;&#25442;&#35828;&#26126;&#31526;&#65289;&#21017;&#20026;&#36127;&#20540;&#12290;</div>
+<div class="t-li1"><span class="t-li">5,6)</span> &#20256;&#36755;&#21040;&#36755;&#20986;&#27969;&#30340;&#23383;&#31526;&#25968;&#65292;&#25110;&#33509;&#20986;&#29616;&#36755;&#20986;&#38169;&#35823;&#12289;&#36816;&#34892;&#26102;&#21046;&#32422;&#36829;&#35268;&#38169;&#35823;&#25110;&#32534;&#30721;&#38169;&#35823;&#21017;&#20026;&#36127;&#20540;&#12290;</div>
+<div class="t-li1"><span class="t-li">7)</span> &#20889;&#20837;&#21040; <span class="t-c"><span class="mw-geshi c source-c">buffer</span></span> &#30340;&#23383;&#31526;&#25968;&#65292;&#19981;&#35745;&#31354;&#32456;&#27490;&#23383;&#31526;&#65288;&#21482;&#35201; <span class="t-c"><span class="mw-geshi c source-c">buffer</span></span> &#19981;&#26159;&#31354;&#25351;&#38024;&#19988; <span class="t-c"><span class="mw-geshi c source-c">bufsz</span></span> &#38750;&#38646;&#19988;&#19981;&#22823;&#20110; <span class="t-lc">RSIZE_MAX</span>&#65292;&#23601;&#20889;&#20837;&#23427;&#65289;&#65292;&#22312;&#36816;&#34892;&#26102;&#21046;&#32422;&#36829;&#35268;&#26102;&#20026;&#38646;&#65292;&#32780;&#22312;&#32534;&#30721;&#38169;&#35823;&#26102;&#20026;&#36127;&#20540;&#12290;</div>
+<div class="t-li1"><span class="t-li">8)</span> &#20551;&#22914;&#24573;&#30053; <span class="t-c"><span class="mw-geshi c source-c">bufsz</span></span> &#21017;&#26412;&#24212;&#20889;&#20837; <span class="t-c"><span class="mw-geshi c source-c">buffer</span></span> &#30340;&#23383;&#31526;&#25968;&#30340;&#65292;&#19981;&#21253;&#21547;&#31354;&#32456;&#27490;&#23383;&#31526;&#65288;&#21482;&#35201; <span class="t-c"><span class="mw-geshi c source-c">buffer</span></span> &#19981;&#26159;&#31354;&#25351;&#38024;&#32780; <span class="t-c"><span class="mw-geshi c source-c">bufsz</span></span> &#38750;&#38646;&#19988;&#19981;&#22823;&#20110; <span class="t-lc">RSIZE_MAX</span>&#65292;&#23601;&#20889;&#20837;&#23427;&#65289;&#65292;&#25110;&#33509;&#20986;&#29616;&#36755;&#20986;&#38169;&#35823;&#12289;&#36816;&#34892;&#26102;&#21046;&#32422;&#36829;&#35268;&#38169;&#35823;&#25110;&#32534;&#30721;&#38169;&#35823;&#21017;&#20026;&#36127;&#20540;&#12290;</div>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>C &#26631;&#20934;&#21450; <a rel="nofollow" class="external text" href="https://pubs.opengroup.org/onlinepubs/9699919799/functions/fprintf.html">POSIX</a> &#25351;&#23450; <code>sprintf</code> &#21450;&#20854;&#21464;&#20307;&#30340;&#34892;&#20026;&#22312;&#21442;&#25968;&#19982;&#30446;&#26631;&#32531;&#20914;&#21306;&#37325;&#21472;&#26102;&#26410;&#23450;&#20041;&#12290;&#31034;&#20363;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1">sprintf<span class="br0">(</span>dst, <span class="st0">&quot;%s and %s&quot;</span>, dst, t<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &lt;- &#26377;&#38169;&#65306;&#26410;&#23450;&#20041;&#34892;&#20026;</span></pre></div>
+</div>
+<p><a rel="nofollow" class="external text" href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/fprintf.html">POSIX &#35268;&#23450;</a>&#22312;&#38169;&#35823;&#26102;&#35774;&#32622; <span class="t-lc"><a href="c-error-errno.html">errno</a></span>&#12290;&#23427;&#36824;&#35268;&#23450;&#39069;&#22806;&#30340;&#36716;&#25442;&#25351;&#31034;&#65292;&#26368;&#20540;&#24471;&#27880;&#24847;&#30340;&#26159;&#23545;&#23454;&#21442;&#37325;&#25490;&#24207;&#30340;&#25903;&#25345;&#65288;&#32039;&#38543; <span class="t-c"><span class="mw-geshi c source-c"><span class="sy2">%</span></span></span> &#21518;&#30340; <span class="t-c"><span class="mw-geshi c source-c">n$</span></span> &#25351;&#31034;&#31532; <code>n</code> &#20010;&#23454;&#21442;&#65289;&#12290;</p>
+<p>&#20197;&#38646;&#20026; <span class="t-c"><span class="mw-geshi c source-c">bufsz</span></span> &#21644;&#31354;&#25351;&#38024;&#20026; <span class="t-c"><span class="mw-geshi c source-c">buffer</span></span> &#35843;&#29992; <code>snprintf</code> &#21487;&#29992;&#20110;&#20915;&#23450;&#21253;&#21547;&#36755;&#20986;&#30340;&#32531;&#20914;&#21306;&#22823;&#23567;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="kw4">const</span> <span class="kw4">char</span> fmt<span class="br0">[</span><span class="br0">]</span> <span class="sy1">=</span> <span class="st0">&quot;sqrt(2) = %f&quot;</span><span class="sy4">;</span>
+<span class="kw4">int</span> sz <span class="sy1">=</span> snprintf<span class="br0">(</span><a href="c-types-NULL.html"><span class="kw103">NULL</span></a>, <span class="nu0">0</span>, fmt, <a href="c-numeric-math-sqrt.html"><span class="kw665">sqrt</span></a><span class="br0">(</span><span class="nu0">2</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">char</span> buf<span class="br0">[</span>sz <span class="sy2">+</span> <span class="nu0">1</span><span class="br0">]</span><span class="sy4">;</span> <span class="co1">// &#27880;&#24847;&#20026;&#32456;&#27490;&#31354;&#23383;&#31526; +1</span>
+snprintf<span class="br0">(</span>buf, <span class="kw4">sizeof</span> buf, fmt, <a href="c-numeric-math-sqrt.html"><span class="kw665">sqrt</span></a><span class="br0">(</span><span class="nu0">2</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span></pre></div>
+</div>
+<p>&#21516; <code>snprintf</code>&#65292;&#20294;&#19981;&#21516;&#20110; <code>sprintf_s</code>&#65292;<code>snprintf_s</code> &#20250;&#23558;&#36755;&#20986;&#25130;&#26029;&#22312; <span class="t-c"><span class="mw-geshi c source-c">bufsz <span class="sy2">-</span> <span class="nu0">1</span></span></span> &#20043;&#20869;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#include &lt;inttypes.h&gt;</span>
+<span class="co2">#include &lt;stdint.h&gt;</span>
+<span class="co2">#include &lt;stdio.h&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> s <span class="sy1">=</span> <span class="st0">&quot;Hello&quot;</span><span class="sy4">;</span>
+    printf<span class="br0">(</span><span class="st0">&quot;&#23383;&#31526;&#20018;:<span class="es1">\n</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#21516; puts(&quot;&#23383;&#31526;&#20018;&quot;);</span>
+    printf<span class="br0">(</span><span class="st0">&quot; &#22635;&#20805;:<span class="es1">\n</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    printf<span class="br0">(</span><span class="st0">&quot;<span class="es1">\t</span>[%10s]<span class="es1">\n</span>&quot;</span>, s<span class="br0">)</span><span class="sy4">;</span>
+    printf<span class="br0">(</span><span class="st0">&quot;<span class="es1">\t</span>[%-10s]<span class="es1">\n</span>&quot;</span>, s<span class="br0">)</span><span class="sy4">;</span>
+    printf<span class="br0">(</span><span class="st0">&quot;<span class="es1">\t</span>[%*s]<span class="es1">\n</span>&quot;</span>, <span class="nu0">10</span>, s<span class="br0">)</span><span class="sy4">;</span>
+    printf<span class="br0">(</span><span class="st0">&quot; &#25130;&#26029;:<span class="es1">\n</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    printf<span class="br0">(</span><span class="st0">&quot;<span class="es1">\t</span>%.4s<span class="es1">\n</span>&quot;</span>, s<span class="br0">)</span><span class="sy4">;</span>
+    printf<span class="br0">(</span><span class="st0">&quot;<span class="es1">\t</span>%.*s<span class="es1">\n</span>&quot;</span>, <span class="nu0">3</span>, s<span class="br0">)</span><span class="sy4">;</span>
+ 
+    printf<span class="br0">(</span><span class="st0">&quot;&#23383;&#31526;:<span class="es1">\t</span>%c %%<span class="es1">\n</span>&quot;</span>, <span class="st0">&#39;A&#39;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    printf<span class="br0">(</span><span class="st0">&quot;&#25972;&#25968;:<span class="es1">\n</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    printf<span class="br0">(</span><span class="st0">&quot;<span class="es1">\t</span>&#21313;&#36827;&#21046;:<span class="es1">\t</span><span class="es1">\t</span>%i %d %.6i %i %.0i %+i %i<span class="es1">\n</span>&quot;</span>,
+                         <span class="nu0">1</span>, <span class="nu0">2</span>,   <span class="nu0">3</span>, <span class="nu0">0</span>,   <span class="nu0">0</span>,  <span class="nu0">4</span>,<span class="sy2">-</span><span class="nu0">4</span><span class="br0">)</span><span class="sy4">;</span>
+    printf<span class="br0">(</span><span class="st0">&quot;<span class="es1">\t</span>&#21313;&#20845;&#36827;&#21046;:<span class="es1">\t</span>%x %x %X %#x<span class="es1">\n</span>&quot;</span>, <span class="nu0">5</span>, <span class="nu0">10</span>, <span class="nu0">10</span>, <span class="nu0">6</span><span class="br0">)</span><span class="sy4">;</span>
+    printf<span class="br0">(</span><span class="st0">&quot;<span class="es1">\t</span>&#20843;&#36827;&#21046;:<span class="es1">\t</span><span class="es1">\t</span>%o %#o %#o<span class="es1">\n</span>&quot;</span>, <span class="nu0">10</span>, <span class="nu0">10</span>, <span class="nu0">4</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    printf<span class="br0">(</span><span class="st0">&quot;&#28014;&#28857;:<span class="es1">\n</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    printf<span class="br0">(</span><span class="st0">&quot;<span class="es1">\t</span>&#33293;&#20837;:<span class="es1">\t</span><span class="es1">\t</span>%f %.0f %.32f<span class="es1">\n</span>&quot;</span>, <span class="nu16">1.5</span>, <span class="nu16">1.5</span>, <span class="nu16">1.3</span><span class="br0">)</span><span class="sy4">;</span>
+    printf<span class="br0">(</span><span class="st0">&quot;<span class="es1">\t</span>&#22635;&#20805;:<span class="es1">\t</span><span class="es1">\t</span>%05.2f %.2f %5.2f<span class="es1">\n</span>&quot;</span>, <span class="nu16">1.5</span>, <span class="nu16">1.5</span>, <span class="nu16">1.5</span><span class="br0">)</span><span class="sy4">;</span>
+    printf<span class="br0">(</span><span class="st0">&quot;<span class="es1">\t</span>&#31185;&#23398;&#34920;&#31034;:<span class="es1">\t</span>%E %e<span class="es1">\n</span>&quot;</span>, <span class="nu16">1.5</span>, <span class="nu16">1.5</span><span class="br0">)</span><span class="sy4">;</span>
+    printf<span class="br0">(</span><span class="st0">&quot;<span class="es1">\t</span>&#21313;&#20845;&#36827;&#21046;:<span class="es1">\t</span>%a %A<span class="es1">\n</span>&quot;</span>, <span class="nu16">1.5</span>, <span class="nu16">1.5</span><span class="br0">)</span><span class="sy4">;</span>
+    printf<span class="br0">(</span><span class="st0">&quot;<span class="es1">\t</span>&#29305;&#27530;&#20540;:<span class="es1">\t</span><span class="es1">\t</span>0/0=%g 1/0=%g<span class="es1">\n</span>&quot;</span>, <span class="nu16">0.0</span><span class="sy2">/</span><span class="nu16">0.0</span>, <span class="nu16">1.0</span><span class="sy2">/</span><span class="nu16">0.0</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    printf<span class="br0">(</span><span class="st0">&quot;&#23450;&#23485;&#31867;&#22411;:<span class="es1">\n</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    printf<span class="br0">(</span><span class="st0">&quot;<span class="es1">\t</span>&#26368;&#22823;&#30340; 32 &#20301;&#20540;&#26159; %&quot;</span> <a href="c-types-integer.html"><span class="kw206">PRIu32</span></a> <span class="st0">&quot; &#25110; %#&quot;</span> <a href="c-types-integer.html"><span class="kw234">PRIx32</span></a> <span class="st0">&quot;<span class="es1">\n</span>&quot;</span>,
+                                     <a href="c-types-integer.html"><span class="kw164">UINT32_MAX</span></a>,     <a href="c-types-integer.html"><span class="kw164">UINT32_MAX</span></a> <span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#23383;&#31526;&#20018;:
+ &#22635;&#20805;:
+        [     Hello]
+        [Hello     ]
+        [     Hello]
+ &#25130;&#26029;:
+        Hell
+        Hel
+&#23383;&#31526;:     A %
+&#25972;&#25968;:
+        &#21313;&#36827;&#21046;:            1 2 000003 0  +4 -4
+        &#21313;&#20845;&#36827;&#21046;:   5 a A 0x6
+        &#20843;&#36827;&#21046;:            12 012 04
+&#28014;&#28857;:
+        &#33293;&#20837;:             1.500000 2 1.30000000000000004440892098500626
+        &#22635;&#20805;:             01.50 1.50  1.50
+        &#31185;&#23398;&#34920;&#31034;:   1.500000E+00 1.500000e+00
+        &#21313;&#20845;&#36827;&#21046;:   0x1.8p+0 0X1.8P+0
+        &#29305;&#27530;&#20540;:            0/0=-nan 1/0=inf
+&#23450;&#23485;&#31867;&#22411;:
+        &#26368;&#22823;&#30340; 32 &#20301;&#20540;&#26159; 4294967295 &#25110; 0xffffffff</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-23">
+<ul>
+<li>C23 &#26631;&#20934;&#65288;ISO/IEC 9899:2024&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.21.6.1 The fprintf function &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.21.6.3 The printf function &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.21.6.5 The snprintf function &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.21.6.6 The sprintf function &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.5.3.1 The fprintf_s function &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.5.3.3 The printf_s function &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.5.3.5 The snprintf_s function &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.5.3.6 The sprintf_s function &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.21.6.1 The fprintf function &#65288;&#31532; 225-230 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.21.6.3 The printf function &#65288;&#31532; 236 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.21.6.5 The snprintf function &#65288;&#31532; 237 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.21.6.6 The sprintf function &#65288;&#31532; 237 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.5.3.1 The fprintf_s function &#65288;&#31532; 430 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.5.3.3 The printf_s function &#65288;&#31532; 432 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.5.3.5 The snprintf_s function &#65288;&#31532; 432-433 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.5.3.6 The sprintf_s function &#65288;&#31532; 433 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.21.6.1 The fprintf function &#65288;&#31532; 309-316 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.21.6.3 The printf function &#65288;&#31532; 324 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.21.6.5 The snprintf function &#65288;&#31532; 325 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.21.6.6 The sprintf function &#65288;&#31532; 325-326 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.5.3.1 The fprintf_s function &#65288;&#31532; 591 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.5.3.3 The printf_s function &#65288;&#31532; 593-594 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.5.3.5 The snprintf_s function &#65288;&#31532; 594-595 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>K.3.5.3.6 The sprintf_s function &#65288;&#31532; 595-596 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c99">
+<ul>
+<li>C99 &#26631;&#20934;&#65288;ISO/IEC 9899:1999&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.19.6.1 The fprintf function &#65288;&#31532; 274-282 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.19.6.3 The printf function &#65288;&#31532; 290 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.19.6.5 The snprintf function &#65288;&#31532; 290-291 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>7.19.6.6 The sprintf function &#65288;&#31532; 291 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c89">
+<ul>
+<li>C89/C90 &#26631;&#20934;&#65288;ISO/IEC 9899:1990&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>4.9.6.1 The fprintf function</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>4.9.6.3 The printf function</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>4.9.6.5 The sprintf function</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-io-fwprintf.html"><span class="t-lines"><span>wprintf</span><span>fwprintf</span><span>swprintf</span><span>wprintf_s</span><span>fwprintf_s</span><span>swprintf_s</span><span>snwprintf_s</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c95" style="white-space: nowrap;">(C95)</span></span><span><span class="t-mark-rev t-since-c95" style="white-space: nowrap;">(C95)</span></span><span><span class="t-mark-rev t-since-c95" style="white-space: nowrap;">(C95)</span></span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#25171;&#21360;&#26684;&#24335;&#21270;&#23485;&#23383;&#31526;&#36755;&#20986;&#21040; <span class="t-lc"><a href="c-io.html">stdout</a></span>&#12289;&#25991;&#20214;&#27969;&#25110;&#32531;&#20914;&#21306;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-io-vfprintf.html"><span class="t-lines"><span>vprintf</span><span>vfprintf</span><span>vsprintf</span><span>vsnprintf</span><span>vprintf_s</span><span>vfprintf_s</span><span>vsprintf_s</span><span>vsnprintf_s</span></span></a></div>
+<div><span class="t-lines"><span></span><span></span><span></span><span><span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99)</span></span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#25171;&#21360;&#26684;&#24335;&#21270;&#36755;&#20986;&#21040; <span class="t-lc"><a href="c-io.html">stdout</a></span>&#12289;&#25991;&#20214;&#27969;&#25110;&#32531;&#20914;&#21306;<br />
+&#20351;&#29992;&#21487;&#21464;&#21442;&#25968;&#21015;&#34920;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-io-fputs.html"><span class="t-lines"><span>fputs</span></span></a></div>
+</div>
+</td>
+<td>&#23558;&#19968;&#20010;&#23383;&#31526;&#20018;&#20889;&#20837;&#25991;&#20214;&#27969;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-io-fscanf.html"><span class="t-lines"><span>scanf</span><span>fscanf</span><span>sscanf</span><span>scanf_s</span><span>fscanf_s</span><span>sscanf_s</span></span></a></div>
+<div><span class="t-lines"><span></span><span></span><span></span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#20174;<span class="t-lc"><a href="c-io.html">stdin</a></span>&#12289;&#25991;&#20214;&#27969;&#25110;&#32531;&#20914;&#21306;&#35835;&#21462;&#26684;&#24335;&#21270;&#36755;&#20837;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>printf</span>, <span>fprintf</span>, <span>sprintf</span>, <span>snprintf</span></span>&nbsp;&#30340; <span><span><a href="cpp-io-c-fprintf.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::unordered_multimap&lt;Key,T,Hash,KeyEqual,Allocator&gt;::extract</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_container_unordered_multimap_extract skin-cppreference2 action-view cpp-page-template cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::unordered_multimap&lt;Key,T,Hash,KeyEqual,Allocator&gt;::</span>extract</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-container.html">container</a>&lrm; | <a href="cpp-container-unordered_multimap.html">unordered multimap</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<div class="t-page-template" style="">
+<p></p>
+</div>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp">node_type extract<span class="br0">(</span> const_iterator position <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp">node_type extract<span class="br0">(</span> <span class="kw4">const</span> Key<span class="sy3">&amp;</span> k <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span id=".E7.89.88.E6.9C.AC_3"></span><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> K <span class="sy1">&gt;</span><br />
+node_type extract<span class="br0">(</span> K<span class="sy3">&amp;&amp;</span> x <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#35299;&#38500;&#21547; <span class="t-c"><span class="mw-geshi cpp source-cpp">position</span></span> &#25152;&#25351;&#21521;&#20803;&#32032;&#30340;&#32467;&#28857;&#30340;&#38142;&#25509;&#24182;&#36820;&#22238;&#25317;&#26377;&#23427;&#30340;<a href="cpp-container-node_handle.html">&#32467;&#28857;&#21477;&#26564;</a>&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#33509;&#23481;&#22120;&#25317;&#26377;&#38190;&#31561;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">k</span></span> &#30340;&#20803;&#32032;&#65292;&#21017;&#20174;&#23481;&#22120;&#35299;&#38500;&#39318;&#20010;&#36825;&#31181;&#20803;&#32032;&#30340;&#33410;&#28857;&#24182;&#36820;&#22238;&#25317;&#26377;&#23427;&#30340;<a href="cpp-container-node_handle.html">&#32467;&#28857;&#21477;&#26564;</a>&#12290;&#21542;&#21017;&#65292;&#36820;&#22238;&#31354;&#32467;&#28857;&#21477;&#26564;&#12290;</div>
+<div class="t-li1"><span class="t-li">3)</span> &#21516; <span class="t-v">(2)</span>&#12290;&#27492;&#37325;&#36733;&#21482;&#26377;&#22312;<span class="t-c"><span class="mw-geshi cpp source-cpp">Hash<span class="sy4">::</span><span class="me2">is_transparent</span></span></span> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">KeyEqual<span class="sy4">::</span><span class="me2">is_transparent</span></span></span> &#22343;&#21512;&#27861;&#24182;&#25351;&#20195;&#31867;&#22411;&#65292;&#19988; <code>iterator</code> &#19982; <code>const_iterator</code> &#22343;&#19981;&#21487;&#20174; <code>K</code> &#38544;&#24335;&#36716;&#25442;&#26102;&#25165;&#20250;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#12290;&#36825;&#20551;&#35774;&#20351;&#24471; <code>Hash</code> &#33021;&#29992; <code>K</code> &#21644; <code>Key</code> &#31867;&#22411;&#35843;&#29992;&#65292;&#24182;&#19988; <code>KeyEqual</code> &#26159;&#36879;&#26126;&#30340;&#65292;&#36827;&#32780;&#20801;&#35768;&#35843;&#29992;&#27492;&#20989;&#25968;&#26102;&#19981;&#38656;&#35201;&#26500;&#36896; <code>Key</code> &#30340;&#23454;&#20363;&#12290;</div>
+<p>&#20219;&#20309;&#24773;&#20917;&#19979;&#65292;&#22343;&#19981;&#22797;&#21046;&#25110;&#31227;&#21160;&#20803;&#32032;&#65292;&#21482;&#37325;&#25351;&#21521;&#23481;&#22120;&#32467;&#28857;&#30340;&#20869;&#37096;&#25351;&#38024;&#12290;</p>
+<p>&#25552;&#21462;&#32467;&#28857;&#21482;&#20250;&#20351;&#25351;&#21521;&#34987;&#25552;&#21462;&#20803;&#32032;&#30340;&#36845;&#20195;&#22120;&#22833;&#25928;&#65292;&#24182;&#20445;&#25345;&#26410;&#34987;&#25830;&#38500;&#20803;&#32032;&#30340;&#30456;&#23545;&#39034;&#24207;&#12290;&#25351;&#21521;&#34987;&#25552;&#21462;&#20803;&#32032;&#30340;&#25351;&#38024;&#21644;&#24341;&#29992;&#20445;&#25345;&#26377;&#25928;&#65292;&#20294;&#22312;&#32467;&#28857;&#21477;&#26564;&#25317;&#26377;&#35813;&#20803;&#32032;&#26102;&#19981;&#33021;&#20351;&#29992;&#65306;&#19968;&#26086;&#20803;&#32032;&#34987;&#25554;&#20837;&#23481;&#22120;&#65292;&#23601;&#33021;&#20351;&#29992;&#23427;&#20204;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>position</td>
+<td>-</td>
+<td>&#25351;&#21521;&#27492;&#23481;&#22120;&#20013;&#30340;&#21512;&#27861;&#36845;&#20195;&#22120;</td>
+</tr>
+<tr class="t-par">
+<td>k</td>
+<td>-</td>
+<td>&#37492;&#21035;&#35201;&#25552;&#21462;&#30340;&#32467;&#28857;&#30340;&#38190;</td>
+</tr>
+<tr class="t-par">
+<td>x</td>
+<td>-</td>
+<td>&#20219;&#20309;&#33021;&#19982;&#38190;&#36890;&#36879;&#27604;&#36739;&#30340;&#31867;&#22411;&#30340;&#20540;&#65292;&#37492;&#21035;&#35201;&#25552;&#21462;&#30340;&#32467;&#28857;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#25317;&#26377;&#34987;&#25552;&#21462;&#20803;&#32032;&#30340;<a href="cpp-container-node_handle.html">&#32467;&#28857;&#21477;&#26564;</a>&#65292;&#25110; <span class="t-v">(2,3)</span> &#20013;&#25214;&#19981;&#21040;&#20803;&#32032;&#30340;&#24773;&#20917;&#19979;&#20026;&#31354;&#32467;&#28857;&#21477;&#26564;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<div class="t-li1"><span class="t-li">1)</span> &#19981;&#25243;&#20986;&#12290;</div>
+<div class="t-li1"><span class="t-li">2,3)</span> &#30001; <code>Hash</code> &#21644; <code>KeyEqual</code> &#23545;&#35937;&#25152;&#25243;&#20986;&#30340;&#20219;&#20309;&#24322;&#24120;&#12290;</div>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<div class="t-li1"><span class="t-li">1,2,3)</span> &#24179;&#22343;&#24773;&#20917; O(1)&#65292;&#26368;&#22351;&#24773;&#20917; O(<span class="t-c"><span class="mw-geshi cpp source-cpp">a.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span></span></span>)&#12290;</div>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>extract &#26159;&#26356;&#25442; map &#30340;&#38190;&#32780;&#19981;&#37325;&#20998;&#37197;&#30340;&#21807;&#19968;&#26041;&#24335;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><a href="cpp-container-map.html"><span class="kw1284">std::<span class="me2">map</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span>, <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span> m<span class="br0">{</span><span class="br0">{</span><span class="nu0">1</span>, <span class="st0">&quot;mango&quot;</span><span class="br0">}</span>, <span class="br0">{</span><span class="nu0">2</span>, <span class="st0">&quot;papaya&quot;</span><span class="br0">}</span>, <span class="br0">{</span><span class="nu0">3</span>, <span class="st0">&quot;guava&quot;</span><span class="br0">}</span><span class="br0">}</span><span class="sy4">;</span>
+<span class="kw4">auto</span> nh <span class="sy1">=</span> m.<span class="me1">extract</span><span class="br0">(</span><span class="nu0">2</span><span class="br0">)</span><span class="sy4">;</span>
+nh.<span class="me1">key</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">=</span> <span class="nu0">4</span><span class="sy4">;</span>
+m.<span class="me1">insert</span><span class="br0">(</span>std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>nh<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="co1">// m == {{1, &quot;mango&quot;}, {3, &quot;guava&quot;}, {4, &quot;papaya&quot;}}</span></pre></div>
+</div>
+<table class="wikitable ftm-begin">
+<tr>
+<th><a href="cpp-utility-feature_test.html">&#21151;&#33021;&#29305;&#24615;&#27979;&#35797;</a>&#23439;</th>
+<th><abbr title="&#37319;&#32435;&#35813;&#29305;&#24615;&#30340;&#24180;/&#26376;&#12290;&#27599;&#20010;&#20540;&#19979;&#38754;&#30340;&#38142;&#25509;&#25351;&#21521;&#32534;&#35793;&#26399;&#25903;&#25345;&#39029;&#38754;&#20013;&#32473;&#23450;&#21151;&#33021;&#29305;&#24615;&#30340;&#26465;&#30446;&#12290;">&#20540;</abbr></th>
+<th><abbr title="&#24341;&#20837;&#35813;&#29305;&#24615;&#30340;&#26631;&#20934;&#65307;DR &#24847;&#20026;&#38024;&#23545;&#35813;&#20462;&#35746;&#29256;&#30340;&#32570;&#38519;&#25253;&#21578;">&#26631;&#20934;</abbr></th>
+<th>&#21151;&#33021;&#29305;&#24615;</th>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lib_associative_heterogeneous_erasure"><code>__cpp_lib_associative_heterogeneous_erasure</code></a></td>
+<td><a href="cpp-compiler_support-23.html#cpp_lib_associative_heterogeneous_erasure_202110L"><code>202110L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++23)</span></td>
+<td><a href="cpp-container.html#.E5.85.B3.E8.81.94.E5.AE.B9.E5.99.A8">&#20851;&#32852;&#23481;&#22120;</a>&#21644;<a href="cpp-container.html#.E6.97.A0.E5.BA.8F.E5.85.B3.E8.81.94.E5.AE.B9.E5.99.A8">&#26080;&#24207;&#20851;&#32852;&#23481;&#22120;</a>&#20013;&#30340;&#24322;&#36136;&#25830;&#38500;, <span class="t-v">(<a href="cpp-container-unordered_multimap-extract.html#.E7.89.88.E6.9C.AC_3">3</a>)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;algorithm&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;string_view&gt;</span>
+<span class="co2">#include &lt;unordered_map&gt;</span>
+ 
+<span class="kw4">void</span> print<span class="br0">(</span><a href="cpp-string-basic_string_view.html"><span class="kw1251">std::<span class="me2">string_view</span></span></a> comment, <span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> data<span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> comment<span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">auto</span> <span class="br0">[</span>k, v<span class="br0">]</span> <span class="sy4">:</span> data<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span> <span class="sy1">&lt;&lt;</span> k <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;(&#39;</span> <span class="sy1">&lt;&lt;</span> v <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;)&#39;</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-container-unordered_multimap.html"><span class="kw1298">std::<span class="me2">unordered_multimap</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span>, <span class="kw4">char</span><span class="sy1">&gt;</span> cont<span class="br0">{</span><span class="br0">{</span><span class="nu0">1</span>, <span class="st0">&#39;a&#39;</span><span class="br0">}</span>, <span class="br0">{</span><span class="nu0">2</span>, <span class="st0">&#39;b&#39;</span><span class="br0">}</span>, <span class="br0">{</span><span class="nu0">3</span>, <span class="st0">&#39;c&#39;</span><span class="br0">}</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+    print<span class="br0">(</span><span class="st0">&quot;Start:&quot;</span>, cont<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#25552;&#21462;&#33410;&#28857;&#21477;&#26564;&#24182;&#25913;&#21464;&#38190;</span>
+    <span class="kw4">auto</span> nh <span class="sy1">=</span> cont.<span class="me1">extract</span><span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span><span class="sy4">;</span>
+    nh.<span class="me1">key</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">=</span> <span class="nu0">4</span><span class="sy4">;</span>
+ 
+    print<span class="br0">(</span><span class="st0">&quot;After extract and before insert:&quot;</span>, cont<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#23558;&#33410;&#28857;&#21477;&#26564;&#25554;&#22238;&#21435;</span>
+    cont.<span class="me1">insert</span><span class="br0">(</span>std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>nh<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    print<span class="br0">(</span><span class="st0">&quot;End:&quot;</span>, cont<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">Start: 1(a) 2(b) 3(c)
+After extract and before insert: 2(b) 3(c)
+End: 2(b) 3(c) 4(a)</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-unordered_multimap-merge.html"><span class="t-lines"><span>merge</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span></span></span></div>
+</div>
+</td>
+<td>&#20174;&#21478;&#19968;&#23481;&#22120;&#21512;&#24182;&#33410;&#28857;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-unordered_multimap-insert.html"><span class="t-lines"><span>insert</span></span></a></div>
+</div>
+</td>
+<td>&#25554;&#20837;&#20803;&#32032;<span class="t-rev-inl t-since-cxx17"><span>&#25110;&#33410;&#28857;</span><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-unordered_multimap-erase.html"><span class="t-lines"><span>erase</span></span></a></div>
+</div>
+</td>
+<td>&#25830;&#38500;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

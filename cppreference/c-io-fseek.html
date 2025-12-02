@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>fseek</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_io_fseek skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">fseek</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-io.html">io</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-stdio.html"><tt>&lt;stdio.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi c source-c"><span class="kw4">int</span> fseek<span class="br0">(</span> <a href="c-io.html"><span class="kw883">FILE</span></a><span class="sy2">*</span> stream, <span class="kw4">long</span> offset, <span class="kw4">int</span> origin <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi c source-c"><span class="co2">#define SEEK_SET &nbsp; &nbsp;/* &#26410;&#25351;&#26126; */</span><br /></span>
+<p><span class="co2">#define SEEK_CUR &nbsp; &nbsp;/* &#26410;&#25351;&#26126; */</span><br /></p>
+<span class="co2">#define SEEK_END &nbsp; &nbsp;/* &#26410;&#25351;&#26126; */</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#35774;&#32622;&#25991;&#20214;&#27969; <span class="t-c"><span class="mw-geshi c source-c">stream</span></span> &#30340;&#25991;&#20214;&#20301;&#32622;&#25351;&#31034;&#22120;&#20026; <span class="t-c"><span class="mw-geshi c source-c">offset</span></span> &#25152;&#25351;&#21521;&#30340;&#20540;&#12290;</p>
+<p>&#33509; <span class="t-c"><span class="mw-geshi c source-c">stream</span></span> &#20197;&#20108;&#36827;&#21046;&#27169;&#24335;&#25171;&#24320;&#65292;&#21017;&#26032;&#20301;&#32622;&#24688;&#22909;&#26159;&#25991;&#20214;&#36215;&#22987;&#21518;&#65288;&#33509; <span class="t-c"><span class="mw-geshi c source-c">origin</span></span> &#20026; <span class="t-lc"><a href="c-io.html">SEEK_SET</a></span>&#65289;&#25110;&#24403;&#21069;&#25991;&#20214;&#20301;&#32622;&#21518;&#65288;&#33509; <span class="t-c"><span class="mw-geshi c source-c">origin</span></span> &#20026; <span class="t-lc"><a href="c-io.html">SEEK_CUR</a></span>&#65289;&#65292;&#25110;&#25991;&#20214;&#32467;&#23614;&#21518;&#65288;&#33509; <span class="t-c"><span class="mw-geshi c source-c">origin</span></span> &#20026; <span class="t-lc"><a href="c-io.html">SEEK_END</a></span>&#65289;&#30340; <span class="t-c"><span class="mw-geshi c source-c">offset</span></span> &#23383;&#33410;&#12290;&#19981;&#35201;&#27714;&#20108;&#36827;&#21046;&#27969;&#25903;&#25345; <span class="t-lc"><a href="c-io.html">SEEK_END</a></span>&#65292;&#23588;&#20854;&#26159;&#24403;&#20854;&#36755;&#20986;&#20013;&#38468;&#21152;&#20102;&#31354;&#23383;&#33410;&#26102;&#12290;</p>
+<p>&#33509; <span class="t-c"><span class="mw-geshi c source-c">stream</span></span> &#20197;&#25991;&#26412;&#27169;&#24335;&#25171;&#24320;&#65292;&#21017;&#20165;&#26377;&#30340;&#21463;&#25903;&#25345; <span class="t-c"><span class="mw-geshi c source-c">offset</span></span> &#20540;&#20026;&#38646;&#65288;&#21487;&#29992;&#20110;&#20219;&#20309; <span class="t-c"><span class="mw-geshi c source-c">origin</span></span>&#65289;&#21644;&#20808;&#21069;&#22312;&#20851;&#32852;&#21040;&#21516;&#19968;&#20010;&#25991;&#20214;&#30340;&#27969;&#19978;&#23545; <span class="t-lc"><a href="c-io-ftell.html">ftell</a></span> &#30340;&#35843;&#29992;&#30340;&#36820;&#22238;&#20540;&#65288;&#20165;&#21487;&#29992;&#20110; <span class="t-lc"><a href="c-io.html">SEEK_SET</a></span> &#30340; <span class="t-c"><span class="mw-geshi c source-c">origin</span></span>&#65289;&#12290;</p>
+<p>&#33509; <span class="t-c"><span class="mw-geshi c source-c">stream</span></span> &#20026;&#23485;&#21462;&#21521;&#65292;&#21017;&#25991;&#26412;&#21644;&#20108;&#36827;&#21046;&#27969;&#30340;&#38480;&#21046;&#22343;&#36866;&#29992;&#65288;&#20801;&#35768; <span class="t-lc"><a href="c-io-ftell.html">ftell</a></span> &#30340;&#32467;&#26524;&#19982; <span class="t-lc"><a href="c-io.html">SEEK_SET</a></span> &#19968;&#21516;&#20351;&#29992;&#65292;&#24182;&#20801;&#35768;&#38646;&#20559;&#31227;&#37327;&#20197; <span class="t-lc"><a href="c-io.html">SEEK_SET</a></span> &#21644; <span class="t-lc"><a href="c-io.html">SEEK_CUR</a></span> &#20294;&#38750; <span class="t-lc"><a href="c-io.html">SEEK_END</a></span> &#20026;&#22522;&#20934;&#65289;&#12290;</p>
+<p>&#38500;&#20102;&#26356;&#25913;&#25991;&#20214;&#20301;&#32622;&#25351;&#31034;&#22120;&#65292; <code>fseek</code> &#36824;&#25764;&#38144; <span class="t-lc"><a href="c-io-ungetc.html">ungetc</a></span> &#30340;&#25928;&#26524;&#24182;&#28165;&#38500;&#25991;&#20214;&#23614;&#29366;&#24577;&#65292;&#22914;&#26524;&#36866;&#29992;&#12290;</p>
+<p>&#33509;&#21457;&#29983;&#35835;&#25110;&#20889;&#38169;&#35823;&#65292;&#21017;&#35774;&#32622;&#27969;&#30340;&#38169;&#35823;&#25351;&#31034;&#22120;&#65288; <span class="t-lc"><a href="c-io-ferror.html">ferror</a></span> &#65289;&#32780;&#19981;&#24433;&#21709;&#25991;&#20214;&#20301;&#32622;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>stream</td>
+<td>-</td>
+<td>&#35201;&#20462;&#25913;&#30340;&#25991;&#20214;&#27969;</td>
+</tr>
+<tr class="t-par">
+<td>offset</td>
+<td>-</td>
+<td>&#30456;&#23545; origin &#36801;&#31227;&#30340;&#23383;&#31526;&#25968;</td>
+</tr>
+<tr class="t-par">
+<td>origin</td>
+<td>-</td>
+<td><code>offset</code> &#25152;&#21152;&#19978;&#30340;&#20301;&#32622;&#12290;&#23427;&#33021;&#25317;&#26377;&#19979;&#21015;&#20540;&#20043;&#19968;&#65306;<span class="t-lc"><a href="c-io.html">SEEK_SET</a></span>&#12289;<span class="t-lc"><a href="c-io.html">SEEK_CUR</a></span>&#12289;<span class="t-lc"><a href="c-io.html">SEEK_END</a></span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#25104;&#21151;&#26102;&#20026; <span class="t-c"><span class="mw-geshi c source-c">&#8203;<span class="nu0">0</span>&#8203;</span></span> &#65292;&#21542;&#21017;&#20026;&#38750;&#38646;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#22312;&#24033;&#20301;&#21040;&#23485;&#27969;&#30340;&#38750;&#32467;&#23614;&#20301;&#32622;&#21518;&#65292;&#19979;&#20010;&#23545;&#20219;&#24847;&#36755;&#20986;&#20989;&#25968;&#30340;&#35843;&#29992;&#21487;&#33021;&#20196;&#21097;&#19979;&#30340;&#25991;&#20214;&#20869;&#23481;&#26410;&#23450;&#20041;&#65292;&#20363;&#22914;&#36890;&#36807;&#36755;&#20986;&#19968;&#20010;&#38271;&#24230;&#19981;&#21516;&#30340;&#22810;&#23383;&#33410;&#24207;&#21015;&#12290;</p>
+<p>&#23545;&#20110;&#25991;&#26412;&#27969;&#65292;<span class="t-c"><span class="mw-geshi c source-c">offset</span></span> &#20165;&#26377;&#30340;&#21512;&#27861;&#20540;&#26159; <span class="t-c"><span class="mw-geshi c source-c">&#8203;<span class="nu0">0</span>&#8203;</span></span>&#65288;&#21487;&#24212;&#29992;&#20110;&#20219;&#24847; <span class="t-c"><span class="mw-geshi c source-c">origin</span></span>&#65289;&#21644;&#20808;&#21069; <span class="t-lc"><a href="c-io-ftell.html">ftell</a></span> &#35843;&#29992;&#30340;&#36820;&#22238;&#20540;&#65288;&#20165;&#21487;&#24212;&#29992;&#20110; <span class="t-lc"><a href="c-io.html">SEEK_SET</a></span>&#65289;&#12290;</p>
+<p>POSIX &#20801;&#35768;&#22312;&#25991;&#20214;&#23614;&#20043;&#21518;&#24033;&#20301;&#12290;&#33509;&#22312;&#27492;&#24033;&#20301;&#21518;&#36827;&#34892;&#36755;&#20986;&#65292;&#21017;&#20219;&#20309;&#38388;&#38553;&#20013;&#30340;&#35835;&#21462;&#23558;&#36820;&#22238;&#38646;&#23383;&#33410;&#12290;&#22312;&#25991;&#20214;&#31995;&#32479;&#25903;&#25345;&#30340;&#22330;&#21512;&#65292;&#36825;&#20250;&#21019;&#24314;&#19968;&#20010;<i>&#31232;&#30095;&#25991;&#20214;</i>&#12290;</p>
+<p>POSIX &#20134;&#35201;&#27714; <code>fseek</code> &#20808;&#36827;&#34892; <span class="t-lc"><a href="c-io-fflush.html">fflush</a></span> &#65292;&#33509;&#26377;&#20219;&#20309;&#26410;&#20889;&#20837;&#25968;&#25454;&#65288;&#20294;&#26159;&#21542;&#24674;&#22797;&#36801;&#31227;&#29366;&#24577;&#26159;&#23454;&#29616;&#23450;&#20041;&#30340;&#65289;&#12290;</p>
+<p>POSIX &#35268;&#23450;&#65292;<a rel="nofollow" class="external text" href="https://pubs.opengroup.org/onlinepubs/9699919799/functions/fseek.html"><code>fseek</code></a> &#38169;&#35823;&#26102;&#24212;&#36820;&#22238; <span class="t-c"><span class="mw-geshi c source-c"><span class="sy2">-</span><span class="nu0">1</span></span></span>&#65292;&#24182;&#35774;&#32622; <span class="t-lc"><a href="c-error-errno.html">errno</a></span> &#20197;&#26631;&#26126;&#35813;&#38169;&#35823;&#12290;</p>
+<p>Windows &#20013;&#65292;&#24212;&#20351;&#29992; <a rel="nofollow" class="external text" href="https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/fseek-fseeki64"><code>_fseeki64</code></a> &#20197;&#25903;&#25345;&#22823;&#23567;&#36229;&#36807; 2GiB &#30340;&#25991;&#20214;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<p><code>fseek</code> &#21450;&#38169;&#35823;&#26816;&#26597;</p>
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#include &lt;stdlib.h&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="co1">// &#20934;&#22791; double &#20540;&#30340;&#25968;&#32452;&#12290;</span>
+    <span class="co2">#define SIZE 5</span>
+    <span class="kw4">double</span> A<span class="br0">[</span>SIZE<span class="br0">]</span> <span class="sy1">=</span> <span class="br0">{</span><span class="nu16">1.0</span>, <span class="nu16">2.0</span>, <span class="nu16">3.0</span>, <span class="nu16">4.0</span>, <span class="nu16">5.0</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#23558;&#25968;&#32452;&#20889;&#20837;&#25991;&#20214;&#12290;</span>
+    <a href="c-io.html"><span class="kw883">FILE</span></a> <span class="sy2">*</span> fp <span class="sy1">=</span> <a href="c-io-fopen.html"><span class="kw819">fopen</span></a><span class="br0">(</span><span class="st0">&quot;test.bin&quot;</span>, <span class="st0">&quot;wb&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fwrite.html"><span class="kw826">fwrite</span></a><span class="br0">(</span>A, <span class="kw4">sizeof</span><span class="br0">(</span><span class="kw4">double</span><span class="br0">)</span>, SIZE, fp<span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fclose.html"><span class="kw822">fclose</span></a> <span class="br0">(</span>fp<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#23558;&#21508; double &#20540;&#35835;&#21462;&#21040;&#25968;&#32452; B &#20013;&#12290;</span>
+    <span class="kw4">double</span> B<span class="br0">[</span>SIZE<span class="br0">]</span><span class="sy4">;</span>
+    fp <span class="sy1">=</span> <a href="c-io-fopen.html"><span class="kw819">fopen</span></a><span class="br0">(</span><span class="st0">&quot;test.bin&quot;</span>, <span class="st0">&quot;rb&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#35774;&#32622;&#25991;&#20214;&#20301;&#32622;&#25351;&#31034;&#22120;&#21040;&#31532;&#19977;&#20010; double &#20540;&#20043;&#21069;&#12290;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>fseek<span class="br0">(</span>fp, <span class="kw4">sizeof</span><span class="br0">(</span><span class="kw4">double</span><span class="br0">)</span> <span class="sy2">*</span> <span class="nu0">2L</span>, <a href="c-io.html"><span class="kw895">SEEK_SET</span></a><span class="br0">)</span> <span class="sy3">!</span><span class="sy1">=</span> <span class="nu0">0</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="c-io-fprintf.html"><span class="kw852">fprintf</span></a><span class="br0">(</span><a href="c-io.html"><span class="kw887">stderr</span></a>, <span class="st0">&quot;fseek() &#22833;&#36133;&#65292;&#25991;&#20214; %s &#34892; # %d<span class="es1">\n</span>&quot;</span>,
+                __FILE__, __LINE__ <span class="sy2">-</span> <span class="nu0">2</span><span class="br0">)</span><span class="sy4">;</span>
+        <a href="c-io-fclose.html"><span class="kw822">fclose</span></a><span class="br0">(</span>fp<span class="br0">)</span><span class="sy4">;</span>
+        <span class="kw1">return</span> <a href="c-program-EXIT_status.html"><span class="kw494">EXIT_FAILURE</span></a><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw4">int</span> ret_code <span class="sy1">=</span> <a href="c-io-fread.html"><span class="kw825">fread</span></a><span class="br0">(</span>B, <span class="kw4">sizeof</span><span class="br0">(</span><span class="kw4">double</span><span class="br0">)</span>, <span class="nu0">1</span>, fp<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#35835;&#21462;&#19968;&#20010; double &#20540;</span>
+    <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;ret_code == %d<span class="es1">\n</span>&quot;</span>, ret_code<span class="br0">)</span><span class="sy4">;</span>           <span class="co1">// &#25171;&#21360;&#25152;&#35835;&#21462;&#20540;&#30340;&#25968;&#37327;</span>
+    <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;B[0] == %.1f<span class="es1">\n</span>&quot;</span>, B<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span><span class="br0">)</span><span class="sy4">;</span>                 <span class="co1">// &#25171;&#21360;&#19968;&#20010;&#20540;</span>
+ 
+    <a href="c-io-fclose.html"><span class="kw822">fclose</span></a><span class="br0">(</span>fp<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">return</span> <a href="c-program-EXIT_status.html"><span class="kw493">EXIT_SUCCESS</span></a><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">ret_code == 1
+B[0] == 3.0</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-23">
+<ul>
+<li>C23 &#26631;&#20934;&#65288;ISO/IEC 9899:2024&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.23.9.2 The fseek function &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.21.9.2 The fseek function &#65288;&#31532; 245 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.21.9.2 The fseek function &#65288;&#31532; 336-337 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c99">
+<ul>
+<li>C99 &#26631;&#20934;&#65288;ISO/IEC 9899:1999&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.19.9.2 The fseek function &#65288;&#31532; 302-303 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c89">
+<ul>
+<li>C89/C90 &#26631;&#20934;&#65288;ISO/IEC 9899:1990&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>4.9.9.2 The fseek function</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-io-fsetpos.html"><span class="t-lines"><span>fsetpos</span></span></a></div>
+</div>
+</td>
+<td>&#23558;&#25991;&#20214;&#20301;&#32622;&#25351;&#31034;&#22120;&#31227;&#21160;&#21040;&#25991;&#20214;&#20013;&#30340;&#25351;&#23450;&#20301;&#32622;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-io-fgetpos.html"><span class="t-lines"><span>fgetpos</span></span></a></div>
+</div>
+</td>
+<td>&#33719;&#21462;&#25991;&#20214;&#20301;&#32622;&#25351;&#31034;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-io-ftell.html"><span class="t-lines"><span>ftell</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#24403;&#21069;&#30340;&#25991;&#20214;&#20301;&#32622;&#25351;&#31034;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-io-rewind.html"><span class="t-lines"><span>rewind</span></span></a></div>
+</div>
+</td>
+<td>&#23558;&#25991;&#20214;&#20301;&#32622;&#25351;&#31034;&#22120;&#31227;&#21160;&#21040;&#25991;&#20214;&#39318;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>fseek</span></span>&nbsp;&#30340; <span><span><a href="cpp-io-c-fseek.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::experimental::simd_cast, std::experimental::static_simd_cast</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_experimental_simd_simd_cast skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::experimental::</span>simd_cast, <span style="font-size:0.8em; line-height:125%">std::experimental::</span>static_simd_cast</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-experimental.html">experimental</a>&lrm; | <a href="cpp-experimental-simd.html">simd</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-experimental-simd.html">&lt;experimental/simd&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-parallelism_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> V, <span class="kw1">class</span> T, <span class="kw1">class</span> Abi <span class="sy1">&gt;</span><br />
+<span class="coMULTI">/* &#35265;&#19979;&#25991; */</span> simd_cast<span class="br0">(</span> <span class="kw4">const</span> simd<span class="sy1">&lt;</span>T, Abi<span class="sy1">&gt;</span><span class="sy3">&amp;</span> v <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></td>
+</tr>
+<tr class="t-dcl t-since-parallelism_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> V, <span class="kw1">class</span> T, <span class="kw1">class</span> Abi <span class="sy1">&gt;</span><br />
+<span class="coMULTI">/* &#35265;&#19979;&#25991; */</span> static_simd_cast<span class="br0">(</span> <span class="kw4">const</span> simd<span class="sy1">&lt;</span>T, Abi<span class="sy1">&gt;</span><span class="sy3">&amp;</span> v <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-parallelism-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24182;&#34892; TS v2)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36716;&#22411; simd &#23545;&#35937;&#21040;&#21478;&#19968; simd &#23545;&#35937;&#12290;&#33509; V &#20026; T&#65292;&#21017;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp">simd<span class="sy1">&lt;</span>T, Abi<span class="sy1">&gt;</span></span></span>&#65307;&#21542;&#21017;&#65292;&#33509; V &#20026;&#26631;&#37327;&#31867;&#22411;&#65292;&#21017;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp">simd<span class="sy1">&lt;</span>V, simd_abi<span class="sy4">::</span><span class="me2">fixed_size</span><span class="sy1">&lt;</span>simd<span class="sy1">&lt;</span>T, Abi<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">size</span><span class="br0">(</span><span class="br0">)</span><span class="sy1">&gt;&gt;</span></span></span>&#12290;&#21542;&#21017;&#65292;V &#24517;&#39035;&#26159; simd &#31867;&#22411;&#65292;&#32780;&#20989;&#25968;&#36820;&#22238; V&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#38500;&#38750;&#20197;&#19979;&#24773;&#20917;&#65292;&#21542;&#21017;&#27492;&#20989;&#25968;&#19981;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#65306;
+<ul>
+<li>&#36755;&#20837;&#20803;&#32032;&#30340;&#27599;&#20010;&#21487;&#33021;&#20540;&#37117;&#33021;&#20197;&#36755;&#20986;&#20803;&#32032;&#34920;&#31034;&#65292;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">is_simd_v<span class="sy1">&lt;</span>V<span class="sy1">&gt;</span></span></span> &#20026; false &#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp">V<span class="sy4">::</span><span class="me2">size</span><span class="br0">(</span><span class="br0">)</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">simd<span class="sy1">&lt;</span>T, Abi<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">size</span><span class="br0">(</span><span class="br0">)</span></span></span>&#12290;</li>
+</ul>
+</div>
+<div class="t-li1"><span class="t-li">2)</span> &#27492;&#20989;&#25968;&#20165;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">is_simd_v<span class="sy1">&lt;</span>V<span class="sy1">&gt;</span></span></span> &#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp">V<span class="sy4">::</span><span class="me2">size</span><span class="br0">(</span><span class="br0">)</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">simd<span class="sy1">&lt;</span>T, Abi<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">size</span><span class="br0">(</span><span class="br0">)</span></span></span> &#25165;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#12290;</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>v</td>
+<td>-</td>
+<td>&#36755;&#20837;&#30340; simd &#23545;&#35937;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#31532; i &#20803;&#32032;&#21021;&#22987;&#21270;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">static_cast</span><span class="sy1">&lt;</span>To<span class="sy1">&gt;</span><span class="br0">(</span>v<span class="br0">[</span>i<span class="br0">]</span><span class="br0">)</span></span></span> &#30340; simd &#23545;&#35937;&#65292;&#20854;&#20013; To &#26159;&#25351;&#23450;&#30340;&#36755;&#20986;&#20803;&#32032;&#31867;&#22411;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>TS &#35268;&#33539;&#32570;&#20047; <span class="t-c"><span class="mw-geshi cpp source-cpp">simd_cast</span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp">static_simd_cast</span></span> &#23545; <span class="t-c"><span class="mw-geshi cpp source-cpp">simd_mask</span></span> &#30340;&#37325;&#36733;&#12290;libstdc++ &#23454;&#29616;&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">experimental</span><span class="sy4">::</span>__proposed</span></span> &#21629;&#21517;&#31354;&#38388;&#20013;&#25552;&#20379;&#20102;&#32570;&#23569;&#30340;&#37325;&#36733;&#12290;&#22914;&#26524;&#24050;&#32463;&#20351;&#29992;&#20102;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">namespace</span> stdx <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">experimental</span><span class="sy4">;</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#38656;&#35201;&#20195;&#20043;&#20197;&#20351;&#29992;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">namespace</span> stdx <span class="br0">{</span>
+  <span class="kw1">using</span> <span class="kw1">namespace</span> std<span class="sy4">::</span><span class="me2">experimental</span><span class="sy4">;</span>
+  <span class="kw1">using</span> <span class="kw1">namespace</span> std<span class="sy4">::</span><span class="me2">experimental</span><span class="sy4">::</span>__proposed<span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21478;&#22806;&#65292;libstdc++ &#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">simd_mask</span></span> &#20013;&#23454;&#29616;&#20102; <span class="t-c"><span class="mw-geshi cpp source-cpp">__cvt<span class="br0">(</span><span class="br0">)</span></span></span> &#25104;&#21592;&#20989;&#25968;&#65292;&#23427;&#36816;&#34892;&#36827;&#34892;&#25513;&#30721;&#30340;&#38544;&#24335;&#36716;&#25442;&#12290;&#21442;&#35265;&#65306;<a rel="nofollow" class="external free" href="https://github.com/VcDevel/std-simd/issues/41">https://github.com/VcDevel/std-simd/issues/41</a></p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#26242;&#26080;&#31034;&#20363;</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

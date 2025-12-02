@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>C++ &#20855;&#21517;&#35201;&#27714;&#65306;&#38543;&#26426;&#25968;&#20998;&#24067; (RandomNumberDistribution) (C++11 &#36215;)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_named_req_RandomNumberDistribution skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">C++ &#20855;&#21517;&#35201;&#27714;&#65306;</span><span style="font-style:italic">&#38543;&#26426;&#25968;&#20998;&#24067;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(RandomNumberDistribution)</span> <span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-named_req.html">named req</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<p><strong class="selflink"><span style="font-style:italic">&#38543;&#26426;&#25968;&#20998;&#24067;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(RandomNumberDistribution)</span></strong> &#26159;&#36820;&#22238;&#26381;&#20174;<a href="https://en.wikipedia.org/wiki/Probability_density_function" class="extiw" title="enwiki:Probability density function">&#27010;&#29575;&#23494;&#24230;&#20989;&#25968;</a> <span class="texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">p(x)</span> &#25110;<a href="https://en.wikipedia.org/wiki/Discrete_probability_distribution" class="extiw" title="enwiki:Discrete probability distribution">&#31163;&#25955;&#27010;&#29575;&#20998;&#24067;</a> <span class="texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">P(x<span class="t-su t-su-b">i</span>)</span> &#30340;&#38543;&#26426;&#25968;&#30340;&#20989;&#25968;&#23545;&#35937;&#12290;</p>
+<h3><span class="mw-headline" id=".E8.A6.81.E6.B1.82">&#35201;&#27714;</span></h3>
+<p>&#31867;&#22411; <code>D</code> &#28385;&#36275;<span style="font-style:italic">&#38543;&#26426;&#25968;&#20998;&#24067;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(RandomNumberDistribution)</span> &#65292;&#33509;</p>
+<ul>
+<li><code>D</code> &#28385;&#36275;<a href="cpp-named_req-CopyConstructible.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyConstructible)</span></a></li>
+<li><code>D</code> &#28385;&#36275;<a href="cpp-named_req-CopyAssignable.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#36171;&#20540;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyAssignable)</span></a></li>
+</ul>
+<p>&#32473;&#23450;</p>
+<ul>
+<li><code>T</code>&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">D<span class="sy4">::</span><span class="me2">result_type</span></span></span> &#25152;&#25351;&#21517;&#30340;&#31867;&#22411;</li>
+<li><code>P</code>&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">D<span class="sy4">::</span><span class="me2">param_type</span></span></span> &#25152;&#25351;&#21517;&#30340;&#31867;&#22411;&#65292;&#23427;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>&#28385;&#36275;<a href="cpp-named_req-CopyConstructible.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyConstructible)</span></a></li>
+<li>&#28385;&#36275;<a href="cpp-named_req-CopyAssignable.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#36171;&#20540;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyAssignable)</span></a></li>
+<li>&#28385;&#36275;<a href="cpp-named_req-EqualityComparable.html"><span style="font-style:italic">&#21487;&#30456;&#31561;&#27604;&#36739;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(EqualityComparable)</span></a></li>
+<li>&#25317;&#26377;&#23454;&#21442;&#19982; <code>D</code> &#30340;&#25152;&#26377;&#25509;&#25910;&#20998;&#24067;&#21442;&#25968;&#30340;&#26500;&#36896;&#20989;&#25968;&#30340;&#23454;&#21442;&#30456;&#21516;&#30340;&#26500;&#36896;&#20989;&#25968;</li>
+<li>&#23545;&#20110; <code>D</code> &#30340;&#27599;&#20010;&#36820;&#22238;&#20998;&#24067;&#21442;&#25968;&#30340;&#25104;&#21592;&#20989;&#25968;&#65292;&#25317;&#26377;&#21517;&#31216;&#12289;&#31867;&#22411;&#12289;&#35821;&#20041;&#37117;&#19982;&#20043;&#30456;&#21516;&#30340;&#25104;&#21592;&#20989;&#25968;</li>
+<li>&#22768;&#26126;&#20102;&#25104;&#21592; typedef <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">using</span> distribution_type <span class="sy1">=</span> D<span class="sy4">;</span></span></span></li>
+</ul>
+</dd>
+</dl>
+<ul>
+<li><code>d</code>&#65292;<code>D</code> &#31867;&#22411;&#30340;&#20540;</li>
+<li><code>x</code> &#19982; <code>y</code>&#65292;<code>D</code> &#31867;&#22411;&#30340;&#65288;&#21487;&#33021; const &#30340;&#65289;&#20540;</li>
+<li><code>p</code>&#65292;<code>P</code> &#31867;&#22411;&#30340;&#65288;&#21487;&#33021; const &#30340;&#65289;&#20540;</li>
+<li><code>g</code>&#12289;<code>g1</code>&#12289;<code>g2</code>&#65292;&#28385;&#36275;<a href="cpp-named_req-UniformRandomBitGenerator.html"><span style="font-style:italic">&#22343;&#21248;&#38543;&#26426;&#20301;&#29983;&#25104;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(UniformRandomBitGenerator)</span></a> &#31867;&#22411;&#30340;&#24038;&#20540;</li>
+<li><code>os</code>&#65292;<span class="t-lc"><a href="cpp-io-basic_ostream.html">std::basic_ostream</a></span> &#29305;&#21270;&#30340;&#24038;&#20540;</li>
+<li><code>is</code>&#65292;<span class="t-lc"><a href="cpp-io-basic_istream.html">std::basic_istream</a></span> &#29305;&#21270;&#30340;&#24038;&#20540;</li>
+</ul>
+<p>&#19979;&#21015;&#34920;&#36798;&#24335;&#24517;&#39035;&#21512;&#27861;&#19988;&#25317;&#26377;&#20854;&#25351;&#23450;&#30340;&#25928;&#24212;</p>
+<table class="wikitable">
+<tr>
+<th>&#34920;&#36798;&#24335;</th>
+<th>&#31867;&#22411;</th>
+<th>&#27880;&#24847;</th>
+<th>&#22797;&#65279;&#26434;&#65279;&#24230;</th>
+</tr>
+<tr>
+<td><code>D::result_type</code></td>
+<td><code>T</code></td>
+<td><a href="cpp-language-type.html">&#31639;&#26415;&#31867;&#22411;</a></td>
+<td>&#32534;&#35793;&#26102;</td>
+</tr>
+<tr>
+<td><code>D::param_type</code></td>
+<td><code>P</code></td>
+<td></td>
+<td>&#32534;&#35793;&#26102;</td>
+</tr>
+<tr>
+<td><code>D()</code></td>
+<td></td>
+<td>&#21019;&#24314;&#19982;&#20854;&#20182;&#40664;&#35748;&#26500;&#36896;&#30340; <code>D</code> &#19981;&#21487;&#21306;&#20998;&#30340;&#20998;&#24067;</td>
+<td>&#24120;&#25968;</td>
+</tr>
+<tr>
+<td><code>D(p)</code></td>
+<td></td>
+<td>&#21019;&#24314;&#19982;&#30452;&#25509;&#20351;&#29992;&#26500;&#36896; <code>p</code> &#26102;&#25152;&#29992;&#30340;&#20540;&#26500;&#36896;&#30340; <code>D</code> &#19981;&#21487;&#21306;&#20998;&#30340;&#20998;&#24067;</td>
+<td>&#21516; <code>p</code> &#30340;&#26500;&#36896;</td>
+</tr>
+<tr>
+<td><code>d.reset()</code></td>
+<td><code>void</code></td>
+<td>&#37325;&#32622;&#20998;&#24067;&#20026;&#21021;&#22987;&#29366;&#24577;&#12290;<code>d</code> &#19979;&#27425;&#23545; <code>operator()</code> &#30340;&#35843;&#29992;&#23558;&#19981;&#20381;&#36182;&#20219;&#20309;&#24341;&#25806;&#22312; <code>reset()</code> &#35843;&#29992;&#20043;&#21069;&#20135;&#29983;&#30340;&#20540;</td>
+<td>&#24120;&#25968;</td>
+</tr>
+<tr>
+<td><code>x.param()</code></td>
+<td><code>P</code></td>
+<td>&#36820;&#22238; <code>p</code>&#65292;&#28385;&#36275; <span class="t-c"><span class="mw-geshi cpp source-cpp">D<span class="br0">(</span>p<span class="br0">)</span>.<span class="me1">param</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> p</span></span></td>
+<td>&#19981;&#21155;&#20110; <code>D(p)</code></td>
+</tr>
+<tr>
+<td><code>d.param(p)</code></td>
+<td><code>void</code></td>
+<td>&#21518;&#26465;&#20214;&#65306;<span class="t-c"><span class="mw-geshi cpp source-cpp">d.<span class="me1">param</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> p</span></span></td>
+<td>&#19981;&#21155;&#20110; <code>D(p)</code></td>
+</tr>
+<tr>
+<td><code>d(g)</code></td>
+<td><code>T</code></td>
+<td>&#20197;&#21516;&#19968; <code>g</code> &#36827;&#34892;&#30456;&#32487;&#35843;&#29992;&#25152;&#36820;&#22238;&#30340;&#25968;&#21015;&#65292;&#38543;&#26426;&#20998;&#24067;&#26381;&#20174; <code>d.param()</code> &#25152;&#21442;&#25968;&#21270;&#30340;&#20998;&#24067;</td>
+<td>&#22343;&#25674;&#24120;&#25968;&#27425; <code>g</code> &#30340;&#35843;&#29992;</td>
+</tr>
+<tr>
+<td><code>d(g,p)</code></td>
+<td><code>T</code></td>
+<td>&#20197;&#21516;&#19968; <code>g</code> &#36827;&#34892;&#30456;&#32487;&#35843;&#29992;&#25152;&#36820;&#22238;&#30340;&#25968;&#21015;&#65292;&#38543;&#26426;&#20998;&#24067;&#26381;&#20174; <code>p</code> &#25152;&#21442;&#25968;&#21270;&#30340;&#20998;&#24067;</td>
+<td>&#22343;&#25674;&#24120;&#25968;&#27425; <code>g</code> &#30340;&#35843;&#29992;</td>
+</tr>
+<tr>
+<td><code>x.min()</code></td>
+<td><code>T</code></td>
+<td><code>x</code> &#30340; <code>operator()</code> &#28508;&#22312;&#36820;&#22238;&#20540;&#30340;&#26368;&#22823;&#19979;&#30028;&#65292;&#30001; <code>x</code> &#30340;&#21442;&#25968;&#30340;&#24403;&#21069;&#20540;&#30830;&#23450;</td>
+<td>&#24120;&#25968;</td>
+</tr>
+<tr>
+<td><code>x.max()</code></td>
+<td><code>T</code></td>
+<td><code>x</code> &#30340; <code>operator()</code> &#28508;&#22312;&#36820;&#22238;&#20540;&#30340;&#26368;&#23567;&#19978;&#30028;&#65292;&#30001; <code>x</code> &#30340;&#21442;&#25968;&#30340;&#24403;&#21069;&#20540;&#30830;&#23450;</td>
+<td>&#24120;&#25968;</td>
+</tr>
+<tr>
+<td><code>x == y</code></td>
+<td><code>bool</code></td>
+<td>&#24314;&#31435;&#31561;&#20215;&#20851;&#31995;&#12290;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">x.<span class="me1">param</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> y.<span class="me1">param</span><span class="br0">(</span><span class="br0">)</span></span></span>&#65292;&#19988;&#21482;&#35201; <span class="t-c"><span class="mw-geshi cpp source-cpp">g1 <span class="sy1">==</span> g2</span></span>&#65292;&#23558;&#26469;&#37325;&#22797;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">x<span class="br0">(</span>g1<span class="br0">)</span></span></span> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">y<span class="br0">(</span>g2<span class="br0">)</span></span></span> &#25152;&#29983;&#25104;&#30340;&#26080;&#38480;&#25968;&#21015;&#23601;&#30456;&#31561;&#65292;&#21017;&#36820;&#22238; <code>true</code></td>
+<td>&#24120;&#25968;</td>
+</tr>
+<tr>
+<td><code>x&nbsp;!= y</code></td>
+<td><code>bool</code></td>
+<td><code>!(x == y)</code></td>
+<td>&#24120;&#25968;</td>
+</tr>
+<tr>
+<td><code>os &lt;&lt; x</code></td>
+<td><code>os</code> &#31867;&#22411;&#30340;&#24341;&#29992;</td>
+<td>&#23558;&#20998;&#24067;&#21442;&#25968;&#21644;&#20869;&#37096;&#29366;&#24577;&#30340;&#25991;&#26412;&#34920;&#31034;&#20889;&#20837;&#21040; <code>os</code>&#12290;&#19981;&#26356;&#25913; <code>os</code> &#30340;&#26684;&#24335;&#21270;&#26631;&#24535;&#21644;&#22635;&#20805;&#23383;&#31526;</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is &gt;&gt; d</code></td>
+<td><code>is</code> &#31867;&#22411;&#30340;&#24341;&#29992;</td>
+<td>&#20174;&#35835;&#21462;&#33258; <code>is</code> &#30340;&#25968;&#25454;&#36824;&#21407;&#20998;&#24067;&#21442;&#25968;&#21644;&#20869;&#37096;&#29366;&#24577;&#12290;&#19981;&#26356;&#25913; <code>is</code> &#30340;&#26684;&#24335;&#21270;&#26631;&#24535;&#12290;&#25968;&#25454;&#24517;&#39035;&#26159;&#29992;&#24102;&#30456;&#21516;&#26412;&#22320;&#29615;&#22659;&#12289;<code>CharT</code> &#21644; <code>Traits</code> &#27969;&#27169;&#26495;&#24418;&#21442;&#30340;&#27969;&#25152;&#20889;&#20837;&#30340;&#65292;&#21542;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;&#33509;&#36935;&#21040;&#22351;&#30340;&#36755;&#20837;&#65292;&#21017;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">is.<span class="me1">setstate</span><span class="br0">(</span>std<span class="sy4">::</span><span class="me2">ios</span><span class="sy4">::</span><span class="me2">failbit</span><span class="br0">)</span></span></span>&#65292;&#23427;&#21487;&#33021;&#25243;&#20986; <span class="t-lc"><a href="cpp-io-ios_base-failure.html">std::ios_base::failure</a></span>&#12290;&#35813;&#24773;&#20917;&#19979;&#19981;&#26356;&#25913; <code>d</code>&#12290;</td>
+<td></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#20998;&#24067;&#23545;&#35937;&#30340;&#21442;&#25968;&#21487;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">d.<span class="me1">param</span><span class="br0">(</span>p<span class="br0">)</span></span></span> &#27704;&#20037;&#26356;&#25913;&#65292;&#25110;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">d<span class="br0">(</span>g,p<span class="br0">)</span></span></span> &#21482;&#22312;&#21333;&#27425; operator() &#35843;&#29992;&#26399;&#38388;&#26356;&#25913;&#12290;</p>
+<p>&#35843;&#29992;&#20998;&#24067;&#30340; const &#25104;&#21592;&#20989;&#25968;&#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp">os <span class="sy1">&lt;&lt;</span> d</span></span> &#19981;&#24433;&#21709;&#37325;&#22797; <span class="t-c"><span class="mw-geshi cpp source-cpp">d<span class="br0">(</span>g<span class="br0">)</span></span></span> &#25152;&#20135;&#29983;&#30340;&#25968;&#21015;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.A0.87.E5.87.86.E5.BA.93">&#26631;&#20934;&#24211;</span></h3>
+<p>&#19979;&#21015;&#26631;&#20934;&#24211;&#32452;&#20214;&#28385;&#36275;<strong class="selflink"><span style="font-style:italic">&#38543;&#26426;&#25968;&#20998;&#24067;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(RandomNumberDistribution)</span></strong></p>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-uniform_int_distribution.html"><span class="t-lines"><span>uniform_int_distribution</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20135;&#29983;&#22312;&#33539;&#22260;&#20869;&#22343;&#21248;&#20998;&#24067;&#30340;&#25972;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-uniform_real_distribution.html"><span class="t-lines"><span>uniform_real_distribution</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20135;&#29983;&#22312;&#33539;&#22260;&#20869;&#22343;&#21248;&#20998;&#24067;&#30340;&#23454;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-bernoulli_distribution.html"><span class="t-lines"><span>bernoulli_distribution</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20135;&#29983;<a href="https://en.wikipedia.org/wiki/Bernoulli_distribution" class="extiw" title="enwiki:Bernoulli distribution">&#20271;&#21162;&#21033;&#20998;&#24067;</a>&#19978;&#30340; <span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span> &#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-binomial_distribution.html"><span class="t-lines"><span>binomial_distribution</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20135;&#29983;<a href="https://en.wikipedia.org/wiki/Binomial_distribution" class="extiw" title="enwiki:Binomial distribution">&#20108;&#39033;&#20998;&#24067;</a>&#19978;&#30340;&#25972;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-negative_binomial_distribution.html"><span class="t-lines"><span>negative_binomial_distribution</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20135;&#29983;<a href="https://en.wikipedia.org/wiki/Negative_binomial_distribution" class="extiw" title="enwiki:Negative binomial distribution">&#36127;&#20108;&#39033;&#20998;&#24067;</a>&#19978;&#30340;&#25972;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-geometric_distribution.html"><span class="t-lines"><span>geometric_distribution</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20135;&#29983;<a href="https://en.wikipedia.org/wiki/Geometric_distribution" class="extiw" title="enwiki:Geometric distribution">&#20960;&#20309;&#20998;&#24067;</a>&#19978;&#30340;&#25972;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-poisson_distribution.html"><span class="t-lines"><span>poisson_distribution</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20135;&#29983;<a href="https://en.wikipedia.org/wiki/Poisson_distribution" class="extiw" title="enwiki:Poisson distribution">&#27850;&#26494;&#20998;&#24067;</a>&#19978;&#30340;&#25972;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-exponential_distribution.html"><span class="t-lines"><span>exponential_distribution</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20135;&#29983;<a href="https://en.wikipedia.org/wiki/Exponential_distribution" class="extiw" title="enwiki:Exponential distribution">&#25351;&#25968;&#20998;&#24067;</a>&#19978;&#30340;&#23454;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-gamma_distribution.html"><span class="t-lines"><span>gamma_distribution</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20135;&#29983;<a href="https://en.wikipedia.org/wiki/Gamma_distribution" class="extiw" title="enwiki:Gamma distribution">&Gamma; &#20998;&#24067;</a>&#19978;&#30340;&#23454;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-weibull_distribution.html"><span class="t-lines"><span>weibull_distribution</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20135;&#29983;<a href="https://en.wikipedia.org/wiki/Weibull_distribution" class="extiw" title="enwiki:Weibull distribution">&#23041;&#24067;&#23572;&#20998;&#24067;</a>&#19978;&#30340;&#23454;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-extreme_value_distribution.html"><span class="t-lines"><span>extreme_value_distribution</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20135;&#29983;<a href="https://en.wikipedia.org/wiki/Generalized_extreme_value_distribution" class="extiw" title="enwiki:Generalized extreme value distribution">&#26497;&#20540;&#20998;&#24067;</a>&#19978;&#30340;&#23454;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-normal_distribution.html"><span class="t-lines"><span>normal_distribution</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20135;&#29983;<a href="https://en.wikipedia.org/wiki/Normal_distribution" class="extiw" title="enwiki:Normal distribution">&#26631;&#20934;&#27491;&#24577;&#65288;&#39640;&#26031;&#65289;&#20998;&#24067;</a>&#19978;&#30340;&#23454;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-lognormal_distribution.html"><span class="t-lines"><span>lognormal_distribution</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20135;&#29983;<a href="https://en.wikipedia.org/wiki/Lognormal_distribution" class="extiw" title="enwiki:Lognormal distribution">&#23545;&#25968;&#27491;&#24577;&#20998;&#24067;</a>&#19978;&#30340;&#23454;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-chi_squared_distribution.html"><span class="t-lines"><span>chi_squared_distribution</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20135;&#29983;<a href="https://en.wikipedia.org/wiki/Chi-squared_distribution" class="extiw" title="enwiki:Chi-squared distribution">&chi;<sup>2</sup> &#20998;&#24067;</a>&#19978;&#30340;&#23454;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-cauchy_distribution.html"><span class="t-lines"><span>cauchy_distribution</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20135;&#29983;<a href="https://en.wikipedia.org/wiki/Cauchy_distribution" class="extiw" title="enwiki:Cauchy distribution">&#26607;&#35199;&#20998;&#24067;</a>&#19978;&#30340;&#23454;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-fisher_f_distribution.html"><span class="t-lines"><span>fisher_f_distribution</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20135;&#29983;<a href="https://en.wikipedia.org/wiki/F-distribution" class="extiw" title="enwiki:F-distribution">&#36153;&#33293;&#23572; F &#20998;&#24067;</a>&#19978;&#30340;&#23454;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-student_t_distribution.html"><span class="t-lines"><span>student_t_distribution</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20135;&#29983;<a href="https://en.wikipedia.org/wiki/Student%27s_t-distribution" class="extiw" title="enwiki:Student&#39;s t-distribution">&#23398;&#29983; t &#20998;&#24067;</a>&#19978;&#30340;&#23454;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-discrete_distribution.html"><span class="t-lines"><span>discrete_distribution</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20135;&#29983;&#31163;&#25955;&#20998;&#24067;&#19978;&#30340;&#25972;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-piecewise_constant_distribution.html"><span class="t-lines"><span>piecewise_constant_distribution</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20135;&#29983;&#20998;&#24067;&#22312;&#24120;&#23376;&#21306;&#38388;&#19978;&#30340;&#23454;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-piecewise_linear_distribution.html"><span class="t-lines"><span>piecewise_linear_distribution</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20135;&#29983;&#20998;&#24067;&#22312;&#23450;&#20041;&#30340;&#23376;&#21306;&#38388;&#19978;&#30340;&#23454;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

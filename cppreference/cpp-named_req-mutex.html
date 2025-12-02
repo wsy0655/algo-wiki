@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>C++ &#20855;&#21517;&#35201;&#27714;&#65306;&#20114;&#26021;&#20307; (Mutex) (C++11 &#36215;)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_named_req_Mutex skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">C++ &#20855;&#21517;&#35201;&#27714;&#65306;</span><span style="font-style:italic">&#20114;&#26021;&#20307;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(Mutex)</span> <span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-named_req.html">named req</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<p><strong class="selflink"><span style="font-style:italic">&#20114;&#26021;&#20307;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(Mutex)</span></strong> &#35201;&#27714;&#25193;&#23637;&#20102;<a href="cpp-named_req-Lockable.html"><span style="font-style:italic">&#21487;&#38145;&#23450;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(Lockable)</span></a> &#35201;&#27714;&#20197;&#21253;&#21547;&#32447;&#31243;&#38388;&#21516;&#27493;&#12290;</p>
+<h3><span class="mw-headline" id=".E8.A6.81.E6.B1.82">&#35201;&#27714;</span></h3>
+<ul>
+<li><a href="cpp-named_req-Lockable.html"><span style="font-style:italic">&#21487;&#38145;&#23450;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(Lockable)</span></a></li>
+<li><a href="cpp-named_req-DefaultConstructible.html"><span style="font-style:italic">&#21487;&#40664;&#35748;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(DefaultConstructible)</span></a></li>
+<li><a href="cpp-named_req-Destructible.html"><span style="font-style:italic">&#21487;&#26512;&#26500;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(Destructible)</span></a></li>
+<li>&#19981;&#21487;&#22797;&#21046;</li>
+<li>&#19981;&#21487;&#31227;&#21160;</li>
+</ul>
+<p>&#23545;&#20110;<span style="font-style:italic">&#20114;&#26021;&#20307;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(Mutex)</span> &#31867;&#22411;&#30340;&#23545;&#35937; <code><b>m</b></code>&#65306;</p>
+<ul>
+<li>&#34920;&#36798;&#24335; <span class="t-c"><span class="mw-geshi cpp source-cpp">m.<span class="me1">lock</span><span class="br0">(</span><span class="br0">)</span></span></span> &#20855;&#26377;&#19979;&#21015;&#24615;&#36136;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>&#34920;&#29616;&#20026;&#21407;&#23376;&#25805;&#20316;&#12290;</li>
+<li>&#38459;&#22622;&#35843;&#29992;&#26041;&#32447;&#31243;&#65292;&#30452;&#21040;&#33021;&#33719;&#24471;&#20114;&#26021;&#20307;&#30340;&#25490;&#20182;&#24615;&#25152;&#26377;&#26435;&#20026;&#27490;&#12290;</li>
+<li>&#21516;&#19968;&#20114;&#26021;&#20307;&#19978;&#20808;&#21069;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">m.<span class="me1">unlock</span><span class="br0">(</span><span class="br0">)</span></span></span> &#25805;&#20316;<i>&#21516;&#27493;&#20110;</i>&#27492;&#38145;&#23450;&#25805;&#20316;&#65288;&#31561;&#20215;&#20110;&#37322;&#25918;-&#33719;&#24471; <span class="t-lc"><a href="cpp-atomic-memory_order.html">std::memory_order</a></span> &#65289;&#12290;</li>
+<li>&#33509;&#35843;&#29992;&#26041;&#32447;&#31243;&#24050;&#21344;&#26377;&#20114;&#26021;&#20307;&#65292;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#65288;&#38500;&#38750; m &#26159; <span class="t-lc"><a href="cpp-thread-recursive_mutex.html">std::recursive_mutex</a></span> &#25110; <span class="t-lc"><a href="cpp-thread-recursive_timed_mutex.html">std::recursive_timed_mutex</a></span>&#65289;&#12290;</li>
+<li>&#38169;&#35823;&#26102;&#21487;&#33021;&#25243;&#20986; <span class="t-lc"><a href="cpp-error-system_error.html">std::system_error</a></span> &#31867;&#22411;&#30340;&#24322;&#24120;&#65292;&#25317;&#26377;&#19979;&#20363;&#38169;&#35823;&#30721;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>&#33509;&#35843;&#29992;&#26041;&#32447;&#31243;&#26080;&#35201;&#27714;&#30340;&#26435;&#38480;&#65292;&#21017;&#20026; <span class="t-lc"><a href="cpp-error-errc.html">std::errc::operation_not_permitted</a></span></li>
+<li>&#33509;&#23454;&#29616;&#26816;&#27979;&#20986;&#27492;&#32447;&#31243;&#23558;&#23548;&#33268;&#27515;&#38145;&#65292;&#21017;&#20026; <span class="t-lc"><a href="cpp-error-errc.html">std::errc::resource_deadlock_would_occur</a></span></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+<ul>
+<li>&#34920;&#36798;&#24335; <span class="t-c"><span class="mw-geshi cpp source-cpp">m.<span class="me1">try_lock</span><span class="br0">(</span><span class="br0">)</span></span></span> &#20855;&#26377;&#19979;&#21015;&#24615;&#36136;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>&#34920;&#29616;&#20026;&#21407;&#23376;&#25805;&#20316;&#12290;</li>
+<li>&#35797;&#22270;&#20026;&#35843;&#29992;&#26041;&#32447;&#31243;&#33719;&#24471;&#20114;&#26021;&#20307;&#30340;&#25490;&#20182;&#24615;&#25152;&#26377;&#26435;&#65292;&#32780;&#19981;&#38459;&#22622;&#12290;&#33509;&#26410;&#33719;&#24471;&#25152;&#26377;&#26435;&#21017;&#31435;&#21363;&#36820;&#22238;&#12290;&#20801;&#35768;&#27492;&#20989;&#25968;&#34394;&#20551;&#22320;&#22833;&#36133;&#24182;&#36820;&#22238;&#65292;&#21363;&#20351;&#20114;&#26021;&#24403;&#21069;&#26410;&#34987;&#21478;&#19968;&#32447;&#31243;&#25152;&#21344;&#26377;&#12290;</li>
+<li>&#33509; <code>try_lock()</code> &#25104;&#21151;&#65292;&#21017;&#21516;&#19968;&#23545;&#35937;&#19978;&#20808;&#21069;&#30340; <code>unlock()</code> &#25805;&#20316;<i>&#21516;&#27493;&#20110;</i>&#27492;&#25805;&#20316;&#65288;&#31561;&#20215;&#20110;&#37322;&#25918;-&#33719;&#24471; <span class="t-lc"><a href="cpp-atomic-memory_order.html">std::memory_order</a></span>&#65289;&#12290;<code>lock()</code> &#19981;&#19982;&#22833;&#36133;&#30340; <code>try_lock()</code> &#21516;&#27493;&#12290;</li>
+<li>&#19981;&#25243;&#24322;&#24120;&#12290;</li>
+</ul>
+</dd>
+</dl>
+<ul>
+<li>&#34920;&#36798;&#24335; <span class="t-c"><span class="mw-geshi cpp source-cpp">m.<span class="me1">unlock</span><span class="br0">(</span><span class="br0">)</span></span></span> &#20855;&#26377;&#19979;&#21015;&#24615;&#36136;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>&#34920;&#29616;&#20026;&#21407;&#23376;&#25805;&#20316;&#12290;</li>
+<li>&#37322;&#25918;&#35843;&#29992;&#26041;&#32447;&#31243;&#23545;&#20114;&#26021;&#20307;&#30340;&#25152;&#26377;&#26435;&#65292;&#24182;<i>&#21516;&#27493;&#20110;</i>&#21516;&#19968;&#23545;&#35937;&#19978;&#30340;&#21518;&#32487;&#30340;&#25104;&#21151;&#38145;&#23450;&#25805;&#20316;&#12290;</li>
+<li>&#33509;&#35843;&#29992;&#26041;&#32447;&#31243;&#19981;&#21344;&#26377;&#20114;&#26021;&#20307;&#65292;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</li>
+<li>&#19981;&#25243;&#24322;&#24120;&#12290;</li>
+</ul>
+</dd>
+</dl>
+<ul>
+<li>&#21333;&#20010;&#20114;&#26021;&#20307;&#19978;&#30340;&#25152;&#26377;&#38145;&#23450;&#21644;&#35299;&#38145;&#25805;&#20316;&#22312;&#19968;&#20010;&#21333;&#29420;&#20840;&#24207;&#20013;&#21457;&#29983;&#65292;&#24182;&#33021;&#34987;&#35270;&#20026;&#19968;&#20010;&#21407;&#23376;&#21464;&#37327;&#30340;<a href="cpp-atomic-memory_order.html#.E4.BF.AE.E6.94.B9.E9.A1.BA.E5.BA.8F">&#20462;&#25913;&#39034;&#24207;</a>&#65306;&#27492;&#39034;&#24207;&#29305;&#23450;&#20110;&#27492;&#21333;&#29420;&#20114;&#26021;&#20307;&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E6.A0.87.E5.87.86.E5.BA.93">&#26631;&#20934;&#24211;</span></h3>
+<p>&#19979;&#21015;&#26631;&#20934;&#24211;&#31867;&#22411;&#28385;&#36275;<span style="font-style:italic">&#20114;&#26021;&#20307;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(Mutex)</span> &#65306;</p>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-mutex.html"><span class="t-lines"><span>mutex</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#25552;&#20379;&#22522;&#26412;&#20114;&#26021;&#35774;&#26045;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-recursive_mutex.html"><span class="t-lines"><span>recursive_mutex</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#25552;&#20379;&#33021;&#34987;&#21516;&#19968;&#32447;&#31243;&#36882;&#24402;&#38145;&#23450;&#30340;&#20114;&#26021;&#35774;&#26045;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-recursive_timed_mutex.html"><span class="t-lines"><span>recursive_timed_mutex</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#25552;&#20379;&#33021;&#34987;&#21516;&#19968;&#32447;&#31243;&#36882;&#24402;&#38145;&#23450;&#30340;&#20114;&#26021;&#35774;&#26045;&#65292;&#24182;&#23454;&#29616;&#26377;&#26102;&#38480;&#38145;&#23450;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-shared_mutex.html"><span class="t-lines"><span>shared_mutex</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span></span></span></div>
+</div>
+</td>
+<td>&#25552;&#20379;&#20849;&#20139;&#20114;&#26021;&#35774;&#26045;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-shared_timed_mutex.html"><span class="t-lines"><span>shared_timed_mutex</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14)</span></span></span></div>
+</div>
+</td>
+<td>&#25552;&#20379;&#20849;&#20139;&#20114;&#26021;&#35774;&#26045;&#24182;&#23454;&#29616;&#26377;&#26102;&#38480;&#38145;&#23450;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-timed_mutex.html"><span class="t-lines"><span>timed_mutex</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#25552;&#20379;&#20114;&#26021;&#35774;&#26045;&#65292;&#23454;&#29616;&#26377;&#26102;&#38480;&#38145;&#23450;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue2309">LWG 2309</a></td>
+<td>C++11</td>
+<td><code>lock</code> &#21487;&#20197;&#25243;&#20986;&#38169;&#35823;&#30721;&#20026; <span class="t-lc"><a href="cpp-error-errc.html">std::errc::device_or_resource_busy</a></span> &#30340; <span class="t-lc"><a href="cpp-error-system_error.html">std::system_error</a></span></td>
+<td>&#19981;&#20801;&#35768;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<ul>
+<li><a href="cpp-thread.html">&#32447;&#31243;&#25903;&#25345;&#24211;</a></li>
+<li><a href="cpp-named_req-Lockable.html"><span style="font-style:italic">&#21487;&#38145;&#23450;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(Lockable)</span></a></li>
+<li><a href="cpp-named_req-TimedMutex.html"><span style="font-style:italic">&#23450;&#26102;&#20114;&#26021;&#20307;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(TimedMutex)</span></a></li>
+</ul>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

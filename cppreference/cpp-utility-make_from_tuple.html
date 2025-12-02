@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::make_from_tuple</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_utility_make_from_tuple skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>make_from_tuple</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-utility.html">utility</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-tuple.html">&lt;tuple&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+<tbody class="t-dcl-rev">
+<tr class="t-dcl t-since-cxx17 t-until-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span> Tuple <span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> T make_from_tuple<span class="br0">(</span> Tuple<span class="sy3">&amp;&amp;</span> t <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span><br />
+<span class="t-mark-rev t-until-cxx23" style="white-space: nowrap;">(C++23 &#21069;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, tuple<span class="sy2">-</span>like Tuple <span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> T make_from_tuple<span class="br0">(</span> Tuple<span class="sy3">&amp;&amp;</span> t <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#20197;&#20803;&#32452; <span class="t-c"><span class="mw-geshi cpp source-cpp">t</span></span> &#30340;&#21508;&#20803;&#32032;&#20316;&#20026;&#26500;&#36896;&#20989;&#25968;&#30340;&#23454;&#21442;&#26500;&#36896; <code>T</code> &#31867;&#22411;&#30340;&#23545;&#35937;&#12290;</p>
+<p>&#32473;&#23450;&#22914;&#19979;&#23450;&#20041;&#30340;&#20165;&#29992;&#20110;&#38416;&#36848;&#30340;&#20989;&#25968; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="coMULTI">/*make-from-tuple-impl*/</span></span></span>&#65306; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> T,</span><code>&nbsp;</code><a href="cpp-utility-tuple-tuple-like.html"><tt><i>tuple-like</i></tt></a><code>&nbsp;</code><span class="mw-geshi cpp source-cpp">Tuple, <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a>... <span class="me1">I</span><span class="sy1">&gt;</span> <span class="co1">// C++23 &#21069;&#27809;&#26377;&#32422;&#26463; Tuple</span></span><br />
+<span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> T <span class="coMULTI">/*make-from-tuple-impl*/</span><span class="br0">(</span>Tuple<span class="sy3">&amp;&amp;</span> t, <a href="cpp-utility-integer_sequence.html"><span class="kw1110">std::<span class="me2">index_sequence</span></span></a><span class="sy1">&lt;</span>I...<span class="sy1">&gt;</span><span class="br0">)</span></span><br />
+<code>{</code><br />
+<code>&nbsp;&nbsp;&nbsp;&nbsp;</code><span class="mw-geshi cpp source-cpp"><span class="kw1">return</span> T<span class="br0">(</span><a href="cpp-utility-variant-get.html"><span class="kw3216">std::<span class="me2">get</span></span></a><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span><span class="br0">(</span><a href="cpp-utility-forward.html"><span class="kw1119">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Tuple<span class="sy1">&gt;</span><span class="br0">(</span>t<span class="br0">)</span><span class="br0">)</span>...<span class="br0">)</span><span class="sy4">;</span></span><br />
+<code>}</code></span></p>
+<p>&#25928;&#26524;&#31561;&#20215;&#20110;&#65306;<br />
+<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">return</span> <span class="coMULTI">/*make-from-tuple-impl*/</span><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="br0">(</span></span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; &nbsp; <a href="cpp-utility-forward.html"><span class="kw1119">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Tuple<span class="sy1">&gt;</span><span class="br0">(</span>t<span class="br0">)</span>,</span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; &nbsp; <a href="cpp-utility-integer_sequence.html"><span class="kw1112">std::<span class="me2">make_index_sequence</span></span></a><span class="sy1">&lt;</span><a href="cpp-utility-tuple_size.html"><span class="kw1105">std::<span class="me2">tuple_size_v</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>Tuple<span class="sy1">&gt;&gt;&gt;</span><span class="br0">{</span><span class="br0">}</span></span><br />
+<span class="mw-geshi cpp source-cpp"><span class="br0">)</span><span class="sy4">;</span></span></span>&#12290;</p>
+<p>&#22914;&#26524;</p>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx23">
+<td>
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-tuple_size.html"><span class="kw1105">std::<span class="me2">tuple_size_v</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>Tuple<span class="sy1">&gt;&gt;</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="nu0">1</span></span></span>&#65292;&#24182;&#19988; <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">reference_constructs_from_temporary_v</span><span class="sy1">&lt;</span></span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; &nbsp; T, decltype<span class="br0">(</span><a href="cpp-utility-variant-get.html"><span class="kw3216">std::<span class="me2">get</span></span></a><span class="sy1">&lt;</span><span class="nu0">0</span><span class="sy1">&gt;</span><span class="br0">(</span><a href="cpp-utility-declval.html"><span class="kw1122">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span>Tuple<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span><span class="sy1">&gt;</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#25110;&#32773;</li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+</table>
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_constructible.html"><span class="kw528">std::<span class="me2">is_constructible_v</span></span></a><span class="sy1">&lt;</span>T, decltype<span class="br0">(</span><a href="cpp-utility-variant-get.html"><span class="kw3216">std::<span class="me2">get</span></span></a><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span><span class="br0">(</span><a href="cpp-utility-declval.html"><span class="kw1122">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span>Tuple<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>...<span class="sy1">&gt;</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#65292;</li>
+</ul>
+<p>&#37027;&#20040;&#31243;&#24207;&#38750;&#33391;&#26500;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>t</td>
+<td>-</td>
+<td>&#20803;&#32032;&#34987;&#29992;&#20316; <code>T</code> &#26500;&#36896;&#20989;&#25968;&#30340;&#23454;&#21442;&#30340;&#20803;&#32452;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#26500;&#36896;&#30340; <code>T</code> &#23545;&#35937;&#25110;&#24341;&#29992;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<table class="t-rev-begin">
+<tr class="t-rev t-until-cxx23">
+<td>
+<p><code>Tuple</code> &#19981;&#24517;&#26159; <span class="t-lc"><a href="cpp-utility-tuple.html">std::tuple</a></span>&#65292;&#23427;&#21487;&#20197;&#34987;&#20219;&#20309;&#25903;&#25345; <a href="cpp-utility-tuple-get.html"><tt>std::get</tt></a> &#21644; <a href="cpp-utility-tuple_size.html"><tt>std::tuple_size</tt></a> &#30340;&#31867;&#22411;&#26367;&#20195;&#65307;&#29305;&#21035;&#26159;&#21487;&#20197;&#29992; <span class="t-lc"><a href="cpp-container-array.html">std::array</a></span> &#21644; <span class="t-lc"><a href="cpp-utility-pair.html">std::pair</a></span>&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-until-cxx23" style="white-space: nowrap;">(C++23 &#21069;)</span></td>
+</tr>
+<tr class="t-rev t-since-cxx23">
+<td>
+<p><code>Tuple</code> &#34987;&#32422;&#26463;&#20026;&#20803;&#32452;&#24335;&#31867;&#22411;&#65292;&#21363;&#20854;&#20013;&#27599;&#20010;&#31867;&#22411;&#37117;&#24517;&#39035;&#26159; <span class="t-lc"><a href="cpp-utility-tuple.html">std::tuple</a></span> &#30340;&#29305;&#21270;&#65292;&#25110;&#32773;&#23454;&#29616;&#20102; <a href="cpp-utility-tuple-tuple-like.html"><tt><i>tuple-like</i></tt></a> &#30340;&#20854;&#20182;&#20219;&#20309;&#31867;&#22411;&#65288;&#20363;&#22914; <span class="t-lc"><a href="cpp-container-array.html">std::array</a></span> &#21644; <span class="t-lc"><a href="cpp-utility-pair.html">std::pair</a></span>&#65289;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+</table>
+<p>&#22240;&#20026;<a href="cpp-language-copy_elision.html">&#21463;&#20445;&#35777;&#30340;&#22797;&#21046;&#28040;&#38500;</a>&#65292;<code>T</code> &#19981;&#38656;&#35201;&#21487;&#31227;&#21160;&#12290;</p>
+<table class="wikitable ftm-begin">
+<tr>
+<th><a href="cpp-utility-feature_test.html">&#21151;&#33021;&#29305;&#24615;&#27979;&#35797;</a>&#23439;</th>
+<th><abbr title="&#37319;&#32435;&#35813;&#29305;&#24615;&#30340;&#24180;/&#26376;&#12290;&#27599;&#20010;&#20540;&#19979;&#38754;&#30340;&#38142;&#25509;&#25351;&#21521;&#32534;&#35793;&#26399;&#25903;&#25345;&#39029;&#38754;&#20013;&#32473;&#23450;&#21151;&#33021;&#29305;&#24615;&#30340;&#26465;&#30446;&#12290;">&#20540;</abbr></th>
+<th><abbr title="&#24341;&#20837;&#35813;&#29305;&#24615;&#30340;&#26631;&#20934;&#65307;DR &#24847;&#20026;&#38024;&#23545;&#35813;&#20462;&#35746;&#29256;&#30340;&#32570;&#38519;&#25253;&#21578;">&#26631;&#20934;</abbr></th>
+<th>&#21151;&#33021;&#29305;&#24615;</th>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lib_make_from_tuple"><code>__cpp_lib_make_from_tuple</code></a></td>
+<td><a href="cpp-compiler_support-17.html#cpp_lib_make_from_tuple_201606L"><code>201606L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++17)</span></td>
+<td><code>std::make_from_tuple</code></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;tuple&gt;</span>
+ 
+<span class="kw1">struct</span> Foo
+<span class="br0">{</span>
+    Foo<span class="br0">(</span><span class="kw4">int</span> first, <span class="kw4">float</span> second, <span class="kw4">int</span> third<span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> first <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;, &quot;</span> <span class="sy1">&lt;&lt;</span> second <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;, &quot;</span> <span class="sy1">&lt;&lt;</span> third <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">auto</span> tuple <span class="sy1">=</span> <a href="cpp-utility-tuple-make_tuple.html"><span class="kw1114">std::<span class="me2">make_tuple</span></span></a><span class="br0">(</span><span class="nu0">42</span>, <span class="nu17">3.14f</span>, <span class="nu0">0</span><span class="br0">)</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><span class="me2">make_from_tuple</span><span class="sy1">&lt;</span>Foo<span class="sy1">&gt;</span><span class="br0">(</span>std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>tuple<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">42, 3.14, 0</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue3528">LWG 3528</a></td>
+<td>C++17</td>
+<td>&#22312;&#19968;&#20803;&#32452;&#30340;&#24773;&#20917;&#19979;&#20801;&#35768;&#21547;&#26377; <span class="mw-geshi cpp source-cpp"><span class="kw1">reinterpret_cast</span></span> &#31561;&#30340;&#36716;&#22411;</td>
+<td>&#24050;&#31105;&#27490;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-tuple-make_tuple.html"><span class="t-lines"><span>make_tuple</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#21019;&#24314;&#19968;&#20010; <code>tuple</code> &#23545;&#35937;&#65292;&#20854;&#31867;&#22411;&#26681;&#25454;&#21508;&#23454;&#21442;&#31867;&#22411;&#23450;&#20041;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-tuple-forward_as_tuple.html"><span class="t-lines"><span>forward_as_tuple</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#21019;&#24314;<a href="cpp-language-reference.html#.E8.BD.AC.E5.8F.91.E5.BC.95.E7.94.A8">&#36716;&#21457;&#24341;&#29992;</a>&#30340; <code>tuple</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-apply.html"><span class="t-lines"><span>apply</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span></span></span></div>
+</div>
+</td>
+<td>&#20197;&#19968;&#20010;&#23454;&#21442;&#30340;&#20803;&#32452;&#26469;&#35843;&#29992;&#20989;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

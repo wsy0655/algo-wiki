@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::forward_list&lt;T,Allocator&gt;::emplace_after</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_container_forward_list_emplace_after skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::forward_list&lt;T,Allocator&gt;::</span>emplace_after</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-container.html">container</a>&lrm; | <a href="cpp-container-forward_list.html">forward list</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span>... <span class="me1">Args</span> <span class="sy1">&gt;</span><br />
+iterator emplace_after<span class="br0">(</span> const_iterator pos, Args<span class="sy3">&amp;&amp;</span>... <span class="me1">args</span> <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#22312;&#23481;&#22120;&#20013;&#30340;&#25351;&#23450;&#20301;&#32622;&#21518;&#25554;&#20837;&#26032;&#20803;&#32032;&#12290;&#21407;&#20301;&#26500;&#36896;&#20803;&#32032;&#65292;&#21363;&#19981;&#36827;&#34892;&#22797;&#21046;&#25110;&#31227;&#21160;&#25805;&#20316;&#12290;&#20197;&#19982;&#25552;&#20379;&#32473;&#20989;&#25968;&#20005;&#26684;&#30456;&#21516;&#30340;&#21508;&#23454;&#21442;&#35843;&#29992;&#20803;&#32032;&#30340;&#26500;&#36896;&#20989;&#25968;&#12290;</p>
+<p>&#27809;&#26377;&#24341;&#29992;&#21644;&#36845;&#20195;&#22120;&#20250;&#22833;&#25928;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>pos</td>
+<td>-</td>
+<td>&#26032;&#20803;&#32032;&#23558;&#26500;&#36896;&#20110;&#20854;&#21518;&#30340;&#36845;&#20195;&#22120;</td>
+</tr>
+<tr class="t-par">
+<td>args</td>
+<td>-</td>
+<td>&#36716;&#21457;&#32473;&#20803;&#32032;&#26500;&#36896;&#20989;&#25968;&#30340;&#23454;&#21442;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#25351;&#21521;&#26032;&#20803;&#32032;&#30340;&#36845;&#20195;&#22120;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<p>&#24120;&#25968;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<p>&#22914;&#26524;&#22240;&#20026;&#20219;&#20309;&#21407;&#22240;&#25243;&#20986;&#20102;&#24322;&#24120;&#65292;&#37027;&#20040;&#27492;&#20989;&#25968;&#26080;&#25928;&#26524;&#65288;<a href="cpp-language-exceptions.html#.E5.BC.82.E5.B8.B8.E5.AE.89.E5.85.A8">&#24378;&#24322;&#24120;&#23433;&#20840;&#20445;&#35777;</a>&#65289;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<p>&#31034;&#20363;&#28436;&#31034;&#35268;&#33539;&#22320;&#25353;&#33258;&#28982;&#39034;&#24207;&#65288;&#19982;&#36870;&#24207;&#30456;&#21453;&#65289;&#22635;&#20805;&#21333;&#38142;&#34920;&#12290;</p>
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;forward_list&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+ 
+<span class="kw1">struct</span> Sum
+<span class="br0">{</span>
+    <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a> remark<span class="sy4">;</span>
+    <span class="kw4">int</span> sum<span class="sy4">;</span>
+ 
+    Sum<span class="br0">(</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a> remark, <span class="kw4">int</span> sum<span class="br0">)</span>
+        <span class="sy4">:</span> remark<span class="br0">{</span>std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>remark<span class="br0">)</span><span class="br0">}</span>, sum<span class="br0">{</span>sum<span class="br0">}</span> <span class="br0">{</span><span class="br0">}</span>
+ 
+    <span class="kw4">void</span> print<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> remark <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; = &quot;</span> <span class="sy1">&lt;&lt;</span> sum <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-container-forward_list.html"><span class="kw1276">std::<span class="me2">forward_list</span></span></a><span class="sy1">&lt;</span>Sum<span class="sy1">&gt;</span> list<span class="sy4">;</span>
+ 
+    <span class="kw4">auto</span> iter <span class="sy1">=</span> list.<span class="me1">before_begin</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a> str<span class="br0">{</span><span class="st0">&quot;1&quot;</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> i<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>, sum<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span><span class="sy4">;</span> i <span class="sy3">!</span><span class="sy1">=</span> <span class="nu0">10</span><span class="sy4">;</span> sum <span class="sy2">+</span><span class="sy1">=</span> i<span class="br0">)</span>
+    <span class="br0">{</span>
+        iter <span class="sy1">=</span> list.<span class="me1">emplace_after</span><span class="br0">(</span>iter, str, sum<span class="br0">)</span><span class="sy4">;</span>
+        <span class="sy2">++</span>i<span class="sy4">;</span>
+        str <span class="sy2">+</span><span class="sy1">=</span> <span class="st0">&quot; + &quot;</span> <span class="sy2">+</span> <a href="cpp-string-basic_string-to_string.html"><span class="kw1268">std::<span class="me2">to_string</span></span></a><span class="br0">(</span>i<span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">const</span> Sum<span class="sy3">&amp;</span> s <span class="sy4">:</span> list<span class="br0">)</span>
+        s.<span class="me1">print</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">1 = 1
+1 + 2 = 3
+1 + 2 + 3 = 6
+1 + 2 + 3 + 4 = 10
+1 + 2 + 3 + 4 + 5 = 15
+1 + 2 + 3 + 4 + 5 + 6 = 21
+1 + 2 + 3 + 4 + 5 + 6 + 7 = 28
+1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 = 36
+1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 = 45</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-forward_list-insert_after.html"><span class="t-lines"><span>insert_after</span></span></a></div>
+</div>
+</td>
+<td>&#22312;&#26576;&#20010;&#20803;&#32032;&#21518;&#25554;&#20837;&#26032;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

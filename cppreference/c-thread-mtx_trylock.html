@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>mtx_trylock</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_thread_mtx_trylock skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">mtx_trylock</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-thread.html">thread</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-threads.html"><tt>&lt;threads.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-c11">
+<td>
+<div><span class="mw-geshi c source-c"><span class="kw4">int</span> mtx_trylock<span class="br0">(</span> <a href="c-thread.html"><span class="kw1011">mtx_t</span></a> <span class="sy2">*</span>mutex <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#23581;&#35797;&#38145;&#23450; <code>mutex</code> &#25152;&#25351;&#21521;&#30340;&#20114;&#26021;&#32780;&#19981;&#38459;&#22622;&#12290;&#33509;&#35813;&#20114;&#26021;&#24050;&#34987;&#38145;&#23450;&#21017;&#31435;&#21363;&#36820;&#22238;&#12290;</p>
+<p>&#21516;&#19968;&#20114;&#26021;&#19978;&#23545; <span class="t-lc"><a href="c-thread-mtx_unlock.html">mtx_unlock</a></span> &#30340;&#20808;&#21069;&#35843;&#29992;<i>&#21516;&#27493;&#20110;</i>&#27492;&#25805;&#20316;&#65288;&#33509;&#27492;&#25805;&#20316;&#25104;&#21151;&#65289;&#65292;&#32780;&#19988;&#20219;&#20309;&#32473;&#23450;&#20114;&#26021;&#19978;&#30340;&#25152;&#26377;&#38145;&#23450;/&#35299;&#38145;&#25805;&#20316;&#26500;&#25104;&#21333;&#29420;&#20840;&#24207;&#65288;&#31867;&#20284;&#20110;&#21407;&#23376;&#23545;&#35937;&#19978;&#30340;&#20462;&#25913;&#39034;&#24207;&#65289;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>mutex</td>
+<td>-</td>
+<td>&#25351;&#21521;&#35201;&#38145;&#23450;&#30340;&#20114;&#26021;&#30340;&#25351;&#38024;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#33509;&#25104;&#21151;&#21017;&#20026; <span class="t-lc"><a href="c-thread-thrd_errors.html">thrd_success</a></span> &#65292;&#33509;&#24050;&#38145;&#23450;&#35813;&#20114;&#26021;&#25110;&#30001;&#20110;&#33719;&#21462;&#21487;&#29992;&#20114;&#26021;&#30340;&#34394;&#20551;&#22833;&#36133;&#21017;&#20026; <span class="t-lc"><a href="c-thread-thrd_errors.html">thrd_busy</a></span> &#65292;&#33509;&#20986;&#29616;&#38169;&#35823;&#21017;&#20026; <span class="t-lc"><a href="c-thread-thrd_errors.html">thrd_error</a></span> &#12290;</p>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2396.htm#dr_470">DR 470</a></td>
+<td>C11</td>
+<td>&#19981;&#20801;&#35768; <code>mtx_trylock</code> &#34394;&#20551;&#22320;&#22833;&#36133;</td>
+<td>&#20801;&#35768;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.26.4.5 The mtx_trylock function &#65288;&#31532; 278-279 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.26.4.5 The mtx_trylock function &#65288;&#31532; 382 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-thread-mtx_lock.html"><span class="t-lines"><span>mtx_lock</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#38459;&#22622;&#21040;&#38145;&#23450;&#20114;&#26021;&#20307;&#20026;&#27490;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-thread-mtx_timedlock.html"><span class="t-lines"><span>mtx_timedlock</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#38459;&#22622;&#21040;&#38145;&#23450;&#20114;&#26021;&#20307;&#25110;&#36229;&#26102;&#20026;&#27490;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-thread-mtx_unlock.html"><span class="t-lines"><span>mtx_unlock</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#35299;&#38145;&#20114;&#26021;&#20307;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>mutex::try_lock</span></span>&nbsp;&#30340; <span><span><a href="cpp-thread-mutex-try_lock.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>timed_mutex::try_lock</span></span>&nbsp;&#30340; <span><span><a href="cpp-thread-timed_mutex-try_lock.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>recursive_mutex::try_lock</span></span>&nbsp;&#30340; <span><span><a href="cpp-thread-recursive_mutex-try_lock.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>recursive_timed_mutex::try_lock</span></span>&nbsp;&#30340; <span><span><a href="cpp-thread-recursive_timed_mutex-try_lock.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

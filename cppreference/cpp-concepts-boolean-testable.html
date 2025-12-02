@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>boolean-testable</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_concepts_boolean-testable skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><i>boolean-testable</i></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-concepts.html">concepts</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> B <span class="sy1">&gt;</span><br />
+concept __boolean_testable_impl <span class="sy1">=</span> <a href="cpp-concepts-convertible_to.html"><span class="kw2934">std::<span class="me2">convertible_to</span></span></a><span class="sy1">&lt;</span>B, <span class="kw4">bool</span><span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span><br />
+<span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;*</span>)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> B <span class="sy1">&gt;</span><br /></span>
+<p>concept boolean<span class="sy2">-</span>testable <span class="sy1">=</span><br />
+&nbsp; &nbsp; __boolean_testable_impl<span class="sy1">&lt;</span>B<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; requires <span class="br0">(</span>B<span class="sy3">&amp;&amp;</span> b<span class="br0">)</span> <span class="br0">{</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">{</span> <span class="sy3">!</span><a href="cpp-utility-forward.html"><span class="kw1119">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>B<span class="sy1">&gt;</span><span class="br0">(</span>b<span class="br0">)</span> <span class="br0">}</span> <span class="sy2">-</span><span class="sy1">&gt;</span> __boolean_testable_impl<span class="sy4">;</span><br /></p>
+&nbsp; &nbsp; <span class="br0">}</span><span class="sy4">;</span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span><br />
+<span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;*</span>)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#20165;&#29992;&#20110;&#38416;&#37322;&#30340;&#27010;&#24565; <code><i>boolean-testable</i></code> &#25351;&#23450;&#21487;&#36716;&#25442;&#25104; <span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span> &#30340;&#34920;&#36798;&#24335;&#65292;&#19988;&#36923;&#36753;&#36816;&#31639;&#31526;&#23545;&#20854;&#25317;&#26377;&#36890;&#24120;&#34892;&#20026;&#65288;&#21253;&#25324;<a href="https://en.wikipedia.org/wiki/Short-circuit_evaluation" class="extiw" title="enwiki:Short-circuit evaluation">&#30701;&#36335;</a>&#65289;&#65292;&#21363;&#20351;&#26159;&#23545;&#20110;&#20004;&#20010;&#19981;&#21516;&#30340; <code><i>boolean-testable</i></code> &#31867;&#22411;&#20134;&#26159;&#22914;&#27492;&#12290;</p>
+<p>&#27491;&#24335;&#32780;&#35328;&#65292;&#20026;&#28385;&#36275;&#20165;&#29992;&#20110;&#38416;&#37322;&#30340;&#27010;&#24565; <code><i>__boolean_testable_impl</i></code>&#65292;&#31867;&#22411;&#24517;&#39035;&#19981;&#23450;&#20041;&#20219;&#20309;&#25104;&#21592; <span class="mw-geshi cpp source-cpp">operator<span class="sy3">&amp;&amp;</span></span> &#19982; <span class="mw-geshi cpp source-cpp">operator<span class="sy3">||</span></span>&#65292;&#32780;&#19988;&#26080;&#21487;&#34892;&#30340;&#38750;&#25104;&#21592; <span class="mw-geshi cpp source-cpp">operator<span class="sy3">&amp;&amp;</span></span> &#21450; <span class="mw-geshi cpp source-cpp">operator<span class="sy3">||</span></span> &#21487;&#23545;<a href="cpp-language-adl.html">&#23454;&#21442;&#20381;&#36182;&#26597;&#25214;</a>&#21487;&#35265;&#12290;&#21478;&#22806;&#32473;&#23450;&#20351; <span class="t-c"><span class="mw-geshi cpp source-cpp">decltype<span class="br0">(</span><span class="br0">(</span>e<span class="br0">)</span><span class="br0">)</span></span></span> &#20026; <code>B</code> &#30340;&#34920;&#36798;&#24335; <code>e</code>&#65292;<code><i>boolean-testable</i></code> &#20165;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span><span class="br0">(</span>e<span class="br0">)</span> <span class="sy1">==</span> <span class="sy3">!</span><span class="kw4">bool</span><span class="br0">(</span><span class="sy3">!</span>e<span class="br0">)</span></span></span> &#25165;&#24471;&#20197;&#23454;&#29616;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.9B.B8.E7.AD.89.E6.80.A7.E4.BF.9D.E6.8C.81">&#30456;&#31561;&#24615;&#20445;&#25345;</span></h3>
+<p>&#26631;&#20934;&#24211;&#27010;&#24565;&#30340; <a href="cpp-language-requires.html"><span class="mw-geshi cpp source-cpp">requires</span> &#34920;&#36798;&#24335;</a>&#20013;&#22768;&#26126;&#30340;&#34920;&#36798;&#24335;&#37117;&#35201;&#27714;<a href="cpp-concepts.html#.E7.9B.B8.E7.AD.89.E6.80.A7.E4.BF.9D.E6.8C.81">&#20445;&#25345;&#30456;&#31561;&#24615;</a>&#65288;&#38500;&#38750;&#21478;&#22806;&#35828;&#26126;&#65289;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p><code><i>boolean-testable</i></code> &#31867;&#22411;&#30340;&#20363;&#23376;&#21253;&#25324; <span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span>&#12289;<span class="t-lc"><a href="cpp-types-integral_constant.html">std::true_type</a></span>&#12289;<span class="mw-geshi cpp source-cpp"><a href="cpp-utility-bitset.html"><span class="kw1031">std::<span class="me2">bitset</span></span></a><span class="sy1">&lt;</span>N<span class="sy1">&gt;</span><span class="sy4">::</span></span><a href="cpp-utility-bitset-reference.html"><tt>reference</tt></a> &#21644; <span class="mw-geshi cpp source-cpp"><span class="kw4">int</span><span class="sy2">*</span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-c++23">
+<ul>
+<li>C++23 &#26631;&#20934;&#65288;ISO/IEC 14882:2024&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>18.5.2 Boolean testability [concept.booleantestable]</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c++20">
+<ul>
+<li>C++20 &#26631;&#20934;&#65288;ISO/IEC 14882:2020&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>18.5.2 Boolean testability [concept.booleantestable]</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

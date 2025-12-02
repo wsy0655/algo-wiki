@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::experimental::flex_barrier::arrive_and_wait</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_experimental_flex_barrier_arrive_and_wait skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::experimental::flex_barrier::</span>arrive_and_wait</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-experimental.html">experimental</a>&lrm; | <a href="cpp-experimental-flex_barrier.html">flex barrier</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-concurrency">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span> arrive_and_wait<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-concurrency-ts t-mark-ts" style="white-space: nowrap;">(&#24182;&#21457; TS)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#38459;&#22622;&#24182;&#21040;&#36798; <code>flex_barrier</code> &#30340;&#21516;&#27493;&#28857;&#12290;</p>
+<p>&#33509;&#35843;&#29992;&#32447;&#31243;&#19981;&#22312;&#27492; <code>flex_barrier</code> &#30340;&#21442;&#19982;&#32447;&#31243;&#38598;&#21512;&#20013;&#65292;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<p>&#23545; <code>arrive_and_wait</code> &#30340;&#35843;&#29992;&#21516;&#27493;&#20110; <code>flex_barrier</code> &#23436;&#25104;&#38454;&#27573;&#30340;&#24320;&#22987;&#12290;&#23436;&#25104;&#38454;&#27573;&#30340;&#23436;&#25104;&#21516;&#27493;&#20110;&#20174;&#35843;&#29992;&#36820;&#22238;&#12290;</p>
+<p>&#35843;&#29992; <code>arrive_and_drop</code> &#21644; <code>arrive_and_wait</code> &#20915;&#19981;&#24341;&#20837;&#19982;&#33258;&#36523;&#25110;&#24444;&#27492;&#38388;&#30340;&#25968;&#25454;&#31454;&#20105;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#20174;&#27492;&#35843;&#29992;&#36820;&#22238;&#26102;&#65292;&#32447;&#31243;&#31435;&#21363;&#35843;&#29992; <code>arrive_and_wait()</code> &#25110; <code>arrive_and_drop()</code> &#26159;&#23433;&#20840;&#30340;&#65288;&#21482;&#35201;&#23436;&#25104;&#38454;&#27573;&#30340;&#20989;&#25968;&#23545;&#35937;&#19981;&#36820;&#22238;&#38646;&#65289;&#12290;&#19981;&#38656;&#35201;&#30830;&#20445;&#25152;&#26377;&#38459;&#22622;&#32447;&#31243;&#37117;&#22312;&#19968;&#20010;&#32447;&#31243;&#20877;&#27425;&#35843;&#29992;&#23427;&#26102;&#24050;&#36864;&#20986; <code>arrive_and_wait()</code>&#12290;</p>
+<p>&#23436;&#25104;&#38454;&#27573;&#25191;&#34892;&#26500;&#36896; <code>flex_barrier</code> &#26102;&#25351;&#23450;&#30340;&#20989;&#25968;&#23545;&#35937;&#12290;&#33509;&#23427;&#36820;&#22238; -1&#65292;&#21017;&#19981;&#26356;&#25913;&#21442;&#19982;&#32447;&#31243;&#38598;&#65288;&#32780;&#19979;&#20010;&#24490;&#29615;&#20013;&#21516;&#19968;&#21442;&#19982;&#32447;&#31243;&#38598;&#24517;&#39035;&#25269;&#36798;&#21516;&#27493;&#28857;&#65289;&#65307;&#21542;&#21017;&#21442;&#19982;&#32447;&#31243;&#38598;&#21464;&#20026;&#25317;&#26377;&#31561;&#20110;&#36820;&#22238;&#20540; <code>N</code> &#30340;&#26032;&#22823;&#23567;&#30340;&#38598;&#21512;&#65292;&#24182;&#30001;&#21040;&#36798;&#23631;&#38556;&#21516;&#27493;&#28857;&#30340;&#19979; <code>N</code> &#20010;&#32447;&#31243;&#32452;&#25104;&#12290;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">N <span class="sy1">==</span> <span class="nu0">0</span></span></span>&#65292;&#21017; <code>flex_barrier</code> &#21482;&#33021;&#34987;&#38144;&#27585;&#12290;</p>
+<p>&#20026; <code>num_threads</code> &#20010;&#32447;&#31243;&#26500;&#36896;&#30340; <code>flex_barrier</code> &#30340;&#30340;&#21021;&#22987;&#21442;&#19982;&#32447;&#31243;&#38598;&#26159;&#39318; <code>num_threads</code> &#20010;&#21040;&#36798;&#20854;&#21516;&#27493;&#28857;&#30340;&#32447;&#31243;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<p>&#19981;&#25243;&#20986;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-experimental-flex_barrier-arrive_and_drop.html"><span class="t-lines"><span>arrive_and_drop</span></span></a></div>
+</div>
+</td>
+<td>&#21040;&#36798;&#21516;&#27493;&#28857;&#24182;&#20174;&#21442;&#19982;&#32447;&#31243;&#38598;&#21512;&#20013;&#31227;&#38500;&#24403;&#21069;&#32447;&#31243;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>&#26631;&#20934;&#24211;&#26631;&#22836; &lt;stdio.h&gt;</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_header_stdio skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">&#26631;&#20934;&#24211;&#26631;&#22836;</span> &lt;stdio.h&gt;</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-header.html">header</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<p>&#27492;&#26631;&#22836;&#26159;<a href="c-io.html">&#36755;&#20837;&#36755;&#20986;</a>&#24211;&#30340;&#19968;&#37096;&#20998;&#65292;&#25552;&#20379;&#36890;&#29992;&#30340;&#25991;&#20214;&#25805;&#20316;&#25903;&#25345;&#65292;&#36824;&#25552;&#20379;&#22312;&#31364;&#23383;&#31526;&#19978;&#24037;&#20316;&#30340; I/O &#20989;&#25968;&#12290;</p>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;7.23 Input/output &lt;stdio.h&gt;; copy/share subset of <a href="c-io.html">c/io</a></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.A6.82.E8.A6.81">&#27010;&#35201;</span></h3>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#define __STDC_VERSION_STDIO_H__ 202311L</span>
+ 
+<span class="kw1">typedef</span> <span class="coMULTI">/* &#35265;&#25551;&#36848; */</span> <a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy4">;</span>
+<span class="kw1">typedef</span> <span class="coMULTI">/* &#35265;&#25551;&#36848; */</span> <a href="c-types-size_t.html"><span class="kw100">size_t</span></a><span class="sy4">;</span>
+<span class="kw1">typedef</span> <span class="coMULTI">/* &#35265;&#25551;&#36848; */</span> <a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy4">;</span>
+<span class="kw1">typedef</span> <span class="coMULTI">/* &#35265;&#25551;&#36848; */</span> <a href="c-io.html"><span class="kw885">fpos_t</span></a><span class="sy4">;</span>
+ 
+<span class="co2">#define NULL         /* &#35265;&#25551;&#36848; */</span>
+<span class="co2">#define _IOFBF       /* &#35265;&#25551;&#36848; */</span>
+<span class="co2">#define _IOLBF       /* &#35265;&#25551;&#36848; */</span>
+<span class="co2">#define _IONBF       /* &#35265;&#25551;&#36848; */</span>
+<span class="co2">#define BUFSIZ       /* &#35265;&#25551;&#36848; */</span>
+<span class="co2">#define EOF          /* &#35265;&#25551;&#36848; */</span>
+<span class="co2">#define FOPEN_MAX    /* &#35265;&#25551;&#36848; */</span>
+<span class="co2">#define FILENAME_MAX /* &#35265;&#25551;&#36848; */</span>
+<span class="co2">#define L_tmpnam     /* &#35265;&#25551;&#36848; */</span>
+<span class="co2">#define SEEK_CUR     /* &#35265;&#25551;&#36848; */</span>
+<span class="co2">#define SEEK_END     /* &#35265;&#25551;&#36848; */</span>
+<span class="co2">#define SEEK_SET     /* &#35265;&#25551;&#36848; */</span>
+<span class="co2">#define TMP_MAX      /* &#35265;&#25551;&#36848; */</span>
+ 
+<span class="co2">#define stdin        /* &#35265;&#25551;&#36848; */</span>
+<span class="co2">#define stdout       /* &#35265;&#25551;&#36848; */</span>
+<span class="co2">#define stderr       /* &#35265;&#25551;&#36848; */</span>
+ 
+<span class="co2">#define _PRINTF_NAN_LEN_MAX /* &#35265;&#25551;&#36848; */</span>
+ 
+<span class="kw4">int</span> <a href="c-io-remove.html"><span class="kw880">remove</span></a><span class="br0">(</span><span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> filename<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-rename.html"><span class="kw881">rename</span></a><span class="br0">(</span><span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> old, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> new<span class="br0">)</span><span class="sy4">;</span>
+<a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> <a href="c-io-tmpfile.html"><span class="kw882">tmpfile</span></a><span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">char</span><span class="sy2">*</span> <a href="c-io-tmpnam.html"><span class="kw883">tmpnam</span></a><span class="br0">(</span><span class="kw4">char</span><span class="sy2">*</span> s<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-fclose.html"><span class="kw822">fclose</span></a><span class="br0">(</span><a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> stream<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-fflush.html"><span class="kw821">fflush</span></a><span class="br0">(</span><a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> stream<span class="br0">)</span><span class="sy4">;</span>
+<a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> <a href="c-io-fopen.html"><span class="kw819">fopen</span></a><span class="br0">(</span><span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> filename, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> mode<span class="br0">)</span><span class="sy4">;</span>
+<a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> <a href="c-io-freopen.html"><span class="kw820">freopen</span></a><span class="br0">(</span><span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> filename, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> mode,
+<a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> <span class="kw4">restrict</span> stream<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">void</span> <a href="c-io-setbuf.html"><span class="kw823">setbuf</span></a><span class="br0">(</span><a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> <span class="kw4">restrict</span> stream, <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> buf<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-setvbuf.html"><span class="kw824">setvbuf</span></a><span class="br0">(</span><a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> <span class="kw4">restrict</span> stream, <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> buf, <span class="kw4">int</span> mode, <a href="c-types-size_t.html"><span class="kw100">size_t</span></a> size<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, ...<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-fscanf.html"><span class="kw845">scanf</span></a><span class="br0">(</span><span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, ...<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-fprintf.html"><span class="kw854">snprintf</span></a><span class="br0">(</span><span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> s, <a href="c-types-size_t.html"><span class="kw100">size_t</span></a> n, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, ...<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-fprintf.html"><span class="kw853">sprintf</span></a><span class="br0">(</span><span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> s, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, ...<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-fscanf.html"><span class="kw847">sscanf</span></a><span class="br0">(</span><span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> s, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, ...<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-vfprintf.html"><span class="kw856">vfprintf</span></a><span class="br0">(</span><a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> <span class="kw4">restrict</span> stream, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, va_list arg<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-vfscanf.html"><span class="kw849">vfscanf</span></a><span class="br0">(</span><a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> <span class="kw4">restrict</span> stream, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, va_list arg<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-vfprintf.html"><span class="kw855">vprintf</span></a><span class="br0">(</span><span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, va_list arg<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-vfscanf.html"><span class="kw848">vscanf</span></a><span class="br0">(</span><span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, va_list arg<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-vfprintf.html"><span class="kw858">vsnprintf</span></a><span class="br0">(</span><span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> s, <a href="c-types-size_t.html"><span class="kw100">size_t</span></a> n, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, va_list arg<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-vfprintf.html"><span class="kw857">vsprintf</span></a><span class="br0">(</span><span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> s, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, va_list arg<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-vfscanf.html"><span class="kw850">vsscanf</span></a><span class="br0">(</span><span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> s, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, va_list arg<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-fgetc.html"><span class="kw827">fgetc</span></a><span class="br0">(</span><a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> stream<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">char</span><span class="sy2">*</span> <a href="c-io-fgets.html"><span class="kw829">fgets</span></a><span class="br0">(</span><span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> s, <span class="kw4">int</span> n, <a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> <span class="kw4">restrict</span> stream<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-fputc.html"><span class="kw830">fputc</span></a><span class="br0">(</span><span class="kw4">int</span> c, <a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> stream<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-fputs.html"><span class="kw832">fputs</span></a><span class="br0">(</span><span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> s, <a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> <span class="kw4">restrict</span> stream<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-fgetc.html"><span class="kw828">getc</span></a><span class="br0">(</span><a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> stream<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-getchar.html"><span class="kw833">getchar</span></a><span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-fputc.html"><span class="kw831">putc</span></a><span class="br0">(</span><span class="kw4">int</span> c, <a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> stream<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-putchar.html"><span class="kw835">putchar</span></a><span class="br0">(</span><span class="kw4">int</span> c<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-puts.html"><span class="kw836">puts</span></a><span class="br0">(</span><span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> s<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-ungetc.html"><span class="kw837">ungetc</span></a><span class="br0">(</span><span class="kw4">int</span> c, <a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> stream<span class="br0">)</span><span class="sy4">;</span>
+<a href="c-types-size_t.html"><span class="kw100">size_t</span></a> <a href="c-io-fread.html"><span class="kw825">fread</span></a><span class="br0">(</span><span class="kw4">void</span><span class="sy2">*</span> <span class="kw4">restrict</span> ptr, <a href="c-types-size_t.html"><span class="kw100">size_t</span></a> size, <a href="c-types-size_t.html"><span class="kw100">size_t</span></a> nmemb,
+<a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> <span class="kw4">restrict</span> stream<span class="br0">)</span><span class="sy4">;</span>
+<a href="c-types-size_t.html"><span class="kw100">size_t</span></a> <a href="c-io-fwrite.html"><span class="kw826">fwrite</span></a><span class="br0">(</span><span class="kw4">const</span> <span class="kw4">void</span><span class="sy2">*</span> <span class="kw4">restrict</span> ptr, <a href="c-types-size_t.html"><span class="kw100">size_t</span></a> size, <a href="c-types-size_t.html"><span class="kw100">size_t</span></a> nmemb,
+<a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> <span class="kw4">restrict</span> stream<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-fgetpos.html"><span class="kw872">fgetpos</span></a><span class="br0">(</span><a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> <span class="kw4">restrict</span> stream, <a href="c-io.html"><span class="kw885">fpos_t</span></a><span class="sy2">*</span> <span class="kw4">restrict</span> pos<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-fseek.html"><span class="kw873">fseek</span></a><span class="br0">(</span><a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> stream, <span class="kw4">long</span> <span class="kw4">int</span> offset, <span class="kw4">int</span> whence<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-fsetpos.html"><span class="kw874">fsetpos</span></a><span class="br0">(</span><a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> stream, <span class="kw4">const</span> <a href="c-io.html"><span class="kw885">fpos_t</span></a><span class="sy2">*</span> pos<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">long</span> <span class="kw4">int</span> <a href="c-io-ftell.html"><span class="kw871">ftell</span></a><span class="br0">(</span><a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> stream<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">void</span> <a href="c-io-rewind.html"><span class="kw875">rewind</span></a><span class="br0">(</span><a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> stream<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">void</span> <a href="c-io-clearerr.html"><span class="kw876">clearerr</span></a><span class="br0">(</span><a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> stream<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-feof.html"><span class="kw877">feof</span></a><span class="br0">(</span><a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> stream<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-ferror.html"><span class="kw878">ferror</span></a><span class="br0">(</span><a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> stream<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">void</span> <a href="c-io-perror.html"><span class="kw879">perror</span></a><span class="br0">(</span><span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> s<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-fprintf.html"><span class="kw852">fprintf</span></a><span class="br0">(</span><a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> <span class="kw4">restrict</span> stream, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, ...<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> <a href="c-io-fscanf.html"><span class="kw846">fscanf</span></a><span class="br0">(</span><a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> <span class="kw4">restrict</span> stream, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, ...<span class="br0">)</span><span class="sy4">;</span></pre></div>
+</div>
+<p>&#20165;&#24403;&#23454;&#29616;&#23450;&#20041;&#20102; <span class="t-c"><span class="mw-geshi c source-c">__STDC_LIB_EXT1__</span></span>&#65292;&#32780;&#19988;&#29992;&#25143;&#20195;&#30721;&#22312;&#23545; <code>&lt;stdio.h&gt;</code> &#30340;&#25152;&#26377;&#21253;&#21547;&#20043;&#21069;&#23450;&#20041;&#20102; <span class="t-c"><span class="mw-geshi c source-c">__STDC_WANT_LIB_EXT1__</span></span>&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#if defined(__STDC_WANT_LIB_EXT1__)</span>
+ 
+<span class="co2">#define L_tmpnam_s /* &#35265;&#25551;&#36848; */</span>
+<span class="co2">#define TMP_MAX_S  /* &#35265;&#25551;&#36848; */</span>
+ 
+<span class="kw1">typedef</span> <span class="coMULTI">/* &#35265;&#25551;&#36848; */</span> errno_t<span class="sy4">;</span>
+<span class="kw1">typedef</span> <span class="coMULTI">/* &#35265;&#25551;&#36848; */</span> rsize_t<span class="sy4">;</span>
+ 
+errno_t tmpfile_s<span class="br0">(</span><a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> <span class="kw4">restrict</span><span class="sy2">*</span> <span class="kw4">restrict</span> streamptr<span class="br0">)</span><span class="sy4">;</span>
+errno_t tmpnam_s<span class="br0">(</span><span class="kw4">char</span><span class="sy2">*</span> s, rsize_t maxsize<span class="br0">)</span><span class="sy4">;</span>
+errno_t fopen_s<span class="br0">(</span><a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> <span class="kw4">restrict</span><span class="sy2">*</span> <span class="kw4">restrict</span> streamptr,
+<span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> filename, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> mode<span class="br0">)</span><span class="sy4">;</span>
+errno_t freopen_s<span class="br0">(</span><a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> <span class="kw4">restrict</span><span class="sy2">*</span> <span class="kw4">restrict</span> newstreamptr,
+<span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> filename, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> mode,
+<a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> <span class="kw4">restrict</span> stream<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> fprintf_s<span class="br0">(</span><a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> <span class="kw4">restrict</span> stream, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, ...<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> fscanf_s<span class="br0">(</span><a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> <span class="kw4">restrict</span> stream, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, ...<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> printf_s<span class="br0">(</span><span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, ...<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> scanf_s<span class="br0">(</span><span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, ...<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> snprintf_s<span class="br0">(</span><span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> s, rsize_t n, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, ...<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> sprintf_s<span class="br0">(</span><span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> s, rsize_t n, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, ...<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> sscanf_s<span class="br0">(</span><span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> s, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, ...<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> vfprintf_s<span class="br0">(</span><a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> <span class="kw4">restrict</span> stream, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, va_list arg<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> vfscanf_s<span class="br0">(</span><a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> <span class="kw4">restrict</span> stream, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, va_list arg<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> vprintf_s<span class="br0">(</span><span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, va_list arg<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> vscanf_s<span class="br0">(</span><span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, va_list arg<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> vsnprintf_s<span class="br0">(</span><span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> s, rsize_t n, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, va_list arg<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> vsprintf_s<span class="br0">(</span><span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> s, rsize_t n, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, va_list arg<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">int</span> vsscanf_s<span class="br0">(</span><span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> s, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> <span class="kw4">restrict</span> format, va_list arg<span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">char</span><span class="sy2">*</span> gets_s<span class="br0">(</span><span class="kw4">char</span><span class="sy2">*</span> s, rsize_t n<span class="br0">)</span><span class="sy4">;</span>
+<span class="co2">#endif</span></pre></div>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

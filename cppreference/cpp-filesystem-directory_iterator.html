@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::filesystem::directory_iterator</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_filesystem_directory_iterator skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::filesystem::</span>directory_iterator</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-filesystem.html">filesystem</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-filesystem.html">&lt;filesystem&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">class</span> directory_iterator<span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>directory_iterator</code> &#26159;&#19968;&#31181;&#22312;&#30446;&#24405;&#30340; <a href="cpp-filesystem-directory_entry.html"><tt>directory_entry</tt></a> &#20803;&#32032;&#19978;&#36845;&#20195;&#30340;<a href="cpp-named_req-InputIterator.html"><span style="font-style:italic">&#32769;&#24335;&#36755;&#20837;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyInputIterator)</span></a> &#65288;&#20294;&#19981;&#36896;&#35775;&#23376;&#30446;&#24405;&#65289;&#12290;&#36845;&#20195;&#39034;&#24207;&#26159;&#26410;&#25351;&#23450;&#30340;&#65292;&#20294;&#27599;&#20010;&#30446;&#24405;&#26465;&#30446;&#21482;&#34987;&#36896;&#35775;&#19968;&#27425;&#12290;&#36339;&#36807;&#29305;&#27530;&#36335;&#24452;&#21517; <span class="t-spar">&#28857;</span> &#21644; <span class="t-spar">&#28857;&#28857;</span>&#12290;</p>
+<p>&#33509;&#21069;&#31227; <code>directory_iterator</code> &#36234;&#36807;&#20102;&#26368;&#32456;&#30446;&#24405;&#26465;&#30446;&#65292;&#21017;&#23427;&#21464;&#20026;&#31561;&#20110;&#40664;&#35748;&#26500;&#36896;&#30340;&#36845;&#20195;&#22120;&#65292;&#20134;&#31216;&#20026;&#23614;&#36845;&#20195;&#22120;&#12290;&#20004;&#20010;&#23614;&#36845;&#20195;&#22120;&#22987;&#32456;&#30456;&#31561;&#65292;&#35299;&#24341;&#29992;&#25110;&#33258;&#22686;&#23614;&#36845;&#20195;&#22120;&#26159;&#26410;&#23450;&#20041;&#34892;&#20026;&#12290;</p>
+<p>&#33509;&#22312;&#21019;&#24314;&#30446;&#24405;&#36845;&#20195;&#22120;&#20043;&#21518;&#23558;&#25991;&#20214;&#25110;&#30446;&#24405;&#21024;&#38500;&#25110;&#28155;&#21152;&#21040;&#30446;&#24405;&#26641;&#65292;&#21017;&#26159;&#21542;&#20250;&#36890;&#36807;&#36845;&#20195;&#22120;&#35266;&#23519;&#21040;&#26356;&#25913;&#26159;&#26410;&#25351;&#23450;&#30340;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E7.B1.BB.E5.9E.8B">&#25104;&#21592;&#31867;&#22411;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#25104;&#21592;&#31867;&#22411;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>value_type</code></td>
+<td><span class="t-lc"><a href="cpp-filesystem-directory_entry.html">std::filesystem::directory_entry</a></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>difference_type</code></td>
+<td><span class="t-lc"><a href="cpp-types-ptrdiff_t.html">std::ptrdiff_t</a></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>pointer</code></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw4">const</span> <a href="cpp-filesystem-directory_entry.html"><span class="kw2206">std::<span class="me2">filesystem</span><span class="sy4">::</span><span class="me2">directory_entry</span></span></a><span class="sy2">*</span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>reference</code></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw4">const</span> <a href="cpp-filesystem-directory_entry.html"><span class="kw2206">std::<span class="me2">filesystem</span><span class="sy4">::</span><span class="me2">directory_entry</span></span></a><span class="sy3">&amp;</span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>iterator_category</code></td>
+<td><span class="t-lc"><a href="cpp-iterator-iterator_tags.html">std::input_iterator_tag</a></span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-filesystem-directory_iterator-directory_iterator.html"><span class="t-lines"><span>(&#26500;&#36896;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26500;&#36896; directory_iterator<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><span class="t-lines"><span>(&#26512;&#26500;&#20989;&#25968;)</span></span></div>
+</div>
+</td>
+<td>&#40664;&#35748;&#26512;&#26500;&#20989;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-directory_iterator-operator=.html"><span class="t-lines"><span>operator=</span></span></a></div>
+</div>
+</td>
+<td>&#23545;&#20869;&#23481;&#36171;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-directory_iterator-operator*.html"><span class="t-lines"><span>operator*</span><span>operator-&gt;</span></span></a></div>
+</div>
+</td>
+<td>&#35775;&#38382;&#25152;&#25351;&#30340;&#30446;&#24405;&#26465;&#30446;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-directory_iterator-increment.html"><span class="t-lines"><span>increment</span><span>operator++</span></span></a></div>
+</div>
+</td>
+<td>&#21069;&#36827;&#21040;&#19979;&#20010;&#30446;&#24405;&#26465;&#30446;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E9.9D.9E.E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#38750;&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-directory_iterator-begin.html"><span class="t-lines"><span>begin<span class="t-dsc-small">(std::filesystem::directory_iterator)</span></span><span>end<span class="t-dsc-small">(std::filesystem::directory_iterator)</span></span></span></a></div>
+</div>
+</td>
+<td>&#22522;&#20110;&#33539;&#22260;&#30340; for &#24490;&#29615;&#25903;&#25345;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+</table>
+<p>&#21478;&#22806;&#25353;<a href="cpp-named_req-InputIterator.html"><span style="font-style:italic">&#32769;&#24335;&#36755;&#20837;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyInputIterator)</span></a> &#25152;&#35201;&#27714;&#25552;&#20379; <span class="t-rev-inl t-until-cxx20"><span><code>operator==</code> &#21644; <code>operator!=</code></span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#21069;)</span></span></span><span class="t-rev-inl t-since-cxx20"><span><code>operator==</code></span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></span></span>&#12290;</p>
+<p><span class="t-rev-inl t-since-cxx20"><span>&#26159;&#21542;&#25552;&#20379; <code>operator!=</code>&#65288;&#22240;&#20026;&#23427;&#33021;&#20174; <code>operator==</code> &#21512;&#25104;&#65289;&#65292;&#20197;&#21450;</span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></span></span>&#30456;&#31561;&#36816;&#31639;&#31526;&#26159;&#25104;&#21592;&#36824;&#26159;&#38750;&#25104;&#21592;&#26159;&#26410;&#25351;&#23450;&#30340;&#12290;</p>
+<h3><span class="mw-headline" id=".E8.BE.85.E5.8A.A9.E7.89.B9.E5.8C.96">&#36741;&#21161;&#29305;&#21270;</span></h3>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;&gt;</span><br /></span>
+<p><span class="kw4">constexpr</span> <span class="kw4">bool</span><br /></p>
+&nbsp; &nbsp; <a href="cpp-ranges-borrowed_range.html"><span class="kw3272">ranges::<span class="me2">enable_borrowed_range</span></span></a><span class="sy1">&lt;</span>std<span class="sy4">::</span><span class="me2">filesystem</span><span class="sy4">::</span><span class="me2">directory_iterator</span><span class="sy1">&gt;</span> <span class="sy1">=</span> <span class="kw2">true</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;&gt;</span><br /></span>
+<p><span class="kw4">constexpr</span> <span class="kw4">bool</span><br /></p>
+&nbsp; &nbsp; <a href="cpp-ranges-view.html"><span class="kw3273">ranges::<span class="me2">enable_view</span></span></a><span class="sy1">&lt;</span>std<span class="sy4">::</span><span class="me2">filesystem</span><span class="sy4">::</span><span class="me2">directory_iterator</span><span class="sy1">&gt;</span> <span class="sy1">=</span> <span class="kw2">true</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36825;&#20123;&#23545; <code>directory_iterator</code> &#30340;&#29305;&#21270;&#20351;&#20043;&#20026; <a href="cpp-ranges-borrowed_range.html"><code>borrowed_range</code></a> &#21450; <a href="cpp-ranges-view.html"><code>view</code></a>&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#35768;&#22810;&#36941;&#21382;&#30446;&#24405;&#30340;&#20302;&#23618; OS API &#23558;&#19979;&#20010;&#30446;&#24405;&#26465;&#30446;&#19982;&#25991;&#20214;&#23646;&#24615;&#19968;&#21516;&#33719;&#21462;&#12290;&#33509;&#23427;&#20204;&#23384;&#22312;&#65292;&#21017; <span class="t-lc"><strong class="selflink">std::filesystem::directory_iterator</strong></span> &#30340;&#26500;&#36896;&#20989;&#25968;&#21644;&#38750; const &#25104;&#21592;&#20989;&#25968;&#23558;&#36825;&#20123;&#23646;&#24615;&#23384;&#20648;&#20110;&#25152;&#25351;&#21521;&#30340; <span class="t-lc"><a href="cpp-filesystem-directory_entry.html">std::filesystem::directory_entry</a></span> &#20013;&#65292;&#32780;&#19981;&#35843;&#29992; <a href="cpp-filesystem-directory_entry-refresh.html"><tt>directory_entry::refresh</tt></a>&#12290;&#36825;&#20351;&#24471;&#31243;&#24207;&#33021;&#22815;&#22312;&#36845;&#20195;&#30446;&#24405;&#26465;&#30446;&#30340;&#21516;&#26102;&#26816;&#39564;&#20854;&#23646;&#24615;&#65292;&#32780;&#19981;&#36827;&#34892;&#39069;&#22806;&#30340;&#31995;&#32479;&#35843;&#29992;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;algorithm&gt;</span>
+<span class="co2">#include &lt;filesystem&gt;</span>
+<span class="co2">#include &lt;fstream&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">const</span> <a href="cpp-filesystem-path.html"><span class="kw2202">std::<span class="me2">filesystem</span><span class="sy4">::</span><span class="me2">path</span></span></a> sandbox<span class="br0">{</span><span class="st0">&quot;sandbox&quot;</span><span class="br0">}</span><span class="sy4">;</span>
+    <a href="cpp-filesystem-create_directory.html"><span class="kw2271">std::<span class="me2">filesystem</span><span class="sy4">::</span><span class="me2">create_directories</span></span></a><span class="br0">(</span>sandbox<span class="sy2">/</span><span class="st0">&quot;dir1&quot;</span><span class="sy2">/</span><span class="st0">&quot;dir2&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-basic_ofstream.html"><span class="kw1737">std::<span class="me2">ofstream</span></span></a><span class="br0">{</span>sandbox<span class="sy2">/</span><span class="st0">&quot;file1.txt&quot;</span><span class="br0">}</span><span class="sy4">;</span>
+    <a href="cpp-io-basic_ofstream.html"><span class="kw1737">std::<span class="me2">ofstream</span></span></a><span class="br0">{</span>sandbox<span class="sy2">/</span><span class="st0">&quot;file2.txt&quot;</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;directory_iterator:<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    <span class="co1">// &#21487;&#20197;&#20351;&#29992;&#33539;&#22260; for &#24490;&#29615;&#26469;&#36845;&#20195; directory_iterator</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">auto</span> <span class="kw4">const</span><span class="sy3">&amp;</span> dir_entry <span class="sy4">:</span> std<span class="sy4">::</span><span class="me2">filesystem</span><span class="sy4">::</span><span class="me2">directory_iterator</span><span class="br0">{</span>sandbox<span class="br0">}</span><span class="br0">)</span> 
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> dir_entry.<span class="me1">path</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;<span class="es1">\n</span>directory_iterator &#20316;&#20026;&#33539;&#22260;:<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    <span class="co1">// directory_iterator &#20063;&#20197;&#20854;&#20182;&#26041;&#24335;&#34920;&#29616;&#20026;&#33539;&#22260;</span>
+    std<span class="sy4">::</span><a href="cpp-algorithm-ranges-for_each.html"><span class="kw2988">ranges::<span class="me2">for_each</span></span></a><span class="br0">(</span>
+        std<span class="sy4">::</span><span class="me2">filesystem</span><span class="sy4">::</span><span class="me2">directory_iterator</span><span class="br0">{</span>sandbox<span class="br0">}</span>,
+        <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> dir_entry<span class="br0">)</span> <span class="br0">{</span> <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> dir_entry <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span> <span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;<span class="es1">\n</span>recursive_directory_iterator:<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">auto</span> <span class="kw4">const</span><span class="sy3">&amp;</span> dir_entry <span class="sy4">:</span> <a href="cpp-filesystem-recursive_directory_iterator.html"><span class="kw2207">std::<span class="me2">filesystem</span><span class="sy4">::</span><span class="me2">recursive_directory_iterator</span></span></a><span class="br0">{</span>sandbox<span class="br0">}</span><span class="br0">)</span> 
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> dir_entry <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#21024;&#38500; sandbox &#30446;&#24405;&#21644;&#20854;&#25152;&#26377;&#20869;&#23481;&#65292;&#21253;&#25324;&#23376;&#30446;&#24405;</span>
+    <a href="cpp-filesystem-remove.html"><span class="kw2284">std::<span class="me2">filesystem</span><span class="sy4">::</span><span class="me2">remove_all</span></span></a><span class="br0">(</span>sandbox<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">directory_iterator:
+&quot;sandbox/file2.txt&quot;
+&quot;sandbox/file1.txt&quot;
+&quot;sandbox/dir1&quot;
+ 
+directory_iterator &#20316;&#20026;&#33539;&#22260;:
+&quot;sandbox/file2.txt&quot;
+&quot;sandbox/file1.txt&quot;
+&quot;sandbox/dir1&quot;
+ 
+recursive_directory_iterator:
+&quot;sandbox/file2.txt&quot;
+&quot;sandbox/file1.txt&quot;
+&quot;sandbox/dir1&quot;
+&quot;sandbox/dir1/dir2&quot;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue3480">LWG 3480</a></td>
+<td>C++20</td>
+<td><code>directory_iterator</code> &#26082;&#38750; <a href="cpp-ranges-borrowed_range.html"><code>borrowed_range</code></a> &#20134;&#38750; <a href="cpp-ranges-view.html"><code>view</code></a></td>
+<td>&#23427;&#37117;&#26159;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-recursive_directory_iterator.html"><span class="t-lines"><span>recursive_directory_iterator</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span></span></span></div>
+</div>
+</td>
+<td>&#25351;&#21521;&#19968;&#20010;&#30446;&#24405;&#21450;&#20854;&#23376;&#30446;&#24405;&#30340;&#20869;&#23481;&#30340;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-directory_options.html"><span class="t-lines"><span>directory_options</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span></span></span></div>
+</div>
+</td>
+<td>&#29992;&#20110;&#36845;&#20195;&#30446;&#24405;&#20869;&#23481;&#30340;&#36873;&#39033;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#26522;&#20030;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-filesystem-directory_entry.html"><span class="t-lines"><span>directory_entry</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span></span></span></div>
+</div>
+</td>
+<td>&#30446;&#24405;&#26465;&#30446;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

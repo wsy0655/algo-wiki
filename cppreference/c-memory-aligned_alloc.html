@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>aligned_alloc</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_memory_aligned_alloc skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">aligned_alloc</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-memory.html">memory</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-stdlib.html"><tt>&lt;stdlib.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-c11">
+<td>
+<div><span class="mw-geshi c source-c"><span class="kw4">void</span> <span class="sy2">*</span>aligned_alloc<span class="br0">(</span> <a href="c-types-size_t.html"><span class="kw100">size_t</span></a> alignment, <a href="c-types-size_t.html"><span class="kw100">size_t</span></a> size <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#20998;&#37197; <code>size</code> &#20010;&#23383;&#33410;&#30340;&#26410;&#21021;&#22987;&#21270;&#23384;&#20648;&#31354;&#38388;&#65292;&#25353;&#29031; <span class="t-c"><span class="mw-geshi c source-c">alignment</span></span> &#25351;&#23450;&#23545;&#40784;&#12290;<span class="t-c"><span class="mw-geshi c source-c">size</span></span> &#24418;&#21442;&#24517;&#39035;&#26159; <span class="t-c"><span class="mw-geshi c source-c">alignment</span></span> &#30340;&#25972;&#25968;&#20493;&#12290;</p>
+<p><code>aligned_alloc</code> &#26159;&#32447;&#31243;&#23433;&#20840;&#30340;&#65306;&#23427;&#34920;&#29616;&#24471;&#22914;&#21516;&#21482;&#35775;&#38382;&#36890;&#36807;&#20854;&#21442;&#25968;&#21487;&#35265;&#30340;&#20869;&#23384;&#21306;&#22495;&#65292;&#32780;&#38750;&#20219;&#20309;&#38745;&#24577;&#23384;&#20648;&#12290;</p>
+<p>&#35299;&#20998;&#37197;&#19968;&#22359;&#20869;&#23384;&#21306;&#22495;&#30340;&#20808;&#21069; <span class="t-lc"><a href="c-memory-free.html">free</a></span><span class="t-rev-inl t-since-c23"><span>&#12289; <span class="t-lc">free_sized</span> &#21450; <span class="t-lc">free_aligned_sized</span></span><span><span class="t-mark-rev t-since-c23" style="white-space: nowrap;">(C23 &#36215;)</span></span></span> &#25110; <span class="t-lc"><a href="c-memory-realloc.html">realloc</a></span> &#35843;&#29992;<i>&#21516;&#27493;&#20110;</i>&#20998;&#37197;&#21516;&#19968;&#22359;&#25110;&#37096;&#20998;&#30456;&#21516;&#30340;&#20869;&#23384;&#21306;&#22495;&#30340; <code>aligned_alloc</code> &#35843;&#29992;&#12290;&#27492;&#21516;&#27493;&#20986;&#29616;&#20110;&#20219;&#20309;&#36890;&#36807;&#35299;&#20998;&#37197;&#20989;&#25968;&#25152;&#20316;&#30340;&#20869;&#23384;&#35775;&#38382;&#20043;&#21518;&#65292;&#21644;&#20219;&#20309; <code>aligned_alloc</code> &#25152;&#20316;&#20986;&#30340;&#20869;&#23384;&#35775;&#38382;&#20043;&#21069;&#12290;&#25152;&#26377;&#25805;&#20316;&#27599;&#22359;&#29305;&#23450;&#20869;&#23384;&#21306;&#22495;&#30340;&#20998;&#37197;&#21644;&#35299;&#20998;&#37197;&#20989;&#25968;&#25317;&#26377;&#21333;&#29420;&#20840;&#24207;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>alignment</td>
+<td>-</td>
+<td>&#25351;&#23450;&#23545;&#40784;&#12290;&#24517;&#39035;&#26159;&#23454;&#29616;&#25903;&#25345;&#30340;&#21512;&#27861;&#23545;&#40784;&#12290;</td>
+</tr>
+<tr class="t-par">
+<td>size</td>
+<td>-</td>
+<td>&#20998;&#37197;&#30340;&#23383;&#33410;&#25968;&#12290;<span class="t-c"><span class="mw-geshi c source-c">alignment</span></span> &#30340;&#25972;&#25968;&#20493;&#12290;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#25104;&#21151;&#26102;&#65292;&#36820;&#22238;&#25351;&#21521;&#26032;&#20998;&#37197;&#20869;&#23384;&#30340;&#25351;&#38024;&#12290;&#20026;&#36991;&#20813;&#20869;&#23384;&#27844;&#28431;&#65292;&#36820;&#22238;&#30340;&#25351;&#38024;&#24517;&#39035;&#29992; <span class="t-lc"><a href="c-memory-free.html">free()</a></span> &#25110; <code>realloc()</code> &#35299;&#20998;&#37197;&#12290;</p>
+<p>&#22833;&#36133;&#26102;&#65292;&#36820;&#22238;&#31354;&#25351;&#38024;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#20256;&#36882;&#19981;&#26159; <span class="t-c"><span class="mw-geshi c source-c">alignment</span></span> &#25972;&#25968;&#20493;&#30340; <span class="t-c"><span class="mw-geshi c source-c">size</span></span>&#65292;&#25110;&#20256;&#36882;&#23454;&#29616;&#19981;&#25903;&#25345;&#30340; <span class="t-c"><span class="mw-geshi c source-c">alignment</span></span>&#65292;&#20250;&#20196;&#20989;&#25968;&#22833;&#36133;&#24182;&#36820;&#22238;&#31354;&#25351;&#38024;&#65288;&#20986;&#29256;&#26102;&#30340; C11 &#25351;&#23450;&#27492;&#20026;&#26410;&#23450;&#20041;&#34892;&#20026;&#65292;&#36825;&#24050;&#32463;&#20026; <a rel="nofollow" class="external text" href="https://open-std.org/JTC1/SC22/WG14/www/docs/summary.htm#dr_460">DR460</a> &#25152;&#26356;&#27491;&#65289;&#12290;<a rel="nofollow" class="external text" href="https://open-std.org/JTC1/SC22/WG14/www/docs/n2072.htm">N2072</a> &#25552;&#35758;&#31227;&#38500;&#22823;&#23567;&#38480;&#21046;&#65292;&#20351;&#20043;&#33021;&#22312;&#38480;&#21046;&#24615;&#30340;&#23545;&#40784;&#36793;&#30028;&#20998;&#37197;&#23567;&#23545;&#35937;&#65288;&#31867;&#20284; <a href="c-language-_Alignas.html"><tt>alignas</tt></a>&#65289;&#12290;</p>
+<p>&#20316;&#20026;&ldquo;&#23454;&#29616;&#25903;&#25345;&rdquo;&#35201;&#27714;&#30340;&#20363;&#23376;&#65292;POSIX &#20989;&#25968; <a rel="nofollow" class="external text" href="https://pubs.opengroup.org/onlinepubs/9699919799/functions/posix_memalign.html"><code>posix_memalign</code></a> &#25509;&#21463;&#20219;&#20309;&#26159;&#20108;&#30340;&#24130;&#19988;&#20026; <span class="t-c"><span class="mw-geshi c source-c"><span class="kw4">sizeof</span><span class="br0">(</span><span class="kw4">void</span><span class="sy2">*</span><span class="br0">)</span></span></span> &#20493;&#25968;&#30340; <span class="t-c"><span class="mw-geshi c source-c">alignment</span></span>&#65292;&#32780;&#22522;&#20110; POSIX &#30340; <span class="t-c"><span class="mw-geshi c source-c">aligned_alloc</span></span> &#23454;&#29616;&#32487;&#25215;&#20102;&#27492;&#39033;&#35201;&#27714;&#12290;</p>
+<p>&#22522;&#30784;&#23545;&#40784;&#22987;&#32456;&#24471;&#21040;&#25903;&#25345;&#12290;&#33509; <span class="t-c"><span class="mw-geshi c source-c">alignment</span></span> &#26159;&#20108;&#30340;&#24130;&#19988;&#19981;&#22823;&#20110; <span class="t-c"><span class="mw-geshi c source-c">_Alignof<span class="br0">(</span><a href="c-types-max_align_t.html"><span class="kw104">max_align_t</span></a><span class="br0">)</span></span></span>&#65292;&#21017; <code>aligned_alloc</code> &#21487;&#20197;&#31616;&#21333;&#22320;&#35843;&#29992; <span class="t-lc"><a href="c-memory-malloc.html">malloc</a></span>&#12290;</p>
+<p>&#24120;&#35268;&#30340; <span class="t-lc"><a href="c-memory-malloc.html">malloc</a></span> &#20998;&#37197;&#36866;&#29992;&#20110;&#20855;&#26377;&#20219;&#20309;&#22522;&#30784;&#23545;&#40784;&#30340;&#23545;&#35937;&#31867;&#22411;&#30340;&#20869;&#23384;&#12290;<code>aligned_alloc</code> &#36866;&#29992;&#20110;&#36807;&#23545;&#40784;&#20998;&#37197;&#65292;&#20363;&#22914;&#23545; <a href="https://en.wikipedia.org/wiki/Streaming_SIMD_Extensions" class="extiw" title="enwiki:Streaming SIMD Extensions">SSE</a>&#12289;&#32531;&#23384;&#32447;&#25110; <a href="https://en.wikipedia.org/wiki/Page_(computer_memory)#Multiple_page_sizes" class="extiw" title="enwiki:Page (computer memory)">VM &#39029;</a>&#36793;&#30028;&#12290;</p>
+<p>Microsoft C &#36816;&#34892;&#26102;&#24211;&#19981;&#25903;&#25345;&#27492;&#20989;&#25968;&#65292;&#22240;&#20026;&#20854; <span class="t-lc">std::free</span> &#30340;&#23454;&#29616;<a rel="nofollow" class="external text" href="https://learn.microsoft.com/en-us/cpp/standard-library/cstdlib#remarks-6">&#26080;&#27861;&#22788;&#29702;&#20219;&#24847;&#31181;&#31867;&#30340;&#23545;&#40784;&#20998;&#37197;</a>&#12290;MS CRT &#25552;&#20379; <a rel="nofollow" class="external text" href="https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/aligned-malloc"><code>_aligned_malloc</code></a> &#20316;&#20026;&#26367;&#20195;&#65288;&#20854;&#32467;&#26524;&#24212;&#20197; <a rel="nofollow" class="external text" href="https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/aligned-free"><code>_aligned_free</code></a> &#37322;&#25918;&#65289;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#include &lt;stdlib.h&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">int</span> <span class="sy2">*</span>p1 <span class="sy1">=</span> <a href="c-memory-malloc.html"><span class="kw403">malloc</span></a><span class="br0">(</span><span class="nu0">10</span><span class="sy2">*</span><span class="kw4">sizeof</span> <span class="sy2">*</span>p1<span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;default-aligned addr:   %p<span class="es1">\n</span>&quot;</span>, <span class="br0">(</span><span class="kw4">void</span><span class="sy2">*</span><span class="br0">)</span>p1<span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-memory-free.html"><span class="kw406">free</span></a><span class="br0">(</span>p1<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw4">int</span> <span class="sy2">*</span>p2 <span class="sy1">=</span> aligned_alloc<span class="br0">(</span><span class="nu0">1024</span>, <span class="nu0">1024</span><span class="sy2">*</span><span class="kw4">sizeof</span> <span class="sy2">*</span>p2<span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;1024-byte aligned addr: %p<span class="es1">\n</span>&quot;</span>, <span class="br0">(</span><span class="kw4">void</span><span class="sy2">*</span><span class="br0">)</span>p2<span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-memory-free.html"><span class="kw406">free</span></a><span class="br0">(</span>p2<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">default-aligned addr:   0x1e40c20
+1024-byte aligned addr: 0x1e41000</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-23">
+<ul>
+<li>C23 &#26631;&#20934;&#65288;ISO/IEC 9899:2024&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.22.3.1 The aligned_alloc function &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.22.3.1 The aligned_alloc function &#65288;&#31532; 253 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.22.3.1 The aligned_alloc function &#65288;&#31532; 347-348 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>aligned_alloc</span></span>&nbsp;&#30340; <span><span><a href="cpp-memory-c-aligned_alloc.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

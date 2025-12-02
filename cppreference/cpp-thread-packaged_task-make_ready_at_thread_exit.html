@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::packaged_task&lt;R(Args...)&gt;::make_ready_at_thread_exit</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_thread_packaged_task_make_ready_at_thread_exit skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::packaged_task&lt;R(Args...)&gt;::</span>make_ready_at_thread_exit</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-thread.html">thread</a>&lrm; | <a href="cpp-thread-packaged_task.html">packaged task</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span> make_ready_at_thread_exit<span class="br0">(</span> ArgTypes... <span class="me1">args</span> <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#22914;&#21516;&#20197; <span class="t-c"><a href="cpp-utility-functional.html"><tt><i>INVOKE&lt;R&gt;</i></tt></a><span class="mw-geshi cpp source-cpp"><span class="br0">(</span>f, args...<span class="br0">)</span></span></span> &#35843;&#29992;&#23384;&#20648;&#30340;&#20219;&#21153; <span class="t-c"><span class="mw-geshi cpp source-cpp">f</span></span>&#12290;&#20219;&#21153;&#36820;&#22238;&#20540;&#25110;&#20219;&#20309;&#25243;&#20986;&#30340;&#24322;&#24120;&#34987;&#23384;&#20648;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#30340;&#20849;&#20139;&#29366;&#24577;&#12290;</p>
+<p>&#21482;&#26377;&#22312;&#22312;&#24403;&#21069;&#32447;&#31243;&#36864;&#20986;&#65292;&#24182;&#38144;&#27585;&#25152;&#26377;&#32447;&#31243;&#23616;&#22495;&#23384;&#20648;&#26399;&#23545;&#35937;&#21518;&#65292;&#20849;&#20139;&#29366;&#24577;&#25165;&#20250;&#23601;&#32490;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>args</td>
+<td>-</td>
+<td>&#35843;&#29992;&#26102;&#20256;&#36882;&#32473;&#23384;&#20648;&#20219;&#21153;&#30340;&#24418;&#21442;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<p>&#22312;&#20197;&#19979;&#24773;&#20917;&#19979;&#25243;&#20986; <span class="t-lc"><a href="cpp-thread-future_error.html">std::future_error</a></span>&#65306;</p>
+<ul>
+<li>&#23384;&#20648;&#30340;&#20219;&#21153;&#24050;&#32463;&#35843;&#29992;&#36807;&#12290;&#27492;&#26102;&#35774;&#32622;&#38169;&#35823;&#31867;&#21035;&#20026; <code>promise_already_satisfied</code>&#12290;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#27809;&#26377;&#20849;&#20139;&#29366;&#24577;&#12290;&#35774;&#27492;&#26102;&#35774;&#32622;&#38169;&#35823;&#31867;&#21035;&#20026; <a href="cpp-thread-future_errc.html"><tt>no_state</tt></a>&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;chrono&gt;</span>
+<span class="co2">#include &lt;functional&gt;</span>
+<span class="co2">#include &lt;future&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;memory&gt;</span>
+<span class="co2">#include &lt;thread&gt;</span>
+<span class="co2">#include &lt;utility&gt;</span>
+ 
+<span class="kw1">struct</span> ProgramState
+<span class="br0">{</span>
+    <a href="cpp-thread-packaged_task.html"><span class="kw2186">std::<span class="me2">packaged_task</span></span></a><span class="sy1">&lt;</span><span class="kw4">void</span><span class="br0">(</span><span class="br0">)</span><span class="sy1">&gt;</span> task<span class="sy4">;</span>
+    <a href="cpp-thread-future.html"><span class="kw2184">std::<span class="me2">future</span></span></a><span class="sy1">&lt;</span><span class="kw4">void</span><span class="sy1">&gt;</span> future<span class="sy4">;</span>
+    <a href="cpp-thread-thread.html"><span class="kw2150">std::<span class="me2">thread</span></span></a> worker<span class="sy4">;</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">static</span> <span class="kw4">void</span> worker<span class="br0">(</span><a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>ProgramState<span class="sy1">&gt;</span> state<span class="br0">)</span>
+<span class="br0">{</span>
+    state<span class="sy2">-</span><span class="sy1">&gt;</span>task.<span class="me1">make_ready_at_thread_exit</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#31435;&#21363;&#25191;&#34892;&#20219;&#21153;</span>
+ 
+    <span class="kw4">auto</span> status <span class="sy1">=</span> state<span class="sy2">-</span><span class="sy1">&gt;</span>future.<span class="me1">wait_for</span><span class="br0">(</span><a href="cpp-chrono-duration.html"><span class="kw999">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">seconds</span></span></a><span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>status <span class="sy1">==</span> <a href="cpp-thread-future_status.html"><span class="kw2193">std::<span class="me2">future_status</span><span class="sy4">::</span><span class="me2">timeout</span></span></a><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;worker&#65306;&#26410;&#26469;&#20307;&#23578;&#26410;&#23601;&#32490;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    <span class="kw1">else</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;worker&#65306;&#26410;&#26469;&#20307;&#24050;&#32463;&#23601;&#32490;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;worker&#65306;&#36864;&#20986;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">static</span> <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>ProgramState<span class="sy1">&gt;</span> create_state<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">auto</span> state <span class="sy1">=</span> <a href="cpp-memory-shared_ptr-make_shared.html"><span class="kw738">std::<span class="me2">make_shared</span></span></a><span class="sy1">&lt;</span>ProgramState<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    state<span class="sy2">-</span><span class="sy1">&gt;</span>task <span class="sy1">=</span> <a href="cpp-thread-packaged_task.html"><span class="kw2186">std::<span class="me2">packaged_task</span></span></a><span class="sy1">&lt;</span><span class="kw4">void</span><span class="br0">(</span><span class="br0">)</span><span class="sy1">&gt;</span><span class="br0">{</span><span class="br0">[</span><span class="br0">]</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;task: &#24050;&#25191;&#34892;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    <span class="br0">}</span><span class="br0">}</span><span class="sy4">;</span>
+    state<span class="sy2">-</span><span class="sy1">&gt;</span>future <span class="sy1">=</span> state<span class="sy2">-</span><span class="sy1">&gt;</span>task.<span class="me1">get_future</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    state<span class="sy2">-</span><span class="sy1">&gt;</span>worker <span class="sy1">=</span> <a href="cpp-thread-thread.html"><span class="kw2150">std::<span class="me2">thread</span></span></a><span class="br0">{</span>worker, state<span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw1">return</span> state<span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">auto</span> state <span class="sy1">=</span> create_state<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    state<span class="sy2">-</span><span class="sy1">&gt;</span>worker.<span class="me1">join</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;main: worker &#23436;&#25104;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+ 
+    <span class="kw4">auto</span> status <span class="sy1">=</span> state<span class="sy2">-</span><span class="sy1">&gt;</span>future.<span class="me1">wait_for</span><span class="br0">(</span><a href="cpp-chrono-duration.html"><span class="kw999">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">seconds</span></span></a><span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>status <span class="sy1">==</span> <a href="cpp-thread-future_status.html"><span class="kw2193">std::<span class="me2">future_status</span><span class="sy4">::</span><span class="me2">timeout</span></span></a><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;main&#65306;&#26410;&#26469;&#20307;&#23578;&#26410;&#23601;&#32490;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    <span class="kw1">else</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;main&#65306;&#26410;&#26469;&#20307;&#24050;&#32463;&#23601;&#32490;&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">task: &#24050;&#25191;&#34892;
+worker&#65306;&#26410;&#26469;&#20307;&#23578;&#26410;&#23601;&#32490;
+worker&#65306;&#36864;&#20986;
+main: worker &#23436;&#25104;
+worker&#65306;&#32467;&#26524;&#23578;&#26410;&#23601;&#32490;
+main&#65306;&#26410;&#26469;&#20307;&#24050;&#32463;&#23601;&#32490;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-packaged_task-operator().html"><span class="t-lines"><span>operator()</span></span></a></div>
+</div>
+</td>
+<td>&#25191;&#34892;&#20989;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

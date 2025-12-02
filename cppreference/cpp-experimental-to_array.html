@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::experimental::to_array</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_experimental_to_array skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::experimental::</span>to_array</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-experimental.html">experimental</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="https://zh.cppreference.com/mwiki/index.php?title=cpp/header/experimental/array&amp;action=edit&amp;redlink=1" class="new" title="cpp/header/experimental/array&#65288;&#39029;&#38754;&#19981;&#23384;&#22312;&#65289;">&lt;experimental/array&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-libfund_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> N <span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> <a href="cpp-container-array.html"><span class="kw1271">std::<span class="me2">array</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-remove_cv.html"><span class="kw600">std::<span class="me2">remove_cv_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span>, N<span class="sy1">&gt;</span> to_array<span class="br0">(</span>T <span class="br0">(</span><span class="sy3">&amp;</span>a<span class="br0">)</span><span class="br0">[</span>N<span class="br0">]</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-libfund-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24211;&#22522;&#30784; TS v2)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#20174;&#20869;&#24314;&#25968;&#32452; <span class="t-c"><span class="mw-geshi cpp source-cpp">a</span></span> &#21019;&#24314; <span class="t-lc"><a href="cpp-container-array.html">std::array</a></span>&#12290;<span class="t-lc"><a href="cpp-container-array.html">std::array</a></span> &#30340;&#20803;&#32032;&#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp">a</span></span> &#30340;&#23545;&#24212;&#20803;&#32032;&#22797;&#21046;&#21021;&#22987;&#21270;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>a</td>
+<td>-</td>
+<td>&#29992;&#20110;&#21021;&#22987;&#21270; <span class="t-lc"><a href="cpp-container-array.html">std::array</a></span> &#30340;&#20869;&#24314;&#25968;&#32452;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp">a</span></span> &#30340;&#20803;&#32032;&#22797;&#21046;&#21021;&#22987;&#21270;&#23545;&#24212;&#20803;&#32032;&#30340; <span class="t-lc"><a href="cpp-container-array.html">std::array</a></span> &#23545;&#35937;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.AF.E8.83.BD.E7.9A.84.E5.AE.9E.E7.8E.B0">&#21487;&#33021;&#30340;&#23454;&#29616;</span></h3>
+<table class="eq-fun-cpp-table">
+<tr>
+<td>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">namespace</span> detail
+<span class="br0">{</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> T, <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> N, <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a>... <span class="me1">I</span><span class="sy1">&gt;</span>
+    <span class="kw4">constexpr</span> <a href="cpp-container-array.html"><span class="kw1271">std::<span class="me2">array</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-remove_cv.html"><span class="kw600">std::<span class="me2">remove_cv_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span>, N<span class="sy1">&gt;</span>
+        to_array_impl<span class="br0">(</span>T <span class="br0">(</span><span class="sy3">&amp;</span>a<span class="br0">)</span><span class="br0">[</span>N<span class="br0">]</span>, <a href="cpp-utility-integer_sequence.html"><span class="kw1111">std::<span class="me2">index_sequence</span></span></a><span class="sy1">&lt;</span>I...<span class="sy1">&gt;</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw1">return</span> <span class="br0">{</span> <span class="br0">{</span>a<span class="br0">[</span>I<span class="br0">]</span>...<span class="br0">}</span> <span class="br0">}</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span>
+ 
+<span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> T, <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> N<span class="sy1">&gt;</span>
+<span class="kw4">constexpr</span> <a href="cpp-container-array.html"><span class="kw1271">std::<span class="me2">array</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-remove_cv.html"><span class="kw600">std::<span class="me2">remove_cv_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span>, N<span class="sy1">&gt;</span> to_array<span class="br0">(</span>T <span class="br0">(</span><span class="sy3">&amp;</span>a<span class="br0">)</span><span class="br0">[</span>N<span class="br0">]</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">return</span> detail<span class="sy4">::</span><span class="me2">to_array_impl</span><span class="br0">(</span>a, <a href="cpp-utility-integer_sequence.html"><span class="kw1113">std::<span class="me2">make_index_sequence</span></span></a><span class="sy1">&lt;</span>N<span class="sy1">&gt;</span><span class="br0">{</span><span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;cassert&gt;</span>
+<span class="co2">#include &lt;cstdlib&gt;</span>
+<span class="co2">#include &lt;experimental/array&gt;</span>
+<span class="co2">#include &lt;unistd.h&gt;</span>
+ 
+<span class="co1">// mkstemp(3) &#21487;&#24037;&#20316;</span>
+<span class="kw1">template</span><span class="sy1">&lt;</span><a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> N<span class="sy1">&gt;</span>
+<span class="kw4">int</span> tempfd<span class="br0">(</span><span class="kw4">char</span> <span class="kw4">const</span> <span class="br0">(</span><span class="sy3">&amp;</span>tmpl<span class="br0">)</span><span class="br0">[</span>N<span class="br0">]</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">auto</span> s <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">experimental</span><span class="sy4">::</span><span class="me2">to_array</span><span class="br0">(</span>tmpl<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">int</span> fd <span class="sy1">=</span> mkstemp<span class="br0">(</span>s.<span class="me1">data</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>fd <span class="sy3">!</span><span class="sy1">=</span> <span class="sy2">-</span><span class="nu0">1</span><span class="br0">)</span>
+        unlink<span class="br0">(</span>s.<span class="me1">data</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw1">return</span> fd<span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">int</span> fd <span class="sy1">=</span> tempfd<span class="br0">(</span><span class="st0">&quot;/tmp/test.XXXXXX&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">int</span> rt <span class="sy1">=</span> close<span class="br0">(</span>fd<span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span>rt <span class="sy1">==</span> <span class="nu0">0</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-experimental-make_array.html"><span class="t-lines"><span>make_array</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-libfund-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24211;&#22522;&#30784; TS v2)</span></span></span></div>
+</div>
+</td>
+<td>&#21019;&#24314; <span class="t-lc"><a href="cpp-container-array.html">std::array</a></span> &#23545;&#35937;&#65292;&#20174;&#23454;&#21442;&#25512;&#23548;&#20986;&#20854;&#22823;&#23567;&#21644;&#21487;&#36873;&#30340;&#20803;&#32032;&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

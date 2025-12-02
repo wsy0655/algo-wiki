@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::out_ptr</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_memory_out_ptr_t_out_ptr skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>out_ptr</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-memory.html">memory</a>&lrm; | <a href="cpp-memory-out_ptr_t.html">out ptr t</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-memory.html">&lt;memory&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Pointer <span class="sy1">=</span> <span class="kw4">void</span>, <span class="kw1">class</span> Smart, <span class="kw1">class</span>... <span class="me1">Args</span> <span class="sy1">&gt;</span><br />
+<span class="kw4">auto</span> out_ptr<span class="br0">(</span> Smart<span class="sy3">&amp;</span> s, Args<span class="sy3">&amp;&amp;</span>... <span class="me1">args</span> <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36820;&#22238;&#25317;&#26377;&#34987;&#25512;&#23548;&#27169;&#26495;&#23454;&#21442;&#30340; <a href="cpp-memory-out_ptr_t.html"><tt>std::out_ptr_t</tt></a>&#65292;&#25353;&#24341;&#29992;&#32465;&#23450;&#37325;&#35774;&#29992;&#30340;&#23454;&#21442;&#12290;</p>
+<p>&#33509;&#36820;&#22238;&#20540;&#65288;&#35265;&#21518;&#36848;&#65289;&#30340;&#26500;&#36896;&#38750;&#33391;&#26500;&#21017;&#31243;&#24207;&#38750;&#33391;&#26500;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>s</td>
+<td>-</td>
+<td>&#35201;&#36866;&#37197;&#30340;&#23545;&#35937;&#65288;&#24120;&#20026;&#26234;&#33021;&#25351;&#38024;&#65289;</td>
+</tr>
+<tr class="t-par">
+<td>args...</td>
+<td>-</td>
+<td>&#35201;&#25429;&#33719;&#30340;&#29992;&#20110;&#37325;&#35774;&#30340;&#23454;&#21442;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-out_ptr_t.html"><span class="kw3376">std::<span class="me2">out_ptr_t</span></span></a><span class="sy1">&lt;</span>Smart, P, Args<span class="sy3">&amp;&amp;</span><span class="sy1">&gt;</span><span class="br0">(</span>s, <a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span>args<span class="br0">)</span>...<span class="br0">)</span></span></span>&#65292;&#20854;&#20013; <code>P</code> &#20026;</p>
+<ul>
+<li><code>Pointer</code>&#65292;&#33509; <code>Pointer</code> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span></span> &#19981;&#21516;&#65292;</li>
+<li>&#21542;&#21017;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">Smart<span class="sy4">::</span><span class="me2">pointer</span></span></span>&#65292;&#33509;&#23427;&#21512;&#27861;&#24182;&#25351;&#20195;&#31867;&#22411;&#65292;</li>
+<li>&#21542;&#21017;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">Smart<span class="sy4">::</span><span class="me2">element_type</span><span class="sy2">*</span></span></span>&#65292;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">Smart<span class="sy4">::</span><span class="me2">element_type</span></span></span> &#21512;&#27861;&#24182;&#25351;&#20195;&#31867;&#22411;&#65292;</li>
+<li>&#21542;&#21017;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-pointer_traits.html"><span class="kw758">std::<span class="me2">pointer_traits</span></span></a><span class="sy1">&lt;</span>Smart<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">element_type</span><span class="sy2">*</span></span></span>&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#29992;&#25143;&#21487;&#23545;&#27169;&#26495;&#24418;&#21442; <code>Pointer</code> &#25351;&#23450;&#27169;&#26495;&#23454;&#21442;&#65292;&#20197;&#19982;&#25509;&#25910; <span class="t-c"><span class="mw-geshi cpp source-cpp">Pointer<span class="sy2">*</span></span></span> &#30340;&#22806;&#26469;&#20989;&#25968;&#20132;&#20114;&#12290;</p>
+<p>&#30001;&#20110;&#25152;&#26377;&#23454;&#21442;&#37117;&#25353;&#24341;&#29992;&#25429;&#33719;&#65292;&#36820;&#22238;&#30340; <code>out_ptr_t</code> &#24212;&#20026;&#22312;&#21547;&#26377;&#22806;&#26469;&#20989;&#25968;&#35843;&#29992;&#30340;&#20840;&#34920;&#36798;&#24335;&#32467;&#23614;&#38144;&#27585;&#30340;&#20020;&#26102;&#23545;&#35937;&#65292;&#20197;&#36991;&#20813;&#24748;&#22402;&#24341;&#29992;&#12290;</p>
+<table class="wikitable">
+<tr>
+<th><a href="cpp-utility-feature_test.html">&#21151;&#33021;&#29305;&#24615;&#27979;&#35797;</a>&#23439;</th>
+<th><abbr title="&#37319;&#32435;&#35813;&#29305;&#24615;&#30340;&#24180;/&#26376;&#12290;&#27599;&#20010;&#20540;&#19979;&#38754;&#30340;&#38142;&#25509;&#25351;&#21521;&#32534;&#35793;&#26399;&#25903;&#25345;&#39029;&#38754;&#20013;&#32473;&#23450;&#21151;&#33021;&#29305;&#24615;&#30340;&#26465;&#30446;&#12290;">&#20540;</abbr></th>
+<th><abbr title="&#24341;&#20837;&#35813;&#29305;&#24615;&#30340;&#26631;&#20934;&#65307;DR &#24847;&#20026;&#38024;&#23545;&#35813;&#20462;&#35746;&#29256;&#30340;&#32570;&#38519;&#25253;&#21578;">&#26631;&#20934;</abbr></th>
+<th>&#21151;&#33021;&#29305;&#24615;</th>
+</tr>
+<tr>
+<td rowspan="2"><a href="cpp-feature_test.html#cpp_lib_out_ptr"><code>__cpp_lib_out_ptr</code></a></td>
+<td><a href="cpp-compiler_support-23.html#cpp_lib_out_ptr_202106L"><code>202106L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++23)</span></td>
+<td><code>std::out_ptr</code>, <span class="t-lc">std::inout_ptr</span></td>
+</tr>
+<tr>
+<td><a href="cpp-compiler_support-26.html#cpp_lib_out_ptr_202311L"><code>202311L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++26)</span></td>
+<td>&#29420;&#31435;&#30340; <code>std::out_ptr</code> &#21644; <span class="t-lc">std::inout_ptr</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<p>&#20351;&#29992; <code>std::out_ptr</code> &#36866;&#37197;&#19968;&#20010;&#29992;&#20110; <a rel="nofollow" class="external text" href="https://www.sqlite.org/c3ref/open.html"><code>sqlite3_open</code></a> &#30340;&#26234;&#33021;&#25351;&#38024;&#65292;&#23427;&#39044;&#26399;&#19968;&#20010; <code>sqlite3**</code> &#20316;&#20026;&#20854;&#36755;&#20986;&#24418;&#21442;&#12290;</p>
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;memory&gt;</span>
+<span class="co2">#include &lt;sqlite3.h&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">auto</span> close_db <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span>sqlite3<span class="sy2">*</span> db<span class="br0">)</span> <span class="br0">{</span> sqlite3_close<span class="br0">(</span>db<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="br0">{</span>
+        <span class="co1">// &#25171;&#24320;&#19968;&#20010;&#20869;&#23384;&#25968;&#25454;&#24211;&#65292;&#24182;&#20197;&#19968;&#20010; std::unique_ptr &#31649;&#29702;&#20854;&#29983;&#23384;&#26399;</span>
+        <a href="cpp-memory-unique_ptr.html"><span class="kw735">std::<span class="me2">unique_ptr</span></span></a><span class="sy1">&lt;</span>sqlite3, decltype<span class="br0">(</span>close_db<span class="br0">)</span><span class="sy1">&gt;</span> up<span class="sy4">;</span>
+        sqlite3_open<span class="br0">(</span><span class="st0">&quot;:memory:&quot;</span>, std<span class="sy4">::</span><span class="me2">out_ptr</span><span class="br0">(</span>up<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+        sqlite3<span class="sy2">*</span> db <span class="sy1">=</span> up.<span class="me1">get</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+        <span class="co1">// &#29992; db &#20570;&#20123;&#24037;&#20316; ...</span>
+    <span class="br0">}</span>
+    <span class="br0">{</span>
+        <span class="co1">// &#21516;&#19978;&#65292;&#20294;&#20351;&#29992; std::shared_ptr</span>
+        <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>sqlite3<span class="sy1">&gt;</span> sp<span class="sy4">;</span>
+        sqlite3_open<span class="br0">(</span><span class="st0">&quot;:memory:&quot;</span>, std<span class="sy4">::</span><span class="me2">out_ptr</span><span class="br0">(</span>sp, close_db<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+        sqlite3<span class="sy2">*</span> db <span class="sy1">=</span> sp.<span class="me1">get</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+        <span class="co1">// &#29992; db &#20570;&#20123;&#24037;&#20316; ...</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-inout_ptr_t-inout_ptr.html"><span class="t-lines"><span>inout_ptr</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#20197;&#20851;&#32852;&#30340;&#26234;&#33021;&#25351;&#38024;&#21644;&#37325;&#35774;&#21442;&#25968;&#21019;&#24314; <code>inout_ptr_t</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-unique_ptr-make_unique.html"><span class="t-lines"><span>make_unique</span><span>make_unique_for_overwrite</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14)</span></span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#21019;&#24314;&#31649;&#29702;&#19968;&#20010;&#26032;&#23545;&#35937;&#30340;&#29420;&#21344;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-shared_ptr-make_shared.html"><span class="t-lines"><span>make_shared</span><span>make_shared_for_overwrite</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#21019;&#24314;&#31649;&#29702;&#19968;&#20010;&#26032;&#23545;&#35937;&#30340;&#20849;&#20139;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

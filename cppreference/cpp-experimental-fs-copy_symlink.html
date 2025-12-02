@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::experimental::filesystem::copy_symlink</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_experimental_fs_copy_symlink skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::experimental::filesystem::</span>copy_symlink</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-experimental.html">experimental</a>&lrm; | <a href="cpp-experimental-fs.html">fs</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-experimental-filesystem.html">&lt;experimental/filesystem&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-fs_ts">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span> copy_symlink<span class="br0">(</span> <span class="kw4">const</span> path<span class="sy3">&amp;</span> from, <span class="kw4">const</span> path<span class="sy3">&amp;</span> to <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-fs-ts t-mark-ts" style="white-space: nowrap;">(&#25991;&#20214;&#31995;&#32479; TS)</span></td>
+</tr>
+<tr class="t-dcl t-since-fs_ts">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span> copy_symlink<span class="br0">(</span> <span class="kw4">const</span> path<span class="sy3">&amp;</span> from, <span class="kw4">const</span> path<span class="sy3">&amp;</span> to,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;error_code<span class="sy3">&amp;</span> ec <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-fs-ts t-mark-ts" style="white-space: nowrap;">(&#25991;&#20214;&#31995;&#32479; TS)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#22797;&#21046;&#31526;&#21495;&#38142;&#25509;&#21040;&#21478;&#19968;&#20301;&#32622;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#30456;&#24403;&#20110;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">f<span class="br0">(</span>read_symlink<span class="br0">(</span>from<span class="br0">)</span>, to<span class="br0">)</span></span></span>&#65292;&#20854;&#20013; <code>f</code> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">create_symlink<span class="br0">(</span><span class="br0">)</span></span></span> &#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp">create_directory_symlink</span></span>&#65292;&#21462;&#20915;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">from</span></span> &#35299;&#26512;&#20026;&#25991;&#20214;&#36824;&#26159;&#30446;&#24405;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#30456;&#24403;&#20110;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">f<span class="br0">(</span>read_symlink<span class="br0">(</span>from, ec<span class="br0">)</span>, to, ec<span class="br0">)</span></span></span>&#65292;&#20854;&#20013; <code>f</code> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">create_symlink<span class="br0">(</span><span class="br0">)</span></span></span> &#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp">create_directory_symlink</span></span>&#65292;&#21462;&#20915;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">from</span></span> &#35299;&#26512;&#20026;&#25991;&#20214;&#36824;&#26159;&#30446;&#24405;&#12290;</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>from</td>
+<td>-</td>
+<td>&#35201;&#36171;&#20540;&#31526;&#21495;&#38142;&#25509;&#30340;&#36335;&#24452;</td>
+</tr>
+<tr class="t-par">
+<td>to</td>
+<td>-</td>
+<td>&#26032;&#31526;&#21495;&#38142;&#25509;&#30340;&#30446;&#26631;&#36335;&#24452;</td>
+</tr>
+<tr class="t-par">
+<td>ec</td>
+<td>-</td>
+<td>&#29992;&#20110;&#26080;&#25243;&#20986;&#25805;&#20316;&#20013;&#25253;&#21578;&#38169;&#35823;&#30340;&#36755;&#20986;&#24418;&#21442;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+&#19981;&#25509;&#21463; <span class="t-c"><span class="mw-geshi cpp source-cpp">error_code<span class="sy3">&amp;</span></span></span> &#24418;&#21442;&#30340;&#37325;&#36733;&#65292;&#22312;&#21457;&#29983;&#24213;&#23618; OS API &#38169;&#35823;&#26102;&#25243;&#20986; <a href="cpp-experimental-fs-filesystem_error.html">filesystem_error</a>&#65292;&#23427;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">from</span></span> &#20026;&#31532;&#19968;&#23454;&#21442;&#65292;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">to</span></span> &#20026;&#31532;&#20108;&#23454;&#21442;&#65292;&#24182;&#20197; OS &#38169;&#35823;&#30721;&#20026;&#38169;&#35823;&#30721;&#23454;&#21442;&#26500;&#36896;&#12290;&#22914;&#26524;&#20869;&#23384;&#20998;&#37197;&#22833;&#36133;&#65292;&#21017;&#21487;&#25243;&#20986; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-new-bad_alloc.html"><span class="kw696">std::<span class="me2">bad_alloc</span></span></a></span></span>&#12290;&#25509;&#21463; <span class="t-c"><span class="mw-geshi cpp source-cpp">error_code<span class="sy3">&amp;</span></span></span> &#24418;&#21442;&#30340;&#37325;&#36733;&#65292;&#24403; OS API &#35843;&#29992;&#22833;&#36133;&#26102;&#23558;&#20043;&#35774;&#32622;&#20026; OS API &#38169;&#35823;&#30721;&#65292;&#32780;&#26410;&#21457;&#29983;&#38169;&#35823;&#26102;&#25191;&#34892; <span class="t-c"><span class="mw-geshi cpp source-cpp">ec.<span class="me1">clear</span><span class="br0">(</span><span class="br0">)</span></span></span>&#12290;&#27492;&#37325;&#36733;&#20855;&#26377;
+<div class="t-noexcept-inline"><a href="cpp-language-noexcept_spec.html"><tt>noexcept</tt></a> &#35268;&#23450;&#65306;&nbsp;&nbsp;
+<div class="t-noexcept-box"><span class="t-cc"><span class="mw-geshi cpp source-cpp"><span class="kw1">noexcept</span></span></span></div>
+&nbsp;&nbsp;</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-experimental-fs-copy.html"><span class="t-lines"><span>copy</span></span></a></div>
+</div>
+</td>
+<td>&#22797;&#21046;&#25991;&#20214;&#25110;&#30446;&#24405;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-experimental-fs-copy_file.html"><span class="t-lines"><span>copy_file</span></span></a></div>
+</div>
+</td>
+<td>&#22797;&#21046;&#25991;&#20214;&#20869;&#23481;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-experimental-fs-create_symlink.html"><span class="t-lines"><span>create_symlink</span><span>create_directory_symlink</span></span></a></div>
+</div>
+</td>
+<td>&#21019;&#24314;&#19968;&#20010;&#31526;&#21495;&#38142;&#25509;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-experimental-fs-read_symlink.html"><span class="t-lines"><span>read_symlink</span></span></a></div>
+</div>
+</td>
+<td>&#33719;&#24471;&#31526;&#21495;&#38142;&#25509;&#30340;&#30446;&#26631;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

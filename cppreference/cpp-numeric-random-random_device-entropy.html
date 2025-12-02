@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::random_device::entropy</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_numeric_random_random_device_entropy skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::random_device::</span>entropy</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-numeric.html">numeric</a>&lrm; | <a href="cpp-numeric-random.html">random</a>&lrm; | <a href="cpp-numeric-random-random_device.html">random device</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">double</span> entropy<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#33719;&#24471;&#38543;&#26426;&#25968;&#35774;&#22791;&#29109;&#30340;&#20272;&#35745;&#65292;&#23427;&#26159; <span class="texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">0</span> &#19982; <span class="texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">log<span class="t-su t-su-b">2</span>(max()+1)</span>&#65288;&#31561;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-numeric_limits.html"><span class="kw351">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span><span class="kw4">unsigned</span> <span class="kw4">int</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">digits</span></span></span>&#65289;&#20043;&#38388;&#30340;&#28014;&#28857;&#25968;&#12290;&#33509;&#35774;&#22791;&#25317;&#26377; <span class="texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">n</span> &#20010;&#29366;&#24577;&#65292;&#32780;&#20854;&#27010;&#29575;&#21508;&#20026; <span class="texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">P<span class="t-su t-su-b">0</span>,...,P<span class="t-su t-su-b">n-1</span></span>&#65292;&#21017;&#35774;&#22791;&#29109; <span class="texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">S</span> &#23450;&#20041;&#20026;</p>
+<p><span class="texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">S = &minus;&sum;<span class="t-su t-su-b">n-1<br />
+i=0</span> P<span class="t-su t-su-b">i</span>log(P<span class="t-su t-su-b">i</span>)</span></p>
+<p>&#30830;&#23450;&#30340;&#38543;&#26426;&#25968;&#29983;&#25104;&#22120;&#65288;&#20363;&#22914;&#20266;&#38543;&#26426;&#25968;&#29983;&#25104;&#22120;&#65289;&#25317;&#26377;&#38646;&#29109;&#12290;</p>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#35774;&#22791;&#29109;&#30340;&#20540;&#65292;&#25110;&#33509;&#19981;&#21487;&#24212;&#29992;&#21017;&#20026;&#38646;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#27492;&#20989;&#25968;&#22312;&#19968;&#20123;&#26631;&#20934;&#24211;&#20013;&#26410;&#23436;&#20840;&#23454;&#29616;&#12290;&#20363;&#22914;&#65292;&#29256;&#26412; 12 &#21069;&#30340; <a rel="nofollow" class="external text" href="https://github.com/llvm-mirror/libcxx/blob/master/src/random.cpp#L174">LLVM libc++</a> &#22987;&#32456;&#36820;&#22238;&#38646;&#65292;&#21363;&#20351;&#35774;&#22791;&#26159;&#38750;&#30830;&#23450;&#30340;&#65288;&#23545;&#20110; libstdc++&#65292;&#35265; <a rel="nofollow" class="external text" href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=67578">bug 67578</a>&#65289;&#12290;&#19982;&#20043;&#30456;&#27604;&#65292;Microsoft Visual C++ &#23454;&#29616;&#22987;&#32456;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="nu0">32</span></span></span>&#65292;&#32780; <a rel="nofollow" class="external text" href="https://github.com/boostorg/random/blob/master/src/random_device.cpp#L242">boost.random</a> &#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="nu0">10</span></span></span>&#12290;</p>
+<p>Linux &#20869;&#26680;&#35774;&#22791; <code>/dev/urandom</code> &#30340;&#29109;&#21487;&#29992; <a rel="nofollow" class="external text" href="https://man7.org/linux/man-pages/man4/random.4.html"><code>ioctl RNDGETENTCNT</code></a> &#33719;&#24471;&mdash;&mdash; <a rel="nofollow" class="external text" href="https://github.com/gcc-mirror/gcc/blob/master/libstdc%2B%2B-v3/src/c%2B%2B11/random.cc#L188">GNU libstdc++</a> &#20174;&#29256;&#26412; 8.1 &#36215;&#23558;&#23427;&#29992;&#20110; <code>std::random_device::entropy()</code>&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<p>&#23454;&#29616;&#20043;&#19968;&#19978;&#30340;&#31034;&#20363;&#36755;&#20986;</p>
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;random&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-numeric-random-random_device.html"><span class="kw1489">std::<span class="me2">random_device</span></span></a> rd<span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> rd.<span class="me1">entropy</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">32</pre></div>
+</div>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

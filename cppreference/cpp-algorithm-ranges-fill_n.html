@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::ranges::fill_n</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_algorithm_ranges_fill_n skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::ranges::</span>fill_n</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-algorithm.html">algorithm</a>&lrm; | <a href="cpp-algorithm-ranges.html">ranges</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-algorithm.html">&lt;algorithm&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl-h">
+<td>
+<div>&#35843;&#29992;&#31614;&#21517;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+<tbody class="t-dcl-rev">
+<tr class="t-dcl t-since-cxx20 t-until-cxx26">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <a href="cpp-iterator-output_iterator.html"><span class="kw2865">std::<span class="me2">output_iterator</span></span></a><span class="sy1">&lt;</span><span class="kw4">const</span> T<span class="sy3">&amp;</span><span class="sy1">&gt;</span> O <span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> O fill_n<span class="br0">(</span> O first, <a href="cpp-iterator-iter_t.html"><span class="kw2875">std::<span class="me2">iter_difference_t</span></span></a><span class="sy1">&lt;</span>O<span class="sy1">&gt;</span> n, <span class="kw4">const</span> T<span class="sy3">&amp;</span> value <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span><br />
+<span class="t-mark-rev t-until-cxx26" style="white-space: nowrap;">(C++26 &#21069;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx26">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> O, <span class="kw1">class</span> T <span class="sy1">=</span> <a href="cpp-iterator-iter_t.html"><span class="kw2872">std::<span class="me2">iter_value_t</span></span></a><span class="sy1">&lt;</span>O<span class="sy1">&gt;</span> <span class="sy1">&gt;</span><br /></span>
+<p>requires <a href="cpp-iterator-output_iterator.html"><span class="kw2865">std::<span class="me2">output_iterator</span></span></a><span class="sy1">&lt;</span>O, <span class="kw4">const</span> T<span class="sy3">&amp;</span><span class="sy1">&gt;</span><br /></p>
+<span class="kw4">constexpr</span> O fill_n<span class="br0">(</span> O first, <a href="cpp-iterator-iter_t.html"><span class="kw2875">std::<span class="me2">iter_difference_t</span></span></a><span class="sy1">&lt;</span>O<span class="sy1">&gt;</span> n, <span class="kw4">const</span> T<span class="sy3">&amp;</span> value <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#23558;&#32473;&#23450;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">value</span></span> &#36171;&#20540;&#32473;&#33539;&#22260; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">first</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">first <span class="sy2">+</span> n</span></span><code>)</code> &#20013;&#30340;&#25152;&#26377;&#20803;&#32032;&#12290;</p>
+<p>&#27492;&#39029;&#38754;&#19978;&#25551;&#36848;&#30340;&#20989;&#25968;&#24335;&#23454;&#20307;&#26159;<i><a href="cpp-algorithm-ranges.html#.E7.AE.97.E6.B3.95.E5.87.BD.E6.95.B0.E5.AF.B9.E8.B1.A1">&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;</a></i>&#65288;&#38750;&#27491;&#24335;&#22320;&#31216;&#20026; <i>niebloid</i>&#65289;&#65292;&#21363;&#65306;</p>
+<ul>
+<li>&#35843;&#29992;&#23427;&#20204;&#20013;&#30340;&#20219;&#20309;&#19968;&#20010;&#26102;&#19981;&#33021;&#26174;&#24335;&#25351;&#23450;&#27169;&#26495;&#23454;&#21442;&#12290;</li>
+<li>&#23427;&#20204;&#37117;&#19981;&#23545;<a href="cpp-language-adl.html">&#23454;&#21442;&#20381;&#36182;&#26597;&#25214;</a>&#21487;&#35265;&#12290;</li>
+<li>&#22312;&#36890;&#36807;&#20989;&#25968;&#35843;&#29992;&#36816;&#31639;&#31526;&#24038;&#20391;&#30340;&#21517;&#23383;&#36827;&#34892;<a href="cpp-language-unqualified_lookup.html">&#26080;&#38480;&#23450;&#26597;&#25214;</a>&#65292;&#25214;&#21040;&#23427;&#20204;&#20043;&#19968;&#26102;&#65292;&#31105;&#27490;<a href="cpp-language-adl.html">&#23454;&#21442;&#20381;&#36182;&#26597;&#25214;</a>&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>first</td>
+<td>-</td>
+<td>&#35201;&#20462;&#25913;&#30340;&#20803;&#32032;&#33539;&#22260;&#30340;&#36215;&#22987;</td>
+</tr>
+<tr class="t-par">
+<td>n</td>
+<td>-</td>
+<td>&#35201;&#20462;&#25913;&#30340;&#20803;&#32032;&#25968;</td>
+</tr>
+<tr class="t-par">
+<td>value</td>
+<td>-</td>
+<td>&#35201;&#36171;&#30340;&#20540;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#31561;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">first <span class="sy2">+</span> n</span></span> &#30340;&#36755;&#20986;&#36845;&#20195;&#22120;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<p>&#20934;&#30830; <span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span> &#27425;&#36171;&#20540;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.AF.E8.83.BD.E7.9A.84.E5.AE.9E.E7.8E.B0">&#21487;&#33021;&#30340;&#23454;&#29616;</span></h3>
+<table class="eq-fun-cpp-table">
+<tr>
+<td>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">struct</span> fill_n_fn
+<span class="br0">{</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> O, <span class="kw1">class</span> T <span class="sy1">=</span> <a href="cpp-iterator-iter_t.html"><span class="kw2872">std::<span class="me2">iter_value_t</span></span></a><span class="sy1">&lt;</span>O<span class="sy1">&gt;&gt;</span>
+    requires <a href="cpp-iterator-output_iterator.html"><span class="kw2865">std::<span class="me2">output_iterator</span></span></a><span class="sy1">&lt;</span>O, <span class="kw4">const</span> T<span class="sy3">&amp;</span><span class="sy1">&gt;</span>
+    <span class="kw4">constexpr</span> O operator<span class="br0">(</span><span class="br0">)</span><span class="br0">(</span>O first, <a href="cpp-iterator-iter_t.html"><span class="kw2875">std::<span class="me2">iter_difference_t</span></span></a><span class="sy1">&lt;</span>O<span class="sy1">&gt;</span> n, <span class="kw4">const</span> T<span class="sy3">&amp;</span> value<span class="br0">)</span> <span class="kw4">const</span>
+    <span class="br0">{</span>
+        <span class="kw1">for</span> <span class="br0">(</span><a href="cpp-iterator-iter_t.html"><span class="kw2875">std::<span class="me2">iter_difference_t</span></span></a><span class="sy1">&lt;</span>O<span class="sy1">&gt;</span> i <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span> i <span class="sy3">!</span><span class="sy1">=</span> n<span class="sy4">;</span> <span class="sy2">++</span>first, <span class="sy2">++</span>i<span class="br0">)</span>
+            <span class="sy2">*</span>first <span class="sy1">=</span> value<span class="sy4">;</span>
+        <span class="kw1">return</span> first<span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw1">inline</span> <span class="kw4">constexpr</span> fill_n_fn fill_n <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<table class="wikitable ftm-begin">
+<tr>
+<th><a href="cpp-utility-feature_test.html">&#21151;&#33021;&#29305;&#24615;&#27979;&#35797;</a>&#23439;</th>
+<th><abbr title="&#37319;&#32435;&#35813;&#29305;&#24615;&#30340;&#24180;/&#26376;&#12290;&#27599;&#20010;&#20540;&#19979;&#38754;&#30340;&#38142;&#25509;&#25351;&#21521;&#32534;&#35793;&#26399;&#25903;&#25345;&#39029;&#38754;&#20013;&#32473;&#23450;&#21151;&#33021;&#29305;&#24615;&#30340;&#26465;&#30446;&#12290;">&#20540;</abbr></th>
+<th><abbr title="&#24341;&#20837;&#35813;&#29305;&#24615;&#30340;&#26631;&#20934;&#65307;DR &#24847;&#20026;&#38024;&#23545;&#35813;&#20462;&#35746;&#29256;&#30340;&#32570;&#38519;&#25253;&#21578;">&#26631;&#20934;</abbr></th>
+<th>&#21151;&#33021;&#29305;&#24615;</th>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lib_algorithm_default_value_type"><code>__cpp_lib_algorithm_default_value_type</code></a></td>
+<td><a href="cpp-compiler_support-26.html#cpp_lib_algorithm_default_value_type_202403"><code>202403</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++26)</span></td>
+<td>&#31639;&#27861;&#20013;&#30340;<a href="cpp-language-list_initialization.html">&#21015;&#34920;&#21021;&#22987;&#21270;</a></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;algorithm&gt;</span>
+<span class="co2">#include &lt;complex&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+<span class="co2">#include &lt;vector&gt;</span>
+ 
+<span class="kw4">void</span> println<span class="br0">(</span><span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> v<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> elem <span class="sy4">:</span> v<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span> <span class="sy1">&lt;&lt;</span> elem<span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">constexpr</span> <span class="kw4">auto</span> n<span class="br0">{</span><span class="nu0">8</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+    <a href="cpp-container-vector.html"><span class="kw1272">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span> v<span class="br0">(</span>n, <span class="st0">&quot;&#9619;&#9619;&#9617;&#9617;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    println<span class="br0">(</span>v<span class="br0">)</span><span class="sy4">;</span>
+ 
+    std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">fill_n</span><span class="br0">(</span>v.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, n, <span class="st0">&quot;&#9617;&#9617;&#9619;&#9619;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    println<span class="br0">(</span>v<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-container-vector.html"><span class="kw1272">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><a href="cpp-numeric-complex.html"><span class="kw1475">std::<span class="me2">complex</span></span></a><span class="sy1">&lt;</span><span class="kw4">double</span><span class="sy1">&gt;&gt;</span> nums<span class="br0">{</span><span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">3</span><span class="br0">}</span>, <span class="br0">{</span><span class="nu0">2</span>, <span class="nu0">2</span><span class="br0">}</span>, <span class="br0">{</span><span class="nu0">4</span>, <span class="nu0">8</span><span class="br0">}</span><span class="br0">}</span><span class="sy4">;</span>
+    println<span class="br0">(</span>nums<span class="br0">)</span><span class="sy4">;</span>
+    <span class="co2">#ifdef __cpp_lib_algorithm_default_value_type</span>
+        std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">fill_n</span><span class="br0">(</span>nums.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, <span class="nu0">2</span>, <span class="br0">{</span><span class="nu0">4</span>, <span class="nu0">2</span><span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="co2">#else</span>
+        std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">fill_n</span><span class="br0">(</span>nums.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, <span class="nu0">2</span>, <a href="cpp-numeric-complex.html"><span class="kw1475">std::<span class="me2">complex</span></span></a><span class="sy1">&lt;</span><span class="kw4">double</span><span class="sy1">&gt;</span><span class="br0">{</span><span class="nu0">4</span>, <span class="nu0">2</span><span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="co2">#endif</span>
+    println<span class="br0">(</span>nums<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">
+ &#9619;&#9619;&#9617;&#9617; &#9619;&#9619;&#9617;&#9617; &#9619;&#9619;&#9617;&#9617; &#9619;&#9619;&#9617;&#9617; &#9619;&#9619;&#9617;&#9617; &#9619;&#9619;&#9617;&#9617; &#9619;&#9619;&#9617;&#9617; &#9619;&#9619;&#9617;&#9617;
+ &#9617;&#9617;&#9619;&#9619; &#9617;&#9617;&#9619;&#9619; &#9617;&#9617;&#9619;&#9619; &#9617;&#9617;&#9619;&#9619; &#9617;&#9617;&#9619;&#9619; &#9617;&#9617;&#9619;&#9619; &#9617;&#9617;&#9619;&#9619; &#9617;&#9617;&#9619;&#9619;
+ (1,3) (2,2) (4,8)
+ (4,2) (4,2) (4,8)</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-fill.html"><span class="t-lines"><span>ranges::fill</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#36171;&#32473;&#23450;&#20540;&#21040;&#33539;&#22260;&#20013;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-copy_n.html"><span class="t-lines"><span>ranges::copy_n</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#22797;&#21046;&#33509;&#24178;&#20803;&#32032;&#21040;&#26032;&#20301;&#32622;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-generate.html"><span class="t-lines"><span>ranges::generate</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#23558;&#20989;&#25968;&#32467;&#26524;&#20445;&#23384;&#21040;&#33539;&#22260;&#20013;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-transform.html"><span class="t-lines"><span>ranges::transform</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#24212;&#29992;&#20989;&#25968;&#21040;&#20803;&#32032;&#33539;&#22260;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-generate_random.html"><span class="t-lines"><span>ranges::generate_random</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26)</span></span></span></div>
+</div>
+</td>
+<td>&#29992;&#26469;&#33258;&#22343;&#21248;&#38543;&#26426;&#20301;&#21457;&#29983;&#22120;&#30340;&#38543;&#26426;&#25968;&#22635;&#20805;&#33539;&#22260;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-fill_n.html"><span class="t-lines"><span>fill_n</span></span></a></div>
+</div>
+</td>
+<td>&#20197;&#22797;&#21046;&#30340;&#26041;&#24335;&#36171;&#32473;&#23450;&#20540;&#21040;&#33539;&#22260;&#20013; N &#20010;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

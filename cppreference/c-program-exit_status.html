@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>EXIT_SUCCESS, EXIT_FAILURE</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_program_EXIT_status skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">EXIT_SUCCESS, EXIT_FAILURE</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-program.html">program</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-stdlib.html"><tt>&lt;stdlib.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi c source-c"><span class="co2">#define EXIT_SUCCESS /* &#30001;&#23454;&#29616;&#23450;&#20041; */</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi c source-c"><span class="co2">#define EXIT_FAILURE /* &#30001;&#23454;&#29616;&#23450;&#20041; */</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>EXIT_SUCCESS</code> &#21644; <code>EXIT_FAILURE</code> &#23439;&#23637;&#24320;&#25104;&#33021;&#29992;&#20316; <span class="t-lc"><a href="c-program-exit.html">exit</a></span> &#30340;&#23454;&#21442;&#30340;&#25972;&#25968;&#24120;&#37327;&#34920;&#36798;&#24335;&#65288;&#20174;&#32780;&#20316;&#20026;&#20174; <a href="c-language-main_function.html"><code>main</code> &#20989;&#25968;</a>&#36820;&#22238;&#30340;&#20540;&#65289;&#65292;&#24182;&#25351;&#31034;&#31243;&#24207;&#25191;&#34892;&#29366;&#24577;&#12290;</p>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#24120;&#37327;</td>
+<td>&#35828;&#26126;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>EXIT_SUCCESS</code></td>
+<td>&#31243;&#24207;&#25191;&#34892;&#25104;&#21151;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>EXIT_FAILURE</code></td>
+<td>&#31243;&#24207;&#25191;&#34892;&#22833;&#36133;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p><code>EXIT_SUCCESS</code> &#21644;&#20540;&#38646;&#37117;&#33021;&#25351;&#31034;&#31243;&#24207;&#25191;&#34892;&#25104;&#21151;&#30340;&#29366;&#24577;&#65292;&#23613;&#31649;&#24182;&#19981;&#35201;&#27714; <code>EXIT_SUCCESS</code> &#31561;&#20110;&#38646;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#include &lt;stdlib.h&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="c-io.html"><span class="kw882">FILE</span></a><span class="sy2">*</span> fp <span class="sy1">=</span> <a href="c-io-fopen.html"><span class="kw817">fopen</span></a><span class="br0">(</span><span class="st0">&quot;data.txt&quot;</span>,<span class="st0">&quot;r&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>fp <span class="sy1">==</span> <a href="c-types-NULL.html"><span class="kw103">NULL</span></a><span class="br0">)</span>
+    <span class="br0">{</span>
+       <a href="c-io-fprintf.html"><span class="kw850">fprintf</span></a><span class="br0">(</span><a href="c-io.html"><span class="kw886">stderr</span></a>,<span class="st0">&quot;fopen() failed in file %s at line # %d&quot;</span>, __FILE__, __LINE__<span class="br0">)</span><span class="sy4">;</span>
+       <a href="c-program-exit.html"><span class="kw488">exit</span></a><span class="br0">(</span>EXIT_FAILURE<span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="coMULTI">/* &#27491;&#24120;&#36827;&#31243;&#25345;&#32493;&#33267;&#27492;&#12290; */</span>
+    <a href="c-io-fclose.html"><span class="kw820">fclose</span></a><span class="br0">(</span>fp<span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw849">printf</span></a><span class="br0">(</span><span class="st0">&quot;Normal Return<span class="es1">\n</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw1">return</span> EXIT_SUCCESS<span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">fopen() failed in file main.cpp at line # 9</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-23">
+<ul>
+<li>C23 &#26631;&#20934;&#65288;ISO/IEC 9899:2024&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.22/3 General utilities &lt;stdlib.h&gt; &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.22/3 General utilities &lt;stdlib.h&gt; &#65288;&#31532; 248 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.22/3 General utilities &lt;stdlib.h&gt; &#65288;&#31532; 340 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c99">
+<ul>
+<li>C99 &#26631;&#20934;&#65288;ISO/IEC 9899:1999&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.20/3 General utilities &lt;stdlib.h&gt; &#65288;&#31532; 306 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c89">
+<ul>
+<li>C89/C90 &#26631;&#20934;&#65288;ISO/IEC 9899:1990&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>4.10 General utilities &lt;stdlib.h&gt;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>EXIT_SUCCESS</span>, <span>EXIT_FAILURE</span></span>&nbsp;&#30340; <span><span><a href="cpp-utility-program-EXIT_status.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::strstreambuf::underflow</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_io_strstreambuf_underflow skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::strstreambuf::</span>underflow</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-io.html">io</a>&lrm; | <a href="cpp-io-strstreambuf.html">strstreambuf</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-until-cxx26">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">protected</span><span class="sy4">:</span><br />
+<span class="kw1">virtual</span> int_type underflow<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++98 &#24323;&#29992;)</span><br />
+<span class="t-mark-rev t-until-cxx26" style="white-space: nowrap;">(C++26 &#31227;&#38500;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#20174;&#32531;&#20914;&#21306;&#30340;&#33719;&#21462;&#21306;&#35835;&#21462;&#19979;&#20010;&#23383;&#31526;&#12290;</p>
+<p>&#33509;&#36755;&#20837;&#24207;&#21015;&#25317;&#26377;&#21487;&#29992;&#35835;&#20301;&#32622;&#65288;<span class="t-c"><span class="mw-geshi cpp source-cpp">gptr<span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;</span> egptr<span class="br0">(</span><span class="br0">)</span></span></span>&#65289;&#65292;&#21017;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span><span class="kw4">unsigned</span> <span class="kw4">char</span><span class="br0">)</span><span class="br0">(</span><span class="sy2">*</span>gptr<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span>&#12290;</p>
+<p>&#21542;&#21017;&#65292;&#33509; <span class="t-lc"><a href="cpp-io-basic_streambuf-pptr.html">pptr()</a></span> &#38750;&#31354;&#19988; <span class="t-c"><span class="mw-geshi cpp source-cpp">pptr<span class="br0">(</span><span class="br0">)</span> <span class="sy1">&gt;</span> egptr<span class="br0">(</span><span class="br0">)</span></span></span>&#65288;&#23384;&#22312;&#25918;&#32622;&#21306;&#65292;&#19988;&#23427;&#20301;&#20110;&#33719;&#21462;&#21306;&#20043;&#21518;&#65289;&#65292;&#21017;&#20197;&#22686;&#21152; <span class="t-lc"><a href="cpp-io-basic_streambuf-gptr.html">egptr()</a></span> &#21040; <span class="t-c"><span class="mw-geshi cpp source-cpp">gptr<span class="br0">(</span><span class="br0">)</span></span></span> &#21644; <span class="t-lc"><a href="cpp-io-basic_streambuf-pptr.html">pptr()</a></span> &#38388;&#30340;&#26576;&#20010;&#20540;&#25193;&#23637;&#33719;&#21462;&#21306;&#30340;&#32467;&#23614;&#65292;&#20197;&#21253;&#21547;&#26368;&#36817;&#20889;&#20837;&#21040;&#25918;&#32622;&#21306;&#20013;&#30340;&#23383;&#31526;&#65292;&#28982;&#21518;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span><span class="kw4">unsigned</span> <span class="kw4">char</span><span class="br0">)</span><span class="br0">(</span><span class="sy2">*</span>gptr<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span> &#12290;</p>
+<p>&#21542;&#21017;&#65292;&#36820;&#22238; <span class="t-lc"><a href="cpp-io-c.html">EOF</a></span> &#20197;&#25351;&#31034;&#22833;&#36133;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#25104;&#21151;&#26102;&#20026;&#33719;&#21462;&#21306;&#20013;&#19979;&#20010;&#23383;&#31526; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span><span class="kw4">unsigned</span> <span class="kw4">char</span><span class="br0">)</span><span class="br0">(</span><span class="sy2">*</span>gptr<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span> &#65292;&#22833;&#36133;&#26102;&#20026; <span class="t-lc"><a href="cpp-io-c.html">EOF</a></span> &#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;strstream&gt;</span>
+ 
+<span class="kw1">struct</span> mybuf <span class="sy4">:</span> <a href="cpp-io-strstreambuf.html"><span class="kw1756">std::<span class="me2">strstreambuf</span></span></a>
+<span class="br0">{</span>
+    int_type overflow<span class="br0">(</span>int_type c<span class="br0">)</span> 
+    <span class="br0">{</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;overflow() &#21069;&#65306;&#33719;&#21462;&#21306;&#30340;&#22823;&#23567;&#20026; &quot;</span> <span class="sy1">&lt;&lt;</span> egptr<span class="br0">(</span><span class="br0">)</span><span class="sy2">-</span>eback<span class="br0">(</span><span class="br0">)</span>
+                  <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#65292;&#25918;&#32622;&#21306;&#30340;&#22823;&#23567;&#20026; &quot;</span> <span class="sy1">&lt;&lt;</span> epptr<span class="br0">(</span><span class="br0">)</span><span class="sy2">-</span>pbase<span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+        int_type rc <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">strstreambuf</span><span class="sy4">::</span><span class="me2">overflow</span><span class="br0">(</span>c<span class="br0">)</span><span class="sy4">;</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;overflow() &#21518;&#65306;&#33719;&#21462;&#21306;&#30340;&#22823;&#23567;&#20026; &quot;</span> <span class="sy1">&lt;&lt;</span> egptr<span class="br0">(</span><span class="br0">)</span><span class="sy2">-</span>eback<span class="br0">(</span><span class="br0">)</span>
+                  <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#65292;&#25918;&#32622;&#21306;&#30340;&#22823;&#23567;&#20026; &quot;</span> <span class="sy1">&lt;&lt;</span> epptr<span class="br0">(</span><span class="br0">)</span><span class="sy2">-</span>pbase<span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+        <span class="kw1">return</span> rc<span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    int_type underflow<span class="br0">(</span><span class="br0">)</span> 
+    <span class="br0">{</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;underflow() &#21069;&#65306;&#33719;&#21462;&#21306;&#30340;&#22823;&#23567;&#20026; &quot;</span> <span class="sy1">&lt;&lt;</span> egptr<span class="br0">(</span><span class="br0">)</span><span class="sy2">-</span>eback<span class="br0">(</span><span class="br0">)</span>
+                  <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#65292;&#25918;&#32622;&#21306;&#30340;&#22823;&#23567;&#20026; &quot;</span> <span class="sy1">&lt;&lt;</span> epptr<span class="br0">(</span><span class="br0">)</span><span class="sy2">-</span>pbase<span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+        int_type ch <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">strstreambuf</span><span class="sy4">::</span><span class="me2">underflow</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;underflow() &#21518;&#65306;&#33719;&#21462;&#21306;&#30340;&#22823;&#23567;&#20026; &quot;</span> <span class="sy1">&lt;&lt;</span> egptr<span class="br0">(</span><span class="br0">)</span><span class="sy2">-</span>eback<span class="br0">(</span><span class="br0">)</span>
+                  <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#65292;&#25918;&#32622;&#21306;&#30340;&#22823;&#23567;&#20026; &quot;</span> <span class="sy1">&lt;&lt;</span> epptr<span class="br0">(</span><span class="br0">)</span><span class="sy2">-</span>pbase<span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+        <span class="kw1">if</span> <span class="br0">(</span>ch <span class="sy1">==</span> <a href="cpp-io-c.html"><span class="kw1886">EOF</span></a><span class="br0">)</span>
+            <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;underflow() &#36820;&#22238; EOF<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+        <span class="kw1">else</span>
+            <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;underflow() &#36820;&#22238; &#39;&quot;</span> <span class="sy1">&lt;&lt;</span> <span class="kw4">char</span><span class="br0">(</span>ch<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#39;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+        <span class="kw1">return</span> ch<span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    mybuf sbuf<span class="sy4">;</span> <span class="co1">// &#35835;&#20889;&#21160;&#24577; strstreambuf</span>
+    <a href="cpp-io-basic_iostream.html"><span class="kw1735">std::<span class="me2">iostream</span></span></a> stream<span class="br0">(</span><span class="sy3">&amp;</span>sbuf<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw4">int</span> n<span class="sy4">;</span>
+    stream <span class="sy1">&gt;&gt;</span> n<span class="sy4">;</span>
+    stream.<span class="me1">clear</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    stream <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;123&quot;</span><span class="sy4">;</span>
+    stream <span class="sy1">&gt;&gt;</span> n<span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> n <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">underflow() &#21069;&#65306;&#33719;&#21462;&#21306;&#30340;&#22823;&#23567;&#20026; 0&#65292;&#25918;&#32622;&#21306;&#30340;&#22823;&#23567;&#20026; 0
+underflow() &#21518;&#65306;&#33719;&#21462;&#21306;&#30340;&#22823;&#23567;&#20026; 0&#65292;&#25918;&#32622;&#21306;&#30340;&#22823;&#23567;&#20026; 0
+underflow() &#36820;&#22238; EOF
+overflow() &#21069;&#65306;&#33719;&#21462;&#21306;&#30340;&#22823;&#23567;&#20026; 0&#65292;&#25918;&#32622;&#21306;&#30340;&#22823;&#23567;&#20026; 0
+overflow() &#21518;&#65306;&#33719;&#21462;&#21306;&#30340;&#22823;&#23567;&#20026; 0&#65292;&#25918;&#32622;&#21306;&#30340;&#22823;&#23567;&#20026; 32
+underflow() &#21069;&#65306;&#33719;&#21462;&#21306;&#30340;&#22823;&#23567;&#20026; 0&#65292;&#25918;&#32622;&#21306;&#30340;&#22823;&#23567;&#20026; 32
+underflow() &#21518;&#65306;&#33719;&#21462;&#21306;&#30340;&#22823;&#23567;&#20026; 3&#65292;&#25918;&#32622;&#21306;&#30340;&#22823;&#23567;&#20026; 32
+underflow() &#36820;&#22238; &#39;1&#39;
+underflow() &#21069;&#65306;&#33719;&#21462;&#21306;&#30340;&#22823;&#23567;&#20026; 3&#65292;&#25918;&#32622;&#21306;&#30340;&#22823;&#23567;&#20026; 32
+underflow() &#21518;&#65306;&#33719;&#21462;&#21306;&#30340;&#22823;&#23567;&#20026; 3&#65292;&#25918;&#32622;&#21306;&#30340;&#22823;&#23567;&#20026; 32
+underflow() &#36820;&#22238; EOF
+123</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-underflow.html"><span class="t-lines"><span>underflow</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#20174;&#20851;&#32852;&#36755;&#20837;&#24207;&#21015;&#35835;&#21462;&#23383;&#31526;&#21040;&#33719;&#21462;&#21306;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_stringbuf-underflow.html"><span class="t-lines"><span>underflow</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#36755;&#20837;&#24207;&#21015;&#20013;&#21487;&#29992;&#30340;&#19979;&#19968;&#23383;&#31526;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_stringbuf&lt;CharT,Traits,Allocator&gt;</code> &#30340;&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_filebuf-underflow.html"><span class="t-lines"><span>underflow</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#20174;&#20851;&#32852;&#25991;&#20214;&#35835;&#21462;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_filebuf&lt;CharT,Traits&gt;</code> &#30340;&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-sgetc.html"><span class="t-lines"><span>sgetc</span></span></a></div>
+</div>
+</td>
+<td>&#20174;&#36755;&#20837;&#24207;&#21015;&#35835;&#21462;&#19968;&#20010;&#23383;&#31526;&#65292;&#32780;&#19981;&#25512;&#36827;&#24207;&#21015;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_istream-get.html"><span class="t-lines"><span>get</span></span></a></div>
+</div>
+</td>
+<td>&#25552;&#21462;&#23383;&#31526;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_istream&lt;CharT,Traits&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

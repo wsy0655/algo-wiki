@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>fetestexcept</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_numeric_fenv_fetestexcept skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">fetestexcept</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-numeric.html">numeric</a>&lrm; | <a href="c-numeric-fenv.html">fenv</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-fenv.html"><tt>&lt;fenv.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-c99">
+<td>
+<div><span class="mw-geshi c source-c"><span class="kw4">int</span> fetestexcept<span class="br0">(</span> <span class="kw4">int</span> excepts <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#30830;&#23450;&#24403;&#21069;&#35774;&#32622;&#20102;&#21738;&#20010;&#25351;&#23450;&#30340;&#28014;&#28857;&#25968;&#24322;&#24120;&#23376;&#38598;&#12290;&#21442;&#25968; <code>excepts</code> &#26159;<a href="c-numeric-fenv-FE_exceptions.html">&#28014;&#28857;&#25968;&#24322;&#24120;&#23439;</a>&#30340;&#36880;&#20301;&#25110;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>excepts</td>
+<td>-</td>
+<td>&#21015;&#20986;&#24453;&#27979;&#35797;&#24322;&#24120;&#26631;&#24535;&#30340;&#20301;&#25513;&#30721;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#21253;&#21547;&#20110; <code>excepts</code> &#32780;&#19988;&#23545;&#24212;&#20110;&#24403;&#21069;&#35774;&#32622;&#30340;&#28014;&#28857;&#25968;&#24322;&#24120;&#20013;&#30340;&#28014;&#28857;&#25968;&#24322;&#24120;&#23439;&#30340;&#36880;&#20301;&#25110;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#include &lt;math.h&gt;</span>
+<span class="co2">#include &lt;fenv.h&gt;</span>
+<span class="co2">#include &lt;float.h&gt;</span>
+ 
+<span class="co2">#pragma STDC FENV_ACCESS ON</span>
+ 
+<span class="kw4">void</span> show_fe_exceptions<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;current exceptions raised: &quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span><span class="br0">(</span>fetestexcept<span class="br0">(</span><a href="c-numeric-fenv-FE_exceptions.html"><span class="kw729">FE_DIVBYZERO</span></a><span class="br0">)</span><span class="br0">)</span>     <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot; FE_DIVBYZERO&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span><span class="br0">(</span>fetestexcept<span class="br0">(</span><a href="c-numeric-fenv-FE_exceptions.html"><span class="kw730">FE_INEXACT</span></a><span class="br0">)</span><span class="br0">)</span>       <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot; FE_INEXACT&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span><span class="br0">(</span>fetestexcept<span class="br0">(</span><a href="c-numeric-fenv-FE_exceptions.html"><span class="kw731">FE_INVALID</span></a><span class="br0">)</span><span class="br0">)</span>       <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot; FE_INVALID&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span><span class="br0">(</span>fetestexcept<span class="br0">(</span><a href="c-numeric-fenv-FE_exceptions.html"><span class="kw732">FE_OVERFLOW</span></a><span class="br0">)</span><span class="br0">)</span>      <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot; FE_OVERFLOW&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span><span class="br0">(</span>fetestexcept<span class="br0">(</span><a href="c-numeric-fenv-FE_exceptions.html"><span class="kw733">FE_UNDERFLOW</span></a><span class="br0">)</span><span class="br0">)</span>     <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot; FE_UNDERFLOW&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span><span class="br0">(</span>fetestexcept<span class="br0">(</span><a href="c-numeric-fenv-FE_exceptions.html"><span class="kw728">FE_ALL_EXCEPT</span></a><span class="br0">)</span><span class="sy1">==</span><span class="nu0">0</span><span class="br0">)</span> <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot; none&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="coMULTI">/* &#26174;&#31034;&#40664;&#35748;&#28014;&#28857;&#25968;&#26631;&#24535;&#38598;&#21512;&#12290; */</span>
+    show_fe_exceptions<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="coMULTI">/* &#36827;&#34892;&#19968;&#20123;&#24341;&#21457;&#28014;&#28857;&#25968;&#24322;&#24120;&#30340;&#35745;&#31639;&#12290; */</span>
+    <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;1.0/0.0     = %f<span class="es1">\n</span>&quot;</span>, <span class="nu16">1.0</span><span class="sy2">/</span><span class="nu16">0.0</span><span class="br0">)</span><span class="sy4">;</span>        <span class="coMULTI">/* FE_DIVBYZERO            */</span>
+    <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;1.0/10.0    = %f<span class="es1">\n</span>&quot;</span>, <span class="nu16">1.0</span><span class="sy2">/</span><span class="nu16">10.0</span><span class="br0">)</span><span class="sy4">;</span>       <span class="coMULTI">/* FE_INEXACT              */</span>
+    <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;sqrt(-1)    = %f<span class="es1">\n</span>&quot;</span>, <a href="c-numeric-math-sqrt.html"><span class="kw665">sqrt</span></a><span class="br0">(</span><span class="sy2">-</span><span class="nu0">1</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>       <span class="coMULTI">/* FE_INVALID              */</span>
+    <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;DBL_MAX*2.0 = %f<span class="es1">\n</span>&quot;</span>, <a href="c-types-limits.html"><span class="kw378">DBL_MAX</span></a><span class="sy2">*</span><span class="nu16">2.0</span><span class="br0">)</span><span class="sy4">;</span>    <span class="coMULTI">/* FE_INEXACT FE_OVERFLOW  */</span>
+    <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;nextafter(DBL_MIN/pow(2.0,52),0.0) = %.1f<span class="es1">\n</span>&quot;</span>,
+           <a href="c-numeric-math-nextafter.html"><span class="kw701">nextafter</span></a><span class="br0">(</span><a href="c-types-limits.html"><span class="kw375">DBL_MIN</span></a><span class="sy2">/</span><a href="c-numeric-math-pow.html"><span class="kw668">pow</span></a><span class="br0">(</span><span class="nu16">2.0</span>,<span class="nu0">52</span><span class="br0">)</span>,<span class="nu16">0.0</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>   <span class="coMULTI">/* FE_INEXACT FE_UNDERFLOW */</span>
+    show_fe_exceptions<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw1">return</span> <span class="nu0">0</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">current exceptions raised:  none
+1.0/0.0     = inf
+1.0/10.0    = 0.100000
+sqrt(-1)    = -nan
+DBL_MAX*2.0 = inf
+nextafter(DBL_MIN/pow(2.0,52),0.0) = 0.0
+current exceptions raised:  FE_DIVBYZERO FE_INEXACT FE_INVALID FE_OVERFLOW FE_UNDERFLOW</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.6.2.5 The fetestexcept function &#65288;&#31532; 211-212 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+<div class="t-ref-std-c99">
+<ul>
+<li>C99 &#26631;&#20934;&#65288;ISO/IEC 9899:1999&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.6.2.5 The fetestexcept function &#65288;&#31532; 192-193 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-numeric-fenv-feclearexcept.html"><span class="t-lines"><span>feclearexcept</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99)</span></span></span></div>
+</div>
+</td>
+<td>&#28165;&#38500;&#25351;&#23450;&#30340;&#28014;&#28857;&#25968;&#24322;&#24120;&#29366;&#24577;&#26631;&#24535;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>fetestexcept</span></span>&nbsp;&#30340; <span><span><a href="cpp-numeric-fenv-fetestexcept.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

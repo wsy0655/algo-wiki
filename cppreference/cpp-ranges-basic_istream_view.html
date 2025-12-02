@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::ranges::views::istream, std::ranges::basic_istream_view, std::ranges::istream_view, std::ranges::wistream_view</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_ranges_basic_istream_view skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::ranges::</span><span style="font-size:0.8em; line-height:125%">views::</span>istream, <span style="font-size:0.8em; line-height:125%">std::ranges::</span>basic_istream_view, <span style="font-size:0.8em; line-height:125%">std::ranges::</span>istream_view, <span style="font-size:0.8em; line-height:125%">std::ranges::</span>wistream_view</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-ranges.html">ranges</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-ranges.html">&lt;ranges&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-concepts-movable.html"><span class="kw2954">std::<span class="me2">movable</span></span></a> Val, <span class="kw1">class</span> CharT,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span> Traits <span class="sy1">=</span> <a href="cpp-string-char_traits.html"><span class="kw1270">std::<span class="me2">char_traits</span></span></a><span class="sy1">&lt;</span>CharT<span class="sy1">&gt;</span> <span class="sy1">&gt;</span><br />
+&nbsp; &nbsp; requires <a href="cpp-concepts-default_initializable.html"><span class="kw2947">std::<span class="me2">default_initializable</span></span></a><span class="sy1">&lt;</span>Val<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="coMULTI">/*stream-extractable*/</span><span class="sy1">&lt;</span>Val, CharT, Traits<span class="sy1">&gt;</span><br />
+<span class="kw1">class</span> basic_istream_view<br /></p>
+&nbsp; &nbsp; <span class="sy4">:</span> <span class="kw1">public</span> <a href="cpp-ranges-view_interface.html"><span class="kw3103">ranges::<span class="me2">view_interface</span></span></a><span class="sy1">&lt;</span>basic_istream_view<span class="sy1">&lt;</span>Val, CharT, Traits<span class="sy1">&gt;&gt;</span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-h">
+<td>
+<div>&#36741;&#21161;&#27169;&#26495;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Val <span class="sy1">&gt;</span><br />
+<span class="kw1">using</span> istream_view <span class="sy1">=</span> ranges<span class="sy4">::</span><span class="me2">basic_istream_view</span><span class="sy1">&lt;</span>Val, <span class="kw4">char</span><span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Val <span class="sy1">&gt;</span><br />
+<span class="kw1">using</span> wistream_view <span class="sy1">=</span> ranges<span class="sy4">::</span><span class="me2">basic_istream_view</span><span class="sy1">&lt;</span>Val, <span class="kw4">wchar_t</span><span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-h">
+<td>
+<div>&#23450;&#21046;&#28857;&#23545;&#35937;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">namespace</span> views <span class="br0">{</span><br /></span>
+<p>&nbsp; &nbsp; <span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T <span class="sy1">&gt;</span><br />
+&nbsp; &nbsp; <span class="kw4">constexpr</span> <span class="coMULTI">/* &#26410;&#25351;&#23450; */</span> istream <span class="sy1">=</span> <span class="coMULTI">/* &#26410;&#25351;&#23450; */</span><span class="sy4">;</span><br /></p>
+<span class="br0">}</span></div>
+</td>
+<td>(4)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-h">
+<td>
+<div>&#36741;&#21161;&#27010;&#24565;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span id=".E7.89.88.E6.9C.AC_5"></span><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Val, <span class="kw1">class</span> CharT, <span class="kw1">class</span> Traits <span class="sy1">&gt;</span><br /></span>
+<p>concept <span class="coMULTI">/*stream-extractable*/</span> <span class="sy1">=</span><br />
+&nbsp; &nbsp; requires<span class="br0">(</span><a href="cpp-io-basic_istream.html"><span class="kw1717">std::<span class="me2">basic_istream</span></span></a><span class="sy1">&lt;</span>CharT, Traits<span class="sy1">&gt;</span><span class="sy3">&amp;</span> is, Val<span class="sy3">&amp;</span> t<span class="br0">)</span> <span class="br0">{</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; is <span class="sy1">&gt;&gt;</span> t<span class="sy4">;</span><br /></p>
+&nbsp; &nbsp; <span class="br0">}</span><span class="sy4">;</span></div>
+</td>
+<td>(5)</td>
+<td class="t-dcl-nopad"><span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;*</span>)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#33539;&#22260;&#24037;&#21378;&#65292;&#36890;&#36807;&#37325;&#22797;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="sy1">&gt;&gt;</span></span></span> &#29983;&#25104;&#20803;&#32032;&#24207;&#21015;&#12290;</div>
+<div class="t-li1"><span class="t-li">2,3)</span> &#38024;&#23545;&#23383;&#31526;&#31867;&#22411; <span class="mw-geshi cpp source-cpp"><span class="kw4">char</span></span> &#19982; <span class="mw-geshi cpp source-cpp"><span class="kw4">wchar_t</span></span> &#30340;&#20415;&#21033;&#21035;&#21517;&#27169;&#26495;&#12290;</div>
+<div class="t-li1"><span class="t-li">4)</span> &#23545;&#20219;&#20309;&#36866;&#21512;&#30340;&#23376;&#34920;&#36798;&#24335; <span class="t-c"><span class="mw-geshi cpp source-cpp">e</span></span>&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">views<span class="sy4">::</span><span class="me2">istream</span><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="br0">(</span>e<span class="br0">)</span></span></span> <a href="cpp-language-expressions.html#.E8.A1.A8.E8.BE.BE.E5.BC.8F.E7.AD.89.E4.BB.B7">&#34920;&#36798;&#24335;&#31561;&#20215;</a>&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">ranges<span class="sy4">::</span><span class="me2">basic_istream_view</span><span class="sy1">&lt;</span>T, <span class="kw1">typename</span> U<span class="sy4">::</span><span class="me2">char_type</span>, <span class="kw1">typename</span> U<span class="sy4">::</span><span class="me2">traits_type</span><span class="sy1">&gt;</span><span class="br0">(</span>e<span class="br0">)</span></span></span>&#65292;&#20854;&#20013; <code>U</code> &#26159; <span class="mw-geshi cpp source-cpp"><a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>decltype<span class="br0">(</span>e<span class="br0">)</span><span class="sy1">&gt;</span></span>&#12290;</div>
+<div class="t-li1"><span class="t-li"></span> &#22914;&#26524; <code>U</code> &#24182;&#38750;&#20844;&#24320;&#19988;&#26080;&#27495;&#20041;&#22320;&#27966;&#29983;&#33258; <span class="mw-geshi cpp source-cpp"><a href="cpp-io-basic_istream.html"><span class="kw1717">std::<span class="me2">basic_istream</span></span></a><span class="sy1">&lt;</span><span class="kw1">typename</span> U<span class="sy4">::</span><span class="me2">char_type</span>, <span class="kw1">typename</span> U<span class="sy4">::</span><span class="me2">traits_type</span><span class="sy1">&gt;</span></span>&#65292;&#37027;&#20040;&#31243;&#24207;&#38750;&#33391;&#26500;&#65292;&#36825;&#21487;&#33021;&#23548;&#33268;<a href="cpp-language-sfinae.html">&#20195;&#25442;&#22833;&#36133;</a>&#12290;</div>
+<div class="t-li1"><span class="t-li">5)</span> &#20165;&#29992;&#20110;&#38416;&#36848;&#30340;&#27010;&#24565; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="coMULTI">/*stream-extractable*/</span><span class="sy1">&lt;</span>Val, CharT, Traits<span class="sy1">&gt;</span></span></span>&#65292;&#24403;&#21487;&#20197;&#20174; <span class="mw-geshi cpp source-cpp"><a href="cpp-io-basic_istream.html"><span class="kw1717">std::<span class="me2">basic_istream</span></span></a><span class="sy1">&lt;</span>CharT, Traits<span class="sy1">&gt;</span></span> &#30340;&#24038;&#20540;&#25552;&#21462; <code>Val</code> &#30340;&#24038;&#20540;&#26102;&#65292;&#24471;&#20197;&#28385;&#36275;&#12290;</div>
+<p><code>basic_istream_view</code> &#30340;&#36845;&#20195;&#22120;&#31867;&#22411;&#20026;&#20165;&#31227;&#21160;&#65306;&#23427;&#19981;&#28385;&#36275;<a href="cpp-named_req-Iterator.html"><span style="font-style:italic">&#32769;&#24335;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyIterator)</span></a> &#35201;&#27714;&#65292;&#20174;&#32780;&#19981;&#33021;&#20026; C++20 &#21069;&#30340;<a href="cpp-algorithm.html">&#31639;&#27861;</a>&#25152;&#29992;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.AE.9A.E5.88.B6.E7.82.B9.E5.AF.B9.E8.B1.A1">&#23450;&#21046;&#28857;&#23545;&#35937;</span></h3>
+<p>&#21517;&#23383; <code>views::istream&lt;T&gt;</code> &#20195;&#34920;&#19968;&#20010;<i>&#23450;&#21046;&#28857;&#23545;&#35937;</i>&#65292;&#23427;&#26159;&#26576;&#20010;<a href="cpp-named_req-LiteralType.html">&#23383;&#38754;</a> <a href="cpp-concepts-semiregular.html"><code>semiregular</code></a> &#31867;&#31867;&#22411;&#30340; const <a href="cpp-named_req-FunctionObject.html">&#20989;&#25968;&#23545;&#35937;</a>&#12290; &#32454;&#33410;&#21442;&#35265;<a href="cpp-named_req-CustomizationPointObject.html"><span style="font-style:italic">&#23450;&#21046;&#28857;&#23545;&#35937;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CustomizationPointObject)</span></a> &#12290;</p>
+<h3><span class="mw-headline" id=".E6.95.B0.E6.8D.AE.E6.88.90.E5.91.98">&#25968;&#25454;&#25104;&#21592;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#25104;&#21592;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><span id="stream"></span><span class="t-dsc-small"><span class="mw-geshi cpp source-cpp"><a href="cpp-io-basic_istream.html"><span class="kw1717">std::<span class="me2">basic_istream</span></span></a><span class="sy1">&lt;</span>CharT, Traits<span class="sy1">&gt;</span><span class="sy2">*</span></span></span> <code><i>stream_</i></code></td>
+<td>&#25351;&#21521;&#36755;&#20837;&#27969;&#30340;&#25351;&#38024;<br />
+<span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;&#30340;&#25104;&#21592;&#23545;&#35937;*</span>)</span></td>
+</tr>
+<tr class="t-dsc">
+<td><span id="value"></span><span class="t-dsc-small"><code>Val</code></span> <code><i>value_</i></code></td>
+<td>&#23384;&#20648;&#30340;&#20540;<br />
+<span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;&#30340;&#25104;&#21592;&#23545;&#35937;*</span>)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-ranges-basic_istream_view.html#ctor"><span class="t-lines"><span>(&#26500;&#36896;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26500;&#36896; <a href="cpp-ranges-basic_istream_view.html#top"><code>basic_istream_view</code></a><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-basic_istream_view.html#begin"><span class="t-lines"><span>begin</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-basic_istream_view.html#end"><span class="t-lines"><span>end</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238; <span class="t-lc">std::default_sentinel</span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E7.BB.A7.E6.89.BF.E8.87.AA_std::ranges::view_interface">&#32487;&#25215;&#33258; <span class="t-lc">std::ranges::view_interface</span></span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-view_interface-cbegin.html"><span class="t-lines"><span>cbegin</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#21521;&#33539;&#22260;&#36215;&#22987;&#30340;&#24120;&#37327;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::ranges::view_interface&lt;D&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-view_interface-cend.html"><span class="t-lines"><span>cend</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#23545;&#24212;&#20110;&#33539;&#22260;&#24120;&#37327;&#36845;&#20195;&#22120;&#30340;&#21736;&#20301;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::ranges::view_interface&lt;D&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+<table class="t-rev-begin">
+<tr class="t-rev t-until-cxx23">
+<td>
+<p>&#34429;&#28982; <code>basic_istream_view</code> &#27966;&#29983;&#33258; <span class="t-lc">std::ranges::view_interface</span>&#65292;&#20294;&#23427;&#26080;&#27861;&#20351;&#29992;&#20219;&#20309;&#32487;&#25215;&#30340;&#25104;&#21592;&#20989;&#25968;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-until-cxx23" style="white-space: nowrap;">(C++23 &#21069;)</span></td>
+</tr>
+</table>
+<p><span id="ctor"></span></p>
+<div class="t-member">
+<h2><span class="mw-headline" id="std::ranges::basic_istream_view::basic_istream_view"><span style="font-size:0.8em; line-height:125%">std::ranges::basic_istream_view::</span>basic_istream_view</span></h2>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="kw1">explicit</span><br />
+&nbsp; &nbsp; basic_istream_view<span class="br0">(</span> <a href="cpp-io-basic_istream.html"><span class="kw1717">std::<span class="me2">basic_istream</span></span></a><span class="sy1">&lt;</span>CharT, Traits<span class="sy1">&gt;</span><span class="sy3">&amp;</span> stream <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><span id="begin"></span> &#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-addressof.html"><span class="kw759">std::<span class="me2">addressof</span></span></a><span class="br0">(</span>stream<span class="br0">)</span></span></span> &#21021;&#22987;&#21270; <code><i><a href="cpp-ranges-basic_istream_view.html#stream">stream_</a></i></code>&#8202;&#65279;&#65292;&#24182;&#20540;&#21021;&#22987;&#21270; <code><i><a href="cpp-ranges-basic_istream_view.html#value">value_</a></i></code>&#8202;&#65279;&#12290;</p>
+</div>
+<div class="t-member">
+<h2><span class="mw-headline" id="std::ranges::basic_istream_view::begin"><span style="font-size:0.8em; line-height:125%">std::ranges::basic_istream_view::</span>begin</span></h2>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="kw4">auto</span> begin<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span></span><code><i><a href="cpp-ranges-basic_istream_view.html#stream">stream_</a></i></code><code>&nbsp;</code><span class="mw-geshi cpp source-cpp"><span class="sy1">&gt;&gt;</span></span><code>&nbsp;</code><code><i><a href="cpp-ranges-basic_istream_view.html#value">value_</a></i></code>&#8202;&#65279;<span class="mw-geshi cpp source-cpp"><span class="sy4">;</span> <span class="kw1">return</span></span><code>&nbsp;</code><a href="cpp-ranges-basic_istream_view-iterator.html"><code><i>iterator</i></code></a>&#8202;&#65279;<span class="mw-geshi cpp source-cpp"><span class="br0">{</span><span class="sy2">*</span>this<span class="br0">}</span><span class="sy4">;</span></span></span>&#12290;</p>
+</div>
+<p><span id="end"></span></p>
+<div class="t-member">
+<h2><span class="mw-headline" id="std::ranges::basic_istream_view::end"><span style="font-size:0.8em; line-height:125%">std::ranges::basic_istream_view::</span>end</span></h2>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <a href="cpp-iterator-default_sentinel_t.html"><span class="kw2878">std::<span class="me2">default_sentinel_t</span></span></a> end<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-default_sentinel_t.html"><span class="kw2879">std::<span class="me2">default_sentinel</span></span></a></span></span>&#12290;</p>
+</div>
+<h3><span class="mw-headline" id=".E5.B5.8C.E5.A5.97.E7.B1.BB">&#23884;&#22871;&#31867;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-basic_istream_view-iterator.html"><i><span class="t-lines"><span>iterator</span></span></i></a></div>
+</div>
+</td>
+<td><code>basic_istream_view</code> &#30340;&#36845;&#20195;&#22120;&#31867;&#22411;<br />
+<span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;&#30340;&#25104;&#21592;&#31867;*</span>)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;algorithm&gt;</span>
+<span class="co2">#include &lt;iomanip&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;iterator&gt;</span>
+<span class="co2">#include &lt;ranges&gt;</span>
+<span class="co2">#include &lt;sstream&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">auto</span> words <span class="sy1">=</span> <a href="cpp-io-basic_istringstream.html"><span class="kw1739">std::<span class="me2">istringstream</span></span></a><span class="br0">{</span><span class="st0">&quot;today is yesterday&rsquo;s tomorrow&quot;</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> s <span class="sy4">:</span> std<span class="sy4">::</span><span class="me2">views</span><span class="sy4">::</span><span class="me2">istream</span><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span><span class="br0">(</span>words<span class="br0">)</span><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-quoted.html"><span class="kw1806">std::<span class="me2">quoted</span></span></a><span class="br0">(</span>s, <span class="st0">&#39;/&#39;</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="kw4">auto</span> floats <span class="sy1">=</span> <a href="cpp-io-basic_istringstream.html"><span class="kw1739">std::<span class="me2">istringstream</span></span></a><span class="br0">{</span><span class="st0">&quot;1.1  2.2<span class="es1">\t</span>3.3<span class="es1">\v</span>4.4<span class="es1">\f</span>55<span class="es1">\n</span>66<span class="es1">\r</span>7.7  8.8&quot;</span><span class="br0">}</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><a href="cpp-algorithm-ranges-copy.html"><span class="kw2850">ranges::<span class="me2">copy</span></span></a>
+    <span class="br0">(</span>
+        std<span class="sy4">::</span><span class="me2">views</span><span class="sy4">::</span><span class="me2">istream</span><span class="sy1">&lt;</span><span class="kw4">float</span><span class="sy1">&gt;</span><span class="br0">(</span>floats<span class="br0">)</span>,
+        <a href="cpp-iterator-ostream_iterator.html"><span class="kw673">std::<span class="me2">ostream_iterator</span></span></a><span class="sy1">&lt;</span><span class="kw4">float</span><span class="sy1">&gt;</span><span class="br0">{</span><a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a>, <span class="st0">&quot;, &quot;</span><span class="br0">}</span>
+    <span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">/today/ /is/ /yesterday&rsquo;s/ /tomorrow/
+1.1, 2.2, 3.3, 4.4, 55, 66, 7.7, 8.8,</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue3568">LWG 3568</a></td>
+<td>C++20</td>
+<td>P2325R3 &#24847;&#22806;&#22320;&#20351;&#23384;&#20648;&#30340;&#20540;&#40664;&#35748;&#21021;&#22987;&#21270;</td>
+<td>&#36824;&#21407;&#20026;&#20540;&#21021;&#22987;&#21270;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://wg21.link/P2325R3">P2325R3</a></td>
+<td>C++20</td>
+<td>&#22240;&#20026; <a href="cpp-ranges-view.html"><code>view</code></a> &#24517;&#39035;&#20026; <a href="cpp-concepts-default_initializable.html"><code>default_initializable</code></a> &#25552;&#20379;&#20102;&#40664;&#35748;&#26500;&#36896;&#20989;&#25968;</td>
+<td>&#19982;&#35813;&#35201;&#27714;&#19968;&#21516;&#31227;&#38500;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://wg21.link/P2432R1">P2432R1</a></td>
+<td>C++20</td>
+<td><code>ranges::istream_view</code> &#26366;&#20026;&#20989;&#25968;&#27169;&#26495;&#24182;&#19988;&#19981;&#36981;&#24490;&#21629;&#21517;&#32422;&#23450;</td>
+<td>&#20351;&#20043;&#20026;&#21035;&#21517;&#27169;&#26495;&#65307;&#28155;&#21152;&#20102;&#23450;&#21046;&#28857;&#23545;&#35937;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-istream_iterator.html"><span class="t-lines"><span>istream_iterator</span></span></a></div>
+</div>
+</td>
+<td>&#20174; <span class="t-lc"><a href="cpp-io-basic_istream.html">std::basic_istream</a></span> &#35835;&#21462;&#30340;&#36755;&#20837;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

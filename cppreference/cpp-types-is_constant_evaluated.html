@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::is_constant_evaluated</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_types_is_constant_evaluated skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>is_constant_evaluated</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-types.html">types</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-type_traits.html">&lt;type_traits&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="kw4">bool</span> is_constant_evaluated<span class="br0">(</span><span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#26816;&#26597;&#20989;&#25968;&#35843;&#29992;&#26159;&#21542;&#20986;&#29616;&#22312;&#24120;&#37327;&#27714;&#20540;&#30340;&#22330;&#21512;&#12290;&#33509;&#23545;&#35843;&#29992;&#30340;&#27714;&#20540;&#20986;&#29616;&#22312;<a href="cpp-language-constant_expression.html#.E6.98.8E.E6.98.BE.E5.B8.B8.E9.87.8F.E6.B1.82.E5.80.BC.E7.9A.84.E8.A1.A8.E8.BE.BE.E5.BC.8F">&#26126;&#26174;&#24120;&#37327;&#27714;&#20540;</a>&#30340;&#34920;&#36798;&#24335;&#25110;&#31867;&#22411;&#36716;&#25442;&#30340;&#27714;&#20540;&#20013;&#65292;&#21017;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#21542;&#21017;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#12290;</p>
+<p>&#20026;&#30830;&#23450;&#19979;&#21015;&#21464;&#37327;&#30340;&#21021;&#22987;&#21270;&#24335;&#26159;&#21542;&#26159;&#26126;&#26174;&#24120;&#37327;&#27714;&#20540;&#65292;&#32534;&#35793;&#26399;&#21487;&#33021;&#39318;&#20808;&#35797;&#25506;&#24615;&#24120;&#37327;&#27714;&#20540;&#65306;</p>
+<ul>
+<li>&#24341;&#29992;&#31867;&#22411;&#25110; const &#38480;&#23450;&#30340;&#25972;&#25968;&#25110;&#26522;&#20030;&#31867;&#22411;&#30340;&#21464;&#37327;</li>
+<li>&#38745;&#24577;&#21450;&#32447;&#31243;&#23616;&#22495;&#21464;&#37327;</li>
+</ul>
+<p>&#19981;&#24314;&#35758;&#20381;&#36182;&#20110;&#36825;&#31181;&#24773;&#20917;&#30340;&#32467;&#26524;&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw4">int</span> y <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span>
+<span class="kw4">const</span> <span class="kw4">int</span> a <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">is_constant_evaluated</span><span class="br0">(</span><span class="br0">)</span> <span class="sy4">?</span> y <span class="sy4">:</span> <span class="nu0">1</span><span class="sy4">;</span>
+<span class="co1">// &#35797;&#25506;&#24615;&#24120;&#37327;&#27714;&#20540;&#22833;&#36133;&#65292;&#24120;&#37327;&#27714;&#20540;&#34987;&#33293;&#24323;&#12290;</span>
+<span class="co1">// &#21464;&#37327; a &#21160;&#24577;&#21021;&#22987;&#21270;&#20026; 1</span>
+ 
+<span class="kw4">const</span> <span class="kw4">int</span> b <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">is_constant_evaluated</span><span class="br0">(</span><span class="br0">)</span> <span class="sy4">?</span> <span class="nu0">2</span> <span class="sy4">:</span> y<span class="sy4">;</span>
+<span class="co1">// &#24120;&#37327;&#27714;&#20540;&#65288;std::is_constant_evaluation() == true&#65289;&#25104;&#21151;&#12290;</span>
+<span class="co1">// &#21464;&#37327; b &#38745;&#24577;&#21021;&#22987;&#21270;&#20026; 2</span></pre></div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#33509;&#35843;&#29992;&#30340;&#27714;&#20540;&#20986;&#29616;&#22312;&#26126;&#26174;&#24120;&#37327;&#27714;&#20540;&#30340;&#34920;&#36798;&#24335;&#25110;&#31867;&#22411;&#36716;&#25442;&#30340;&#27714;&#20540;&#20013;&#65292;&#21017;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#21542;&#21017;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.AF.E8.83.BD.E7.9A.84.E5.AE.9E.E7.8E.B0">&#21487;&#33021;&#30340;&#23454;&#29616;</span></h3>
+<table class="eq-fun-cpp-table">
+<tr>
+<td>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co1">// &#27492;&#23454;&#29616;&#35201;&#27714; C++23 if consteval&#12290;</span>
+<span class="kw4">constexpr</span> <span class="kw4">bool</span> is_constant_evaluated<span class="br0">(</span><span class="br0">)</span> <span class="kw1">noexcept</span>
+<span class="br0">{</span>
+    <span class="kw1">if</span> consteval
+    <span class="br0">{</span>
+        <span class="kw1">return</span> <span class="kw2">true</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">else</span> 
+    <span class="br0">{</span>
+        <span class="kw1">return</span> <span class="kw2">false</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+</div>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">is_constant_evaluated</span><span class="br0">(</span><span class="br0">)</span></span></span> &#30452;&#25509;&#29992;&#20316; <a href="cpp-language-static_assert.html"><tt>static_assert</tt></a> &#22768;&#26126;&#21644; <a href="cpp-language-if.html#constexpr_if">constexpr if &#35821;&#21477;</a>&#30340;&#26465;&#20214;&#26102;&#65292;&#36820;&#22238;&#20540;&#24635;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#12290;</p>
+<p>&#30001;&#20110; <a href="cpp-language-if.html#consteval_if"><tt>if consteval</tt></a> &#19981;&#22312; C++20 &#20013;&#65292;<code>is_constant_evaluated</code> &#24120;&#30001;&#32534;&#35793;&#22120;&#25193;&#23637;&#23454;&#29616;&#12290;</p>
+<table class="wikitable ftm-begin">
+<tr>
+<th><a href="cpp-utility-feature_test.html">&#21151;&#33021;&#29305;&#24615;&#27979;&#35797;</a>&#23439;</th>
+<th><abbr title="&#37319;&#32435;&#35813;&#29305;&#24615;&#30340;&#24180;/&#26376;&#12290;&#27599;&#20010;&#20540;&#19979;&#38754;&#30340;&#38142;&#25509;&#25351;&#21521;&#32534;&#35793;&#26399;&#25903;&#25345;&#39029;&#38754;&#20013;&#32473;&#23450;&#21151;&#33021;&#29305;&#24615;&#30340;&#26465;&#30446;&#12290;">&#20540;</abbr></th>
+<th><abbr title="&#24341;&#20837;&#35813;&#29305;&#24615;&#30340;&#26631;&#20934;&#65307;DR &#24847;&#20026;&#38024;&#23545;&#35813;&#20462;&#35746;&#29256;&#30340;&#32570;&#38519;&#25253;&#21578;">&#26631;&#20934;</abbr></th>
+<th>&#21151;&#33021;&#29305;&#24615;</th>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lib_is_constant_evaluated"><code>__cpp_lib_is_constant_evaluated</code></a></td>
+<td><a href="cpp-compiler_support-20.html#cpp_lib_is_constant_evaluated_201811L"><code>201811L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++20)</span></td>
+<td><code>std::is_constant_evaluated</code></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;cmath&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;type_traits&gt;</span>
+ 
+<span class="kw4">constexpr</span> <span class="kw4">double</span> power<span class="br0">(</span><span class="kw4">double</span> b, <span class="kw4">int</span> x<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">if</span> <span class="br0">(</span>std<span class="sy4">::</span><span class="me2">is_constant_evaluated</span><span class="br0">(</span><span class="br0">)</span> <span class="sy3">&amp;&amp;</span> <span class="sy3">!</span><span class="br0">(</span>b <span class="sy1">==</span> <span class="nu16">0.0</span> <span class="sy3">&amp;&amp;</span> x <span class="sy1">&lt;</span> <span class="nu0">0</span><span class="br0">)</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="co1">// &#24120;&#37327;&#27714;&#20540;&#35821;&#22659;&#65306;&#20351;&#29992; constexpr &#21451;&#22909;&#30340;&#31639;&#27861;&#12290;</span>
+        <span class="kw1">if</span> <span class="br0">(</span>x <span class="sy1">==</span> <span class="nu0">0</span><span class="br0">)</span>
+            <span class="kw1">return</span> <span class="nu16">1.0</span><span class="sy4">;</span>
+        <span class="kw4">double</span> r <span class="br0">{</span><span class="nu16">1.0</span><span class="br0">}</span><span class="sy4">;</span>
+        <span class="kw4">double</span> p <span class="br0">{</span>x <span class="sy1">&gt;</span> <span class="nu0">0</span> <span class="sy4">?</span> b <span class="sy4">:</span> <span class="nu16">1.0</span> <span class="sy2">/</span> b<span class="br0">}</span><span class="sy4">;</span>
+        <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">auto</span> u <span class="sy1">=</span> <span class="kw4">unsigned</span><span class="br0">(</span>x <span class="sy1">&gt;</span> <span class="nu0">0</span> <span class="sy4">?</span> x <span class="sy4">:</span> <span class="sy2">-</span>x<span class="br0">)</span><span class="sy4">;</span> u <span class="sy3">!</span><span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span> u <span class="sy2">/</span><span class="sy1">=</span> <span class="nu0">2</span><span class="br0">)</span>
+        <span class="br0">{</span>
+            <span class="kw1">if</span> <span class="br0">(</span>u <span class="sy3">&amp;</span> <span class="nu0">1</span><span class="br0">)</span>
+                r <span class="sy2">*</span><span class="sy1">=</span> p<span class="sy4">;</span>
+            p <span class="sy2">*</span><span class="sy1">=</span> p<span class="sy4">;</span>
+        <span class="br0">}</span>
+        <span class="kw1">return</span> r<span class="sy4">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">else</span>
+    <span class="br0">{</span>
+        <span class="co1">// &#20196;&#20195;&#30721;&#29983;&#25104;&#22120;&#29983;&#25104;&#12290;</span>
+        <span class="kw1">return</span> <a href="cpp-numeric-math-pow.html"><span class="kw1335">std::<span class="me2">pow</span></span></a><span class="br0">(</span>b, <span class="kw4">double</span><span class="br0">(</span>x<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="co1">// &#24120;&#37327;&#34920;&#36798;&#24335;&#35821;&#22659;</span>
+    <span class="kw4">constexpr</span> <span class="kw4">double</span> kilo <span class="sy1">=</span> power<span class="br0">(</span><span class="nu16">10.0</span>, <span class="nu0">3</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">int</span> n <span class="sy1">=</span> <span class="nu0">3</span><span class="sy4">;</span>
+    <span class="co1">// &#38750;&#24120;&#37327;&#34920;&#36798;&#24335;&#65292;&#22240;&#20026; n &#19981;&#33021;&#22312;&#24120;&#37327;&#34920;&#36798;&#24335;&#35821;&#22659;&#20013;&#36716;&#25442;&#25104;&#21491;&#20540;</span>
+    <span class="co1">// &#31561;&#20215;&#20110; std::pow(10.0, double(n))</span>
+    <span class="kw4">double</span> mucho <span class="sy1">=</span> power<span class="br0">(</span><span class="nu16">10.0</span>, n<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> kilo <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; &quot;</span> <span class="sy1">&lt;&lt;</span> mucho <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span> <span class="co1">// (3)</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">1000 1000</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td><a href="cpp-language-constexpr.html"><code>constexpr</code> &#35828;&#26126;&#31526;</a> <span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></td>
+<td>&#25351;&#23450;&#21464;&#37327;&#25110;&#20989;&#25968;&#30340;&#20540;&#33021;&#22312;&#32534;&#35793;&#26102;&#35745;&#31639;</td>
+</tr>
+<tr class="t-dsc">
+<td><a href="cpp-language-consteval.html"><code>consteval</code> &#35828;&#26126;&#31526;</a> <span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></td>
+<td>&#25351;&#23450;&#20989;&#25968;&#20026;<i>&#31435;&#21363;&#20989;&#25968;</i>&#65292;&#21363;&#23545;&#35813;&#20989;&#25968;&#30340;&#27599;&#27425;&#35843;&#29992;&#24517;&#39035;&#22312;&#24120;&#37327;&#27714;&#20540;&#20013;&#36827;&#34892;</td>
+</tr>
+<tr class="t-dsc">
+<td><a href="cpp-language-constinit.html"><code>constinit</code> &#35828;&#26126;&#31526;</a> <span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></td>
+<td>&#26029;&#35328;&#21464;&#37327;&#25317;&#26377;&#38745;&#24577;&#21021;&#22987;&#21270;&#65292;&#21363;<a href="cpp-language-zero_initialization.html">&#38646;&#21021;&#22987;&#21270;</a>&#19982;<a href="cpp-language-constant_initialization.html">&#24120;&#37327;&#21021;&#22987;&#21270;</a></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

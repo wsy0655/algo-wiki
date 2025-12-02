@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::enable_shared_from_this</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_memory_enable_shared_from_this skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>enable_shared_from_this</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-memory.html">memory</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-memory.html">&lt;memory&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T <span class="sy1">&gt;</span><br />
+<span class="kw1">class</span> enable_shared_from_this<span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>std::enable_shared_from_this</code> &#33021;&#35753;&#23427;&#30340;&#19968;&#20010;&#24050;&#34987; <span class="t-lc"><a href="cpp-memory-shared_ptr.html">std::shared_ptr</a></span> &#31867;&#22411;&#23545;&#35937; <span class="t-c"><span class="mw-geshi cpp source-cpp">pt</span></span> &#31649;&#29702;&#30340;&#23545;&#35937; <span class="t-c"><span class="mw-geshi cpp source-cpp">t</span></span> &#23433;&#20840;&#22320;&#29983;&#25104;&#20854;&#20182;&#39069;&#22806;&#30340; <span class="t-lc"><a href="cpp-memory-shared_ptr.html">std::shared_ptr</a></span> &#23454;&#20363; <span class="t-c"><span class="mw-geshi cpp source-cpp">pt1</span></span>&#12289;<span class="t-c"><span class="mw-geshi cpp source-cpp">pt2</span></span> &#31561;&#31561;&#65292;&#23427;&#20204;&#37117;&#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">pt</span></span> &#20849;&#20139;&#23545;&#35937; <span class="t-c"><span class="mw-geshi cpp source-cpp">t</span></span> &#30340;&#25152;&#26377;&#26435;&#12290;</p>
+<p>&#22914;&#26524;&#31867; <code>T</code> &#20844;&#24320;&#32487;&#25215;&#20102; <code>std::enable_shared_from_this&lt;T&gt;</code>&#65292;&#37027;&#20040;&#23601;&#20250;&#20026;&#35813;&#31867; <code>T</code> &#25552;&#20379;&#25104;&#21592;&#20989;&#25968; <code>shared_from_this</code>&#12290; &#24403; <code>T</code> &#31867;&#22411;&#23545;&#35937; <span class="t-c"><span class="mw-geshi cpp source-cpp">t</span></span> &#34987; <span class="mw-geshi cpp source-cpp"><a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span></span> &#31867;&#23545;&#35937; <span class="t-c"><span class="mw-geshi cpp source-cpp">pt</span></span> &#31649;&#29702;&#26102;&#65292;&#35843;&#29992; <code>T::shared_from_this</code> &#25104;&#21592;&#20989;&#25968;&#20250;&#36820;&#22238;&#19968;&#20010;&#26032;&#30340; <span class="mw-geshi cpp source-cpp"><a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span></span> &#23545;&#35937;&#65292;&#23427;&#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">pt</span></span> &#20849;&#20139; <span class="t-c"><span class="mw-geshi cpp source-cpp">t</span></span> &#30340;&#25152;&#26377;&#26435;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.AF.B9.E8.B1.A1">&#25104;&#21592;&#23545;&#35937;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#25104;&#21592;</td>
+<td>&#25551;&#36848;</td>
+</tr>
+<tr class="t-dsc">
+<td><span id="weak_this"></span><span class="t-dsc-small"><span class="mw-geshi cpp source-cpp">mutable <a href="cpp-memory-weak_ptr.html"><span class="kw743">std::<span class="me2">weak_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span></span></span> <code><i>weak_this</i></code></td>
+<td>&#36861;&#36394; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#30340;&#39318;&#20010;&#20849;&#20139;&#21344;&#26377;&#32773;&#30340;&#23545;&#35937;<br />
+<span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;&#30340;&#25104;&#21592;&#23545;&#35937;*</span>)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-memory-enable_shared_from_this-enable_shared_from_this.html"><span class="t-lines"><span>(&#26500;&#36896;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26500;&#36896; <code>enable_shared_from_this</code> &#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-memory-enable_shared_from_this-~enable_shared_from_this.html"><span class="t-lines"><span>(&#26512;&#26500;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#38144;&#27585; <code>enable_shared_from_this</code> &#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-enable_shared_from_this-operator=.html"><span class="t-lines"><span>operator=</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#21040; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#30340;&#24341;&#29992;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-enable_shared_from_this-shared_from_this.html"><span class="t-lines"><span>shared_from_this</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#20849;&#20139; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#25152;&#26377;&#26435;&#30340; <span class="t-lc"><a href="cpp-memory-shared_ptr.html">std::shared_ptr</a></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-enable_shared_from_this-weak_from_this.html"><span class="t-lines"><span>weak_from_this</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#20849;&#20139; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#25152;&#26377;&#26435;&#30340; <span class="t-lc"><a href="cpp-memory-weak_ptr.html">std::weak_ptr</a></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p><span class="t-lc"><a href="cpp-memory-shared_ptr.html">std::shared_ptr</a></span> &#30340;&#26500;&#36896;&#20989;&#25968;&#20250;&#26816;&#27979;&#26080;&#27495;&#20041;&#19988;&#21487;&#35775;&#38382;&#30340; <code>enable_shared_from_this</code> &#22522;&#31867;&#65288;&#21363;&#24378;&#21046;&#20844;&#24320;&#32487;&#25215;&#65289;&#65292;&#24182;&#19988;&#22312; <code><i>weak_this</i></code> &#26410;&#34987;&#29983;&#23384;&#30340; <span class="t-lc"><a href="cpp-memory-shared_ptr.html">std::shared_ptr</a></span> &#21344;&#26377;&#26102;&#23558;&#26032;&#24314;&#30340; <span class="t-lc"><a href="cpp-memory-shared_ptr.html">std::shared_ptr</a></span> &#36171;&#32473; <code><i>weak_this</i></code>&#8202;&#65279;&#12290;&#23545;&#24050;&#32463;&#30001;&#21478;&#19968; <span class="t-lc"><a href="cpp-memory-shared_ptr.html">std::shared_ptr</a></span> &#25152;&#31649;&#29702;&#30340;&#23545;&#35937;&#26500;&#36896;&#19968;&#20010; <span class="t-lc"><a href="cpp-memory-shared_ptr.html">std::shared_ptr</a></span> &#19981;&#20250;&#32771;&#34385; <code><i>weak_this</i></code>&#8202;&#65279;&#65292;&#20174;&#32780;&#23558;&#23548;&#33268;&#26410;&#23450;&#20041;&#34892;&#20026;&#12290;</p>
+<p>&#21482;&#23481;&#35768;&#22312;&#20808;&#21069;&#24050;&#30001; <span class="mw-geshi cpp source-cpp"><a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span></span> &#31649;&#29702;&#30340;&#23545;&#35937;&#19978;&#35843;&#29992; <code>shared_from_this</code>&#12290;&#21542;&#21017;&#25243;&#20986; <span class="t-lc"><a href="cpp-memory-bad_weak_ptr.html">std::bad_weak_ptr</a></span> &#24322;&#24120;&#65288;&#36890;&#36807; <span class="t-lc"><a href="cpp-memory-shared_ptr.html">std::shared_ptr</a></span> &#30340;&#26500;&#36896;&#20989;&#25968;&#65292;&#26469;&#28304;&#20026;&#40664;&#35748;&#26500;&#36896;&#30340; <code><i>weak_this</i></code>&#8202;&#65279;&#65289;&#12290;</p>
+<p><code>enable_shared_from_this</code> &#25552;&#20379;&#23433;&#20840;&#30340;&#26367;&#29992;&#26041;&#26696;&#65292;&#20197;&#26367;&#20195; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="br0">(</span>this<span class="br0">)</span></span></span> &#36825;&#26679;&#30340;&#34920;&#36798;&#24335;&#65288;&#36825;&#31181;&#19981;&#23433;&#20840;&#30340;&#34920;&#36798;&#24335;&#21487;&#33021;&#20250;&#23548;&#33268; <span class="t-c"><span class="mw-geshi cpp source-cpp">this</span></span> &#34987;&#22810;&#20010;&#20114;&#19981;&#30693;&#26195;&#30340;&#25152;&#26377;&#32773;&#26512;&#26500;&#65292;&#35265;&#19979;&#26041;&#31034;&#20363;&#65289;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;memory&gt;</span>
+ 
+<span class="kw1">class</span> Good <span class="sy4">:</span> <span class="kw1">public</span> std<span class="sy4">::</span><span class="me2">enable_shared_from_this</span><span class="sy1">&lt;</span>Good<span class="sy1">&gt;</span>
+<span class="br0">{</span>
+<span class="kw1">public</span><span class="sy4">:</span>
+    <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>Good<span class="sy1">&gt;</span> getptr<span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw1">return</span> shared_from_this<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw1">class</span> Best <span class="sy4">:</span> <span class="kw1">public</span> std<span class="sy4">::</span><span class="me2">enable_shared_from_this</span><span class="sy1">&lt;</span>Best<span class="sy1">&gt;</span>
+<span class="br0">{</span>
+    <span class="kw1">struct</span> Private<span class="br0">{</span> <span class="kw1">explicit</span> Private<span class="br0">(</span><span class="br0">)</span> <span class="sy1">=</span> <span class="kw1">default</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw1">public</span><span class="sy4">:</span>
+    <span class="co1">// &#21482;&#26377;&#33258;&#24049;&#21487;&#20197;&#20351;&#29992;&#26500;&#36896;&#20989;&#25968;</span>
+    Best<span class="br0">(</span>Private<span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+ 
+    <span class="co1">// &#20854;&#20182;&#22320;&#26041;&#37117;&#24517;&#39035;&#20351;&#29992;&#27492;&#24037;&#21378;&#20989;&#25968;</span>
+    <span class="co1">// &#22240;&#27492;&#25152;&#26377; Best &#23545;&#35937;&#22343;&#23558;&#34987; shared_ptr &#23481;&#32435;</span>
+    <span class="kw4">static</span> <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>Best<span class="sy1">&gt;</span> create<span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw1">return</span> <a href="cpp-memory-shared_ptr-make_shared.html"><span class="kw738">std::<span class="me2">make_shared</span></span></a><span class="sy1">&lt;</span>Best<span class="sy1">&gt;</span><span class="br0">(</span>Private<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>Best<span class="sy1">&gt;</span> getptr<span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw1">return</span> shared_from_this<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw1">struct</span> Bad
+<span class="br0">{</span>
+    <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>Bad<span class="sy1">&gt;</span> getptr<span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw1">return</span> <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>Bad<span class="sy1">&gt;</span><span class="br0">(</span>this<span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    ~Bad<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#35843;&#29992; Bad::~Bad()<span class="es1">\n</span>&quot;</span><span class="sy4">;</span> <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">void</span> testGood<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="co1">// &#22909;&#65306;&#20004;&#20010; shared_ptr &#20849;&#20139;&#21516;&#19968;&#23545;&#35937;</span>
+    <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>Good<span class="sy1">&gt;</span> good0 <span class="sy1">=</span> <a href="cpp-memory-shared_ptr-make_shared.html"><span class="kw738">std::<span class="me2">make_shared</span></span></a><span class="sy1">&lt;</span>Good<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>Good<span class="sy1">&gt;</span> good1 <span class="sy1">=</span> good0<span class="sy2">-</span><span class="sy1">&gt;</span>getptr<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;good1.use_count() = &quot;</span> <span class="sy1">&lt;&lt;</span> good1.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">void</span> misuseGood<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="co1">// &#22351;&#65306;&#35843;&#29992; shared_from_this &#20294;&#27809;&#26377; std::shared_ptr &#21344;&#26377;&#35843;&#29992;&#32773;</span>
+    <span class="kw1">try</span>
+    <span class="br0">{</span>
+        Good not_so_good<span class="sy4">;</span>
+        <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>Good<span class="sy1">&gt;</span> gp1 <span class="sy1">=</span> not_so_good.<span class="me1">getptr</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">catch</span> <span class="br0">(</span><a href="cpp-memory-bad_weak_ptr.html"><span class="kw746">std::<span class="me2">bad_weak_ptr</span></span></a><span class="sy3">&amp;</span> e<span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="co1">// &#26410;&#23450;&#20041;&#34892;&#20026;&#65288;C++17 &#21069;&#65289;/ &#25243;&#20986; std::bad_weak_ptr&#65288;C++17 &#36215;&#65289;</span>
+        <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> e.<span class="me1">what</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>    
+    <span class="br0">}</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">void</span> testBest<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="co1">// &#26368;&#22909;&#65306;&#21516;&#19978;&#20294;&#26080;&#27861;&#26632;&#20998;&#37197;&#23427;&#65306;</span>
+    <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>Best<span class="sy1">&gt;</span> best0 <span class="sy1">=</span> Best<span class="sy4">::</span><span class="me2">create</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>Best<span class="sy1">&gt;</span> best1 <span class="sy1">=</span> best0<span class="sy2">-</span><span class="sy1">&gt;</span>getptr<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;best1.use_count() = &quot;</span> <span class="sy1">&lt;&lt;</span> best1.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="co1">// Best stackBest; // &lt;- &#19981;&#20250;&#36890;&#36807;&#32534;&#35793;&#65292;&#22240;&#20026; Best::Best() &#20026;&#31169;&#26377;&#12290;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">void</span> testBad<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="co1">// &#19981;&#22909;&#65292;&#27599;&#20010; shared_ptr &#37117;&#35748;&#20026;&#23427;&#26159;&#23545;&#35937;&#30340;&#21807;&#19968;&#25152;&#26377;&#32773;</span>
+    <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>Bad<span class="sy1">&gt;</span> bad0 <span class="sy1">=</span> <a href="cpp-memory-shared_ptr-make_shared.html"><span class="kw738">std::<span class="me2">make_shared</span></span></a><span class="sy1">&lt;</span>Bad<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>Bad<span class="sy1">&gt;</span> bad1 <span class="sy1">=</span> bad0<span class="sy2">-</span><span class="sy1">&gt;</span>getptr<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;bad1.use_count() = &quot;</span> <span class="sy1">&lt;&lt;</span> bad1.<span class="me1">use_count</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span> <span class="co1">// &#26410;&#23450;&#20041;&#34892;&#20026;&#65306;Bad &#30340;&#20108;&#27425;&#21024;&#38500;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    testGood<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    misuseGood<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    testBest<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    testBad<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">good1.use_count() = 2
+bad_weak_ptr
+best1.use_count() = 2
+bad1.use_count() = 1
+&#35843;&#29992; Bad::~Bad()
+&#35843;&#29992; Bad::~Bad()
+*** glibc detected *** ./test: double free or corruption</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue2179">LWG 2179</a><br />
+(<a rel="nofollow" class="external text" href="https://wg21.link/P0033R1">P0033R1</a>)</td>
+<td>C++11</td>
+<td>&#32473;&#23450;&#20174; <code>enable_shared_from_this</code> &#27966;&#29983;&#30340;&#31867;&#22411; <code>T</code>&#65292;<br />
+&#20174;&#21516;&#19968; <span class="mw-geshi cpp source-cpp">T<span class="sy2">*</span></span> &#23545;&#35937;&#26500;&#36896;&#20004;&#20010; <span class="mw-geshi cpp source-cpp"><a href="cpp-memory-shared_ptr.html"><span class="kw736">std::<span class="me2">shared_ptr</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span></span> &#30340;&#34892;&#20026;&#19981;&#26126;&#30830;</td>
+<td>&#27492;&#26102;&#34892;&#20026;&#26410;&#23450;&#20041;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue2529">LWG 2529</a><br />
+(<a rel="nofollow" class="external text" href="https://wg21.link/P0033R1">P0033R1</a>)</td>
+<td>C++11</td>
+<td>&#19981;&#26126;&#30830;&#22914;&#20309;&#26356;&#26032;&#24213;&#23618; <span class="t-lc"><a href="cpp-memory-weak_ptr.html">std::weak_ptr</a></span></td>
+<td>&#20351;&#20043;&#26126;&#30830;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-shared_ptr.html"><span class="t-lines"><span>shared_ptr</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#25317;&#26377;&#20849;&#20139;&#23545;&#35937;&#25152;&#26377;&#26435;&#35821;&#20041;&#30340;&#26234;&#33021;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-shared_ptr-make_shared.html"><span class="t-lines"><span>make_shared</span><span>make_shared_for_overwrite</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#21019;&#24314;&#31649;&#29702;&#19968;&#20010;&#26032;&#23545;&#35937;&#30340;&#20849;&#20139;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

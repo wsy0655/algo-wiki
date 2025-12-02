@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::shared_mutex</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_thread_shared_mutex skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>shared_mutex</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-thread.html">thread</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-shared_mutex.html">&lt;shared_mutex&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">class</span> shared_mutex<span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>shared_mutex</code> &#31867;&#26159;&#19968;&#20010;&#21516;&#27493;&#21407;&#35821;&#65292;&#21487;&#29992;&#20110;&#20445;&#25252;&#20849;&#20139;&#25968;&#25454;&#19981;&#34987;&#22810;&#20010;&#32447;&#31243;&#21516;&#26102;&#35775;&#38382;&#12290;&#19982;&#20415;&#20110;&#29420;&#21344;&#35775;&#38382;&#30340;&#20854;&#20182;&#20114;&#26021;&#20307;&#31867;&#22411;&#19981;&#21516;&#65292;shared_mutex &#25317;&#26377;&#20004;&#20010;&#35775;&#38382;&#32423;&#21035;&#65306;</p>
+<ul>
+<li><i>&#20849;&#20139;</i> - &#22810;&#20010;&#32447;&#31243;&#33021;&#20849;&#20139;&#21516;&#19968;&#20114;&#26021;&#20307;&#30340;&#25152;&#26377;&#26435;&#12290;</li>
+</ul>
+<ul>
+<li><i>&#29420;&#21344;</i> - &#20165;&#19968;&#20010;&#32447;&#31243;&#33021;&#21344;&#26377;&#20114;&#26021;&#12290;</li>
+</ul>
+<p>&#33509;&#19968;&#20010;&#32447;&#31243;&#24050;&#33719;&#21462;<i>&#29420;&#21344;</i>&#8202;&#65279;&#38145;&#65288;&#36890;&#36807; <span class="t-lc"><a href="cpp-thread-shared_mutex-lock.html">lock</a></span>&#12289;<span class="t-lc"><a href="cpp-thread-shared_mutex-try_lock.html">try_lock</a></span>&#65289;&#65292;&#21017;&#26080;&#20854;&#20182;&#32447;&#31243;&#33021;&#33719;&#21462;&#35813;&#38145;&#65288;&#21253;&#25324;<i>&#20849;&#20139;</i>&#30340;&#65289;&#12290;</p>
+<p>&#33509;&#19968;&#20010;&#32447;&#31243;&#24050;&#33719;&#21462;<i>&#20849;&#20139;</i>&#8202;&#65279;&#38145;&#65288;&#36890;&#36807; <span class="t-lc"><a href="cpp-thread-shared_mutex-lock_shared.html">lock_shared</a></span>&#12289;<span class="t-lc"><a href="cpp-thread-shared_mutex-try_lock_shared.html">try_lock_shared</a></span>&#65289;&#65292;&#21017;&#26080;&#20854;&#20182;&#32447;&#31243;&#33021;&#33719;&#21462;<i>&#29420;&#21344;</i>&#8202;&#65279;&#38145;&#65292;&#20294;&#21487;&#20197;&#33719;&#21462;<i>&#20849;&#20139;</i>&#8202;&#65279;&#38145;&#12290;</p>
+<p>&#20165;&#24403;&#20219;&#20309;&#32447;&#31243;&#22343;&#26410;&#33719;&#21462;<i>&#29420;&#21344;</i>&#8202;&#65279;&#38145;&#26102;&#65292;<i>&#20849;&#20139;</i>&#8202;&#65279;&#38145;&#33021;&#34987;&#22810;&#20010;&#32447;&#31243;&#33719;&#21462;&#12290;</p>
+<p>&#22312;&#19968;&#20010;&#32447;&#31243;&#20869;&#65292;&#21516;&#19968;&#26102;&#21051;&#21482;&#33021;&#33719;&#21462;&#19968;&#20010;&#38145;&#65288;<i>&#20849;&#20139;</i>&#25110;<i>&#29420;&#21344;</i>&#65289;&#12290;</p>
+<p>&#20849;&#20139;&#20114;&#26021;&#20307;&#22312;&#33021;&#30001;&#20219;&#20309;&#25968;&#37327;&#30340;&#32447;&#31243;&#21516;&#26102;&#35835;&#20849;&#20139;&#25968;&#25454;&#65292;&#20294;&#19968;&#20010;&#32447;&#31243;&#21482;&#33021;&#22312;&#26080;&#20854;&#20182;&#32447;&#31243;&#21516;&#26102;&#35835;&#20889;&#26102;&#20889;&#21516;&#19968;&#25968;&#25454;&#26102;&#29305;&#21035;&#26377;&#29992;&#12290;</p>
+<p><code>shared_mutex</code> &#31867;&#28385;&#36275;<a href="cpp-named_req-SharedMutex.html"><span style="font-style:italic">&#20849;&#20139;&#20114;&#26021;&#20307;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(SharedMutex)</span></a> &#21644;<a href="cpp-named_req-StandardLayoutType.html"><span style="font-style:italic">&#26631;&#20934;&#24067;&#23616;&#31867;&#22411;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(StandardLayoutType)</span></a> &#30340;&#25152;&#26377;&#35201;&#27714;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E7.B1.BB.E5.9E.8B">&#25104;&#21592;&#31867;&#22411;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#25104;&#21592;&#31867;&#22411;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>native_handle_type</code> <span class="t-mark" style="white-space: nowrap;">(<span title="&#27492;&#23884;&#22871;&#31867;&#22411;&#26159;&#21542;&#23384;&#22312;&#30001;&#23454;&#29616;&#23450;&#20041;">&#21487;&#36873;*</span>)</span></td>
+<td>&#30001;&#23454;&#29616;&#23450;&#20041;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-thread-shared_mutex-shared_mutex.html"><span class="t-lines"><span>(&#26500;&#36896;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26500;&#36896;&#20114;&#26021;&#20307;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-thread-shared_mutex-~shared_mutex.html"><span class="t-lines"><span>(&#26512;&#26500;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#38144;&#27585;&#20114;&#26021;&#20307;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span>operator=</span></span></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#24323;&#32622;]</span></span></span></div>
+</div>
+</td>
+<td>&#19981;&#21487;&#22797;&#21046;&#36171;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E6.8E.92.E4.BB.96.E6.80.A7.E9.94.81.E5.AE.9A">&#25490;&#20182;&#24615;&#38145;&#23450;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-shared_mutex-lock.html"><span class="t-lines"><span>lock</span></span></a></div>
+</div>
+</td>
+<td>&#38145;&#23450;&#20114;&#26021;&#20307;&#65292;&#33509;&#20114;&#26021;&#20307;&#19981;&#21487;&#29992;&#21017;&#38459;&#22622;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-shared_mutex-try_lock.html"><span class="t-lines"><span>try_lock</span></span></a></div>
+</div>
+</td>
+<td>&#23581;&#35797;&#38145;&#23450;&#20114;&#26021;&#20307;&#65292;&#33509;&#20114;&#26021;&#20307;&#19981;&#21487;&#29992;&#21017;&#36820;&#22238;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-shared_mutex-unlock.html"><span class="t-lines"><span>unlock</span></span></a></div>
+</div>
+</td>
+<td>&#35299;&#38145;&#20114;&#26021;&#20307;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E5.85.B1.E4.BA.AB.E9.94.81.E5.AE.9A">&#20849;&#20139;&#38145;&#23450;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-shared_mutex-lock_shared.html"><span class="t-lines"><span>lock_shared</span></span></a></div>
+</div>
+</td>
+<td>&#20026;&#20849;&#20139;&#25152;&#26377;&#26435;&#38145;&#23450;&#20114;&#26021;&#20307;&#65292;&#33509;&#20114;&#26021;&#20307;&#19981;&#21487;&#29992;&#21017;&#38459;&#22622;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-shared_mutex-try_lock_shared.html"><span class="t-lines"><span>try_lock_shared</span></span></a></div>
+</div>
+</td>
+<td>&#23581;&#35797;&#20026;&#20849;&#20139;&#25152;&#26377;&#26435;&#38145;&#23450;&#20114;&#26021;&#20307;&#65292;&#33509;&#20114;&#26021;&#20307;&#19981;&#21487;&#29992;&#21017;&#36820;&#22238;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-shared_mutex-unlock_shared.html"><span class="t-lines"><span>unlock_shared</span></span></a></div>
+</div>
+</td>
+<td>&#35299;&#38145;&#20114;&#26021;&#20307;&#65288;&#20849;&#20139;&#25152;&#26377;&#26435;&#65289;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E6.9C.AC.E6.9C.BA.E5.8F.A5.E6.9F.84">&#26412;&#26426;&#21477;&#26564;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-shared_mutex-native_handle.html"><span class="t-lines"><span>native_handle</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#24213;&#23618;&#30340;&#23454;&#29616;&#23450;&#20041;&#30340;&#26412;&#26426;&#21477;&#26564;&#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<p>&#20197;&#19979;&#36755;&#20986;&#26159;&#22312;&#21333;&#26680;&#26426;&#22120;&#19978;&#20135;&#29983;&#30340;&#12290;&#24403; <code>thread1</code> &#21551;&#21160;&#26102;&#65292;&#23427;&#39318;&#27425;&#36827;&#20837;&#24490;&#29615;&#24182;&#35843;&#29992; <code>increment()</code> &#38543;&#21518;&#35843;&#29992; <code>get()</code>&#12290;&#20294;&#22312;&#23427;&#33021;&#23558;&#36820;&#22238;&#20540;&#25171;&#21360;&#21040; <span class="mw-geshi cpp source-cpp"><a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a></span> &#20043;&#21069;&#65292;&#35843;&#24230;&#22120;&#20250;&#35753; <code>thread1</code> &#30561;&#30496;&#24182;&#21796;&#37266; <code>thread2</code>&#65292;&#21518;&#32773;&#26174;&#28982;&#26377;&#36275;&#22815;&#26102;&#38388;&#19968;&#27425;&#24615;&#36816;&#34892;&#20840;&#37096;&#19977;&#27425;&#24490;&#29615;&#37325;&#22797;&#12290;&#22238;&#21040; <code>thread1</code>&#65292;&#23427;&#20173;&#22788;&#20110;&#39318;&#27425;&#24490;&#29615;&#37325;&#22797;&#20013;&#65292;&#23427;&#26368;&#32456;&#25171;&#21360;&#35745;&#25968;&#22120;&#20540;&#30340;&#26412;&#22320;&#21103;&#26412;&#65288;&#21363; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="nu0">1</span></span></span>&#65289;&#21040; <code>std::cout</code>&#65292;&#28982;&#21518;&#36816;&#34892;&#21097;&#20313;&#30340;&#20004;&#27425;&#24490;&#29615;&#37325;&#22797;&#12290;&#32780;&#22312;&#22810;&#26680;&#26426;&#22120;&#19978;&#65292;&#20004;&#20010;&#32447;&#31243;&#37117;&#19981;&#20250;&#30561;&#30496;&#65292;&#32780;&#36755;&#20986;&#21017;&#26356;&#21487;&#33021;&#34920;&#29616;&#20026;&#21319;&#24207;&#12290;</p>
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;mutex&gt;</span>
+<span class="co2">#include &lt;shared_mutex&gt;</span>
+<span class="co2">#include &lt;syncstream&gt;</span>
+<span class="co2">#include &lt;thread&gt;</span>
+ 
+<span class="kw1">class</span> ThreadSafeCounter
+<span class="br0">{</span>
+<span class="kw1">public</span><span class="sy4">:</span>
+    ThreadSafeCounter<span class="br0">(</span><span class="br0">)</span> <span class="sy1">=</span> <span class="kw1">default</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#22810;&#20010;&#32447;&#31243;/&#35835;&#32773;&#33021;&#21516;&#26102;&#35835;&#35745;&#25968;&#22120;&#30340;&#20540;&#12290;</span>
+    <span class="kw4">unsigned</span> <span class="kw4">int</span> get<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span>
+    <span class="br0">{</span>
+        <a href="cpp-thread-shared_lock.html"><span class="kw2171">std::<span class="me2">shared_lock</span></span></a> lock<span class="br0">(</span>mutex_<span class="br0">)</span><span class="sy4">;</span>
+        <span class="kw1">return</span> value_<span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="co1">// &#21482;&#26377;&#19968;&#20010;&#32447;&#31243;/&#20889;&#32773;&#33021;&#22686;&#21152;/&#20889;&#35745;&#25968;&#22120;&#30340;&#20540;&#12290;</span>
+    <span class="kw4">void</span> increment<span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-thread-unique_lock.html"><span class="kw2170">std::<span class="me2">unique_lock</span></span></a> lock<span class="br0">(</span>mutex_<span class="br0">)</span><span class="sy4">;</span>
+        <span class="sy2">++</span>value_<span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="co1">// &#21482;&#26377;&#19968;&#20010;&#32447;&#31243;/&#20889;&#32773;&#33021;&#37325;&#32622;/&#20889;&#35745;&#25968;&#22120;&#30340;&#20540;&#12290;</span>
+    <span class="kw4">void</span> reset<span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-thread-unique_lock.html"><span class="kw2170">std::<span class="me2">unique_lock</span></span></a> lock<span class="br0">(</span>mutex_<span class="br0">)</span><span class="sy4">;</span>
+        value_ <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+<span class="kw1">private</span><span class="sy4">:</span>
+    mutable std<span class="sy4">::</span><span class="me2">shared_mutex</span> mutex_<span class="sy4">;</span>
+    <span class="kw4">unsigned</span> <span class="kw4">int</span> value_<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    ThreadSafeCounter counter<span class="sy4">;</span>
+ 
+    <span class="kw4">auto</span> increment_and_print <span class="sy1">=</span> <span class="br0">[</span><span class="sy3">&amp;</span>counter<span class="br0">]</span><span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> i<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span> i <span class="sy3">!</span><span class="sy1">=</span> <span class="nu0">3</span><span class="sy4">;</span> <span class="sy2">++</span>i<span class="br0">)</span>
+        <span class="br0">{</span>
+            counter.<span class="me1">increment</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+            <a href="cpp-io-basic_osyncstream.html"><span class="kw2649">std::<span class="me2">osyncstream</span></span></a><span class="br0">(</span><a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a><span class="br0">)</span>
+                <span class="sy1">&lt;&lt;</span> <a href="cpp-thread-get_id.html"><span class="kw2152">std::<span class="me2">this_thread</span><span class="sy4">::</span><span class="me2">get_id</span></span></a><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span> <span class="sy1">&lt;&lt;</span> counter.<span class="me1">get</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+        <span class="br0">}</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+ 
+    <a href="cpp-thread-thread.html"><span class="kw2150">std::<span class="me2">thread</span></span></a> thread1<span class="br0">(</span>increment_and_print<span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-thread-thread.html"><span class="kw2150">std::<span class="me2">thread</span></span></a> thread2<span class="br0">(</span>increment_and_print<span class="br0">)</span><span class="sy4">;</span>
+ 
+    thread1.<span class="me1">join</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    thread2.<span class="me1">join</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">123084176803584 2
+123084176803584 3
+123084176803584 4
+123084185655040 1
+123084185655040 5
+123084185655040 6</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-shared_timed_mutex.html"><span class="t-lines"><span>shared_timed_mutex</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14)</span></span></span></div>
+</div>
+</td>
+<td>&#25552;&#20379;&#20849;&#20139;&#20114;&#26021;&#35774;&#26045;&#24182;&#23454;&#29616;&#26377;&#26102;&#38480;&#38145;&#23450;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-shared_lock.html"><span class="t-lines"><span>shared_lock</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14)</span></span></span></div>
+</div>
+</td>
+<td>&#23454;&#29616;&#21487;&#31227;&#21160;&#30340;&#20849;&#20139;&#20114;&#26021;&#20307;&#25152;&#26377;&#26435;&#23553;&#35013;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-unique_lock.html"><span class="t-lines"><span>unique_lock</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#23454;&#29616;&#21487;&#31227;&#21160;&#30340;&#20114;&#26021;&#20307;&#25152;&#26377;&#26435;&#21253;&#35013;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

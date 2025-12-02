@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>&#25277;&#35937;&#31867;</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_language_abstract_class skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">&#25277;&#35937;&#31867;</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-language.html">language</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<p>&#23450;&#20041;&#19981;&#33021;&#34987;&#23454;&#20363;&#21270;&#65292;&#20294;&#21487;&#20197;&#29992;&#20316;&#22522;&#31867;&#30340;&#25277;&#35937;&#31867;&#22411;&#12290;</p>
+<h3><span class="mw-headline" id=".E8.AF.AD.E6.B3.95">&#35821;&#27861;</span></h3>
+<p><i>&#32431;&#34394;</i> &#20989;&#25968;&#26159;&#23427;&#30340;<a href="cpp-language-function.html">&#22768;&#26126;&#31526;</a>&#25317;&#26377;&#19979;&#21015;&#35821;&#27861;&#30340;<a href="cpp-language-virtual.html">&#34394;&#20989;&#25968;</a>&#65306;</p>
+<table class="t-sdsc-begin">
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td class="t-sdsc-nopad"><span class="t-spar">&#22768;&#26126;&#31526;</span> <span class="t-spar">&#34394;&#35828;&#26126;&#31526;</span><span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <code><b>=</b></code> <code><b>0</b></code></td>
+<td class="t-sdsc-nopad"></td>
+<td class="t-sdsc-nopad"></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+</table>
+<p>&#22312;&#36825;&#37324;&#24207;&#21015; <code><b>= 0</b></code> &#34987;&#31216;&#20316; <span class="t-spar">&#32431;&#35828;&#26126;&#31526;</span>&#65292;&#19988;&#35201;&#20040;&#32039;&#36319; <span class="t-spar">&#22768;&#26126;&#31526;</span> &#20043;&#21518;&#65292;&#35201;&#20040;&#32039;&#36319;&#21487;&#36873;&#30340; <span class="t-spar">&#34394;&#35828;&#26126;&#31526;</span>&#65288;<a href="cpp-language-override.html">override</a> &#25110; <a href="cpp-language-final.html">final</a>&#65289;&#20043;&#21518;&#20986;&#29616;&#12290;</p>
+<p><span class="t-spar">&#32431;&#35828;&#26126;&#31526;</span> &#19981;&#33021;&#22312;&#25104;&#21592;&#20989;&#25968;&#23450;&#20041;&#25110;<a href="cpp-language-friend.html">&#21451;&#20803;</a>&#22768;&#26126;&#20013;&#20986;&#29616;&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">struct</span> Base
+<span class="br0">{</span>
+    <span class="kw1">virtual</span> <span class="kw4">int</span> g<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">virtual</span> ~Base<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw1">struct</span> A <span class="sy4">:</span> Base
+<span class="br0">{</span>
+    <span class="co1">// OK&#65306;&#22768;&#26126;&#19977;&#20010;&#25104;&#21592;&#34394;&#20989;&#25968;&#65292;&#20854;&#20013;&#20004;&#20010;&#26159;&#32431;&#34394;&#20989;&#25968;</span>
+    <span class="kw1">virtual</span> <span class="kw4">int</span> f<span class="br0">(</span><span class="br0">)</span> <span class="sy1">=</span> <span class="nu0">0</span>, g<span class="br0">(</span><span class="br0">)</span> override <span class="sy1">=</span> <span class="nu0">0</span>, h<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// OK&#65306;&#26512;&#26500;&#20989;&#25968;&#20063;&#21487;&#20197;&#26159;&#32431;&#34394;&#20989;&#25968;</span>
+    ~A<span class="br0">(</span><span class="br0">)</span> <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#38169;&#35823;&#65306;&#20989;&#25968;&#23450;&#20041;&#20013;&#30340;&#32431;&#35828;&#26126;&#31526;</span>
+    <span class="kw1">virtual</span> <span class="kw4">int</span> b<span class="br0">(</span><span class="br0">)</span> <span class="sy1">=</span> <span class="nu0">0</span> <span class="br0">{</span><span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+<p><i>&#25277;&#35937;&#31867;&#65288;abstract class&#65289;</i> &#26159;&#36825;&#26679;&#30340;&#31867;&#65306;&#23427;&#25152;&#23450;&#20041;&#25110;&#32487;&#25215;&#30340;&#20989;&#25968;&#20013;&#33267;&#23569;&#19968;&#20010;&#30340;<a href="cpp-language-virtual.html">&#26368;&#32456;&#35206;&#30422;&#20989;&#25968;</a>&#26159; <i>&#32431;&#34394;</i> &#20989;&#25968;&#12290;</p>
+<h3><span class="mw-headline" id=".E8.A7.A3.E9.87.8A">&#35299;&#37322;</span></h3>
+<p>&#25277;&#35937;&#31867;&#29992;&#20110;&#34920;&#31034;&#19968;&#33324;&#24615;&#27010;&#24565;&#65288;&#20363;&#22914; Shape&#12289;Animal &#31561;&#65289;&#65292;&#23427;&#21487;&#20197;&#29992;&#20316;&#20855;&#20307;&#31867;&#65288;&#20363;&#22914; Circle&#12289;Dog &#31561;&#65289;&#30340;&#22522;&#31867;&#12290;</p>
+<p>&#38500;&#20102;&#20316;&#20026;&#20174;&#20854;&#27966;&#29983;&#30340;&#31867;&#30340;&#22522;&#31867;&#23376;&#23545;&#35937;&#20043;&#22806;&#65292;&#19981;&#33021;&#21019;&#24314;&#25277;&#35937;&#31867;&#30340;&#23545;&#35937;&#65292;&#19988;&#19981;&#33021;&#22768;&#26126;&#25277;&#35937;&#31867;&#31867;&#22411;&#30340;&#38750;&#38745;&#24577;&#25968;&#25454;&#25104;&#21592;&#12290;</p>
+<p>&#25277;&#35937;&#31867;&#22411;&#19981;&#33021;&#29992;&#20316;&#24418;&#21442;&#31867;&#22411;&#65292;&#20989;&#25968;&#36820;&#22238;&#31867;&#22411;&#65292;&#25110;&#26174;&#24335;&#36716;&#25442;&#30340;&#31867;&#22411;&#65288;&#27880;&#24847;&#65292;&#36825;&#26159;&#22312;&#20989;&#25968;&#23450;&#20041;&#28857;&#21644;&#20989;&#25968;&#35843;&#29992;&#28857;&#26816;&#26597;&#30340;&#65292;&#22240;&#20026;&#22312;&#20989;&#25968;&#22768;&#26126;&#28857;&#20854;&#24418;&#21442;&#21644;&#36820;&#22238;&#31867;&#22411;&#21487;&#20197;&#26159;&#19981;&#23436;&#25972;&#31867;&#22411;&#65289;&#12290;</p>
+<p>&#21487;&#20197;&#22768;&#26126;&#21040;&#25277;&#35937;&#31867;&#30340;&#25351;&#38024;&#25110;&#24341;&#29992;&#12290;</p>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">struct</span> Abstract
+<span class="br0">{</span>
+    <span class="kw1">virtual</span> <span class="kw4">void</span> f<span class="br0">(</span><span class="br0">)</span> <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span>  <span class="co1">// &#32431;&#34394;</span>
+<span class="br0">}</span><span class="sy4">;</span> <span class="co1">// &quot;Abstract&quot; &#26159;&#25277;&#35937;&#30340;</span>
+ 
+<span class="kw1">struct</span> Concrete <span class="sy4">:</span> Abstract
+<span class="br0">{</span>
+    <span class="kw4">void</span> f<span class="br0">(</span><span class="br0">)</span> override <span class="br0">{</span><span class="br0">}</span>   <span class="co1">// &#38750;&#32431;&#34394;</span>
+    <span class="kw1">virtual</span> <span class="kw4">void</span> g<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>      <span class="co1">// &#38750;&#32431;&#34394;</span>
+<span class="br0">}</span><span class="sy4">;</span> <span class="co1">// &quot;Concrete&quot; &#19981;&#26159;&#25277;&#35937;&#30340;</span>
+ 
+<span class="kw1">struct</span> Abstract2 <span class="sy4">:</span> Concrete
+<span class="br0">{</span>
+    <span class="kw4">void</span> g<span class="br0">(</span><span class="br0">)</span> override <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span> <span class="co1">// &#32431;&#34394;&#35206;&#30422;&#20989;&#25968;</span>
+<span class="br0">}</span><span class="sy4">;</span> <span class="co1">// &quot;Abstract2&quot; &#26159;&#25277;&#35937;&#30340;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="co1">// Abstract a;   // &#38169;&#35823;&#65306;&#19981;&#33021;&#21019;&#24314;&#25277;&#35937;&#31867;&#30340;&#23545;&#35937;</span>
+    Concrete b<span class="sy4">;</span>      <span class="co1">// OK</span>
+    Abstract<span class="sy3">&amp;</span> a <span class="sy1">=</span> b<span class="sy4">;</span> <span class="co1">// OK&#65306;&#21040;&#25277;&#35937;&#22522;&#31867;&#30340;&#24341;&#29992;</span>
+    a.<span class="me1">f</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>           <span class="co1">// &#34394;&#27966;&#21457;&#21040; Concrete::f()</span>
+    <span class="co1">// Abstract2 a2; // &#38169;&#35823;&#65306;&#19981;&#33021;&#21019;&#24314;&#25277;&#35937;&#31867;&#30340;&#23545;&#35937;&#65288;g() &#30340;&#26368;&#32456;&#35206;&#30422;&#20989;&#25968;&#26159;&#32431;&#34394;&#30340;&#65289;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<p>&#21487;&#20197;&#20026;&#32431;&#34394;&#20989;&#25968;&#25552;&#20379;&#23450;&#20041;&#65288;&#32780;&#19988;&#22914;&#26524;&#32431;&#34394;&#20989;&#25968;&#26159;<a href="cpp-language-destructor.html">&#26512;&#26500;&#20989;&#25968;</a>&#23601;&#24517;&#39035;&#25552;&#20379;&#65289;&#65306;&#27966;&#29983;&#31867;&#30340;&#25104;&#21592;&#20989;&#25968;&#21487;&#20197;&#33258;&#30001;&#22320;&#29992;&#26377;&#38480;&#23450;&#30340;&#20989;&#25968;&#26631;&#35782;&#35843;&#29992;&#25277;&#35937;&#22522;&#31867;&#30340;&#32431;&#34394;&#20989;&#25968;&#12290;&#27492;&#23450;&#20041;&#24517;&#39035;&#22312;&#31867;&#20307;&#20043;&#22806;&#25552;&#20379;&#65288;&#20989;&#25968;&#22768;&#26126;&#30340;&#35821;&#27861;&#19981;&#20801;&#35768;&#32431;&#35828;&#26126;&#31526; <code><b>= 0</b></code> &#21644;&#20989;&#25968;&#20307;&#19968;&#36215;&#20986;&#29616;&#65289;&#12290;</p>
+<p>&#20174;&#25277;&#35937;&#31867;&#30340;&#26500;&#36896;&#20989;&#25968;&#25110;&#26512;&#26500;&#20989;&#25968;&#20013;&#36827;&#34892;&#32431;&#34394;&#20989;&#25968;&#30340;&#34394;&#35843;&#29992;&#26159;&#26410;&#23450;&#20041;&#34892;&#20026;&#65288;&#26080;&#35770;&#32431;&#34394;&#20989;&#25968;&#26159;&#21542;&#25317;&#26377;&#23450;&#20041;&#65289;&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">struct</span> Abstract
+<span class="br0">{</span>
+    <span class="kw1">virtual</span> <span class="kw4">void</span> f<span class="br0">(</span><span class="br0">)</span> <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span> <span class="co1">// &#32431;&#34394;</span>
+    <span class="kw1">virtual</span> <span class="kw4">void</span> g<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>  <span class="co1">// &#38750;&#32431;&#34394;</span>
+ 
+    ~Abstract<span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        g<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>           <span class="co1">// OK&#65306;&#35843;&#29992; Abstract::g()</span>
+        <span class="co1">// f();        // &#26410;&#23450;&#20041;&#34892;&#20026;</span>
+        Abstract<span class="sy4">::</span><span class="me2">f</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK&#65306;&#38750;&#34394;&#35843;&#29992;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="co1">// &#32431;&#34394;&#20989;&#25968;&#30340;&#23450;&#20041;</span>
+<span class="kw4">void</span> Abstract<span class="sy4">::</span><span class="me2">f</span><span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;A::f()<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw1">struct</span> Concrete <span class="sy4">:</span> Abstract
+<span class="br0">{</span>
+    <span class="kw4">void</span> f<span class="br0">(</span><span class="br0">)</span> override
+    <span class="br0">{</span>
+        Abstract<span class="sy4">::</span><span class="me2">f</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK&#65306;&#35843;&#29992;&#32431;&#34394;&#20989;&#25968;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw4">void</span> g<span class="br0">(</span><span class="br0">)</span> override <span class="br0">{</span><span class="br0">}</span>
+ 
+    ~Concrete<span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        g<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK&#65306;&#35843;&#29992; Concrete::g()</span>
+        f<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK&#65306;&#35843;&#29992; Concrete::f()</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/390.html">CWG 390</a></td>
+<td>C++98</td>
+<td>&#21487;&#20197;&#35843;&#29992;&#26410;&#23450;&#20041;&#30340;&#32431;&#34394;&#26512;&#26500;&#20989;&#25968;</td>
+<td>&#27492;&#26102;&#38656;&#35201;&#26512;&#26500;&#20989;&#25968;&#23450;&#20041;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/2153.html">CWG 2153</a></td>
+<td>C++98</td>
+<td><span class="t-spar">&#32431;&#35828;&#26126;&#31526;</span> &#21487;&#20197;&#22312;&#21451;&#20803;&#22768;&#26126;&#20013;&#20986;&#29616;</td>
+<td>&#24050;&#31105;&#27490;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<ul>
+<li><a href="cpp-language-virtual.html">virtual</a></li>
+</ul>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

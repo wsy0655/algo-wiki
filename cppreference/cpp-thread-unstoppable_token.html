@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::unstoppable_token</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_thread_unstoppable_token skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>unstoppable_token</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-thread.html">thread</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-stop_token.html">&lt;stop_token&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx26">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Token <span class="sy1">&gt;</span><br /></span>
+<p>concept unstoppable_token <span class="sy1">=</span><br />
+&nbsp; &nbsp; std<span class="sy4">::</span><span class="me2">stoppable_token</span><span class="sy1">&lt;</span>Token<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; requires <span class="br0">(</span><span class="kw4">const</span> Token tok<span class="br0">)</span> <span class="br0">{</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; requires <a href="cpp-types-integral_constant.html"><span class="kw651">std::<span class="me2">bool_constant</span></span></a><span class="sy1">&lt;</span><span class="br0">(</span><span class="sy3">!</span>tok.<span class="me1">stop_possible</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">value</span><span class="sy4">;</span><br /></p>
+&nbsp; &nbsp; <span class="br0">}</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#27010;&#24565; <code>unstoppable_token&lt;Token&gt;</code> &#20026; <a href="cpp-thread-stoppable_token.html"><code>stoppable_token</code></a> &#25351;&#23450;&#39069;&#22806;&#30340;&#35201;&#27714;&#65292;&#20854;&#31867;&#22411;&#19981;&#20801;&#35768;&#20572;&#27490;&#12290;&#21363;&#34920;&#36798;&#24335; <span class="t-c"><span class="mw-geshi cpp source-cpp">tok.<span class="me1">stop_possible</span><span class="br0">(</span><span class="br0">)</span></span></span> &#24517;&#39035;&#21487;&#29992;&#22312;&#24120;&#37327;&#34920;&#36798;&#24335;&#20013;&#24182;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#12290;</p>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

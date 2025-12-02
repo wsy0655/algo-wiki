@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::list&lt;T,Allocator&gt;::end, std::list&lt;T,Allocator&gt;::cend</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_container_list_end skin-cppreference2 action-view cpp-page-template cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::list&lt;T,Allocator&gt;::</span>end, <span style="font-size:0.8em; line-height:125%">std::list&lt;T,Allocator&gt;::</span>cend</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-container.html">container</a>&lrm; | <a href="cpp-container-list.html">list</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<div class="t-page-template" style="">
+<p></p>
+</div>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp">iterator end<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;&#20026; noexcept)</span></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp">const_iterator end<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;&#20026; noexcept)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp">const_iterator cend<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36820;&#22238;&#25351;&#21521; <code>list</code> &#26411;&#20803;&#32032;&#21518;&#19968;&#20803;&#32032;&#30340;&#36845;&#20195;&#22120;&#12290;</p>
+<p>&#27492;&#20803;&#32032;&#34920;&#29616;&#20026;&#21344;&#20301;&#31526;&#65307;&#35797;&#22270;&#35775;&#38382;&#23427;&#23548;&#33268;&#26410;&#23450;&#20041;&#34892;&#20026;&#12290;</p>
+<div class="t-image">
+<p><img alt="range-begin-end.svg" src="range-begin-end.svg" width="546" height="157" /></p>
+</div>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#25351;&#21521;&#21518;&#38543;&#26368;&#21518;&#20803;&#32032;&#30340;&#36845;&#20195;&#22120;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<p>&#24120;&#25968;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>libc++ &#23558; <code>cend()</code> &#21521;&#21518;&#31227;&#26893;&#21040; C++98 &#27169;&#24335;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;algorithm&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;numeric&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+<span class="co2">#include &lt;list&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-container-list.html"><span class="kw1278">std::<span class="me2">list</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span> nums<span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">2</span>, <span class="nu0">4</span>, <span class="nu0">8</span>, <span class="nu0">16</span><span class="br0">}</span><span class="sy4">;</span>
+    <a href="cpp-container-list.html"><span class="kw1278">std::<span class="me2">list</span></span></a><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span> fruits<span class="br0">{</span><span class="st0">&quot;orange&quot;</span>, <span class="st0">&quot;apple&quot;</span>, <span class="st0">&quot;raspberry&quot;</span><span class="br0">}</span><span class="sy4">;</span>
+    <a href="cpp-container-list.html"><span class="kw1278">std::<span class="me2">list</span></span></a><span class="sy1">&lt;</span><span class="kw4">char</span><span class="sy1">&gt;</span> empty<span class="sy4">;</span>
+ 
+    <span class="co1">// &#25171;&#21360; list&#12290;</span>
+    <a href="cpp-algorithm-for_each.html"><span class="kw1572">std::<span class="me2">for_each</span></span></a><span class="br0">(</span>nums.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, nums.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>, <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">const</span> <span class="kw4">int</span> n<span class="br0">)</span> <span class="br0">{</span> <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> n <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span><span class="sy4">;</span> <span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#27714;&#21644; list nums &#20013;&#30340;&#25152;&#26377;&#25972;&#25968;&#65288;&#33509;&#23384;&#22312;&#65289;&#65292;&#20165;&#25171;&#21360;&#32467;&#26524;&#12290;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#27714;&#21644; nums: &quot;</span>
+              <span class="sy1">&lt;&lt;</span> <a href="cpp-algorithm-accumulate.html"><span class="kw1655">std::<span class="me2">accumulate</span></span></a><span class="br0">(</span>nums.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, nums.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>, <span class="nu0">0</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#25171;&#21360; list fruits &#20013;&#30340;&#31532;&#19968;&#20010;&#27700;&#26524;&#65292;&#19981;&#26816;&#26597;&#26159;&#21542;&#26377;&#19968;&#20010;&#12290;</span>
+    <span class="kw1">if</span> <span class="br0">(</span><span class="sy3">!</span>fruits.<span class="me1">empty</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#31532;&#19968;&#20010;&#27700;&#26524;: &quot;</span> <span class="sy1">&lt;&lt;</span> <span class="sy2">*</span>fruits.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="kw1">if</span> <span class="br0">(</span>empty.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> empty.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;list &#39;empty&#39; &#30830;&#23454;&#26159;&#31354;&#30340;&#12290;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">1 2 4 8 16
+&#27714;&#21644; nums: 31
+&#31532;&#19968;&#20010;&#27700;&#26524;: orange
+list &#39;empty&#39; &#30830;&#23454;&#26159;&#31354;&#30340;&#12290;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-list-begin.html"><span class="t-lines"><span>begin</span><span>cbegin</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#21521;&#36215;&#22987;&#30340;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-end.html"><span class="t-lines"><span>end</span><span>cend</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14)</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#21521;&#23481;&#22120;&#25110;&#25968;&#32452;&#32467;&#23614;&#30340;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

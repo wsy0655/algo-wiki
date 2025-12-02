@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::unique_lock&lt;Mutex&gt;::lock</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_thread_unique_lock_lock skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::unique_lock&lt;Mutex&gt;::</span>lock</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-thread.html">thread</a>&lrm; | <a href="cpp-thread-unique_lock.html">unique lock</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span> lock<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#38145;&#23450;&#20851;&#32852;&#20114;&#26021;&#20307;&#65288;&#21363;&#33719;&#21462;&#20854;&#25152;&#26377;&#26435;&#65289;&#12290;&#30456;&#24403;&#20110;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">mutex<span class="br0">(</span><span class="br0">)</span><span class="sy2">-</span><span class="sy1">&gt;</span>lock<span class="br0">(</span><span class="br0">)</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">mutex<span class="br0">(</span><span class="br0">)</span><span class="sy2">-</span><span class="sy1">&gt;</span>lock<span class="br0">(</span><span class="br0">)</span></span></span> &#25152;&#25243;&#30340;&#20219;&#20309;&#24322;&#24120;&#12290;</li>
+</ul>
+<ul>
+<li>&#33509;&#26080;&#20851;&#32852;&#20114;&#26021;&#20307;&#65292;&#21017;&#20026;&#20197; <span class="t-lc"><a href="cpp-error-errc.html">std::errc::operation_not_permitted</a></span> &#20026;&#38169;&#35823;&#30721;&#30340; <span class="t-lc"><a href="cpp-error-system_error.html">std::system_error</a></span>&#12290;</li>
+</ul>
+<ul>
+<li>&#33509;&#20851;&#32852;&#20114;&#26021;&#20307;&#24050;&#20026;&#27492; <code>unique_lock</code> &#25152;&#38145;&#23450;&#65288;&#25442;&#35328;&#20043;&#65292;<span class="t-lc"><a href="cpp-thread-unique_lock-owns_lock.html">owns_lock()</a></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65289;&#65292;&#21017;&#20026;&#20197; <span class="t-lc"><a href="cpp-error-errc.html">std::errc::resource_deadlock_would_occur</a></span> &#20026;&#38169;&#35823;&#30721;&#30340; <span class="t-lc"><a href="cpp-error-system_error.html">std::system_error</a></span>&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<p>&#19979;&#21015;&#31034;&#20363;&#29992; <code>lock</code> &#37325;&#33719;&#24471;&#34987;&#35299;&#38145;&#30340;&#20114;&#26021;&#20307;&#12290;</p>
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;chrono&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;mutex&gt;</span>
+<span class="co2">#include &lt;thread&gt;</span>
+<span class="co2">#include &lt;vector&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">int</span> counter <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span>
+    <a href="cpp-thread-mutex.html"><span class="kw2158">std::<span class="me2">mutex</span></span></a> counter_mutex<span class="sy4">;</span>
+    <a href="cpp-container-vector.html"><span class="kw1272">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><a href="cpp-thread-thread.html"><span class="kw2150">std::<span class="me2">thread</span></span></a><span class="sy1">&gt;</span> threads<span class="sy4">;</span>
+ 
+    <span class="kw4">auto</span> worker_task <span class="sy1">=</span> <span class="br0">[</span><span class="sy3">&amp;</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">int</span> id<span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-thread-unique_lock.html"><span class="kw2171">std::<span class="me2">unique_lock</span></span></a><span class="sy1">&lt;</span><a href="cpp-thread-mutex.html"><span class="kw2158">std::<span class="me2">mutex</span></span></a><span class="sy1">&gt;</span> lock<span class="br0">(</span>counter_mutex<span class="br0">)</span><span class="sy4">;</span>
+        <span class="sy2">++</span>counter<span class="sy4">;</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> id <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;, &#20869;&#37096;&#35745;&#25968;&#22120;: &quot;</span> <span class="sy1">&lt;&lt;</span> counter <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+        lock.<span class="me1">unlock</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+        <span class="co1">// &#25105;&#20204;&#27169;&#25311;&#26114;&#36149;&#25805;&#20316;&#26102;&#19981;&#20445;&#26377;&#38145;</span>
+        <a href="cpp-thread-sleep_for.html"><span class="kw2153">std::<span class="me2">this_thread</span><span class="sy4">::</span><span class="me2">sleep_for</span></span></a><span class="br0">(</span><a href="cpp-chrono-duration.html"><span class="kw999">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">seconds</span></span></a><span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+        lock.<span class="me1">lock</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+        <span class="sy2">++</span>counter<span class="sy4">;</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> id <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;, &#26368;&#32456;&#35745;&#25968;&#22120;: &quot;</span> <span class="sy1">&lt;&lt;</span> counter <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> i <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span> i <span class="sy1">&lt;</span> <span class="nu0">10</span><span class="sy4">;</span> <span class="sy2">++</span>i<span class="br0">)</span>
+        threads.<span class="me1">emplace_back</span><span class="br0">(</span>worker_task, i<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">auto</span> <span class="sy3">&amp;</span>thread <span class="sy4">:</span> threads<span class="br0">)</span>
+        thread.<span class="me1">join</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">0, &#20869;&#37096;&#35745;&#25968;&#22120;: 1
+1, &#20869;&#37096;&#35745;&#25968;&#22120;: 2
+2, &#20869;&#37096;&#35745;&#25968;&#22120;: 3
+3, &#20869;&#37096;&#35745;&#25968;&#22120;: 4
+4, &#20869;&#37096;&#35745;&#25968;&#22120;: 5
+5, &#20869;&#37096;&#35745;&#25968;&#22120;: 6
+6, &#20869;&#37096;&#35745;&#25968;&#22120;: 7
+7, &#20869;&#37096;&#35745;&#25968;&#22120;: 8
+8, &#20869;&#37096;&#35745;&#25968;&#22120;: 9
+9, &#20869;&#37096;&#35745;&#25968;&#22120;: 10
+6, &#26368;&#32456;&#35745;&#25968;&#22120;: 11
+3, &#26368;&#32456;&#35745;&#25968;&#22120;: 12
+4, &#26368;&#32456;&#35745;&#25968;&#22120;: 13
+2, &#26368;&#32456;&#35745;&#25968;&#22120;: 14
+5, &#26368;&#32456;&#35745;&#25968;&#22120;: 15
+0, &#26368;&#32456;&#35745;&#25968;&#22120;: 16
+1, &#26368;&#32456;&#35745;&#25968;&#22120;: 17
+7, &#26368;&#32456;&#35745;&#25968;&#22120;: 18
+9, &#26368;&#32456;&#35745;&#25968;&#22120;: 19
+8, &#26368;&#32456;&#35745;&#25968;&#22120;: 20</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-unique_lock-try_lock.html"><span class="t-lines"><span>try_lock</span></span></a></div>
+</div>
+</td>
+<td>&#23581;&#35797;&#38145;&#23450;&#65288;&#21363;&#33719;&#24471;&#20854;&#25152;&#26377;&#26435;&#65289;&#20851;&#32852;&#20114;&#26021;&#20307;&#32780;&#19981;&#38459;&#22622;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-unique_lock-unlock.html"><span class="t-lines"><span>unlock</span></span></a></div>
+</div>
+</td>
+<td>&#35299;&#38145;&#65288;&#21363;&#37322;&#25918;&#20854;&#25152;&#26377;&#26435;&#65289;&#20851;&#32852;&#20114;&#26021;&#20307;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

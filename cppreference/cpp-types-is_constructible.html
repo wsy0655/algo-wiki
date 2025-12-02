@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::is_constructible, std::is_trivially_constructible, std::is_nothrow_constructible</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_types_is_constructible skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>is_constructible, <span style="font-size:0.8em; line-height:125%">std::</span>is_trivially_constructible, <span style="font-size:0.8em; line-height:125%">std::</span>is_nothrow_constructible</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-types.html">types</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-type_traits.html">&lt;type_traits&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span>... <span class="me1">Args</span> <span class="sy1">&gt;</span><br />
+<span class="kw1">struct</span> is_constructible<span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span>... <span class="me1">Args</span> <span class="sy1">&gt;</span><br />
+<span class="kw1">struct</span> is_trivially_constructible<span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span>... <span class="me1">Args</span> <span class="sy1">&gt;</span><br />
+<span class="kw1">struct</span> is_nothrow_constructible<span class="sy4">;</span></span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#22914;&#26524; <code>T</code> &#26159;&#23545;&#35937;&#25110;&#24341;&#29992;&#31867;&#22411;&#65292;&#19988;&#21464;&#37327;&#23450;&#20041; <span class="t-c"><span class="mw-geshi cpp source-cpp">T obj<span class="br0">(</span><a href="cpp-utility-declval.html"><span class="kw1117">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span>...<span class="br0">)</span><span class="sy4">;</span></span></span> &#33391;&#26500;&#65292;&#37027;&#20040;&#25552;&#20379;&#30340;&#25104;&#21592;&#24120;&#37327; <code>value</code> &#31561;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#12290;&#23545;&#20110;&#20854;&#23427;&#25152;&#26377;&#31867;&#22411;&#65292;<code>value</code> &#31561;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#12290;<br />
+&#23545;&#20110;&#36825;&#39033;&#26816;&#26597;&#32780;&#35328;&#65292;&#20915;&#19981;&#20250;&#25226;&#21464;&#37327;&#23450;&#20041;&#21028;&#35835;&#20026;&#20989;&#25968;&#22768;&#26126;&#65292;&#19988;&#19981;&#35748;&#20026; <span class="t-lc"><a href="cpp-utility-declval.html">std::declval</a></span> &#26159; <a href="cpp-language-definition.html#ODR_.E5.BC.8F.E4.BD.BF.E7.94.A8">ODR &#24335;&#20351;&#29992;</a>&#12290;&#22914;&#21516;&#20174;&#19982; <code>T</code> &#21644; <code>Args</code> &#20013;&#30340;&#20219;&#20309;&#31867;&#22411;&#26080;&#20851;&#30340;&#35821;&#22659;&#36827;&#34892;<a href="cpp-language-access.html">&#35775;&#38382;&#26816;&#26597;</a>&#12290;&#20165;&#32771;&#34385;&#21464;&#37327;&#23450;&#20041;&#30340;&#31435;&#21363;&#35821;&#22659;&#30340;&#21512;&#27861;&#24615;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#21516; <span class="t-v">(1)</span>&#65292;&#20294;&#21464;&#37327;&#23450;&#20041;&#19981;&#36827;&#34892;&#20219;&#20309;&#38750;&#24179;&#20961;&#25805;&#20316;&#12290;&#23545;&#20110;&#36825;&#39033;&#26816;&#26597;&#32780;&#35328;&#65292;&#23545; <span class="t-lc"><a href="cpp-utility-declval.html">std::declval</a></span> &#30340;&#35843;&#29992;&#34987;&#35748;&#20026;&#26159;&#24179;&#20961;&#30340;&#12290;</div>
+<div class="t-li1"><span class="t-li">3)</span> &#21516; <span class="t-v">(1)</span>&#65292;&#20294;&#21464;&#37327;&#23450;&#20041;&#20026; <code>noexcept</code>&#12290;</div>
+<p>&#22914;&#26524;&nbsp;<code>T</code>&nbsp;&#25110;&#24418;&#21442;&#21253; <code>Args</code> &#20013;&#30340;&#20219;&#20309;&#31867;&#22411;&#19981;&#26159;&#23436;&#25972;&#31867;&#22411;&#65292;&#65288;&#21487;&#26377; cv &#38480;&#23450;&#30340;&#65289;<span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span> &#25110;&#26410;&#30693;&#36793;&#30028;&#25968;&#32452;&#65292;&#37027;&#20040;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<p>&#22914;&#26524;&#19978;&#36848;&#27169;&#26495;&#30340;&#23454;&#20363;&#21270;&#30452;&#25509;&#25110;&#38388;&#25509;&#22320;&#20381;&#36182;&#20110;&#19981;&#23436;&#25972;&#31867;&#22411;&#65292;&#24182;&#19988;&#20551;&#35774;&#22312;&#35813;&#31867;&#22411;&#23436;&#25972;&#30340;&#24773;&#20917;&#19979;&#23454;&#20363;&#21270;&#23601;&#20250;&#20135;&#29983;&#19981;&#21516;&#30340;&#32467;&#26524;&#65292;&#37027;&#20040;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<p>&#22914;&#26524;&#31243;&#24207;&#28155;&#21152;&#20102;&#27492;&#39029;&#38754;&#19978;&#25551;&#36848;&#30340;&#20219;&#20309;&#27169;&#26495;&#30340;&#29305;&#21270;&#65292;&#37027;&#20040;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<h3><span class="mw-headline" id=".E8.BE.85.E5.8A.A9.E5.8F.98.E9.87.8F.E6.A8.A1.E6.9D.BF">&#36741;&#21161;&#21464;&#37327;&#27169;&#26495;</span></h3>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span>... <span class="me1">Args</span> <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw1">inline</span> <span class="kw4">constexpr</span> <span class="kw4">bool</span> is_constructible_v <span class="sy1">=</span><br /></p>
+&nbsp; &nbsp; is_constructible<span class="sy1">&lt;</span>T, Args...<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">value</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span>... <span class="me1">Args</span> <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw1">inline</span> <span class="kw4">constexpr</span> <span class="kw4">bool</span> is_trivially_constructible_v <span class="sy1">=</span><br /></p>
+&nbsp; &nbsp; is_trivially_constructible<span class="sy1">&lt;</span>T, Args...<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">value</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span>... <span class="me1">Args</span> <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw1">inline</span> <span class="kw4">constexpr</span> <span class="kw4">bool</span> is_nothrow_constructible_v <span class="sy1">=</span><br /></p>
+&nbsp; &nbsp; is_nothrow_constructible<span class="sy1">&lt;</span>T, Args...<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">value</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-template-editlink" style=""></div>
+<div class="t-inherited">
+<h2><span class="mw-headline" id=".E7.BB.A7.E6.89.BF.E8.87.AA_std::integral_constant">&#32487;&#25215;&#33258; <a href="cpp-types-integral_constant.html"><span style="font-size:0.8em; line-height:125%">std::</span>integral_constant</a></span></h2>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.B8.B8.E9.87.8F">&#25104;&#21592;&#24120;&#37327;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span>value</span></span></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span></span></span></div>
+</div>
+</td>
+<td>&#22914;&#26524; <code>T</code> &#21487;&#20174; <code>Args...</code> &#26500;&#36896;&#37027;&#20040;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#21542;&#21017;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#24120;&#37327;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span>operator bool</span></span></div>
+</div>
+</td>
+<td>&#23558;&#23545;&#35937;&#36716;&#25442;&#21040; <span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span>&#65292;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp">value</span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span>operator()</span></span></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14)</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp">value</span></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E7.B1.BB.E5.9E.8B">&#25104;&#21592;&#31867;&#22411;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#31867;&#22411;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>value_type</code></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span></td>
+</tr>
+<tr class="t-dsc">
+<td><code>type</code></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-types-integral_constant.html"><span class="kw644">std::<span class="me2">integral_constant</span></span></a><span class="sy1">&lt;</span><span class="kw4">bool</span>, value<span class="sy1">&gt;</span></span></td>
+</tr>
+</table>
+</div>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#22810;&#25968;&#23454;&#29616;&#20013;&#65292;<code>is_nothrow_constructible</code> &#20134;&#26816;&#26597;&#26512;&#26500;&#20989;&#25968;&#26159;&#21542;&#25243;&#20986;&#65292;&#22240;&#20026;&#23427;&#30456;&#24403;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">noexcept</span><span class="br0">(</span>T<span class="br0">(</span>arg<span class="br0">)</span><span class="br0">)</span></span></span>&#12290;&#21516;&#26679;&#30340;&#24773;&#20917;&#36866;&#29992;&#20110; <code>is_trivially_constructible</code>&#65292;&#22312;&#36825;&#20123;&#23454;&#29616;&#20013;&#20134;&#35201;&#27714;&#26512;&#26500;&#20989;&#25968;&#20026;&#24179;&#20961;&#30340;&#65306;<a rel="nofollow" class="external text" href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=51452">GCC &#28431;&#27934; 51452</a> <a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue2116">LWG &#38382;&#39064; 2116</a>&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;type_traits&gt;</span>
+ 
+<span class="kw1">class</span> Foo
+<span class="br0">{</span>
+    <span class="kw4">int</span> v1<span class="sy4">;</span>
+    <span class="kw4">double</span> v2<span class="sy4">;</span>
+<span class="kw1">public</span><span class="sy4">:</span>
+    Foo<span class="br0">(</span><span class="kw4">int</span> n<span class="br0">)</span> <span class="sy4">:</span> v1<span class="br0">(</span>n<span class="br0">)</span>, v2<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+    Foo<span class="br0">(</span><span class="kw4">int</span> n, <span class="kw4">double</span> f<span class="br0">)</span> <span class="kw1">noexcept</span> <span class="sy4">:</span> v1<span class="br0">(</span>n<span class="br0">)</span>, v2<span class="br0">(</span>f<span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">auto</span> is <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">bool</span> o<span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> <span class="br0">(</span>o <span class="sy4">?</span> <span class="st0">&quot;<span class="es1">\t</span>&quot;</span> <span class="st0">&quot;&quot;</span> <span class="sy4">:</span> <span class="st0">&quot;<span class="es1">\t</span>&quot;</span> <span class="st0">&quot;&#19981;&quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1756">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;Foo ...<span class="es1">\n</span>&quot;</span>
+              <span class="sy1">&lt;&lt;</span> is<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">is_trivially_constructible_v</span><span class="sy1">&lt;</span>Foo, <span class="kw4">const</span> Foo<span class="sy3">&amp;</span><span class="sy1">&gt;</span><span class="br0">)</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#21487;&#20174; const Foo&amp; &#24179;&#20961;&#26500;&#36896;<span class="es1">\n</span>&quot;</span>
+              <span class="sy1">&lt;&lt;</span> is<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">is_trivially_constructible_v</span><span class="sy1">&lt;</span>Foo, <span class="kw4">int</span><span class="sy1">&gt;</span><span class="br0">)</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#21487;&#20174; int &#24179;&#20961;&#26500;&#36896;<span class="es1">\n</span>&quot;</span>
+              <span class="sy1">&lt;&lt;</span> is<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">is_constructible_v</span><span class="sy1">&lt;</span>Foo, <span class="kw4">int</span><span class="sy1">&gt;</span><span class="br0">)</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#21487;&#20174; int &#26500;&#36896;<span class="es1">\n</span>&quot;</span>
+              <span class="sy1">&lt;&lt;</span> is<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">is_nothrow_constructible_v</span><span class="sy1">&lt;</span>Foo, <span class="kw4">int</span><span class="sy1">&gt;</span><span class="br0">)</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#21487;&#20174; int &#26080;&#25243;&#20986;&#26500;&#36896;<span class="es1">\n</span>&quot;</span>
+              <span class="sy1">&lt;&lt;</span> is<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">is_nothrow_constructible_v</span><span class="sy1">&lt;</span>Foo, <span class="kw4">int</span>, <span class="kw4">double</span><span class="sy1">&gt;</span><span class="br0">)</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#21487;&#20174; int &#21644; double &#26080;&#25243;&#20986;&#26500;&#36896;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">Foo ...
+        &#21487;&#20174; const Foo&amp; &#24179;&#20961;&#26500;&#36896;
+        &#19981;&#21487;&#20174; int &#24179;&#20961;&#26500;&#36896;
+        &#21487;&#20174; int &#26500;&#36896;
+        &#19981;&#21487;&#20174; int &#26080;&#25243;&#20986;&#26500;&#36896;
+        &#21487;&#20174; int &#21644; double &#26080;&#25243;&#20986;&#26500;&#36896;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-types-is_default_constructible.html"><span class="t-lines"><span>is_default_constructible</span><span>is_trivially_default_constructible</span><span>is_nothrow_default_constructible</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#31867;&#22411;&#26159;&#21542;&#26377;&#40664;&#35748;&#26500;&#36896;&#20989;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-types-is_copy_constructible.html"><span class="t-lines"><span>is_copy_constructible</span><span>is_trivially_copy_constructible</span><span>is_nothrow_copy_constructible</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#31867;&#22411;&#26159;&#21542;&#26377;&#22797;&#21046;&#26500;&#36896;&#20989;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-types-is_move_constructible.html"><span class="t-lines"><span>is_move_constructible</span><span>is_trivially_move_constructible</span><span>is_nothrow_move_constructible</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#31867;&#22411;&#26159;&#21542;&#33021;&#20174;&#21491;&#20540;&#24341;&#29992;&#26500;&#36896;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-concepts-constructible_from.html"><span class="t-lines"><span>constructible_from</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#25351;&#23450;&#35813;&#31867;&#22411;&#30340;&#21464;&#37327;&#33021;&#20174;&#19968;&#32452;&#23454;&#21442;&#31867;&#22411;&#36827;&#34892;&#26500;&#36896;&#65292;&#25110;&#32465;&#23450;&#21040;&#19968;&#32452;&#23454;&#21442;&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#27010;&#24565;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

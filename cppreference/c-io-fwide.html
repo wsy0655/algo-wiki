@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>fwide</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_io_fwide skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">fwide</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-io.html">io</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-wchar.html"><tt>&lt;wchar.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi c source-c"><span class="kw4">int</span> fwide<span class="br0">(</span> <a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> stream, <span class="kw4">int</span> mode <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-c95" style="white-space: nowrap;">(C95 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#33509; <span class="t-c"><span class="mw-geshi c source-c">mode <span class="sy1">&gt;</span> <span class="nu0">0</span></span></span>&#65292;&#21017;&#35797;&#22270;&#20196; <span class="t-c"><span class="mw-geshi c source-c">stream</span></span> &#20026;&#23485;&#21462;&#21521;&#12290;&#33509; <span class="t-c"><span class="mw-geshi c source-c">mode <span class="sy1">&lt;</span> <span class="nu0">0</span></span></span>&#65292;&#21017;&#35797;&#22270;&#20196; <span class="t-c"><span class="mw-geshi c source-c">stream</span></span> &#20026;&#23383;&#33410;&#21462;&#21521;&#12290;&#33509; <span class="t-c"><span class="mw-geshi c source-c">mode <span class="sy1">==</span> <span class="nu0">0</span></span></span>&#65292;&#21017;&#21482;&#26597;&#35810;&#27969;&#30340;&#24403;&#21069;&#21462;&#21521;&#12290;</p>
+<p>&#33509;&#24050;&#32463;&#20915;&#23450;&#27969;&#30340;&#21462;&#21521;&#65288;&#36890;&#36807;&#25191;&#34892;&#36755;&#20986;&#25110;&#36890;&#36807;&#20043;&#21069;&#35843;&#29992; <code>fwide</code>&#65289;&#65292;&#21017;&#27492;&#20989;&#25968;&#19981;&#20570;&#20219;&#20309;&#20107;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>stream</td>
+<td>-</td>
+<td>&#25351;&#21521;&#20462;&#25913;&#25110;&#26597;&#35810;&#30340; C I/O &#27969;&#30340;&#25351;&#38024;</td>
+</tr>
+<tr class="t-par">
+<td>mode</td>
+<td>-</td>
+<td>&#22823;&#20110;&#38646;&#30340;&#25972;&#25968;&#35774;&#32622;&#27969;&#20026;&#23485;&#65292;&#23567;&#20110;&#38646;&#30340;&#25972;&#25968;&#35774;&#32622;&#27969;&#20026;&#31364;&#65292;&#38646;&#20026;&#20165;&#26597;&#35810;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#33509;&#27969;&#22312;&#27492;&#35843;&#29992;&#21518;&#20026;&#23485;&#21462;&#21521;&#65292;&#21017;&#20026;&#22823;&#20110;&#38646;&#30340;&#25972;&#25968;&#65292;&#33509;&#27969;&#22312;&#27492;&#35843;&#29992;&#21518;&#20026;&#23383;&#33410;&#21462;&#21521;&#65292;&#21017;&#20026;&#23567;&#20110;&#38646;&#30340;&#25972;&#25968;&#65292;&#33509;&#27969;&#26080;&#21462;&#21521;&#65292;&#21017;&#20026;&#38646;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<p>&#19979;&#21015;&#20195;&#30721;&#35774;&#32622;&#24182;&#37325;&#32622;&#27969;&#30340;&#21462;&#21521;&#12290;</p>
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#include &lt;stdlib.h&gt;</span>
+<span class="co2">#include &lt;wchar.h&gt;</span>
+ 
+<span class="kw4">void</span> show_orientation<span class="br0">(</span><span class="kw4">int</span> n<span class="br0">)</span>
+<span class="br0">{</span>
+    n <span class="sy1">&lt;</span> <span class="nu0">0</span> <span class="sy4">?</span> <a href="c-io-puts.html"><span class="kw836">puts</span></a><span class="br0">(</span><span class="st0">&quot;<span class="es1">\t</span>&#31364;&#21462;&#21521;&quot;</span><span class="br0">)</span><span class="sy4">:</span>
+    n <span class="sy1">&gt;</span> <span class="nu0">0</span> <span class="sy4">?</span> <a href="c-io-puts.html"><span class="kw836">puts</span></a><span class="br0">(</span><span class="st0">&quot;<span class="es1">\t</span>&#23485;&#21462;&#21521;&quot;</span><span class="br0">)</span><span class="sy4">:</span>
+            <a href="c-io-puts.html"><span class="kw836">puts</span></a><span class="br0">(</span><span class="st0">&quot;<span class="es1">\t</span>&#26080;&#21462;&#21521;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">void</span> try_read<span class="br0">(</span><a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> fp<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">int</span> c <span class="sy1">=</span> <a href="c-io-fgetc.html"><span class="kw827">fgetc</span></a><span class="br0">(</span>fp<span class="br0">)</span><span class="sy4">;</span>
+    c <span class="sy1">==</span> <a href="c-io.html"><span class="kw889">EOF</span></a>
+        <span class="sy4">?</span> <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;<span class="es1">\t</span>&#35835;&#21462;&#31364;&#23383;&#31526;&#22833;&#36133;<span class="es1">\n</span>&quot;</span><span class="br0">)</span>
+        <span class="sy4">:</span> <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;<span class="es1">\t</span>&#35835;&#21462;&#31364;&#23383;&#31526; &#39;%c&#39;<span class="es1">\n</span>&quot;</span>, c<span class="br0">)</span><span class="sy4">;</span>
+ 
+    wint_t wc <span class="sy1">=</span> <a href="c-io-fgetwc.html"><span class="kw838">fgetwc</span></a><span class="br0">(</span>fp<span class="br0">)</span><span class="sy4">;</span>
+    wc <span class="sy1">==</span> WEOF
+        <span class="sy4">?</span> <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;<span class="es1">\t</span>&#35835;&#21462;&#23485;&#23383;&#31526;&#22833;&#36133;<span class="es1">\n</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+        <span class="sy4">:</span> <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;<span class="es1">\t</span>&#35835;&#21462;&#23485;&#23383;&#31526; &#39;%lc&#39;<span class="es1">\n</span>&quot;</span>, wc<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw2">enum</span> fwide_orientation <span class="br0">{</span> narrow <span class="sy1">=</span> <span class="sy2">-</span><span class="nu0">1</span>, query, wide <span class="br0">}</span><span class="sy4">;</span>
+ 
+    <a href="c-io.html"><span class="kw884">FILE</span></a><span class="sy2">*</span> fp <span class="sy1">=</span> <a href="c-io-fopen.html"><span class="kw819">fopen</span></a><span class="br0">(</span><span class="st0">&quot;main.cpp&quot;</span>, <span class="st0">&quot;r&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span><span class="sy3">!</span>fp<span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="c-io-perror.html"><span class="kw879">perror</span></a><span class="br0">(</span><span class="st0">&quot;fopen() &#22833;&#36133;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+        <span class="kw1">return</span> <a href="c-program-EXIT_status.html"><span class="kw494">EXIT_FAILURE</span></a><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <a href="c-io-puts.html"><span class="kw836">puts</span></a><span class="br0">(</span><span class="st0">&quot;1) &#26032;&#25171;&#24320;&#30340;&#27969;&#26159;&#26080;&#21462;&#21521;&#30340;&#12290;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    show_orientation<span class="br0">(</span>fwide<span class="br0">(</span>fp, query<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="c-io-puts.html"><span class="kw836">puts</span></a><span class="br0">(</span><span class="st0">&quot;2) &#24314;&#31435;&#23383;&#33410;&#21462;&#21521;&#12290;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    show_orientation<span class="br0">(</span>fwide<span class="br0">(</span>fp, narrow<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    try_read<span class="br0">(</span>fp<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="c-io-puts.html"><span class="kw836">puts</span></a><span class="br0">(</span><span class="st0">&quot;3) &#21482;&#26377; freopen() &#21487;&#20197;&#37325;&#32622;&#27969;&#30340;&#21462;&#21521;&#12290;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span><a href="c-io-freopen.html"><span class="kw820">freopen</span></a><span class="br0">(</span><span class="st0">&quot;main.cpp&quot;</span>, <span class="st0">&quot;r&quot;</span>, fp<span class="br0">)</span> <span class="sy1">==</span> <a href="c-types-NULL.html"><span class="kw103">NULL</span></a><span class="br0">)</span>
+    <span class="br0">{</span>
+       <a href="c-io-perror.html"><span class="kw879">perror</span></a><span class="br0">(</span><span class="st0">&quot;freopen() failed&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+       <span class="kw1">return</span> <a href="c-program-EXIT_status.html"><span class="kw494">EXIT_FAILURE</span></a><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <a href="c-io-puts.html"><span class="kw836">puts</span></a><span class="br0">(</span><span class="st0">&quot;4) &#37325;&#26032;&#25171;&#24320;&#30340;&#27969;&#26159;&#26080;&#21462;&#21521;&#30340;&#12290;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    show_orientation<span class="br0">(</span>fwide<span class="br0">(</span>fp, query<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="c-io-puts.html"><span class="kw836">puts</span></a><span class="br0">(</span><span class="st0">&quot;5) &#24314;&#31435;&#23485;&#21462;&#21521;&#12290;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    show_orientation<span class="br0">(</span>fwide<span class="br0">(</span>fp, wide<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    try_read<span class="br0">(</span>fp<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="c-io-fclose.html"><span class="kw822">fclose</span></a><span class="br0">(</span>fp<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">1) &#26032;&#25171;&#24320;&#30340;&#27969;&#26159;&#26080;&#21462;&#21521;&#30340;&#12290;
+        &#26080;&#21462;&#21521;
+2) &#24314;&#31435;&#23383;&#33410;&#21462;&#21521;&#12290;
+        &#31364;&#21462;&#21521;
+        &#35835;&#21462;&#31364;&#23383;&#31526; &#39;#&#39;
+        &#35835;&#21462;&#23485;&#23383;&#31526;&#22833;&#36133;
+3) &#21482;&#26377; freopen() &#21487;&#20197;&#37325;&#32622;&#27969;&#30340;&#21462;&#21521;&#12290;
+4) &#37325;&#26032;&#25171;&#24320;&#30340;&#27969;&#26159;&#26080;&#21462;&#21521;&#30340;&#12290;
+        &#26080;&#21462;&#21521;
+5) &#24314;&#31435;&#23485;&#21462;&#21521;&#12290;
+        &#23485;&#21462;&#21521;
+        &#35835;&#21462;&#31364;&#23383;&#31526;&#22833;&#36133;
+        &#35835;&#21462;&#23485;&#23383;&#31526;&#22833;&#36133; &#39;#&#39;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-23">
+<ul>
+<li>C23 &#26631;&#20934;&#65288;ISO/IEC 9899:2024&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.29.3.5 The fwide function &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.29.3.5 The fwide function &#65288;&#31532; 309 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.29.3.5 The fwide function &#65288;&#31532; 423 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c99">
+<ul>
+<li>C99 &#26631;&#20934;&#65288;ISO/IEC 9899:1999&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.24.3.5 The fwide function &#65288;&#31532; 369 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-io-fopen.html"><span class="t-lines"><span>fopen</span><span>fopen_s</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11)</span></span></span></div>
+</div>
+</td>
+<td>&#25171;&#24320;&#25991;&#20214;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>fwide</span></span>&nbsp;&#30340; <span><span><a href="cpp-io-c-fwide.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

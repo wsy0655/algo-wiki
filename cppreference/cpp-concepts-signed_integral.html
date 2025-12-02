@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::signed_integral</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_concepts_signed_integral skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>signed_integral</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-concepts.html">concepts</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-concepts.html">&lt;concepts&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T <span class="sy1">&gt;</span><br />
+concept signed_integral <span class="sy1">=</span> <a href="cpp-concepts-integral.html"><span class="kw2938">std::<span class="me2">integral</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span> <a href="cpp-types-is_signed.html"><span class="kw524">std::<span class="me2">is_signed_v</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#27010;&#24565; <code>signed_integral&lt;T&gt;</code> &#24403;&#19988;&#20165;&#24403; <code>T</code> &#20026;&#25972;&#25968;&#31867;&#22411;&#19988; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_signed.html"><span class="kw524">std::<span class="me2">is_signed_v</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span> &#26102;&#24471;&#21040;&#28385;&#36275;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p><code>signed_integral&lt;T&gt;</code> &#21487;&#20197;&#19981;&#20026;<a href="cpp-language-type.html#.E7.B1.BB.E5.9E.8B.E7.9A.84.E5.88.86.E7.B1.BB">&#26377;&#31526;&#21495;&#25972;&#25968;&#31867;&#22411;</a>&#65292;&#20363;&#22914; <span class="mw-geshi cpp source-cpp"><span class="kw4">char</span></span> &#31867;&#22411;&#65288;&#22312; <span class="mw-geshi cpp source-cpp"><span class="kw4">char</span></span> &#20026;&#26377;&#31526;&#21495;&#30340;&#31995;&#32479;&#19978;&#65289;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;concepts&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;string_view&gt;</span>
+ 
+<span class="kw4">void</span> test<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">signed_integral</span> <span class="kw4">auto</span> x, <a href="cpp-string-basic_string_view.html"><span class="kw1251">std::<span class="me2">string_view</span></span></a> text <span class="sy1">=</span> <span class="st0">&quot;&quot;</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> text <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; (&quot;</span> <span class="sy2">+</span> <span class="br0">(</span>text <span class="sy1">==</span> <span class="st0">&quot;&quot;</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> x <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;) is a signed integral<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">void</span> test<span class="br0">(</span><a href="cpp-concepts-unsigned_integral.html"><span class="kw2939">std::<span class="me2">unsigned_integral</span></span></a> <span class="kw4">auto</span> x, <a href="cpp-string-basic_string_view.html"><span class="kw1251">std::<span class="me2">string_view</span></span></a> text <span class="sy1">=</span> <span class="st0">&quot;&quot;</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> text <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; (&quot;</span> <span class="sy2">+</span> <span class="br0">(</span>text <span class="sy1">==</span> <span class="st0">&quot;&quot;</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> x <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;) is an unsigned integral<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">void</span> test<span class="br0">(</span><span class="kw4">auto</span> x, <a href="cpp-string-basic_string_view.html"><span class="kw1251">std::<span class="me2">string_view</span></span></a> text <span class="sy1">=</span> <span class="st0">&quot;&quot;</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> text <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; (&quot;</span> <span class="sy2">+</span> <span class="br0">(</span>text <span class="sy1">==</span> <span class="st0">&quot;&quot;</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> x <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;) is non-integral<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    test<span class="br0">(</span><span class="nu0">42</span><span class="br0">)</span><span class="sy4">;</span>               <span class="co1">// signed</span>
+    test<span class="br0">(</span>0xFULL, <span class="st0">&quot;0xFULL&quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// unsigned</span>
+    test<span class="br0">(</span><span class="st0">&#39;A&#39;</span><span class="br0">)</span><span class="sy4">;</span>              <span class="co1">// platform-dependent</span>
+    test<span class="br0">(</span><span class="kw2">true</span>, <span class="st0">&quot;true&quot;</span><span class="br0">)</span><span class="sy4">;</span>     <span class="co1">// unsigned</span>
+    test<span class="br0">(</span><span class="nu19">4e-2</span>, <span class="st0">&quot;4e-2&quot;</span><span class="br0">)</span><span class="sy4">;</span>     <span class="co1">// non-integral (hex-float)</span>
+    test<span class="br0">(</span><span class="st0">&quot;&int;&int;&quot;</span><span class="br0">)</span><span class="sy4">;</span>             <span class="co1">// non-integral</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">(42) is a signed integral
+0xFULL (15) is an unsigned integral
+(A) is a signed integral
+true (1) is an unsigned integral
+4e-2 (0.04) is non-integral
+(&int;&int;) is non-integral</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-c++23">
+<ul>
+<li>C++23 &#26631;&#20934;&#65288;ISO/IEC 14882:2024&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>18.4.7 Arithmetic concepts [concepts.arithmetic]</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c++20">
+<ul>
+<li>C++20 &#26631;&#20934;&#65288;ISO/IEC 14882:2020&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>18.4.7 Arithmetic concepts [concepts.arithmetic]</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-types-is_integral.html"><span class="t-lines"><span>is_integral</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#31867;&#22411;&#26159;&#21542;&#20026;&#25972;&#25968;&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-types-is_signed.html"><span class="t-lines"><span>is_signed</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#31867;&#22411;&#26159;&#21542;&#20026;&#26377;&#31526;&#21495;&#31639;&#26415;&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

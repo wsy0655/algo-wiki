@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>restrict &#31867;&#22411;&#38480;&#23450;&#31526; (C99 &#36215;)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_language_restrict skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">restrict &#31867;&#22411;&#38480;&#23450;&#31526; <span class="t-mark-rev t-since-c99" style="white-space: nowrap;">(C99 &#36215;)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-language.html">language</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<p>C <a href="c-language-type.html">&#31867;&#22411;&#31995;&#32479;</a>&#20013;&#27599;&#19968;&#20010;&#29420;&#31435;&#30340;&#31867;&#22411;&#37117;&#26377;&#25968;&#20010;&#35813;&#31867;&#22411;&#30340;<i>&#38480;&#23450;</i>&#29256;&#26412;&#65292;&#23545;&#24212; <a href="c-language-const.html"><code>const</code></a>&#12289;<a href="c-language-volatile.html"><code>volatile</code></a>&#65292;&#20197;&#21450;&#23545;&#20110;&#25351;&#21521;&#23545;&#35937;&#25351;&#38024;&#30340; <code>restrict</code> &#38480;&#23450;&#31526;&#20013;&#30340;&#19968;&#20010;&#12289;&#20004;&#20010;&#25110;&#20840;&#37096;&#19977;&#20010;&#12290;&#27492;&#39029;&#38754;&#25551;&#36848; <code>restrict</code> &#38480;&#23450;&#31526;&#30340;&#25928;&#26524;&#12290;</p>
+<p>&#20165;&#26377;&#25351;&#21521;<a href="c-language-type.html">&#23545;&#35937;&#31867;&#22411;</a>&#30340;&#25351;&#38024;<span class="t-rev-inl t-since-c23"><span>&#21450;&#20854;&#65288;&#21487;&#33021;&#22810;&#32500;&#30340;&#65289;&#25968;&#32452;</span><span><span class="t-mark-rev t-since-c23" style="white-space: nowrap;">(C23 &#36215;)</span></span></span>&#21487;&#34987; restrict &#38480;&#23450;&#65307;&#20855;&#20307;&#32780;&#35328;&#65292;&#20197;&#19979;&#26159;<i>&#38169;&#35823;</i>&#30340;&#65306;</p>
+<ul>
+<li><span class="t-c"><span class="mw-geshi c source-c"><span class="kw4">int</span> <span class="kw4">restrict</span> <span class="sy2">*</span>p</span></span></li>
+<li><span class="t-c"><span class="mw-geshi c source-c"><span class="kw4">float</span> <span class="br0">(</span><span class="sy2">*</span> <span class="kw4">restrict</span> f9<span class="br0">)</span><span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span></span></span></li>
+</ul>
+<p>restrict &#35821;&#20041;&#20165;&#36866;&#29992;&#20110;&#24038;&#20540;&#34920;&#36798;&#24335;&#65307;&#20363;&#22914;&#21040; restrict &#38480;&#23450;&#25351;&#38024;&#30340;&#31867;&#22411;&#36716;&#25442;&#65292;&#25110;&#36820;&#22238; restrict &#38480;&#23450;&#25351;&#38024;&#30340;&#20989;&#25968;&#35843;&#29992;&#19981;&#26159;&#24038;&#20540;&#65292;&#20174;&#32780;&#35813;&#38480;&#23450;&#31526;&#26080;&#25928;&#26524;&#12290;</p>
+<p>&#22312;&#22768;&#26126;&#20102; restrict &#25351;&#38024; <code>P</code> &#30340;&#22359;&#30340;&#27599;&#27425;&#25191;&#34892;&#65288;&#20856;&#22411;&#20363;&#23376;&#26159;&#20989;&#25968;&#20307;&#30340;&#25191;&#34892;&#65292;&#20854;&#20013; <code>P</code> &#20026;&#20989;&#25968;&#24418;&#21442;&#65289;&#20013;&#65292;&#33509;&#26576;&#20010;&#21487;&#30001; <code>P</code>&#65288;&#30452;&#25509;&#25110;&#38388;&#25509;&#65289;&#35775;&#38382;&#30340;&#23545;&#35937;&#20250;&#34987;&#20219;&#20309;&#25163;&#27573;&#20462;&#25913;&#65292;&#21017;&#35813;&#22359;&#20013;&#23545;&#35813;&#23545;&#35937;&#30340;&#25152;&#26377;&#35775;&#38382;&#65288;&#35835;&#25110;&#20889;&#65289;&#65292;&#37117;&#24517;&#39035;&#32463;&#30001; <code>P</code> &#36827;&#34892;&#65292;&#21542;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="kw4">void</span> f<span class="br0">(</span><span class="kw4">int</span> n, <span class="kw4">int</span> <span class="sy2">*</span> <span class="kw4">restrict</span> p, <span class="kw4">int</span> <span class="sy2">*</span> <span class="kw4">restrict</span> q<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">while</span> <span class="br0">(</span>n<span class="sy2">--</span> <span class="sy1">&gt;</span> <span class="nu0">0</span><span class="br0">)</span>
+        <span class="sy2">*</span>p<span class="sy2">++</span> <span class="sy1">=</span> <span class="sy2">*</span>q<span class="sy2">++</span><span class="sy4">;</span> <span class="co1">// &#36890;&#36807; *p &#20462;&#25913;&#30340;&#23545;&#35937;&#19982;&#36890;&#36807; *q &#35835;&#21462;&#30340;&#26080;&#19968;&#30456;&#21516;</span>
+                     <span class="co1">// &#32534;&#35793;&#22120;&#21487;&#20197;&#33258;&#30001;&#22320;&#20248;&#21270;&#12289;&#21521;&#37327;&#21270;&#12289;&#20570;&#39029;&#38754;&#26144;&#23556;&#31561;&#31561;&#12290;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">void</span> g<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw2">extern</span> <span class="kw4">int</span> d<span class="br0">[</span><span class="nu0">100</span><span class="br0">]</span><span class="sy4">;</span>
+    f<span class="br0">(</span><span class="nu0">50</span>, d <span class="sy2">+</span> <span class="nu0">50</span>, d<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK</span>
+    f<span class="br0">(</span><span class="nu0">50</span>, d <span class="sy2">+</span> <span class="nu0">1</span>, d<span class="br0">)</span><span class="sy4">;</span>  <span class="co1">// &#26410;&#23450;&#20041;&#34892;&#20026;&#65306;f &#20013;&#30340; p &#21644; q &#22343;&#21487;&#35775;&#38382; d[1]</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#33509;&#23545;&#35937;&#20915;&#19981;&#34987;&#20462;&#25913;&#65292;&#21017;&#23427;&#21487;&#20197;&#34987;&#21035;&#21517;&#24341;&#29992;&#65292;&#24182;&#34987;&#24322;&#20110; restrict &#38480;&#23450;&#30340;&#25351;&#38024;&#35775;&#38382;&#65288;&#27880;&#24847;&#33509;&#23545;&#35937;&#20026;&#21035;&#21517;&#24341;&#29992;&#30340; restrict &#38480;&#23450;&#25351;&#38024;&#25152;&#25351;&#65292;&#21017;&#21035;&#21517;&#24341;&#29992;&#21487;&#33021;&#25233;&#21046;&#20248;&#21270;&#65289;&#12290;</p>
+<p>&#23558;&#19968;&#20010; restrict &#25351;&#38024;&#36171;&#20540;&#32473;&#21478;&#19968;&#20010;&#26159;&#26410;&#23450;&#20041;&#34892;&#20026;&#65292;&#38500;&#38750;&#23558;&#25351;&#21521;&#22806;&#37096;&#22359;&#30340;&#25351;&#38024;&#36171;&#20540;&#32473;&#20869;&#37096;&#22359;&#20013;&#30340;&#25351;&#38024;&#65288;&#21253;&#25324;&#22312;&#35843;&#29992;&#21547; restrict &#25351;&#38024;&#21442;&#25968;&#30340;&#20989;&#25968;&#26102;&#65292;&#20197; restrict &#25351;&#38024;&#20026;&#21442;&#25968;&#65289;&#65292;&#25110;&#20174;&#20989;&#25968;&#36820;&#22238;&#25351;&#38024;&#65288;&#36824;&#26377;&#22312;&#21069;&#19968;&#20010;&#25351;&#38024;&#30340;&#22359;&#24050;&#32463;&#32467;&#26463;&#26102;&#65289;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="kw4">int</span><span class="sy2">*</span> <span class="kw4">restrict</span> p1 <span class="sy1">=</span> <span class="sy3">&amp;</span>a<span class="sy4">;</span>
+<span class="kw4">int</span><span class="sy2">*</span> <span class="kw4">restrict</span> p2 <span class="sy1">=</span> <span class="sy3">&amp;</span>b<span class="sy4">;</span>
+p1 <span class="sy1">=</span> p2<span class="sy4">;</span> <span class="co1">// &#26410;&#23450;&#20041;&#34892;&#20026;</span></pre></div>
+</div>
+<p>restrict &#25351;&#38024;&#21487;&#20197;&#33258;&#30001;&#22320;&#36171;&#20540;&#32473;&#38750; restrict &#25351;&#38024;&#65292;&#21482;&#35201;&#32534;&#35793;&#22120;&#36824;&#33021;&#20248;&#21270;&#20195;&#30721;&#65292;&#20248;&#21270;&#26426;&#20250;&#36824;&#26159;&#20445;&#30041;&#23601;&#20301;&#30340;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="kw4">void</span> f<span class="br0">(</span><span class="kw4">int</span> n, <span class="kw4">float</span> <span class="sy2">*</span> <span class="kw4">restrict</span> r, <span class="kw4">float</span> <span class="sy2">*</span> <span class="kw4">restrict</span> s<span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw4">float</span> <span class="sy2">*</span> p <span class="sy1">=</span> r, <span class="sy2">*</span> q <span class="sy1">=</span> s<span class="sy4">;</span> <span class="co1">// OK</span>
+    <span class="kw1">while</span> <span class="br0">(</span>n<span class="sy2">--</span> <span class="sy1">&gt;</span> <span class="nu0">0</span><span class="br0">)</span>
+        <span class="sy2">*</span>p<span class="sy2">++</span> <span class="sy1">=</span> <span class="sy2">*</span>q<span class="sy2">++</span><span class="sy4">;</span> <span class="co1">// &#20960;&#20046;&#32943;&#23450;&#20248;&#21270;&#25104;&#20165;&#22914; *r++ = *s++ &#19968;&#33324;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<table class="t-rev-begin">
+<tr class="t-rev t-until-c23">
+<td>
+<p>&#33509;&#20197; restrict &#31867;&#22411;&#38480;&#23450;&#31526;&#22768;&#26126;&#25968;&#32452;&#31867;&#22411;&#65288;&#36890;&#36807;&#20351;&#29992; <a href="c-language-typedef.html">typedef</a>&#65289;&#65292;&#21017;&#25968;&#32452;&#31867;&#22411;&#26080; restrict &#38480;&#23450;&#65292;&#20294;&#20854;&#20803;&#32032;&#31867;&#22411;&#26377; restrict &#38480;&#23450;&#65306;</p>
+</td>
+<td><span class="t-mark-rev t-until-c23" style="white-space: nowrap;">(C23 &#21069;)</span></td>
+</tr>
+<tr class="t-rev t-since-c23">
+<td>
+<p>&#22987;&#32456;&#35748;&#20026;&#25968;&#32452;&#31867;&#22411;&#19982;&#20854;&#20803;&#32032;&#31867;&#22411;&#21516;&#31561;&#22320;&#25317;&#26377; restrict &#38480;&#23450;&#65306;</p>
+</td>
+<td><span class="t-mark-rev t-since-c23" style="white-space: nowrap;">(C23 &#36215;)</span></td>
+</tr>
+</table>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="kw1">typedef</span> <span class="kw4">int</span> <span class="sy2">*</span>array_t<span class="br0">[</span><span class="nu0">10</span><span class="br0">]</span><span class="sy4">;</span>
+ 
+<span class="kw4">restrict</span> array_t a<span class="sy4">;</span> <span class="co1">// a &#30340;&#31867;&#22411;&#26159; int *restrict[10] </span>
+<span class="co1">// &#27880;&#65306;clang &#21644; icc &#20197; array_t &#19981;&#26159;&#25351;&#38024;&#31867;&#22411;&#20026;&#30001;&#25298;&#32477;</span>
+ 
+<span class="kw4">void</span> <span class="sy2">*</span>unqual_ptr <span class="sy1">=</span> <span class="sy3">&amp;</span>a<span class="sy4">;</span> <span class="co1">// C23 &#21069; OK &#65307; C23 &#36215;&#38169;&#35823;</span>
+<span class="co1">// &#27880;&#65306;clang &#21363;&#20351;&#22312; C89-C17 &#27169;&#24335;&#20063;&#24212;&#29992; C++/C23 &#20013;&#30340;&#35268;&#21017;</span></pre></div>
+</div>
+<p>&#22312;&#20989;&#25968;&#22768;&#26126;&#20013;&#65292;&#20851;&#38190;&#35789; <code>restrict</code> &#21487;&#20197;&#20986;&#29616;&#20110;&#26041;&#25324;&#21495;&#20869;&#65292;&#29992;&#20197;&#22768;&#26126;&#20989;&#25968;&#21442;&#25968;&#30340;&#25968;&#32452;&#31867;&#22411;&#12290;&#23427;&#23545;&#25968;&#32452;&#25152;&#36716;&#25442;&#24471;&#30340;&#25351;&#38024;&#31867;&#22411;&#36171;&#20104;&#38480;&#23450;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="kw4">void</span> f<span class="br0">(</span><span class="kw4">int</span> m, <span class="kw4">int</span> n, <span class="kw4">float</span> a<span class="br0">[</span><span class="kw4">restrict</span> m<span class="br0">]</span><span class="br0">[</span>n<span class="br0">]</span>, <span class="kw4">float</span> b<span class="br0">[</span><span class="kw4">restrict</span> m<span class="br0">]</span><span class="br0">[</span>n<span class="br0">]</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+<span class="kw4">void</span> g12<span class="br0">(</span><span class="kw4">int</span> n, <span class="kw4">float</span> <span class="br0">(</span><span class="sy2">*</span>p<span class="br0">)</span><span class="br0">[</span>n<span class="br0">]</span><span class="br0">)</span>
+<span class="br0">{</span>
+   f<span class="br0">(</span><span class="nu0">10</span>, n, p, p<span class="sy2">+</span><span class="nu0">10</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK</span>
+   f<span class="br0">(</span><span class="nu0">20</span>, n, p, p<span class="sy2">+</span><span class="nu0">10</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#21487;&#33021;&#26159;&#26410;&#23450;&#20041;&#34892;&#20026;&#65288;&#21462;&#20915;&#20110; f &#25152;&#20026;&#65289;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>restrict &#38480;&#23450;&#31526;&#65288;&#20687;&#23492;&#23384;&#22120;&#23384;&#20648;&#31867;&#65289;&#26159;&#26377;&#24847;&#20351;&#29992;&#20197;&#20419;&#36827;&#20248;&#21270;&#30340;&#12290;&#32780;&#20174;&#25152;&#26377;&#32452;&#25104;&#19968;&#33268;&#31243;&#24207;&#30340;&#39044;&#22788;&#29702;&#32763;&#35793;&#21333;&#20803;&#20013;&#65292;&#21024;&#38500;&#25152;&#26377;&#27492;&#38480;&#23450;&#31526;&#30340;&#23454;&#20363;&#19981;&#20250;&#24433;&#21709;&#20854;&#21547;&#20041;&#65288;&#21363;&#21487;&#35266;&#30340;&#34892;&#20026;&#65289;&#12290;</p>
+<p>&#32534;&#35793;&#22120;&#21487;&#20197;&#24573;&#30053;&#20219;&#20309;&#19968;&#20010;&#25110;&#20840;&#37096;&#20351;&#29992; <code>restrict</code> &#30340;&#21035;&#21517;&#20351;&#29992;&#26263;&#31034;&#12290;</p>
+<p>&#27442;&#36991;&#20813;&#26410;&#23450;&#20041;&#34892;&#20026;&#65292;&#31243;&#24207;&#21592;&#24212;&#35813;&#30830;&#20445; restrict &#38480;&#23450;&#25351;&#38024;&#25152;&#20570;&#30340;&#21035;&#21517;&#24341;&#29992;&#26029;&#35328;&#19981;&#20250;&#36829;&#35268;&#12290;</p>
+<p>&#35768;&#22810;&#32534;&#35793;&#22120;&#25552;&#20379;&#20316;&#20026; <code>restrict</code> &#23545;&#31435;&#38754;&#30340;&#35821;&#35328;&#25193;&#23637;&#65306;&#25351;&#31034;&#21363;&#20351;&#25351;&#38024;&#31867;&#22411;&#19981;&#21516;&#65292;&#20063;&#21487;&#20197;&#21035;&#21517;&#20351;&#29992;&#30340;&#23646;&#24615;&#65306; <a rel="nofollow" class="external text" href="https://gcc.gnu.org/onlinedocs/gcc/Common-Type-Attributes.html#index-g_t_0040code_007bmay_005falias_007d-type-attribute-3667"><code>may_alias</code> (gcc)</a></p>
+<h3><span class="mw-headline" id=".E4.BD.BF.E7.94.A8.E6.A8.A1.E5.BC.8F">&#20351;&#29992;&#27169;&#24335;</span></h3>
+<p>restrict &#38480;&#23450;&#25351;&#38024;&#26377;&#20960;&#31181;&#24120;&#29992;&#30340;&#20351;&#29992;&#27169;&#24335;&#65306;</p>
+<h4><span class="mw-headline" id=".E6.96.87.E4.BB.B6.E4.BD.9C.E7.94.A8.E5.9F.9F">&#25991;&#20214;&#20316;&#29992;&#22495;</span></h4>
+<p>&#25991;&#20214;&#20316;&#29992;&#22495;&#30340; restrict &#38480;&#23450;&#25351;&#38024;&#24517;&#39035;&#22312;&#31243;&#24207;&#36816;&#34892;&#26399;&#38388;&#25351;&#21521;&#21333;&#20010;&#25968;&#32452;&#30340;&#20803;&#32032;&#12290;&#35813;&#25968;&#32452;&#23545;&#35937;&#19981;&#21487;&#20197;&#36890;&#36807; restrict &#25351;&#38024;&#21644;&#36890;&#36807;&#20854;&#22768;&#26126;&#21517;&#31216;&#65288;&#33509;&#26377;&#30340;&#35805;&#65289;&#25110;&#21478;&#19968;&#20010; restrict &#25351;&#38024;&#20004;&#31181;&#26041;&#24335;&#19968;&#21516;&#24341;&#29992;&#12290;</p>
+<p>&#25991;&#20214;&#20316;&#29992;&#22495; restrict &#25351;&#38024;&#23545;&#35775;&#38382;&#21160;&#24577;&#20998;&#37197;&#30340;&#20840;&#23616;&#25968;&#32452;&#26377;&#29992;&#65307;restrict &#35821;&#20041;&#20196;&#36890;&#36807;&#27492;&#25351;&#38024;&#30340;&#24341;&#29992;&#65292;&#21644;&#36890;&#36807;&#38745;&#24577;&#25968;&#32452;&#30340;&#22768;&#26126;&#21517;&#31216;&#24341;&#29992;&#35813;&#25968;&#32452;&#25928;&#29575;&#30456;&#24403;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="kw4">float</span> <span class="sy2">*</span><span class="kw4">restrict</span> a, <span class="sy2">*</span><span class="kw4">restrict</span> b<span class="sy4">;</span>
+<span class="kw4">float</span> c<span class="br0">[</span><span class="nu0">100</span><span class="br0">]</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> init<span class="br0">(</span><span class="kw4">int</span> n<span class="br0">)</span>
+<span class="br0">{</span>
+   <span class="kw4">float</span> <span class="sy2">*</span> t <span class="sy1">=</span> <a href="c-memory-malloc.html"><span class="kw403">malloc</span></a><span class="br0">(</span><span class="nu0">2</span><span class="sy2">*</span>n<span class="sy2">*</span><span class="kw4">sizeof</span><span class="br0">(</span><span class="kw4">float</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+   a <span class="sy1">=</span> t<span class="sy4">;</span>      <span class="co1">// a &#24341;&#29992;&#21069;&#21322;</span>
+   b <span class="sy1">=</span> t <span class="sy2">+</span> n<span class="sy4">;</span>  <span class="co1">// b &#24341;&#29992;&#21518;&#21322;</span>
+<span class="br0">}</span>
+<span class="co1">// &#32534;&#35793;&#22120;&#21487;&#20197;&#20174; restrict &#38480;&#23450;&#31526;&#25512;&#26029; a&#12289;b &#21644; c &#37117;&#27809;&#26377;&#28508;&#22312;&#30340;&#21035;&#21517;&#24341;&#29992;</span></pre></div>
+</div>
+<h4><span class="mw-headline" id=".E5.87.BD.E6.95.B0.E5.BD.A2.E5.8F.82">&#20989;&#25968;&#24418;&#21442;</span></h4>
+<p>&#26368;&#24191;&#27867;&#30340; restrict &#38480;&#23450;&#25351;&#38024;&#20351;&#29992;&#65292;&#26159;&#29992;&#20316;&#20989;&#25968;&#24418;&#21442;&#12290;</p>
+<p>&#22312;&#19979;&#20363;&#20013;&#65292;&#32534;&#35793;&#22120;&#21487;&#33021;&#25512;&#26029;&#20986;&#34987;&#20462;&#25913;&#23545;&#35937;&#19981;&#20250;&#26377;&#21035;&#21517;&#24341;&#29992;&#65292;&#20174;&#32780;&#33021;&#26356;&#22823;&#32966;&#22320;&#20248;&#21270;&#24490;&#29615;&#12290;&#22312; <code>f</code> &#30340;&#20837;&#21475;&#22788;&#65292;&#24517;&#39035;&#25552;&#20379; restrict &#25351;&#38024;&#23545;&#20851;&#32852;&#25968;&#32452;&#30340;&#29420;&#21344;&#35775;&#38382;&#12290;&#29305;&#21035;&#26159;&#65292;&#22312; <code>f</code> &#20869; <code>b</code> &#25110; <code>c</code> &#37117;&#19981;&#21487;&#20197;&#25351;&#20837; <code>a</code> &#25152;&#20851;&#32852;&#30340;&#25968;&#32452;&#65292;&#22240;&#20026;&#23427;&#20204;&#37117;&#19981;&#26159;&#20197;&#22522;&#20110; <code>a</code> &#30340;&#25351;&#38024;&#20540;&#36171;&#20540;&#30340;&#12290;&#23545;&#20110; <code>b</code>&#65292;&#22240;&#20026;&#20854;&#22768;&#26126;&#30340; const &#38480;&#23450;&#31526;&#36825;&#26159;&#26174;&#28982;&#30340;&#65292;&#20294;&#23545;&#20110; <code>c</code>&#65292;&#38656;&#35201;&#26816;&#26597; <code>f</code> &#30340;&#20989;&#25968;&#20307;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="kw4">float</span> x<span class="br0">[</span><span class="nu0">100</span><span class="br0">]</span><span class="sy4">;</span>
+<span class="kw4">float</span> <span class="sy2">*</span>c<span class="sy4">;</span>
+ 
+<span class="kw4">void</span> f<span class="br0">(</span><span class="kw4">int</span> n, <span class="kw4">float</span> <span class="sy2">*</span> <span class="kw4">restrict</span> a, <span class="kw4">float</span> <span class="sy2">*</span> <span class="kw4">const</span> b<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">int</span> i<span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span> i<span class="sy1">=</span><span class="nu0">0</span><span class="sy4">;</span> i<span class="sy1">&lt;</span>n<span class="sy4">;</span> i<span class="sy2">++</span> <span class="br0">)</span>
+       a<span class="br0">[</span>i<span class="br0">]</span> <span class="sy1">=</span> b<span class="br0">[</span>i<span class="br0">]</span> <span class="sy2">+</span> c<span class="br0">[</span>i<span class="br0">]</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">void</span> g3<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">float</span> d<span class="br0">[</span><span class="nu0">100</span><span class="br0">]</span>, e<span class="br0">[</span><span class="nu0">100</span><span class="br0">]</span><span class="sy4">;</span>
+    c <span class="sy1">=</span> x<span class="sy4">;</span> f<span class="br0">(</span><span class="nu0">100</span>,   d,    e<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK</span>
+           f<span class="br0">(</span> <span class="nu0">50</span>,   d, d<span class="sy2">+</span><span class="nu0">50</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK</span>
+           f<span class="br0">(</span> <span class="nu0">99</span>, d<span class="sy2">+</span><span class="nu0">1</span>,    d<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#26410;&#23450;&#20041;&#34892;&#20026;</span>
+    c <span class="sy1">=</span> d<span class="sy4">;</span> f<span class="br0">(</span> <span class="nu0">99</span>, d<span class="sy2">+</span><span class="nu0">1</span>,    e<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#26410;&#23450;&#20041;&#34892;&#20026;</span>
+           f<span class="br0">(</span> <span class="nu0">99</span>,   e,  d<span class="sy2">+</span><span class="nu0">1</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#27880;&#24847;&#23558; <code>c</code> &#25351;&#21521; <code>b</code> &#25152;&#20851;&#32852;&#30340;&#25968;&#32452;&#26159;&#20801;&#35768;&#30340;&#12290;&#36824;&#35201;&#27880;&#24847;&#65292;&#23545;&#20110;&#36825;&#20123;&#30446;&#30340;&#65292;&#20851;&#32852;&#21040;&#36890;&#24120;&#25351;&#38024;&#30340;&ldquo;&#25968;&#32452;&rdquo;&#65292;&#20165;&#34920;&#31034;&#25968;&#32452;&#23545;&#35937;&#30340;&#37027;&#19968;&#37096;&#20998;&#23454;&#38469;&#19978;&#26159;&#30001;&#35813;&#25351;&#38024;&#24341;&#29992;&#30340;&#12290;</p>
+<p>&#27880;&#24847;&#22312;&#19978;&#20363;&#20013;&#65292;&#32534;&#35793;&#22120;&#33021;&#25512;&#26029; a &#21644; b &#19981;&#20250;&#21035;&#21517;&#20351;&#29992;&#65292;&#22240;&#20026; b &#30340;&#24120;&#24615;&#30830;&#20445;&#36825;&#28857;&#19981;&#20250;&#21464;&#24471;&#20381;&#36182;&#20989;&#25968;&#20307;&#12290;&#31243;&#24207;&#21592;&#33021;&#31561;&#20215;&#22320;&#20889; <span class="t-c"><span class="mw-geshi c source-c"><span class="kw4">void</span> f<span class="br0">(</span><span class="kw4">int</span> n, <span class="kw4">float</span> <span class="sy2">*</span> a, <span class="kw4">float</span> <span class="kw4">const</span> <span class="sy2">*</span> <span class="kw4">restrict</span> b<span class="br0">)</span></span></span>&#65292;&#35813;&#24773;&#20917;&#19979;&#32534;&#35793;&#22120;&#29702;&#35299;&#26080;&#27861;&#20462;&#25913;&#36890;&#36807; b &#24341;&#29992;&#30340;&#23545;&#35937;&#65292;&#32780;&#20197; b &#21644; a &#19968;&#21516;&#24341;&#29992;&#30340;&#23545;&#35937;&#20063;&#19981;&#20250;&#34987;&#20462;&#25913;&#12290;&#20551;&#22914;&#31243;&#24207;&#21592;&#35201;&#20889; <span class="t-c"><span class="mw-geshi c source-c"><span class="kw4">void</span> f<span class="br0">(</span><span class="kw4">int</span> n, <span class="kw4">float</span> <span class="sy2">*</span> <span class="kw4">restrict</span> a, <span class="kw4">float</span> <span class="sy2">*</span> b<span class="br0">)</span></span></span>&#65292;&#21017;&#32534;&#35793;&#22120;&#19981;&#26816;&#39564;&#20989;&#25968;&#20307;&#23601;&#26080;&#27861;&#25512;&#26029;&#20986; a &#21644; b &#19981;&#20250;&#21035;&#21517;&#20351;&#29992;&#12290;</p>
+<p>&#36890;&#24120;&#24773;&#20917;&#19979;&#65292;&#26368;&#22909;&#22312;&#20989;&#25968;&#21407;&#22411;&#20013;&#29992; <span class="t-c"><span class="mw-geshi c source-c"><span class="kw4">restrict</span></span></span> &#26174;&#24335;&#26631;&#27880;&#25152;&#26377;&#19981;&#20250;&#21035;&#21517;&#20351;&#29992;&#30340;&#25351;&#38024;&#12290;</p>
+<h4><span class="mw-headline" id=".E5.9D.97.E4.BD.9C.E7.94.A8.E5.9F.9F">&#22359;&#20316;&#29992;&#22495;</span></h4>
+<p>&#19968;&#20010;&#22359;&#20316;&#29992;&#22495;&#30340; restrict &#38480;&#23450;&#25351;&#38024;&#20250;&#20570;&#19968;&#20010;&#38480;&#20110;&#20854;&#22359;&#20869;&#30340;&#21035;&#21517;&#24341;&#29992;&#26029;&#35328;&#12290;&#23427;&#20801;&#35768;&#23616;&#37096;&#26029;&#35328;&#20165;&#24212;&#29992;&#21040;&#37325;&#35201;&#30340;&#22359;&#65292;&#35692;&#22914;&#32039;&#20945;&#24490;&#29615;&#12290;&#23427;&#20134;&#20351;&#24471;&#23558;&#20351;&#29992; restrict &#38480;&#23450;&#25351;&#38024;&#30340;&#20989;&#25968;&#36716;&#25442;&#25104;&#23439;&#25104;&#20026;&#21487;&#33021;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="kw4">float</span> x<span class="br0">[</span><span class="nu0">100</span><span class="br0">]</span><span class="sy4">;</span>
+<span class="kw4">float</span> <span class="sy2">*</span>c<span class="sy4">;</span>
+<span class="co2">#define f3(N, A, B)                                    \
+do                                                     \
+{   int n = (N);                                       \
+    float * restrict a = (A);                          \
+    float * const    b = (B);                          \
+    int i;                                             \
+    for ( i=0; i&lt;n; i++ )                              \
+        a[i] = b[i] + c[i];                            \
+} while(0)</span></pre></div>
+</div>
+<h4><span class="mw-headline" id=".E7.BB.93.E6.9E.84.E4.BD.93.E6.88.90.E5.91.98">&#32467;&#26500;&#20307;&#25104;&#21592;</span></h4>
+<p>&#20316;&#20026;&#32467;&#26500;&#20307;&#25104;&#21592;&#30340; restrict &#38480;&#23450;&#25351;&#38024;&#65292;&#25152;&#20570;&#30340;&#21035;&#21517;&#24341;&#29992;&#26029;&#35328;&#20316;&#29992;&#22495;&#65292;&#26159;&#29992;&#20110;&#35775;&#38382;&#35813;&#32467;&#26500;&#20307;&#30340;&#26631;&#35782;&#31526;&#30340;&#20316;&#29992;&#22495;&#12290;</p>
+<p>&#21363;&#20351;&#32467;&#26500;&#20307;&#22768;&#26126;&#20110;&#25991;&#20214;&#20316;&#29992;&#22495;&#65292;&#24403;&#29992;&#20197;&#35775;&#38382;&#27492;&#32467;&#26500;&#20307;&#30340;&#26631;&#35782;&#31526;&#25317;&#26377;&#22359;&#20316;&#29992;&#22495;&#26102;&#65292;&#32467;&#26500;&#20307;&#20013;&#30340;&#21035;&#21517;&#24341;&#29992;&#26029;&#35328;&#20134;&#25317;&#26377;&#22359;&#20316;&#29992;&#22495;&#65307;&#21035;&#21517;&#24341;&#29992;&#26029;&#35328;&#20165;&#22312;&#22359;&#25191;&#34892;&#25110;&#20989;&#25968;&#35843;&#29992;&#20013;&#29983;&#25928;&#65292;&#20855;&#20307;&#21462;&#20915;&#20110;&#27492;&#32467;&#26500;&#20307;&#31867;&#22411;&#30340;&#23545;&#35937;&#26159;&#22914;&#20309;&#21019;&#36896;&#30340;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="kw1">struct</span> t      <span class="co1">// restrict &#25351;&#38024;&#26029;&#35328;</span>
+<span class="br0">{</span>
+   <span class="kw4">int</span> n<span class="sy4">;</span>     <span class="co1">// &#25104;&#21592;&#25351;&#21521;&#26080;&#20132;&#38598;&#30340;&#23384;&#20648;&#21306;&#12290;</span>
+   <span class="kw4">float</span> <span class="sy2">*</span> <span class="kw4">restrict</span> p<span class="sy4">;</span>
+   <span class="kw4">float</span> <span class="sy2">*</span> <span class="kw4">restrict</span> q<span class="sy4">;</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">void</span> ff<span class="br0">(</span><span class="kw1">struct</span> t r, <span class="kw1">struct</span> t s<span class="br0">)</span>
+<span class="br0">{</span>
+   <span class="kw1">struct</span> t u<span class="sy4">;</span>
+   <span class="co1">// r&#12289;s&#12289;u &#25317;&#26377;&#22359;&#20316;&#29992;&#22495;</span>
+   <span class="co1">// r.p&#12289;r.q&#12289;s.p&#12289;s.q&#12289;u.p&#12289;u.q &#24212;&#35813;&#22312;</span>
+   <span class="co1">// &#27599;&#27425;&#25191;&#34892; ff &#26102;&#20840;&#37096;&#25351;&#21521;&#26080;&#20132;&#38598;&#30340;&#23384;&#20648;&#21306;&#12290;</span>
+   <span class="co1">// ...</span>
+<span class="br0">}</span></pre></div>
+</div>
+<h3><span class="mw-headline" id=".E5.85.B3.E9.94.AE.E8.AF.8D">&#20851;&#38190;&#35789;</span></h3>
+<p><a href="c-keyword-restrict.html"><tt>restrict</tt></a></p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<p>&#20195;&#30721;&#29983;&#25104;&#26679;&#20363;&#65307;&#20197; -S&#65288;gcc&#12289;clang &#31561;&#65289;&#25110; /FA&#65288;Visual Studio&#65289;&#21442;&#25968;&#32534;&#35793;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="kw4">int</span> foo<span class="br0">(</span><span class="kw4">int</span> <span class="sy2">*</span>a, <span class="kw4">int</span> <span class="sy2">*</span>b<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="sy2">*</span>a <span class="sy1">=</span> <span class="nu0">5</span><span class="sy4">;</span>
+    <span class="sy2">*</span>b <span class="sy1">=</span> <span class="nu0">6</span><span class="sy4">;</span>
+    <span class="kw1">return</span> <span class="sy2">*</span>a <span class="sy2">+</span> <span class="sy2">*</span>b<span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> rfoo<span class="br0">(</span><span class="kw4">int</span> <span class="sy2">*</span><span class="kw4">restrict</span> a, <span class="kw4">int</span> <span class="sy2">*</span><span class="kw4">restrict</span> b<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="sy2">*</span>a <span class="sy1">=</span> <span class="nu0">5</span><span class="sy4">;</span>
+    <span class="sy2">*</span>b <span class="sy1">=</span> <span class="nu0">6</span><span class="sy4">;</span>
+    <span class="kw1">return</span> <span class="sy2">*</span>a <span class="sy2">+</span> <span class="sy2">*</span>b<span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="asm source-asm">
+<pre class="de1"><span class="co1">; &#25152;&#29983;&#25104;&#30340; 64 &#20301; Intel &#24179;&#21488;&#30340;&#20195;&#30721;&#65306;</span>
+foo<span class="sy0">:</span>
+    movl    $<span class="nu0">5</span><span class="sy0">,</span> <span class="br0">(</span><span class="sy0">%</span>rdi<span class="br0">)</span>    <span class="co1">; &#23384;&#20648; 5 &#20110; *a</span>
+    movl    $<span class="nu0">6</span><span class="sy0">,</span> <span class="br0">(</span><span class="sy0">%</span>rsi<span class="br0">)</span>    <span class="co1">; &#23384;&#20648; 6 &#20110; *b</span>
+    movl    <span class="br0">(</span><span class="sy0">%</span>rdi<span class="br0">)</span><span class="sy0">,</span> <span class="sy0">%</span><span class="kw3">eax</span>  <span class="co1">; &#20174; *a &#35835;&#22238;&#20540;&#65292;&#32771;&#34385;&#21040;&#21069;&#38754;&#30340;&#23384;&#20648;&#20250;&#20462;&#25913;&#23427;</span>
+    addl    $<span class="nu0">6</span><span class="sy0">,</span> <span class="sy0">%</span><span class="kw3">eax</span>      <span class="co1">; &#23558;&#20174; *a &#35835;&#24471;&#30340;&#20540;&#21152; 6</span>
+    <span class="kw1">ret</span>
+ 
+rfoo<span class="sy0">:</span>
+    movl      $<span class="nu0">11</span><span class="sy0">,</span> <span class="sy0">%</span><span class="kw3">eax</span>   <span class="co1">; &#32467;&#26524;&#26159; 11&#65292;&#32534;&#35793;&#26102;&#24120;&#37327;</span>
+    movl      $<span class="nu0">5</span><span class="sy0">,</span> <span class="br0">(</span><span class="sy0">%</span>rdi<span class="br0">)</span>  <span class="co1">; &#23384;&#20648; 5 &#20110; *a</span>
+    movl      $<span class="nu0">6</span><span class="sy0">,</span> <span class="br0">(</span><span class="sy0">%</span>rsi<span class="br0">)</span>  <span class="co1">; &#23384;&#20648; 6 &#20110; *b</span>
+    <span class="kw1">ret</span></pre></div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-23">
+<ul>
+<li>C23 &#26631;&#20934;&#65288;ISO/IEC 9899:2024&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>6.7.3.1 Formal definition of restrict &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>6.7.3.1 Formal definition of restrict &#65288;&#31532; 89-90 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>6.7.3.1 Formal definition of restrict &#65288;&#31532; 123-125 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c99">
+<ul>
+<li>C99 &#26631;&#20934;&#65288;ISO/IEC 9899:1999&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>6.7.3.1 Formal definition of restrict &#65288;&#31532; 110-112 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>operator==(std::move_iterator&lt;Iter&gt;, std::move_sentinel)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_iterator_move_iterator_operator_cmp2 skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">operator==<span style="font-size:0.8em; line-height:125%">(std::move_iterator&lt;Iter&gt;, std::move_sentinel)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-iterator.html">iterator</a>&lrm; | <a href="cpp-iterator-move_iterator.html">move iterator</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-iterator-sentinel_for.html"><span class="kw2862">std::<span class="me2">sentinel_for</span></span></a><span class="sy1">&lt;</span>Iter<span class="sy1">&gt;</span> S <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw1">friend</span> <span class="kw4">constexpr</span> <span class="kw4">bool</span><br /></p>
+&nbsp; &nbsp; operator<span class="sy1">==</span><span class="br0">(</span> <span class="kw4">const</span> move_iterator<span class="sy3">&amp;</span> i, <span class="kw4">const</span> <a href="cpp-iterator-move_sentinel.html"><span class="kw2877">std::<span class="me2">move_sentinel</span></span></a><span class="sy1">&lt;</span>S<span class="sy1">&gt;</span><span class="sy3">&amp;</span> s <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#27604;&#36739; <code>move_iterator</code> &#19982; <code>move_sentinel</code>&#12290;</p>
+<p>&#27492;&#37325;&#36733;&#21482;&#26377;&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">i.<span class="me1">base</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> s.<span class="me1">base</span><span class="br0">(</span><span class="br0">)</span></span></span> &#33391;&#26500;&#24182;&#19988;&#21487;&#36716;&#25442;&#21040; <span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span> &#26102;&#25165;&#20250;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#12290;</p>
+<p>&#27492;&#20989;&#25968;&#27169;&#26495;&#23545;&#24120;&#35268;&#30340;<a href="cpp-language-unqualified_lookup.html">&#26080;&#38480;&#23450;</a>&#25110;<a href="cpp-language-qualified_lookup.html">&#26377;&#38480;&#23450;&#26597;&#25214;</a>&#19981;&#21487;&#35265;&#65292;&#32780;&#21482;&#33021;&#22312; <span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-move_iterator.html"><span class="kw662">std::<span class="me2">move_iterator</span></span></a><span class="sy1">&lt;</span>Iter<span class="sy1">&gt;</span></span> &#20026;&#23454;&#21442;&#30340;&#20851;&#32852;&#31867;&#26102;&#30001;<a href="cpp-language-adl.html">&#23454;&#21442;&#20381;&#36182;&#26597;&#25214;</a>&#25214;&#21040;&#12290;</p>
+<p><code>!=</code> &#36816;&#31639;&#31526;&#20174; <code>operator==</code> &#36816;&#31639;&#31526;<a href="cpp-language-default_comparisons.html#.E5.85.B6.E4.BB.96.E9.A2.84.E7.BD.AE.E6.AF.94.E8.BE.83.E8.BF.90.E7.AE.97.E7.AC.A6">&#21512;&#25104;</a>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>i</td>
+<td>-</td>
+<td>&#35201;&#27604;&#36739;&#30340;&#31227;&#21160;&#36845;&#20195;&#22120;</td>
+</tr>
+<tr class="t-par">
+<td>s</td>
+<td>-</td>
+<td>&#35201;&#27604;&#36739;&#30340;&#31227;&#21160;&#21736;&#20301;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp">i.<span class="me1">base</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> s.<span class="me1">base</span><span class="br0">(</span><span class="br0">)</span></span></span></p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#26242;&#26080;&#31034;&#20363;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-move_iterator-operator_cmp.html"><span class="t-lines"><span>operator==</span><span>operator!=</span><span>operator&lt;</span><span>operator&lt;=</span><span>operator&gt;</span><span>operator&gt;=</span><span>operator&lt;=&gt;</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#31227;&#38500;)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#27604;&#36739;&#24213;&#23618;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

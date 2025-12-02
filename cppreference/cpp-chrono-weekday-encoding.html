@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::chrono::weekday::c_encoding, std::chrono::weekday::iso_encoding</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_chrono_weekday_encoding skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::chrono::weekday::</span>c_encoding, <span style="font-size:0.8em; line-height:125%">std::chrono::weekday::</span>iso_encoding</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-chrono.html">chrono</a>&lrm; | <a href="cpp-chrono-weekday.html">weekday</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="kw4">unsigned</span> c_encoding<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="kw4">unsigned</span> iso_encoding<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#36820;&#22238;&#23384;&#20648;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#30340;&#26143;&#26399;&#20043;&#26085;&#20540;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#36820;&#22238;&#23384;&#20648;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#30340;&#26143;&#26399;&#20043;&#26085;&#20540;&#65292;&#20294;&#25353;&#29031; ISO 8601 &#23558;&#26143;&#26399;&#26085;&#65288;&#23384;&#20648;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">&#8203;<span class="nu0">0</span>&#8203;</span></span>&#65289;&#20026;&#21028;&#35835;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="nu0">7</span></span></span>&#12290;</div>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<div class="t-li1"><span class="t-li">1)</span> &#23384;&#20648;&#20110; <code>*this</code> &#30340;&#26143;&#26399;&#20043;&#26085;&#20540;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> <span class="t-c"><span class="mw-geshi cpp source-cpp">c_encoding<span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> 0u <span class="sy4">?</span> 7u <span class="sy4">:</span> c_encoding<span class="br0">(</span><span class="br0">)</span></span></span></div>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;chrono&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;i: C: ISO: Weekday:<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+ 
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">unsigned</span> i<span class="br0">{</span><span class="nu0">0</span><span class="br0">}</span><span class="sy4">;</span> i <span class="sy3">!</span><span class="sy1">=</span> <span class="nu0">8</span><span class="sy4">;</span> <span class="sy2">++</span>i<span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw4">const</span> <a href="cpp-chrono-weekday.html"><span class="kw2559">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">weekday</span></span></a> w<span class="br0">{</span>i<span class="br0">}</span><span class="sy4">;</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> i <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;  &quot;</span>
+                  <span class="sy1">&lt;&lt;</span> w.<span class="me1">c_encoding</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;  &quot;</span>
+                  <span class="sy1">&lt;&lt;</span> w.<span class="me1">iso_encoding</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;    &quot;</span>
+                  <span class="sy1">&lt;&lt;</span> w <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">i: C: ISO: Weekday:
+0  0  7    Sun
+1  1  1    Mon
+2  2  2    Tue
+3  3  3    Wed
+4  4  4    Thu
+5  5  5    Fri
+6  6  6    Sat
+7  0  7    Sun</pre></div>
+</div>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

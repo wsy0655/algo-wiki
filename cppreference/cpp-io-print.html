@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::print</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_io_print skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>print</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-io.html">io</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-print.html">&lt;print&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span>... <span class="me1">Args</span> <span class="sy1">&gt;</span><br />
+<span class="kw4">void</span> print<span class="br0">(</span> <a href="cpp-utility-format-basic_format_string.html"><span class="kw3540">std::<span class="me2">format_string</span></span></a><span class="sy1">&lt;</span>Args...<span class="sy1">&gt;</span> fmt, Args<span class="sy3">&amp;&amp;</span>... <span class="me1">args</span> <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span>... <span class="me1">Args</span> <span class="sy1">&gt;</span><br /></span>
+<p><span class="kw4">void</span> print<span class="br0">(</span> <a href="cpp-io-c-FILE.html"><span class="kw1881">std::<span class="me2">FILE</span></span></a><span class="sy2">*</span> stream,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-utility-format-basic_format_string.html"><span class="kw3540">std::<span class="me2">format_string</span></span></a><span class="sy1">&lt;</span>Args...<span class="sy1">&gt;</span> fmt, Args<span class="sy3">&amp;&amp;</span>... <span class="me1">args</span> <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#26681;&#25454;&#26684;&#24335;&#23383;&#31526;&#20018; <span class="t-c"><span class="mw-geshi cpp source-cpp">fmt</span></span> &#26684;&#24335;&#21270; <span class="t-c"><span class="mw-geshi cpp source-cpp">args</span></span>&#65292;&#24182;&#23558;&#32467;&#26524;&#25171;&#21360;&#21040;&#27969;&#20013;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">print</span><span class="br0">(</span><span class="kw2">stdout</span>, fmt, <a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span>args<span class="br0">)</span>...<span class="br0">)</span></span></span>&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> <a href="cpp-language-charset.html#.E4.BB.A3.E7.A0.81.E5.8D.95.E5.85.83.E5.92.8C.E5.AD.97.E9.9D.A2.E9.87.8F.E7.BC.96.E7.A0.81">&#36890;&#24120;&#23383;&#38754;&#37327;&#32534;&#30721;</a>&#26159; UTF-8 &#26102;&#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span>std<span class="sy4">::</span><span class="me2">enable_nonlocking_formatter_optimization</span><span class="sy1">&lt;</span><a href="cpp-types-remove_cvref.html"><span class="kw2644">std::<span class="me2">remove_cvref_t</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;&gt;</span> <span class="sy3">&amp;&amp;</span> ...<span class="br0">)</span></span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; &nbsp; <span class="sy4">?</span> <a href="cpp-io-vprint_unicode.html"><span class="kw3365">std::<span class="me2">vprint_unicode</span></span></a><span class="br0">(</span>stream, fmt.<span class="me1">str</span>, <a href="cpp-utility-format-make_format_args.html"><span class="kw3162">std::<span class="me2">make_format_args</span></span></a><span class="br0">(</span>args...<span class="br0">)</span><span class="br0">)</span></span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; &nbsp; <span class="sy4">:</span> std<span class="sy4">::</span><span class="me2">vprint_unicode_buffered</span><span class="br0">(</span>stream, fmt.<span class="me1">str</span>, <a href="cpp-utility-format-make_format_args.html"><span class="kw3162">std::<span class="me2">make_format_args</span></span></a><span class="br0">(</span>args...<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span></span></span>&#12290;</div>
+<div class="t-li1"><span class="t-li"></span> &#21542;&#21017;&#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span>std<span class="sy4">::</span><span class="me2">enable_nonlocking_formatter_optimization</span><span class="sy1">&lt;</span><a href="cpp-types-remove_cvref.html"><span class="kw2644">std::<span class="me2">remove_cvref_t</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;&gt;</span> <span class="sy3">&amp;&amp;</span> ...<span class="br0">)</span></span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; &nbsp; <span class="sy4">?</span> <a href="cpp-io-vprint_nonunicode.html"><span class="kw3364">std::<span class="me2">vprint_nonunicode</span></span></a><span class="br0">(</span>stream, fmt.<span class="me1">str</span>, <a href="cpp-utility-format-make_format_args.html"><span class="kw3162">std::<span class="me2">make_format_args</span></span></a><span class="br0">(</span>args...<span class="br0">)</span><span class="br0">)</span></span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; &nbsp; <span class="sy4">:</span> std<span class="sy4">::</span><span class="me2">vprint_nonunicode_buffered</span><span class="br0">(</span>stream, fmt.<span class="me1">str</span>, <a href="cpp-utility-format-make_format_args.html"><span class="kw3162">std::<span class="me2">make_format_args</span></span></a><span class="br0">(</span>args...<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span></span></span>&#12290;</div>
+<p>&#22914;&#26524; <code>Args</code> &#20013;&#23384;&#22312;&#20219;&#20309; <code>Ti</code> &#23548;&#33268; <span class="mw-geshi cpp source-cpp"><a href="cpp-utility-format-formatter.html"><span class="kw3154">std::<span class="me2">formatter</span></span></a><span class="sy1">&lt;</span>Ti, <span class="kw4">char</span><span class="sy1">&gt;</span></span> &#19981;&#28385;&#36275;<a href="cpp-named_req-BasicFormatter.html"><span style="font-style:italic">&#22522;&#26412;&#26684;&#24335;&#21270;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(BasicFormatter)</span></a> &#65288;&#22914; <span class="t-lc">std::make_format_args</span> &#25152;&#35201;&#27714;&#65289;&#65292;&#37027;&#20040;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>stream</td>
+<td>-</td>
+<td>&#35201;&#20889;&#20837;&#30340;&#36755;&#20986;&#25991;&#20214;&#27969;</td>
+</tr>
+<tr class="t-par">
+<td>fmt</td>
+<td>-</td>
+<td>
+<div class="t-template-editlink" style=""></div>
+&#29992;&#20110;&#34920;&#31034;&#26684;&#24335;&#23383;&#31526;&#20018;&#30340;&#23545;&#35937;&#12290;&#26684;&#24335;&#23383;&#31526;&#20018;&#30001;&#20197;&#19979;&#32452;&#25104;
+<ul>
+<li>&#36890;&#24120;&#23383;&#31526;&#65288;&#38500;&#20102; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">{</span></span></span> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">}</span></span></span>&#65289;&#65292;&#23427;&#20204;&#34987;&#19981;&#21152;&#20462;&#25913;&#22320;&#22797;&#21046;&#21040;&#36755;&#20986;&#65292;</li>
+<li>&#36716;&#20041;&#24207;&#21015; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">{</span><span class="br0">{</span></span></span> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">}</span><span class="br0">}</span></span></span> &#65292;&#23427;&#20204;&#22312;&#36755;&#20986;&#20013;&#34987;&#20998;&#21035;&#26367;&#25442;&#25104; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">{</span></span></span> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">}</span></span></span> &#65292;&#20197;&#21450;</li>
+<li>&#26367;&#25442;&#22495;&#12290;</li>
+</ul>
+<p>&#27599;&#20010;&#26367;&#25442;&#22495;&#25317;&#26377;&#22914;&#19979;&#26684;&#24335;&#65306;</p>
+<table class="t-sdsc-begin">
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><code><b>{</b></code> <span class="t-spar">&#23454;&#21442;&#32034;&#24341;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <code><b>}</b></code></td>
+<td>(1)</td>
+<td class="t-sdsc-nopad"></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><code><b>{</b></code> <span class="t-spar">&#23454;&#21442;&#32034;&#24341;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <code><b>:</b></code> <span class="t-spar">&#26684;&#24335;&#35828;&#26126;</span> <code><b>}</b></code></td>
+<td>(2)</td>
+<td class="t-sdsc-nopad"></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#27809;&#26377;&#26684;&#24335;&#35828;&#26126;&#30340;&#26367;&#25442;&#22495;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#26377;&#26684;&#24335;&#35828;&#26126;&#30340;&#26367;&#25442;&#22495;</div>
+<table class="t-par-begin">
+<tr class="t-par">
+<td><span class="t-spar">&#23454;&#21442;&#32034;&#24341;</span></td>
+<td>-</td>
+<td>&#25351;&#23450;&#29992;&#20110;&#26684;&#24335;&#21270;&#23427;&#30340;&#20540;&#30340; <code>args</code> &#20013;&#30340;&#21442;&#25968;&#30340;&#19979;&#26631;&#65307;&#22914;&#26524;&#30465;&#30053;<span class="t-spar">&#23454;&#21442;&#32034;&#24341;</span>&#65292;&#37027;&#20040;&#25353;&#39034;&#24207;&#20351;&#29992;&#21442;&#25968;&#12290;
+<p>&#26684;&#24335;&#23383;&#31526;&#20018;&#20013;&#30340;<span class="t-spar">&#23454;&#21442;&#32034;&#24341;</span>&#8202;&#65279;&#24517;&#39035;&#20840;&#37096;&#23384;&#22312;&#25110;&#20840;&#37096;&#34987;&#30465;&#30053;&#12290;&#28151;&#21512;&#25163;&#21160;&#21644;&#33258;&#21160;&#25351;&#23450;&#19979;&#26631;&#26159;&#38169;&#35823;&#12290;</p>
+</td>
+</tr>
+<tr class="t-par">
+<td><span class="t-spar">&#26684;&#24335;&#35828;&#26126;</span></td>
+<td>-</td>
+<td>&#26684;&#24335;&#35828;&#26126;&#30001;&#23545;&#24212;&#21442;&#25968;&#29305;&#21270;&#30340; <span class="t-lc">std::formatter</span> &#23450;&#20041;&#12290;&#19981;&#33021;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">}</span></span></span> &#24320;&#22987;&#12290;</td>
+</tr>
+</table>
+<p><span id=".E6.A0.BC.E5.BC.8F.E8.AF.B4.E6.98.8E"></span></p>
+<ul>
+<li>&#23545;&#20110;&#22522;&#26412;&#31867;&#22411;&#21644;&#26631;&#20934;&#23383;&#31526;&#20018;&#31867;&#22411;&#65292;&#26684;&#24335;&#35828;&#26126;&#20026;<a href="cpp-utility-format-spec.html">&#26631;&#20934;&#26684;&#24335;&#35828;&#26126;</a>&#12290;</li>
+<li>&#23545;&#20110; chrono &#31867;&#22411;&#65292;&#26684;&#24335;&#35828;&#26126;&#20026; <a href="cpp-chrono-system_clock-formatter.html#.E6.A0.BC.E5.BC.8F.E8.AF.B4.E6.98.8E">chrono &#26684;&#24335;&#35828;&#26126;</a>&#12290;</li>
+</ul>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx23">
+<td>
+<ul>
+<li>&#23545;&#20110;&#33539;&#22260;&#31867;&#22411;&#65292;&#26684;&#24335;&#35828;&#26126;&#20026;<a href="cpp-utility-format-range_formatter.html#.E8.8C.83.E5.9B.B4.E6.A0.BC.E5.BC.8F.E8.AF.B4.E6.98.8E">&#33539;&#22260;&#26684;&#24335;&#35828;&#26126;</a>&#12290;</li>
+<li>&#23545;&#20110; <span class="t-lc"><a href="cpp-utility-pair.html">std::pair</a></span> &#21644; <span class="t-lc"><a href="cpp-utility-tuple.html">std::tuple</a></span>&#65292;&#26684;&#24335;&#35828;&#26126;&#20026; <a href="cpp-utility-format-tuple_formatter.html#.E6.A0.BC.E5.BC.8F.E8.AF.B4.E6.98.8E">tuple &#26684;&#24335;&#35828;&#26126;</a>&#12290;</li>
+<li>&#23545;&#20110; <span class="t-lc"><a href="cpp-thread-thread-id.html">std::thread::id</a></span> &#21644; <a href="cpp-utility-stacktrace_entry.html"><tt>std::stacktrace_entry</tt></a>&#65292;&#35265; <a href="cpp-thread-thread-id-formatter.html#.E6.A0.BC.E5.BC.8F.E8.AF.B4.E6.98.8E">thread id &#26684;&#24335;&#35828;&#26126;</a>&#21644; <a href="cpp-utility-stacktrace_entry-formatter.html#.E6.A0.BC.E5.BC.8F.E8.AF.B4.E6.98.8E">stacktrace entry &#26684;&#24335;&#35828;&#26126;</a>&#12290;</li>
+<li>&#23545;&#20110; <a href="cpp-utility-basic_stacktrace.html"><tt>std::basic_stacktrace</tt></a>&#65292;&#19981;&#20801;&#35768;&#20351;&#29992;&#26684;&#24335;&#35828;&#26126;&#31526;&#12290;</li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+</table>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx26">
+<td>
+<ul>
+<li>&#23545;&#20110; <a href="cpp-filesystem-path.html"><tt>std::filesystem::path</tt></a>&#65292;&#35265;<a href="cpp-filesystem-path-formatter.html#.E6.A0.BC.E5.BC.8F.E8.AF.B4.E6.98.8E">&#36335;&#24452;&#26684;&#24335;&#35828;&#26126;</a>&#12290;</li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+</table>
+<ul>
+<li>&#23545;&#20110;&#20854;&#20182;&#21487;&#26684;&#24335;&#21270;&#31867;&#22411;&#65292;&#26684;&#24335;&#35828;&#26126;&#30001;&#29992;&#25143;&#23450;&#20041;&#30340; <span class="t-lc">std::formatter</span> &#29305;&#21270;&#20915;&#23450;&#12290;</li>
+</ul>
+</td>
+</tr>
+<tr class="t-par">
+<td>args...</td>
+<td>-</td>
+<td>&#35201;&#26684;&#24335;&#21270;&#30340;&#23454;&#21442;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<ul>
+<li>&#20869;&#23384;&#20998;&#37197;&#22833;&#36133;&#26102;&#25243;&#20986; <span class="t-lc"><a href="cpp-memory-new-bad_alloc.html">std::bad_alloc</a></span>&#12290;</li>
+<li>&#24403;&#21521;&#27969;&#20889;&#20837;&#22833;&#36133;&#26102;&#25243;&#20986; <span class="t-lc"><a href="cpp-error-system_error.html">std::system_error</a></span>&#12290;</li>
+<li>&#20256;&#25773;&#30001;&#20854;&#25152;&#20351;&#29992;&#30340;<a href="cpp-utility-format-formatter.html">&#26684;&#24335;&#21270;&#22120;</a>&#25152;&#25243;&#20986;&#30340;&#20219;&#20309;&#24322;&#24120;&#65292;&#27604;&#22914; <span class="t-lc">std::format_error</span>&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<table class="wikitable">
+<tr>
+<th><a href="cpp-utility-feature_test.html">&#21151;&#33021;&#29305;&#24615;&#27979;&#35797;</a>&#23439;</th>
+<th><abbr title="&#37319;&#32435;&#35813;&#29305;&#24615;&#30340;&#24180;/&#26376;&#12290;&#27599;&#20010;&#20540;&#19979;&#38754;&#30340;&#38142;&#25509;&#25351;&#21521;&#32534;&#35793;&#26399;&#25903;&#25345;&#39029;&#38754;&#20013;&#32473;&#23450;&#21151;&#33021;&#29305;&#24615;&#30340;&#26465;&#30446;&#12290;">&#20540;</abbr></th>
+<th><abbr title="&#24341;&#20837;&#35813;&#29305;&#24615;&#30340;&#26631;&#20934;&#65307;DR &#24847;&#20026;&#38024;&#23545;&#35813;&#20462;&#35746;&#29256;&#30340;&#32570;&#38519;&#25253;&#21578;">&#26631;&#20934;</abbr></th>
+<th>&#21151;&#33021;&#29305;&#24615;</th>
+</tr>
+<tr>
+<td rowspan="3"><a href="cpp-feature_test.html#cpp_lib_print"><code>__cpp_lib_print</code></a></td>
+<td><a href="cpp-compiler_support-23.html#cpp_lib_print_202207L"><code>202207L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++23)</span></td>
+<td>&#26684;&#24335;&#21270;&#36755;&#20986;</td>
+</tr>
+<tr>
+<td><a href="cpp-compiler_support-26.html#cpp_lib_print_202403L"><code>202403L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++26)</span><br />
+<span class="t-mark" style="white-space: nowrap;">(DR23)</span></td>
+<td>&#26080;&#32531;&#20914;&#30340;&#26684;&#24335;&#21270;&#36755;&#20986;</td>
+</tr>
+<tr>
+<td><a href="cpp-compiler_support-26.html#cpp_lib_print_202406L"><code>202406L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++26)</span><br />
+<span class="t-mark" style="white-space: nowrap;">(DR23)</span></td>
+<td>&#20026;&#26356;&#22810;&#21487;&#26684;&#24335;&#21270;&#31867;&#22411;&#21551;&#29992;&#26080;&#32531;&#20914;&#30340;&#26684;&#24335;&#21270;&#36755;&#20986;</td>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lib_format"><code>__cpp_lib_format</code></a></td>
+<td><a href="cpp-compiler_support-23.html#cpp_lib_format_202207L"><code>202207L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++23)</span></td>
+<td>&#26292;&#38706; <span class="t-lc">std::basic_format_string</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;cstdio&gt;</span>
+<span class="co2">#include &lt;filesystem&gt;</span>
+<span class="co2">#include &lt;print&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    std<span class="sy4">::</span><span class="me2">print</span><span class="br0">(</span><span class="st0">&quot;{2} {1}{0}!<span class="es1">\n</span>&quot;</span>, <span class="nu0">23</span>, <span class="st0">&quot;C++&quot;</span>, <span class="st0">&quot;Hello&quot;</span><span class="br0">)</span><span class="sy4">;</span>  <span class="co1">// &#37325;&#36733; (1)</span>
+ 
+    <span class="kw4">const</span> <span class="kw4">auto</span> tmp<span class="br0">{</span><a href="cpp-filesystem-temp_directory_path.html"><span class="kw2291">std::<span class="me2">filesystem</span><span class="sy4">::</span><span class="me2">temp_directory_path</span></span></a><span class="br0">(</span><span class="br0">)</span> <span class="sy2">/</span> <span class="st0">&quot;test.txt&quot;</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span><a href="cpp-io-c-FILE.html"><span class="kw1881">std::<span class="me2">FILE</span></span></a><span class="sy2">*</span> stream <span class="br0">{</span><a href="cpp-io-c-fopen.html"><span class="kw1817">std::<span class="me2">fopen</span></span></a><span class="br0">(</span>tmp.<span class="me1">c_str</span><span class="br0">(</span><span class="br0">)</span>, <span class="st0">&quot;w&quot;</span><span class="br0">)</span><span class="br0">}</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        std<span class="sy4">::</span><span class="me2">print</span><span class="br0">(</span>stream, <span class="st0">&quot;File: {}&quot;</span>, tmp.<span class="me1">string</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#37325;&#36733; (2)</span>
+        <a href="cpp-io-c-fclose.html"><span class="kw1820">std::<span class="me2">fclose</span></span></a><span class="br0">(</span>stream<span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">Hello C++23!</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://wg21.link/P3107R5">P3107R5</a></td>
+<td>C++23</td>
+<td>&#21482;&#33021;&#36827;&#34892;&#26377;&#32531;&#20914;&#30340;&#25171;&#21360;&#25805;&#20316;</td>
+<td>&#21487;&#20197;&#36827;&#34892;&#26080;&#32531;&#20914;&#30340;&#25171;&#21360;&#25805;&#20316;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://wg21.link/P3235R3">P3235R3</a></td>
+<td>C++23</td>
+<td><a rel="nofollow" class="external text" href="https://wg21.link/P3107R5">P3107R5</a>&#26032;&#22686;&#30340;&#20989;&#25968;&#30340;&#21517;&#23383;&#20250;&#23548;&#33268;&#35823;&#35299;</td>
+<td>&#26356;&#25442;&#20989;&#25968;&#21517;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-println.html"><span class="t-lines"><span>println</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#23558;&#21442;&#25968;&#30340;<a href="cpp-utility-format.html">&#26684;&#24335;&#21270;</a>&#34920;&#36798;&#36755;&#20986;&#21040; <span class="t-lc"><a href="cpp-io-c.html">stdout</a></span> &#25110;&#25991;&#20214;&#32531;&#20914;&#21306;&#65292;&#36755;&#20986;&#23436;&#25104;&#21518;&#25442;&#34892;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_ostream-print.html"><span class="t-lines"><span>print<span class="t-dsc-small">(std::ostream)</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#36755;&#20986;&#21508;&#23454;&#21442;&#30340;<a href="cpp-utility-format.html">&#26684;&#24335;&#21270;</a>&#34920;&#31034;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-format-format.html"><span class="t-lines"><span>format</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#22312;&#26032;&#23383;&#31526;&#20018;&#20013;&#23384;&#20648;&#21442;&#25968;&#30340;&#26684;&#24335;&#21270;&#34920;&#31034;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-format-format_to.html"><span class="t-lines"><span>format_to</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#36890;&#36807;&#36755;&#20986;&#36845;&#20195;&#22120;&#20889;&#20837;&#20854;&#23454;&#21442;&#30340;&#26684;&#24335;&#21270;&#34920;&#31034;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-c-fprintf.html"><span class="t-lines"><span>printf</span><span>fprintf</span><span>sprintf</span><span>snprintf</span></span></a></div>
+<div><span class="t-lines"><span></span><span></span><span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#25171;&#21360;&#26377;&#26684;&#24335;&#36755;&#20986;&#21040; <span class="t-lc"><a href="cpp-io-c.html">stdout</a></span>&#12289;&#25991;&#20214;&#27969;&#25110;&#32531;&#20914;&#21306;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

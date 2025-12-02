@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::stop_callback</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_thread_stop_callback skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>stop_callback</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-thread.html">thread</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-stop_token.html">&lt;stop_token&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Callback <span class="sy1">&gt;</span><br />
+<span class="kw1">class</span> stop_callback<span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>stop_callback</code> &#31867;&#27169;&#26495;&#25552;&#20379;&#19968;&#31181;&#20026;&#20851;&#32852;&#30340; <a href="cpp-thread-stop_token.html"><tt>std::stop_token</tt></a> &#23545;&#35937;&#27880;&#20876;&#22238;&#35843;&#20989;&#25968;&#30340; RAII &#23545;&#35937;&#31867;&#22411;&#65292;&#20351;&#24471;&#24403;&#35813; <a href="cpp-thread-stop_token.html"><tt>std::stop_token</tt></a> &#30340;&#20851;&#32852; <a href="cpp-thread-stop_source.html"><tt>std::stop_source</tt></a> &#34987;&#35831;&#27714;&#20572;&#27490;&#26102;&#23558;&#35843;&#29992;&#36825;&#20010;&#22238;&#35843;&#20989;&#25968;&#12290;</p>
+<p>&#32463;&#30001; <code>stop_callback</code> &#26500;&#36896;&#20989;&#25968;&#27880;&#20876;&#30340;&#22238;&#35843;&#20989;&#25968;&#65292;&#22312;&#25104;&#21151;&#23545;&#35813; <code>stop_callback</code> &#30340;&#20851;&#32852; <a href="cpp-thread-stop_token.html"><tt>std::stop_token</tt></a> &#30340;<a href="cpp-thread-stop_source.html"><tt>std::stop_source</tt></a> &#35843;&#29992;&#20102; <span class="t-c"><span class="mw-geshi cpp source-cpp">request_stop<span class="br0">(</span><span class="br0">)</span></span></span> &#30340;&#21516;&#19968;&#32447;&#31243;&#20013;&#35843;&#29992;&#65307;&#25110;&#32773;&#33509;&#26500;&#36896;&#20989;&#25968;&#30340;&#27880;&#20876;&#21069;&#24050;&#35831;&#27714;&#20102;&#20572;&#27490;&#65292;&#21017;&#22312;&#26500;&#36896;&#27492; <code>stop_callback</code> &#30340;&#32447;&#31243;&#20013;&#35843;&#29992;&#12290;</p>
+<p>&#21487;&#20197;&#23545;&#21516;&#19968; <a href="cpp-thread-stop_token.html"><tt>std::stop_token</tt></a> &#21019;&#24314;&#22810;&#20010; <code>stop_callback</code>&#65292;&#36825;&#21487;&#20197;&#22312;&#30456;&#21516;&#25110;&#19981;&#21516;&#32447;&#31243;&#21516;&#26102;&#36827;&#34892;&#12290;&#23545;&#23427;&#20204;&#30340;&#25191;&#34892;&#39034;&#24207;&#19981;&#25552;&#20379;&#20445;&#35777;&#65292;&#20294;&#23427;&#20204;&#23558;&#34987;&#21516;&#27493;&#35843;&#29992;&#65307;&#20294;&#24050;&#23545; <a href="cpp-thread-stop_token.html"><tt>std::stop_token</tt></a> &#35831;&#27714;&#20572;&#27490;&#21518;&#26500;&#36896;&#30340; <code>stop_callback</code>&#65292;&#21017;&#22914;&#21069;&#25152;&#36848;&#12290;</p>
+<p>&#33509;&#35843;&#29992;&#30340;&#22238;&#35843;&#32463;&#30001;&#24322;&#24120;&#36864;&#20986;&#65292;&#21017;&#35843;&#29992; <span class="t-lc"><a href="cpp-error-terminate.html">std::terminate</a></span>&#12290;</p>
+<p><code>std::stop_callback</code> &#38750;<a href="cpp-named_req-CopyConstructible.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyConstructible)</span></a> &#12289;<a href="cpp-named_req-CopyAssignable.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#36171;&#20540;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyAssignable)</span></a> &#12289;<a href="cpp-named_req-MoveConstructible.html"><span style="font-style:italic">&#21487;&#31227;&#21160;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(MoveConstructible)</span></a> &#20134;&#38750;<a href="cpp-named_req-MoveAssignable.html"><span style="font-style:italic">&#21487;&#31227;&#21160;&#36171;&#20540;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(MoveAssignable)</span></a> &#12290;</p>
+<p>&#27169;&#26495;&#24418;&#21442; <code>Callback</code> &#31867;&#22411;&#24517;&#39035;&#20026; <a href="cpp-concepts-invocable.html"><code>invocable</code></a> &#19988;&#20026; <a href="cpp-concepts-destructible.html"><code>destructible</code></a>&#12290;&#24573;&#30053;&#20219;&#20309;&#36820;&#22238;&#20540;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E7.B1.BB.E5.9E.8B">&#25104;&#21592;&#31867;&#22411;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#31867;&#22411;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>callback_type</code></td>
+<td><code>Callback</code></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-thread-stop_callback-stop_callback.html"><span class="t-lines"><span>(&#26500;&#36896;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26500;&#36896;&#26032;&#30340; <code>stop_callback</code> &#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-thread-stop_callback-~stop_callback.html"><span class="t-lines"><span>(&#26512;&#26500;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26512;&#26500; <code>stop_callback</code> &#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><span class="t-lines"><span>operator=</span></span></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#24323;&#32622;]</span></span></span></div>
+</div>
+</td>
+<td><code>stop_callback</code> &#19981;&#21487;&#36171;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.8E.A8.E5.AF.BC.E6.8C.87.E5.BC.95"><a href="cpp-thread-stop_callback-deduction_guides.html">&#25512;&#23548;&#25351;&#24341;</a></span></h3>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;chrono&gt;</span>
+<span class="co2">#include &lt;condition_variable&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;mutex&gt;</span>
+<span class="co2">#include &lt;sstream&gt;</span>
+<span class="co2">#include &lt;thread&gt;</span>
+ 
+<span class="kw1">using</span> <span class="kw1">namespace</span> std<span class="sy4">::</span><span class="me2">chrono_literals</span><span class="sy4">;</span>
+ 
+<span class="co1">// &#20351;&#29992;&#19968;&#20010;&#36741;&#21161;&#31867;&#36827;&#34892;&#21407;&#23376; std::cout &#27969;&#36755;&#20986;&#12290;</span>
+<span class="kw1">class</span> Writer
+<span class="br0">{</span>
+    <a href="cpp-io-basic_ostringstream.html"><span class="kw1740">std::<span class="me2">ostringstream</span></span></a> buffer<span class="sy4">;</span>
+<span class="kw1">public</span><span class="sy4">:</span>
+    ~Writer<span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> buffer.<span class="me1">str</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    Writer<span class="sy3">&amp;</span> operator<span class="sy1">&lt;&lt;</span><span class="br0">(</span><span class="kw4">auto</span> input<span class="br0">)</span>
+    <span class="br0">{</span>
+        buffer <span class="sy1">&lt;&lt;</span> input<span class="sy4">;</span>
+        <span class="kw1">return</span> <span class="sy2">*</span>this<span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="co1">// &#24037;&#20316;&#32447;&#31243;&#12290;</span>
+    <span class="co1">// &#23427;&#23558;&#31561;&#24453;&#30452;&#33267;&#34987;&#35831;&#27714;&#20572;&#27490;&#12290;</span>
+    <a href="cpp-thread-jthread.html"><span class="kw3237">std::<span class="me2">jthread</span></span></a> worker<span class="br0">(</span><span class="br0">[</span><span class="br0">]</span> <span class="br0">(</span><a href="cpp-thread-stop_token.html"><span class="kw3256">std::<span class="me2">stop_token</span></span></a> stoken<span class="br0">)</span>
+    <span class="br0">{</span>
+        Writer<span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#24037;&#20316;&#32447;&#31243; id: &quot;</span> <span class="sy1">&lt;&lt;</span> <a href="cpp-thread-get_id.html"><span class="kw2152">std::<span class="me2">this_thread</span><span class="sy4">::</span><span class="me2">get_id</span></span></a><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+        <a href="cpp-thread-mutex.html"><span class="kw2158">std::<span class="me2">mutex</span></span></a> mutex<span class="sy4">;</span>
+        <a href="cpp-thread-unique_lock.html"><span class="kw2171">std::<span class="me2">unique_lock</span></span></a> lock<span class="br0">(</span>mutex<span class="br0">)</span><span class="sy4">;</span>
+        <a href="cpp-thread-condition_variable_any.html"><span class="kw2176">std::<span class="me2">condition_variable_any</span></span></a><span class="br0">(</span><span class="br0">)</span>.<span class="me1">wait</span><span class="br0">(</span>lock, stoken,
+            <span class="br0">[</span><span class="sy3">&amp;</span>stoken<span class="br0">]</span> <span class="br0">{</span> <span class="kw1">return</span> stoken.<span class="me1">stop_requested</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#22312;&#24037;&#20316;&#32447;&#31243;&#19978;&#27880;&#20876;&#20572;&#27490;&#22238;&#35843;&#12290;</span>
+    std<span class="sy4">::</span><span class="me2">stop_callback</span> callback<span class="br0">(</span>worker.<span class="me1">get_stop_token</span><span class="br0">(</span><span class="br0">)</span>, <span class="br0">[</span><span class="br0">]</span>
+    <span class="br0">{</span>
+        Writer<span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#25191;&#34892;&#20102;&#20572;&#27490;&#22238;&#35843;&#65292;&#32447;&#31243;: &quot;</span>
+            <span class="sy1">&lt;&lt;</span> <a href="cpp-thread-get_id.html"><span class="kw2152">std::<span class="me2">this_thread</span><span class="sy4">::</span><span class="me2">get_id</span></span></a><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#21487;&#20197;&#25552;&#21069;&#38144;&#27585; stop_callback &#23545;&#35937;&#20197;&#38459;&#27490;&#20854;&#25191;&#34892;&#12290;</span>
+    <span class="br0">{</span>
+        std<span class="sy4">::</span><span class="me2">stop_callback</span> scoped_callback<span class="br0">(</span>worker.<span class="me1">get_stop_token</span><span class="br0">(</span><span class="br0">)</span>, <span class="br0">[</span><span class="br0">]</span>
+        <span class="br0">{</span>
+            <span class="co1">// &#36825;&#37324;&#19981;&#20250;&#25191;&#34892;&#12290;</span>
+            Writer<span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#20316;&#29992;&#22495;&#20869;&#30340;&#20572;&#27490;&#22238;&#35843;&#34987;&#25191;&#34892;&#65292;&#32447;&#31243;: &quot;</span>
+                <span class="sy1">&lt;&lt;</span> <a href="cpp-thread-get_id.html"><span class="kw2152">std::<span class="me2">this_thread</span><span class="sy4">::</span><span class="me2">get_id</span></span></a><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+        <span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="co1">// &#28436;&#31034;&#30001;&#21738;&#20010;&#32447;&#31243;&#20309;&#26102;&#25191;&#34892; stop_callback&#12290;</span>
+    <span class="co1">// &#23450;&#20041;&#20572;&#27490;&#20989;&#25968;&#12290;</span>
+    <span class="kw4">auto</span> stopper_func <span class="sy1">=</span> <span class="br0">[</span><span class="sy3">&amp;</span>worker<span class="br0">]</span>
+    <span class="br0">{</span>
+        <span class="kw1">if</span> <span class="br0">(</span>worker.<span class="me1">request_stop</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+            Writer<span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#25191;&#34892;&#20102;&#20572;&#27490;&#35831;&#27714;&#65292;&#32447;&#31243;: &quot;</span>
+                <span class="sy1">&lt;&lt;</span> <a href="cpp-thread-get_id.html"><span class="kw2152">std::<span class="me2">this_thread</span><span class="sy4">::</span><span class="me2">get_id</span></span></a><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+        <span class="kw1">else</span>
+            Writer<span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#26410;&#25191;&#34892;&#20572;&#27490;&#35831;&#27714;&#65292;&#32447;&#31243;: &quot;</span>
+                <span class="sy1">&lt;&lt;</span> <a href="cpp-thread-get_id.html"><span class="kw2152">std::<span class="me2">this_thread</span><span class="sy4">::</span><span class="me2">get_id</span></span></a><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#20351;&#22810;&#20010;&#32447;&#31243;&#31454;&#20105;&#20197;&#20572;&#27490;&#24037;&#20316;&#32447;&#31243;&#12290;</span>
+    <a href="cpp-thread-jthread.html"><span class="kw3237">std::<span class="me2">jthread</span></span></a> stopper1<span class="br0">(</span>stopper_func<span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-thread-jthread.html"><span class="kw3237">std::<span class="me2">jthread</span></span></a> stopper2<span class="br0">(</span>stopper_func<span class="br0">)</span><span class="sy4">;</span>
+    stopper1.<span class="me1">join</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    stopper2.<span class="me1">join</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#24050;&#32463;&#35831;&#27714;&#20572;&#27490;&#21518;&#65292;&#31435;&#21363;&#25191;&#34892;&#26032;&#30340; stop_callback&#12290;</span>
+    Writer<span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#20027;&#32447;&#31243;: &quot;</span> <span class="sy1">&lt;&lt;</span> <a href="cpp-thread-get_id.html"><span class="kw2152">std::<span class="me2">this_thread</span><span class="sy4">::</span><span class="me2">get_id</span></span></a><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><span class="me2">stop_callback</span> callback_after_stop<span class="br0">(</span>worker.<span class="me1">get_stop_token</span><span class="br0">(</span><span class="br0">)</span>, <span class="br0">[</span><span class="br0">]</span>
+    <span class="br0">{</span>
+        Writer<span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#25191;&#34892;&#20102;&#20572;&#27490;&#22238;&#35843;&#65292;&#32447;&#31243;: &quot;</span>
+            <span class="sy1">&lt;&lt;</span> <a href="cpp-thread-get_id.html"><span class="kw2152">std::<span class="me2">this_thread</span><span class="sy4">::</span><span class="me2">get_id</span></span></a><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#24037;&#20316;&#32447;&#31243; id: 140460265039616
+&#25191;&#34892;&#20102;&#20572;&#27490;&#22238;&#35843;&#65292;&#32447;&#31243;: 140460256646912
+&#25191;&#34892;&#20102;&#20572;&#27490;&#35831;&#27714;&#65292;&#32447;&#31243;: 140460256646912
+&#26410;&#25191;&#34892;&#20572;&#27490;&#35831;&#27714;&#65292;&#32447;&#31243;: 140460248254208
+&#20027;&#32447;&#31243;: 140460265043776
+&#25191;&#34892;&#20102;&#20572;&#27490;&#22238;&#35843;&#65292;&#32447;&#31243;: 140460265043776</pre></div>
+</div>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

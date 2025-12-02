@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::basic_ostream&lt;CharT,Traits&gt;::operator=</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_io_basic_ostream_operator skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::basic_ostream&lt;CharT,Traits&gt;::</span>operator=</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-io.html">io</a>&lrm; | <a href="cpp-io-basic_ostream.html">basic ostream</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">protected</span><span class="sy4">:</span><br />
+basic_ostream<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span> <span class="kw4">const</span> basic_ostream<span class="sy3">&amp;</span> rhs <span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">protected</span><span class="sy4">:</span><br />
+basic_ostream<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span> basic_ostream<span class="sy3">&amp;&amp;</span> rhs <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#22797;&#21046;&#36171;&#20540;&#36816;&#31639;&#31526;&#21463;&#20445;&#25252;&#65292;&#19988;&#34987;&#24323;&#32622;&#12290;&#36755;&#20986;&#27969;&#19981;<a href="cpp-named_req-CopyAssignable.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#36171;&#20540;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyAssignable)</span></a> &#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#31227;&#21160;&#36171;&#20540;&#36816;&#31639;&#31526;&#22914;&#21516;&#36890;&#36807;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">swap<span class="br0">(</span><span class="sy2">*</span>rhs<span class="br0">)</span></span></span>&#65292;&#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">rhs</span></span> &#20132;&#25442;&#22522;&#31867;&#30340;&#38500;&#20102; <a href="cpp-io-basic_ios-rdbuf.html"><tt>rdbuf()</tt></a> &#20197;&#22806;&#25152;&#26377;&#25968;&#25454;&#25104;&#21592;&#12290;&#27492;&#31227;&#21160;&#36171;&#20540;&#36816;&#31639;&#31526;&#21463;&#20445;&#25252;&#65306;&#23427;&#21482;&#20026;&#27966;&#29983;&#30340;&#21487;&#31227;&#21160;&#36755;&#20986;&#27969;&#31867; <span class="t-lc"><a href="cpp-io-basic_ofstream.html">std::basic_ofstream</a></span> &#21644; <span class="t-lc"><a href="cpp-io-basic_ostringstream.html">std::basic_ostringstream</a></span> &#30340;&#31227;&#21160;&#36171;&#20540;&#36816;&#31639;&#31526;&#25152;&#35843;&#29992;&#65292;&#23427;&#20204;&#30693;&#36947;&#22914;&#20309;&#27491;&#30830;&#31227;&#21160;&#36171;&#20540;&#20851;&#32852;&#30340;&#27969;&#32531;&#20914;&#12290;</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>rhs</td>
+<td>-</td>
+<td>&#35201;&#36171;&#20540;&#32473; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#30340; <code>basic_ostream</code> &#23545;&#35937;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;sstream&gt;</span>
+<span class="co2">#include &lt;utility&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-basic_ostringstream.html"><span class="kw1740">std::<span class="me2">ostringstream</span></span></a> s<span class="sy4">;</span>
+<span class="co1">//  std::cout = s;                             // &#38169;&#35823;&#65306;&#22797;&#21046;&#36171;&#20540;&#36816;&#31639;&#31526;&#34987;&#24323;&#32622;</span>
+<span class="co1">//  std::cout = std::move(s);                  // &#38169;&#35823;&#65306;&#31227;&#21160;&#36171;&#20540;&#36816;&#31639;&#31526;&#21463;&#20445;&#25252;</span>
+    s <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span><a href="cpp-io-basic_ostringstream.html"><span class="kw1740">std::<span class="me2">ostringstream</span></span></a><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="nu0">42</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK&#65306;&#36890;&#36807;&#27966;&#29983;&#31867;&#31227;&#21160;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> s.<span class="me1">str</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">42</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue2067">LWG 2067</a></td>
+<td>C++11</td>
+<td>1. &#37325;&#36733; <span class="t-v">(1)</span> &#30340;&#21442;&#25968;&#31867;&#22411;&#26159; <code>basic_ostream&amp;</code><br />
+2. &#37325;&#36733; <span class="t-v">(2)</span> &#30340;&#21442;&#25968;&#31867;&#22411;&#26159; <span class="mw-geshi cpp source-cpp"><span class="kw4">const</span> basic_ostream<span class="sy3">&amp;&amp;</span></span></td>
+<td>1. &#28155;&#21152; <span class="mw-geshi cpp source-cpp"><span class="kw4">const</span></span><br />
+2. &#31227;&#38500; <span class="mw-geshi cpp source-cpp"><span class="kw4">const</span></span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

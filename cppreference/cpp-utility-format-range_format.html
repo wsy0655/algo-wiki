@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::range_format</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_utility_format_range_format skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>range_format</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-utility.html">utility</a>&lrm; | <a href="cpp-utility-format.html">format</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-format.html">&lt;format&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw2">enum</span> <span class="kw1">class</span> range_format <span class="br0">{</span><br /></span>
+<p>&nbsp; &nbsp; disabled,<br />
+&nbsp; &nbsp; map,<br />
+&nbsp; &nbsp; set,<br />
+&nbsp; &nbsp; sequence,<br />
+&nbsp; &nbsp; string,<br />
+&nbsp; &nbsp; debug_string<br /></p>
+<span class="br0">}</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#25351;&#23450;&#33539;&#22260;&#24212;&#24403;&#22914;&#20309;&#34987;&#26684;&#24335;&#21270;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.B8.B8.E9.87.8F">&#24120;&#37327;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#26522;&#20030;&#39033;</td>
+<td>&#21547;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>disabled</code></td>
+<td>&#31105;&#27490;&#33539;&#22260;&#40664;&#35748;&#26684;&#24335;&#21270;&#22120;&#26469;&#26684;&#24335;&#21270;&#33539;&#22260;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>map</code></td>
+<td>&#20801;&#35768;&#23558;&#33539;&#22260;&#26684;&#24335;&#21270;&#20026;&#24102;&#26377;&#20462;&#25913;&#30340;&#25324;&#21495; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="st0">&quot;{&quot;</span></span></span>&#12289;<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="st0">&quot;}&quot;</span></span></span>&#65292;&#24182;&#23545;&#24213;&#23618;<a href="cpp-utility-tuple-tuple-like.html"><i>&#23545;&#20598;&#24335;</i></a>&#8202;&#65279;&#31867;&#22411;&#20351;&#29992;&#20998;&#38548;&#31526; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="st0">&quot;: &quot;</span></span></span> &#30340;&#26144;&#23556;&#34920;&#31034;&#65292;&#26684;&#24335;&#22914;&#19979;&#65306;<br />
+{ <span class="t-spar">&#38190;-1</span>&nbsp;: <span class="t-spar">&#20540;-1</span>, ..., <span class="t-spar">&#38190;-n</span>&nbsp;: <span class="t-spar">&#20540;-n</span> }</td>
+</tr>
+<tr class="t-dsc">
+<td><code>set</code></td>
+<td>&#20801;&#35768;&#23558;&#33539;&#22260;&#26684;&#24335;&#21270;&#20026;&#24102;&#26377;&#20462;&#25913;&#30340;&#25324;&#21495; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="st0">&quot;{&quot;</span></span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="st0">&quot;}&quot;</span></span></span> &#30340;&#38598;&#21512;&#34920;&#31034;&#65292;&#26684;&#24335;&#22914;&#19979;&#65306;<br />
+{ <span class="t-spar">&#38190;-1</span>, ..., <span class="t-spar">&#38190;-n</span> }</td>
+</tr>
+<tr class="t-dsc">
+<td><code>sequence</code></td>
+<td>&#20801;&#35768;&#23558;&#33539;&#22260;&#26684;&#24335;&#21270;&#20026;&#24102;&#26377;&#40664;&#35748;&#25324;&#21495; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="st0">&quot;[&quot;</span></span></span>&#12289;<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="st0">&quot;]&quot;</span></span></span> &#21644;&#20998;&#38548;&#31526; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="st0">&quot;, &quot;</span></span></span> &#30340;&#24207;&#21015;&#34920;&#31034;&#65292;&#26684;&#24335;&#22914;&#19979;&#65306;<br />
+[ <span class="t-spar">&#20803;&#32032;-1</span>, ..., <span class="t-spar">&#20803;&#32032;-n</span> ]</td>
+</tr>
+<tr class="t-dsc">
+<td><code>string</code></td>
+<td>&#20801;&#35768;&#23558;&#33539;&#22260;&#26684;&#24335;&#21270;&#20026;&#23383;&#31526;&#20018;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>debug_string</code></td>
+<td>&#20801;&#35768;&#23558;&#33539;&#22260;&#26684;&#24335;&#21270;&#20026;&#24102;&#36716;&#20041;&#23383;&#31526;&#20018;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-format-formatter.html"><span class="t-lines"><span>formatter</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#23450;&#20041;&#38024;&#23545;&#32473;&#23450;&#31867;&#22411;&#30340;&#26684;&#24335;&#21270;&#35268;&#21017;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-format-format_kind.html"><span class="t-lines"><span>format_kind</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#20026;&#33539;&#22260;&#36873;&#25321;&#21512;&#36866;&#30340; <span class="t-lc">std::range_format</span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#21464;&#37327;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

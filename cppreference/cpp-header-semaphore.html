@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>&#26631;&#20934;&#24211;&#26631;&#22836; &lt;semaphore&gt;&nbsp;(C++20)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_header_semaphore skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">&#26631;&#20934;&#24211;&#26631;&#22836;</span> &lt;semaphore&gt;&nbsp;<span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-header.html">header</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<p>&#27492;&#22836;&#25991;&#20214;&#26159;<a href="cpp-thread.html">&#32447;&#31243;&#25903;&#25345;</a>&#24211;&#30340;&#19968;&#37096;&#20998;&#12290;</p>
+<table class="t-dsc-begin">
+<tr>
+<td colspan="2">
+<h3><span class="mw-headline" id=".E7.B1.BB">&#31867;</span></h3>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-counting_semaphore.html"><span class="t-lines"><span>counting_semaphore</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#23454;&#29616;&#38750;&#36127;&#36164;&#28304;&#35745;&#25968;&#30340;&#20449;&#21495;&#37327;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-counting_semaphore.html"><span class="t-lines"><span>binary_semaphore</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#20165;&#25317;&#26377;&#20004;&#20010;&#29366;&#24577;&#30340;&#20449;&#21495;&#37327;<br />
+<span class="t-mark" style="white-space: nowrap;">(typedef)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.A6.82.E8.A6.81">&#27010;&#35201;</span></h3>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">namespace</span> std <span class="br0">{</span>
+  <span class="kw1">template</span><span class="sy1">&lt;</span>ptrdiff_t LeastMaxValue <span class="sy1">=</span> <span class="coMULTI">/* &#23454;&#29616;&#23450;&#20041; */</span><span class="sy1">&gt;</span>
+    <span class="kw1">class</span> counting_semaphore<span class="sy4">;</span>
+ 
+  <span class="kw1">using</span> binary_semaphore <span class="sy1">=</span> counting_semaphore<span class="sy1">&lt;</span><span class="nu0">1</span><span class="sy1">&gt;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<h4><span class="mw-headline" id=".E7.B1.BB.E6.A8.A1.E6.9D.BF_std::counting_semaphore">&#31867;&#27169;&#26495; <span class="t-lc">std::counting_semaphore</span></span></h4>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">namespace</span> std <span class="br0">{</span>
+  <span class="kw1">template</span><span class="sy1">&lt;</span>ptrdiff_t LeastMaxValue <span class="sy1">=</span> <span class="coMULTI">/* &#23454;&#29616;&#23450;&#20041; */</span><span class="sy1">&gt;</span>
+  <span class="kw1">class</span> counting_semaphore <span class="br0">{</span>
+  <span class="kw1">public</span><span class="sy4">:</span>
+    <span class="kw4">static</span> <span class="kw4">constexpr</span> ptrdiff_t max<span class="br0">(</span><span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+ 
+    <span class="kw4">constexpr</span> <span class="kw1">explicit</span> counting_semaphore<span class="br0">(</span>ptrdiff_t desired<span class="br0">)</span><span class="sy4">;</span>
+    ~counting_semaphore<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    counting_semaphore<span class="br0">(</span><span class="kw4">const</span> counting_semaphore<span class="sy3">&amp;</span><span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span>
+    counting_semaphore<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span><span class="kw4">const</span> counting_semaphore<span class="sy3">&amp;</span><span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span>
+ 
+    <span class="kw4">void</span> release<span class="br0">(</span>ptrdiff_t update <span class="sy1">=</span> <span class="nu0">1</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">void</span> acquire<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">bool</span> try_acquire<span class="br0">(</span><span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Rep, <span class="kw1">class</span> Period<span class="sy1">&gt;</span>
+      <span class="kw4">bool</span> try_acquire_for<span class="br0">(</span><span class="kw4">const</span> chrono<span class="sy4">::</span><span class="me2">duration</span><span class="sy1">&lt;</span>Rep, Period<span class="sy1">&gt;</span><span class="sy3">&amp;</span> rel_time<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Clock, <span class="kw1">class</span> Duration<span class="sy1">&gt;</span>
+      <span class="kw4">bool</span> try_acquire_until<span class="br0">(</span><span class="kw4">const</span> chrono<span class="sy4">::</span><span class="me2">time_point</span><span class="sy1">&lt;</span>Clock, Duration<span class="sy1">&gt;</span><span class="sy3">&amp;</span> abs_time<span class="br0">)</span><span class="sy4">;</span>
+ 
+  <span class="kw1">private</span><span class="sy4">:</span>
+    ptrdiff_t counter<span class="sy4">;</span>          <span class="co1">// &#20165;&#29992;&#20110;&#38416;&#37322;</span>
+  <span class="br0">}</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

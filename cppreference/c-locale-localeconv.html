@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>localeconv</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_locale_localeconv skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">localeconv</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-locale.html">locale</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-locale.html"><tt>&lt;locale.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi c source-c"><span class="kw1">struct</span> <a href="c-locale-lconv.html"><span class="kw902">lconv</span></a> <span class="sy2">*</span>localeconv<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>localeconv</code> &#20989;&#25968;&#33719;&#24471;&#25351;&#21521; <code>struct</code> <span class="t-lc"><a href="c-locale-lconv.html">lconv</a></span> &#31867;&#22411;&#30340;&#38745;&#24577;&#23545;&#35937;&#30340;&#25351;&#38024;&#65292;&#35813;&#23545;&#35937;&#34920;&#31034;&#24403;&#21069; C &#26412;&#22320;&#29615;&#22659;&#30340;&#25968;&#20540;&#21644;&#36135;&#24065;&#26684;&#24335;&#21270;&#35268;&#21017;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#25351;&#21521;&#24403;&#21069; <code>struct</code> <span class="t-lc"><a href="c-locale-lconv.html">lconv</a></span> &#23545;&#35937;&#30340;&#25351;&#38024;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#36890;&#36807;&#36820;&#22238;&#30340;&#25351;&#38024;&#20462;&#25913;&#23545;&#35937;&#26159;&#26410;&#23450;&#20041;&#34892;&#20026;&#12290;</p>
+<p><code>localeconv</code> &#20462;&#25913;&#38745;&#24577;&#23545;&#35937;&#65292;&#20174;&#19981;&#21516;&#32447;&#31243;&#35843;&#29992;&#23427;&#32780;&#19981;&#36827;&#34892;&#21516;&#27493;&#26159;&#26410;&#23450;&#20041;&#34892;&#20026;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#include &lt;locale.h&gt;</span>
+<span class="co2">#include &lt;stdio.h&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="c-locale-setlocale.html"><span class="kw901">setlocale</span></a><span class="br0">(</span><a href="c-locale-LC_categories.html"><span class="kw906">LC_MONETARY</span></a>, <span class="st0">&quot;en_IN.utf8&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">struct</span> <a href="c-locale-lconv.html"><span class="kw902">lconv</span></a> <span class="sy2">*</span>lc <span class="sy1">=</span> localeconv<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;&#26412;&#22320;&#36135;&#24065;&#31526;&#21495;: %s<span class="es1">\n</span>&quot;</span>, lc<span class="sy2">-</span><span class="sy1">&gt;</span>currency_symbol<span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;&#22269;&#38469;&#36135;&#24065;&#31526;&#21495;: %s<span class="es1">\n</span>&quot;</span>, lc<span class="sy2">-</span><span class="sy1">&gt;</span>int_curr_symbol<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#26412;&#22320;&#36135;&#24065;&#31526;&#21495;: &#8377;
+&#22269;&#38469;&#36135;&#24065;&#31526;&#21495;: INR</pre></div>
+</div>
+</div>
+<p><br /></p>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-23">
+<ul>
+<li>C23 &#26631;&#20934;&#65288;ISO/IEC 9899:2024&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.11.2.1 The localeconv function &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.11.2.1 The localeconv function &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.11.2.1 The localeconv function &#65288;&#31532; 225-230 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c99">
+<ul>
+<li>C99 &#26631;&#20934;&#65288;ISO/IEC 9899:1999&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.11.2.1 The localeconv function &#65288;&#31532; 206-211 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c89">
+<ul>
+<li>C89/C90 &#26631;&#20934;&#65288;ISO/IEC 9899:1990&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>4.4.2.1 The localeconv function</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-locale-setlocale.html"><span class="t-lines"><span>setlocale</span></span></a></div>
+</div>
+</td>
+<td>&#33719;&#21462;&#21644;&#35774;&#32622;&#24403;&#21069; C &#26412;&#22320;&#29615;&#22659;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-locale-lconv.html"><span class="t-lines"><span>lconv</span></span></a></div>
+</div>
+</td>
+<td><span class="t-lc"><strong class="selflink">localeconv</strong></span> &#25152;&#36820;&#22238;&#30340;&#26684;&#24335;&#21270;&#32454;&#33410;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#32467;&#26500;&#20307;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>localeconv</span></span>&nbsp;&#30340; <span><span><a href="cpp-locale-localeconv.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

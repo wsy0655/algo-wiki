@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::ranges::elements_view&lt;V,F&gt;::iterator&lt;Const&gt;::operator[]</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_ranges_elements_view_iterator_operator_at skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::ranges::elements_view&lt;V,F&gt;::<i>iterator</i>&lt;Const&gt;::</span>operator[]</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-ranges.html">ranges</a>&lrm; | <a href="cpp-ranges-elements_view.html">elements view</a>&lrm; | <a href="cpp-ranges-elements_view-iterator.html">iterator</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> decltype<span class="br0">(</span><span class="kw4">auto</span><span class="br0">)</span> operator<span class="br0">[</span><span class="br0">]</span><span class="br0">(</span> difference_type n <span class="br0">)</span> <span class="kw4">const</span><br />
+&nbsp; &nbsp; requires <a href="cpp-ranges-random_access_range.html"><span class="kw2906">ranges::<span class="me2">random_access_range</span></span></a><span class="sy1">&lt;</span>Base<span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36820;&#22238;&#20301;&#20110;&#25351;&#23450;&#30456;&#23545;&#20301;&#32622;&#30340;&#20803;&#32032;&#65292;&#22914;&#21516; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="coMULTI">/*get-element*/</span><span class="br0">(</span>this<span class="sy2">-</span><span class="sy1">&gt;</span>base<span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> n<span class="br0">)</span></span></span>&#65292;&#20854;&#20013;&#23545;&#20110;&#34920;&#36798;&#24335; <span class="t-c"><span class="mw-geshi cpp source-cpp">e</span></span> &#65292; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="coMULTI">/*get-element*/</span><span class="br0">(</span>e<span class="br0">)</span></span></span> &#20026;</p>
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-variant-get.html"><span class="kw3217">std::<span class="me2">get</span></span></a><span class="sy1">&lt;</span>N<span class="sy1">&gt;</span><span class="br0">(</span><span class="sy2">*</span>e<span class="br0">)</span></span></span> &#65292;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-ranges-iterator_t.html"><span class="kw2895">ranges::<span class="me2">range_reference_t</span></span></a><span class="sy1">&lt;</span>Base<span class="sy1">&gt;</span></span></span> &#20026;&#24341;&#29992;&#31867;&#22411;&#65292;</li>
+<li>&#21542;&#21017;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">static_cast</span><span class="sy1">&lt;</span>E<span class="sy1">&gt;</span><span class="br0">(</span><a href="cpp-utility-variant-get.html"><span class="kw3217">std::<span class="me2">get</span></span></a><span class="sy1">&lt;</span>N<span class="sy1">&gt;</span><span class="br0">(</span><span class="sy2">*</span>e<span class="br0">)</span><span class="br0">)</span></span></span> &#65292;&#20854;&#20013; <code>E</code> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-remove_cv.html"><span class="kw600">std::<span class="me2">remove_cv_t</span></span></a><span class="sy1">&lt;</span><a href="cpp-utility-tuple_element.html"><span class="kw1103">std::<span class="me2">tuple_element_t</span></span></a><span class="sy1">&lt;</span>N, <a href="cpp-ranges-iterator_t.html"><span class="kw2895">ranges::<span class="me2">range_reference_t</span></span></a><span class="sy1">&lt;</span>Base<span class="sy1">&gt;&gt;&gt;</span></span></span> &#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>n</td>
+<td>-</td>
+<td>&#30456;&#23545;&#24403;&#21069;&#20301;&#32622;&#30340;&#20301;&#32622;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#30456;&#23545;&#20110;&#24403;&#21069;&#20301;&#32622;&#20301;&#31227; <span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span> &#30340;&#20803;&#32032;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;ranges&gt;</span>
+<span class="co2">#include &lt;string_view&gt;</span>
+<span class="co2">#include &lt;tuple&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">using</span> T <span class="sy1">=</span> <a href="cpp-utility-tuple.html"><span class="kw1101">std::<span class="me2">tuple</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span>, <span class="kw4">char</span>, <a href="cpp-string-basic_string_view.html"><span class="kw1251">std::<span class="me2">string_view</span></span></a><span class="sy1">&gt;</span><span class="sy4">;</span>
+ 
+    <span class="kw4">const</span> <span class="kw4">auto</span> il <span class="sy1">=</span>
+    <span class="br0">{</span>
+        T<span class="br0">{</span><span class="nu0">1</span>, <span class="st0">&#39;A&#39;</span>, <span class="st0">&quot;&alpha;&quot;</span><span class="br0">}</span>,
+        T<span class="br0">{</span><span class="nu0">2</span>, <span class="st0">&#39;B&#39;</span>, <span class="st0">&quot;&beta;&quot;</span><span class="br0">}</span>,
+        T<span class="br0">{</span><span class="nu0">3</span>, <span class="st0">&#39;C&#39;</span>, <span class="st0">&quot;&gamma;&quot;</span><span class="br0">}</span>,
+    <span class="br0">}</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> std<span class="sy4">::</span><a href="cpp-ranges-elements_view.html"><span class="kw3115">views::<span class="me2">elements</span></span></a><span class="sy1">&lt;</span><span class="nu0">0</span><span class="sy1">&gt;</span><span class="br0">(</span>il<span class="br0">)</span><span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span>   <span class="co1">// 2</span>
+              <span class="sy1">&lt;&lt;</span> std<span class="sy4">::</span><a href="cpp-ranges-elements_view.html"><span class="kw3115">views::<span class="me2">elements</span></span></a><span class="sy1">&lt;</span><span class="nu0">1</span><span class="sy1">&gt;</span><span class="br0">(</span>il<span class="br0">)</span><span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span>   <span class="co1">// B</span>
+              <span class="sy1">&lt;&lt;</span> std<span class="sy4">::</span><a href="cpp-ranges-elements_view.html"><span class="kw3115">views::<span class="me2">elements</span></span></a><span class="sy1">&lt;</span><span class="nu0">2</span><span class="sy1">&gt;</span><span class="br0">(</span>il<span class="br0">)</span><span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span> <span class="co1">// &beta;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">2 B &beta;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-elements_view-iterator-operator*.html"><span class="t-lines"><span>operator*</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#35775;&#38382;&#31532; <code>N</code> &#20010;&#20803;&#32452;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

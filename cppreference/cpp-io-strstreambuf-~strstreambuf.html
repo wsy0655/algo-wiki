@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::strstreambuf::~strstreambuf</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_io_strstreambuf_strstreambuf skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::strstreambuf::</span>~strstreambuf</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-io.html">io</a>&lrm; | <a href="cpp-io-strstreambuf.html">strstreambuf</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-until-cxx26">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">virtual</span> ~strstreambuf<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++98 &#24323;&#29992;)</span><br />
+<span class="t-mark-rev t-until-cxx26" style="white-space: nowrap;">(C++26 &#31227;&#38500;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#38144;&#27585; <code>std::strstreambuf</code> &#23545;&#35937;&#12290;&#33509;&#23545;&#35937;&#31649;&#29702;&#21160;&#24577;&#20998;&#37197;&#30340;&#32531;&#20914;&#21306;&#65288;&#32531;&#20914;&#29366;&#24577;&#20026;&ldquo;&#24050;&#20998;&#37197;&rdquo;&#65289;&#65292;&#19988;&#33509;&#23545;&#35937;&#26410;&#20923;&#32467;&#65292;&#21017;&#29992;&#26500;&#36896;&#26102;&#25552;&#20379;&#30340;&#35299;&#20998;&#37197;&#20989;&#25968;&#65292;&#25110;&#33509;&#26410;&#25552;&#20379;&#21017;&#29992; <span class="mw-geshi cpp source-cpp">delete<span class="br0">[</span><span class="br0">]</span></span> &#35299;&#20998;&#37197;&#32531;&#20914;&#21306;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#27492;&#26512;&#26500;&#20989;&#25968;&#36890;&#24120;&#20026; <span class="t-lc"><a href="cpp-io-strstream.html">std::strstream</a></span> &#30340;&#26512;&#26500;&#20989;&#25968;&#25152;&#35843;&#29992;&#12290;</p>
+<p>&#33509;&#22312;&#21160;&#24577; <code>strstream</code> &#19978;&#35843;&#29992; <span class="t-lc"><a href="cpp-io-strstreambuf-str.html">str()</a></span>&#65292;&#32780;&#26410;&#22312;&#20854;&#21518;&#35843;&#29992; <a href="cpp-io-strstreambuf-freeze.html"><code>freeze(false)</code></a>&#65292;&#21017;&#27492;&#26512;&#26500;&#20989;&#25968;&#20250;&#27844;&#38706;&#20869;&#23384;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;strstream&gt;</span>
+ 
+<span class="kw4">void</span><span class="sy2">*</span> my_alloc<span class="br0">(</span>size_t n<span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;my_alloc(&quot;</span> <span class="sy1">&lt;&lt;</span> n <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;) called<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    <span class="kw1">return</span> new <span class="kw4">char</span><span class="br0">[</span>n<span class="br0">]</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">void</span> my_free<span class="br0">(</span><span class="kw4">void</span><span class="sy2">*</span> p<span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;my_free() called<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    delete<span class="br0">[</span><span class="br0">]</span> <span class="br0">(</span><span class="kw4">char</span><span class="sy2">*</span><span class="br0">)</span>p<span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-strstreambuf.html"><span class="kw1756">std::<span class="me2">strstreambuf</span></span></a> buf<span class="br0">(</span>my_alloc, my_free<span class="br0">)</span><span class="sy4">;</span>
+        <a href="cpp-io-basic_ostream.html"><span class="kw1733">std::<span class="me2">ostream</span></span></a> s<span class="br0">(</span><span class="sy3">&amp;</span>buf<span class="br0">)</span><span class="sy4">;</span>
+        s <span class="sy1">&lt;&lt;</span> <span class="nu16">1.23</span> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-ends.html"><span class="kw1793">std::<span class="me2">ends</span></span></a><span class="sy4">;</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> buf.<span class="me1">str</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+        buf.<span class="me1">freeze</span><span class="br0">(</span><span class="kw2">false</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span> <span class="co1">// &#26512;&#26500;&#20989;&#25968;&#35843;&#29992;&#20110;&#27492;&#65292;&#35299;&#20998;&#37197;&#32531;&#20914;&#21306;</span>
+ 
+    <span class="br0">{</span>
+        <a href="cpp-io-strstreambuf.html"><span class="kw1756">std::<span class="me2">strstreambuf</span></span></a> buf<span class="br0">(</span>my_alloc, my_free<span class="br0">)</span><span class="sy4">;</span>
+        <a href="cpp-io-basic_ostream.html"><span class="kw1733">std::<span class="me2">ostream</span></span></a> s<span class="br0">(</span><span class="sy3">&amp;</span>buf<span class="br0">)</span><span class="sy4">;</span>
+        s <span class="sy1">&lt;&lt;</span> <span class="nu16">1.23</span> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-ends.html"><span class="kw1793">std::<span class="me2">ends</span></span></a><span class="sy4">;</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> buf.<span class="me1">str</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="co1">//      buf.freeze(false);</span>
+    <span class="br0">}</span> <span class="co1">// &#26512;&#26500;&#20989;&#25968;&#35843;&#29992;&#20110;&#27492;&#65292;&#20869;&#23384;&#27844;&#28431;&#65281;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">my_alloc(4096) called
+1.23
+my_free() called
+my_alloc(4096) called
+1.23</pre></div>
+</div>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

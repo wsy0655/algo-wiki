@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::span&lt;T,Extent&gt;::subspan</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_container_span_subspan skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::span&lt;T,Extent&gt;::</span>subspan</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-container.html">container</a>&lrm; | <a href="cpp-container-span.html">span</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> Offset,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> Count <span class="sy1">=</span> <a href="cpp-container-span-dynamic_extent.html"><span class="kw2630">std::<span class="me2">dynamic_extent</span></span></a> <span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> <a href="cpp-container-span.html"><span class="kw2631">std::<span class="me2">span</span></span></a><span class="sy1">&lt;</span>element_type, <span class="coMULTI">/* &#35265;&#19979;&#25991; */</span><span class="sy1">&gt;</span><br /></p>
+&nbsp; &nbsp; subspan<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <a href="cpp-container-span.html"><span class="kw2631">std::<span class="me2">span</span></span></a><span class="sy1">&lt;</span>element_type, <a href="cpp-container-span-dynamic_extent.html"><span class="kw2630">std::<span class="me2">dynamic_extent</span></span></a><span class="sy1">&gt;</span><br /></span>
+<p>&nbsp; &nbsp; subspan<span class="br0">(</span> size_type Offset,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;size_type Count <span class="sy1">=</span> <a href="cpp-container-span-dynamic_extent.html"><span class="kw2630">std::<span class="me2">dynamic_extent</span></span></a> <span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#33719;&#24471;&#27492; span &#30340;&#33509;&#24178;&#36830;&#32493;&#20803;&#32032;&#19978;&#30340;&#23376;&#35270;&#22270;&#65292;&#26681;&#25454;&#20803;&#32032;&#20010;&#25968;&#21644;&#20559;&#31227;&#30830;&#23450;&#35201;&#21253;&#21547;&#30340;&#20803;&#32032;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#20803;&#32032;&#20010;&#25968;&#21644;&#20559;&#31227;&#30001;&#27169;&#26495;&#23454;&#21442;&#25552;&#20379;&#65292;&#24182;&#19988;&#23376;&#35270;&#22270;&#21482;&#26377;&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">Count</span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp">Offset</span></span> &#37117;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-container-span-dynamic_extent.html"><span class="kw2630">std::<span class="me2">dynamic_extent</span></span></a></span></span> &#26102;&#25165;&#25317;&#26377;&#21160;&#24577;&#38271;&#24230;&#12290;
+<ul>
+<li>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">Count</span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-container-span-dynamic_extent.html"><span class="kw2630">std::<span class="me2">dynamic_extent</span></span></a></span></span>&#65292;&#37027;&#20040;&#23376;&#35270;&#22270;&#21253;&#21547;&#20174;&#31532; <span class="t-c"><span class="mw-geshi cpp source-cpp">Offset</span></span> &#20010;&#20803;&#32032;&#24320;&#22987;&#30340;&#25152;&#26377;&#20803;&#32032;&#12290;</li>
+<li>&#21542;&#21017;&#23376;&#35270;&#22270;&#21253;&#21547;&#20174;&#31532; <span class="t-c"><span class="mw-geshi cpp source-cpp">Offset</span></span> &#20010;&#20803;&#32032;&#24320;&#22987;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">Count</span></span> &#20010;&#20803;&#32032;&#12290;</li>
+</ul>
+</div>
+<div class="t-li1"><span class="t-li"></span> &#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">FinalExtent</span></span> &#34920;&#31034;&#36820;&#22238;&#31867;&#22411;&#30340;&#31532;&#20108;&#20010;&#27169;&#26495;&#23454;&#21442;&#65292;&#23427;&#30340;&#23450;&#20041;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp">Count <span class="sy3">!</span><span class="sy1">=</span> <a href="cpp-container-span-dynamic_extent.html"><span class="kw2630">std::<span class="me2">dynamic_extent</span></span></a></span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; &nbsp; <span class="sy4">?</span> Count</span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; &nbsp; <span class="sy4">:</span> <span class="br0">(</span>Extent <span class="sy3">!</span><span class="sy1">=</span> <a href="cpp-container-span-dynamic_extent.html"><span class="kw2630">std::<span class="me2">dynamic_extent</span></span></a></span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy4">?</span> Extent <span class="sy2">-</span> Offset</span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; &nbsp; &nbsp; &nbsp; <span class="sy4">:</span> <a href="cpp-container-span-dynamic_extent.html"><span class="kw2630">std::<span class="me2">dynamic_extent</span></span></a><span class="br0">)</span></span></span>&#12290;</div>
+<div class="t-li1"><span class="t-li"></span> &#22914;&#26524;<span class="t-c"><span class="mw-geshi cpp source-cpp">Offset <span class="sy1">&lt;=</span> Extent <span class="sy3">&amp;&amp;</span> <span class="br0">(</span>Count <span class="sy1">==</span> <a href="cpp-container-span-dynamic_extent.html"><span class="kw2630">std::<span class="me2">dynamic_extent</span></span></a> <span class="sy3">||</span> Count <span class="sy1">&lt;=</span> Extent <span class="sy2">-</span> Offset<span class="br0">)</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#65292;&#37027;&#20040;&#31243;&#24207;&#38750;&#33391;&#26500;&#12290;</div>
+<div class="t-li1"><span class="t-li"></span>
+<table class="t-rev-begin">
+<tr class="t-rev t-until-cxx26">
+<td>
+<p>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">Offset <span class="sy1">&lt;=</span> size<span class="br0">(</span><span class="br0">)</span> <span class="sy3">&amp;&amp;</span> <span class="br0">(</span>Count <span class="sy1">==</span> <a href="cpp-container-span-dynamic_extent.html"><span class="kw2630">std::<span class="me2">dynamic_extent</span></span></a> <span class="sy3">||</span> Count <span class="sy1">&lt;=</span> size<span class="br0">(</span><span class="br0">)</span> <span class="sy2">-</span> Offset<span class="br0">)</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#65292;&#37027;&#20040;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-until-cxx26" style="white-space: nowrap;">(C++26 &#21069;)</span></td>
+</tr>
+<tr class="t-rev t-since-cxx26">
+<td>
+<p>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">Offset <span class="sy1">&lt;=</span> size<span class="br0">(</span><span class="br0">)</span> <span class="sy3">&amp;&amp;</span> <span class="br0">(</span>Count <span class="sy1">==</span> <a href="cpp-container-span-dynamic_extent.html"><span class="kw2630">std::<span class="me2">dynamic_extent</span></span></a> <span class="sy3">||</span> Count <span class="sy1">&lt;=</span> size<span class="br0">(</span><span class="br0">)</span> <span class="sy2">-</span> Offset<span class="br0">)</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#65292;&#37027;&#20040;&#65306;</p>
+<ul>
+<li>&#22914;&#26524;&#23454;&#29616;&#26159;<a href="cpp-standard_library.html#.E6.A0.87.E5.87.86.E5.BA.93.E7.A1.AC.E5.8C.96">&#30828;&#21270;&#23454;&#29616;</a>&#65292;&#37027;&#20040;&#23601;&#20250;&#21457;&#29983;<a href="cpp-language-contracts.html">&#22865;&#32422;&#36829;&#32972;</a>&#12290;&#24182;&#19988;&#22865;&#32422;&#36829;&#32972;&#22788;&#29702;&#20989;&#25968;&#22312;&ldquo;&#35266;&#23519;&rdquo;&#27714;&#20540;&#35821;&#20041;&#19979;&#36820;&#22238;&#26102;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</li>
+<li>&#22914;&#26524;&#23454;&#29616;&#19981;&#26159;&#30828;&#21270;&#23454;&#29616;&#65292;&#37027;&#20040;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+</table>
+</div>
+<p><br /></p>
+<div class="t-li1"><span class="t-li">2)</span> &#20803;&#32032;&#20010;&#25968;&#21644;&#20559;&#31227;&#30001;&#20989;&#25968;&#23454;&#21442;&#25552;&#20379;&#65292;&#24182;&#19988;&#23376;&#35270;&#22270;&#22987;&#32456;&#25317;&#26377;&#21160;&#24577;&#38271;&#24230;&#12290;
+<ul>
+<li>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">count</span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-container-span-dynamic_extent.html"><span class="kw2630">std::<span class="me2">dynamic_extent</span></span></a></span></span>&#65292;&#37027;&#20040;&#23376;&#35270;&#22270;&#21253;&#21547;&#20174;&#31532; <span class="t-c"><span class="mw-geshi cpp source-cpp">offset</span></span> &#20010;&#20803;&#32032;&#24320;&#22987;&#30340;&#25152;&#26377;&#20803;&#32032;&#12290;</li>
+<li>&#21542;&#21017;&#23376;&#35270;&#22270;&#21253;&#21547;&#20174;&#31532; <span class="t-c"><span class="mw-geshi cpp source-cpp">offset</span></span> &#20010;&#20803;&#32032;&#24320;&#22987;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">count</span></span> &#20010;&#20803;&#32032;&#12290;</li>
+</ul>
+</div>
+<div class="t-li1"><span class="t-li"></span>
+<table class="t-rev-begin">
+<tr class="t-rev t-until-cxx26">
+<td>
+<p>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">offset <span class="sy1">&lt;=</span> size<span class="br0">(</span><span class="br0">)</span> <span class="sy3">&amp;&amp;</span> <span class="br0">(</span>count <span class="sy1">==</span> <a href="cpp-container-span-dynamic_extent.html"><span class="kw2630">std::<span class="me2">dynamic_extent</span></span></a> <span class="sy3">||</span> count <span class="sy1">&lt;=</span> size<span class="br0">(</span><span class="br0">)</span> <span class="sy2">-</span> offset<span class="br0">)</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#65292;&#37027;&#20040;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-until-cxx26" style="white-space: nowrap;">(C++26 &#21069;)</span></td>
+</tr>
+<tr class="t-rev t-since-cxx26">
+<td>
+<p>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">offset <span class="sy1">&lt;=</span> size<span class="br0">(</span><span class="br0">)</span> <span class="sy3">&amp;&amp;</span> <span class="br0">(</span>count <span class="sy1">==</span> <a href="cpp-container-span-dynamic_extent.html"><span class="kw2630">std::<span class="me2">dynamic_extent</span></span></a> <span class="sy3">||</span> count <span class="sy1">&lt;=</span> size<span class="br0">(</span><span class="br0">)</span> <span class="sy2">-</span> offset<span class="br0">)</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#65292;&#37027;&#20040;&#65306;</p>
+<ul>
+<li>&#22914;&#26524;&#23454;&#29616;&#26159;<a href="cpp-standard_library.html#.E6.A0.87.E5.87.86.E5.BA.93.E7.A1.AC.E5.8C.96">&#30828;&#21270;&#23454;&#29616;</a>&#65292;&#37027;&#20040;&#23601;&#20250;&#21457;&#29983;<a href="cpp-language-contracts.html">&#22865;&#32422;&#36829;&#32972;</a>&#12290;&#24182;&#19988;&#22865;&#32422;&#36829;&#32972;&#22788;&#29702;&#20989;&#25968;&#22312;&ldquo;&#35266;&#23519;&rdquo;&#27714;&#20540;&#35821;&#20041;&#19979;&#36820;&#22238;&#26102;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</li>
+<li>&#22914;&#26524;&#23454;&#29616;&#19981;&#26159;&#30828;&#21270;&#23454;&#29616;&#65292;&#37027;&#20040;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+</table>
+</div>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<div class="t-li1"><span class="t-li">1)</span> <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-container-span.html"><span class="kw2631">std::<span class="me2">span</span></span></a><span class="sy1">&lt;</span>element_type, FinalExtent<span class="sy1">&gt;</span></span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; &nbsp; <span class="br0">(</span>data<span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> Offset, Count <span class="sy3">!</span><span class="sy1">=</span> <a href="cpp-container-span-dynamic_extent.html"><span class="kw2630">std::<span class="me2">dynamic_extent</span></span></a> <span class="sy4">?</span> Count <span class="sy4">:</span> size<span class="br0">(</span><span class="br0">)</span> <span class="sy2">-</span> Offset<span class="br0">)</span><span class="br0">)</span></span></span></div>
+<div class="t-li1"><span class="t-li">2)</span> <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-container-span.html"><span class="kw2631">std::<span class="me2">span</span></span></a><span class="sy1">&lt;</span>element_type, <a href="cpp-container-span-dynamic_extent.html"><span class="kw2630">std::<span class="me2">dynamic_extent</span></span></a><span class="sy1">&gt;</span></span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; &nbsp; <span class="br0">(</span>data<span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> offset, count <span class="sy3">!</span><span class="sy1">=</span> <a href="cpp-container-span-dynamic_extent.html"><span class="kw2630">std::<span class="me2">dynamic_extent</span></span></a> <span class="sy4">?</span> count <span class="sy4">:</span> size<span class="br0">(</span><span class="br0">)</span> <span class="sy2">-</span> offset<span class="br0">)</span><span class="br0">)</span></span></span></div>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;algorithm&gt;</span>
+<span class="co2">#include &lt;cstdio&gt;</span>
+<span class="co2">#include &lt;numeric&gt;</span>
+<span class="co2">#include &lt;ranges&gt;</span>
+<span class="co2">#include &lt;span&gt;</span>
+ 
+<span class="kw4">void</span> display<span class="br0">(</span><a href="cpp-container-span.html"><span class="kw2631">std::<span class="me2">span</span></span></a><span class="sy1">&lt;</span><span class="kw4">const</span> <span class="kw4">char</span><span class="sy1">&gt;</span> abc<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">const</span> <span class="kw4">auto</span> columns<span class="br0">{</span>20U<span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw4">const</span> <span class="kw4">auto</span> rows<span class="br0">{</span>abc.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">-</span> columns <span class="sy2">+</span> <span class="nu0">1</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">auto</span> offset<span class="br0">{</span>0U<span class="br0">}</span><span class="sy4">;</span> offset <span class="sy1">&lt;</span> rows<span class="sy4">;</span> <span class="sy2">++</span>offset<span class="br0">)</span>
+    <span class="br0">{</span>
+        std<span class="sy4">::</span><a href="cpp-algorithm-ranges-for_each.html"><span class="kw2989">ranges::<span class="me2">for_each</span></span></a><span class="br0">(</span>abc.<span class="me1">subspan</span><span class="br0">(</span>offset, columns<span class="br0">)</span>, <a href="cpp-io-c-putchar.html"><span class="kw1833">std::<span class="me2">putchar</span></span></a><span class="br0">)</span><span class="sy4">;</span>
+        <a href="cpp-io-c-puts.html"><span class="kw1834">std::<span class="me2">puts</span></span></a><span class="br0">(</span><span class="st0">&quot;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">char</span> abc<span class="br0">[</span><span class="nu0">26</span><span class="br0">]</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><a href="cpp-algorithm-ranges-iota.html"><span class="kw3564">ranges::<span class="me2">iota</span></span></a><span class="br0">(</span>abc, <span class="st0">&#39;A&#39;</span><span class="br0">)</span><span class="sy4">;</span>
+    display<span class="br0">(</span>abc<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">ABCDEFGHIJKLMNOPQRST
+BCDEFGHIJKLMNOPQRSTU
+CDEFGHIJKLMNOPQRSTUV
+DEFGHIJKLMNOPQRSTUVW
+EFGHIJKLMNOPQRSTUVWX
+FGHIJKLMNOPQRSTUVWXY
+GHIJKLMNOPQRSTUVWXYZ</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-span-first.html"><span class="t-lines"><span>first</span></span></a></div>
+</div>
+</td>
+<td>&#33719;&#24471;&#30001;&#24207;&#21015;&#21069; <code>N</code> &#20010;&#20803;&#32032;&#32452;&#25104;&#30340;&#23376;&#27573;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-span-last.html"><span class="t-lines"><span>last</span></span></a></div>
+</div>
+</td>
+<td>&#33719;&#24471;&#30001;&#24207;&#21015;&#26411; N &#20010;&#20803;&#32032;&#32452;&#25104;&#30340;&#23376;&#27573;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

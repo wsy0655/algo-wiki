@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::ranges::sample</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_algorithm_ranges_sample skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::ranges::</span>sample</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-algorithm.html">algorithm</a>&lrm; | <a href="cpp-algorithm-ranges.html">ranges</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-algorithm.html">&lt;algorithm&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl-h">
+<td>
+<div>&#35843;&#29992;&#31614;&#21517;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-iterator-input_iterator.html"><span class="kw2864">std::<span class="me2">input_iterator</span></span></a> I, <a href="cpp-iterator-sentinel_for.html"><span class="kw2862">std::<span class="me2">sentinel_for</span></span></a><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span> S,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-iterator-weakly_incrementable.html"><span class="kw2859">std::<span class="me2">weakly_incrementable</span></span></a> O, <span class="kw1">class</span> Gen <span class="sy1">&gt;</span><br />
+requires <span class="br0">(</span><a href="cpp-iterator-forward_iterator.html"><span class="kw2866">std::<span class="me2">forward_iterator</span></span></a><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span> <span class="sy3">||</span> <a href="cpp-iterator-random_access_iterator.html"><span class="kw2868">std::<span class="me2">random_access_iterator</span></span></a><span class="sy1">&lt;</span>O<span class="sy1">&gt;</span><span class="br0">)</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-iterator-indirectly_copyable.html"><span class="kw3124">std::<span class="me2">indirectly_copyable</span></span></a><span class="sy1">&lt;</span>I, O<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-numeric-random-uniform_random_bit_generator.html"><span class="kw3183">std::<span class="me2">uniform_random_bit_generator</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>Gen<span class="sy1">&gt;&gt;</span><br /></p>
+O sample<span class="br0">(</span> I first, S last, O out, <a href="cpp-iterator-iter_t.html"><span class="kw2875">std::<span class="me2">iter_difference_t</span></span></a><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span> n, Gen<span class="sy3">&amp;&amp;</span> gen <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-ranges-input_range.html"><span class="kw2902">ranges::<span class="me2">input_range</span></span></a> R, <a href="cpp-iterator-weakly_incrementable.html"><span class="kw2859">std::<span class="me2">weakly_incrementable</span></span></a> O, <span class="kw1">class</span> Gen <span class="sy1">&gt;</span><br /></span>
+<p>requires <span class="br0">(</span><a href="cpp-ranges-forward_range.html"><span class="kw2904">ranges::<span class="me2">forward_range</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span> <span class="sy3">||</span> <a href="cpp-iterator-random_access_iterator.html"><span class="kw2868">std::<span class="me2">random_access_iterator</span></span></a><span class="sy1">&lt;</span>O<span class="sy1">&gt;</span><span class="br0">)</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-iterator-indirectly_copyable.html"><span class="kw3124">std::<span class="me2">indirectly_copyable</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, O<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-numeric-random-uniform_random_bit_generator.html"><span class="kw3183">std::<span class="me2">uniform_random_bit_generator</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>Gen<span class="sy1">&gt;&gt;</span><br /></p>
+O sample<span class="br0">(</span> R<span class="sy3">&amp;&amp;</span> r, O out, <a href="cpp-ranges-iterator_t.html"><span class="kw2892">ranges::<span class="me2">range_difference_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span> n, Gen<span class="sy3">&amp;&amp;</span> gen <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#20174;&#24207;&#21015; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">first</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">last</span></span><code>)</code> &#36873;&#25321; <span class="t-c"><span class="mw-geshi cpp source-cpp">M <span class="sy1">=</span> min<span class="br0">(</span>n, last <span class="sy2">-</span> first<span class="br0">)</span></span></span> &#20010;&#20803;&#32032;&#65288;&#26080;&#26367;&#20195;&#65289;&#20351;&#24471;&#27599;&#20010;&#21487;&#33021;&#30340;<i>&#26679;&#26412;</i>&#25317;&#26377;&#30456;&#31561;&#30340;&#20986;&#29616;&#27010;&#29575;&#65292;&#24182;&#23558;&#37027;&#20123;&#36873;&#25321;&#30340;&#20803;&#32032;&#20889;&#21040;&#22987;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">out</span></span> &#30340;&#33539;&#22260;&#20013;&#12290;</div>
+<div class="t-li1"><span class="t-li"></span> &#20165;&#33509; <code>I</code> &#23454;&#29616; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-forward_iterator.html"><span class="kw2866">std::<span class="me2">forward_iterator</span></span></a></span></span> &#31639;&#27861;&#25165;<i>&#31283;&#23450;</i>&#65288;&#20445;&#25345;&#34987;&#36873;&#25321;&#20803;&#32032;&#30340;&#30456;&#23545;&#39034;&#24207;&#65289;&#12290;</div>
+<div class="t-li1"><span class="t-li"></span> &#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">out</span></span> &#22312; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">first</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">last</span></span><code>)</code> &#20013;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#21516; <span class="t-v">(1)</span>&#65292;&#20294;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">r</span></span> &#20026;&#28304;&#33539;&#22260;&#65292;&#22914;&#21516;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/begin"><span class="kw2882">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>r<span class="br0">)</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">first</span></span> &#24182;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/end"><span class="kw2884">ranges::<span class="me2">end</span></span></a><span class="br0">(</span>r<span class="br0">)</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">last</span></span>&#12290;</div>
+<p>&#27492;&#39029;&#38754;&#19978;&#25551;&#36848;&#30340;&#20989;&#25968;&#24335;&#23454;&#20307;&#26159;<i><a href="cpp-algorithm-ranges.html#.E7.AE.97.E6.B3.95.E5.87.BD.E6.95.B0.E5.AF.B9.E8.B1.A1">&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;</a></i>&#65288;&#38750;&#27491;&#24335;&#22320;&#31216;&#20026; <i>niebloid</i>&#65289;&#65292;&#21363;&#65306;</p>
+<ul>
+<li>&#35843;&#29992;&#23427;&#20204;&#20013;&#30340;&#20219;&#20309;&#19968;&#20010;&#26102;&#19981;&#33021;&#26174;&#24335;&#25351;&#23450;&#27169;&#26495;&#23454;&#21442;&#12290;</li>
+<li>&#23427;&#20204;&#37117;&#19981;&#23545;<a href="cpp-language-adl.html">&#23454;&#21442;&#20381;&#36182;&#26597;&#25214;</a>&#21487;&#35265;&#12290;</li>
+<li>&#22312;&#36890;&#36807;&#20989;&#25968;&#35843;&#29992;&#36816;&#31639;&#31526;&#24038;&#20391;&#30340;&#21517;&#23383;&#36827;&#34892;<a href="cpp-language-unqualified_lookup.html">&#26080;&#38480;&#23450;&#26597;&#25214;</a>&#65292;&#25214;&#21040;&#23427;&#20204;&#20043;&#19968;&#26102;&#65292;&#31105;&#27490;<a href="cpp-language-adl.html">&#23454;&#21442;&#20381;&#36182;&#26597;&#25214;</a>&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>first, last</td>
+<td>-</td>
+<td>&#20174;&#20013;&#37319;&#26679;&#30340;&#33539;&#22260;&#65288;<i>&#24635;&#20307;</i>&#65289;&#20803;&#32032;<a href="cpp-iterator.html#.E8.8C.83.E5.9B.B4">&#33539;&#22260;</a>&#30340;&#36845;&#20195;&#22120;-&#21736;&#20301;&#23545;</td>
+</tr>
+<tr class="t-par">
+<td>r</td>
+<td>-</td>
+<td>&#20174;&#20013;&#37319;&#26679;&#30340;&#33539;&#22260;&#65288;<i>&#24635;&#20307;</i>&#65289;</td>
+</tr>
+<tr class="t-par">
+<td>out</td>
+<td>-</td>
+<td>&#29992;&#20197;&#20889;&#20837;&#26679;&#26412;&#30340;&#36755;&#20986;&#36845;&#20195;&#22120;</td>
+</tr>
+<tr class="t-par">
+<td>n</td>
+<td>-</td>
+<td>&#35201;&#25277;&#21462;&#30340;&#26679;&#26412;&#25968;</td>
+</tr>
+<tr class="t-par">
+<td>gen</td>
+<td>-</td>
+<td>&#29992;&#20316;&#38543;&#26426;&#24615;&#28304;&#30340;&#38543;&#26426;&#25968;&#29983;&#25104;&#22120;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#31561;&#20110; <code>out + M</code> &#30340;&#36845;&#20195;&#22120;&#65292;&#21363;&#32467;&#26524;&#37319;&#26679;&#33539;&#22260;&#30340;&#26411;&#23614;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<p><i>&#32447;&#24615;</i>&#65306; &#120030;<code>(last - first)</code>&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#27492;&#20989;&#25968;&#21487;&#33021;&#23454;&#29616;<i>&#36873;&#25321;&#25277;&#26679;</i>&#25110;<a href="https://en.wikipedia.org/wiki/reservoir_sampling" class="extiw" title="enwiki:reservoir sampling">&#33988;&#27700;&#27744;&#25277;&#26679;</a>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.AF.E8.83.BD.E7.9A.84.E5.AE.9E.E7.8E.B0">&#21487;&#33021;&#30340;&#23454;&#29616;</span></h3>
+<table class="eq-fun-cpp-table">
+<tr>
+<td>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">struct</span> sample_fn
+<span class="br0">{</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span><a href="cpp-iterator-input_iterator.html"><span class="kw2864">std::<span class="me2">input_iterator</span></span></a> I, <a href="cpp-iterator-sentinel_for.html"><span class="kw2862">std::<span class="me2">sentinel_for</span></span></a><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span> S,
+             <a href="cpp-iterator-weakly_incrementable.html"><span class="kw2859">std::<span class="me2">weakly_incrementable</span></span></a> O, <span class="kw1">class</span> Gen<span class="sy1">&gt;</span>
+    requires <span class="br0">(</span><a href="cpp-iterator-forward_iterator.html"><span class="kw2866">std::<span class="me2">forward_iterator</span></span></a><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span> or
+              <a href="cpp-iterator-random_access_iterator.html"><span class="kw2868">std::<span class="me2">random_access_iterator</span></span></a><span class="sy1">&lt;</span>O<span class="sy1">&gt;</span><span class="br0">)</span> <span class="sy3">&amp;&amp;</span>
+              <a href="cpp-iterator-indirectly_copyable.html"><span class="kw3124">std::<span class="me2">indirectly_copyable</span></span></a><span class="sy1">&lt;</span>I, O<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span>
+              <a href="cpp-numeric-random-uniform_random_bit_generator.html"><span class="kw3183">std::<span class="me2">uniform_random_bit_generator</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>Gen<span class="sy1">&gt;&gt;</span>
+    O operator<span class="br0">(</span><span class="br0">)</span><span class="br0">(</span>I first, S last, O out, <a href="cpp-iterator-iter_t.html"><span class="kw2875">std::<span class="me2">iter_difference_t</span></span></a><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span> n, Gen<span class="sy3">&amp;&amp;</span> gen<span class="br0">)</span> <span class="kw4">const</span>
+    <span class="br0">{</span>
+        <span class="kw1">using</span> diff_t <span class="sy1">=</span> <a href="cpp-iterator-iter_t.html"><span class="kw2875">std::<span class="me2">iter_difference_t</span></span></a><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span><span class="sy4">;</span>
+        <span class="kw1">using</span> distrib_t <span class="sy1">=</span> <a href="cpp-numeric-random-uniform_int_distribution.html"><span class="kw1505">std::<span class="me2">uniform_int_distribution</span></span></a><span class="sy1">&lt;</span>diff_t<span class="sy1">&gt;</span><span class="sy4">;</span>
+        <span class="kw1">using</span> param_t <span class="sy1">=</span> <span class="kw1">typename</span> distrib_t<span class="sy4">::</span><span class="me2">param_type</span><span class="sy4">;</span>
+        distrib_t D<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+        <span class="kw1">if</span> <span class="kw4">constexpr</span> <span class="br0">(</span><a href="cpp-iterator-forward_iterator.html"><span class="kw2866">std::<span class="me2">forward_iterator</span></span></a><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span><span class="br0">)</span>
+        <span class="br0">{</span>
+            <span class="co1">// &#27492;&#20998;&#25903;&#20445;&#25345;&#26679;&#26412;&#20803;&#32032;&ldquo;&#31283;&#23450;&#24615;&rdquo;</span>
+            <span class="kw4">auto</span> rest<span class="br0">{</span><a href="cpp-iterator-ranges-distance.html"><span class="kw3141">ranges::<span class="me2">distance</span></span></a><span class="br0">(</span>first, last<span class="br0">)</span><span class="br0">}</span><span class="sy4">;</span>
+            <span class="kw1">for</span> <span class="br0">(</span>n <span class="sy1">=</span> <a href="cpp-algorithm-ranges-min.html"><span class="kw3010">ranges::<span class="me2">min</span></span></a><span class="br0">(</span>n, rest<span class="br0">)</span><span class="sy4">;</span> n <span class="sy3">!</span><span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span> <span class="sy2">++</span>first<span class="br0">)</span>
+                <span class="kw1">if</span> <span class="br0">(</span>D<span class="br0">(</span>gen, param_t<span class="br0">(</span><span class="nu0">0</span>, <span class="sy2">--</span>rest<span class="br0">)</span><span class="br0">)</span> <span class="sy1">&lt;</span> n<span class="br0">)</span>
+                <span class="br0">{</span>
+                    <span class="sy2">*</span>out<span class="sy2">++</span> <span class="sy1">=</span> <span class="sy2">*</span>first<span class="sy4">;</span>
+                    <span class="sy2">--</span>n<span class="sy4">;</span>
+                <span class="br0">}</span>
+            <span class="kw1">return</span> out<span class="sy4">;</span>
+        <span class="br0">}</span>
+        <span class="kw1">else</span>
+        <span class="br0">{</span>
+            <span class="co1">// D &#20026; random_access_iterator</span>
+            diff_t sample_size<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+            <span class="co1">// &#22797;&#21046; [first, first + M) &#20803;&#32032;&#21040;&ldquo;&#38543;&#26426;&#35775;&#38382;&rdquo;&#36755;&#20986;</span>
+            <span class="kw1">for</span> <span class="br0">(</span><span class="sy4">;</span> first <span class="sy3">!</span><span class="sy1">=</span> last <span class="sy3">&amp;&amp;</span> sample_size <span class="sy3">!</span><span class="sy1">=</span> n<span class="sy4">;</span> <span class="sy2">++</span>first<span class="br0">)</span>
+                out<span class="br0">[</span>sample_size<span class="sy2">++</span><span class="br0">]</span> <span class="sy1">=</span> <span class="sy2">*</span>first<span class="sy4">;</span>
+            <span class="co1">// &#20197;&#38543;&#26426;&#36873;&#25321;&#30340;&#20540;&#37325;&#20889;&#26576;&#20123;&#22797;&#21046;&#30340;&#20803;&#32032;</span>
+            <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">auto</span> pop_size<span class="br0">{</span>sample_size<span class="br0">}</span><span class="sy4">;</span> first <span class="sy3">!</span><span class="sy1">=</span> last<span class="sy4">;</span> <span class="sy2">++</span>first, <span class="sy2">++</span>pop_size<span class="br0">)</span>
+            <span class="br0">{</span>
+                <span class="kw4">const</span> <span class="kw4">auto</span> i<span class="br0">{</span>D<span class="br0">(</span>gen, param_t<span class="br0">{</span><span class="nu0">0</span>, pop_size<span class="br0">}</span><span class="br0">)</span><span class="br0">}</span><span class="sy4">;</span>
+                <span class="kw1">if</span> <span class="br0">(</span>i <span class="sy1">&lt;</span> n<span class="br0">)</span>
+                    out<span class="br0">[</span>i<span class="br0">]</span> <span class="sy1">=</span> <span class="sy2">*</span>first<span class="sy4">;</span>
+            <span class="br0">}</span>
+            <span class="kw1">return</span> out <span class="sy2">+</span> sample_size<span class="sy4">;</span>
+        <span class="br0">}</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw1">template</span><span class="sy1">&lt;</span><a href="cpp-ranges-input_range.html"><span class="kw2902">ranges::<span class="me2">input_range</span></span></a> R, <a href="cpp-iterator-weakly_incrementable.html"><span class="kw2859">std::<span class="me2">weakly_incrementable</span></span></a> O, <span class="kw1">class</span> Gen<span class="sy1">&gt;</span>
+    requires <span class="br0">(</span><a href="cpp-ranges-forward_range.html"><span class="kw2904">ranges::<span class="me2">forward_range</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span> or <a href="cpp-iterator-random_access_iterator.html"><span class="kw2868">std::<span class="me2">random_access_iterator</span></span></a><span class="sy1">&lt;</span>O<span class="sy1">&gt;</span><span class="br0">)</span> <span class="sy3">&amp;&amp;</span>
+              <a href="cpp-iterator-indirectly_copyable.html"><span class="kw3124">std::<span class="me2">indirectly_copyable</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, O<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span>
+              <a href="cpp-numeric-random-uniform_random_bit_generator.html"><span class="kw3183">std::<span class="me2">uniform_random_bit_generator</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>Gen<span class="sy1">&gt;&gt;</span>
+    O operator<span class="br0">(</span><span class="br0">)</span><span class="br0">(</span>R<span class="sy3">&amp;&amp;</span> r, O out, <a href="cpp-ranges-iterator_t.html"><span class="kw2892">ranges::<span class="me2">range_difference_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span> n, Gen<span class="sy3">&amp;&amp;</span> gen<span class="br0">)</span> <span class="kw4">const</span>
+    <span class="br0">{</span>
+        <span class="kw1">return</span> <span class="br0">(</span><span class="sy2">*</span>this<span class="br0">)</span><span class="br0">(</span><a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/begin"><span class="kw2882">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>r<span class="br0">)</span>, <a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/end"><span class="kw2884">ranges::<span class="me2">end</span></span></a><span class="br0">(</span>r<span class="br0">)</span>, std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>out<span class="br0">)</span>, n,
+                       <a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Gen<span class="sy1">&gt;</span><span class="br0">(</span>gen<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw1">inline</span> <span class="kw4">constexpr</span> sample_fn sample <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;algorithm&gt;</span>
+<span class="co2">#include &lt;iomanip&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;iterator&gt;</span>
+<span class="co2">#include &lt;random&gt;</span>
+<span class="co2">#include &lt;vector&gt;</span>
+ 
+<span class="kw4">void</span> print<span class="br0">(</span><span class="kw4">auto</span> <span class="kw4">const</span><span class="sy3">&amp;</span> rem, <span class="kw4">auto</span> <span class="kw4">const</span><span class="sy3">&amp;</span> v<span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> rem <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; = [&quot;</span> <span class="sy1">&lt;&lt;</span> <a href="cpp-iterator-size.html"><span class="kw687">std::<span class="me2">size</span></span></a><span class="br0">(</span>v<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;] { &quot;</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">auto</span> <span class="kw4">const</span><span class="sy3">&amp;</span> e <span class="sy4">:</span> v<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> e <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;}<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">const</span> <span class="kw4">auto</span> in <span class="sy1">=</span> <span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">2</span>, <span class="nu0">3</span>, <span class="nu0">4</span>, <span class="nu0">5</span>, <span class="nu0">6</span><span class="br0">}</span><span class="sy4">;</span>
+    print<span class="br0">(</span><span class="st0">&quot;in&quot;</span>, in<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-container-vector.html"><span class="kw1272">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span> out<span class="sy4">;</span>
+    <span class="kw4">const</span> <span class="kw4">int</span> max <span class="sy1">=</span> in.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> <span class="nu0">2</span><span class="sy4">;</span>
+    <span class="kw4">auto</span> gen <span class="sy1">=</span> <a href="cpp-numeric-random-mersenne_twister_engine.html"><span class="kw1492">std::<span class="me2">mt19937</span></span></a><span class="br0">{</span><a href="cpp-numeric-random-random_device.html"><span class="kw1489">std::<span class="me2">random_device</span></span></a><span class="br0">{</span><span class="br0">}</span><span class="br0">(</span><span class="br0">)</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> n<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span> n <span class="sy3">!</span><span class="sy1">=</span> max<span class="sy4">;</span> <span class="sy2">++</span>n<span class="br0">)</span>
+    <span class="br0">{</span>
+        out.<span class="me1">clear</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+        std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">sample</span><span class="br0">(</span>in, <a href="cpp-iterator-back_inserter.html"><span class="kw668">std::<span class="me2">back_inserter</span></span></a><span class="br0">(</span>out<span class="br0">)</span>, n, gen<span class="br0">)</span><span class="sy4">;</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;n = &quot;</span> <span class="sy1">&lt;&lt;</span> n<span class="sy4">;</span>
+        print<span class="br0">(</span><span class="st0">&quot;, out&quot;</span>, out<span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">in = [6] { 1 2 3 4 5 6 }
+n = 0, out = [0] { }
+n = 1, out = [1] { 5 }
+n = 2, out = [2] { 4 5 }
+n = 3, out = [3] { 2 3 5 }
+n = 4, out = [4] { 2 4 5 6 }
+n = 5, out = [5] { 1 2 3 5 6 }
+n = 6, out = [6] { 1 2 3 4 5 6 }
+n = 7, out = [6] { 1 2 3 4 5 6 }</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-shuffle.html"><span class="t-lines"><span>ranges::shuffle</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#38543;&#26426;&#37325;&#25490;&#33539;&#22260;&#20013;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-sample.html"><span class="t-lines"><span>sample</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span></span></span></div>
+</div>
+</td>
+<td>&#20174;&#24207;&#21015;&#20013;&#38543;&#26426;&#36873;&#25321; N &#20010;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

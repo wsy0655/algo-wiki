@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::chrono::last_spec, std::chrono::last</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_chrono_last_spec skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::chrono::</span>last_spec, <span style="font-size:0.8em; line-height:125%">std::chrono::</span>last</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-chrono.html">chrono</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-chrono.html">&lt;chrono&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">struct</span> last_spec<br /></span>
+<p><span class="br0">{</span><br />
+&nbsp; &nbsp; <span class="kw1">explicit</span> last_spec<span class="br0">(</span><span class="br0">)</span> <span class="sy1">=</span> <span class="kw1">default</span><span class="sy4">;</span><br /></p>
+<span class="br0">}</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">inline</span> <span class="kw4">constexpr</span> last_spec last<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>last_spec</code> &#26159;&#29992;&#20110;&#19982;&#20854;&#20182;&#26085;&#21382;&#31867;&#22411;&#21512;&#21462;&#65292;&#20197;&#25351;&#31034;&#24207;&#21015;&#20013;&#26368;&#21518;&#19968;&#39033;&#30340;&#31354;&#26631;&#31614;&#31867;&#22411;&#12290;&#20381;&#36182;&#20110;&#35821;&#22659;&#65292;&#23427;&#21487;&#20197;&#25351;&#31034;&#26376;&#30340;&#26368;&#21518;&#19968;&#26085;&#65288;&#22914;&#22312;&#23545;&#20110; 2018 &#24180;&#20108;&#26376;&#30340;&#26368;&#21518;&#19968;&#26085;&#65292;&#21363; 2018-02-28 &#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">2018y<span class="sy2">/</span>February<span class="sy2">/</span>last</span></span> &#20013;&#65289;&#25110;&#26376;&#20013;&#30340;&#26143;&#26399;&#30340;&#26368;&#21518;&#19968;&#26085;&#65288;&#22914;&#22312;&#23545;&#20110; 2018 &#24180;&#20108;&#26376;&#26368;&#21518;&#19968;&#20010;&#26143;&#26399;&#26085;&#65292;&#21363; 2018-02-25 &#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="nu0">2018</span><span class="sy2">/</span>February<span class="sy2">/</span>Sunday<span class="br0">[</span>last<span class="br0">]</span></span></span> &#20013;&#65289;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;chrono&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">using</span> <span class="kw1">namespace</span> std<span class="sy4">::</span><span class="me2">chrono</span><span class="sy4">;</span>
+ 
+    <span class="kw4">constexpr</span> <span class="kw4">auto</span> mdl <span class="br0">{</span>June<span class="sy2">/</span>last<span class="br0">}</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span>mdl <span class="sy1">==</span> month_day_last<span class="br0">(</span>month<span class="br0">(</span><span class="nu0">6</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw4">constexpr</span> <span class="kw4">auto</span> ymwdl <span class="br0">{</span>year<span class="br0">(</span><span class="nu0">2023</span><span class="br0">)</span><span class="sy2">/</span>December<span class="sy2">/</span>Tuesday<span class="br0">[</span>last<span class="br0">]</span><span class="br0">}</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span>ymwdl <span class="sy1">==</span>
+        year_month_weekday_last<span class="br0">(</span>year<span class="br0">(</span><span class="nu0">2023</span><span class="br0">)</span>, month<span class="br0">(</span><span class="nu0">12</span><span class="br0">)</span>, weekday_last<span class="br0">(</span>Tuesday<span class="br0">)</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::strlen</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_string_byte_strlen skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>strlen</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-string.html">string</a>&lrm; | <a href="cpp-string-byte.html">byte</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-cstring.html">&lt;cstring&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi cpp source-cpp"><a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> strlen<span class="br0">(</span> <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> str <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36820;&#22238;&#32473;&#23450;&#23383;&#33410;&#23383;&#31526;&#20018;&#30340;&#38271;&#24230;&#65292;&#21363; <span class="t-c"><span class="mw-geshi cpp source-cpp">str</span></span> &#25351;&#21521;&#20854;&#39318;&#20803;&#32032;&#30340;&#23383;&#31526;&#25968;&#32452;&#20013;&#30452;&#21040;&#32780;&#19981;&#21253;&#21547;&#39318;&#20010;&#31354;&#23383;&#31526;&#30340;&#23383;&#31526;&#25968;&#12290;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">str</span></span> &#25152;&#25351;&#21521;&#30340;&#23383;&#31526;&#25968;&#32452;&#20013;&#26080;&#31354;&#23383;&#31526;&#65292;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>str</td>
+<td>-</td>
+<td>&#25351;&#21521;&#35201;&#26816;&#39564;&#30340;&#31354;&#32456;&#27490;&#23383;&#33410;&#23383;&#31526;&#20018;&#30340;&#25351;&#38024;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#31354;&#32456;&#27490;&#23383;&#31526;&#20018; <span class="t-c"><span class="mw-geshi cpp source-cpp">str</span></span> &#30340;&#38271;&#24230;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.AF.E8.83.BD.E7.9A.84.E5.AE.9E.E7.8E.B0">&#21487;&#33021;&#30340;&#23454;&#29616;</span></h3>
+<table class="eq-fun-cpp-table">
+<tr>
+<td>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> strlen<span class="br0">(</span><span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> start<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="co1">// &#26032;&#25163;&#27880;&#24847;&#65306;&#26410;&#26816;&#26597; start &#26159;&#21542;&#26159; nullptr&#65281;</span>
+    <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> end <span class="sy1">=</span> start<span class="sy4">;</span>
+    <span class="kw1">while</span> <span class="br0">(</span><span class="sy2">*</span>end <span class="sy3">!</span><span class="sy1">=</span> <span class="st0">&#39;<span class="es5">\0</span>&#39;</span><span class="br0">)</span>
+        <span class="sy2">++</span>end<span class="sy4">;</span>
+    <span class="kw1">return</span> end <span class="sy2">-</span> start<span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;cstring&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">const</span> <span class="kw4">char</span> str<span class="br0">[</span><span class="br0">]</span> <span class="sy1">=</span> <span class="st0">&quot;dog cat<span class="es5">\0</span>mouse&quot;</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#27809;&#26377;&#31354;&#23383;&#31526;: &quot;</span> <span class="sy1">&lt;&lt;</span> std<span class="sy4">::</span><span class="me2">strlen</span><span class="br0">(</span>str<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#26377;&#31354;&#23383;&#31526;: &quot;</span> <span class="sy1">&lt;&lt;</span> sizeof str <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#27809;&#26377;&#31354;&#23383;&#31526;: 7
+&#26377;&#31354;&#23383;&#31526;: 14</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-string-wide-wcslen.html"><span class="t-lines"><span>wcslen</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#23485;&#23383;&#31526;&#20018;&#38271;&#24230;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-string-multibyte-mblen.html"><span class="t-lines"><span>mblen</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#19979;&#19968;&#20010;&#22810;&#23383;&#33410;&#23383;&#31526;&#20013;&#30340;&#23383;&#33410;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>strlen</span></span>&nbsp;&#30340; <span><span><a href="c-string-byte-strlen.html">C &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

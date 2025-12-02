@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::type_info::before</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_types_type_info_before skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::type_info::</span>before</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-types.html">types</a>&lrm; | <a href="cpp-types-type_info.html">type info</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> before<span class="br0">(</span> <span class="kw4">const</span> type_info<span class="sy3">&amp;</span> rhs <span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;&#20026; noexcept)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#33509;&#27492; <code>type_info</code> &#30340;&#31867;&#22411;&#22312;&#23454;&#29616;&#30340;&#23545;&#29031;&#39034;&#24207;&#20013;&#21015;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">rhs</span></span> &#30340;&#31867;&#22411;&#20043;&#21069;&#21017;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#12290;&#19981;&#32473;&#20986;&#20445;&#35777;&#65292;&#29305;&#21035;&#26159;&#23545;&#29031;&#39034;&#24207;&#21487;&#20197;&#22312;&#21516;&#19968;&#31243;&#24207;&#30340;&#35843;&#29992;&#20043;&#38388;&#25913;&#21464;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>rhs</td>
+<td>-</td>
+<td>&#35201;&#27604;&#36739;&#30340;&#21478;&#19968;&#20010;&#31867;&#22411;&#20449;&#24687;&#23545;&#35937;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#33509;&#27492; <code>type_info</code> &#30340;&#31867;&#22411;&#22312;&#23454;&#29616;&#30340;&#23545;&#29031;&#39034;&#24207;&#20013;&#21015;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">rhs</span></span> &#30340;&#31867;&#22411;&#20043;&#21069;&#21017;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;typeinfo&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">if</span><span class="br0">(</span><span class="kw1">typeid</span><span class="br0">(</span><span class="kw4">int</span><span class="br0">)</span>.<span class="me1">before</span><span class="br0">(</span><span class="kw1">typeid</span><span class="br0">(</span><span class="kw4">char</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#27492;&#23454;&#29616;&#20013; int &#22312; char &#20043;&#21069;&#12290;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    <span class="kw1">else</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#27492;&#23454;&#29616;&#20013; char &#22312; int &#20043;&#21069;&#12290;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#27492;&#23454;&#29616;&#20013; char &#22312; int &#20043;&#21069;&#12290;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-types-type_info-operator_cmp.html"><span class="t-lines"><span>operator==</span><span>operator!=</span></span></a></div>
+<div><span class="t-lines"><span></span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#31227;&#38500;)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#23545;&#35937;&#26159;&#21542;&#25351;&#20195;&#30456;&#21516;&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

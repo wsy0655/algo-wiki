@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::formattable</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_utility_format_formattable skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>formattable</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-utility.html">utility</a>&lrm; | <a href="cpp-utility-format.html">format</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-format.html">&lt;format&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span> CharT <span class="sy1">&gt;</span><br /></span>
+<p>concept formattable <span class="sy1">=</span> <span class="coMULTI">/* formattable_with */</span><span class="sy1">&lt;</span><br />
+&nbsp; <a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span>,<br />
+&nbsp; <a href="cpp-utility-format-basic_format_context.html"><span class="kw3158">std::<span class="me2">basic_format_context</span></span></a><span class="sy1">&lt;</span><span class="coMULTI">/* fmt_iter_for */</span><span class="sy1">&lt;</span>CharT<span class="sy1">&gt;</span>, CharT<span class="sy1">&gt;</span><br /></p>
+<span class="sy1">&gt;</span><span class="sy4">;</span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-h">
+<td>
+<div>&#36741;&#21161;&#27169;&#26495;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> CharT <span class="sy1">&gt;</span><br />
+<span class="kw1">using</span> <span class="coMULTI">/* fmt_iter_for */</span> <span class="sy1">=</span> <span class="coMULTI">/* &#26410;&#25351;&#26126; */</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;*</span>)</span></td>
+</tr>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span> Context,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span> Formatter <span class="sy1">=</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">typename</span> Context<span class="sy4">::</span><span class="kw1">template</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; formatter_type<span class="sy1">&lt;</span><a href="cpp-types-remove_cv.html"><span class="kw601">std::<span class="me2">remove_const_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;&gt;</span> <span class="sy1">&gt;</span><br />
+concept <span class="coMULTI">/* formattable_with */</span> <span class="sy1">=</span><br />
+&nbsp; <a href="cpp-concepts-semiregular.html"><span class="kw2956">std::<span class="me2">semiregular</span></span></a><span class="sy1">&lt;</span>Formatter<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; requires <span class="br0">(</span>Formatter<span class="sy3">&amp;</span> f, <span class="kw4">const</span> Formatter<span class="sy3">&amp;</span> cf, T<span class="sy3">&amp;&amp;</span> t, Context fc,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-utility-format-basic_format_parse_context.html"><span class="kw3155">std::<span class="me2">basic_format_parse_context</span></span></a><span class="sy1">&lt;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">typename</span> Context<span class="sy4">::</span><span class="me2">char_type</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="sy1">&gt;</span> pc<span class="br0">)</span> <span class="br0">{</span><br />
+&nbsp; &nbsp; <span class="br0">{</span> f.<span class="me1">parse</span><span class="br0">(</span>pc<span class="br0">)</span> <span class="br0">}</span> <span class="sy2">-</span><span class="sy1">&gt;</span> <a href="cpp-concepts-same_as.html"><span class="kw2933">std::<span class="me2">same_as</span></span></a><span class="sy1">&lt;</span><span class="kw1">typename</span> decltype<span class="br0">(</span>pc<span class="br0">)</span><span class="sy4">::</span><span class="me2">iterator</span><span class="sy1">&gt;</span><span class="sy4">;</span><br />
+&nbsp; &nbsp; <span class="br0">{</span> cf.<span class="me1">format</span><span class="br0">(</span>t, fc<span class="br0">)</span> <span class="br0">}</span> <span class="sy2">-</span><span class="sy1">&gt;</span> <a href="cpp-concepts-same_as.html"><span class="kw2933">std::<span class="me2">same_as</span></span></a><span class="sy1">&lt;</span><span class="kw1">typename</span> Context<span class="sy4">::</span><span class="me2">iterator</span><span class="sy1">&gt;</span><span class="sy4">;</span><br /></p>
+&nbsp; <span class="br0">}</span><span class="sy4">;</span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;*</span>)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#27010;&#24565; <code>formattable</code> &#25351;&#23450; <span class="mw-geshi cpp source-cpp"><a href="cpp-utility-format-formatter.html"><span class="kw3154">std::<span class="me2">formatter</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-remove_cvref.html"><span class="kw2644">std::<span class="me2">remove_cvref_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span>, CharT<span class="sy1">&gt;</span></span> &#28385;&#36275;<a href="cpp-named_req-BasicFormatter.html"><span style="font-style:italic">&#22522;&#26412;&#26684;&#24335;&#21270;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(BasicFormatter)</span></a> &#21644;&#65288;&#24403; <span class="mw-geshi cpp source-cpp"><a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span></span> &#26377; const &#38480;&#23450;&#26102;&#65289;<a href="cpp-named_req-Formatter.html"><span style="font-style:italic">&#26684;&#24335;&#21270;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(Formatter)</span></a> &#30340;&#35201;&#27714;&#12290;</p>
+<p>&#20165;&#29992;&#20110;&#38416;&#37322;&#30340;&#21035;&#21517;&#27169;&#26495; <span class="mw-geshi cpp source-cpp"><span class="coMULTI">/* fmt_iter_for */</span></span> &#20135;&#29983;&#28385;&#36275; <span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-output_iterator.html"><span class="kw2865">std::<span class="me2">output_iterator</span></span></a><span class="sy1">&lt;</span><span class="kw4">const</span> CharT<span class="sy3">&amp;</span><span class="sy1">&gt;</span></span> &#30340;&#26410;&#25351;&#26126;&#31867;&#22411;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue3925">LWG 3925</a></td>
+<td>C++23</td>
+<td>&#26410;&#25552;&#20379; <span class="t-lc">std::basic_format_context</span> &#30340;&#31532;&#20108;&#27169;&#26495;&#23454;&#21442;</td>
+<td>&#24050;&#25552;&#20379;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-format-formatter.html"><span class="t-lines"><span>formatter</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#23450;&#20041;&#38024;&#23545;&#32473;&#23450;&#31867;&#22411;&#30340;&#26684;&#24335;&#21270;&#35268;&#21017;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-named-req-div">
+<div><a href="cpp-named_req-BasicFormatter.html"><span class="t-lines"><span>BasicFormatter</span><span><i>&#22522;&#26412;&#26684;&#24335;&#21270;&#22120;</i></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#38024;&#23545;&#32473;&#23450;&#26684;&#24335;&#21270;&#21442;&#25968;&#31867;&#22411;&#21644;&#23383;&#31526;&#31867;&#22411;&#25277;&#35937;&#26684;&#24335;&#21270;&#25805;&#20316;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20855;&#21517;&#35201;&#27714;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-named-req-div">
+<div><a href="cpp-named_req-Formatter.html"><span class="t-lines"><span>Formatter</span><span><i>&#26684;&#24335;&#21270;&#22120;</i></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#23450;&#20041;<a href="cpp-utility-format.html">&#26684;&#24335;&#21270;&#24211;</a>&#20351;&#29992;&#30340;&#20989;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20855;&#21517;&#35201;&#27714;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

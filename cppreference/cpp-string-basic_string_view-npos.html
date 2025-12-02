@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::basic_string_view&lt;CharT,Traits&gt;::npos</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_string_basic_string_view_npos skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::basic_string_view&lt;CharT,Traits&gt;::</span>npos</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-string.html">string</a>&lrm; | <a href="cpp-string-basic_string_view.html">basic string view</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">static</span> <span class="kw4">constexpr</span> size_type npos <span class="sy1">=</span> size_type<span class="br0">(</span><span class="sy2">-</span><span class="nu0">1</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36825;&#26159;&#31561;&#20110; <a href="cpp-string-basic_string_view.html#.E6.88.90.E5.91.98.E7.B1.BB.E5.9E.8B"><code>size_type</code></a> &#31867;&#22411;&#25152;&#33021;&#34920;&#31034;&#26368;&#22823;&#20540;&#30340;&#29305;&#27530;&#20540;&#12290;&#30830;&#20999;&#30340;&#21547;&#20041;&#20381;&#36182;&#20110;&#35821;&#22659;&#65292;&#19981;&#36807;&#36890;&#24120;&#34987;&#26399;&#24453;&#35270;&#22270;&#32034;&#24341;&#30340;&#20989;&#25968;&#29992;&#20316;&#35270;&#22270;&#23614;&#25351;&#31034;&#22120;&#65292;&#25110;&#32773;&#34987;&#36820;&#22238;&#35270;&#22270;&#32034;&#24341;&#30340;&#20989;&#25968;&#29992;&#20316;&#38169;&#35823;&#25351;&#31034;&#22120;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;string_view&gt;</span>
+ 
+<span class="kw4">constexpr</span> <span class="kw4">bool</span>
+contains<span class="br0">(</span><a href="cpp-string-basic_string_view.html"><span class="kw1250">std::<span class="me2">string_view</span></span></a> <span class="kw4">const</span> what, <a href="cpp-string-basic_string_view.html"><span class="kw1250">std::<span class="me2">string_view</span></span></a> <span class="kw4">const</span> where<span class="br0">)</span> <span class="kw1">noexcept</span>
+<span class="br0">{</span>
+    <span class="kw1">return</span> std<span class="sy4">::</span><span class="me2">string_view</span><span class="sy4">::</span><span class="me2">npos</span> <span class="sy3">!</span><span class="sy1">=</span> where.<span class="me1">find</span><span class="br0">(</span>what<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">using</span> <span class="kw1">namespace</span> std<span class="sy4">::</span><span class="me2">literals</span><span class="sy4">;</span>
+ 
+    static_assert<span class="br0">(</span>contains<span class="br0">(</span><span class="st0">&quot;water&quot;</span>, <span class="st0">&quot;in a bottle of water&quot;</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span><span class="sy3">!</span>contains<span class="br0">(</span><span class="st0">&quot;wine&quot;</span>, <span class="st0">&quot;in a bottle of champagne&quot;</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span><span class="st0">&quot;&quot;</span>sv.<span class="me1">npos</span> <span class="sy1">==</span> <span class="st0">&quot;haystack&quot;</span>sv.<span class="me1">find</span><span class="br0">(</span><span class="st0">&quot;needle&quot;</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td><span id="npos"></span><span class="t-dsc-small"><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> size_type</span></span> <code>npos</code> <span class="t-cmark">[&#38745;&#24577;]</span></td>
+<td>&#29305;&#27530;&#20540; <span class="t-c"><span class="mw-geshi cpp source-cpp">size_type<span class="br0">(</span><span class="sy2">-</span><span class="nu0">1</span><span class="br0">)</span></span></span>&#65292;&#23427;&#30340;&#30830;&#20999;&#21547;&#20041;&#20381;&#36182;&#35821;&#22659;</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

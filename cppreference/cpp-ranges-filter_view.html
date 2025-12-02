@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::ranges::views::filter, std::ranges::filter_view</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_ranges_filter_view skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::ranges::</span><span style="font-size:0.8em; line-height:125%">views::</span>filter, <span style="font-size:0.8em; line-height:125%">std::ranges::</span>filter_view</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-ranges.html">ranges</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-ranges.html">&lt;ranges&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-ranges-input_range.html"><span class="kw2902">ranges::<span class="me2">input_range</span></span></a> V,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-iterator-indirect_unary_predicate.html"><span class="kw3132">std::<span class="me2">indirect_unary_predicate</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>V<span class="sy1">&gt;&gt;</span> Pred <span class="sy1">&gt;</span><br />
+&nbsp; &nbsp; requires <a href="cpp-ranges-view.html"><span class="kw2901">ranges::<span class="me2">view</span></span></a><span class="sy1">&lt;</span>V<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span> <a href="cpp-types-is_object.html"><span class="kw494">std::<span class="me2">is_object_v</span></span></a><span class="sy1">&lt;</span>Pred<span class="sy1">&gt;</span><br />
+<span class="kw1">class</span> filter_view<br /></p>
+&nbsp; &nbsp; <span class="sy4">:</span> <span class="kw1">public</span> <a href="cpp-ranges-view_interface.html"><span class="kw3101">ranges::<span class="me2">view_interface</span></span></a><span class="sy1">&lt;</span>filter_view<span class="sy1">&lt;</span>V, Pred<span class="sy1">&gt;&gt;</span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">namespace</span> views <span class="br0">{</span><br /></span>
+<p>&nbsp; &nbsp; <span class="kw1">inline</span> <span class="kw4">constexpr</span> <span class="coMULTI">/* &#26410;&#25351;&#23450; */</span> filter <span class="sy1">=</span> <span class="coMULTI">/* &#26410;&#25351;&#23450; */</span><span class="sy4">;</span><br /></p>
+<span class="br0">}</span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-h">
+<td>
+<div>&#35843;&#29992;&#31614;&#21517;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-ranges-viewable_range.html"><span class="kw2909">ranges::<span class="me2">viewable_range</span></span></a> R, <span class="kw1">class</span> Pred <span class="sy1">&gt;</span><br /></span>
+<p>&nbsp; &nbsp; requires <span class="coMULTI">/* &#35265;&#19979;&#25991; */</span><br /></p>
+<span class="kw4">constexpr</span> <a href="cpp-ranges-view.html"><span class="kw2901">ranges::<span class="me2">view</span></span></a> <span class="kw4">auto</span> filter<span class="br0">(</span> R<span class="sy3">&amp;&amp;</span> r, Pred<span class="sy3">&amp;&amp;</span> pred <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Pred <span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> <span class="coMULTI">/* &#33539;&#22260;&#36866;&#37197;&#22120;&#38381;&#21253; */</span> filter<span class="br0">(</span> Pred<span class="sy3">&amp;&amp;</span> pred <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#34920;&#31034;&#25490;&#38500;&#20102;&#19981;&#33021;&#28385;&#36275;&#35859;&#35789;&#30340;&#20803;&#32032;&#30340;&#24213;&#23618;&#24207;&#21015;&#30340; <a href="cpp-ranges-view.html"><code>view</code></a> &#30340;&#33539;&#22260;&#36866;&#37197;&#22120;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> <a href="cpp-named_req-RangeAdaptorObject.html"><span style="font-style:italic">&#33539;&#22260;&#36866;&#37197;&#22120;&#23545;&#35937;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(RangeAdaptorObject)</span></a> &#12290;&#23545;&#20219;&#20309;&#36866;&#21512;&#30340;&#23376;&#34920;&#36798;&#24335; <span class="t-c"><span class="mw-geshi cpp source-cpp">e</span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp">p</span></span>&#65292;&#34920;&#36798;&#24335; <span class="t-c"><span class="mw-geshi cpp source-cpp">views<span class="sy4">::</span><span class="me2">filter</span><span class="br0">(</span>e, p<span class="br0">)</span></span></span> <a href="cpp-language-expressions.html#.E8.A1.A8.E8.BE.BE.E5.BC.8F.E7.AD.89.E4.BB.B7">&#34920;&#36798;&#24335;&#31561;&#20215;</a>&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">filter_view<span class="br0">(</span>e, p<span class="br0">)</span></span></span>&#12290;</div>
+<p><code>filter_view</code> &#22312;&#24213;&#23618; <a href="cpp-ranges-view.html"><code>view</code></a> <code>V</code> &#23454;&#29616; <a href="cpp-ranges-bidirectional_range.html"><code>bidirectional_range</code></a>&#12289;<a href="cpp-ranges-forward_range.html"><code>forward_range</code></a>&#12289;<a href="cpp-ranges-input_range.html"><code>input_range</code></a> &#21450; <a href="cpp-ranges-common_range.html"><code>common_range</code></a> &#26102;&#20998;&#21035;&#23454;&#29616;&#30456;&#24212;&#30340;&#27010;&#24565;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.95.B0.E6.8D.AE.E6.88.90.E5.91.98">&#25968;&#25454;&#25104;&#21592;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#25104;&#21592;</td>
+<td>&#25551;&#36848;</td>
+</tr>
+<tr class="t-dsc">
+<td><span id="base"></span><span class="t-dsc-small"><code>V</code></span> <code><i>base_</i></code> <span class="t-mark" style="white-space: nowrap;">(&#31169;&#26377;)</span></td>
+<td>&#24213;&#23618;&#35270;&#22270;<br />
+<span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;&#30340;&#25104;&#21592;&#23545;&#35937;*</span>)</span></td>
+</tr>
+<tr class="t-dsc">
+<td><span id="pred"></span><span class="t-dsc-small"><span class="t-rev-inl t-until-cxx23"><span><a href="cpp-ranges-copyable_wrapper.html"><code><i>copyable-box</i></code></a><code>&lt;Pred&gt;</code></span><span><span class="t-mark-rev t-until-cxx23" style="white-space: nowrap;">(C++23 &#21069;)</span></span></span><span class="t-rev-inl t-since-cxx23"><span><a href="cpp-ranges-copyable_wrapper.html"><code><i>movable-box</i></code></a><code>&lt;Pred&gt;</code></span><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></span></span></span> <code><i>pred_</i></code> <span class="t-mark" style="white-space: nowrap;">(&#31169;&#26377;)</span></td>
+<td>&#21253;&#35013;&#29992;&#20110;&#36807;&#28388; <code><i>base_</i></code> &#20013;&#30340;&#20803;&#32032;&#30340;&#35859;&#35789;<br />
+<span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;&#30340;&#25104;&#21592;&#23545;&#35937;*</span>)</span></td>
+</tr>
+<tr class="t-dsc">
+<td><span id="begin"></span><span class="t-dsc-small"><a href="cpp-ranges-non-propagating-cache.html"><tt><i>non-propagating-cache</i></tt></a><span class="mw-geshi cpp source-cpp"><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>V<span class="sy1">&gt;&gt;</span></span></span> <code><i>begin_</i></code> <span class="t-mark" style="white-space: nowrap;">(&#31169;&#26377;)</span><br />
+<span style="font-size:0.8em; line-height:125%">(&#20165;&#24403; <code>V</code> &#28385;&#36275; <a href="cpp-ranges-forward_range.html"><code>forward_range</code></a> &#26102;&#25552;&#20379;)</span></td>
+<td>&#32531;&#23384;&#19968;&#20010;&#25351;&#21521; <code><i>base_</i></code> &#30340;&#39318;&#20010;&#28385;&#36275; <code><i>pred_</i></code> &#30340;&#20803;&#32032;&#30340;&#36845;&#20195;&#22120;&#30340;&#23545;&#35937;<br />
+<span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;&#30340;&#25104;&#21592;&#23545;&#35937;*</span>)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-ranges-filter_view.html#ctor"><span class="t-lines"><span>(&#26500;&#36896;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26500;&#36896; <code>filter_view</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-filter_view.html#base"><span class="t-lines"><span>base</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#24213;&#23618;&#35270;&#22270; <code>V</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-filter_view.html#pred"><span class="t-lines"><span>pred</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#21040;&#23384;&#20648;&#20110; <code>filter_view</code> &#20869;&#30340;&#35859;&#35789;&#30340;&#24341;&#29992;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-filter_view.html#begin"><span class="t-lines"><span>begin</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238; <code>filter_view</code> &#30340;&#36215;&#22987;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-filter_view.html#end"><span class="t-lines"><span>end</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238; <code>filter_view</code> &#30340;&#21736;&#20301;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E7.BB.A7.E6.89.BF.E8.87.AA_std::ranges::view_interface">&#32487;&#25215;&#33258; <span class="t-lc">std::ranges::view_interface</span></span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-view_interface-empty.html"><span class="t-lines"><span>empty</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#35270;&#22270;&#26159;&#21542;&#20026;&#31354;&#65292;&#20165;&#24403;&#35270;&#22270;&#28385;&#36275; <a href="cpp-ranges-forward_range.html"><code>forward_range</code></a> &#26102;&#25552;&#20379;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::ranges::view_interface&lt;D&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-view_interface-cbegin.html"><span class="t-lines"><span>cbegin</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#21521;&#33539;&#22260;&#36215;&#22987;&#30340;&#24120;&#37327;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::ranges::view_interface&lt;D&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-view_interface-cend.html"><span class="t-lines"><span>cend</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#23545;&#24212;&#20110;&#33539;&#22260;&#24120;&#37327;&#36845;&#20195;&#22120;&#30340;&#21736;&#20301;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::ranges::view_interface&lt;D&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-view_interface-operator_bool.html"><span class="t-lines"><span>operator bool</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#27966;&#29983;&#35270;&#22270;&#26159;&#21542;&#20026;&#38750;&#31354;&#65292;&#20165;&#24403; <span class="t-lc">ranges::empty</span> &#21487;&#24212;&#29992;&#20110;&#23427;&#26102;&#25552;&#20379;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::ranges::view_interface&lt;D&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-view_interface-front.html"><span class="t-lines"><span>front</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#27966;&#29983;&#35270;&#22270;&#20013;&#30340;&#39318;&#20803;&#32032;&#65292;&#20165;&#24403;&#35270;&#22270;&#28385;&#36275; <a href="cpp-ranges-forward_range.html"><code>forward_range</code></a> &#26102;&#25552;&#20379;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::ranges::view_interface&lt;D&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-view_interface-back.html"><span class="t-lines"><span>back</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#27966;&#29983;&#35270;&#22270;&#20013;&#30340;&#26411;&#20803;&#32032;&#65292;&#20165;&#24403;&#35270;&#22270;&#28385;&#36275; <a href="cpp-ranges-bidirectional_range.html"><code>bidirectional_range</code></a> &#19982; <a href="cpp-ranges-common_range.html"><code>common_range</code></a> &#26102;&#25552;&#20379;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::ranges::view_interface&lt;D&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+<p><span id="ctor"></span></p>
+<div class="t-member">
+<h2><span class="mw-headline" id="std::ranges::filter_view::filter_view"><span style="font-size:0.8em; line-height:125%">std::ranges::filter_view::</span>filter_view</span></h2>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp">filter_view<span class="br0">(</span><span class="br0">)</span> requires <a href="cpp-concepts-default_initializable.html"><span class="kw2945">std::<span class="me2">default_initializable</span></span></a><span class="sy1">&lt;</span>V<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="cpp-concepts-default_initializable.html"><span class="kw2945">std::<span class="me2">default_initializable</span></span></a><span class="sy1">&lt;</span>Pred<span class="sy1">&gt;</span> <span class="sy1">=</span> <span class="kw1">default</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="kw1">explicit</span> filter_view<span class="br0">(</span> V base, Pred pred <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#32463;&#30001;&#40664;&#35748;&#25104;&#21592;&#21021;&#22987;&#21270;&#24335;&#65288;<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy1">=</span> V<span class="br0">(</span><span class="br0">)</span></span></span>&#65289;&#20540;&#21021;&#22987;&#21270; <code><i>base_</i></code>&#65292;&#24182;&#40664;&#35748;&#21021;&#22987;&#21270; <code><i>pred_</i></code>&#65288;&#36825;&#20250;&#20540;&#21021;&#22987;&#21270;&#23427;&#21253;&#21547;&#30340; <code>Pred</code>&#65289;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>base<span class="br0">)</span></span></span> &#21021;&#22987;&#21270; <code><i>base_</i></code> &#24182;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>pred<span class="br0">)</span></span></span> &#21021;&#22987;&#21270; <code><i>pred_</i></code>&#12290;</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>base</td>
+<td>-</td>
+<td>&#35201;&#36807;&#28388;&#30340;&#33539;&#22260;</td>
+</tr>
+<tr class="t-par">
+<td>pred</td>
+<td>-</td>
+<td>&#28388;&#20986;&#20803;&#32032;&#30340;&#35859;&#35789;</td>
+</tr>
+</table>
+</div>
+<p><span id="base"></span></p>
+<div class="t-member">
+<h2><span class="mw-headline" id="std::ranges::filter_view::base"><span style="font-size:0.8em; line-height:125%">std::ranges::filter_view::</span>base</span></h2>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> V base<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span><span class="sy3">&amp;</span> requires <a href="cpp-concepts-copy_constructible.html"><span class="kw2947">std::<span class="me2">copy_constructible</span></span></a><span class="sy1">&lt;</span>V<span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> V base<span class="br0">(</span><span class="br0">)</span> <span class="sy3">&amp;&amp;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">return</span> base_<span class="sy4">;</span></span></span>&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">return</span> std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>base_<span class="br0">)</span><span class="sy4">;</span></span></span>&#12290;</div>
+</div>
+<p><span id="pred"></span></p>
+<div class="t-member">
+<h2><span class="mw-headline" id="std::ranges::filter_view::pred"><span style="font-size:0.8em; line-height:125%">std::ranges::filter_view::</span>pred</span></h2>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="kw4">const</span> Pred<span class="sy3">&amp;</span> pred<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36820;&#22238;&#21040;&#21253;&#21547;&#30340; <code>Pred</code> &#23545;&#35937;&#30340;&#24341;&#29992;&#12290;&#22914;&#26524; <code><i>pred_</i></code> &#27809;&#26377;&#21253;&#21547;&#20540;&#65292;&#37027;&#20040;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+</div>
+<p><span id="begin"></span></p>
+<div class="t-member">
+<h2><span class="mw-headline" id="std::ranges::filter_view::begin"><span style="font-size:0.8em; line-height:125%">std::ranges::filter_view::</span>begin</span></h2>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="coMULTI">/*iterator*/</span> begin<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;*</span>)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#20026;&#25552;&#20379; <a href="cpp-ranges-range.html"><code>range</code></a> &#27010;&#24565;&#25152;&#35201;&#27714;&#30340;&#22343;&#25674;&#24120;&#25968;&#26102;&#38388;&#22797;&#26434;&#24230;&#65292;&#27492;&#20989;&#25968;&#22312; <code>filter_view</code> &#23545;&#35937;&#20869;&#32531;&#23384;&#32467;&#26524;&#20197;&#29992;&#20110;&#21518;&#32487;&#35843;&#29992;&#12290;&#31561;&#20215;&#20110;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">if</span> <span class="kw4">constexpr</span> <span class="br0">(</span><span class="sy3">!</span><a href="cpp-ranges-forward_range.html"><span class="kw2904">ranges::<span class="me2">forward_range</span></span></a><span class="sy1">&lt;</span>V<span class="sy1">&gt;</span><span class="br0">)</span>
+    <span class="kw1">return</span> <span class="coMULTI">/*iterator*/</span><span class="br0">{</span><span class="sy2">*</span>this, <a href="cpp-algorithm-ranges-find.html"><span class="kw2985">ranges::<span class="me2">find_if</span></span></a><span class="br0">(</span>base_, <a href="cpp-utility-functional-ref.html"><span class="kw1071">std::<span class="me2">ref</span></span></a><span class="br0">(</span><span class="sy2">*</span>pred_<span class="br0">)</span><span class="br0">)</span><span class="br0">}</span><span class="sy4">;</span>
+<span class="kw1">else</span>
+<span class="br0">{</span>
+    <span class="kw1">if</span> <span class="br0">(</span><span class="sy3">!</span>begin_.<span class="me1">has_value</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+        begin_ <span class="sy1">=</span> <a href="cpp-algorithm-ranges-find.html"><span class="kw2985">ranges::<span class="me2">find_if</span></span></a><span class="br0">(</span>base_, <a href="cpp-utility-functional-ref.html"><span class="kw1071">std::<span class="me2">ref</span></span></a><span class="br0">(</span><span class="sy2">*</span>pred_<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#32531;&#23384;</span>
+    <span class="kw1">return</span> <span class="coMULTI">/*iterator*/</span><span class="br0">{</span><span class="sy2">*</span>this, begin_.<span class="me1">value</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="br0">}</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#22914;&#26524; <code><i>pred_</i></code> &#27809;&#26377;&#21253;&#21547;&#20540;&#65292;&#37027;&#20040;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+</div>
+<p><span id="end"></span></p>
+<div class="t-member">
+<h2><span class="mw-headline" id="std::ranges::filter_view::end"><span style="font-size:0.8em; line-height:125%">std::ranges::filter_view::</span>end</span></h2>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="kw4">auto</span> end<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36820;&#22238;&#25351;&#21521;&#26411;&#23614;&#30340;&#36845;&#20195;&#22120;&#12290;&#31561;&#20215;&#20110;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">if</span> <span class="kw4">constexpr</span> <span class="br0">(</span><a href="cpp-ranges-common_range.html"><span class="kw2908">ranges::<span class="me2">common_range</span></span></a><span class="sy1">&lt;</span>V<span class="sy1">&gt;</span><span class="br0">)</span>
+    <span class="kw1">return</span> <span class="coMULTI">/*iterator*/</span><span class="br0">{</span><span class="sy2">*</span>this, <a href="../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/end"><span class="kw2884">ranges::<span class="me2">end</span></span></a><span class="br0">(</span>base_<span class="br0">)</span><span class="br0">}</span><span class="sy4">;</span>
+<span class="kw1">else</span>
+    <span class="kw1">return</span> <span class="coMULTI">/*sentinel*/</span><span class="br0">{</span><span class="sy2">*</span>this<span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E6.8E.A8.E5.AF.BC.E6.8C.87.E5.BC.95">&#25512;&#23548;&#25351;&#24341;</span></h3>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> R, <span class="kw1">class</span> Pred <span class="sy1">&gt;</span><br />
+filter_view<span class="br0">(</span> R<span class="sy3">&amp;&amp;</span>, Pred <span class="br0">)</span> <span class="sy2">-</span><span class="sy1">&gt;</span> filter_view<span class="sy1">&lt;</span><a href="cpp-ranges-all_view.html"><span class="kw2916">views::<span class="me2">all_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;</span>, Pred<span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><span class="mw-headline" id=".E5.B5.8C.E5.A5.97.E7.B1.BB">&#23884;&#22871;&#31867;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-filter_view-iterator.html"><i><span class="t-lines"><span>iterator</span></span></i></a></div>
+</div>
+</td>
+<td><code>filter_view</code> &#30340;&#36845;&#20195;&#22120;&#31867;&#22411;<br />
+<span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;&#30340;&#25104;&#21592;&#31867;*</span>)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-filter_view-sentinel.html"><i><span class="t-lines"><span>sentinel</span></span></i></a></div>
+</div>
+</td>
+<td>&#24213;&#23618;&#35270;&#22270;&#38750; <a href="cpp-ranges-common_range.html"><code>common_range</code></a> &#26102;&#30340; <code>filter_view</code> &#30340;&#21736;&#20301;&#31867;&#22411;<br />
+<span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;&#30340;&#25104;&#21592;&#31867;*</span>)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;ranges&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">auto</span> even <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">int</span> i<span class="br0">)</span><span class="br0">{</span> <span class="kw1">return</span> <span class="nu0">0</span> <span class="sy1">==</span> i <span class="sy2">%</span> <span class="nu0">2</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw4">auto</span> square <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">int</span> i<span class="br0">)</span><span class="br0">{</span> <span class="kw1">return</span> i <span class="sy2">*</span> i<span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> i <span class="sy4">:</span> std<span class="sy4">::</span><a href="cpp-ranges-iota_view.html"><span class="kw2914">views::<span class="me2">iota</span></span></a><span class="br0">(</span><span class="nu0">0</span>, <span class="nu0">6</span><span class="br0">)</span> 
+               <span class="sy3">|</span> std<span class="sy4">::</span><span class="me2">views</span><span class="sy4">::</span><span class="me2">filter</span><span class="br0">(</span>even<span class="br0">)</span> 
+               <span class="sy3">|</span> std<span class="sy4">::</span><a href="cpp-ranges-transform_view.html"><span class="kw2920">views::<span class="me2">transform</span></span></a><span class="br0">(</span>square<span class="br0">)</span><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> i <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">0 4 16</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue3714">LWG 3714</a><br />
+(<a rel="nofollow" class="external text" href="https://wg21.link/P2711R1">P2711R1</a>)</td>
+<td>C++20</td>
+<td>&#22810;&#21442;&#25968;&#26500;&#36896;&#20989;&#25968;&#19981;&#26159;&#26174;&#24335;&#30340;</td>
+<td>&#25913;&#25104;&#26174;&#24335;&#30340;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://wg21.link/P2325R3">P2325R3</a></td>
+<td>C++20</td>
+<td>&#22914;&#26524; <code>Pred</code> &#19981; <a href="cpp-concepts-default_initializable.html"><code>default_initializable</code></a>&#65292;<br />
+&#37027;&#20040;&#40664;&#35748;&#26500;&#36896;&#20989;&#25968;&#26500;&#36896;&#19981;&#21547; <code>Pred</code> &#30340; <code>filter_view</code></td>
+<td><code>filter_view</code> &#20063;&#19981;<br />
+<a href="cpp-concepts-default_initializable.html"><code>default_initializable</code></a></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-take_while_view.html"><span class="t-lines"><span>ranges::take_while_view</span><span>views::take_while</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#30001;&#21478;&#19968; <a href="cpp-ranges-view.html"><code>view</code></a> &#30340;&#21040;&#39318;&#20010;&#35859;&#35789;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span> &#20026;&#27490;&#30340;&#36215;&#22987;&#20803;&#32032;&#32452;&#25104;&#30340; <a href="cpp-ranges-view.html"><code>view</code></a><br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span> <span class="t-mark" style="white-space: nowrap;">(&#33539;&#22260;&#36866;&#37197;&#22120;&#23545;&#35937;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

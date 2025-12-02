@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>&#25193;&#20805;&#21629;&#21517;&#31354;&#38388; std</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_language_extending_std skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">&#25193;&#20805;&#21629;&#21517;&#31354;&#38388; <code>std</code></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-language.html">language</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<h3><span class="mw-headline" id=".E5.90.91_std_.E6.B7.BB.E5.8A.A0.E5.A3.B0.E6.98.8E">&#21521; <code>std</code> &#28155;&#21152;&#22768;&#26126;</span></h3>
+<p>&#21521;&#21629;&#21517;&#31354;&#38388; <code>std</code> &#25110; <code>std</code> &#20013;&#23884;&#22871;&#30340;&#20219;&#20309;&#21629;&#21517;&#31354;&#38388;&#28155;&#21152;&#22768;&#26126;&#25110;&#23450;&#20041;&#65292;&#38500;&#20102;&#19979;&#38754;&#25552;&#21040;&#30340;&#23569;&#25968;&#20363;&#22806;&#30340;&#24773;&#20917;&#19979;&#37117;&#26159;&#26410;&#23450;&#20041;&#34892;&#20026;&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;utility&gt;</span>
+ 
+<span class="kw1">namespace</span> std
+<span class="br0">{</span>
+    <span class="co1">// &#21521;&#21629;&#21517;&#31354;&#38388; std &#28155;&#21152;&#20989;&#25968;&#65306;&#26410;&#23450;&#20041;&#34892;&#20026;</span>
+    pair<span class="sy1">&lt;</span><span class="kw4">int</span>, <span class="kw4">int</span><span class="sy1">&gt;</span> operator<span class="sy2">+</span><span class="br0">(</span>pair<span class="sy1">&lt;</span><span class="kw4">int</span>, <span class="kw4">int</span><span class="sy1">&gt;</span> a, pair<span class="sy1">&lt;</span><span class="kw4">int</span>, <span class="kw4">int</span><span class="sy1">&gt;</span> b<span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw1">return</span> <span class="br0">{</span>a.<span class="me1">first</span> <span class="sy2">+</span> b.<span class="me1">first</span>, a.<span class="me1">second</span> <span class="sy2">+</span> b.<span class="me1">second</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+</div>
+<h3><span class="mw-headline" id=".E6.B7.BB.E5.8A.A0.E6.A8.A1.E6.9D.BF.E7.89.B9.E5.8C.96">&#28155;&#21152;&#27169;&#26495;&#29305;&#21270;</span></h3>
+<h4><span class="mw-headline" id=".E7.B1.BB.E6.A8.A1.E6.9D.BF">&#31867;&#27169;&#26495;</span></h4>
+<p>&#23545;&#20110;&#20219;&#20309;&#26631;&#20934;&#24211;&#31867;&#27169;&#26495;&#30340;&#27169;&#26495;&#29305;&#21270;&#65292;&#21482;&#26377;&#22312;&#23427;&#30340;&#22768;&#26126;&#20381;&#36182;&#33267;&#23569;&#19968;&#20010;<a href="cpp-language-type.html#.E7.94.B1.E7.A8.8B.E5.BA.8F.E5.AE.9A.E4.B9.89.E7.9A.84.E7.B1.BB.E5.9E.8B">&#30001;&#31243;&#24207;&#23450;&#20041;&#30340;&#31867;&#22411;</a>&#65292;&#19988;&#35813;&#29305;&#21270;&#28385;&#36275;&#21407;&#27169;&#26495;&#30340;&#25152;&#26377;&#35201;&#27714;&#26102;&#65292;&#25165;&#33021;&#21521;&#21629;&#21517;&#31354;&#38388; <code>std</code> &#20013;&#28155;&#21152;&#65292;&#38500;&#38750;&#36825;&#31181;&#29305;&#21270;&#34987;&#31105;&#27490;&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co1">// &#33719;&#21462;&#20027; std::hash &#27169;&#26495;&#30340;&#22768;&#26126;&#12290;&#19981;&#33021;&#33258;&#24049;&#22768;&#26126;&#23427;&#12290;</span>
+<span class="co1">// &#20445;&#35777; &lt;typeindex&gt; &#25552;&#20379;&#36825;&#31181;&#22768;&#26126;&#65292;&#21253;&#21547;&#23427;&#27604; &lt;functional&gt; &#20302;&#24265;&#24456;&#22810;&#12290;</span>
+ 
+<span class="co2">#include &lt;typeindex&gt; </span>
+ 
+<span class="co1">// &#29305;&#21270; std::hash &#20351;&#24471; MyType &#21487;&#20197;&#25104;&#20026;</span>
+<span class="co1">// std::unordered_set &#21644; std::unordered_map &#20013;&#30340;&#38190;&#12290;</span>
+<span class="co1">// &#30452;&#25509;&#23637;&#24320;&#21629;&#21517;&#31354;&#38388; std &#21487;&#33021;&#20250;&#24341;&#21457;&#26410;&#23450;&#20041;&#34892;&#20026;&#65292;&#32780;&#19988;&#29305;&#21270;&#31867;&#27169;&#26495;&#20063;&#19981;&#38656;&#35201;&#36825;&#26679;&#20570;&#12290;</span>
+<span class="kw1">template</span> <span class="sy1">&lt;&gt;</span>
+<span class="kw1">struct</span> <a href="cpp-utility-hash.html"><span class="kw1127">std::<span class="me2">hash</span></span></a><span class="sy1">&lt;</span>MyType<span class="sy1">&gt;</span>
+<span class="br0">{</span>
+    <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> operator<span class="br0">(</span><span class="br0">)</span><span class="br0">(</span><span class="kw4">const</span> MyType<span class="sy3">&amp;</span> t<span class="br0">)</span> <span class="kw4">const</span> <span class="br0">{</span> <span class="kw1">return</span> t.<span class="me1">hash</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+<ul>
+<li>&#26410;&#25351;&#26126; <span class="mw-geshi cpp source-cpp"><span class="kw4">float</span></span>&#12289;<span class="mw-geshi cpp source-cpp"><span class="kw4">double</span></span>&#12289;<span class="mw-geshi cpp source-cpp"><span class="kw4">long</span> <span class="kw4">double</span></span> &#20197;&#22806;&#30340;&#31867;&#22411;&#29305;&#21270; <span class="t-lc"><a href="cpp-numeric-complex.html">std::complex</a></span> &#30340;&#25928;&#26524;&#12290;</li>
+</ul>
+<ul>
+<li><span class="t-lc"><a href="cpp-types-numeric_limits.html">std::numeric_limits</a></span> &#30340;&#29305;&#21270;&#24517;&#39035;&#23545;&#20027;&#27169;&#26495;&#20013;&#25152;&#26377;&#22768;&#26126;&#20026; <span class="t-rev-inl t-until-cxx11"><span><span class="mw-geshi cpp source-cpp"><span class="kw4">static</span> <span class="kw4">const</span></span></span><span><span class="t-mark-rev t-until-cxx11" style="white-space: nowrap;">(C++11 &#21069;)</span></span></span><span class="t-rev-inl t-since-cxx11"><span><span class="mw-geshi cpp source-cpp"><span class="kw4">static</span> <span class="kw4">constexpr</span></span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></span></span> &#30340;&#25104;&#21592;&#36827;&#34892;&#23450;&#20041;&#65292;&#32780;&#19988;&#35201;&#20351;&#24471;&#23427;&#20204;&#33021;&#29992;&#20316;<a href="cpp-language-constant_expression.html">&#25972;&#25968;&#24120;&#37327;&#34920;&#36798;&#24335;</a>&#12290;</li>
+</ul>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx11">
+<td>
+<ul>
+<li>&#38500;&#20102; <span class="t-lc"><a href="cpp-types-common_type.html">std::common_type</a></span> <span class="t-rev-inl t-since-cxx20"><span>&#21644; <a href="cpp-types-common_reference.html#.E8.BE.85.E5.8A.A9.E7.B1.BB.E5.9E.8B"><tt>std::basic_common_reference</tt></a></span> <span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></span></span>&#20197;&#22806;&#65292;<a href="cpp-header-type_traits.html"><tt>&lt;type_traits&gt;</tt></a> &#20013;&#23450;&#20041;&#30340;&#27169;&#26495;&#22343;&#19981;&#21487;&#23545;&#30001;&#31243;&#24207;&#23450;&#20041;&#30340;&#31867;&#22411;&#29305;&#21270;&#12290;&#36825;&#21253;&#21547;&#21508;&#31181;<a href="cpp-types.html">&#31867;&#22411;&#29305;&#24449;</a>&#21644; <span class="t-lc"><a href="cpp-types-integral_constant.html">std::integral_constant</a></span> &#31867;&#27169;&#26495;&#12290;</li>
+</ul>
+<ul>
+<li><span class="t-lc"><a href="cpp-utility-hash.html">std::hash</a></span> &#23545;&#30001;&#31243;&#24207;&#23450;&#20041;&#30340;&#31867;&#22411;&#30340;&#29305;&#21270;&#30340;&#24517;&#39035;&#28385;&#36275;<a href="cpp-named_req-Hash.html"><span style="font-style:italic">&#25955;&#21015;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(Hash)</span></a> &#35201;&#27714;&#12290;</li>
+</ul>
+<ul>
+<li><span class="t-lc"><a href="cpp-atomic-atomic.html">std::atomic</a></span> &#30340;&#29305;&#21270;&#24517;&#39035;&#25317;&#26377;&#24323;&#32622;&#30340;&#22797;&#21046;&#26500;&#36896;&#20989;&#25968;&#65292;&#24323;&#32622;&#30340;&#22797;&#21046;&#36171;&#20540;&#36816;&#31639;&#31526;&#65292;&#21644;&#19968;&#20010; constexpr &#20540;&#26500;&#36896;&#20989;&#25968;&#12290;</li>
+</ul>
+<ul>
+<li><span class="t-lc"><a href="cpp-memory-shared_ptr.html">std::shared_ptr</a></span> &#21644; <span class="t-lc"><a href="cpp-memory-weak_ptr.html">std::weak_ptr</a></span> &#30340;&#29305;&#21270;&#24517;&#39035;&#28385;&#36275;<a href="cpp-named_req-CopyConstructible.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyConstructible)</span></a> &#21644;<a href="cpp-named_req-CopyAssignable.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#36171;&#20540;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyAssignable)</span></a> &#12290;&#21478;&#22806;&#65292;<span class="t-lc"><a href="cpp-memory-shared_ptr.html">std::shared_ptr</a></span> &#30340;&#29305;&#21270;&#24517;&#39035;&#28385;&#36275;<a href="cpp-named_req-LessThanComparable.html"><span style="font-style:italic">&#21487;&#23567;&#20110;&#27604;&#36739;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LessThanComparable)</span></a> &#65292;&#32780;&#19988;&#21487;&#20197;&#36716;&#25442;&#21040; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span></span>&#12290;</li>
+</ul>
+<ul>
+<li><span class="t-lc"><a href="cpp-iterator-istreambuf_iterator.html">std::istreambuf_iterator</a></span> &#30340;&#29305;&#21270;&#24517;&#39035;&#26377;&#24179;&#20961;&#30340;&#22797;&#21046;&#26500;&#36896;&#20989;&#25968;&#65292;constexpr &#40664;&#35748;&#26500;&#36896;&#20989;&#25968;&#65292;&#21644;&#24179;&#20961;&#30340;&#26512;&#26500;&#20989;&#25968;&#12290;</li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+</table>
+<table class="t-rev-begin">
+<tr class="t-rev t-until-cxx17">
+<td>
+<ul>
+<li>&#19981;&#33021;&#29305;&#21270; <span class="t-lc"><a href="cpp-utility-functional-unary_function.html">std::unary_function</a></span> &#21644; <span class="t-lc"><a href="cpp-utility-functional-binary_function.html">std::binary_function</a></span>&#12290;</li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-until-cxx17" style="white-space: nowrap;">(C++17 &#21069;)</span></td>
+</tr>
+</table>
+<p>&#22768;&#26126;&#26631;&#20934;&#24211;&#31867;&#25110;&#31867;&#27169;&#26495;&#30340;&#20219;&#20309;&#25104;&#21592;&#31867;&#27169;&#26495;&#30340;&#23436;&#20840;&#25110;&#37096;&#20998;&#29305;&#21270;&#37117;&#26159;&#26410;&#23450;&#20041;&#34892;&#20026;&#12290;</p>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#23567;&#31034;&#20363;</td>
+</tr>
+</table>
+<h4><span class="mw-headline" id=".E5.87.BD.E6.95.B0.E6.A8.A1.E6.9D.BF.E4.B8.8E.E6.A8.A1.E6.9D.BF.E7.9A.84.E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#20989;&#25968;&#27169;&#26495;&#19982;&#27169;&#26495;&#30340;&#25104;&#21592;&#20989;&#25968;</span></h4>
+<table class="t-rev-begin">
+<tr class="t-rev t-until-cxx20">
+<td>
+<p>&#23545;&#20110;&#20219;&#20309;&#26631;&#20934;&#24211;&#20989;&#25968;&#27169;&#26495;&#30340;&#27169;&#26495;&#29305;&#21270;&#65292;&#21482;&#26377;&#22312;&#23427;&#30340;&#22768;&#26126;&#20381;&#36182;&#33267;&#23569;&#19968;&#20010;&#30001;&#31243;&#24207;&#23450;&#20041;&#30340;&#31867;&#22411;&#65292;&#19988;&#35813;&#29305;&#21270;&#28385;&#36275;&#21407;&#27169;&#26495;&#30340;&#25152;&#26377;&#35201;&#27714;&#26102;&#65292;&#25165;&#33021;&#21521;&#21629;&#21517;&#31354;&#38388; <code>std</code> &#20013;&#28155;&#21152;&#65292;&#38500;&#38750;&#36825;&#31181;&#29305;&#21270;&#34987;&#31105;&#27490;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#21069;)</span></td>
+</tr>
+<tr class="t-rev t-since-cxx20">
+<td>
+<p>&#22768;&#26126;&#20219;&#20309;&#26631;&#20934;&#24211;&#20989;&#25968;&#27169;&#26495;&#30340;&#23436;&#20840;&#29305;&#21270;&#37117;&#26159;&#26410;&#23450;&#20041;&#34892;&#20026;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+</table>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#23567;&#31034;&#20363;</td>
+</tr>
+</table>
+<p>&#22768;&#26126;&#26631;&#20934;&#24211;&#31867;&#27169;&#26495;&#30340;&#20219;&#20309;&#25104;&#21592;&#20989;&#25968;&#30340;&#23436;&#20840;&#29305;&#21270;&#37117;&#26159;&#26410;&#23450;&#20041;&#34892;&#20026;&#65306;</p>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#23567;&#31034;&#20363;</td>
+</tr>
+</table>
+<p>&#22768;&#26126;&#26631;&#20934;&#24211;&#31867;&#25110;&#31867;&#27169;&#26495;&#30340;&#20219;&#20309;&#25104;&#21592;&#20989;&#25968;&#27169;&#26495;&#30340;&#23436;&#20840;&#29305;&#21270;&#37117;&#26159;&#26410;&#23450;&#20041;&#34892;&#20026;&#65306;</p>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#23567;&#31034;&#20363;</td>
+</tr>
+</table>
+<h4><span class="mw-headline" id=".E5.8F.98.E9.87.8F.E6.A8.A1.E6.9D.BF">&#21464;&#37327;&#27169;&#26495;</span></h4>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx14">
+<td>
+<p>&#22768;&#26126;&#20219;&#20309;&#26631;&#20934;&#24211;&#21464;&#37327;&#27169;&#26495;&#30340;&#23436;&#20840;&#29305;&#21270;&#25110;&#37096;&#20998;&#29305;&#21270;&#65292;&#38500;&#38750;&#26126;&#30830;&#20801;&#35768;&#65292;&#21542;&#21017;&#37117;&#26159;&#26410;&#23450;&#20041;&#34892;&#20026;&#12290;</p>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#23567;&#31034;&#20363;</td>
+</tr>
+</table>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx20">
+<td>
+<ul>
+<li><a href="cpp-iterator-sized_sentinel_for.html"><tt>std::disable_sized_sentinel_for</tt></a>&#12289;<a href="cpp-ranges-sized_range.html"><tt>std::ranges::disable_sized_range</tt></a>&#12289;<a href="cpp-ranges-view.html"><tt>std::ranges::enable_view</tt></a> &#21644; <a href="cpp-ranges-borrowed_range.html"><tt>std::ranges::enable_borrowed_range</tt></a> &#30340;&#29305;&#21270;&#24517;&#39035;&#33021;&#29992;&#20110;&#24120;&#37327;&#34920;&#36798;&#24335;&#24182;&#25317;&#26377; <span class="mw-geshi cpp source-cpp"><span class="kw4">const</span> <span class="kw4">bool</span></span> &#31867;&#22411;&#12290;&#32780;&#19988;
+<ul>
+<li><code>std::disable_sized_sentinel_for</code> &#21487;&#20197;&#23545;&#26080; cv &#38480;&#23450;&#30340;&#38750;&#25968;&#32452;&#23545;&#35937;&#31867;&#22411; <code>S</code> &#19982; <code>I</code> &#29305;&#21270;&#65292;&#38656;&#35201;&#20854;&#20013;&#33267;&#23569;&#26377;&#19968;&#20010;&#26159;&#30001;&#31243;&#24207;&#23450;&#20041;&#30340;&#31867;&#22411;&#12290;</li>
+<li><code>std::ranges::disable_sized_range</code>&#12289;<code>std::ranges::enable_view</code> &#21644; <code>std::ranges::enable_borrowed_range</code> &#21487;&#20197;&#23545;&#26080; cv &#38480;&#23450;&#30340;&#30001;&#31243;&#24207;&#23450;&#20041;&#30340;&#31867;&#22411;&#30340;&#29305;&#21270;&#12290;</li>
+</ul>
+</li>
+<li>&#27599;&#20010;<a href="cpp-numeric-constants.html">&#25968;&#23398;&#24120;&#25968;&#21464;&#37327;&#27169;&#26495;</a>&#37117;&#21487;&#20197;&#34987;&#37096;&#20998;&#25110;&#26174;&#24335;&#29305;&#21270;&#65292;&#21482;&#35201;&#35813;&#29305;&#21270;&#20381;&#36182;&#30001;&#31243;&#24207;&#23450;&#20041;&#30340;&#31867;&#22411;&#12290;</li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+</table>
+</td>
+<td><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14 &#36215;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.A8.A1.E6.9D.BF.E7.9A.84.E6.98.BE.E5.BC.8F.E5.AE.9E.E4.BE.8B.E5.8C.96">&#27169;&#26495;&#30340;&#26174;&#24335;&#23454;&#20363;&#21270;</span></h3>
+<p>&#23545;&#20110;&#26631;&#20934;&#24211;&#20013;&#23450;&#20041;&#30340;<span class="t-rev-inl t-since-cxx20"><span>&#31867;</span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></span></span>&#27169;&#26495;&#30340;&#26174;&#24335;&#23454;&#20363;&#21270;&#65292;&#21482;&#26377;&#22312;&#23427;&#30340;&#22768;&#26126;&#20381;&#36182;&#33267;&#23569;&#19968;&#20010;&#30001;&#31243;&#24207;&#23450;&#20041;&#30340;&#31867;&#22411;&#30340;&#21517;&#31216;&#65292;&#19988;&#23454;&#20363;&#21270;&#28385;&#36275;&#26631;&#20934;&#24211;&#23545;&#21407;&#22987;&#27169;&#26495;&#30340;&#35201;&#27714;&#26102;&#65292;&#25165;&#33021;&#36827;&#34892;&#26174;&#31034;&#23454;&#20363;&#21270;&#12290;</p>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#23567;&#31034;&#20363;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.85.B6.E4.BB.96.E9.99.90.E5.88.B6">&#20854;&#20182;&#38480;&#21046;</span></h3>
+<p>&#19981;&#33021;&#23558;&#21629;&#21517;&#31354;&#38388; <code>std</code> &#22768;&#26126;&#20026;<a href="cpp-language-namespace.html#.E5.86.85.E8.81.94.E5.91.BD.E5.90.8D.E7.A9.BA.E9.97.B4">&#20869;&#32852;&#21629;&#21517;&#31354;&#38388;</a>&#12290;</p>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx20">
+<td>
+<h4><span class="mw-headline" id=".E5.8F.96.E5.9D.80.E9.99.90.E5.88.B6">&#21462;&#22336;&#38480;&#21046;</span></h4>
+<p>&#22914;&#26524; C++ &#31243;&#24207;&#26174;&#24335;&#25110;&#38544;&#24335;&#22320;&#23581;&#35797;&#24418;&#25104;&#21040;&#26631;&#20934;&#24211;&#20989;&#25968;&#25110;&#26631;&#20934;&#24211;&#20989;&#25968;&#27169;&#26495;&#23454;&#20363;&#21270;&#30340;&#25351;&#38024;&#12289;&#24341;&#29992;&#65288;&#23545;&#20110;&#33258;&#30001;&#20989;&#25968;&#21644;&#38745;&#24577;&#25104;&#21592;&#20989;&#25968;&#65289;&#25110;&#25104;&#21592;&#25351;&#38024;&#65288;&#23545;&#20110;&#38750;&#38745;&#24577;&#25104;&#21592;&#20989;&#25968;&#65289;&#65292;&#37027;&#20040;&#31243;&#24207;&#34892;&#20026;&#26410;&#25351;&#26126;&#65288;&#21487;&#33021;&#38750;&#33391;&#26500;&#65289;&#65292;&#38500;&#38750;&#35813;&#20989;&#25968;&#34987;&#25351;&#23450;&#20026;<i>&#21487;&#21462;&#22336;&#20989;&#25968;</i>&#65288;&#35265;&#19979;&#25991;&#65289;&#12290;</p>
+<p>&#19979;&#21015;&#20195;&#30721;&#22312; C++17 &#20013;&#33391;&#23450;&#20041;&#65292;&#20294;&#20174; C++20 &#36215;&#23558;&#23548;&#33268;&#26410;&#25351;&#23450;&#30340;&#34892;&#20026;&#65292;&#24182;&#19988;&#21487;&#33021;&#26080;&#27861;&#32534;&#35793;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;cmath&gt;</span>
+<span class="co2">#include &lt;memory&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="co1">// &#36890;&#36807;&#19968;&#20803; operator&amp;</span>
+    <span class="kw4">auto</span> fptr0 <span class="sy1">=</span> <span class="sy3">&amp;</span><span class="kw1">static_cast</span><span class="sy1">&lt;</span><span class="kw4">float</span><span class="br0">(</span><span class="sy3">&amp;</span><span class="br0">)</span><span class="br0">(</span><span class="kw4">float</span>, <span class="kw4">float</span><span class="br0">)</span><span class="sy1">&gt;</span><span class="br0">(</span><a href="cpp-numeric-special_functions-beta.html"><span class="kw1397">std::<span class="me2">betaf</span></span></a><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#36890;&#36807; std::addressof</span>
+    <span class="kw4">auto</span> fptr1 <span class="sy1">=</span> <a href="cpp-memory-addressof.html"><span class="kw759">std::<span class="me2">addressof</span></span></a><span class="br0">(</span><span class="kw1">static_cast</span><span class="sy1">&lt;</span><span class="kw4">float</span><span class="br0">(</span><span class="sy3">&amp;</span><span class="br0">)</span><span class="br0">(</span><span class="kw4">float</span>, <span class="kw4">float</span><span class="br0">)</span><span class="sy1">&gt;</span><span class="br0">(</span><a href="cpp-numeric-special_functions-beta.html"><span class="kw1397">std::<span class="me2">betaf</span></span></a><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#36890;&#36807;&#20989;&#25968;&#21040;&#25351;&#38024;&#38544;&#24335;&#36716;&#25442;</span>
+    <span class="kw4">auto</span> fptr2 <span class="sy1">=</span> <span class="kw1">static_cast</span><span class="sy1">&lt;</span><span class="kw4">float</span><span class="br0">(</span><span class="sy3">&amp;</span><span class="br0">)</span><span class="br0">(</span><span class="kw4">float</span><span class="br0">)</span><span class="sy1">&gt;</span><span class="br0">(</span><a href="cpp-numeric-special_functions-riemann_zeta.html"><span class="kw1442">std::<span class="me2">riemann_zetaf</span></span></a><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#24418;&#25104;&#24341;&#29992;</span>
+    <span class="kw4">auto</span><span class="sy3">&amp;</span> fref <span class="sy1">=</span> <span class="kw1">static_cast</span><span class="sy1">&lt;</span><span class="kw4">float</span><span class="br0">(</span><span class="sy3">&amp;</span><span class="br0">)</span><span class="br0">(</span><span class="kw4">float</span><span class="br0">)</span><span class="sy1">&gt;</span><span class="br0">(</span><a href="cpp-numeric-special_functions-riemann_zeta.html"><span class="kw1442">std::<span class="me2">riemann_zetaf</span></span></a><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<h4><span class="mw-headline" id=".E6.8C.87.E5.AE.9A.E7.9A.84.E5.8F.AF.E5.8F.96.E5.9D.80.E5.87.BD.E6.95.B0">&#25351;&#23450;&#30340;&#21487;&#21462;&#22336;&#20989;&#25968;</span></h4>
+<ul>
+<li><a href="cpp-io-manip.html">&#36755;&#20837;/&#36755;&#20986;&#25805;&#32437;&#31526;</a>&#65306;
+<ul>
+<li><code>fmtflags</code> &#25805;&#32437;&#31526;&#65306;
+<ul>
+<li><span class="t-lc"><a href="cpp-io-manip-boolalpha.html">std::boolalpha</a></span></li>
+<li><span class="t-lc"><a href="cpp-io-manip-boolalpha.html">std::noboolalpha</a></span></li>
+<li><span class="t-lc"><a href="cpp-io-manip-showbase.html">std::showbase</a></span></li>
+<li><span class="t-lc"><a href="cpp-io-manip-showbase.html">std::noshowbase</a></span></li>
+<li><span class="t-lc"><a href="cpp-io-manip-showpoint.html">std::showpoint</a></span></li>
+<li><span class="t-lc"><a href="cpp-io-manip-showpoint.html">std::noshowpoint</a></span></li>
+<li><span class="t-lc"><a href="cpp-io-manip-showpos.html">std::showpos</a></span></li>
+<li><span class="t-lc"><a href="cpp-io-manip-showpos.html">std::noshowpos</a></span></li>
+<li><span class="t-lc"><a href="cpp-io-manip-skipws.html">std::skipws</a></span></li>
+<li><span class="t-lc"><a href="cpp-io-manip-skipws.html">std::noskipws</a></span></li>
+<li><span class="t-lc"><a href="cpp-io-manip-uppercase.html">std::uppercase</a></span></li>
+<li><span class="t-lc"><a href="cpp-io-manip-uppercase.html">std::nouppercase</a></span></li>
+<li><span class="t-lc"><a href="cpp-io-manip-unitbuf.html">std::unitbuf</a></span></li>
+<li><span class="t-lc"><a href="cpp-io-manip-unitbuf.html">std::nounitbuf</a></span></li>
+</ul>
+</li>
+<li><code>adjustfield</code> &#25805;&#32437;&#31526;&#65306;
+<ul>
+<li><span class="t-lc"><a href="cpp-io-manip-left.html">std::internal</a></span></li>
+<li><span class="t-lc"><a href="cpp-io-manip-left.html">std::left</a></span></li>
+<li><span class="t-lc"><a href="cpp-io-manip-left.html">std::right</a></span></li>
+</ul>
+</li>
+<li><code>basefield</code> &#25805;&#32437;&#31526;&#65306;
+<ul>
+<li><span class="t-lc"><a href="cpp-io-manip-hex.html">std::dec</a></span></li>
+<li><span class="t-lc"><a href="cpp-io-manip-hex.html">std::hex</a></span></li>
+<li><span class="t-lc"><a href="cpp-io-manip-hex.html">std::oct</a></span></li>
+</ul>
+</li>
+<li><code>floatfield</code> &#25805;&#32437;&#31526;&#65306;
+<ul>
+<li><span class="t-lc"><a href="cpp-io-manip-fixed.html">std::fixed</a></span></li>
+<li><span class="t-lc"><a href="cpp-io-manip-fixed.html">std::scientific</a></span></li>
+<li><span class="t-lc"><a href="cpp-io-manip-fixed.html">std::hexfloat</a></span></li>
+<li><span class="t-lc"><a href="cpp-io-manip-fixed.html">std::defaultfloat</a></span></li>
+</ul>
+</li>
+<li><code>basic_istream</code> &#25805;&#32437;&#31526;&#65306;
+<ul>
+<li><span class="t-lc"><a href="cpp-io-manip-ws.html">std::ws</a></span></li>
+</ul>
+</li>
+<li><code>basic_ostream</code> &#25805;&#32437;&#31526;&#65306;
+<ul>
+<li><span class="t-lc"><a href="cpp-io-manip-endl.html">std::endl</a></span></li>
+<li><span class="t-lc"><a href="cpp-io-manip-ends.html">std::ends</a></span></li>
+<li><span class="t-lc"><a href="cpp-io-manip-flush.html">std::flush</a></span></li>
+<li><a href="cpp-io-manip-emit_on_flush.html"><tt>std::emit_on_flush</tt></a></li>
+<li><a href="cpp-io-manip-emit_on_flush.html"><tt>std::noemit_on_flush</tt></a></li>
+<li><a href="cpp-io-manip-flush_emit.html"><tt>std::flush_emit</tt></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue120">LWG 120</a></td>
+<td>C++98</td>
+<td>&#29992;&#25143;&#21487;&#20197;&#20197;&#38750;&#29992;&#25143;&#23450;&#20041;&#31867;&#22411;&#26174;&#24335;&#23454;&#20363;&#21270;&#26631;&#20934;&#24211;&#27169;&#26495;</td>
+<td>&#24050;&#31105;&#27490;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue232">LWG 232</a></td>
+<td>C++98</td>
+<td>&#29992;&#25143;&#21487;&#20197;&#22312;&#22768;&#26126;&#20381;&#36182;&#20102;&#20855;&#26377;&#22806;&#37096;&#38142;&#25509;&#30340;&#21517;&#23383;&#30340;&#24773;&#20917;&#19979;&#26174;&#24335;<br />
+&#29305;&#21270;&#26631;&#20934;&#24211;&#27169;&#26495;&#65288;&#21363;&#20351;&#35813;&#21517;&#23383;&#34920;&#31034;&#30340;&#19981;&#26159;&#29992;&#25143;&#23450;&#20041;&#31867;&#22411;&#65289;</td>
+<td>&#20165;&#38480;&#29992;&#25143;&#23450;&#20041;&#31867;&#22411;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue422">LWG 422</a></td>
+<td>C++98</td>
+<td>&#29992;&#25143;&#21487;&#20197;&#22312;&#19981;&#29305;&#21270;&#25972;&#20010;&#26631;&#20934;&#24211;&#31867;&#25110;&#31867;&#27169;&#26495;&#30340;&#24773;&#20917;&#19979;&#21333;&#29420;&#29305;&#21270;&#23427;&#30340;&#25104;&#21592;&#25110;&#25104;&#21592;&#27169;&#26495;</td>
+<td>&#34892;&#20026;&#26410;&#23450;&#20041;</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

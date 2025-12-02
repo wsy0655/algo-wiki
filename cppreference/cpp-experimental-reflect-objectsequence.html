@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::experimental::reflect::ObjectSequence</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_experimental_reflect_ObjectSequence skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::experimental::reflect::</span>ObjectSequence</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-experimental.html">experimental</a>&lrm; | <a href="cpp-experimental-reflect.html">reflect</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-experimental-reflect.html">&lt;experimental/reflect&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-reflection_ts">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T <span class="sy1">&gt;</span><br />
+concept <span class="kw4">bool</span> ObjectSequence <span class="sy1">=</span> Object<span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span> <span class="coMULTI">/* &#35265;&#19979;&#25991; */</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-reflection-ts t-mark-ts" style="white-space: nowrap;">(&#21453;&#23556; TS)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>ObjectSequence</code> &#27010;&#24565;&#20026;&#20803;&#23545;&#35937;&#24207;&#21015;&#31867;&#22411;&#25152;&#28385;&#36275;&#12290;</p>
+<p>&#20803;&#23545;&#35937;&#24207;&#21015;&#31867;&#22411;&#26159;&#20174;&#29983;&#25104;&#24207;&#21015;&#30340;&#20803;&#23545;&#35937;&#25805;&#20316;&#65288;&#22914; <a href="https://zh.cppreference.com/mwiki/index.php?title=cpp/experimental/reflect/get_data_members&amp;action=edit&amp;redlink=1" class="new" title="cpp/experimental/reflect/get data members&#65288;&#39029;&#38754;&#19981;&#23384;&#22312;&#65289;"><code>get_data_members</code></a>&#65289;&#33719;&#24471;&#30340;&#20803;&#23545;&#35937;&#31867;&#22411;&#12290;&#20803;&#23545;&#35937;&#24207;&#21015;&#31867;&#22411;&#20013;&#30340;&#27599;&#20010;&#20803;&#32032;&#22343;&#20026;&#20803;&#23545;&#35937;&#31867;&#22411;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-experimental-reflect.html">&lt;experimental/reflect&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-reflection_ts">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T <span class="sy1">&gt;</span><br />
+concept ObjectSequence <span class="sy1">=</span> Object<span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span> <span class="coMULTI">/* see below */</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-reflection-ts t-mark-ts" style="white-space: nowrap;">(&#21453;&#23556; TS)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The <code>ObjectSequence</code> concept is satisfied by meta-object sequence types.</p>
+<p>A meta-object sequence type is a meta-object type that is obtained from a meta-object operation that generates a sequence, e.g. <a href="https://zh.cppreference.com/mwiki/index.php?title=cpp/experimental/reflect/get_data_members&amp;action=edit&amp;redlink=1" class="new" title="cpp/experimental/reflect/get data members&#65288;&#39029;&#38754;&#19981;&#23384;&#22312;&#65289;"><code>get_data_members</code></a>. Each element of a meta-object sequence type is a meta-object type.</p>
+<h3><span class="mw-headline" id="Example">Example</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include&lt;cmath&gt;</span>
+<span class="co2">#include&lt;experimental/reflect&gt;</span>
+<span class="co2">#include&lt;tuple&gt;</span>
+<span class="co2">#include&lt;type_traits&gt;</span>
+ 
+<span class="kw1">namespace</span> reflect <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">experimental</span><span class="sy4">::</span><span class="me2">reflect</span><span class="sy4">;</span>
+ 
+<span class="kw1">template</span><span class="sy1">&lt;</span>reflect<span class="sy4">::</span><span class="me2">Typed</span>... <span class="me1">Ms</span><span class="sy1">&gt;</span>
+<span class="kw1">using</span> tuple_from_seq_t <span class="sy1">=</span> <a href="cpp-utility-tuple.html"><span class="kw1101">std::<span class="me2">tuple</span></span></a><span class="sy1">&lt;</span>reflect<span class="sy4">::</span><span class="me2">get_reflected_type_t</span><span class="sy1">&lt;</span>
+    reflect<span class="sy4">::</span><span class="me2">get_type_t</span><span class="sy1">&lt;</span>Ms<span class="sy1">&gt;&gt;</span>...<span class="sy1">&gt;</span><span class="sy4">;</span>
+ 
+<span class="kw1">template</span><span class="sy1">&lt;</span>reflect<span class="sy4">::</span><span class="me2">Record</span> T<span class="sy1">&gt;</span>
+<span class="kw1">using</span> collect_tuple <span class="sy1">=</span> reflect<span class="sy4">::</span><span class="me2">unpack_sequence_t</span><span class="sy1">&lt;</span>
+    tuple_from_seq_t,
+    reflect<span class="sy4">::</span><span class="me2">get_data_members_t</span><span class="sy1">&lt;</span>T<span class="sy1">&gt;&gt;</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    static_assert<span class="br0">(</span>reflect<span class="sy4">::</span><span class="me2">ObjectSequence</span><span class="sy1">&lt;</span>
+                      reflect<span class="sy4">::</span><span class="me2">get_data_members</span><span class="sy1">&lt;</span>reflexpr<span class="br0">(</span><a href="cpp-numeric-math-div.html"><span class="kw1310">std::<span class="me2">div_t</span></span></a><span class="br0">)</span><span class="sy1">&gt;&gt;</span>, <span class="st0">&quot;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span><a href="cpp-types-is_same.html"><span class="kw591">std::<span class="me2">is_same</span></span></a><span class="sy1">&lt;</span>collect_tuple<span class="sy1">&lt;</span>reflexpr<span class="br0">(</span><a href="cpp-numeric-math-div.html"><span class="kw1310">std::<span class="me2">div_t</span></span></a><span class="br0">)</span><span class="sy1">&gt;</span>,
+                               <a href="cpp-utility-tuple.html"><span class="kw1101">std::<span class="me2">tuple</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span>, <span class="kw4">int</span><span class="sy1">&gt;&gt;</span><span class="sy4">::</span><span class="me2">value</span>, <span class="st0">&quot;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#27169;&#26495;&#21270;</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

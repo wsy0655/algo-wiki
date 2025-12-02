@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::variant&lt;Types...&gt;::variant</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_utility_variant_variant skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::variant&lt;Types...&gt;::</span>variant</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-utility.html">utility</a>&lrm; | <a href="cpp-utility-variant.html">variant</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> variant<span class="br0">(</span><span class="br0">)</span> <span class="kw1">noexcept</span><span class="br0">(</span><span class="coMULTI">/* &#35265;&#19979;&#25991; */</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> variant<span class="br0">(</span> <span class="kw4">const</span> variant<span class="sy3">&amp;</span> other <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> variant<span class="br0">(</span> variant<span class="sy3">&amp;&amp;</span> other <span class="br0">)</span> <span class="kw1">noexcept</span><span class="br0">(</span><span class="coMULTI">/* &#35265;&#19979;&#25991; */</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T <span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> variant<span class="br0">(</span> T<span class="sy3">&amp;&amp;</span> t <span class="br0">)</span> <span class="kw1">noexcept</span><span class="br0">(</span><span class="coMULTI">/* &#35265;&#19979;&#25991; */</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(4)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span>... <span class="me1">Args</span> <span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> <span class="kw1">explicit</span> variant<span class="br0">(</span> <a href="cpp-utility-in_place.html"><span class="kw1084">std::<span class="me2">in_place_type_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span>,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Args<span class="sy3">&amp;&amp;</span>... <span class="me1">args</span> <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(5)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span> U,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span>... <span class="me1">Args</span> <span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> <span class="kw1">explicit</span> variant<span class="br0">(</span> <a href="cpp-utility-in_place.html"><span class="kw1084">std::<span class="me2">in_place_type_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-utility-initializer_list.html"><span class="kw962">std::<span class="me2">initializer_list</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span> il,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Args<span class="sy3">&amp;&amp;</span>... <span class="me1">args</span> <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(6)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> I,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span>... <span class="me1">Args</span> <span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> <span class="kw1">explicit</span> variant<span class="br0">(</span> <a href="cpp-utility-in_place.html"><span class="kw1085">std::<span class="me2">in_place_index_t</span></span></a><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span>,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Args<span class="sy3">&amp;&amp;</span>... <span class="me1">args</span> <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(7)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> I,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span> U,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span>... <span class="me1">Args</span> <span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> <span class="kw1">explicit</span> variant<span class="br0">(</span> <a href="cpp-utility-in_place.html"><span class="kw1085">std::<span class="me2">in_place_index_t</span></span></a><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-utility-initializer_list.html"><span class="kw962">std::<span class="me2">initializer_list</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span> il,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Args<span class="sy3">&amp;&amp;</span>... <span class="me1">args</span> <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td>(8)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#26500;&#36896;&#26032;&#30340; <code>variant</code> &#23545;&#35937;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#40664;&#35748;&#26500;&#36896;&#20989;&#25968;&#12290;&#26500;&#36896; <code>variant</code>&#65292;&#20445;&#26377;&#39318;&#20010;&#21487;&#36873;&#39033;&#65288;<a href="cpp-utility-variant-index.html">index()</a> &#20026;&#38646;&#65289;&#30340;<a href="cpp-language-value_initialization.html">&#20540;&#21021;&#22987;&#21270;</a>&#30340;&#20540;&#12290;
+<ul>
+<li>&#24403;&#19988;&#20165;&#24403;&#21487;&#36873;&#39033;&#31867;&#22411; <code>T_0</code> &#30340;&#20540;&#21021;&#22987;&#21270;&#28385;&#36275; <a href="cpp-language-constexpr.html">constexpr &#20989;&#25968;</a>&#30340;&#35201;&#27714;&#26102;&#65292;&#27492;&#26500;&#36896;&#20989;&#25968;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span></span>&#12290;</li>
+<li>&#27492;&#37325;&#36733;&#21482;&#26377;&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_default_constructible.html"><span class="kw534">std::<span class="me2">is_default_constructible_v</span></span></a><span class="sy1">&lt;</span>T_0<span class="sy1">&gt;</span></span></span> &#20026; <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span> &#26102;&#25165;&#20250;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#12290;</li>
+</ul>
+</div>
+<div class="t-li1"><span class="t-li">2)</span> &#22797;&#21046;&#26500;&#36896;&#20989;&#25968;&#12290;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">other</span></span> &#24182;&#38750; <span class="t-lc"><a href="cpp-utility-variant-valueless_by_exception.html">valueless_by_exception</a></span>&#65292;&#21017;&#26500;&#36896;&#19968;&#20010;&#20445;&#26377;&#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">other</span></span> &#30456;&#21516;&#21487;&#36873;&#39033;&#30340; <code>variant</code>&#65292;&#24182;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span><a href="cpp-utility-variant-get_if.html"><span class="kw1091">std::<span class="me2">get_if</span></span></a><span class="sy1">&lt;</span>other.<span class="me1">index</span><span class="br0">(</span><span class="br0">)</span><span class="sy1">&gt;</span><span class="br0">(</span><a href="cpp-memory-addressof.html"><span class="kw759">std::<span class="me2">addressof</span></span></a><span class="br0">(</span>other<span class="br0">)</span><span class="br0">)</span></span></span> <a href="cpp-language-direct_initialization.html">&#30452;&#25509;&#21021;&#22987;&#21270;</a>&#25152;&#21547;&#20540;&#12290;&#21542;&#21017;&#65292;&#21021;&#22987;&#21270;&#19968;&#20010; <span class="t-lc"><a href="cpp-utility-variant-valueless_by_exception.html">valueless_by_exception</a></span> &#30340;&#21464;&#20307;&#12290;
+<ul>
+<li>&#27492;&#26500;&#36896;&#20989;&#25968;&#23450;&#20041;&#20026;&#34987;&#24323;&#32622;&#65292;&#38500;&#38750; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_copy_constructible.html"><span class="kw540">std::<span class="me2">is_copy_constructible_v</span></span></a><span class="sy1">&lt;</span>T_i<span class="sy1">&gt;</span></span></span> &#23545;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">Types...</span></span> &#20013;&#30340;&#25152;&#26377; <code>T_i</code> &#22343;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span>&#12290;</li>
+<li>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_copy_constructible.html"><span class="kw542">std::<span class="me2">is_trivially_copy_constructible_v</span></span></a><span class="sy1">&lt;</span>T_i<span class="sy1">&gt;</span></span></span> &#23545; <span class="t-c"><span class="mw-geshi cpp source-cpp">Types...</span></span> &#20013;&#30340;&#25152;&#26377; <code>T_i</code> &#20026; <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span> &#21017;&#23427;&#20026;&#24179;&#20961;&#12290;</li>
+</ul>
+</div>
+<div class="t-li1"><span class="t-li">3)</span> &#31227;&#21160;&#26500;&#36896;&#20989;&#25968;&#12290;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">other</span></span> &#24182;&#38750; <span class="t-lc"><a href="cpp-utility-variant-valueless_by_exception.html">valueless_by_exception</a></span>&#65292;&#21017;&#26500;&#36896;&#19968;&#20010;&#20445;&#26377;&#19982; <code>other</code> &#30456;&#21516;&#21487;&#36873;&#39033;&#30340; <code>variant</code> &#24182;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span><span class="sy2">*</span><a href="cpp-utility-variant-get_if.html"><span class="kw1091">std::<span class="me2">get_if</span></span></a><span class="sy1">&lt;</span>other.<span class="me1">index</span><span class="br0">(</span><span class="br0">)</span><span class="sy1">&gt;</span><span class="br0">(</span><a href="cpp-memory-addressof.html"><span class="kw759">std::<span class="me2">addressof</span></span></a><span class="br0">(</span>other<span class="br0">)</span><span class="br0">)</span><span class="br0">)</span></span></span> <a href="cpp-language-direct_initialization.html">&#30452;&#25509;&#21021;&#22987;&#21270;</a>&#25152;&#21547;&#20540;&#12290;&#21542;&#21017;&#65292;&#21021;&#22987;&#21270;&#19968;&#20010; <span class="t-lc"><a href="cpp-utility-variant-valueless_by_exception.html">valueless_by_exception</a></span> &#30340;&#21464;&#20307;&#12290;
+<ul>
+<li>&#27492;&#37325;&#36733;&#21482;&#26377;&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_move_constructible.html"><span class="kw546">std::<span class="me2">is_move_constructible_v</span></span></a><span class="sy1">&lt;</span>T_i<span class="sy1">&gt;</span></span></span> &#23545;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">Types...</span></span> &#20013;&#30340;&#25152;&#26377; <code>T_i</code> &#22343;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span> &#26102;&#25165;&#20250;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#12290;</li>
+<li>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_move_constructible.html"><span class="kw548">std::<span class="me2">is_trivially_move_constructible_v</span></span></a><span class="sy1">&lt;</span>T_i<span class="sy1">&gt;</span></span></span> &#23545; <span class="t-c"><span class="mw-geshi cpp source-cpp">Types...</span></span> &#20013;&#30340;&#25152;&#26377; <code>T_i</code> &#22343;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span> &#21017;&#23427;&#20026;&#24179;&#20961;&#12290;</li>
+</ul>
+</div>
+<div class="t-li1"><span class="t-li">4)</span> &#36716;&#25442;&#26500;&#36896;&#20989;&#25968;&#12290;&#23545; <span class="t-c"><span class="mw-geshi cpp source-cpp">Types...</span></span> &#20013;&#30340;&#27599;&#20010; <code>T_i</code> &#26377;&#19968;&#20010;&#34394;&#35774;&#30340;&#20989;&#25968; <code>F(T_i)</code> &#30340;&#37325;&#36733;&#65292;&#26681;&#25454;&#34920;&#36798;&#24335; <span class="t-c"><span class="mw-geshi cpp source-cpp">F<span class="br0">(</span><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="br0">(</span>t<span class="br0">)</span><span class="br0">)</span></span></span> &#36827;&#34892;&#37325;&#36733;&#20915;&#35758;&#24471;&#21040; <code>T_j</code>&#65292;&#26500;&#36896;&#19968;&#20010;&#25345;&#26377;&#23427;&#30340; <code>variant</code>&#65292;&#20294;&#19981;&#32771;&#34385;&#31364;&#21270;&#36716;&#25442;&#12290;
+<p>&#27491;&#24335;&#32780;&#35328;&#65306;</p>
+<dl>
+<dd>
+<ul>
+<li>&#21482;&#26377;&#24403;&#22768;&#26126; <span class="t-c"><span class="mw-geshi cpp source-cpp">T_i x<span class="br0">[</span><span class="br0">]</span> <span class="sy1">=</span> <span class="br0">{</span> <a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="br0">(</span>t<span class="br0">)</span> <span class="br0">}</span><span class="sy4">;</span></span></span> &#23545;&#26576;&#20010;&#34394;&#35774;&#21464;&#37327; <code>x</code> &#26377;&#25928;&#26102;&#65292;&#25165;&#32771;&#34385; <span class="t-c"><span class="mw-geshi cpp source-cpp">F<span class="br0">(</span>T_i<span class="br0">)</span></span></span>&#12290;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-li1"><span class="t-li"></span> &#22914;&#21516;&#29992;&#30452;&#25509;&#38750;&#21015;&#34920;&#21021;&#22987;&#21270;&#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="br0">(</span>t<span class="br0">)</span></span></span> <a href="cpp-language-direct_initialization.html">&#30452;&#25509;&#21021;&#22987;&#21270;</a>&#25152;&#21547;&#20540;&#12290;
+<ul>
+<li>&#27492;&#37325;&#36733;&#21482;&#26377;&#22312;
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">sizeof...<span class="br0">(</span>Types<span class="br0">)</span> <span class="sy1">&gt;</span> <span class="nu0">0</span></span></span>&#65292;</li>
+<li><span class="t-rev-inl t-until-cxx20"><span><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-decay.html"><span class="kw632">std::<span class="me2">decay_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span></span></span></span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#21069;)</span></span></span><span class="t-rev-inl t-since-cxx20"><span><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-remove_cvref.html"><span class="kw2644">std::<span class="me2">remove_cvref_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span></span></span></span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></span></span> &#26082;&#19981;&#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">variant</span></span> &#20026;&#21516;&#19968;&#31867;&#22411;&#65292;&#20063;&#19981;&#26159; <span class="t-lc"><a href="cpp-utility-in_place.html">std::in_place_type_t</a></span> &#25110; <span class="t-lc"><a href="cpp-utility-in_place.html">std::in_place_index_t</a></span> &#30340;&#29305;&#21270;&#65292;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_constructible.html"><span class="kw528">std::<span class="me2">is_constructible_v</span></span></a><span class="sy1">&lt;</span>T_j, T<span class="sy1">&gt;</span></span></span> &#20026; <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span>&#65292;</li>
+<li>&#19988;&#34920;&#36798;&#24335; <span class="t-c"><span class="mw-geshi cpp source-cpp">F<span class="br0">(</span><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="br0">(</span>t<span class="br0">)</span><span class="br0">)</span></span></span>&#65288;&#20196; <code>F</code> &#20026;&#19978;&#36848;&#34394;&#26500;&#20989;&#25968;&#30340;&#37325;&#36733;&#38598;&#65289;&#20026;&#33391;&#26500;&#26102;&#25165;&#20250;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#12290;</li>
+</ul>
+</li>
+<li>&#33509; <code>T_j</code> &#30340;&#34987;&#36873;&#25321;&#26500;&#36896;&#20989;&#25968;&#20026; constexpr &#26500;&#36896;&#20989;&#25968;&#65292;&#21017;&#27492;&#26500;&#36896;&#20989;&#25968;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span></span> &#26500;&#36896;&#20989;&#25968;&#12290;</li>
+</ul>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><a href="cpp-utility-variant.html"><span class="kw1088">std::<span class="me2">variant</span></span></a><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span> v<span class="br0">(</span><span class="st0">&quot;abc&quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK</span>
+<a href="cpp-utility-variant.html"><span class="kw1088">std::<span class="me2">variant</span></span></a><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a>, <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span> w<span class="br0">(</span><span class="st0">&quot;abc&quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#38750;&#33391;&#26500;</span>
+<a href="cpp-utility-variant.html"><span class="kw1088">std::<span class="me2">variant</span></span></a><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a>, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span><span class="sy1">&gt;</span> x<span class="br0">(</span><span class="st0">&quot;abc&quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK&#65306;&#36873;&#25321; const char*</span>
+<a href="cpp-utility-variant.html"><span class="kw1088">std::<span class="me2">variant</span></span></a><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a>, <span class="kw4">bool</span><span class="sy1">&gt;</span> y<span class="br0">(</span><span class="st0">&quot;abc&quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK&#65306;&#36873;&#25321; string&#65307;bool &#19981;&#26159;&#20505;&#36873;</span>
+<a href="cpp-utility-variant.html"><span class="kw1088">std::<span class="me2">variant</span></span></a><span class="sy1">&lt;</span><span class="kw4">float</span>, <span class="kw4">long</span>, <span class="kw4">double</span><span class="sy1">&gt;</span> z <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span> <span class="co1">// OK&#65306;&#20445;&#26377; long</span>
+                                         <span class="co1">// float &#19982; double &#19981;&#26159;&#20505;&#36873;</span></pre></div>
+</div>
+</div>
+<div class="t-li1"><span class="t-li">5)</span> &#26500;&#36896;&#19968;&#20010;&#26377;&#25351;&#23450;&#21487;&#36873;&#39033;&#31867;&#22411; <code>T</code> &#30340; <code>variant</code> &#24182;&#20197;&#23454;&#21442; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span>args<span class="br0">)</span>...</span></span> &#21021;&#22987;&#21270;&#25152;&#21547;&#20540;&#12290;
+<ul>
+<li>&#33509; <code>T</code> &#30340;&#34987;&#36873;&#25321;&#26500;&#36896;&#20989;&#25968;&#26159; <span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span></span> &#26500;&#36896;&#20989;&#25968;&#65292;&#21017;&#27492;&#26500;&#36896;&#20989;&#25968;&#20134;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span></span> &#26500;&#36896;&#20989;&#25968;&#12290;</li>
+<li>&#27492;&#37325;&#36733;&#21482;&#26377;&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">Types...</span></span> &#20013;&#27491;&#22909;&#20986;&#29616;&#19968;&#27425; <code>T</code> &#19988; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_constructible.html"><span class="kw528">std::<span class="me2">is_constructible_v</span></span></a><span class="sy1">&lt;</span>T, Args...<span class="sy1">&gt;</span></span></span> &#20026; <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span> &#26102;&#25165;&#20250;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#12290;</li>
+</ul>
+</div>
+<div class="t-li1"><span class="t-li">6)</span> &#26500;&#36896;&#19968;&#20010;&#26377;&#25351;&#23450;&#21487;&#36873;&#39033;&#31867;&#22411; <code>T</code> &#30340; <code>variant</code> &#24182;&#20197;&#23454;&#21442; <span class="t-c"><span class="mw-geshi cpp source-cpp">il, <a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span>args<span class="br0">)</span>...</span></span> &#21021;&#22987;&#21270;&#25152;&#21547;&#20540;&#12290;
+<ul>
+<li>&#33509; <code>T</code> &#30340;&#34987;&#36873;&#25321;&#26500;&#36896;&#20989;&#25968;&#26159; <span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span></span> &#26500;&#36896;&#20989;&#25968;&#65292;&#21017;&#27492;&#26500;&#36896;&#20989;&#25968;&#20134;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span></span> &#26500;&#36896;&#20989;&#25968;&#12290;</li>
+<li>&#27492;&#37325;&#36733;&#21482;&#26377;&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">Types...</span></span> &#20013;&#27491;&#22909;&#20986;&#29616;&#19968;&#27425; <code>T</code> &#19988; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_constructible.html"><span class="kw528">std::<span class="me2">is_constructible_v</span></span></a><span class="sy1">&lt;</span>T, initializer_list<span class="sy1">&lt;</span>U<span class="sy1">&gt;</span><span class="sy3">&amp;</span>, Args...<span class="sy1">&gt;</span></span></span> &#20026; <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span> &#26102;&#25165;&#20250;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#12290;</li>
+</ul>
+</div>
+<div class="t-li1"><span class="t-li">7)</span> &#26500;&#36896;&#19968;&#20010;&#26377;&#32034;&#24341; <code>I</code> &#25152;&#25351;&#23450;&#30340;&#21487;&#36873;&#39033;&#31867;&#22411; <code>T_i</code> &#30340; <code>variant</code> &#24182;&#20197;&#23454;&#21442; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span>args<span class="br0">)</span>...</span></span> &#21021;&#22987;&#21270;&#25152;&#21547;&#20540;&#12290;
+<ul>
+<li>&#33509; <code>T_i</code> &#30340;&#34987;&#36873;&#25321;&#26500;&#36896;&#20989;&#25968;&#26159; <span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span></span> &#26500;&#36896;&#20989;&#25968;&#65292;&#21017;&#27492;&#26500;&#36896;&#20989;&#25968;&#20134;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span></span> &#26500;&#36896;&#20989;&#25968;&#12290;</li>
+<li>&#27492;&#37325;&#36733;&#21482;&#26377;&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">I <span class="sy1">&lt;</span> sizeof...<span class="br0">(</span>Types<span class="br0">)</span></span></span> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_constructible.html"><span class="kw528">std::<span class="me2">is_constructible_v</span></span></a><span class="sy1">&lt;</span>T_i, Args...<span class="sy1">&gt;</span></span></span> &#30342;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span> &#26102;&#25165;&#20250;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#12290;</li>
+</ul>
+</div>
+<div class="t-li1"><span class="t-li">8)</span> &#26500;&#36896;&#19968;&#20010;&#26377;&#32034;&#24341; <code>I</code> &#25152;&#25351;&#23450;&#30340;&#21487;&#36873;&#39033;&#31867;&#22411; <code>T_i</code> &#30340; <code>variant</code> &#24182;&#20197;&#23454;&#21442; <span class="t-c"><span class="mw-geshi cpp source-cpp">il, <a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span>args<span class="br0">)</span>...</span></span> &#21021;&#22987;&#21270;&#25152;&#21547;&#20540;&#12290;
+<ul>
+<li>&#33509; <code>T_i</code> &#30340;&#34987;&#36873;&#25321;&#26500;&#36896;&#20989;&#25968;&#26159; <span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span></span> &#26500;&#36896;&#20989;&#25968;&#65292;&#21017;&#27492;&#26500;&#36896;&#20989;&#25968;&#20134;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span></span> &#26500;&#36896;&#20989;&#25968;&#12290;</li>
+<li>&#27492;&#37325;&#36733;&#21482;&#26377;&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">I <span class="sy1">&lt;</span> sizeof...<span class="br0">(</span>Types<span class="br0">)</span></span></span> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_constructible.html"><span class="kw528">std::<span class="me2">is_constructible_v</span></span></a><span class="sy1">&lt;</span>T_i, <a href="cpp-utility-initializer_list.html"><span class="kw962">std::<span class="me2">initializer_list</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span><span class="sy3">&amp;</span>, Args...<span class="sy1">&gt;</span></span></span> &#30342;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span> &#26102;&#25165;&#20250;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#12290;</li>
+</ul>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>other</td>
+<td>-</td>
+<td>&#21478;&#19968;&#20010;&#35201;&#22797;&#21046;/&#31227;&#21160;&#20854;&#25152;&#21547;&#20540;&#30340; <code>variant</code> &#23545;&#35937;</td>
+</tr>
+<tr class="t-par">
+<td>t</td>
+<td>-</td>
+<td>&#29992;&#20197;&#21021;&#22987;&#21270;&#34987;&#25152;&#21547;&#20540;&#30340;&#20540;</td>
+</tr>
+<tr class="t-par">
+<td>args...</td>
+<td>-</td>
+<td>&#29992;&#20197;&#21021;&#22987;&#21270;&#25152;&#21547;&#20540;&#30340;&#23454;&#21442;</td>
+</tr>
+<tr class="t-par">
+<td>il</td>
+<td>-</td>
+<td>&#29992;&#20197;&#21021;&#22987;&#21270;&#25152;&#21547;&#20540;&#30340;&#21021;&#22987;&#21270;&#24335;&#21015;&#34920;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<div class="t-li1"><span class="t-li">1)</span> &#21487;&#33021;&#25243;&#20986;&#39318;&#20010;&#21487;&#36873;&#39033;&#30340;&#20540;&#21021;&#22987;&#21270;&#25152;&#25243;&#30340;&#20219;&#20309;&#24322;&#24120;&#12290;
+<div class="t-noexcept-full"><a href="cpp-language-noexcept_spec.html"><tt>noexcept</tt></a> &#35828;&#26126;&#65306;&nbsp;&nbsp;
+<div class="t-noexcept-box"><span class="t-cc"><span class="mw-geshi cpp source-cpp"><span class="kw1">noexcept</span><span class="br0">(</span><a href="cpp-types-is_default_constructible.html"><span class="kw538">std::<span class="me2">is_nothrow_default_constructible_v</span></span></a><span class="sy1">&lt;</span>T_0<span class="sy1">&gt;</span><span class="br0">)</span></span></span></div>
+</div>
+</div>
+<div class="t-li1"><span class="t-li">2)</span> &#21487;&#33021;&#25243;&#20986;&#30452;&#25509;&#21021;&#22987;&#21270; <span class="t-c"><span class="mw-geshi cpp source-cpp">Types...</span></span> &#20013;&#30340;&#20219;&#20309; <code>T_i</code> &#26102;&#25152;&#25243;&#30340;&#20219;&#20309;&#24322;&#24120;&#12290;</div>
+<div class="t-li1"><span class="t-li">3)</span> &#21487;&#33021;&#25243;&#20986;&#31227;&#21160;&#26500;&#36896; <span class="t-c"><span class="mw-geshi cpp source-cpp">Types...</span></span> &#20013;&#30340;&#20219;&#20309; <code>T_i</code> &#26102;&#25152;&#25243;&#30340;&#20219;&#20309;&#24322;&#24120;&#12290;
+<div class="t-noexcept-full"><a href="cpp-language-noexcept_spec.html"><tt>noexcept</tt></a> &#35828;&#26126;&#65306;&nbsp;&nbsp;
+<div class="t-noexcept-box"><span class="t-cc"><span class="mw-geshi cpp source-cpp"><span class="kw1">noexcept</span><span class="br0">(</span> <span class="br0">(</span><a href="cpp-types-is_move_constructible.html"><span class="kw550">std::<span class="me2">is_nothrow_move_constructible_v</span></span></a><span class="sy1">&lt;</span>Types<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span> ...<span class="br0">)</span><span class="br0">)</span></span></span></div>
+</div>
+</div>
+<div class="t-li1"><span class="t-li">4)</span> &#21487;&#33021;&#25243;&#20986;&#21021;&#22987;&#21270;&#25152;&#36873;&#21487;&#36873;&#39033; <code>T_j</code> &#26102;&#25152;&#25243;&#30340;&#20219;&#20309;&#24322;&#24120;&#12290;
+<div class="t-noexcept-full"><a href="cpp-language-noexcept_spec.html"><tt>noexcept</tt></a> &#35828;&#26126;&#65306;&nbsp;&nbsp;
+<div class="t-noexcept-box"><span class="t-cc"><span class="mw-geshi cpp source-cpp"><span class="kw1">noexcept</span><span class="br0">(</span><a href="cpp-types-is_constructible.html"><span class="kw532">std::<span class="me2">is_nothrow_constructible_v</span></span></a><span class="sy1">&lt;</span>T_j, T<span class="sy1">&gt;</span><span class="br0">)</span></span></span></div>
+</div>
+</div>
+<div class="t-li1"><span class="t-li">5-8)</span> &#21487;&#33021;&#25243;&#20986;&#35843;&#29992;&#25152;&#36873;&#21487;&#36873;&#39033;&#30340;&#25152;&#36873;&#26500;&#36896;&#20989;&#25968;&#26102;&#25152;&#25243;&#30340;&#20219;&#20309;&#24322;&#24120;&#12290;</div>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;cassert&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+<span class="co2">#include &lt;variant&gt;</span>
+<span class="co2">#include &lt;vector&gt;</span>
+ 
+<span class="kw1">using</span> vector_t <span class="sy1">=</span> <a href="cpp-container-vector.html"><span class="kw1272">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span><span class="sy4">;</span>
+ 
+<span class="kw4">auto</span><span class="sy3">&amp;</span> operator<span class="sy1">&lt;&lt;</span><span class="br0">(</span><span class="kw4">auto</span><span class="sy3">&amp;</span> out, <span class="kw4">const</span> vector_t<span class="sy3">&amp;</span> v<span class="br0">)</span>
+<span class="br0">{</span>
+    out <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;{ &quot;</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> e <span class="sy4">:</span> v<span class="br0">)</span>
+        out <span class="sy1">&lt;&lt;</span> e <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span><span class="sy4">;</span>
+    <span class="kw1">return</span> out <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;}&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="co1">// &#20540;&#21021;&#22987;&#21270;&#31532;&#19968;&#20010;&#21487;&#36873;&#39033;</span>
+    <a href="cpp-utility-variant.html"><span class="kw1088">std::<span class="me2">variant</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span>, <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span> var0<span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><a href="cpp-utility-variant-holds_alternative.html"><span class="kw1090">std::<span class="me2">holds_alternative</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span><span class="br0">(</span>var0<span class="br0">)</span> and
+           var0.<span class="me1">index</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> <span class="nu0">0</span> and
+           <a href="cpp-utility-variant-get.html"><span class="kw3217">std::<span class="me2">get</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span><span class="br0">(</span>var0<span class="br0">)</span> <span class="sy1">==</span> <span class="nu0">0</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#29992; std::string{&quot;STR&quot;}; &#21021;&#22987;&#21270;&#31532;&#19968;&#20010;&#21487;&#36873;&#39033;</span>
+    <a href="cpp-utility-variant.html"><span class="kw1088">std::<span class="me2">variant</span></span></a><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a>, <span class="kw4">int</span><span class="sy1">&gt;</span> var1<span class="br0">{</span><span class="st0">&quot;STR&quot;</span><span class="br0">}</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span>var1.<span class="me1">index</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> <span class="nu0">0</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;1) &quot;</span> <span class="sy1">&lt;&lt;</span> <a href="cpp-utility-variant-get.html"><span class="kw3217">std::<span class="me2">get</span></span></a><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span><span class="br0">(</span>var1<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#29992; int = 42; &#21021;&#22987;&#21270;&#31532;&#20108;&#20010;&#21487;&#36873;&#39033;</span>
+    <a href="cpp-utility-variant.html"><span class="kw1088">std::<span class="me2">variant</span></span></a><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a>, <span class="kw4">int</span><span class="sy1">&gt;</span> var2<span class="br0">{</span><span class="nu0">42</span><span class="br0">}</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><a href="cpp-utility-variant-holds_alternative.html"><span class="kw1090">std::<span class="me2">holds_alternative</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span><span class="br0">(</span>var2<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;2) &quot;</span> <span class="sy1">&lt;&lt;</span> <a href="cpp-utility-variant-get.html"><span class="kw3217">std::<span class="me2">get</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span><span class="br0">(</span>var2<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#29992; std::string{4, &#39;A&#39;}; &#21021;&#22987;&#21270;&#31532;&#19968;&#20010;&#21487;&#36873;&#39033;</span>
+    <a href="cpp-utility-variant.html"><span class="kw1088">std::<span class="me2">variant</span></span></a><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a>, vector_t, <span class="kw4">float</span><span class="sy1">&gt;</span> var3
+    <span class="br0">{</span>
+        <a href="cpp-utility-in_place.html"><span class="kw1086">std::<span class="me2">in_place_type</span></span></a><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span>, <span class="nu0">4</span>, <span class="st0">&#39;A&#39;</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span>var3.<span class="me1">index</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> <span class="nu0">0</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;3) &quot;</span> <span class="sy1">&lt;&lt;</span> <a href="cpp-utility-variant-get.html"><span class="kw3217">std::<span class="me2">get</span></span></a><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span><span class="br0">(</span>var3<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#29992; std::vector{1,2,3,4,5}; &#21021;&#22987;&#21270;&#31532;&#20108;&#20010;&#21487;&#36873;&#39033;</span>
+    <a href="cpp-utility-variant.html"><span class="kw1088">std::<span class="me2">variant</span></span></a><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a>, vector_t, <span class="kw4">char</span><span class="sy1">&gt;</span> var4
+    <span class="br0">{</span>
+        <a href="cpp-utility-in_place.html"><span class="kw1086">std::<span class="me2">in_place_type</span></span></a><span class="sy1">&lt;</span>vector_t<span class="sy1">&gt;</span>, <span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">2</span>, <span class="nu0">3</span>, <span class="nu0">4</span>, <span class="nu0">5</span><span class="br0">}</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span>var4.<span class="me1">index</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> <span class="nu0">1</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;4) &quot;</span> <span class="sy1">&lt;&lt;</span> <a href="cpp-utility-variant-get.html"><span class="kw3217">std::<span class="me2">get</span></span></a><span class="sy1">&lt;</span>vector_t<span class="sy1">&gt;</span><span class="br0">(</span>var4<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#29992; std::string{&quot;ABCDE&quot;, 3}; &#21021;&#22987;&#21270;&#31532;&#19968;&#20010;&#21487;&#36873;&#39033;</span>
+    <a href="cpp-utility-variant.html"><span class="kw1088">std::<span class="me2">variant</span></span></a><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a>, vector_t, <span class="kw4">bool</span><span class="sy1">&gt;</span> var5 <span class="br0">{</span><a href="cpp-utility-in_place.html"><span class="kw1087">std::<span class="me2">in_place_index</span></span></a><span class="sy1">&lt;</span><span class="nu0">0</span><span class="sy1">&gt;</span>, <span class="st0">&quot;ABCDE&quot;</span>, <span class="nu0">3</span><span class="br0">}</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span>var5.<span class="me1">index</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> <span class="nu0">0</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;5) &quot;</span> <span class="sy1">&lt;&lt;</span> <a href="cpp-utility-variant-get.html"><span class="kw3217">std::<span class="me2">get</span></span></a><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span><span class="br0">(</span>var5<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#29992; std::vector(4, 42); &#21021;&#22987;&#21270;&#31532;&#20108;&#20010;&#21487;&#36873;&#39033;</span>
+    <a href="cpp-utility-variant.html"><span class="kw1088">std::<span class="me2">variant</span></span></a><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a>, vector_t, <span class="kw4">char</span><span class="sy1">&gt;</span> var6 <span class="br0">{</span><a href="cpp-utility-in_place.html"><span class="kw1087">std::<span class="me2">in_place_index</span></span></a><span class="sy1">&lt;</span><span class="nu0">1</span><span class="sy1">&gt;</span>, <span class="nu0">4</span>, <span class="nu0">42</span><span class="br0">}</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><a href="cpp-utility-variant-holds_alternative.html"><span class="kw1090">std::<span class="me2">holds_alternative</span></span></a><span class="sy1">&lt;</span>vector_t<span class="sy1">&gt;</span><span class="br0">(</span>var6<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;6) &quot;</span> <span class="sy1">&lt;&lt;</span> <a href="cpp-utility-variant-get.html"><span class="kw3217">std::<span class="me2">get</span></span></a><span class="sy1">&lt;</span>vector_t<span class="sy1">&gt;</span><span class="br0">(</span>var6<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">1) STR
+2) 42
+3) AAAA
+4) { 1 2 3 4 5 }
+5) ABC
+6) { 42 42 42 42 }</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue2901">LWG 2901</a></td>
+<td>C++17</td>
+<td>&#25552;&#20379;&#20855;&#20998;&#37197;&#22120;&#26500;&#36896;&#20989;&#25968;&#20294; <code>variant</code> &#19981;&#33021;&#27491;&#30830;&#25903;&#25345;&#20998;&#37197;&#22120;</td>
+<td>&#31227;&#38500;&#26500;&#36896;&#20989;&#25968;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://wg21.link/P0739R0">P0739R0</a></td>
+<td>C++17</td>
+<td>&#36716;&#25442;&#26500;&#36896;&#20989;&#25968;&#27169;&#26495;&#19982;&#31867;&#27169;&#26495;&#23454;&#21442;&#25512;&#23548;&#20132;&#20114;&#22256;&#38590;</td>
+<td>&#28155;&#21152;&#20102;&#32422;&#26463;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue3024">LWG 3024</a></td>
+<td>C++17</td>
+<td>&#33509;&#20219;&#20309;&#25104;&#21592;&#31867;&#22411;&#38750;&#21487;&#22797;&#21046;&#65292;&#21017;&#22797;&#21046;&#26500;&#36896;&#20989;&#25968;&#19981;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;</td>
+<td>&#25913;&#20026;&#23450;&#20041;&#20026;&#34987;&#24323;&#32622;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://wg21.link/P0602R4">P0602R4</a></td>
+<td>C++17</td>
+<td>&#21363;&#20351;&#24213;&#23618;&#26500;&#36896;&#20989;&#25968;&#24179;&#20961;&#65292;&#22797;&#21046;/&#31227;&#21160;&#26500;&#36896;&#20989;&#25968;&#20134;&#21487;&#20026;&#38750;&#24179;&#20961;</td>
+<td>&#35201;&#27714;&#20256;&#25773;&#24179;&#20961;&#24615;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://wg21.link/P0608R3">P0608R3</a></td>
+<td>C++17</td>
+<td>&#36716;&#25442;&#26500;&#36896;&#20989;&#25968;&#30450;&#30446;&#22320;&#32452;&#25104;&#37325;&#36733;&#38598;&#65292;&#23548;&#33268;&#19981;&#24819;&#35201;&#30340;&#36716;&#25442;</td>
+<td>&#19981;&#32771;&#34385;&#31364;&#21270;&#19982;&#24067;&#23572;&#36716;&#25442;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://wg21.link/P1957R2">P1957R2</a></td>
+<td>C++17</td>
+<td>&#23545; <span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span> &#30340;&#36716;&#25442;&#26500;&#36896;&#20989;&#25968;&#19981;&#20801;&#35768;&#38544;&#24335;&#36716;&#25442;</td>
+<td>&#25351;&#38024;&#21521; <span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span> &#36716;&#25442;&#26159;&#31364;&#21270;&#65292;&#19988;&#36716;&#25442;&#26500;&#36896;&#20989;&#25968;&#23545; <span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span> &#27809;&#26377;&#20363;&#22806;</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

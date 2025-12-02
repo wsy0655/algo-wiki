@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>rename</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_io_rename skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">rename</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-io.html">io</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-stdio.html"><tt>&lt;stdio.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi c source-c"><span class="kw4">int</span> rename<span class="br0">(</span> <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> old_filename, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> new_filename <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#26356;&#25913;&#25991;&#20214;&#30340;&#25991;&#20214;&#21517;&#12290;&#35813;&#25991;&#20214;&#20197; <span class="t-c"><span class="mw-geshi c source-c">old_filename</span></span> &#25152;&#25351;&#21521;&#30340;&#23383;&#31526;&#20018;&#26631;&#35782;&#12290;&#26032;&#25991;&#20214;&#21517;&#20197; <span class="t-c"><span class="mw-geshi c source-c">new_filename</span></span> &#25152;&#25351;&#21521;&#30340;&#23383;&#31526;&#20018;&#26631;&#35782;&#12290;</p>
+<p>&#33509; <span class="t-c"><span class="mw-geshi c source-c">new_filename</span></span> &#23384;&#22312;&#65292;&#21017;&#34892;&#20026;&#26159;&#23454;&#29616;&#23450;&#20041;&#30340;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>old_filename</td>
+<td>-</td>
+<td>&#25351;&#21521;&#21253;&#21547;&#26631;&#35782;&#35201;&#37325;&#21629;&#21517;&#30340;&#25991;&#20214;&#30340;&#36335;&#24452;&#30340;&#31354;&#32456;&#27490;&#23383;&#31526;&#20018;&#30340;&#25351;&#38024;</td>
+</tr>
+<tr class="t-par">
+<td>new_filename</td>
+<td>-</td>
+<td>&#25351;&#21521;&#21253;&#21547;&#25991;&#20214;&#26032;&#36335;&#24452;&#30340;&#31354;&#32456;&#27490;&#23383;&#31526;&#20018;&#30340;&#25351;&#38024;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#25104;&#21151;&#26102;&#20026; <span class="t-c"><span class="mw-geshi c source-c">&#8203;<span class="nu0">0</span>&#8203;</span></span> &#65292;&#22833;&#36133;&#26102;&#20026;&#38750;&#38646;&#20540;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E6.84.8F">&#27880;&#24847;</span></h3>
+<p><a rel="nofollow" class="external text" href="https://pubs.opengroup.org/onlinepubs/9699919799/functions/rename.html">POSIX</a> &#25351;&#23450;&#35768;&#22810;&#20851;&#20110;&#27492;&#20989;&#25968;&#35821;&#20041;&#30340;&#38468;&#21152;&#32454;&#33410;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#include &lt;stdlib.h&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="c-io.html"><span class="kw883">FILE</span></a><span class="sy2">*</span> fp <span class="sy1">=</span> <a href="c-io-fopen.html"><span class="kw819">fopen</span></a><span class="br0">(</span><span class="st0">&quot;from.txt&quot;</span>, <span class="st0">&quot;w&quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#21019;&#24314;&#25991;&#20214; &quot;from.txt&quot;</span>
+    <span class="kw1">if</span> <span class="br0">(</span><span class="sy3">!</span>fp<span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="c-io-perror.html"><span class="kw879">perror</span></a><span class="br0">(</span><span class="st0">&quot;from.txt&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+        <span class="kw1">return</span> <a href="c-program-EXIT_status.html"><span class="kw494">EXIT_FAILURE</span></a><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <a href="c-io-fputc.html"><span class="kw830">fputc</span></a><span class="br0">(</span><span class="st0">&#39;a&#39;</span>, fp<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#20889;&#20837;&#21040; &quot;from.txt&quot;</span>
+    <a href="c-io-fclose.html"><span class="kw822">fclose</span></a><span class="br0">(</span>fp<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw4">int</span> rc <span class="sy1">=</span> rename<span class="br0">(</span><span class="st0">&quot;from.txt&quot;</span>, <span class="st0">&quot;to.txt&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>rc<span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="c-io-perror.html"><span class="kw879">perror</span></a><span class="br0">(</span><span class="st0">&quot;rename&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+        <span class="kw1">return</span> <a href="c-program-EXIT_status.html"><span class="kw494">EXIT_FAILURE</span></a><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    fp <span class="sy1">=</span> <a href="c-io-fopen.html"><span class="kw819">fopen</span></a><span class="br0">(</span><span class="st0">&quot;to.txt&quot;</span>, <span class="st0">&quot;r&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">if</span><span class="br0">(</span><span class="sy3">!</span>fp<span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="c-io-perror.html"><span class="kw879">perror</span></a><span class="br0">(</span><span class="st0">&quot;to.txt&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+        <span class="kw1">return</span> <a href="c-program-EXIT_status.html"><span class="kw494">EXIT_FAILURE</span></a><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;%c<span class="es1">\n</span>&quot;</span>, <a href="c-io-fgetc.html"><span class="kw827">fgetc</span></a><span class="br0">(</span>fp<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#20174; &quot;to.txt&quot; &#35835;&#21462;</span>
+    <a href="c-io-fclose.html"><span class="kw822">fclose</span></a><span class="br0">(</span>fp<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw1">return</span> <a href="c-program-EXIT_status.html"><span class="kw493">EXIT_SUCCESS</span></a><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">a</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-23">
+<ul>
+<li>C23 &#26631;&#20934;&#65288;ISO/IEC 9899:2024&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.21.4.2 The rename function &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.21.4.2 The rename function &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.21.4.2 The rename function &#65288;&#31532; 302-303 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c99">
+<ul>
+<li>C99 &#26631;&#20934;&#65288;ISO/IEC 9899:1999&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.19.4.2 The rename function &#65288;&#31532; 268-269 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c89">
+<ul>
+<li>C89/C90 &#26631;&#20934;&#65288;ISO/IEC 9899:1990&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>4.9.4.2 The rename function</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-io-remove.html"><span class="t-lines"><span>remove</span></span></a></div>
+</div>
+</td>
+<td>&#21024;&#38500;&#25991;&#20214;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>rename</span></span>&nbsp;&#30340; <span><span><a href="cpp-io-c-rename.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

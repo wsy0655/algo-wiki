@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::experimental::source_location::function_name</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_experimental_source_location_function_name skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::experimental::source_location::</span>function_name</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-experimental.html">experimental</a>&lrm; | <a href="cpp-experimental-source_location.html">source location</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-libfund_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> function_name<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-libfund-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24211;&#22522;&#30784; TS v2)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36820;&#22238;&#19982;&#27492;&#23545;&#35937;&#25152;&#34920;&#31034;&#30340;&#20301;&#32622;&#20851;&#32852;&#30340;&#20989;&#25968;&#21517;&#65292;&#33509;&#23427;&#23384;&#22312;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#33509;&#27492;&#23545;&#35937;&#34920;&#31034;&#20989;&#25968;&#20307;&#20013;&#30340;&#20301;&#32622;&#65292;&#21017;&#36820;&#22238;&#23545;&#24212;&#35813;&#20989;&#25968;&#21517;&#30340;&#23454;&#29616;&#23450;&#20041;&#30340;&#31354;&#32456;&#27490;&#23383;&#33410;&#23383;&#31526;&#20018;&#12290;</p>
+<p>&#21542;&#21017;&#65292;&#36820;&#22238;&#31354;&#23383;&#31526;&#20018;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<p>&#20197;&#19979;&#31034;&#20363;&#23637;&#31034;&#21487;&#20197;&#22914;&#20309;&#29992; <code>std::source_location::function_name()</code> &#25171;&#21360;&#20989;&#25968;&#12289;&#26500;&#36896;&#20989;&#25968;&#12289;&#26512;&#26500;&#20989;&#25968;&#25110;&#37325;&#36733;&#30340; <code>operator()</code> &#30340;&#21517;&#23383;&#12290;</p>
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;experimental/source_location&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;string_view&gt;</span>
+ 
+<span class="kw1">inline</span> <span class="kw4">void</span> function_name<span class="br0">(</span>
+    <span class="kw4">const</span> <a href="cpp-string-basic_string_view.html"><span class="kw1251">std::<span class="me2">string_view</span></span></a> signature <span class="sy1">=</span> <span class="st0">&quot;()&quot;</span>,
+    <span class="kw4">const</span> <a href="cpp-experimental-source_location.html"><span class="kw2433">std::<span class="me2">experimental</span><span class="sy4">::</span><span class="me2">source_location</span></span></a><span class="sy3">&amp;</span> location
+        <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">experimental</span><span class="sy4">::</span><span class="me2">source_location</span><span class="sy4">::</span><span class="me2">current</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a>
+        <span class="sy1">&lt;&lt;</span> location.<span class="me1">function_name</span><span class="br0">(</span><span class="br0">)</span> <span class="co1">// &lt;- &#35843;&#29992;&#26041;&#30340;&#21517;&#23383;&#65281;</span>
+        <span class="sy1">&lt;&lt;</span> signature
+        <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">void</span> foo<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> function_name<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span>
+ 
+<span class="kw1">struct</span> S <span class="br0">{</span>
+    S<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> function_name<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span>
+    S<span class="br0">(</span><span class="kw4">int</span><span class="br0">)</span> <span class="br0">{</span> function_name<span class="br0">(</span><span class="st0">&quot;(int)&quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span>
+    S<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span>S <span class="kw4">const</span><span class="sy3">&amp;</span><span class="br0">)</span> <span class="br0">{</span> function_name<span class="br0">(</span><span class="st0">&quot;(const S&amp;)&quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="kw1">return</span> <span class="sy2">*</span>this<span class="sy4">;</span> <span class="br0">}</span>
+    S<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span>S<span class="sy3">&amp;&amp;</span><span class="br0">)</span> <span class="br0">{</span> function_name<span class="br0">(</span><span class="st0">&quot;(S&amp;&amp;)&quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="kw1">return</span> <span class="sy2">*</span>this<span class="sy4">;</span> <span class="br0">}</span>
+    ~S<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> function_name<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    foo<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    S p<span class="sy4">;</span>
+    S q<span class="br0">{</span><span class="nu0">42</span><span class="br0">}</span><span class="sy4">;</span>
+    p <span class="sy1">=</span> q<span class="sy4">;</span>
+    p <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>q<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">foo()
+S()
+S(int)
+operator=(const S&amp;)
+operator=(S&amp;&amp;)
+~S()
+~S()</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-experimental-source_location-line.html"><span class="t-lines"><span>line</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#27492;&#23545;&#35937;&#25152;&#34920;&#31034;&#30340;&#34892;&#21495;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-experimental-source_location-column.html"><span class="t-lines"><span>column</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#27492;&#23545;&#35937;&#25152;&#34920;&#31034;&#30340;&#21015;&#21495;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-experimental-source_location-file_name.html"><span class="t-lines"><span>file_name</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#27492;&#23545;&#35937;&#25152;&#34920;&#31034;&#30340;&#25991;&#20214;&#21517;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class=""><span>&#25991;&#20214;&#21517;&#21644;&#34892;&#20449;&#24687;</span></span>&#30340; <span><span><a href="cpp-preprocessor-line.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

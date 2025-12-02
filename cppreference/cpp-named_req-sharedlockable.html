@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>C++ &#20855;&#21517;&#35201;&#27714;&#65306;&#21487;&#20849;&#20139;&#38145;&#23450; (SharedLockable) (C++14 &#36215;)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_named_req_SharedLockable skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">C++ &#20855;&#21517;&#35201;&#27714;&#65306;</span><span style="font-style:italic">&#21487;&#20849;&#20139;&#38145;&#23450;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(SharedLockable)</span> <span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14 &#36215;)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-named_req.html">named req</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<p><strong class="selflink"><span style="font-style:italic">&#21487;&#20849;&#20139;&#38145;&#23450;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(SharedLockable)</span></strong> &#35201;&#27714;&#25551;&#36848;&#21521;&#25191;&#34892;&#20195;&#29702;&#65288;&#21363;&#32447;&#31243;&#65289;&#25552;&#20379;&#20849;&#20139;&#38459;&#22622;&#35821;&#20041;&#30340;&#31867;&#22411;&#30340;&#26368;&#23567;&#29305;&#24449;&#12290;</p>
+<h3><span class="mw-headline" id=".E8.A6.81.E6.B1.82">&#35201;&#27714;</span></h3>
+<p>&#23545;&#20110;&#35201;&#20026;<span style="font-style:italic">&#21487;&#20849;&#20139;&#38145;&#23450;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(SharedLockable)</span> &#30340;&#31867;&#22411; <code><b>L</b></code>&#65292;<code><b>L</b></code> &#31867;&#22411;&#30340;&#23545;&#35937; <code><b>m</b></code> &#24517;&#39035;&#28385;&#36275;&#19979;&#21015;&#26465;&#20214;&#65306;</p>
+<table class="wikitable">
+<tr>
+<th>&#34920;&#36798;&#24335;</th>
+<th>&#21069;&#26465;&#20214;</th>
+<th>&#25928;&#26524;</th>
+<th>&#36820;&#22238;&#20540;</th>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">m.<span class="me1">lock_shared</span><span class="br0">(</span><span class="br0">)</span></span></span></td>
+<td></td>
+<td>&#38459;&#22622;&#30452;&#33267;&#33021;&#20026;&#24403;&#21069;&#25191;&#34892;&#20195;&#29702;&#65288;&#32447;&#31243;&#12289;&#36827;&#31243;&#12289;&#20219;&#21153;&#65289;&#33719;&#24471;&#38145;&#12290;&#33509;&#25243;&#24322;&#24120;&#21017;&#19981;&#33719;&#24471;&#38145;&#12290;</td>
+<td></td>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">m.<span class="me1">try_lock_shared</span><span class="br0">(</span><span class="br0">)</span></span></span></td>
+<td></td>
+<td>&#23581;&#35797;&#20026;&#24403;&#21069;&#25191;&#34892;&#20195;&#29702;&#65288;&#32447;&#31243;&#12289;&#36827;&#31243;&#12289;&#20219;&#21153;&#65289;&#33719;&#24471;&#38145;&#12290;&#33509;&#25243;&#24322;&#24120;&#21017;&#19981;&#33719;&#24471;&#38145;&#12290;</td>
+<td>&#33509;&#33719;&#24471;&#38145;&#21017;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#21542;&#21017;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span></td>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">m.<span class="me1">unlock_shared</span><span class="br0">(</span><span class="br0">)</span></span></span></td>
+<td>&#24403;&#21069;&#25191;&#34892;&#20195;&#29702;&#20445;&#26377; <code>m</code> &#19978;&#30340;&#20849;&#20139;&#38145;&#12290;</td>
+<td>&#37322;&#25918;&#25191;&#34892;&#20195;&#29702;&#26366;&#20445;&#26377;&#30340;&#20849;&#20139;&#38145;&#12290;
+<p>&#19981;&#25243;&#24322;&#24120;&#12290;</p>
+</td>
+<td></td>
+</tr>
+</table>
+<h4><span class="mw-headline" id=".E5.85.B1.E4.BA.AB.E9.94.81">&#20849;&#20139;&#38145;</span></h4>
+<p>&#33509;&#23545;&#35937;&#19978;&#30340;&#19968;&#20010;&#38145;&#30001;&#35843;&#29992; <code>lock_shared</code>&#12289;<code>try_lock_shared</code>&#12289;<code>try_lock_shared_for</code> &#25110; <code>try_lock_shared_until</code> &#25104;&#21592;&#20989;&#25968;&#21462;&#24471;&#65292;&#21017;&#31216;&#20043;&#20026;<i>&#20849;&#20139;&#38145;</i>&#12290;</p>
+<h3><span class="mw-headline" id=".E6.A0.87.E5.87.86.E5.BA.93">&#26631;&#20934;&#24211;</span></h3>
+<p>&#19979;&#21015;&#26631;&#20934;&#24211;&#31867;&#22411;&#28385;&#36275;<span style="font-style:italic">&#21487;&#20849;&#20139;&#38145;&#23450;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(SharedLockable)</span> &#65306;</p>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-shared_mutex.html"><span class="t-lines"><span>shared_mutex</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span></span></span></div>
+</div>
+</td>
+<td>&#25552;&#20379;&#20849;&#20139;&#20114;&#26021;&#35774;&#26045;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-shared_timed_mutex.html"><span class="t-lines"><span>shared_timed_mutex</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14)</span></span></span></div>
+</div>
+</td>
+<td>&#25552;&#20379;&#20849;&#20139;&#20114;&#26021;&#35774;&#26045;&#24182;&#23454;&#29616;&#26377;&#26102;&#38480;&#38145;&#23450;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<ul>
+<li><a href="cpp-thread.html">&#32447;&#31243;&#25903;&#25345;&#24211;</a></li>
+<li><a href="cpp-named_req-SharedTimedLockable.html"><span style="font-style:italic">&#21487;&#20849;&#20139;&#23450;&#26102;&#38145;&#23450;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(SharedTimedLockable)</span></a></li>
+<li><a href="cpp-named_req-SharedMutex.html"><span style="font-style:italic">&#20849;&#20139;&#20114;&#26021;&#20307;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(SharedMutex)</span></a></li>
+</ul>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

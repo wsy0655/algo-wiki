@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::experimental::reseed</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_experimental_reseed skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::experimental::</span>reseed</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-experimental.html">experimental</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="https://zh.cppreference.com/mwiki/index.php?title=cpp/header/experimental/random&amp;action=edit&amp;redlink=1" class="new" title="cpp/header/experimental/random&#65288;&#39029;&#38754;&#19981;&#23384;&#22312;&#65289;">&lt;experimental/random&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-libfund_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span> reseed<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-libfund-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24211;&#22522;&#30784; TS v2)</span></td>
+</tr>
+<tr class="t-dcl t-since-libfund_ts_2">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span> reseed<span class="br0">(</span> std<span class="sy4">::</span><span class="me2">default_random_engine</span><span class="sy4">::</span><span class="me2">result_type</span> value <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-libfund-ts-2 t-mark-ts" style="white-space: nowrap;">(&#24211;&#22522;&#30784; TS v2)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#37325;&#25773;&#31181;<a href="cpp-experimental-lib_extensions_2.html#.E9.80.90.E7.BA.BF.E7.A8.8B.E5.BC.95.E6.93.8E">&#36880;&#32447;&#31243;&#38543;&#26426;&#25968;&#24341;&#25806;</a>&#21644; <a href="cpp-experimental-randint.html"><tt>randint</tt></a> &#25152;&#29992;&#30340;&#20219;&#20309; <span class="t-lc"><a href="cpp-numeric-random-uniform_int_distribution.html">std::uniform_int_distribution</a></span> &#23454;&#20363;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#35774;&#32622;&#36880;&#32447;&#31243;&#24341;&#25806;&#20026;&#19981;&#21487;&#39044;&#27979;&#29366;&#24577;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#22914;&#21516;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">g.<span class="me1">seed</span><span class="br0">(</span>value<span class="br0">)</span></span></span> &#25773;&#31181;&#36880;&#32447;&#31243;&#24341;&#25806; <code>g</code>&#12290;</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>value</td>
+<td>-</td>
+<td>&#26032;&#31181;&#23376;&#30340;&#20540;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.AF.B4.E6.98.8E">&#35828;&#26126;</span></h3>
+<p>&#23545; <code>randint</code> &#30340;&#21518;&#32487;&#35843;&#29992;&#19981;&#20381;&#36182;&#20110;&#35843;&#29992; <code>reseed</code> &#20043;&#21069;&#30340;&#36880;&#32447;&#31243;&#24341;&#25806;&#25152;&#20135;&#29983;&#30340;&#20540;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;experimental/random&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    std<span class="sy4">::</span><span class="me2">experimental</span><span class="sy4">::</span><span class="me2">reseed</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;Random 2-digit decimal numbers: &quot;</span><span class="sy4">;</span>
+ 
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">auto</span> i <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span> i <span class="sy3">!</span><span class="sy1">=</span> <span class="nu0">3</span><span class="sy4">;</span> <span class="sy2">++</span>i<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <a href="cpp-experimental-randint.html"><span class="kw2434">std::<span class="me2">experimental</span><span class="sy4">::</span><span class="me2">randint</span></span></a><span class="br0">(</span><span class="nu0">10</span>, <span class="nu0">99</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">Random 2-digit decimal numbers: 41 60 56</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-experimental-randint.html"><span class="t-lines"><span>randint</span></span></a></div>
+</div>
+</td>
+<td>&#29983;&#25104;&#25351;&#23450;&#33539;&#22260;&#20013;&#30340;&#38543;&#26426;&#25972;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

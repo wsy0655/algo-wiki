@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::counting_semaphore&lt;LeastMaxValue&gt;::acquire</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_thread_counting_semaphore_acquire skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::counting_semaphore&lt;LeastMaxValue&gt;::</span>acquire</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-thread.html">thread</a>&lrm; | <a href="cpp-thread-counting_semaphore.html">counting semaphore</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span> acquire<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#21407;&#23376;&#22320;&#65292;&#33509;&#20869;&#37096;&#35745;&#25968;&#22120;&#22823;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">&#8203;<span class="nu0">0</span>&#8203;</span></span> &#21017;&#23581;&#35797;&#23558;&#23427;&#20943;&#23569; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="nu0">1</span></span></span>&#65307;&#21542;&#21017;&#38459;&#22622;&#30452;&#33267;&#23427;&#22823;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">&#8203;<span class="nu0">0</span>&#8203;</span></span> &#19988;&#33021;&#25104;&#21151;&#20943;&#23569;&#20869;&#37096;&#35745;&#25968;&#22120;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.89.8D.E6.9D.A1.E4.BB.B6">&#21069;&#26465;&#20214;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<p>&#21487;&#33021;&#25243;&#20986; <span class="t-lc"><a href="cpp-error-system_error.html">std::system_error</a></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<p>&#27492;&#31034;&#20363;&#21487;&#35270;&#21270;&#25968;&#20010;&#38543;&#26426;&#21270;&#32447;&#31243;&#30340;&#24182;&#21457;&#20316;&#19994;&#65292;&#19981;&#22810;&#20110; N &#20010;&#32447;&#31243;&#20989;&#25968;&#27963;&#36291;&#65292;&#32780;&#20854;&#20182;&#21017;&#22312;&#20449;&#21495;&#37327;&#19978;&#31561;&#24453;&#65288;N &#20026;&#20449;&#21495;&#37327; <code><i>desired</i></code> &#20540;&#65289;&#12290;</p>
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;array&gt;</span>
+<span class="co2">#include &lt;chrono&gt;</span>
+<span class="co2">#include &lt;cstddef&gt;</span>
+<span class="co2">#include &lt;iomanip&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;mutex&gt;</span>
+<span class="co2">#include &lt;new&gt;</span>
+<span class="co2">#include &lt;random&gt;</span>
+<span class="co2">#include &lt;semaphore&gt;</span>
+<span class="co2">#include &lt;thread&gt;</span>
+<span class="co2">#include &lt;vector&gt;</span>
+ 
+<span class="kw1">using</span> <span class="kw1">namespace</span> std<span class="sy4">::</span><span class="me2">literals</span><span class="sy4">;</span>
+ 
+<span class="kw4">constexpr</span> <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> max_threads<span class="br0">{</span>10U<span class="br0">}</span><span class="sy4">;</span> <span class="co1">// &#26356;&#25913;&#24182;&#26597;&#30475;&#25928;&#26524;</span>
+<span class="kw4">constexpr</span> <a href="cpp-types-ptrdiff_t.html"><span class="kw108">std::<span class="me2">ptrdiff_t</span></span></a> max_sema_threads<span class="br0">{</span><span class="nu0">3</span><span class="br0">}</span><span class="sy4">;</span> <span class="co1">// &#23545;&#20108;&#20803;&#20449;&#21495;&#37327;&#20026; {1}</span>
+<a href="cpp-thread-counting_semaphore.html"><span class="kw3208">std::<span class="me2">counting_semaphore</span></span></a> semaphore<span class="br0">{</span>max_sema_threads<span class="br0">}</span><span class="sy4">;</span>
+<span class="kw4">constexpr</span> <span class="kw4">auto</span> time_tick<span class="br0">{</span>10ms<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">unsigned</span> rnd<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">static</span> <a href="cpp-numeric-random-uniform_int_distribution.html"><span class="kw1505">std::<span class="me2">uniform_int_distribution</span></span></a><span class="sy1">&lt;</span><span class="kw4">unsigned</span><span class="sy1">&gt;</span> distribution<span class="br0">{</span>2U, 9U<span class="br0">}</span><span class="sy4">;</span> <span class="co1">// [&#24310;&#36831;]</span>
+    <span class="kw4">static</span> <a href="cpp-numeric-random-random_device.html"><span class="kw1489">std::<span class="me2">random_device</span></span></a> engine<span class="sy4">;</span>
+    <span class="kw4">static</span> <a href="cpp-numeric-random-mersenne_twister_engine.html"><span class="kw1492">std::<span class="me2">mt19937</span></span></a> noise<span class="br0">{</span>engine<span class="br0">(</span><span class="br0">)</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw1">return</span> distribution<span class="br0">(</span>noise<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw1">class</span> alignas<span class="br0">(</span><a href="cpp-thread-hardware_destructive_interference_size.html"><span class="kw2157">std::<span class="me2">hardware_destructive_interference_size</span></span></a><span class="br0">)</span> Guide
+<span class="br0">{</span>
+    <span class="kw1">inline</span> <span class="kw4">static</span> <a href="cpp-thread-mutex.html"><span class="kw2158">std::<span class="me2">mutex</span></span></a> cout_mutex<span class="sy4">;</span>
+    <span class="kw1">inline</span> <span class="kw4">static</span> <a href="cpp-chrono-time_point.html"><span class="kw993">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">time_point</span></span></a><span class="sy1">&lt;</span><a href="cpp-chrono-high_resolution_clock.html"><span class="kw1013">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">high_resolution_clock</span></span></a><span class="sy1">&gt;</span> started_at<span class="sy4">;</span>
+    <span class="kw4">unsigned</span> delay<span class="br0">{</span>rnd<span class="br0">(</span><span class="br0">)</span><span class="br0">}</span>, occupy<span class="br0">{</span>rnd<span class="br0">(</span><span class="br0">)</span><span class="br0">}</span>, wait_on_sema<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw1">public</span><span class="sy4">:</span>
+    <span class="kw4">static</span> <span class="kw4">void</span> start_time<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> started_at <span class="sy1">=</span> <a href="cpp-chrono-high_resolution_clock-now.html"><span class="kw2673">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">high_resolution_clock</span><span class="sy4">::</span><span class="me2">now</span></span></a><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span>
+ 
+    <span class="kw4">void</span> initial_delay<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> <a href="cpp-thread-sleep_for.html"><span class="kw2153">std::<span class="me2">this_thread</span><span class="sy4">::</span><span class="me2">sleep_for</span></span></a><span class="br0">(</span>delay <span class="sy2">*</span> time_tick<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span>
+ 
+    <span class="kw4">void</span> occupy_sema<span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        wait_on_sema <span class="sy1">=</span>
+            <span class="kw1">static_cast</span><span class="sy1">&lt;</span><span class="kw4">unsigned</span><span class="sy1">&gt;</span><span class="br0">(</span><a href="cpp-chrono-duration-duration_cast.html"><span class="kw1006">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">duration_cast</span></span></a><span class="sy1">&lt;</span><a href="cpp-chrono-duration.html"><span class="kw998">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">milliseconds</span></span></a><span class="sy1">&gt;</span><span class="br0">(</span>
+                <a href="cpp-chrono-high_resolution_clock-now.html"><span class="kw2673">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">high_resolution_clock</span><span class="sy4">::</span><span class="me2">now</span></span></a><span class="br0">(</span><span class="br0">)</span> <span class="sy2">-</span> started_at <span class="sy2">-</span>
+                delay <span class="sy2">*</span> time_tick<span class="br0">)</span>.<span class="me1">count</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">/</span> time_tick.<span class="me1">count</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+        <a href="cpp-thread-sleep_for.html"><span class="kw2153">std::<span class="me2">this_thread</span><span class="sy4">::</span><span class="me2">sleep_for</span></span></a><span class="br0">(</span>occupy <span class="sy2">*</span> time_tick<span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw4">void</span> visualize<span class="br0">(</span><span class="kw4">unsigned</span> id, <span class="kw4">unsigned</span> x_scale <span class="sy1">=</span> <span class="nu0">2</span><span class="br0">)</span> <span class="kw4">const</span>
+    <span class="br0">{</span>
+        <span class="kw4">auto</span> cout_n <span class="sy1">=</span> <span class="br0">[</span><span class="sy1">=</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">auto</span> str, <span class="kw4">unsigned</span> n<span class="br0">)</span>
+        <span class="br0">{</span>
+            <span class="kw1">for</span> <span class="br0">(</span>n <span class="sy2">*</span><span class="sy1">=</span> x_scale<span class="sy4">;</span> n<span class="sy2">--</span> <span class="sy1">&gt;</span> <span class="nu0">0</span><span class="sy4">;</span> <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> str<span class="br0">)</span>
+                <span class="sy4">;</span>
+        <span class="br0">}</span><span class="sy4">;</span>
+        <a href="cpp-thread-lock_guard.html"><span class="kw2170">std::<span class="me2">lock_guard</span></span></a> lk<span class="br0">{</span>cout_mutex<span class="br0">}</span><span class="sy4">;</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;#&#39;</span> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-setw.html"><span class="kw1801">std::<span class="me2">setw</span></span></a><span class="br0">(</span><span class="nu0">2</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> id <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span><span class="sy4">;</span>
+        cout_n<span class="br0">(</span><span class="st0">&quot;&#9617;&quot;</span>, delay<span class="br0">)</span><span class="sy4">;</span>
+        cout_n<span class="br0">(</span><span class="st0">&quot;&#9618;&quot;</span>, wait_on_sema<span class="br0">)</span><span class="sy4">;</span>
+        cout_n<span class="br0">(</span><span class="st0">&quot;&#9608;&quot;</span>, occupy<span class="br0">)</span><span class="sy4">;</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw4">static</span> <span class="kw4">void</span> show_info<span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;<span class="es1">\n</span>&#32447;&#31243;&#25968;: &quot;</span> <span class="sy1">&lt;&lt;</span> max_threads <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;, &#21534;&#21520;&#37327;: &quot;</span> <span class="sy1">&lt;&lt;</span> max_sema_threads
+                  <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; &#9474; &#20961;&#20363;: &#21021;&#22987;&#24310;&#36831; &#9617;&#9617; &#9474; &#31561;&#24453;&#29366;&#24577; &#9618;&#9618; &#9474; &#20449;&#21495;&#37327;&#21344;&#25454; &#9608;&#9608; <span class="es1">\n</span>&quot;</span>
+                  <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-endl.html"><span class="kw1795">std::<span class="me2">endl</span></span></a><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<a href="cpp-container-array.html"><span class="kw1271">std::<span class="me2">array</span></span></a><span class="sy1">&lt;</span>Guide, max_threads<span class="sy1">&gt;</span> guides<span class="sy4">;</span>
+ 
+<span class="kw4">void</span> workerThread<span class="br0">(</span><span class="kw4">unsigned</span> id<span class="br0">)</span>
+<span class="br0">{</span>
+    guides<span class="br0">[</span>id<span class="br0">]</span>.<span class="me1">initial_delay</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#27169;&#25311;&#33719;&#21462;&#20449;&#21495;&#37327;&#21069;&#30340;&#26576;&#20123;&#24037;&#20316;</span>
+    semaphore.<span class="me1">acquire</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>        <span class="co1">// &#31561;&#24453;&#30452;&#33267;&#31354;&#20449;&#21495;&#37327;&#27133;&#20301;&#21487;&#29992;</span>
+    guides<span class="br0">[</span>id<span class="br0">]</span>.<span class="me1">occupy_sema</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>   <span class="co1">// &#27169;&#25311;&#33719;&#21462;&#20449;&#21495;&#37327;&#26102;&#30340;&#26576;&#20123;&#24037;&#20316;</span>
+    semaphore.<span class="me1">release</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    guides<span class="br0">[</span>id<span class="br0">]</span>.<span class="me1">visualize</span><span class="br0">(</span>id<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-container-vector.html"><span class="kw1272">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><a href="cpp-thread-jthread.html"><span class="kw3237">std::<span class="me2">jthread</span></span></a><span class="sy1">&gt;</span> threads<span class="sy4">;</span>
+    threads.<span class="me1">reserve</span><span class="br0">(</span>max_threads<span class="br0">)</span><span class="sy4">;</span>
+ 
+    Guide<span class="sy4">::</span><span class="me2">show_info</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    Guide<span class="sy4">::</span><span class="me2">start_time</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">auto</span> id<span class="br0">{</span>0U<span class="br0">}</span><span class="sy4">;</span> id <span class="sy3">!</span><span class="sy1">=</span> max_threads<span class="sy4">;</span> <span class="sy2">++</span>id<span class="br0">)</span>
+        threads.<span class="me1">push_back</span><span class="br0">(</span><a href="cpp-thread-jthread.html"><span class="kw3237">std::<span class="me2">jthread</span></span></a><span class="br0">(</span>workerThread, id<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#32570;&#30465;&#24773;&#20917;: max_threads{10U}, max_sema_threads{3}
+ 
+&#32447;&#31243;&#25968;: 10, &#21534;&#21520;&#37327;: 3 &#9474; &#20961;&#20363;: &#21021;&#22987;&#24310;&#36831; &#9617;&#9617; &#9474; &#31561;&#24453;&#29366;&#24577; &#9618;&#9618; &#9474; &#20449;&#21495;&#37327;&#21344;&#25454; &#9608;&#9608;
+ 
+# 1 &#9617;&#9617;&#9617;&#9617;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;
+# 2 &#9617;&#9617;&#9617;&#9617;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;
+# 5 &#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;
+# 8 &#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;
+# 9 &#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;
+# 7 &#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9618;&#9618;&#9618;&#9618;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;
+# 4 &#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;
+# 6 &#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;
+# 3 &#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;
+# 0 &#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;
+ 
+&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;
+&ldquo;&#27599;&#20154;&#37117;&#26377;&rdquo;&#30340;&#24773;&#20917;&#65288;&#27809;&#26377;&#31561;&#31561;&#29366;&#24577;&#65281;&#65289;: max_threads{10U}, max_sema_threads{10}
+ 
+&#32447;&#31243;&#25968;: 10, &#21534;&#21520;&#37327;: 10 &#9474; &#20961;&#20363;: &#21021;&#22987;&#24310;&#36831; &#9617;&#9617; &#9474; &#31561;&#24453;&#29366;&#24577; &#9618;&#9618; &#9474; &#20449;&#21495;&#37327;&#21344;&#25454; &#9608;&#9608;
+ 
+# 4 &#9617;&#9617;&#9617;&#9617;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;
+# 5 &#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9608;&#9608;&#9608;&#9608;
+# 3 &#9617;&#9617;&#9617;&#9617;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;
+# 1 &#9617;&#9617;&#9617;&#9617;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;
+# 8 &#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;
+# 6 &#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;
+# 7 &#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;
+# 9 &#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;
+# 0 &#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;
+# 2 &#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;
+ 
+&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;
+&#20108;&#20803;&#20449;&#21495;&#37327;&#30340;&#24773;&#20917;: max_threads{10U}, max_sema_threads{1}
+ 
+&#32447;&#31243;&#25968;: 10, &#21534;&#21520;&#37327;: 1 &#9474; &#20961;&#20363;: &#21021;&#22987;&#24310;&#36831; &#9617;&#9617; &#9474; &#31561;&#24453;&#29366;&#24577; &#9618;&#9618; &#9474; &#20449;&#21495;&#37327;&#21344;&#25454; &#9608;&#9608;
+ 
+# 6 &#9617;&#9617;&#9617;&#9617;&#9608;&#9608;&#9608;&#9608;
+# 5 &#9617;&#9617;&#9617;&#9617;&#9618;&#9618;&#9618;&#9618;&#9608;&#9608;&#9608;&#9608;
+# 4 &#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9618;&#9618;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;
+# 7 &#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;
+# 2 &#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;
+# 3 &#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;
+# 0 &#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;
+# 1 &#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;
+# 8 &#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;
+# 9 &#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;</pre></div>
+</div>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

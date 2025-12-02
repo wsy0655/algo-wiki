@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::experimental::ranges::common_type</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_experimental_ranges_type_traits_common_type skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::experimental::ranges::</span>common_type</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-experimental.html">experimental</a>&lrm; | <a href="cpp-experimental-ranges.html">ranges</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-experimental-ranges-type_traits.html">&lt;experimental/ranges/type_traits&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-ranges">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span>... <span class="me1">T</span> <span class="sy1">&gt;</span><br />
+<span class="kw1">struct</span> common_type<span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-ranges-ts t-mark-ts" style="white-space: nowrap;">(&#33539;&#22260; TS)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#30830;&#23450;&#25152;&#26377;&#31867;&#22411; <code>T...</code> &#20013;&#30340;&#20849;&#29992;&#31867;&#22411;&#65292;&#21363;&#25152;&#26377; <code>T...</code> &#37117;&#33021;&#38544;&#24335;&#36716;&#25442;&#21040;&#30340;&#31867;&#22411;&#12290;&#33509;&#36825;&#31181;&#31867;&#22411;&#23384;&#22312;&#65288;&#25353;&#29031;&#21518;&#36848;&#35268;&#21017;&#30830;&#23450;&#65289;&#65292;&#21017;&#25104;&#21592; <code>type</code> &#25351;&#21517;&#35813;&#31867;&#22411;&#12290;&#21542;&#21017;&#26080;&#25104;&#21592; <code>type</code>&#12290;&#33509; <code>T...</code> &#20013;&#30340;&#20219;&#20309;&#31867;&#22411;&#26159;&#24322;&#20110;&#65288;&#21487;&#26377; cv &#38480;&#23450;&#30340;&#65289;<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span></span> &#30340;&#19981;&#23436;&#25972;&#31867;&#22411;&#65292;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<ul>
+<li>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">sizeof...<span class="br0">(</span>T<span class="br0">)</span></span></span> &#20026;&#38646;&#65292;&#21017;&#26080;&#25104;&#21592; <code>type</code>&#12290;</li>
+<li>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">sizeof...<span class="br0">(</span>T<span class="br0">)</span></span></span> &#20026;&#19968;&#65288;&#21363; <code>T...</code> &#20165;&#21547;&#19968;&#20010;&#31867;&#22411; <code>T0</code>&#65289;&#65292;&#21017;&#25104;&#21592; <code>type</code> &#25351;&#21517;&#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-decay.html"><span class="kw632">std::<span class="me2">decay_t</span></span></a><span class="sy1">&lt;</span>T0<span class="sy1">&gt;</span></span></span> &#30456;&#21516;&#30340;&#31867;&#22411;&#12290;</li>
+<li>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">sizeof...<span class="br0">(</span>T<span class="br0">)</span></span></span> &#20026;&#20108;&#65288;&#21363; <code>T...</code> &#24688;&#22909;&#21547;&#20004;&#20010;&#31867;&#22411; <code>T1</code> &#21644; <code>T2</code>&#65289;&#65292;&#21017;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>&#33509;&#24212;&#29992; <span class="t-lc"><a href="cpp-types-decay.html">std::decay</a></span> &#21040; <code>T1</code> &#21644; <code>T2</code> &#30340;&#33267;&#23569;&#19968;&#20010;&#20135;&#29983;&#19981;&#21516;&#31867;&#22411;&#65292;&#21017;&#25104;&#21592; <code>type</code> &#25351;&#21517;&#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">ranges<span class="sy4">::</span><span class="me2">common_type_t</span><span class="sy1">&lt;</span><a href="cpp-types-decay.html"><span class="kw632">std::<span class="me2">decay_t</span></span></a><span class="sy1">&lt;</span>T1<span class="sy1">&gt;</span>, <a href="cpp-types-decay.html"><span class="kw632">std::<span class="me2">decay_t</span></span></a><span class="sy1">&lt;</span>T2<span class="sy1">&gt;&gt;</span></span></span> &#30456;&#21516;&#30340;&#31867;&#22411;&#65292;&#33509;&#23427;&#23384;&#22312;&#65307;&#33509;&#19981;&#23384;&#22312;&#65292;&#21017;&#26080;&#25104;&#21592; <code>type</code>&#12290;</li>
+<li>&#21542;&#21017;&#65292;&#65288;&#32780;&#19988;&#38500;&#38750;&#26377;&#23545;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">ranges<span class="sy4">::</span><span class="me2">common_type</span><span class="sy1">&lt;</span>T1, T2<span class="sy1">&gt;</span></span></span> &#30340;&#29992;&#25143;&#29305;&#21270;&#65289;&#65292;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-common_type.html"><span class="kw639">std::<span class="me2">common_type_t</span></span></a><span class="sy1">&lt;</span>T1, T2<span class="sy1">&gt;</span></span></span> &#20026;&#33391;&#24335;&#65292;&#21017;&#25104;&#21592; <code>type</code> &#25351;&#20195;&#35813;&#31867;&#22411;&#65307;</li>
+<li>&#21542;&#21017;&#65292;&#25104;&#21592; <code>type</code> &#25351;&#20195;&#31867;&#22411; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-decay.html"><span class="kw632">std::<span class="me2">decay_t</span></span></a><span class="sy1">&lt;</span>decltype<span class="br0">(</span><span class="kw2">false</span> <span class="sy4">?</span> <a href="cpp-utility-declval.html"><span class="kw1123">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span><span class="kw4">const</span> T1<span class="sy3">&amp;</span><span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span> <span class="sy4">:</span> <a href="cpp-utility-declval.html"><span class="kw1123">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span><span class="kw4">const</span> T2<span class="sy3">&amp;</span><span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy1">&gt;</span></span></span>&#65292;&#33509;&#35813;&#26465;&#20214;&#34920;&#36798;&#24335;&#20026;&#33391;&#24335;&#65307;&#33509;&#35813;&#34920;&#36798;&#24335;&#38750;&#33391;&#24335;&#65292;&#21017;&#26080;&#25104;&#21592; <code>type</code>&#12290;</li>
+</ul>
+</dd>
+</dl>
+<ul>
+<li>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">sizeof...<span class="br0">(</span>T<span class="br0">)</span></span></span> &#22823;&#20110;&#20108;&#65288;&#21363; <code>T...</code> &#30001;&#31867;&#22411; <code>T1, T2, R...</code> &#32452;&#25104;&#65289;&#65292;&#21017;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp">ranges<span class="sy4">::</span><span class="me2">common_type_t</span><span class="sy1">&lt;</span>T1, T2<span class="sy1">&gt;</span></span></span> &#23384;&#22312;&#65292;&#21017; <code>type</code> &#20195;&#34920; <span class="t-c"><span class="mw-geshi cpp source-cpp">ranges<span class="sy4">::</span><span class="me2">common_type_t</span><span class="sy1">&lt;</span>ranges<span class="sy4">::</span><span class="me2">common_type_t</span><span class="sy1">&lt;</span>T1, T2<span class="sy1">&gt;</span>, R...<span class="sy1">&gt;</span></span></span>&#65292;&#33509;&#36825;&#31181;&#31867;&#22411;&#23384;&#22312;&#12290;&#25152;&#26377;&#20854;&#20182;&#24773;&#20917;&#19979;&#65292;&#26080;&#25104;&#21592; <code>type</code>&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E7.B1.BB.E5.9E.8B">&#25104;&#21592;&#31867;&#22411;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#21517;&#31216;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>type</code></td>
+<td>&#25152;&#26377; <code>T...</code> &#30340;&#20844;&#20849;&#31867;&#22411;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BE.85.E5.8A.A9.E7.B1.BB.E5.9E.8B">&#36741;&#21161;&#31867;&#22411;</span></h3>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span>... <span class="me1">T</span> <span class="sy1">&gt;</span><br />
+<span class="kw1">using</span> common_type_t <span class="sy1">=</span> <span class="kw1">typename</span> common_type<span class="sy1">&lt;</span>T...<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">type</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><span class="mw-headline" id=".E7.89.B9.E5.8C.96">&#29305;&#21270;</span></h3>
+<p>&#29992;&#25143;&#21487;&#20197;&#23545;&#31867;&#22411; <code>T1</code> &#21644; <code>T2</code> &#29305;&#21270; <code>common_type</code>&#65292;&#33509;</p>
+<ul>
+<li><code>T1</code> &#19982; <code>T2</code> &#30340;&#33267;&#23569;&#19968;&#20010;&#20381;&#36182;&#20110;&#29992;&#25143;&#23450;&#20041;&#31867;&#22411;&#65292;&#19988;</li>
+<li><span class="t-lc"><a href="cpp-types-decay.html">std::decay</a></span> &#23545;&#20110; <code>T1</code> &#21644; <code>T2</code> &#37117;&#26159;&#24658;&#31561;&#21464;&#25442;&#12290;</li>
+</ul>
+<p>&#33509;&#36825;&#31181;&#29305;&#21270;&#25317;&#26377;&#21517;&#20026; <code>type</code> &#30340;&#25104;&#21592;&#65292;&#21017;&#23427;&#24517;&#39035;&#20026;&#25351;&#21517;&#26080; cv &#38480;&#23450;&#30340;&#38750;&#24341;&#29992;&#31867;&#22411;&#30340;&#20844;&#24320;&#19988;&#26080;&#27495;&#20041;&#30340;&#25104;&#21592;&#31867;&#22411;&#65292;&#32780; <code>T1</code> &#19982; <code>T2</code> &#37117;&#21487;&#26174;&#24335;&#36716;&#25442;&#21040;&#23427;&#12290;&#21478;&#22806;&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">ranges<span class="sy4">::</span><span class="me2">common_type_t</span><span class="sy1">&lt;</span>T1, T2<span class="sy1">&gt;</span></span></span> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">ranges<span class="sy4">::</span><span class="me2">common_type_t</span><span class="sy1">&lt;</span>T2, T1<span class="sy1">&gt;</span></span></span> &#24517;&#39035;&#20195;&#34920;&#21516;&#19968;&#31867;&#22411;&#12290;</p>
+<p>&#20197;&#36829;&#32972;&#36825;&#20123;&#35268;&#21017;&#30340;&#26041;&#24335;&#28155;&#21152; <code>common_type</code> &#29305;&#21270;&#30340;&#31243;&#24207;&#25317;&#26377;&#26410;&#23450;&#20041;&#34892;&#20026;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#23545;&#20110;&#19981;&#21463;&#25552;&#21319;&#24433;&#21709;&#30340;&#31639;&#26415;&#31867;&#22411;&#65292;&#20844;&#20849;&#31867;&#22411;&#21487;&#35270;&#20026;&#65288;&#21487;&#20026;&#28151;&#21512;&#27169;&#24335;&#30340;&#65289;&#31639;&#26415;&#34920;&#36798;&#24335;&#65292;&#22914; <span class="t-c"><span class="mw-geshi cpp source-cpp">T0<span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> T1<span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> ... <span class="sy2">+</span> Tn<span class="br0">(</span><span class="br0">)</span></span></span> &#30340;&#31867;&#22411;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#26242;&#26080;&#31034;&#20363;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-types-common_type.html"><span class="t-lines"><span>common_type</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#30830;&#23450;&#19968;&#32452;&#31867;&#22411;&#30340;&#20844;&#20849;&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-experimental-ranges-type_traits-common_reference.html"><span class="t-lines"><span>common_reference</span></span></a></div>
+</div>
+</td>
+<td>&#30830;&#23450;&#31867;&#22411;&#38598;&#21512;&#30340;&#20844;&#20849;&#24341;&#29992;&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

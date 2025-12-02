@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::ranges::lazy_split_view&lt;V,Pattern&gt;::end</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_ranges_lazy_split_view_end skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::ranges::lazy_split_view&lt;V,Pattern&gt;::</span>end</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-ranges.html">ranges</a>&lrm; | <a href="cpp-ranges-lazy_split_view.html">lazy split view</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="kw4">auto</span> end<span class="br0">(</span><span class="br0">)</span> requires <a href="cpp-ranges-forward_range.html"><span class="kw2904">ranges::<span class="me2">forward_range</span></span></a><span class="sy1">&lt;</span>V<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span> <a href="cpp-ranges-common_range.html"><span class="kw2908">ranges::<span class="me2">common_range</span></span></a><span class="sy1">&lt;</span>V<span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="kw4">auto</span> end<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#36820;&#22238;&#34920;&#31034; <a href="cpp-ranges-view.html"><code>view</code></a> &#30340;&#26411;&#23614;&#30340;&#36845;&#20195;&#22120;&#65288;&#26377;&#26102;&#26159;&#21736;&#20301;&#65289;&#12290;&#20196; <code><i><a href="cpp-ranges-lazy_split_view.html#base">base_</a></i></code> &#20026;&#24213;&#23618;&#35270;&#22270;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#36820;&#22238;&#34920;&#36845;&#20195;&#22120;&#12290;&#31561;&#20215;&#20110;&#65306; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">return</span> <span class="coMULTI">/*outer_iterator*/</span><span class="sy1">&lt;</span><span class="coMULTI">/*simple_view*/</span><span class="sy1">&lt;</span>V<span class="sy1">&gt;&gt;</span><span class="br0">{</span><span class="sy2">*</span>this, <a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/end"><span class="kw2884">ranges::<span class="me2">end</span></span></a><span class="br0">(</span>base_<span class="br0">)</span><span class="br0">}</span><span class="sy4">;</span></span></span>.</div>
+<div class="t-li1"><span class="t-li">2)</span> &#36820;&#22238; <a href="cpp-ranges-lazy_split_view-outer_iterator.html"><code><i>outer_iterator</i></code></a> &#25110; <span class="t-lc">std::default_sentinel</span>&#12290;
+<p>&#31561;&#20215;&#20110;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">if</span> <span class="kw4">constexpr</span> <span class="br0">(</span><a href="cpp-ranges-forward_range.html"><span class="kw2904">ranges::<span class="me2">forward_range</span></span></a><span class="sy1">&lt;</span>V<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span> <a href="cpp-ranges-forward_range.html"><span class="kw2904">ranges::<span class="me2">forward_range</span></span></a><span class="sy1">&lt;</span><span class="kw4">const</span> V<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span>
+              <a href="cpp-ranges-common_range.html"><span class="kw2908">ranges::<span class="me2">common_range</span></span></a><span class="sy1">&lt;</span><span class="kw4">const</span> V<span class="sy1">&gt;</span><span class="br0">)</span>
+    <span class="kw1">return</span> <span class="coMULTI">/*outer_iterator*/</span><span class="sy1">&lt;</span><span class="kw2">true</span><span class="sy1">&gt;</span><span class="br0">{</span><span class="sy2">*</span>this, <a href="../../../../http:/zh.cppreference.com/w/cpp/ranges-ranges-placeholder/end"><span class="kw2884">ranges::<span class="me2">end</span></span></a><span class="br0">(</span>base_<span class="br0">)</span><span class="br0">}</span><span class="sy4">;</span>
+<span class="kw1">else</span>
+    <span class="kw1">return</span> <a href="cpp-iterator-default_sentinel_t.html"><span class="kw2879">std::<span class="me2">default_sentinel</span></span></a><span class="sy4">;</span></pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#34920;&#31034; <a href="cpp-ranges-view.html"><code>view</code></a> &#30340;&#26411;&#23614;&#30340; <a href="cpp-ranges-lazy_split_view-outer_iterator.html"><code><i>outer_iterator</i></code></a> &#25110; <span class="t-lc">std::default_sentinel</span>&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;ranges&gt;</span>
+<span class="co2">#include &lt;string_view&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">constexpr</span> <a href="cpp-string-basic_string_view.html"><span class="kw1251">std::<span class="me2">string_view</span></span></a> keywords<span class="br0">{</span><span class="st0">&quot;false float for friend&quot;</span><span class="br0">}</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><a href="cpp-ranges-lazy_split_view.html"><span class="kw3594">ranges::<span class="me2">lazy_split_view</span></span></a> kw<span class="br0">{</span>keywords, <span class="st0">&#39; &#39;</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw4">const</span> <span class="kw4">auto</span> count <span class="sy1">=</span> std<span class="sy4">::</span><a href="cpp-iterator-ranges-distance.html"><span class="kw3142">ranges::<span class="me2">distance</span></span></a><span class="br0">(</span>kw.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, kw.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#21333;&#35789;&#25968;: &quot;</span> <span class="sy1">&lt;&lt;</span> count <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#21333;&#35789;&#25968;: 4</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-lazy_split_view-begin.html"><span class="t-lines"><span>begin</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#21521;&#36215;&#22987;&#30340;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-split_view-end.html"><span class="t-lines"><span>end</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238; &#25351;&#21521;&#26411;&#23614;&#30340;&#36845;&#20195;&#22120;&#25110;&#21736;&#20301;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::ranges::split_view&lt;V,Pattern&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-begin.html"><span class="t-lines"><span>ranges::begin</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#21521;&#33539;&#22260;&#36215;&#22987;&#30340;&#36845;&#20195;&#22120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#23450;&#21046;&#28857;&#23545;&#35937;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-end.html"><span class="t-lines"><span>ranges::end</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#25351;&#31034;&#33539;&#22260;&#32467;&#23614;&#30340;&#21736;&#20301;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#23450;&#21046;&#28857;&#23545;&#35937;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

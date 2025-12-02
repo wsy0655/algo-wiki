@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::reference_wrapper&lt;T&gt;::reference_wrapper</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_utility_functional_reference_wrapper_reference_wrapper skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::reference_wrapper&lt;T&gt;::</span>reference_wrapper</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-utility.html">utility</a>&lrm; | <a href="cpp-utility-functional.html">functional</a>&lrm; | <a href="cpp-utility-functional-reference_wrapper.html">reference wrapper</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> U <span class="sy1">&gt;</span><br />
+reference_wrapper<span class="br0">(</span> U<span class="sy3">&amp;&amp;</span> x <span class="br0">)</span> <span class="kw1">noexcept</span><span class="br0">(</span><span class="coMULTI">/* &#35265;&#19979;&#25991; */</span><span class="br0">)</span> <span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span><br />
+<span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;&#20026; <code>constexpr</code>)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp">reference_wrapper<span class="br0">(</span> <span class="kw4">const</span> reference_wrapper<span class="sy3">&amp;</span> other <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span><br />
+<span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;&#20026; <code>constexpr</code>)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#26500;&#36896;&#26032;&#30340;&#24341;&#29992;&#21253;&#35013;&#22120;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#22914;&#21516;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">T<span class="sy3">&amp;</span> t <span class="sy1">=</span> <a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span><span class="br0">(</span>x<span class="br0">)</span><span class="sy4">;</span></span></span> &#36716;&#25442; <code>x</code> &#20026; <code>T&amp;</code>&#65292;&#28982;&#21518;&#23384;&#20648;&#21040; <code>t</code> &#30340;&#24341;&#29992;&#12290;&#27492;&#37325;&#36733;&#21482;&#26377;&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">typename</span> <a href="cpp-types-decay.html"><span class="kw631">std::<span class="me2">decay</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">type</span></span></span> &#19982; <code>reference_wrapper</code> &#19981;&#26159;&#21516;&#19968;&#31867;&#22411;&#19988;&#34920;&#36798;&#24335; <span class="t-c"><span class="mw-geshi cpp source-cpp">FUN<span class="br0">(</span><a href="cpp-utility-declval.html"><span class="kw1123">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span> &#20026;&#33391;&#26500;&#26102;&#25165;&#20250;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#65292;&#20854;&#20013; <code>FUN</code> &#25351;&#21517;&#34394;&#26500;&#30340;&#20989;&#25968;&#38598;&#12290;
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw4">void</span> FUN<span class="br0">(</span>T<span class="sy3">&amp;</span><span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span>
+<span class="kw4">void</span> FUN<span class="br0">(</span>T<span class="sy3">&amp;&amp;</span><span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span></pre></div>
+</div>
+</div>
+<div class="t-li1"><span class="t-li">2)</span> &#22797;&#21046;&#26500;&#36896;&#20989;&#25968;&#12290;&#23384;&#20648;&#21040; <code>other.get()</code> &#30340;&#24341;&#29992;&#12290;</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>x</td>
+<td>-</td>
+<td>&#35201;&#21253;&#35013;&#30340;&#23545;&#35937;</td>
+</tr>
+<tr class="t-par">
+<td>other</td>
+<td>-</td>
+<td>&#21478;&#19968;&#24341;&#29992;&#21253;&#35013;&#22120;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<div class="t-li1"><span class="t-li">1)</span>
+<div class="t-noexcept-full"><a href="cpp-language-noexcept_spec.html"><tt>noexcept</tt></a> &#35828;&#26126;&#65306;&nbsp;&nbsp;
+<div class="t-noexcept-box"><span class="t-cc"><span class="mw-geshi cpp source-cpp"><span class="kw1">noexcept</span><span class="br0">(</span><span class="kw1">noexcept</span><span class="br0">(</span>FUN<span class="br0">(</span><a href="cpp-utility-declval.html"><span class="kw1123">std::<span class="me2">declval</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span></span></span></div>
+</div>
+&#65292;&#20854;&#20013; <code>FUN</code> &#26159;&#20197;&#19978;&#25551;&#36848;&#20013;&#30340;&#34394;&#26500;&#20989;&#25968;&#38598;&#12290;</div>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#26242;&#26080;&#31034;&#20363;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue2993">LWG 2993</a></td>
+<td>C++11</td>
+<td>&#34987;&#24323;&#32622;&#30340; <code>reference_wrapper(T&amp;&amp;)</code> &#26500;&#36896;&#20989;&#25968;&#22312;&#26576;&#20123;&#24773;&#20917;&#19979;&#24178;&#28041;&#37325;&#36733;&#20915;&#35758;</td>
+<td>&#26367;&#25442;&#25104;&#26500;&#36896;&#20989;&#25968;&#27169;&#26495;</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

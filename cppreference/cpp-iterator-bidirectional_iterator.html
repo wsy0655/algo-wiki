@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::bidirectional_iterator</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_iterator_bidirectional_iterator skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>bidirectional_iterator</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-iterator.html">iterator</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-iterator.html">&lt;iterator&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> I <span class="sy1">&gt;</span><br /></span>
+<p>&nbsp; &nbsp; concept bidirectional_iterator <span class="sy1">=</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-iterator-forward_iterator.html"><span class="kw2866">std::<span class="me2">forward_iterator</span></span></a><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <a href="cpp-concepts-derived_from.html"><span class="kw2933">std::<span class="me2">derived_from</span></span></a><span class="sy1">&lt;</span><span class="coMULTI">/*ITER_CONCEPT*/</span><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span>, <a href="cpp-iterator-iterator_tags.html"><span class="kw658">std::<span class="me2">bidirectional_iterator_tag</span></span></a><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; requires<span class="br0">(</span>I i<span class="br0">)</span> <span class="br0">{</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">{</span> <span class="sy2">--</span>i <span class="br0">}</span> <span class="sy2">-</span><span class="sy1">&gt;</span> <a href="cpp-concepts-same_as.html"><span class="kw2932">std::<span class="me2">same_as</span></span></a><span class="sy1">&lt;</span>I<span class="sy3">&amp;</span><span class="sy1">&gt;</span><span class="sy4">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">{</span> i<span class="sy2">--</span> <span class="br0">}</span> <span class="sy2">-</span><span class="sy1">&gt;</span> <a href="cpp-concepts-same_as.html"><span class="kw2932">std::<span class="me2">same_as</span></span></a><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span><span class="sy4">;</span><br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">}</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#27010;&#24565; <code>bidirectional_iterator</code> &#31934;&#21270;&#20102; <a href="cpp-iterator-forward_iterator.html"><code>forward_iterator</code></a>&#65292;&#28155;&#21152;&#21521;&#21518;&#31227;&#21160;&#36845;&#20195;&#22120;&#30340;&#33021;&#21147;&#12290;</p>
+<h3><span class="mw-headline" id=".E8.BF.AD.E4.BB.A3.E5.99.A8.E6.A6.82.E5.BF.B5.E7.A1.AE.E5.AE.9A">&#36845;&#20195;&#22120;&#27010;&#24565;&#30830;&#23450;</span></h3>
+<p>&#27492;&#27010;&#24565;&#30340;&#23450;&#20041;&#36890;&#36807;&#20165;&#29992;&#20110;&#38416;&#36848;&#30340;&#21035;&#21517;&#27169;&#26495; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="coMULTI">/*ITER_CONCEPT*/</span></span></span> &#35828;&#26126;&#12290;</p>
+<p>&#20026;&#30830;&#23450; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="coMULTI">/*ITER_CONCEPT*/</span><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span></span></span>&#65292;&#20196; <span class="t-c"><span class="mw-geshi cpp source-cpp">ITER_TRAITS<span class="sy1">&lt;</span>I<span class="sy1">&gt;</span></span></span> &#22312;&#29305;&#21270; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-iterator_traits.html"><span class="kw654">std::<span class="me2">iterator_traits</span></span></a><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span></span></span> &#20174;&#20027;&#27169;&#26495;&#29983;&#25104;&#26102;&#20195;&#34920; <span class="t-c"><span class="mw-geshi cpp source-cpp">I</span></span>&#65292;&#21542;&#21017;&#20195;&#34920; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-iterator_traits.html"><span class="kw654">std::<span class="me2">iterator_traits</span></span></a><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span></span></span>&#65306;</p>
+<ul>
+<li>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">ITER_TRAITS<span class="sy1">&lt;</span>I<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">iterator_concept</span></span></span> &#21512;&#27861;&#24182;&#25351;&#21517;&#31867;&#22411;&#65292;&#37027;&#20040; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="coMULTI">/*ITER_CONCEPT*/</span><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span></span></span> &#20195;&#34920;&#35813;&#31867;&#22411;&#12290;</li>
+<li>&#21542;&#21017;&#65292;&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">ITER_TRAITS<span class="sy1">&lt;</span>I<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">iterator_category</span></span></span> &#21512;&#27861;&#24182;&#25351;&#21517;&#31867;&#22411;&#65292;&#37027;&#20040; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="coMULTI">/*ITER_CONCEPT*/</span><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span></span></span> &#20195;&#34920;&#35813;&#31867;&#22411;&#12290;</li>
+<li>&#21542;&#21017;&#65292;&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-iterator_traits.html"><span class="kw654">std::<span class="me2">iterator_traits</span></span></a><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span></span></span> &#20174;&#20027;&#27169;&#26495;&#29983;&#25104;&#65292;&#37027;&#20040; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="coMULTI">/*ITER_CONCEPT*/</span><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span></span></span> &#25351;&#20195; <span class="t-lc"><a href="cpp-iterator-iterator_tags.html">std::random_access_iterator_tag</a></span>&#12290;</li>
+<li>&#21542;&#21017; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="coMULTI">/*ITER_CONCEPT*/</span><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span></span></span> &#19981;&#20195;&#34920;&#31867;&#22411;&#24182;&#23548;&#33268;&#26367;&#25442;&#22833;&#36133;&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E8.AF.AD.E4.B9.89.E8.A6.81.E6.B1.82">&#35821;&#20041;&#35201;&#27714;</span></h3>
+<p>&#24403;&#19988;&#20165;&#24403;&#23384;&#22312;&#26576;&#20010; <code>s</code> &#20351;&#24471; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">++</span>s <span class="sy1">==</span> r</span></span> &#26102;&#65292;&#31216;&#21452;&#21521;&#36845;&#20195;&#22120; <code>r</code> <i>&#21487;&#33258;&#20943;</i>&#12290;</p>
+<p>&#20165;&#24403; <span class="mw-geshi cpp source-cpp">bidirectional_iterator<span class="sy1">&lt;</span>I<span class="sy1">&gt;</span></span> &#25152;&#32435;&#20837;&#30340;&#27010;&#24565;&#22343;&#34987;&#23454;&#29616;&#65292;&#24182;&#19988;&#32473;&#23450;&#20004;&#20010; <code>I</code> &#31867;&#22411;&#23545;&#35937; <code>a</code> &#19982; <code>b</code> &#28385;&#36275;&#20197;&#19979;&#26465;&#20214;&#26102;&#65292;&#23427;&#24471;&#21040;&#23454;&#29616;&#65306;</p>
+<ul>
+<li>&#33509; <code>a</code> &#21487;&#33258;&#20943;&#65292;&#21017; <code>a</code> &#22788;&#20110;&#34920;&#36798;&#24335; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">--</span>a</span></span> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">a<span class="sy2">--</span></span></span> &#30340;&#23450;&#20041;&#22495;&#20013;&#12290;</li>
+<li>&#21069;&#33258;&#20943;&#29983;&#25104;&#25351;&#20195;&#25805;&#20316;&#25968;&#30340;&#24038;&#20540;&#65306;<span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-addressof.html"><span class="kw759">std::<span class="me2">addressof</span></span></a><span class="br0">(</span><span class="sy2">--</span>a<span class="br0">)</span> <span class="sy1">==</span> <a href="cpp-memory-addressof.html"><span class="kw759">std::<span class="me2">addressof</span></span></a><span class="br0">(</span>a<span class="br0">)</span></span></span>&#12290;</li>
+<li>&#21518;&#33258;&#20943;&#29983;&#25104;&#25805;&#20316;&#25968;&#20808;&#21069;&#30340;&#20540;&#65306;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span><span class="br0">(</span>a <span class="sy1">==</span> b<span class="br0">)</span></span></span>&#65292;&#21017; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span><span class="br0">(</span>a<span class="sy2">--</span> <span class="sy1">==</span> b<span class="br0">)</span></span></span>&#12290;</li>
+<li>&#21518;&#33258;&#20943;&#21644;&#21069;&#33258;&#20943;&#22312;&#25805;&#20316;&#25968;&#19978;&#35774;&#26045;&#30456;&#21516;&#20462;&#25913;&#65306;&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span><span class="br0">(</span>a <span class="sy1">==</span> b<span class="br0">)</span></span></span>&#65292;&#21017;&#27714;&#20540; <code>a--</code> &#19982; <code>--b</code> &#20004;&#32773;&#21518;&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span><span class="br0">(</span>a <span class="sy1">==</span> b<span class="br0">)</span></span></span> &#20173;&#28982;&#25104;&#31435;&#12290;</li>
+<li>&#33258;&#22686;&#21644;&#33258;&#20943;&#20114;&#36870;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>&#33509; <code>a</code> &#21487;&#33258;&#22686;&#19988; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span><span class="br0">(</span>a <span class="sy1">==</span> b<span class="br0">)</span></span></span>&#65292;&#21017; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span><span class="br0">(</span><span class="sy2">--</span><span class="br0">(</span><span class="sy2">++</span>a<span class="br0">)</span> <span class="sy1">==</span> b<span class="br0">)</span></span></span>&#12290;</li>
+<li>&#33509; <code>a</code> &#21487;&#33258;&#20943;&#19988; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span><span class="br0">(</span>a <span class="sy1">==</span> b<span class="br0">)</span></span></span>&#65292;&#21017; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span><span class="br0">(</span><span class="sy2">++</span><span class="br0">(</span><span class="sy2">--</span>a<span class="br0">)</span> <span class="sy1">==</span> b<span class="br0">)</span></span></span>&#12290;</li>
+</ul>
+</dd>
+</dl>
+<h3><span class="mw-headline" id=".E7.9B.B8.E7.AD.89.E6.80.A7.E4.BF.9D.E6.8C.81">&#30456;&#31561;&#24615;&#20445;&#25345;</span></h3>
+<p>&#26631;&#20934;&#24211;&#27010;&#24565;&#30340; <a href="cpp-language-requires.html"><span class="mw-geshi cpp source-cpp">requires</span> &#34920;&#36798;&#24335;</a>&#20013;&#22768;&#26126;&#30340;&#34920;&#36798;&#24335;&#37117;&#35201;&#27714;<a href="cpp-concepts.html#.E7.9B.B8.E7.AD.89.E6.80.A7.E4.BF.9D.E6.8C.81">&#20445;&#25345;&#30456;&#31561;&#24615;</a>&#65288;&#38500;&#38750;&#21478;&#22806;&#35828;&#26126;&#65289;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#19981;&#21516;&#20110;<a href="cpp-named_req-BidirectionalIterator.html"><span style="font-style:italic">&#32769;&#24335;&#21452;&#21521;&#36845;&#20195;&#22120;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LegacyBidirectionalIterator)</span></a> &#30340;&#35201;&#27714;&#65292;<code>bidirectional_iterator</code> &#27010;&#24565;&#19981;&#35201;&#27714;&#35299;&#24341;&#29992;&#36820;&#22238;&#24038;&#20540;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<p>&#26368;&#23567;&#21270;&#30340;&#21452;&#21521;&#36845;&#20195;&#22120;&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;cstddef&gt;</span>
+<span class="co2">#include &lt;iterator&gt;</span>
+ 
+<span class="kw1">struct</span> SimpleBidiIterator
+<span class="br0">{</span>
+    <span class="kw1">using</span> difference_type <span class="sy1">=</span> <a href="cpp-types-ptrdiff_t.html"><span class="kw108">std::<span class="me2">ptrdiff_t</span></span></a><span class="sy4">;</span>
+    <span class="kw1">using</span> value_type <span class="sy1">=</span> <span class="kw4">int</span><span class="sy4">;</span>
+ 
+    <span class="kw4">int</span> operator<span class="sy2">*</span><span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span>
+ 
+    SimpleBidiIterator<span class="sy3">&amp;</span> operator<span class="sy2">++</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    SimpleBidiIterator operator<span class="sy2">++</span><span class="br0">(</span><span class="kw4">int</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw4">auto</span> tmp <span class="sy1">=</span> <span class="sy2">*</span>this<span class="sy4">;</span>
+        <span class="sy2">++*</span>this<span class="sy4">;</span>
+        <span class="kw1">return</span> tmp<span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    SimpleBidiIterator<span class="sy3">&amp;</span> operator<span class="sy2">--</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    SimpleBidiIterator operator<span class="sy2">--</span><span class="br0">(</span><span class="kw4">int</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw4">auto</span> tmp <span class="sy1">=</span> <span class="sy2">*</span>this<span class="sy4">;</span>
+        <span class="sy2">--*</span>this<span class="sy4">;</span>
+        <span class="kw1">return</span> tmp<span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw4">bool</span> operator<span class="sy1">==</span><span class="br0">(</span><span class="kw4">const</span> SimpleBidiIterator<span class="sy3">&amp;</span><span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+static_assert<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">bidirectional_iterator</span><span class="sy1">&lt;</span>SimpleBidiIterator<span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span></pre></div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-forward_iterator.html"><span class="t-lines"><span>forward_iterator</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#25351;&#23450; <a href="cpp-iterator-input_iterator.html"><code>input_iterator</code></a> &#20026;&#21521;&#21069;&#36845;&#20195;&#22120;&#65292;&#25903;&#25345;&#30456;&#31561;&#27604;&#36739;&#19982;&#22810;&#36255;&#25805;&#20316;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#27010;&#24565;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-random_access_iterator.html"><span class="t-lines"><span>random_access_iterator</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#25351;&#23450; <strong class="selflink"><code>bidirectional_iterator</code></strong> &#20026;&#38543;&#26426;&#35775;&#38382;&#36845;&#20195;&#22120;&#65292;&#25903;&#25345;&#24120;&#25968;&#26102;&#38388;&#20869;&#30340;&#21069;&#36827;&#21644;&#19979;&#26631;&#35775;&#38382;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#27010;&#24565;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

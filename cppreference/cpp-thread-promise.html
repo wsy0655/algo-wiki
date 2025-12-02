@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::promise</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_thread_promise skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>promise</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-thread.html">thread</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-future.html">&lt;future&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> R <span class="sy1">&gt;</span> <span class="kw1">class</span> promise<span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> R <span class="sy1">&gt;</span> <span class="kw1">class</span> promise<span class="sy1">&lt;</span>R<span class="sy3">&amp;</span><span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;&gt;</span> <span class="kw1">class</span> promise<span class="sy1">&lt;</span><span class="kw4">void</span><span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#22522;&#27169;&#26495;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#38750; <code>void</code> &#29305;&#21270;&#65292;&#29992;&#20110;&#22312;&#32447;&#31243;&#38388;&#20132;&#27969;&#23545;&#35937;</div>
+<div class="t-li1"><span class="t-li">3)</span> <code>void</code> &#29305;&#21270;&#65292;&#29992;&#20110;&#20132;&#27969;&#26080;&#29366;&#24577;&#20107;&#20214;</div>
+<p>&#31867;&#27169;&#26495; <code>std::promise</code> &#25552;&#20379;&#19968;&#31181;&#35774;&#26045;&#29992;&#20197;&#23384;&#20648;&#19968;&#20010;&#20540;&#25110;&#19968;&#20010;&#24322;&#24120;&#65292;&#20043;&#21518;&#36890;&#36807; <code>std::promise</code> &#23545;&#35937;&#25152;&#21019;&#24314;&#30340; <span class="t-lc"><a href="cpp-thread-future.html">std::future</a></span> &#23545;&#35937;&#24322;&#27493;&#33719;&#24471;&#12290;&#27880;&#24847; <code>std::promise</code> &#21482;&#24212;&#24403;&#20351;&#29992;&#19968;&#27425;&#12290;</p>
+<p>&#27599;&#20010;&#25215;&#35834;&#20307;&#37117;&#19982;&#19968;&#20010;<i>&#20849;&#20139;&#29366;&#24577;</i>&#8202;&#65279;&#20851;&#32852;&#65292;&#20854;&#20013;&#21547;&#26377;&#19968;&#20123;&#29366;&#24577;&#20449;&#24687;&#21644;&#19968;&#20010;<i>&#32467;&#26524;</i>&#65292;&#23427;&#21487;&#33021;&#23578;&#26410;&#27714;&#20540;&#65292;&#24050;&#27714;&#20540;&#20026;&#19968;&#20010;&#20540;&#65288;&#21487;&#33021;&#20026; <code>void</code>&#65289;&#65292;&#25110;&#32773;&#27714;&#20540;&#20026;&#19968;&#20010;&#24322;&#24120;&#12290;&#25215;&#35834;&#21487;&#20197;&#23545;&#20849;&#20139;&#29366;&#24577;&#20570;&#19977;&#20214;&#20107;&#65306;</p>
+<ul>
+<li><i>&#20351;&#23601;&#32490;</i>&#65306;&#25215;&#35834;&#20307;&#23384;&#20648;&#32467;&#26524;&#25110;&#24322;&#24120;&#20110;&#20849;&#20139;&#29366;&#24577;&#12290;&#26631;&#35760;&#20849;&#20139;&#29366;&#24577;&#20026;&#23601;&#32490;&#65292;&#24182;&#38500;&#38459;&#22312;&#35813;&#20849;&#20139;&#29366;&#24577;&#25152;&#20851;&#32852;&#30340;&#26410;&#26469;&#20307;&#19978;&#31561;&#24453;&#30340;&#20219;&#20309;&#32447;&#31243;&#12290;</li>
+<li><i>&#37322;&#25918;</i>&#65306;&#25215;&#35834;&#20307;&#25918;&#24323;&#20854;&#23545;&#20849;&#20139;&#29366;&#24577;&#30340;&#24341;&#29992;&#12290;&#33509;&#36825;&#26159;&#26368;&#21518;&#19968;&#20010;&#36825;&#31181;&#24341;&#29992;&#65292;&#21017;&#38144;&#27585;&#20849;&#20139;&#29366;&#24577;&#12290;&#38500;&#38750;&#36825;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-thread-async.html"><span class="kw2186">std::<span class="me2">async</span></span></a></span></span> &#25152;&#21019;&#24314;&#30340;&#26410;&#23601;&#32490;&#30340;&#20849;&#20139;&#29366;&#24577;&#65292;&#21542;&#21017;&#27492;&#25805;&#20316;&#19981;&#38459;&#22622;&#12290;</li>
+<li><i>&#25243;&#24323;</i>&#65306;&#25215;&#35834;&#20307;&#23384;&#20648;&#20197; <span class="t-lc"><a href="cpp-thread-future_errc.html">std::future_errc::broken_promise</a></span> &#20026;&#38169;&#35823;&#30721;&#30340; <span class="t-lc"><a href="cpp-thread-future_error.html">std::future_error</a></span> &#31867;&#22411;&#30340;&#24322;&#24120;&#65292;&#20196;&#20849;&#20139;&#29366;&#24577;&#20026;<i>&#23601;&#32490;</i>&#65292;&#28982;&#21518;<i>&#37322;&#25918;</i>&#23427;&#12290;</li>
+</ul>
+<p>&#25215;&#35834;&#20307;&#26159;&#25215;&#35834;&#20307;-&#26410;&#26469;&#20307;&#20132;&#27969;&#36890;&#36947;&#30340;&ldquo;&#25512;&rdquo;&#31471;&#65306;&#21521;&#20849;&#20139;&#29366;&#24577;&#23384;&#20648;&#20540;&#30340;&#25805;&#20316;<i>&#21516;&#27493;&#20110;</i>&#65288;&#23450;&#20041;&#20110; <span class="t-lc"><a href="cpp-atomic-memory_order.html">std::memory_order</a></span>&#65289;&#20219;&#20309;&#22312;&#20849;&#20139;&#29366;&#24577;&#19978;&#31561;&#24453;&#30340;&#20989;&#25968;&#65288;&#22914; <span class="t-lc"><a href="cpp-thread-future-get.html">std::future::get</a></span>&#65289;&#30340;&#25104;&#21151;&#36820;&#22238;&#12290;&#20854;&#20182;&#24773;&#20917;&#19979;&#23545;&#20849;&#20139;&#29366;&#24577;&#30340;&#20849;&#26102;&#35775;&#38382;&#21487;&#33021;&#20914;&#31361;&#65306;&#20363;&#22914;&#65292;<span class="t-lc"><a href="cpp-thread-shared_future-get.html">std::shared_future::get</a></span> &#30340;&#22810;&#20010;&#35843;&#29992;&#26041;&#24517;&#39035;&#20840;&#37117;&#26159;&#21482;&#35835;&#65292;&#25110;&#25552;&#20379;&#22806;&#37096;&#21516;&#27493;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-thread-promise-promise.html"><span class="t-lines"><span>(&#26500;&#36896;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26500;&#36896;&#25215;&#35834;&#20307;&#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-thread-promise-~promise.html"><span class="t-lines"><span>(&#26512;&#26500;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26512;&#26500;&#25215;&#35834;&#20307;&#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-promise-operator=.html"><span class="t-lines"><span>operator=</span></span></a></div>
+</div>
+</td>
+<td>&#36171;&#20540;&#20849;&#20139;&#29366;&#24577;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-promise-swap.html"><span class="t-lines"><span>swap</span></span></a></div>
+</div>
+</td>
+<td>&#20132;&#25442;&#20004;&#20010;&#25215;&#35834;&#20307;&#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E8.8E.B7.E5.8F.96.E7.BB.93.E6.9E.9C">&#33719;&#21462;&#32467;&#26524;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-promise-get_future.html"><span class="t-lines"><span>get_future</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238;&#19982;&#25215;&#35834;&#30340;&#32467;&#26524;&#20851;&#32852;&#30340; <a href="cpp-thread-future.html"><tt>future</tt></a><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr>
+<td colspan="2">
+<h5><span class="mw-headline" id=".E8.AE.BE.E7.BD.AE.E7.BB.93.E6.9E.9C">&#35774;&#32622;&#32467;&#26524;</span></h5>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-promise-set_value.html"><span class="t-lines"><span>set_value</span></span></a></div>
+</div>
+</td>
+<td>&#35774;&#32622;&#32467;&#26524;&#20026;&#25351;&#23450;&#20540;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-promise-set_value_at_thread_exit.html"><span class="t-lines"><span>set_value_at_thread_exit</span></span></a></div>
+</div>
+</td>
+<td>&#35774;&#32622;&#32467;&#26524;&#20026;&#25351;&#23450;&#20540;&#65292;&#21516;&#26102;&#20165;&#22312;&#32447;&#31243;&#36864;&#20986;&#26102;&#20998;&#21457;&#25552;&#37266;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-promise-set_exception.html"><span class="t-lines"><span>set_exception</span></span></a></div>
+</div>
+</td>
+<td>&#35774;&#32622;&#32467;&#26524;&#20026;&#25351;&#31034;&#24322;&#24120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-promise-set_exception_at_thread_exit.html"><span class="t-lines"><span>set_exception_at_thread_exit</span></span></a></div>
+</div>
+</td>
+<td>&#35774;&#32622;&#32467;&#26524;&#20026;&#25351;&#31034;&#24322;&#24120;&#65292;&#21516;&#26102;&#20165;&#22312;&#32447;&#31243;&#36864;&#20986;&#26102;&#20998;&#21457;&#25552;&#37266;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E9.9D.9E.E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#38750;&#25104;&#21592;&#20989;&#25968;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-promise-swap2.html"><span class="t-lines"><span>std::swap<span class="t-dsc-small">(std::promise)</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#29305;&#21270; <span class="t-lc"><a href="cpp-algorithm-swap.html">std::swap</a></span> &#31639;&#27861;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BE.85.E5.8A.A9.E7.B1.BB">&#36741;&#21161;&#31867;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-promise-uses_allocator.html"><span class="t-lines"><span>std::uses_allocator<span class="t-dsc-small">&lt;std::promise&gt;</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#29305;&#21270; <span class="t-lc"><a href="cpp-memory-uses_allocator.html">std::uses_allocator</a></span> &#31867;&#22411;&#29305;&#24449;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;&#29305;&#21270;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<p>&#27492;&#31034;&#20363;&#23637;&#31034;&#33021;&#22914;&#20309;&#23558; <code>promise&lt;int&gt;</code> &#29992;&#20316;&#32447;&#31243;&#38388;&#20449;&#21495;&#12290;</p>
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;chrono&gt;</span>
+<span class="co2">#include &lt;future&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;numeric&gt;</span>
+<span class="co2">#include &lt;thread&gt;</span>
+<span class="co2">#include &lt;vector&gt;</span>
+ 
+<span class="kw4">void</span> accumulate<span class="br0">(</span><a href="cpp-container-vector.html"><span class="kw1272">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">iterator</span> first,
+                <a href="cpp-container-vector.html"><span class="kw1272">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">iterator</span> last,
+                std<span class="sy4">::</span><span class="me2">promise</span><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span> accumulate_promise<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">int</span> sum <span class="sy1">=</span> <a href="cpp-algorithm-accumulate.html"><span class="kw1655">std::<span class="me2">accumulate</span></span></a><span class="br0">(</span>first, last, <span class="nu0">0</span><span class="br0">)</span><span class="sy4">;</span>
+    accumulate_promise.<span class="me1">set_value</span><span class="br0">(</span>sum<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#25552;&#37266; future</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">void</span> do_work<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">promise</span><span class="sy1">&lt;</span><span class="kw4">void</span><span class="sy1">&gt;</span> barrier<span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-thread-sleep_for.html"><span class="kw2153">std::<span class="me2">this_thread</span><span class="sy4">::</span><span class="me2">sleep_for</span></span></a><span class="br0">(</span><a href="cpp-chrono-duration.html"><span class="kw999">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">seconds</span></span></a><span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    barrier.<span class="me1">set_value</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="co1">// &#28436;&#31034;&#29992; promise&lt;int&gt; &#22312;&#32447;&#31243;&#38388;&#20256;&#36882;&#32467;&#26524;&#12290;</span>
+    <a href="cpp-container-vector.html"><span class="kw1272">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span> numbers <span class="sy1">=</span> <span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">2</span>, <span class="nu0">3</span>, <span class="nu0">4</span>, <span class="nu0">5</span>, <span class="nu0">6</span><span class="br0">}</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><span class="me2">promise</span><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span> accumulate_promise<span class="sy4">;</span>
+    <a href="cpp-thread-future.html"><span class="kw2183">std::<span class="me2">future</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span> accumulate_future <span class="sy1">=</span> accumulate_promise.<span class="me1">get_future</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-thread-thread.html"><span class="kw2150">std::<span class="me2">thread</span></span></a> work_thread<span class="br0">(</span>accumulate, numbers.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, numbers.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>,
+                            std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>accumulate_promise<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// future::get() &#23558;&#31561;&#24453;&#30452;&#33267;&#35813; future &#25317;&#26377;&#21512;&#27861;&#32467;&#26524;&#24182;&#21462;&#24471;&#23427;</span>
+    <span class="co1">// &#26080;&#38656;&#22312; get() &#21069;&#35843;&#29992; wait()</span>
+    <span class="co1">// accumulate_future.wait(); // &#31561;&#24453;&#32467;&#26524;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;result=&quot;</span> <span class="sy1">&lt;&lt;</span> accumulate_future.<span class="me1">get</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    work_thread.<span class="me1">join</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// wait for thread completion</span>
+ 
+    <span class="co1">// &#28436;&#31034;&#29992; promise&lt;void&gt; &#22312;&#32447;&#31243;&#38388;&#23545;&#29366;&#24577;&#21457;&#20449;&#21495;</span>
+    std<span class="sy4">::</span><span class="me2">promise</span><span class="sy1">&lt;</span><span class="kw4">void</span><span class="sy1">&gt;</span> barrier<span class="sy4">;</span>
+    <a href="cpp-thread-future.html"><span class="kw2183">std::<span class="me2">future</span></span></a><span class="sy1">&lt;</span><span class="kw4">void</span><span class="sy1">&gt;</span> barrier_future <span class="sy1">=</span> barrier.<span class="me1">get_future</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-thread-thread.html"><span class="kw2150">std::<span class="me2">thread</span></span></a> new_work_thread<span class="br0">(</span>do_work, std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>barrier<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    barrier_future.<span class="me1">wait</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    new_work_thread.<span class="me1">join</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">result=21</pre></div>
+</div>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

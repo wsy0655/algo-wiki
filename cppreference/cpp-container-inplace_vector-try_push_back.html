@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::inplace_vector&lt;T,N&gt;::try_push_back</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_container_inplace_vector_try_push_back skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::inplace_vector&lt;T,N&gt;::</span>try_push_back</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-container.html">container</a>&lrm; | <a href="cpp-container-inplace_vector.html">inplace vector</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx26">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> pointer try_push_back<span class="br0">(</span> <span class="kw4">const</span> T<span class="sy3">&amp;</span> value <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx26">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> pointer try_push_back<span class="br0">(</span> T<span class="sy3">&amp;&amp;</span> value <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#26377;&#26465;&#20214;&#22320;&#36861;&#21152;&#32473;&#23450;&#20803;&#32032; <span class="t-c"><span class="mw-geshi cpp source-cpp">value</span></span> &#21040;&#23481;&#22120;&#26411;&#23614;&#12290;</p>
+<p>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">size<span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> capacity<span class="br0">(</span><span class="br0">)</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#21017;&#20989;&#25968;&#26080;&#25928;&#26524;&#12290;&#21542;&#21017;&#36861;&#21152;&#19968;&#20010;&#31867;&#22411; <code>T</code> &#30340;&#23545;&#35937;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#26032;&#20803;&#32032;&#26159;&#30001; &#21021;&#22987;&#21270;&#26032;&#20803;&#32032;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">value</span></span> &#30340;&#21103;&#26412;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#31227;&#21160; <span class="t-c"><span class="mw-geshi cpp source-cpp">value</span></span> &#36827;&#26032;&#20803;&#32032;&#12290;</div>
+<p>&#38500; <a href="cpp-container-inplace_vector-end.html"><code>end()</code></a> &#22806;&#27809;&#26377;&#36845;&#20195;&#22120;&#25110;&#24341;&#29992;&#20250;&#22833;&#25928;&#65292;&#21457;&#29983;&#25554;&#20837;&#26102; <a href="cpp-container-inplace_vector-end.html"><code>end()</code></a> &#22833;&#25928;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>value</td>
+<td>-</td>
+<td>&#35201;&#36861;&#21152;&#30340;&#20803;&#32032;&#20540;</td>
+</tr>
+<tr class="t-par-hitem">
+<td colspan="3">&#31867;&#22411;&#35201;&#27714;</td>
+</tr>
+<tr class="t-par-req">
+<td colspan="3">-
+<div class="spacer"></div>
+<code>T</code> &#24517;&#39035;&#28385;&#36275;<a href="cpp-named_req-EmplaceConstructible.html"><span style="font-style:italic">&#21487;&#23601;&#20301;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(EmplaceConstructible)</span></a> &#12290;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-addressof.html"><span class="kw759">std::<span class="me2">addressof</span></span></a><span class="br0">(</span>back<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span>&#65292;&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">size<span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;</span> capacity<span class="br0">(</span><span class="br0">)</span></span></span>&#65292;&#21542;&#21017;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp">nullptr</span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<p>&#24120;&#25968;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<p>&#25554;&#20837;&#30340;&#20803;&#32032;&#21021;&#22987;&#21270;&#26102;&#25243;&#20986;&#30340;&#20219;&#20309;&#24322;&#24120;&#12290;</p>
+<p>&#22914;&#26524;&#22240;&#20026;&#20219;&#20309;&#21407;&#22240;&#25243;&#20986;&#20102;&#24322;&#24120;&#65292;&#37027;&#20040;&#36825;&#20123;&#20989;&#25968;&#26080;&#25928;&#26524;&#65288;<a href="cpp-language-exceptions.html#.E5.BC.82.E5.B8.B8.E5.AE.89.E5.85.A8">&#24378;&#24322;&#24120;&#23433;&#20840;&#20445;&#35777;</a>&#65289;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;Explain the purpose of this API.</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;cassert&gt;</span>
+<span class="co2">#include &lt;inplace_vector&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    std<span class="sy4">::</span><span class="me2">inplace_vector</span><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a>, <span class="nu0">2</span><span class="sy1">&gt;</span> pets<span class="sy4">;</span>
+    <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a> dog<span class="br0">{</span><span class="st0">&quot;dog&quot;</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+    <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy2">*</span> p1 <span class="sy1">=</span> pets.<span class="me1">try_push_back</span><span class="br0">(</span><span class="st0">&quot;cat&quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// overload (1)</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><span class="sy2">*</span>p1 <span class="sy1">==</span> <span class="st0">&quot;cat&quot;</span> and pets.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> <span class="nu0">1</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy2">*</span> p2 <span class="sy1">=</span> pets.<span class="me1">try_push_back</span><span class="br0">(</span>std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>dog<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// overload (2)</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><span class="sy2">*</span>p2 <span class="sy1">==</span> <span class="st0">&quot;dog&quot;</span> and pets.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> <span class="nu0">2</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span>pets<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span> <span class="sy1">==</span> <span class="st0">&quot;cat&quot;</span> and pets<span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> <span class="sy1">==</span> <span class="st0">&quot;dog&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span>pets.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> pets.<span class="me1">capacity</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy2">*</span> p3 <span class="sy1">=</span> pets.<span class="me1">try_push_back</span><span class="br0">(</span><span class="st0">&quot;bug&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span>p3 <span class="sy1">==</span> nullptr and pets.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> <span class="nu0">2</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-inplace_vector-push_back.html"><span class="t-lines"><span>push_back</span></span></a></div>
+</div>
+</td>
+<td>&#23558;&#20803;&#32032;&#28155;&#21152;&#21040;&#23481;&#22120;&#26411;&#23614;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-inplace_vector-emplace_back.html"><span class="t-lines"><span>emplace_back</span></span></a></div>
+</div>
+</td>
+<td>&#22312;&#23481;&#22120;&#26411;&#23614;&#21407;&#20301;&#26500;&#36896;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-inplace_vector-append_range.html"><span class="t-lines"><span>append_range</span></span></a></div>
+</div>
+</td>
+<td>&#28155;&#21152;&#20803;&#32032;&#30340;&#33539;&#22260;&#21040;&#26411;&#23614;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-inplace_vector-try_emplace_back.html"><span class="t-lines"><span>try_emplace_back</span></span></a></div>
+</div>
+</td>
+<td>&#23581;&#35797;&#22312;&#23481;&#22120;&#26411;&#23614;&#21407;&#20301;&#26500;&#36896;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-inplace_vector-try_append_range.html"><span class="t-lines"><span>try_append_range</span></span></a></div>
+</div>
+</td>
+<td>&#23581;&#35797;&#28155;&#21152;&#20803;&#32032;&#30340;&#33539;&#22260;&#21040;&#26411;&#23614;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-inplace_vector-unchecked_emplace_back.html"><span class="t-lines"><span>unchecked_emplace_back</span></span></a></div>
+</div>
+</td>
+<td>&#26080;&#26465;&#20214;&#22312;&#23481;&#22120;&#26411;&#23614;&#21407;&#20301;&#26500;&#36896;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-inplace_vector-unchecked_push_back.html"><span class="t-lines"><span>unchecked_push_back</span></span></a></div>
+</div>
+</td>
+<td>&#26080;&#26465;&#20214;&#23558;&#20803;&#32032;&#28155;&#21152;&#21040;&#23481;&#22120;&#26411;&#23614;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-inplace_vector-pop_back.html"><span class="t-lines"><span>pop_back</span></span></a></div>
+</div>
+</td>
+<td>&#31227;&#38500;&#26411;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-iterator-back_inserter.html"><span class="t-lines"><span>back_inserter</span></span></a></div>
+</div>
+</td>
+<td>&#21019;&#24314;&#25317;&#26377;&#20174;&#23454;&#21442;&#25512;&#20986;&#30340;&#31867;&#22411;&#30340; <span class="t-lc"><a href="cpp-iterator-back_insert_iterator.html">std::back_insert_iterator</a></span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

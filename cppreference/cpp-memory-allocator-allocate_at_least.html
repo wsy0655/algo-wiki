@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::allocator&lt;T&gt;::allocate_at_least</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_memory_allocator_allocate_at_least skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::allocator&lt;T&gt;::</span>allocate_at_least</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-memory.html">memory</a>&lrm; | <a href="cpp-memory-allocator.html">allocator</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <a href="cpp-memory-allocation_result.html"><span class="kw3373">std::<span class="me2">allocation_result</span></span></a><span class="sy1">&lt;</span>T<span class="sy2">*</span>, <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a><span class="sy1">&gt;</span><br />
+&nbsp; &nbsp; allocate_at_least<span class="br0">(</span> <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> n <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy4">::</span><a href="cpp-memory-new-operator_new.html"><span class="kw690">operator new</span></a></span></span>&#65288;&#21487;&#33021;&#24102;&#26377;&#39069;&#22806;&#30340; <span class="t-lc"><a href="cpp-memory-new-align_val_t.html">std::align_val_t</a></span> &#23454;&#21442;&#65289;&#20998;&#37197; <span class="t-c"><span class="mw-geshi cpp source-cpp">count <span class="sy2">*</span> sizeof<span class="br0">(</span>T<span class="br0">)</span></span></span> &#23383;&#33410;&#30340;&#26410;&#21021;&#22987;&#21270;&#23384;&#20648;&#65292;&#20854;&#20013; <code>count</code> &#26159;&#26410;&#25351;&#23450;&#30340;&#19981;&#23567;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span> &#30340;&#25972;&#25968;&#20540;&#65292;&#20294;&#26410;&#25351;&#23450;&#20309;&#26102;&#21450;&#22914;&#20309;&#35843;&#29992;&#27492;&#20989;&#25968;&#12290;</p>
+<p>&#28982;&#21518;&#65292;&#27492;&#20989;&#25968;&#22312;&#35813;&#23384;&#20648;&#20013;&#21019;&#24314;&#19968;&#20010; <span class="t-c"><span class="mw-geshi cpp source-cpp">T<span class="br0">[</span>count<span class="br0">]</span></span></span> &#25968;&#32452;&#24182;&#24320;&#22987;&#20854;&#29983;&#23384;&#26399;&#65292;&#20294;&#19981;&#24320;&#22987;&#20854;&#20219;&#20309;&#20803;&#32032;&#30340;&#29983;&#23384;&#26399;&#12290;</p>
+<p>&#20026;&#22312;&#24120;&#37327;&#34920;&#36798;&#24335;&#20013;&#20351;&#29992;&#27492;&#20989;&#25968;&#65292;&#24517;&#39035;&#22312;&#21516;&#19968;&#34920;&#36798;&#24335;&#30340;&#27714;&#20540;&#20869;&#35299;&#20998;&#37197;&#20854;&#25152;&#20998;&#37197;&#30340;&#23384;&#20648;&#12290;</p>
+<p>&#33509; <code>T</code> &#20026;<a href="cpp-language-type.html#.E4.B8.8D.E5.AE.8C.E6.95.B4.E7.B1.BB.E5.9E.8B">&#19981;&#23436;&#25972;&#31867;&#22411;</a>&#21017;&#27492;&#20989;&#25968;&#30340;&#20351;&#29992;&#20026;&#38750;&#33391;&#26500;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>n</td>
+<td>-</td>
+<td>&#35201;&#20998;&#37197;&#23384;&#20648;&#30340;&#23545;&#35937;&#25968;&#30340;&#19979;&#30028;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-allocation_result.html"><span class="kw3373">std::<span class="me2">allocation_result</span></span></a><span class="sy1">&lt;</span>T<span class="sy2">*</span><span class="sy1">&gt;</span><span class="br0">{</span>p, count<span class="br0">}</span></span></span>&#65292;&#20854;&#20013; <code>p</code> &#25351;&#21521; <code>T</code> &#31867;&#22411;&#30340; <code>count</code> &#20010;&#23545;&#35937;&#30340;&#25968;&#32452;&#39318;&#20803;&#32032;&#30340;&#25351;&#38024;&#65292;&#25968;&#32452;&#20803;&#32032;&#23578;&#26410;&#26500;&#36896;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<p>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-numeric_limits.html"><span class="kw351">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">max</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">/</span> sizeof<span class="br0">(</span>T<span class="br0">)</span> <span class="sy1">&lt;</span> n</span></span> &#21017;&#25243;&#20986; <span class="t-lc"><a href="cpp-memory-new-bad_array_new_length.html">std::bad_array_new_length</a></span>&#65292;&#25110;&#33509;&#20998;&#37197;&#22833;&#36133;&#21017;&#25243;&#20986; <span class="t-lc"><a href="cpp-memory-new-bad_alloc.html">std::bad_alloc</a></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p><code>allocate_at_least</code> &#20027;&#35201;&#20026;&#36830;&#32493;&#23481;&#22120;&#65292;&#20363;&#22914; <span class="t-lc"><a href="cpp-container-vector.html">std::vector</a></span> &#19982; <span class="t-lc"><a href="cpp-string-basic_string.html">std::basic_string</a></span> &#25552;&#20379;&#65292;&#20197;&#36890;&#36807;&#20351;&#24471;&#20854;&#23481;&#37327;&#22312;&#21487;&#33021;&#26102;&#21305;&#37197;&#23454;&#38469;&#20998;&#37197;&#30340;&#22823;&#23567;&#20943;&#23569;&#37325;&#20998;&#37197;&#12290;</p>
+<p>&#25514;&#36766;&ldquo;&#26410;&#25351;&#23450;&#20309;&#26102;&#21450;&#22914;&#20309;&rdquo;&#20196;&#26631;&#20934;&#24211;&#23481;&#22120;&#21487;&#20197;<a href="cpp-language-new.html#.E5.88.86.E9.85.8D">&#32452;&#21512;&#25110;&#20248;&#21270;&#25481;&#22534;&#20998;&#37197;</a>&#65292;&#21363;&#20351;&#23545;&#30452;&#25509;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy4">::</span><a href="cpp-memory-new-operator_new.html"><span class="kw690">operator new</span></a></span></span> &#31105;&#27490;&#36825;&#31181;&#20248;&#21270;&#12290;&#20363;&#22914; libc++ &#23454;&#29616;&#20102;&#23427;&#65288;<a rel="nofollow" class="external autonumber" href="https://github.com/llvm-mirror/libcxx/blob/master@%7B2017-02-09%7D/include/memory#L1766-L1772">[1]</a> &#19982; <a rel="nofollow" class="external autonumber" href="https://github.com/llvm-mirror/libcxx/blob/master@%7B2017-02-09%7D/include/new#L211-L217">[2]</a>&#65289;&#12290;</p>
+<p>&#22312;&#35843;&#29992; <code>allocate_at_least</code> &#21518;&#12289;&#26500;&#36896;&#20803;&#32032;&#21069;&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">T<span class="sy2">*</span></span></span> &#30340;&#25351;&#38024;&#31639;&#26415;&#22312;&#20998;&#37197;&#30340;&#25968;&#32452;&#20869;&#26159;&#33391;&#23450;&#20041;&#30340;&#65292;&#20294;&#33509;&#35775;&#38382;&#20803;&#32032;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<table class="wikitable ftm-begin">
+<tr>
+<th><a href="cpp-utility-feature_test.html">&#21151;&#33021;&#29305;&#24615;&#27979;&#35797;</a>&#23439;</th>
+<th><abbr title="&#37319;&#32435;&#35813;&#29305;&#24615;&#30340;&#24180;/&#26376;&#12290;&#27599;&#20010;&#20540;&#19979;&#38754;&#30340;&#38142;&#25509;&#25351;&#21521;&#32534;&#35793;&#26399;&#25903;&#25345;&#39029;&#38754;&#20013;&#32473;&#23450;&#21151;&#33021;&#29305;&#24615;&#30340;&#26465;&#30446;&#12290;">&#20540;</abbr></th>
+<th><abbr title="&#24341;&#20837;&#35813;&#29305;&#24615;&#30340;&#26631;&#20934;&#65307;DR &#24847;&#20026;&#38024;&#23545;&#35813;&#20462;&#35746;&#29256;&#30340;&#32570;&#38519;&#25253;&#21578;">&#26631;&#20934;</abbr></th>
+<th>&#21151;&#33021;&#29305;&#24615;</th>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lib_allocate_at_least"><code>__cpp_lib_allocate_at_least</code></a></td>
+<td><a href="cpp-compiler_support-23.html#cpp_lib_allocate_at_least_202302L"><code>202302L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++23)</span></td>
+<td><code>allocate_at_least</code> &#31561;&#12290;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;memory&gt;</span>
+<span class="co2">#include &lt;print&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">const</span> <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> count<span class="br0">{</span><span class="nu0">69</span><span class="br0">}</span><span class="sy4">;</span>
+    <a href="cpp-memory-allocator.html"><span class="kw702">std::<span class="me2">allocator</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span> alloc<span class="sy4">;</span>
+    <a href="cpp-memory-allocation_result.html"><span class="kw3373">std::<span class="me2">allocation_result</span></span></a> res<span class="br0">{</span>alloc.<span class="me1">allocate_at_least</span><span class="br0">(</span>count<span class="br0">)</span><span class="br0">}</span><span class="sy4">;</span>
+    <a href="cpp-io-print.html"><span class="kw3363">std::<span class="me2">print</span></span></a><span class="br0">(</span><span class="st0">&quot;count: {}<span class="es1">\n</span>&quot;</span>
+               <span class="st0">&quot;res.ptr: {}<span class="es1">\n</span>&quot;</span>
+               <span class="st0">&quot;res.count: {}<span class="es1">\n</span>&quot;</span>, count, res.<span class="me1">ptr</span>, res.<span class="me1">count</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="coMULTI">/* &#26500;&#36896;&#65292;&#20351;&#29992;&#65292;&#28982;&#21518;&#38144;&#27585;&#21508;&#20010;&#20803;&#32032; */</span>
+ 
+    alloc.<span class="me1">deallocate</span><span class="br0">(</span>res.<span class="me1">ptr</span>, res.<span class="me1">count</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">count: 69
+res.ptr: 0x555a486a0960
+res.count: 96</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-allocation_result.html"><span class="t-lines"><span>allocation_result</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#35760;&#24405;&#30001; <code>allocate_at_least</code> &#20998;&#37197;&#30340;&#23384;&#20648;&#30340;&#22320;&#22336;&#19982;&#23454;&#38469;&#22823;&#23567;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-allocator_traits-allocate_at_least.html"><span class="t-lines"><span>allocate_at_least</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span> <span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#32463;&#30001;&#20998;&#37197;&#22120;&#20998;&#37197;&#33267;&#23569;&#19982;&#35831;&#27714;&#30340;&#22823;&#23567;&#19968;&#26679;&#22823;&#30340;&#23384;&#20648;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::allocator_traits&lt;Alloc&gt;</code> &#30340;&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::ranges::forward_range</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_ranges_forward_range skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::ranges::</span>forward_range</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-ranges.html">ranges</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-ranges.html">&lt;ranges&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T <span class="sy1">&gt;</span><br /></span>
+<p>concept forward_range <span class="sy1">=</span><br /></p>
+&nbsp; &nbsp; <a href="cpp-ranges-input_range.html"><span class="kw2902">ranges::<span class="me2">input_range</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span> <a href="cpp-iterator-forward_iterator.html"><span class="kw2866">std::<span class="me2">forward_iterator</span></span></a><span class="sy1">&lt;</span><a href="cpp-ranges-iterator_t.html"><span class="kw2890">ranges::<span class="me2">iterator_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;&gt;</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>forward_range</code> &#27010;&#24565;&#26159; <a href="cpp-ranges-range.html"><code>range</code></a> &#30340;&#31934;&#21270;&#65292;&#23545;&#20110;&#23454;&#29616;&#23427;&#30340;&#31867;&#22411;&#65292;<span class="t-lc">ranges::begin</span> &#36820;&#22238; <a href="cpp-iterator-forward_iterator.html"><code>forward_iterator</code></a> &#30340;&#23454;&#29616;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;forward_list&gt;</span>
+<span class="co2">#include &lt;queue&gt;</span>
+<span class="co2">#include &lt;ranges&gt;</span>
+<span class="co2">#include &lt;span&gt;</span>
+<span class="co2">#include &lt;stack&gt;</span>
+<span class="co2">#include &lt;tuple&gt;</span>
+ 
+<span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> str<span class="br0">{</span><span class="st0">&quot;not a forward range&quot;</span><span class="br0">}</span><span class="sy4">;</span>
+<span class="kw4">const</span> <span class="kw4">char</span> str2<span class="br0">[</span><span class="br0">]</span> <span class="sy1">=</span> <span class="st0">&quot;a forward range&quot;</span><span class="sy4">;</span>
+static_assert<span class="br0">(</span>
+    std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">forward_range</span><span class="sy1">&lt;</span>decltype<span class="br0">(</span><span class="st0">&quot;a forward range&quot;</span><span class="br0">)</span><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span>
+    <span class="sy3">!</span>std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">forward_range</span><span class="sy1">&lt;</span>decltype<span class="br0">(</span>str<span class="br0">)</span><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span>
+    std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">forward_range</span><span class="sy1">&lt;</span>decltype<span class="br0">(</span>str2<span class="br0">)</span><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span>
+    <span class="sy3">!</span>std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">forward_range</span><span class="sy1">&lt;</span><a href="cpp-container-stack.html"><span class="kw1300">std::<span class="me2">stack</span></span></a><span class="sy1">&lt;</span><span class="kw4">char</span><span class="sy1">&gt;&gt;</span> <span class="sy3">&amp;&amp;</span>
+    std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">forward_range</span><span class="sy1">&lt;</span><a href="cpp-container-forward_list.html"><span class="kw1276">std::<span class="me2">forward_list</span></span></a><span class="sy1">&lt;</span><span class="kw4">char</span><span class="sy1">&gt;&gt;</span> <span class="sy3">&amp;&amp;</span>
+    <span class="sy3">!</span>std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">forward_range</span><span class="sy1">&lt;</span><a href="cpp-utility-tuple.html"><span class="kw1101">std::<span class="me2">tuple</span></span></a><span class="sy1">&lt;</span><a href="cpp-container-forward_list.html"><span class="kw1276">std::<span class="me2">forward_list</span></span></a><span class="sy1">&lt;</span><span class="kw4">char</span><span class="sy1">&gt;&gt;&gt;</span> <span class="sy3">&amp;&amp;</span>
+    std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">forward_range</span><span class="sy1">&lt;</span><a href="cpp-container-span.html"><span class="kw2631">std::<span class="me2">span</span></span></a><span class="sy1">&lt;</span><span class="kw4">char</span><span class="sy1">&gt;&gt;</span> <span class="sy3">&amp;&amp;</span>
+    <span class="sy3">!</span>std<span class="sy4">::</span><span class="me2">ranges</span><span class="sy4">::</span><span class="me2">forward_range</span><span class="sy1">&lt;</span><a href="cpp-container-queue.html"><span class="kw1301">std::<span class="me2">queue</span></span></a><span class="sy1">&lt;</span><span class="kw4">char</span><span class="sy1">&gt;&gt;</span> <span class="sy3">&amp;&amp;</span>
+<span class="st0">&quot;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span></pre></div>
+</div>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

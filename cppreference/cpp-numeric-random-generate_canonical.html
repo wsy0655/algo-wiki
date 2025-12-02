@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::generate_canonical</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_numeric_random_generate_canonical skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>generate_canonical</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-numeric.html">numeric</a>&lrm; | <a href="cpp-numeric-random.html">random</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-random.html">&lt;random&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> RealType, <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> Bits, <span class="kw1">class</span> Generator <span class="sy1">&gt;</span><br />
+RealType generate_canonical<span class="br0">(</span> Generator<span class="sy3">&amp;</span> g <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#29983;&#25104;&#33539;&#22260; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">&#8203;<span class="nu0">0</span>&#8203;</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="nu0">1</span></span></span><code>)</code> &#20013;&#30340;&#38543;&#26426;&#28014;&#28857;&#25968;&#12290;</p>
+<p>&#20026;&#29983;&#25104;&#36275;&#22815;&#30340;&#29109;&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">generate_canonical<span class="br0">(</span><span class="br0">)</span></span></span> &#23558;&#20934;&#30830;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">g<span class="br0">(</span><span class="br0">)</span></span></span> <span class="mjax" style="display:none">\(\small k\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">k</span> &#27425;&#65292;&#20854;&#20013; <span class="mjax" style="display:none">\(\small k = \max(1, \lceil \frac{b}{\log_2 R} \rceil)\)</span><span class="mjax-fallback texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">k = max(1, &lceil; b / log<span class="t-su t-su-b">2</span> R &rceil;)</span> &#19988;</p>
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">b <span class="sy1">=</span> <a href="cpp-algorithm-min.html"><span class="kw1645">std::<span class="me2">min</span></span></a><span class="br0">(</span>Bits, <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> <span class="br0">{</span><a href="cpp-types-numeric_limits.html"><span class="kw351">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span>RealType<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">digits</span><span class="br0">}</span><span class="br0">)</span></span></span>&#65292;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">R <span class="sy1">=</span> g.<span class="me1">max</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">-</span> g.<span class="me1">min</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> <span class="nu0">1</span></span></span>&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>g</td>
+<td>-</td>
+<td>&#29992;&#20110;&#21462;&#24471;&#29109;&#30340;&#29983;&#25104;&#22120;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#33539;&#22260; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">&#8203;<span class="nu0">0</span>&#8203;</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="nu0">1</span></span></span><code>)</code> &#20013;&#30340;&#28014;&#28857;&#25968;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<p>&#26080;&#65292;&#38500;&#20102; <span class="t-c"><span class="mw-geshi cpp source-cpp">g</span></span> &#25152;&#25243;&#32773;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#19968;&#20123;&#26082;&#23384;&#23454;&#29616;&#25317;&#26377;&#28431;&#27934;&#65292;&#33509; <code>RealType</code> &#20026; <span class="mw-geshi cpp source-cpp"><span class="kw4">float</span></span>&#65292;&#21017;&#23427;&#20204;&#26377;&#26102;&#21487;&#20197;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="nu16">1.0</span></span></span> <a rel="nofollow" class="external text" href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63176">GCC #63176</a> <a rel="nofollow" class="external text" href="https://bugs.llvm.org/show_bug.cgi?id=18767">LLVM #18767</a> <a rel="nofollow" class="external text" href="https://github.com/microsoft/STL/issues/1074">MSVC STL #1074</a>&#12290;&#27492;&#20026; <a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue2524">LWG &#38382;&#39064; 2524</a>&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<p>&#20135;&#29983;&#26377; 10 &#20301;&#38543;&#26426;&#24615;&#30340;&#38543;&#26426;&#25968;&#65306;&#36825;&#20165;&#21487;&#33021;&#20135;&#29983; <span class="t-c"><span class="mw-geshi cpp source-cpp">k <span class="sy2">*</span> R</span></span> &#20010;&#30456;&#24322;&#20540;</p>
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;random&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-numeric-random-random_device.html"><span class="kw1489">std::<span class="me2">random_device</span></span></a> rd<span class="sy4">;</span>
+    <a href="cpp-numeric-random-mersenne_twister_engine.html"><span class="kw1492">std::<span class="me2">mt19937</span></span></a> gen<span class="br0">(</span>rd<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> n <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span> n <span class="sy1">&lt;</span> <span class="nu0">10</span><span class="sy4">;</span> <span class="sy2">++</span>n<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> std<span class="sy4">::</span><span class="me2">generate_canonical</span><span class="sy1">&lt;</span><span class="kw4">double</span>, <span class="nu0">10</span><span class="sy1">&gt;</span><span class="br0">(</span>gen<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1761">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">0.208143 0.824147 0.0278604 0.343183 0.0173263 0.864057 0.647037 0.539467 0.0583497 0.609219</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-numeric-random-uniform_real_distribution.html"><span class="t-lines"><span>uniform_real_distribution</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20135;&#29983;&#22312;&#33539;&#22260;&#20869;&#22343;&#21248;&#20998;&#24067;&#30340;&#23454;&#25968;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

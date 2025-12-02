@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::add_pointer</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_types_add_pointer skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>add_pointer</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-types.html">types</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-type_traits.html">&lt;type_traits&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T <span class="sy1">&gt;</span><br />
+<span class="kw1">struct</span> add_pointer<span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#22914;&#26524; <code>T</code> &#26159;<a href="cpp-meta.html#.E5.AE.9A.E4.B9.89">&#21487;&#24341;&#29992;&#31867;&#22411;</a>&#25110;&#65288;&#21487;&#26377; cv &#38480;&#23450;&#30340;&#65289; <span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span>&#65292;&#37027;&#20040;&#25552;&#20379;&#30340;&#25104;&#21592; typedef <code>type</code> &#26159; <span class="mw-geshi cpp source-cpp"><span class="kw1">typename</span> <a href="cpp-types-remove_reference.html"><span class="kw609">std::<span class="me2">remove_reference</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">type</span><span class="sy2">*</span></span>&#12290;</p>
+<p>&#21542;&#21017;&#65292;&#25552;&#20379;&#30340;&#25104;&#21592; typedef <code>type</code> &#26159; <code>T</code>&#12290;</p>
+<p>&#22914;&#26524;&#31243;&#24207;&#28155;&#21152;&#20102; <code>std::add_pointer</code> &#30340;&#29305;&#21270;&#65292;&#37027;&#20040;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.B5.8C.E5.A5.97.E7.B1.BB.E5.9E.8B">&#23884;&#22871;&#31867;&#22411;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#21517;&#23383;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>type</code></td>
+<td>&#25353;&#20197;&#19978;&#26041;&#24335;&#30830;&#23450;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BE.85.E5.8A.A9.E7.B1.BB.E5.9E.8B">&#36741;&#21161;&#31867;&#22411;</span></h3>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx14">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T <span class="sy1">&gt;</span><br />
+<span class="kw1">using</span> add_pointer_t <span class="sy1">=</span> <span class="kw1">typename</span> add_pointer<span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">type</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.AF.E8.83.BD.E7.9A.84.E5.AE.9E.E7.8E.B0">&#21487;&#33021;&#30340;&#23454;&#29616;</span></h3>
+<table class="eq-fun-cpp-table">
+<tr>
+<td>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">namespace</span> detail
+<span class="br0">{</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> T<span class="sy1">&gt;</span>
+    <span class="kw1">struct</span> type_identity <span class="br0">{</span> <span class="kw1">using</span> type <span class="sy1">=</span> T<span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span> <span class="co1">// &#25110;&#32773;&#20351;&#29992; std::type_identity&#65288;C++20 &#36215;&#65289;</span>
+ 
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> T<span class="sy1">&gt;</span>
+    <span class="kw4">auto</span> try_add_pointer<span class="br0">(</span><span class="kw4">int</span><span class="br0">)</span>
+      <span class="sy2">-</span><span class="sy1">&gt;</span> type_identity<span class="sy1">&lt;</span><span class="kw1">typename</span> <a href="cpp-types-remove_reference.html"><span class="kw609">std::<span class="me2">remove_reference</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">type</span><span class="sy2">*</span><span class="sy1">&gt;</span><span class="sy4">;</span> <span class="co1">// &#36890;&#24120;&#24773;&#20917;</span>
+ 
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> T<span class="sy1">&gt;</span>
+    <span class="kw4">auto</span> try_add_pointer<span class="br0">(</span>...<span class="br0">)</span>
+      <span class="sy2">-</span><span class="sy1">&gt;</span> type_identity<span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy4">;</span> <span class="co1">// &#29305;&#27530;&#24773;&#20917;&#65288;&#19981;&#33021;&#32452;&#25104; std::remove_reference&lt;T&gt;::type*&#65289;</span>
+<span class="br0">}</span> <span class="co1">// namespace detail</span>
+ 
+<span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> T<span class="sy1">&gt;</span>
+<span class="kw1">struct</span> add_pointer <span class="sy4">:</span> decltype<span class="br0">(</span>detail<span class="sy4">::</span><span class="me2">try_add_pointer</span><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;type_traits&gt;</span>
+ 
+<span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">typename</span> F, <span class="kw1">typename</span> Class<span class="sy1">&gt;</span>
+<span class="kw4">void</span> ptr_to_member_func_cvref_test<span class="br0">(</span>F Class<span class="sy4">::</span><span class="sy2">*</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="co1">// F &#26159;&#19968;&#20010;&ldquo;&#31967;&#31957;&#30340;&#20989;&#25968;&#31867;&#22411;&rdquo;</span>
+    <span class="kw1">using</span> FF <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">add_pointer_t</span><span class="sy1">&lt;</span>F<span class="sy1">&gt;</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span><a href="cpp-types-is_same.html"><span class="kw592">std::<span class="me2">is_same_v</span></span></a><span class="sy1">&lt;</span>F, FF<span class="sy1">&gt;</span>, <span class="st0">&quot;FF &#24212;&#35813;&#27491;&#22909;&#26159; F&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw1">struct</span> S
+<span class="br0">{</span>
+    <span class="kw4">void</span> f_ref<span class="br0">(</span><span class="br0">)</span> <span class="sy3">&amp;</span> <span class="br0">{</span><span class="br0">}</span>
+    <span class="kw4">void</span> f_const<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="br0">{</span><span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">int</span> i <span class="sy1">=</span> <span class="nu0">123</span><span class="sy4">;</span>
+    <span class="kw4">int</span><span class="sy3">&amp;</span> ri <span class="sy1">=</span> i<span class="sy4">;</span>
+    <span class="kw1">typedef</span> std<span class="sy4">::</span><span class="me2">add_pointer</span><span class="sy1">&lt;</span>decltype<span class="br0">(</span>i<span class="br0">)</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">type</span> IntPtr<span class="sy4">;</span>
+    <span class="kw1">typedef</span> std<span class="sy4">::</span><span class="me2">add_pointer</span><span class="sy1">&lt;</span>decltype<span class="br0">(</span>ri<span class="br0">)</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">type</span> IntPtr2<span class="sy4">;</span>
+    IntPtr pi <span class="sy1">=</span> <span class="sy3">&amp;</span>i<span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1760">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;i = &quot;</span> <span class="sy1">&lt;&lt;</span> i <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1760">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;*pi = &quot;</span> <span class="sy1">&lt;&lt;</span> <span class="sy2">*</span>pi <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    static_assert<span class="br0">(</span><a href="cpp-types-is_pointer.html"><span class="kw470">std::<span class="me2">is_pointer_v</span></span></a><span class="sy1">&lt;</span>IntPtr<span class="sy1">&gt;</span>, <span class="st0">&quot;IntPtr &#24212;&#35813;&#26159;&#25351;&#38024;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span><a href="cpp-types-is_same.html"><span class="kw592">std::<span class="me2">is_same_v</span></span></a><span class="sy1">&lt;</span>IntPtr, <span class="kw4">int</span><span class="sy2">*</span><span class="sy1">&gt;</span>, <span class="st0">&quot;IntPtr &#24212;&#35813;&#26159;&#25351;&#21521; int &#30340;&#25351;&#38024;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span><a href="cpp-types-is_same.html"><span class="kw592">std::<span class="me2">is_same_v</span></span></a><span class="sy1">&lt;</span>IntPtr2, IntPtr<span class="sy1">&gt;</span>, <span class="st0">&quot;IntPtr2 &#24212;&#35813;&#31561;&#20110; IntPtr&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw1">typedef</span> <a href="cpp-types-remove_pointer.html"><span class="kw615">std::<span class="me2">remove_pointer</span></span></a><span class="sy1">&lt;</span>IntPtr<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">type</span> IntAgain<span class="sy4">;</span>
+    IntAgain j <span class="sy1">=</span> i<span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1760">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;j = &quot;</span> <span class="sy1">&lt;&lt;</span> j <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    static_assert<span class="br0">(</span><span class="sy3">!</span><a href="cpp-types-is_pointer.html"><span class="kw470">std::<span class="me2">is_pointer_v</span></span></a><span class="sy1">&lt;</span>IntAgain<span class="sy1">&gt;</span>, <span class="st0">&quot;IntAgain &#19981;&#24212;&#35813;&#26159;&#25351;&#38024;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span><a href="cpp-types-is_same.html"><span class="kw592">std::<span class="me2">is_same_v</span></span></a><span class="sy1">&lt;</span>IntAgain, <span class="kw4">int</span><span class="sy1">&gt;</span>, <span class="st0">&quot;IntAgain &#24212;&#35813;&#31561;&#20110; int&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    ptr_to_member_func_cvref_test<span class="br0">(</span><span class="sy3">&amp;</span>S<span class="sy4">::</span><span class="me2">f_ref</span><span class="br0">)</span><span class="sy4">;</span>
+    ptr_to_member_func_cvref_test<span class="br0">(</span><span class="sy3">&amp;</span>S<span class="sy4">::</span><span class="me2">f_const</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">i = 123
+*pi = 123
+j = 123</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue2101">LWG 2101</a></td>
+<td>C++11</td>
+<td>&#22312; <code>T</code> &#26159;&#26377; <span class="t-spar">cv&#38480;&#23450;&#31526;</span>&#8202;&#65279;&#25110;<span class="t-spar">&#24341;&#29992;&#38480;&#23450;&#31526;</span>&#8202;&#65279;&#30340;<a href="cpp-language-function.html#.E5.87.BD.E6.95.B0.E7.B1.BB.E5.9E.8B">&#20989;&#25968;&#31867;&#22411;</a>&#26102;&#31243;&#24207;&#38750;&#33391;&#26500;</td>
+<td>&#27492;&#26102;&#20135;&#29983;&#30340;&#31867;&#22411;&#26159; <code>T</code></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-types-is_pointer.html"><span class="t-lines"><span>is_pointer</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#31867;&#22411;&#26159;&#21542;&#20026;&#25351;&#38024;&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-types-remove_pointer.html"><span class="t-lines"><span>remove_pointer</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20174;&#32473;&#23450;&#31867;&#22411;&#31227;&#38500;&#19968;&#23618;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

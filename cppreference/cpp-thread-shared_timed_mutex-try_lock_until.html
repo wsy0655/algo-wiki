@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::shared_timed_mutex::try_lock_until</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_thread_shared_timed_mutex_try_lock_until skin-cppreference2 action-view cpp-page-template cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::shared_timed_mutex::</span>try_lock_until</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-thread.html">thread</a>&lrm; | <a href="cpp-thread-shared_timed_mutex.html">shared timed mutex</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<div class="t-page-template" style="">
+<p></p>
+</div>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx14">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Clock, <span class="kw1">class</span> Duration <span class="sy1">&gt;</span><br />
+<span class="kw4">bool</span> try_lock_until<span class="br0">(</span> <span class="kw4">const</span> <a href="cpp-chrono-time_point.html"><span class="kw993">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">time_point</span></span></a><span class="sy1">&lt;</span>Clock, Duration<span class="sy1">&gt;</span><span class="sy3">&amp;</span> timeout_time <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#23581;&#35797;&#38145;&#23450;&#20114;&#26021;&#20307;&#12290;&#24403;&#21069;&#32447;&#31243;&#20250;&#22312;&#38145;&#23450;&#25104;&#21151;&#65288;&#21344;&#26377;&#20114;&#26021;&#20307;&#65289;&#25110;&#32773;&#25269;&#36798;&#25351;&#23450;&#30340;&#26102;&#38388;&#28857; <span class="t-c"><span class="mw-geshi cpp source-cpp">timeout_time</span></span>&#65288;&#36229;&#26102;&#65289;&#21069;&#38459;&#22622;&#65292;&#21462;&#20915;&#20110;&#20309;&#32773;&#20808;&#36798;&#25104;&#12290;&#38145;&#23450;&#25104;&#21151;&#26102;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#21542;&#21017;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#12290;</p>
+<p>&#22914;&#26524;&#35843;&#29992;&#26102;&#24050;&#32463;&#36807;&#20102;&#26102;&#38388;&#28857; <span class="t-c"><span class="mw-geshi cpp source-cpp">timeout_time</span></span>&#65292;&#37027;&#20040;&#27492;&#20989;&#25968;&#34920;&#29616;&#21516; <span class="t-lc"><a href="cpp-thread-shared_timed_mutex-try_lock.html">try_lock()</a></span>&#12290;</p>
+<p><code>Clock</code> &#24517;&#39035;&#31526;&#21512;<a href="cpp-named_req-Clock.html"><span style="font-style:italic">&#26102;&#38047;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(Clock)</span></a> &#35201;&#27714;&#12290;<span class="t-rev-inl t-since-cxx20"><span>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-chrono-is_clock.html"><span class="kw2552">std::<span class="me2">chrono</span><span class="sy4">::</span><span class="me2">is_clock_v</span></span></a><span class="sy1">&lt;</span>Clock<span class="sy1">&gt;</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#65292;&#37027;&#20040;&#31243;&#24207;&#38750;&#33391;&#26500;&#12290;</span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></span></span></p>
+<p>&#26631;&#20934;&#25512;&#33616;&#20351;&#29992;&#32465;&#23450;&#21040; <span class="t-c"><span class="mw-geshi cpp source-cpp">timeout_time</span></span> &#30340;&#26102;&#38047;&#65292;&#27492;&#26102;&#35843;&#25972;&#26102;&#38047;&#20250;&#26377;&#24433;&#21709;&#12290;&#22240;&#27492;&#65292;&#38459;&#22622;&#30340;&#26102;&#38271;&#21487;&#33021;&#20250;&#23567;&#20110;&#25110;&#22823;&#20110;&#35843;&#29992;&#26102;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">timeout_time <span class="sy2">-</span> Clock<span class="sy4">::</span><span class="me2">now</span><span class="br0">(</span><span class="br0">)</span></span></span>&#65292;&#36825;&#21462;&#20915;&#20110;&#35843;&#25972;&#30340;&#26041;&#21521;&#20197;&#21450;&#23454;&#29616;&#26159;&#21542;&#23562;&#37325;&#36825;&#26679;&#30340;&#35843;&#25972;&#12290;&#20989;&#25968;&#20063;&#21487;&#33021;&#20250;&#22240;&#20026;&#35843;&#24230;&#25110;&#36164;&#28304;&#32416;&#32439;&#24310;&#36831;&#32780;&#38459;&#22622;&#21040; <span class="t-c"><span class="mw-geshi cpp source-cpp">timeout_time</span></span> &#20043;&#21518;&#30340;&#26576;&#20010;&#26102;&#38388;&#28857;&#12290;</p>
+<p>&#19982; <span class="t-lc"><a href="cpp-thread-shared_timed_mutex-try_lock.html">try_lock()</a></span> &#30456;&#21516;&#65292;&#27492;&#20989;&#25968;&#20801;&#35768;&#34394;&#20551;&#22833;&#36133;&#24182;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#65292;&#21363;&#20351;&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">timeout_time</span></span> &#21069;&#30340;&#26576;&#20010;&#26102;&#38388;&#28857;&#27492;&#20114;&#26021;&#20307;&#27809;&#26377;&#34987;&#20219;&#20309;&#20854;&#20182;&#32447;&#31243;&#38145;&#23450;&#12290;</p>
+<p>&#22914;&#26524;&#27492;&#25805;&#20316;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#37027;&#20040;&#30456;&#21516;&#20114;&#26021;&#20307;&#19978;&#20808;&#21069;&#30340; <span class="t-lc"><a href="cpp-thread-shared_timed_mutex-unlock.html">unlock()</a></span> &#25805;&#20316;<i>&#21516;&#27493;&#20110;</i>&#65288;&#22312; <span class="t-lc"><a href="cpp-atomic-memory_order.html">std::memory_order</a></span> &#23450;&#20041;&#65289;&#23427;&#12290;</p>
+<p>&#22914;&#26524;&#24050;&#32463;&#20197;&#20219;&#20309;&#27169;&#24335;&#65288;&#20849;&#20139;&#25110;&#29420;&#21344;&#65289;&#21344;&#26377;&#27492;&#20114;&#26021;&#20307;&#30340;&#32447;&#31243;&#35843;&#29992; <code>try_lock_until</code>&#65292;&#37027;&#20040;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>timeout_time</td>
+<td>-</td>
+<td>&#35201;&#38459;&#22622;&#21040;&#30340;&#26368;&#26202;&#26102;&#38388;&#28857;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#25104;&#21151;&#38145;&#23450;&#26102;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#21542;&#21017;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp">timeout_time</span></span> &#21487;&#33021;&#25243;&#20986;&#30340;&#24322;&#24120;&#65288;&#26631;&#20934;&#24211;&#25552;&#20379;&#30340;&#26102;&#38047;&#12289;&#26102;&#38388;&#28857;&#21644;&#26102;&#38271;&#20915;&#19981;&#25243;&#20986;&#65289;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#26242;&#26080;&#31034;&#20363;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-shared_timed_mutex-lock.html"><span class="t-lines"><span>lock</span></span></a></div>
+</div>
+</td>
+<td>&#38145;&#23450;&#20114;&#26021;&#20307;&#65292;&#33509;&#20114;&#26021;&#20307;&#19981;&#21487;&#29992;&#21017;&#38459;&#22622;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-shared_timed_mutex-try_lock.html"><span class="t-lines"><span>try_lock</span></span></a></div>
+</div>
+</td>
+<td>&#23581;&#35797;&#38145;&#23450;&#20114;&#26021;&#20307;&#65292;&#33509;&#20114;&#26021;&#20307;&#19981;&#21487;&#29992;&#21017;&#36820;&#22238;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-shared_timed_mutex-try_lock_for.html"><span class="t-lines"><span>try_lock_for</span></span></a></div>
+</div>
+</td>
+<td>&#23581;&#35797;&#38145;&#23450;&#20114;&#26021;&#20307;&#65292;&#33509;&#20114;&#26021;&#20307;&#22312;&#25351;&#23450;&#30340;&#26102;&#38480;&#26102;&#26399;&#20013;&#19981;&#21487;&#29992;&#21017;&#36820;&#22238;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-thread-shared_timed_mutex-unlock.html"><span class="t-lines"><span>unlock</span></span></a></div>
+</div>
+</td>
+<td>&#35299;&#38145;&#20114;&#26021;&#20307;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>mtx_timedlock</span></span>&nbsp;&#30340; <span><span><a href="c-thread-mtx_timedlock.html">C &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

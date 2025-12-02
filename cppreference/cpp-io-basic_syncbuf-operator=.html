@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::basic_syncbuf&lt;CharT,Traits,Allocator&gt;::operator=</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_io_basic_syncbuf_operator skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::basic_syncbuf&lt;CharT,Traits,Allocator&gt;::</span>operator=</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-io.html">io</a>&lrm; | <a href="cpp-io-basic_syncbuf.html">basic syncbuf</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi cpp source-cpp">basic_syncbuf<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span>basic_syncbuf<span class="sy3">&amp;&amp;</span> other<span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#39318;&#20808;&#65292;&#35843;&#29992; <a href="cpp-io-basic_syncbuf-emit.html"><tt>emit()</tt></a> &#20256;&#36755;&#25152;&#26377;&#24453;&#20915;&#36755;&#20986;&#65288;&#21644;&#24310;&#36831;&#20914;&#20837;&#65292;&#33509;&#23384;&#22312;&#65289;&#21040;&#34987;&#21253;&#35013;&#27969;&#12290;</p>
+<p>&#28982;&#21518;&#36890;&#36807;&#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp">other</span></span> &#31227;&#21160;&#25152;&#26377;&#20869;&#23481;&#65292;&#21253;&#25324;&#20020;&#26102;&#23384;&#20648;&#12289;&#34987;&#21253;&#35013;&#30340;&#27969;&#25351;&#38024;&#12289;&#31574;&#30053;&#21450;&#25152;&#26377;&#20854;&#20182;&#29366;&#24577;&#65288;&#22914;&#20114;&#26021;&#25351;&#38024;&#65289;&#65292;&#36827;&#34892;&#31227;&#21160;&#36171;&#20540;&#12290;&#31227;&#21160;&#21518;&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">other</span></span> &#19981;&#19982;&#27969;&#20851;&#32852;&#65292;&#32780; <span class="t-c"><span class="mw-geshi cpp source-cpp">other.<span class="me1">get_wrapped</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> nullptr</span></span>&#12290;<span class="t-c"><span class="mw-geshi cpp source-cpp">other</span></span> &#30340; <span class="t-lc"><a href="cpp-io-basic_streambuf.html">std::basic_streambuf</a></span> &#22522;&#31867;&#30340;&#25918;&#32622;&#21306;&#25104;&#21592;&#25351;&#38024;&#20445;&#35777;&#20026;&#31354;&#12290;&#38144;&#27585;&#34987;&#31227;&#21160;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">other</span></span> &#23558;&#19981;&#20250;&#20135;&#29983;&#20219;&#20309;&#36755;&#20986;&#12290;</p>
+<p>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-allocator_traits.html"><span class="kw703">std::<span class="me2">allocator_traits</span></span></a><span class="sy1">&lt;</span>Allocator<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">propagate_on_container_move_assignment</span><span class="sy4">::</span><span class="me2">value</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#65292;&#21017;&#19981;&#26356;&#25913;&#20998;&#37197;&#22120;&#12290;&#21542;&#21017;&#65292;&#31227;&#21160;&#21518; <span class="t-c"><span class="mw-geshi cpp source-cpp">get_allocator<span class="br0">(</span><span class="br0">)</span></span></span> &#31561;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">other.<span class="me1">get_allocator</span><span class="br0">(</span><span class="br0">)</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>other</td>
+<td>-</td>
+<td>&#35201;&#31227;&#21160;&#30340;&#21478;&#19968; std::basic_syncbuf</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span></p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#26242;&#26080;&#31034;&#20363;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_osyncstream-operator=.html"><span class="t-lines"><span>operator=</span></span></a></div>
+</div>
+</td>
+<td>&#36171;&#20540; <code>basic_osyncstream</code> &#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_osyncstream&lt;CharT,Traits,Allocator&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-io-basic_syncbuf-basic_syncbuf.html"><span class="t-lines"><span>(&#26500;&#36896;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#26500;&#36896; <code>basic_syncbuf</code> &#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_syncbuf-emit.html"><span class="t-lines"><span>emit</span></span></a></div>
+</div>
+</td>
+<td>&#21407;&#23376;&#22320;&#20256;&#36755;&#25972;&#20010;&#20869;&#37096;&#32531;&#20914;&#21306;&#32473;&#34987;&#21253;&#35013;&#30340; <code>streambuf</code><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_syncbuf-swap.html"><span class="t-lines"><span>swap</span></span></a></div>
+</div>
+</td>
+<td>&#20132;&#25442;&#20004;&#20010; <code>basic_syncbuf</code> &#23545;&#35937;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

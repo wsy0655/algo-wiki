@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::as_const</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_utility_as_const skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>as_const</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-utility.html">utility</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-utility.html">&lt;utility&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T <span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> <a href="cpp-types-add_cv.html"><span class="kw607">std::<span class="me2">add_const_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy3">&amp;</span> as_const<span class="br0">(</span> T<span class="sy3">&amp;</span> t <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T <span class="sy1">&gt;</span><br />
+<span class="kw4">void</span> as_const<span class="br0">(</span> <span class="kw4">const</span> T<span class="sy3">&amp;&amp;</span> <span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#24418;&#25104;&#21040; <code>t</code> &#30340; const &#29256;&#26412;&#31867;&#22411;&#30340;&#24038;&#20540;&#24341;&#29992;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> const &#21491;&#20540;&#24341;&#29992;&#37325;&#36733;&#34987;&#24323;&#32622;&#65292;&#20197;&#31105;&#27490;&#21491;&#20540;&#23454;&#21442;&#12290;</div>
+<h3><span class="mw-headline" id=".E5.8F.AF.E8.83.BD.E7.9A.84.E5.AE.9E.E7.8E.B0">&#21487;&#33021;&#30340;&#23454;&#29616;</span></h3>
+<table class="eq-fun-cpp-table">
+<tr>
+<td>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> T<span class="sy1">&gt;</span>
+<span class="kw4">constexpr</span> <a href="cpp-types-add_cv.html"><span class="kw607">std::<span class="me2">add_const_t</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy3">&amp;</span> as_const<span class="br0">(</span>T<span class="sy3">&amp;</span> t<span class="br0">)</span> <span class="kw1">noexcept</span>
+<span class="br0">{</span>
+    <span class="kw1">return</span> t<span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id="Notes">Notes</span></h3>
+<table class="wikitable ftm-begin">
+<tr>
+<th><a href="cpp-utility-feature_test.html">&#21151;&#33021;&#29305;&#24615;&#27979;&#35797;</a>&#23439;</th>
+<th><abbr title="&#37319;&#32435;&#35813;&#29305;&#24615;&#30340;&#24180;/&#26376;&#12290;&#27599;&#20010;&#20540;&#19979;&#38754;&#30340;&#38142;&#25509;&#25351;&#21521;&#32534;&#35793;&#26399;&#25903;&#25345;&#39029;&#38754;&#20013;&#32473;&#23450;&#21151;&#33021;&#29305;&#24615;&#30340;&#26465;&#30446;&#12290;">&#20540;</abbr></th>
+<th><abbr title="&#24341;&#20837;&#35813;&#29305;&#24615;&#30340;&#26631;&#20934;&#65307;DR &#24847;&#20026;&#38024;&#23545;&#35813;&#20462;&#35746;&#29256;&#30340;&#32570;&#38519;&#25253;&#21578;">&#26631;&#20934;</abbr></th>
+<th>&#21151;&#33021;&#29305;&#24615;</th>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lib_as_const"><code>__cpp_lib_as_const</code></a></td>
+<td><a href="cpp-compiler_support-17.html#cpp_lib_as_const_201510L"><code>201510L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++17)</span></td>
+<td><a href="cpp-utility-as_const.html#Top"><code>std::as_const</code></a></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;cassert&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+<span class="co2">#include &lt;type_traits&gt;</span>
+<span class="co2">#include &lt;utility&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-string-basic_string.html"><span class="kw1232">std::<span class="me2">string</span></span></a> mutableString <span class="sy1">=</span> <span class="st0">&quot;Hello World!&quot;</span><span class="sy4">;</span>
+    <span class="kw4">auto</span><span class="sy3">&amp;&amp;</span> constRef <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">as_const</span><span class="br0">(</span>mutableString<span class="br0">)</span><span class="sy4">;</span>
+ 
+<span class="co1">//  mutableString.clear(); // OK</span>
+<span class="co1">//  constRef.clear(); // &#38169;&#35823;&#65306;&#39;constRef&#39; &#26377; &#39;const&#39; &#38480;&#23450;&#65292;&#20294; &#39;clear&#39; &#19981;&#26631;&#35760;&#20026; const</span>
+ 
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><span class="sy3">&amp;</span>constRef <span class="sy1">==</span> <span class="sy3">&amp;</span>mutableString<span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><span class="sy3">&amp;</span>std<span class="sy4">::</span><span class="me2">as_const</span><span class="br0">(</span>mutableString<span class="br0">)</span> <span class="sy1">==</span> <span class="sy3">&amp;</span>mutableString<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw1">using</span> ExprType <span class="sy1">=</span> <a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>decltype<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">as_const</span><span class="br0">(</span>mutableString<span class="br0">)</span><span class="br0">)</span><span class="sy1">&gt;</span><span class="sy4">;</span>
+ 
+    static_assert<span class="br0">(</span><a href="cpp-types-is_same.html"><span class="kw592">std::<span class="me2">is_same_v</span></span></a><span class="sy1">&lt;</span><a href="cpp-types-remove_cv.html"><span class="kw601">std::<span class="me2">remove_const_t</span></span></a><span class="sy1">&lt;</span>ExprType<span class="sy1">&gt;</span>, <a href="cpp-string-basic_string.html"><span class="kw1232">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span>,
+                  <span class="st0">&quot;ExprType &#24212;&#24403;&#20026;&#26576;&#31181;&#23383;&#31526;&#20018;&#12290;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span><span class="sy3">!</span><a href="cpp-types-is_same.html"><span class="kw592">std::<span class="me2">is_same_v</span></span></a><span class="sy1">&lt;</span>ExprType, <a href="cpp-string-basic_string.html"><span class="kw1232">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span>,
+                  <span class="st0">&quot;ExprType &#19981;&#33021;&#26159;&#21487;&#20462;&#25913;&#30340;&#23383;&#31526;&#20018;&#12290;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-types-is_const.html"><span class="t-lines"><span>is_const</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#31867;&#22411;&#26159;&#21542;&#20026; const &#38480;&#23450;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-types-add_cv.html"><span class="t-lines"><span>add_cv</span><span>add_const</span><span>add_volatile</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#21521;&#32473;&#23450;&#31867;&#22411;&#28155;&#21152; <span class="mw-geshi cpp source-cpp"><span class="kw4">const</span></span> &#21644;/&#25110; <span class="mw-geshi cpp source-cpp"><span class="kw4">volatile</span></span> &#38480;&#23450;&#31526;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-types-remove_cv.html"><span class="t-lines"><span>remove_cv</span><span>remove_const</span><span>remove_volatile</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20174;&#32473;&#23450;&#31867;&#22411;&#31227;&#38500; <span class="mw-geshi cpp source-cpp"><span class="kw4">const</span></span> &#21644;/&#25110; <span class="mw-geshi cpp source-cpp"><span class="kw4">volatile</span></span> &#38480;&#23450;&#31526;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-ranges-as_const_view.html"><span class="t-lines"><span>ranges::as_const_view</span><span>views::as_const</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#36716;&#25442; <a href="cpp-ranges-view.html"><code>view</code></a> &#20026; <a href="cpp-ranges-constant_range.html"><code>constant_range</code></a><br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span> <span class="t-mark" style="white-space: nowrap;">(&#33539;&#22260;&#36866;&#37197;&#22120;&#23545;&#35937;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

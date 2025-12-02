@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>constexpr &#35828;&#26126;&#31526; (C23 &#36215;)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_language_constexpr skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">constexpr &#35828;&#26126;&#31526; <span class="t-mark-rev t-since-c23" style="white-space: nowrap;">(C23 &#36215;)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-language.html">language</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<p>&#29992; <code>constexpr</code> &#23384;&#20648;&#31867;&#35828;&#26126;&#31526;&#22768;&#26126;&#30340;&#26631;&#37327;&#23545;&#35937;&#23646;&#20110;<a href="c-language-constant_expression.html">&#24120;&#37327;</a>&#12290;&#24517;&#39035;&#26681;&#25454;&#38745;&#24577;&#21021;&#22987;&#21270;&#35268;&#21017;&#36827;&#34892;&#23436;&#20840;&#19988;&#26126;&#30830;&#30340;&#21021;&#22987;&#21270;&#12290;&#23427;&#20173;&#28982;&#26377;&#36866;&#20110;&#20854;&#22768;&#26126;&#30340;<a href="c-language-storage_duration.html#.E9.93.BE.E6.8E.A5">&#38142;&#25509;</a>&#65292;&#24182;&#19988;&#22312;&#36816;&#34892;&#26102;&#23384;&#22312;&#65292;&#20197;&#33719;&#21462;&#20854;&#22320;&#22336;&#65307;&#23427;&#21482;&#26159;&#22312;&#36816;&#34892;&#26102;&#19981;&#33021;&#20197;&#20219;&#20309;&#26041;&#24335;&#36827;&#34892;&#20462;&#25913;&#65292;&#21363;&#65292;&#32534;&#35793;&#22120;&#21487;&#20197;&#22312;&#20219;&#20309;&#20854;&#20182;<a href="c-language-constant_expression.html">&#24120;&#37327;&#34920;&#36798;&#24335;</a>&#20013;&#36816;&#29992;&ldquo;&#23545;&#35937;&#20855;&#26377;&#22266;&#23450;&#20540;&ldquo;&#30340;&#30693;&#35782;&#12290;</p>
+<p>&#27492;&#22806;&#65292;&#36825;&#31181;&#24120;&#37327;&#30340;&#21021;&#22987;&#21270;&#24335;&#25152;&#20351;&#29992;&#30340;&#24120;&#37327;&#34920;&#36798;&#24335;&#65292;&#22312;&#32534;&#35793;&#26102;&#36827;&#34892;&#26816;&#26597;&#12290;</p>
+<p>&#28014;&#28857;&#31867;&#22411;&#30340;&#21021;&#22987;&#21270;&#24335;&#24517;&#23450;&#22312;&#32763;&#35793;&#26102;&#30340;&#28014;&#28857;&#29615;&#22659;&#20013;&#36827;&#34892;&#35745;&#31639;&#12290;</p>
+<p>&#21487;&#20197;&#29992; <code>constexpr</code> &#22768;&#26126;&#30340;&#23545;&#35937;&#31867;&#22411;&#26377;&#19968;&#20123;&#38480;&#21046;&#12290;&#20063;&#23601;&#26159;&#35828;&#65292;&#20197;&#19979;&#26500;&#36896;&#19981;&#33021;&#20351;&#29992; <code>constexpr</code>&#65306;</p>
+<ul>
+<li><a href="c-language-pointer.html">&#25351;&#38024;</a> (&#20294;&#31354;&#25351;&#38024;&#21487;&#20197;&#20026; <code>constexpr</code>),</li>
+<li>&#21487;&#21464;&#20462;&#25913;&#31867;&#22411;&#65292;</li>
+<li><a href="c-language-atomic.html">&#21407;&#23376;&#31867;&#22411;</a>&#65292;</li>
+<li><a href="c-language-volatile.html"><code>volatile</code></a> &#31867;&#22411;&#65292;</li>
+<li><a href="c-language-restrict.html"><code>restrict</code></a> &#25351;&#38024;&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E5.85.B3.E9.94.AE.E8.AF.8D">&#20851;&#38190;&#35789;</span></h3>
+<p><a href="c-keyword-constexpr.html"><tt>constexpr</tt></a></p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#include &lt;fenv.h&gt;</span>
+<span class="co2">#include &lt;stdio.h&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    constexpr <span class="kw4">float</span> f <span class="sy1">=</span> <span class="nu17">23.0f</span><span class="sy4">;</span>
+    constexpr <span class="kw4">float</span> g <span class="sy1">=</span> <span class="nu17">33.0f</span><span class="sy4">;</span>
+    <a href="c-numeric-fenv-feround.html"><span class="kw724">fesetround</span></a><span class="br0">(</span><a href="c-numeric-fenv-FE_round.html"><span class="kw737">FE_TOWARDZERO</span></a><span class="br0">)</span><span class="sy4">;</span>
+    constexpr <span class="kw4">float</span> h <span class="sy1">=</span> f <span class="sy2">/</span> g<span class="sy4">;</span> <span class="co1">// &#19981;&#20250;&#34987;&#19978;&#26041;&#30340; fesetround() &#24433;&#21709;</span>
+    <a href="c-io-fprintf.html"><span class="kw851">printf</span></a><span class="br0">(</span><span class="st0">&quot;%f<span class="es1">\n</span>&quot;</span>, h<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">0.696969</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-23">
+<ul>
+<li>C23 &#26631;&#20934;&#65288;ISO/IEC 9899:2024&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>TBD TBD &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class=""><span><code>constexpr</code> &#35828;&#26126;&#31526;</span></span>&#30340; <span><span><a href="cpp-language-constexpr.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

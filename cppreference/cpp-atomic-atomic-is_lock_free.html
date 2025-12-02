@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::atomic&lt;T&gt;::is_lock_free</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_atomic_atomic_is_lock_free skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::atomic&lt;T&gt;::</span>is_lock_free</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-atomic.html">atomic</a>&lrm; | <a href="cpp-atomic-atomic.html">atomic</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> is_lock_free<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> is_lock_free<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw4">volatile</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#26816;&#26597;&#27492;&#31867;&#22411;&#25152;&#26377;&#23545;&#35937;&#19978;&#30340;&#21407;&#23376;&#25805;&#20316;&#26159;&#21542;&#20813;&#38145;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#22312;&#27492;&#31867;&#22411;&#25152;&#26377;&#23545;&#35937;&#19978;&#30340;&#21407;&#23376;&#25805;&#20316;&#20813;&#38145;&#30340;&#24773;&#20917;&#19979;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#21542;&#21017;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p><span class="t-lc"><a href="cpp-atomic-atomic_flag.html">std::atomic_flag</a></span> &#20197;&#22806;&#30340;&#25152;&#26377;&#21407;&#23376;&#31867;&#22411;&#21487;&#29992;&#20114;&#26021;&#20307;&#25110;&#20854;&#20182;&#38145;&#23450;&#25805;&#20316;&#23454;&#29616;&#65292;&#32780;&#19981;&#19968;&#23450;&#29992;&#20813;&#38145;&#30340;&#21407;&#23376; CPU &#25351;&#20196;&#12290;&#20063;&#20801;&#35768;&#21407;&#23376;&#31867;&#22411;<i>&#26377;&#26102;</i>&#8202;&#65279;&#20813;&#38145;&#65292;&#20363;&#22914;&#32473;&#23450;&#26550;&#26500;&#19978;&#20165;&#23545;&#40784;&#30340;&#20869;&#23384;&#35775;&#38382;&#26159;&#22825;&#28982;&#21407;&#23376;&#30340;&#65292;&#27492;&#26102;&#21516;&#31867;&#22411;&#30340;&#26410;&#23545;&#40784;&#23545;&#35937;&#23601;&#24517;&#39035;&#29992;&#38145;&#12290;</p>
+<p>C++ &#26631;&#20934;&#25512;&#33616;&#65288;&#20294;&#19981;&#35201;&#27714;&#65289;&#20813;&#38145;&#25805;&#20316;&#37117;&#26159;&#20813;&#22320;&#22336;&#30340;&#65292;&#21363;&#36866;&#29992;&#20110;&#20351;&#29992;&#20849;&#20139;&#20869;&#23384;&#30340;&#36827;&#31243;&#38388;&#20132;&#27969;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;atomic&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;utility&gt;</span>
+ 
+<span class="kw1">struct</span> A <span class="br0">{</span> <span class="kw4">int</span> a<span class="br0">[</span><span class="nu0">100</span><span class="br0">]</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+<span class="kw1">struct</span> B <span class="br0">{</span> <span class="kw4">int</span> x, y<span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <a href="cpp-io-manip-boolalpha.html"><span class="kw1768">std::<span class="me2">boolalpha</span></span></a>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;std::atomic&lt;A&gt; &#26159;&#21542;&#20813;&#38145;&#65311;&quot;</span>
+              <span class="sy1">&lt;&lt;</span> <a href="cpp-atomic-atomic.html"><span class="kw2070">std::<span class="me2">atomic</span></span></a><span class="sy1">&lt;</span>A<span class="sy1">&gt;</span><span class="br0">{</span><span class="br0">}</span>.<span class="me1">is_lock_free</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;std::atomic&lt;B&gt; &#26159;&#21542;&#20813;&#38145;&#65311;&quot;</span>
+              <span class="sy1">&lt;&lt;</span> <a href="cpp-atomic-atomic.html"><span class="kw2070">std::<span class="me2">atomic</span></span></a><span class="sy1">&lt;</span>B<span class="sy1">&gt;</span><span class="br0">{</span><span class="br0">}</span>.<span class="me1">is_lock_free</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">std::atomic&lt;A&gt; &#26159;&#21542;&#20813;&#38145;&#65311;false
+std::atomic&lt;B&gt; &#26159;&#21542;&#20813;&#38145;&#65311;true</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-atomic-atomic_is_lock_free.html"><span class="t-lines"><span>atomic_is_lock_free</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#35813;&#21407;&#23376;&#31867;&#22411;&#30340;&#25805;&#20316;&#26159;&#21542;&#26159;&#20813;&#38145;&#30340;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-memory-shared_ptr-atomic.html"><span class="t-lines"><span>atomic_is_lock_free<span class="t-dsc-small">(std::shared_ptr)</span></span></span></a></div>
+</div>
+</td>
+<td>&#23545; <span class="t-lc"><a href="cpp-memory-shared_ptr.html">std::shared_ptr</a></span> &#29305;&#21270;&#21407;&#23376;&#25805;&#20316;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-atomic-atomic-is_always_lock_free.html"><span class="t-lines"><span>is_always_lock_free</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#38745;&#24577;]</span> <span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span></span></span></div>
+</div>
+</td>
+<td>&#25351;&#31034;&#35813;&#31867;&#22411;&#26159;&#21542;&#22987;&#32456;&#20813;&#38145;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#38745;&#24577;&#25104;&#21592;&#24120;&#37327;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>&#26631;&#20934;&#26684;&#24335;&#35828;&#26126; (C++20 &#36215;)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_utility_format_spec skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">&#26631;&#20934;&#26684;&#24335;&#35828;&#26126; <span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-utility.html">utility</a>&lrm; | <a href="cpp-utility-format.html">format</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<p>&#23545;&#20110;&#22522;&#26412;&#31867;&#22411;&#21644;&#23383;&#31526;&#20018;&#31867;&#22411;&#65292;&#26684;&#24335;&#35828;&#26126;&#22522;&#20110; <a rel="nofollow" class="external text" href="https://docs.python.org/3/library/string.html#formatspec">Python &#20013;&#30340;&#26684;&#24335;&#35828;&#26126;</a>&#12290;</p>
+<p>&#26684;&#24335;&#35828;&#26126;&#30340;&#35821;&#27861;&#26159;&#65306;</p>
+<table class="t-sdsc-begin">
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td class="t-sdsc-nopad"><span class="t-spar">&#22635;&#20805;&#19982;&#23545;&#40784;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#27491;&#36127;&#21495;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <code><b>#</b></code><span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <code><b>0</b></code><span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#23485;&#24230;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#31934;&#24230;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <code><b>L</b></code><span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#31867;&#22411;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span></td>
+<td class="t-sdsc-nopad"></td>
+<td class="t-sdsc-nopad"></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+</table>
+<p><span class="t-spar">&#27491;&#36127;&#21495;</span>&#12289;<code><b>#</b></code> &#21450; <code><b>0</b></code> &#36873;&#39033;&#21482;&#26377;&#22312;&#20351;&#29992;&#25972;&#25968;&#25110;&#28014;&#28857;&#25968;&#26174;&#31034;&#31867;&#22411;&#26102;&#21512;&#27861;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.A1.AB.E5.85.85.E4.B8.8E.E5.AF.B9.E9.BD.90">&#22635;&#20805;&#19982;&#23545;&#40784;</span></h3>
+<p><span class="t-spar">&#22635;&#20805;&#19982;&#23545;&#40784;</span>&#8202;&#65279;&#26159;&#19968;&#20010;&#21487;&#36873;&#30340;<i>&#22635;&#20805;</i>&#23383;&#31526;&#65288;&#21487;&#20197;&#26159;&#38500; <code><b>{</b></code> &#21644; <code><b>}</b></code> &#20197;&#22806;&#30340;&#20219;&#20309;&#23383;&#31526;&#65289;&#65292;&#21518;&#38543;<i>&#23545;&#40784;</i>&#8202;&#65279;&#36873;&#39033; <code><b>&lt;</b></code>&#12289;<code><b>&gt;</b></code>&#12289;<code><b>^</b></code> &#20043;&#19968;&#12290;</p>
+<p>&#22914;&#26524;&#26410;&#25351;&#23450;&#22635;&#20805;&#23383;&#31526;&#65292;&#21017;&#32570;&#30465;&#20026;&#31354;&#26684;&#23383;&#31526;&#12290;&#23545;&#20110; Unicode &#32534;&#30721;&#30340;&#26684;&#24335;&#35828;&#26126;&#65292;&#22635;&#20805;&#23383;&#31526;&#24517;&#39035;&#23545;&#24212;&#20110;&#21333;&#20010; Unicode &#26631;&#37327;&#20540;&#12290;</p>
+<p><i>&#23545;&#40784;</i>&#8202;&#65279;&#36873;&#39033;&#30340;&#24847;&#20041;&#22914;&#19979;&#65306;</p>
+<ul>
+<li><code><b>&lt;</b></code>&#65306;&#24378;&#21046;&#26684;&#24335;&#21270;&#30340;&#23454;&#21442;&#23545;&#40784;&#21040;&#21487;&#29992;&#31354;&#38388;&#24320;&#22836;&#65292;&#36890;&#36807;&#22312;&#26684;&#24335;&#21270;&#30340;&#23454;&#21442;&#30340;&#21518;&#38754;&#25554;&#20837; <span class="texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">n</span> &#20010;&#23383;&#31526;&#12290;&#36825;&#26159;&#20351;&#29992;&#38750;&#25972;&#25968;&#38750;&#28014;&#28857;&#25968;&#26174;&#31034;&#31867;&#22411;&#26102;&#30340;&#40664;&#35748;&#36873;&#39033;&#12290;</li>
+<li><code><b>&gt;</b></code>&#65306;&#24378;&#21046;&#26684;&#24335;&#21270;&#30340;&#23454;&#21442;&#23545;&#40784;&#21040;&#21487;&#29992;&#31354;&#38388;&#26411;&#23614;&#65292;&#36890;&#36807;&#22312;&#26684;&#24335;&#21270;&#30340;&#23454;&#21442;&#30340;&#21069;&#38754;&#25554;&#20837; <span class="texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">n</span> &#20010;&#23383;&#31526;&#12290;&#36825;&#26159;&#20351;&#29992;&#25972;&#25968;&#25110;&#28014;&#28857;&#25968;&#26174;&#31034;&#31867;&#22411;&#26102;&#30340;&#40664;&#35748;&#36873;&#39033;&#12290;</li>
+<li><code><b>^</b></code>&#65306;&#24378;&#21046;&#26684;&#24335;&#21270;&#30340;&#23454;&#21442;&#22312;&#21487;&#29992;&#31354;&#38388;&#20013;&#22830;&#65292;&#36890;&#36807;&#22312;&#26684;&#24335;&#21270;&#30340;&#23454;&#21442;&#30340;&#21069;&#38754;&#25554;&#20837; <span class="texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">&lfloor;<span class="t-mfrac"></span></span>
+<table>
+<tr>
+<td>n</td>
+</tr>
+<tr>
+<td>2</td>
+</tr>
+</table>
+&rfloor; &#20010;&#23383;&#31526;&#65292;&#21518;&#38754;&#25554;&#20837; <span class="texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">&lceil;<span class="t-mfrac"></span></span>
+<table>
+<tr>
+<td>n</td>
+</tr>
+<tr>
+<td>2</td>
+</tr>
+</table>
+&rceil; &#20010;&#23383;&#31526;&#12290;</li>
+</ul>
+<p>&#22312;&#25152;&#26377;&#24773;&#20917;&#19979;&#65292;<span class="texhtml" style="white-space:nowrap;font-family:&#39;Times New Roman&#39;,serif;font-size:120%;line-height:1em;margin-left:-0.1em;">n</span> &#26159;&#26368;&#23567;&#22495;&#23485;&#65288;&#20197; <span class="t-spar">&#23485;&#24230;</span> &#25351;&#23450;&#65289;&#21644;&#26684;&#24335;&#21270;&#30340;&#23454;&#21442;&#30340;<a href="cpp-utility-format-spec.html#.E5.AE.BD.E5.BA.A6.E4.BC.B0.E8.AE.A1">&#39044;&#35745;&#23485;&#24230;</a>&#30340;&#24046;&#65292;&#25110;&#32773;&#22312;&#24046;&#23567;&#20110; 0 &#26102;&#26159; 0&#12290;</p>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;cassert&gt;</span>
+<span class="co2">#include &lt;format&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">char</span> c <span class="sy1">=</span> <span class="nu0">120</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;{:6}&quot;</span>, <span class="nu0">42</span><span class="br0">)</span>    <span class="sy1">==</span> <span class="st0">&quot;    42&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;{:6}&quot;</span>, <span class="st0">&#39;x&#39;</span><span class="br0">)</span>   <span class="sy1">==</span> <span class="st0">&quot;x     &quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;{:*&lt;6}&quot;</span>, <span class="st0">&#39;x&#39;</span><span class="br0">)</span> <span class="sy1">==</span> <span class="st0">&quot;x*****&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;{:*&gt;6}&quot;</span>, <span class="st0">&#39;x&#39;</span><span class="br0">)</span> <span class="sy1">==</span> <span class="st0">&quot;*****x&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;{:*^6}&quot;</span>, <span class="st0">&#39;x&#39;</span><span class="br0">)</span> <span class="sy1">==</span> <span class="st0">&quot;**x***&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;{:6d}&quot;</span>, c<span class="br0">)</span>    <span class="sy1">==</span> <span class="st0">&quot;   120&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;{:6}&quot;</span>, <span class="kw2">true</span><span class="br0">)</span>  <span class="sy1">==</span> <span class="st0">&quot;true  &quot;</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<p><span id=".E6.AD.A3.E8.B4.9F.E5.8F.B7"></span></p>
+<h3><span class="mw-headline" id=".E6.AD.A3.E8.B4.9F.E5.8F.B7.E3.80.81.23_.E4.B8.8E_0">&#27491;&#36127;&#21495;&#12289;# &#19982; 0</span></h3>
+<p><span class="t-spar">&#27491;&#36127;&#21495;</span>&#8202;&#65279;&#36873;&#39033;&#21487;&#20197;&#26159;&#19979;&#21015;&#20043;&#19968;&#65306;</p>
+<ul>
+<li><code><b>+</b></code>&#65306;&#25351;&#31034;&#24212;&#35813;&#23545;&#20110;&#38750;&#36127;&#25968;&#21644;&#36127;&#25968;&#37117;&#20351;&#29992;&#27491;&#36127;&#21495;&#12290;&#22312;&#38750;&#36127;&#25968;&#30340;&#36755;&#20986;&#20540;&#21069;&#25554;&#20837; <code>+</code> &#21495;&#12290;</li>
+<li><code><b>-</b></code>&#65306;&#25351;&#31034;&#24212;&#35813;&#20165;&#23545;&#20110;&#36127;&#25968;&#20351;&#29992;&#27491;&#36127;&#21495;&#65288;&#36825;&#26159;&#40664;&#35748;&#34892;&#20026;&#65289;&#12290;</li>
+<li>&#31354;&#26684;&#65306;&#25351;&#31034;&#24212;&#23545;&#38750;&#36127;&#25968;&#20351;&#29992;&#19968;&#20010;&#21069;&#23548;&#31354;&#26684;&#65292;&#32780;&#23545;&#36127;&#25968;&#20351;&#29992;&#36127;&#21495;&#12290;</li>
+</ul>
+<p>&#36127;&#38646;&#34987;&#24403;&#20316;&#36127;&#25968;&#12290;</p>
+<p><span class="t-spar">&#27491;&#36127;&#21495;</span>&#8202;&#65279;&#36873;&#39033;&#36866;&#29992;&#20110;&#28014;&#28857;&#25968;&#26080;&#31351;&#22823;&#21644; NaN&#12290;</p>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;cassert&gt;</span>
+<span class="co2">#include &lt;format&gt;</span>
+<span class="co2">#include &lt;limits&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">double</span> inf <span class="sy1">=</span> <a href="cpp-types-numeric_limits.html"><span class="kw351">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span><span class="kw4">double</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">infinity</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">double</span> nan <span class="sy1">=</span> <a href="cpp-types-numeric_limits.html"><span class="kw351">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span><span class="kw4">double</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">quiet_NaN</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;{0:},{0:+},{0:-},{0: }&quot;</span>, <span class="nu0">1</span><span class="br0">)</span>   <span class="sy1">==</span> <span class="st0">&quot;1,+1,1, 1&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;{0:},{0:+},{0:-},{0: }&quot;</span>, <span class="sy2">-</span><span class="nu0">1</span><span class="br0">)</span>  <span class="sy1">==</span> <span class="st0">&quot;-1,-1,-1,-1&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;{0:},{0:+},{0:-},{0: }&quot;</span>, inf<span class="br0">)</span> <span class="sy1">==</span> <span class="st0">&quot;inf,+inf,inf, inf&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;{0:},{0:+},{0:-},{0: }&quot;</span>, nan<span class="br0">)</span> <span class="sy1">==</span> <span class="st0">&quot;nan,+nan,nan, nan&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<p><code><b>#</b></code> &#36873;&#39033;&#23548;&#33268;&#23558;<i>&#20195;&#29992;&#24418;&#24335;</i>&#8202;&#65279;&#29992;&#20110;&#36716;&#25442;&#12290;</p>
+<ul>
+<li>&#23545;&#20110;&#25972;&#25968;&#31867;&#22411;&#65292;&#20351;&#29992;&#20108;&#36827;&#21046;&#12289;&#20843;&#36827;&#21046;&#25110;&#21313;&#20845;&#36827;&#21046;&#26174;&#31034;&#31867;&#22411;&#26102;&#65292;&#20195;&#29992;&#24418;&#24335;&#20250;&#22312;&#26377;&#27491;&#36127;&#21495;&#23383;&#31526;&#65288;&#21487;&#20197;&#26159;&#31354;&#26684;&#65289;&#26102;&#23558;&#21069;&#32512;&#65288;<code>0b</code>&#12289;<code>0</code> &#25110; <code>0x</code>&#65289;&#25554;&#20837;&#21040;&#36755;&#20986;&#20540;&#20013;&#27491;&#36127;&#21495;&#23383;&#31526;&#20043;&#21518;&#65292;&#21542;&#21017;&#23558;&#21069;&#32512;&#25554;&#20837;&#21040;&#36755;&#20986;&#20540;&#20043;&#21069;&#12290;</li>
+<li>&#23545;&#20110;&#28014;&#28857;&#25968;&#31867;&#22411;&#65292;&#20195;&#29992;&#24418;&#24335;&#23548;&#33268;&#36716;&#25442;&#26377;&#38480;&#20540;&#30340;&#32467;&#26524;&#22987;&#32456;&#21547;&#26377;&#23567;&#25968;&#28857;&#23383;&#31526;&#65292;&#21363;&#20351;&#23427;&#21518;&#38754;&#27809;&#26377;&#25968;&#20301;&#12290;&#27491;&#24120;&#24773;&#20917;&#19979;&#65292;&#23567;&#25968;&#28857;&#23383;&#31526;&#21482;&#26377;&#22312;&#23427;&#21518;&#38754;&#26377;&#25968;&#20301;&#26102;&#25165;&#20250;&#22312;&#36716;&#25442;&#32467;&#26524;&#20986;&#29616;&#12290;&#21478;&#22806;&#65292;&#23545;&#20110; <code><b>g</b></code> &#19982; <code><b>G</b></code> &#36716;&#25442;&#65292;&#19981;&#20250;&#20174;&#32467;&#26524;&#31227;&#38500;&#23614;&#38543;&#30340;&#38646;&#12290;</li>
+</ul>
+<p><code><b>0</b></code> &#36873;&#39033;&#65288;&#22312;&#20219;&#20309;&#27491;&#36127;&#21495;&#25110;&#24213;&#20043;&#21518;&#65289;&#20197;&#21069;&#23548;&#38646;&#22635;&#20805;&#22495;&#21040;&#22495;&#23485;&#65292;&#38500;&#20102;&#24212;&#29992;&#21040;&#26080;&#31351;&#22823;&#25110; NaN &#26102;&#12290;&#22914;&#26524; <code>0</code> &#23383;&#31526;&#19982;<i>&#23545;&#40784;</i>&#8202;&#65279;&#36873;&#39033;&#19968;&#21516;&#20986;&#29616;&#65292;&#37027;&#20040;&#24573;&#30053; <code>0</code> &#23383;&#31526;&#12290;</p>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;cassert&gt;</span>
+<span class="co2">#include &lt;format&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">char</span> c <span class="sy1">=</span> <span class="nu0">120</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;{:+06d}&quot;</span>, c<span class="br0">)</span>   <span class="sy1">==</span> <span class="st0">&quot;+00120&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;{:#06x}&quot;</span>, <span class="nu12">0xa</span><span class="br0">)</span> <span class="sy1">==</span> <span class="st0">&quot;0x000a&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;{:&lt;06}&quot;</span>, <span class="sy2">-</span><span class="nu0">42</span><span class="br0">)</span>  <span class="sy1">==</span> <span class="st0">&quot;-42   &quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#22240; &#39;&lt;&#39; &#23545;&#40784;&#24573;&#30053; 0</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.AE.BD.E5.BA.A6.E4.B8.8E.E7.B2.BE.E5.BA.A6">&#23485;&#24230;&#19982;&#31934;&#24230;</span></h3>
+<p><span class="t-spar">&#23485;&#24230;</span>&#8202;&#65279;&#26159;&#19968;&#20010;&#27491;&#21313;&#36827;&#21046;&#25968;&#25110;&#23884;&#22871;&#30340;&#26367;&#25442;&#22495;&#65288;<code><b>{}</b></code> &#25110; <code><b>{</b></code><i>n</i>&#8202;&#65279;<code><b>}</b></code>&#65289;&#12290;&#23427;&#23384;&#22312;&#30340;&#24773;&#20917;&#19979;&#20250;&#25351;&#23450;&#26368;&#23567;&#22495;&#23485;&#12290;</p>
+<p><span class="t-spar">&#31934;&#24230;</span>&#8202;&#65279;&#26159;&#28857;&#65288;<code><b>.</b></code>&#65289;&#21518;&#38543;&#38750;&#36127;&#21313;&#36827;&#21046;&#25968;&#25110;&#23884;&#22871;&#30340;&#26367;&#25442;&#22495;&#12290;&#27492;&#22495;&#25351;&#31034;&#31934;&#24230;&#25110;&#26368;&#22823;&#22495;&#22823;&#23567;&#12290;&#23427;&#21482;&#33021;&#29992;&#20110;&#28014;&#28857;&#25968;&#19982;&#23383;&#31526;&#20018;&#31867;&#22411;&#12290;</p>
+<ul>
+<li>&#23545;&#20110;&#28014;&#28857;&#25968;&#31867;&#22411;&#65292;&#27492;&#22495;&#25351;&#23450;&#26684;&#24335;&#21270;&#31934;&#24230;&#12290;</li>
+<li>&#23545;&#20110;&#23383;&#31526;&#20018;&#31867;&#22411;&#65292;&#23427;&#25552;&#20379;&#35201;&#22797;&#21046;&#21040;&#36755;&#20986;&#30340;&#23383;&#31526;&#20018;&#21069;&#32512;&#30340;&#20272;&#35745;&#23485;&#24230;&#65288;&#35265;<a href="cpp-utility-format-spec.html#.E5.AE.BD.E5.BA.A6.E4.BC.B0.E8.AE.A1">&#19979;&#25991;</a>&#65289;&#30340;&#19978;&#30028;&#12290;&#23545;&#20110;&#20197; Unicode &#32534;&#30721;&#30340;&#23383;&#31526;&#20018;&#65292;&#22797;&#21046;&#21040;&#36755;&#20986;&#30340;&#25991;&#26412;&#26159;&#25972;&#20010;&#25193;&#23637;&#23383;&#32032;&#38598;&#32676;&#30340;&#65292;&#20351;&#24471;&#20272;&#35745;&#23485;&#24230;&#19981;&#22823;&#20110;&#31934;&#24230;&#30340;&#26368;&#38271;&#21069;&#32512;&#12290;</li>
+</ul>
+<p>&#22914;&#26524;<span class="t-spar">&#23485;&#24230;</span>&#8202;&#65279;&#25110;<span class="t-spar">&#31934;&#24230;</span>&#8202;&#65279;&#20013;&#20351;&#29992;&#23884;&#22871;&#30340;&#26367;&#25442;&#22495;&#65292;&#32780;&#23545;&#24212;&#30340;&#23454;&#21442;&#19981;&#26159;<span class="t-rev-inl t-until-cxx23"><span><a href="cpp-language-type.html">&#25972;&#25968;&#31867;&#22411;</a></span><span><span class="t-mark-rev t-until-cxx23" style="white-space: nowrap;">(C++23 &#21069;)</span></span></span><span class="t-rev-inl t-since-cxx23"><span><a href="cpp-language-type.html">&#26631;&#20934;&#26377;&#31526;&#21495;&#25110;&#26080;&#31526;&#21495;&#25972;&#25968;&#31867;&#22411;</a></span><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></span></span>&#65292;&#20026;&#36127;&#65292;&#25110;&#23545;&#20110;<span class="t-spar">&#23485;&#24230;</span>&#8202;&#65279;&#20026;&#38646;&#65292;&#37027;&#20040;&#23601;&#20250;&#25243;&#20986; <span class="t-lc">std::format_error</span> &#31867;&#22411;&#30340;&#24322;&#24120;&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw4">float</span> pi <span class="sy1">=</span> <span class="nu17">3.14f</span><span class="sy4">;</span>
+<a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;{:10f}&quot;</span>, pi<span class="br0">)</span>           <span class="sy1">==</span> <span class="st0">&quot;  3.140000&quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#23485;&#24230; = 10</span>
+<a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;{:{}f}&quot;</span>, pi, <span class="nu0">10</span><span class="br0">)</span>       <span class="sy1">==</span> <span class="st0">&quot;  3.140000&quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#23485;&#24230; = 10</span>
+<a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;{:.5f}&quot;</span>, pi<span class="br0">)</span>           <span class="sy1">==</span> <span class="st0">&quot;3.14000&quot;</span><span class="br0">)</span><span class="sy4">;</span>    <span class="co1">// &#31934;&#24230; = 5</span>
+<a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;{:.{}f}&quot;</span>, pi, <span class="nu0">5</span><span class="br0">)</span>       <span class="sy1">==</span> <span class="st0">&quot;3.14000&quot;</span><span class="br0">)</span><span class="sy4">;</span>    <span class="co1">// &#31934;&#24230; = 5</span>
+<a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;{:10.5f}&quot;</span>, pi<span class="br0">)</span>         <span class="sy1">==</span> <span class="st0">&quot;   3.14000&quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#23485;&#24230; = 10, &#31934;&#24230; = 5</span>
+<a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;{:{}.{}f}&quot;</span>, pi, <span class="nu0">10</span>, <span class="nu0">5</span><span class="br0">)</span> <span class="sy1">==</span> <span class="st0">&quot;   3.14000&quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#23485;&#24230; = 10, &#31934;&#24230; = 5</span>
+ 
+<span class="kw4">auto</span> b1 <span class="sy1">=</span> <a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;{:{}f}&quot;</span>, pi, <span class="nu16">10.0</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#25243;&#20986;&#65306;&#23485;&#24230;&#19981;&#26159;&#25972;&#25968;&#31867;&#22411;</span>
+<span class="kw4">auto</span> b2 <span class="sy1">=</span> <a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;{:{}f}&quot;</span>, pi, <span class="sy2">-</span><span class="nu0">10</span><span class="br0">)</span><span class="sy4">;</span>  <span class="co1">// &#25243;&#20986;&#65306;&#23485;&#24230;&#20026;&#36127;</span>
+<span class="kw4">auto</span> b3 <span class="sy1">=</span> <a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;{:.{}f}&quot;</span>, pi, <span class="nu16">5.0</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#25243;&#20986;&#65306;&#31934;&#24230;&#19981;&#26159;&#25972;&#25968;&#31867;&#22411;</span></pre></div>
+</div>
+<p><span id=".E5.AE.BD.E5.BA.A6.E4.BC.B0.E8.AE.A1"></span> &#23545;&#20110;&#23383;&#31526;&#20018;&#31867;&#22411;&#65292;&#23485;&#24230;&#23450;&#20041;&#20026;&#36866;&#21512;&#23558;&#23427;&#26174;&#31034;&#21040;&#32456;&#31471;&#30340;&#20272;&#35745;&#21015;&#20301;&#32622;&#20010;&#25968;&#12290;</p>
+<p>&#23601;&#23485;&#24230;&#35745;&#31639;&#30446;&#30340;&#65292;&#20551;&#35774;&#23383;&#31526;&#20018;&#29992;&#23454;&#29616;&#23450;&#20041;&#30340;&#32534;&#30721;&#12290;&#26410;&#25351;&#23450;&#23485;&#24230;&#35745;&#31639;&#30340;&#26041;&#27861;&#65292;&#20294;&#23545;&#20110;&#20197; Unicode &#30340;&#23383;&#31526;&#20018;&#65292;&#23454;&#29616;&#24212;&#35813;&#20272;&#35745;&#23383;&#31526;&#20018;&#30340;&#23485;&#24230;&#20026;&#23427;&#30340;&#25193;&#23637;&#23383;&#32032;&#38598;&#32676;&#20013;&#39318;&#20010;&#30721;&#20301;&#30340;&#20272;&#35745;&#23485;&#24230;&#20043;&#21644;&#12290;&#22914;&#26524; Unicode &#30721;&#20301;&#22312;&#19979;&#21015;&#33539;&#22260;&#20869;&#65292;&#37027;&#20040;&#20272;&#35745;&#23485;&#24230;&#26159; 2&#65292;&#21542;&#21017;&#26159; 1&#65306;</p>
+<ul>
+<li>&#20219;&#24847; Unicode &#23646;&#24615; <a rel="nofollow" class="external text" href="https://www.unicode.org/reports/tr44/#East_Asian_Width"><code>East_Asian_Width</code></a> &#20855;&#26377;&#20540; Fullwidth (<code>F</code>) &#25110; Wide (<code>W</code>) &#30340;&#20195;&#30721;&#28857;</li>
+<li>U+4DC0 &ndash; U+4DFF&#65288;&#26131;&#32463;&#20845;&#21313;&#22235;&#21350;&#20687;&#65289;</li>
+<li>U+1F300 &ndash; U+1F5FF&#65288;&#26434;&#39033;&#31526;&#21495;&#21644;&#35937;&#24418;&#25991;&#23383;&#65289;</li>
+<li>U+1F900 &ndash; U+1F9FF&#65288;&#34917;&#20805;&#31526;&#21495;&#21644;&#35937;&#24418;&#25991;&#23383;&#65289;</li>
+</ul>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;cassert&gt;</span>
+<span class="co2">#include &lt;format&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;{:.^5s}&quot;</span>,   <span class="st0">&quot;&#128049;&quot;</span><span class="br0">)</span>    <span class="sy1">==</span> <span class="st0">&quot;.&#128049;..&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;{:.5s}&quot;</span>,    <span class="st0">&quot;&#128049;&#128049;&#128049;&quot;</span><span class="br0">)</span> <span class="sy1">==</span> <span class="st0">&quot;&#128049;&#128049;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span><a href="cpp-utility-format-format.html"><span class="kw3147">std::<span class="me2">format</span></span></a><span class="br0">(</span><span class="st0">&quot;{:.&lt;5.5s}&quot;</span>, <span class="st0">&quot;&#128049;&#128049;&#128049;&quot;</span><span class="br0">)</span> <span class="sy1">==</span> <span class="st0">&quot;&#128049;&#128049;.&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<p><span id="L"></span></p>
+<h3><span class="mw-headline" id="L.EF.BC.88.E6.9C.AC.E5.9C.B0.E7.8E.AF.E5.A2.83.E7.89.B9.E5.AE.9A.E7.9A.84.E6.A0.BC.E5.BC.8F.E5.8C.96.EF.BC.89">L&#65288;&#26412;&#22320;&#29615;&#22659;&#29305;&#23450;&#30340;&#26684;&#24335;&#21270;&#65289;</span></h3>
+<p><code><b>L</b></code> &#36873;&#39033;&#23548;&#33268;&#20351;&#29992;&#26412;&#22320;&#29615;&#22659;&#29305;&#23450;&#30340;&#24418;&#24335;&#12290;&#27492;&#36873;&#39033;&#20165;&#23545;&#31639;&#26415;&#31867;&#22411;&#21512;&#27861;&#12290;</p>
+<ul>
+<li>&#23545;&#20110;&#25972;&#25968;&#31867;&#22411;&#65292;&#26412;&#22320;&#29615;&#22659;&#29305;&#23450;&#24418;&#24335;&#20250;&#25353;&#29031;&#19978;&#19979;&#25991;&#30340;&#26412;&#22320;&#29615;&#22659;&#25554;&#20837;&#36866;&#21512;&#30340;&#25968;&#20301;&#32452;&#20998;&#38548;&#23383;&#31526;&#12290;</li>
+<li>&#23545;&#20110;&#28014;&#28857;&#25968;&#31867;&#22411;&#65292;&#26412;&#22320;&#29615;&#22659;&#29305;&#23450;&#24418;&#24335;&#20250;&#25353;&#29031;&#19978;&#19979;&#25991;&#30340;&#26412;&#22320;&#29615;&#22659;&#25554;&#20837;&#36866;&#21512;&#30340;&#25968;&#20301;&#32452;&#21644;&#22522;&#25968;&#20998;&#38548;&#23383;&#31526;&#12290;</li>
+<li>&#23545;&#20110; <span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span> &#30340;&#25991;&#26412;&#34920;&#31034;&#65292;&#26412;&#22320;&#29615;&#22659;&#29305;&#23450;&#24418;&#24335;&#20351;&#29992;&#22914;&#21516;&#36890;&#36807; <span class="t-lc"><a href="cpp-locale-numpunct-truefalsename.html">std::numpunct::truename</a></span> &#25110; <span class="t-lc"><a href="cpp-locale-numpunct-truefalsename.html">std::numpunct::falsename</a></span> &#33719;&#24471;&#30340;&#23383;&#31526;&#20018;&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E7.B1.BB.E5.9E.8B">&#31867;&#22411;</span></h3>
+<p><span class="t-spar">&#31867;&#22411;</span>&#8202;&#65279;&#36873;&#39033;&#30830;&#23450;&#24212;&#35813;&#22914;&#20309;&#26174;&#31034;&#25968;&#25454;&#12290;</p>
+<p>&#21487;&#29992;&#30340;&#23383;&#31526;&#20018;&#26174;&#31034;&#31867;&#22411;&#26377;&#65306;</p>
+<ul>
+<li>&#26080;&#12289;<code><b>s</b></code>&#65306;&#22797;&#21046;&#23383;&#31526;&#20018;&#21040;&#36755;&#20986;&#12290;</li>
+</ul>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx23">
+<td>
+<ul>
+<li><code><b>?</b></code>&#65306;&#22797;&#21046;&#36716;&#20041;&#21518;&#30340;&#23383;&#31526;&#20018;&#65288;&#35265;<a href="cpp-utility-format-spec.html#.E6.A0.BC.E5.BC.8F.E5.8C.96.E7.BB.8F.E8.BD.AC.E4.B9.89.E5.AD.97.E7.AC.A6.E5.92.8C.E5.AD.97.E7.AC.A6.E4.B8.B2">&#19979;&#25991;</a>&#65289;&#21040;&#36755;&#20986;&#12290;</li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+</table>
+<p>&#21487;&#29992;&#30340; <span class="mw-geshi cpp source-cpp"><span class="kw4">char</span></span>&#12289;<span class="mw-geshi cpp source-cpp"><span class="kw4">wchar_t</span></span> &#19982; <span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span> &#20197;&#22806;&#30340;&#25972;&#25968;&#31867;&#22411;&#30340;&#25972;&#25968;&#26174;&#31034;&#31867;&#22411;&#26377;&#65306;</p>
+<ul>
+<li><code><b>b</b></code>&#65306;&#20108;&#36827;&#21046;&#26684;&#24335;&#12290;&#22914;&#21516;&#36890;&#36807;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-to_chars.html"><span class="kw2637">std::<span class="me2">to_chars</span></span></a><span class="br0">(</span>first, last, value, <span class="nu0">2</span><span class="br0">)</span></span></span> &#20135;&#29983;&#36755;&#20986;&#12290;&#24213;&#21069;&#32512;&#26159; <code>0b</code>&#12290;</li>
+<li><code><b>B</b></code>&#65306;&#21516; <code><b>b</b></code>&#65292;&#20294;&#24213;&#21069;&#32512;&#26159; <code>0B</code>&#12290;</li>
+<li><code><b>c</b></code>&#65306;&#22797;&#21046;&#23383;&#31526; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">static_cast</span><span class="sy1">&lt;</span>CharT<span class="sy1">&gt;</span><span class="br0">(</span>value<span class="br0">)</span></span></span> &#21040;&#36755;&#20986;&#65292;&#20854;&#20013; <span class="t-c"><span class="mw-geshi cpp source-cpp">CharT</span></span> &#26159;&#26684;&#24335;&#23383;&#31526;&#20018;&#30340;&#23383;&#31526;&#31867;&#22411;&#12290;&#22914;&#26524;&#20540;&#19981;&#22312; <code>CharT</code> &#30340;&#21487;&#34920;&#31034;&#20540;&#30340;&#33539;&#22260;&#20013;&#65292;&#37027;&#20040;&#23601;&#20250;&#25243;&#20986; <span class="t-lc">std::format_error</span>&#12290;</li>
+<li><code><b>d</b></code>&#65306;&#21313;&#36827;&#21046;&#26684;&#24335;&#12290;&#22914;&#21516;&#36890;&#36807;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-to_chars.html"><span class="kw2637">std::<span class="me2">to_chars</span></span></a><span class="br0">(</span>first, last, value<span class="br0">)</span></span></span> &#20135;&#29983;&#36755;&#20986;&#12290;</li>
+<li><code><b>o</b></code>&#65306;&#20843;&#36827;&#21046;&#26684;&#24335;&#12290;&#22914;&#21516;&#36890;&#36807;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-to_chars.html"><span class="kw2637">std::<span class="me2">to_chars</span></span></a><span class="br0">(</span>first, last, value, <span class="nu0">8</span><span class="br0">)</span></span></span> &#20135;&#29983;&#36755;&#20986;&#12290;&#22914;&#26524;&#23545;&#24212;&#23454;&#21442;&#20540;&#38750;&#38646;&#65292;&#37027;&#20040;&#24213;&#21069;&#32512;&#26159; <code>0</code>&#65292;&#21542;&#21017;&#20026;&#31354;&#12290;</li>
+<li><code><b>x</b></code>&#65306;&#21313;&#20845;&#36827;&#21046;&#26684;&#24335;&#12290;&#22914;&#21516;&#36890;&#36807;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-to_chars.html"><span class="kw2637">std::<span class="me2">to_chars</span></span></a><span class="br0">(</span>first, last, value, <span class="nu0">16</span><span class="br0">)</span></span></span> &#20135;&#29983;&#36755;&#20986;&#12290;&#24213;&#21069;&#32512;&#26159; <code>0x</code>&#12290;</li>
+<li><code><b>X</b></code>&#65306;&#21516; <code><b>x</b></code>&#65292;&#20294;&#23545; 9 &#20197;&#19978;&#30340;&#25968;&#23383;&#20351;&#29992;&#22823;&#20889;&#23383;&#27597;&#19988;&#24213;&#21069;&#32512;&#26159; <code>0X</code>&#12290;</li>
+<li>&#26080;&#65306;&#21516; <code><b>d</b></code>&#12290;</li>
+</ul>
+<p>&#21487;&#29992;&#30340; <span class="mw-geshi cpp source-cpp"><span class="kw4">char</span></span> &#21644; <span class="mw-geshi cpp source-cpp"><span class="kw4">wchar_t</span></span> &#34920;&#31034;&#31867;&#22411;&#26377;&#65306;</p>
+<ul>
+<li>&#26080;&#12289;<code><b>c</b></code>&#65306;&#22797;&#21046;&#23383;&#31526;&#21040;&#36755;&#20986;&#12290;</li>
+<li><code><b>b</b></code>&#12289;<code><b>B</b></code>&#12289;<code><b>d</b></code>&#12289;<code><b>o</b></code>&#12289;<code><b>x</b></code>&#12289;<code><b>X</b></code>&#65306;&#20351;&#29992;&#20540;&#20998;&#21035;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">static_cast</span><span class="sy1">&lt;</span><span class="kw4">unsigned</span> <span class="kw4">char</span><span class="sy1">&gt;</span><span class="br0">(</span>value<span class="br0">)</span></span></span> &#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">static_cast</span><span class="sy1">&lt;</span><a href="cpp-types-make_unsigned.html"><span class="kw622">std::<span class="me2">make_unsigned_t</span></span></a><span class="sy1">&lt;</span><span class="kw4">wchar_t</span><span class="sy1">&gt;&gt;</span><span class="br0">(</span>value<span class="br0">)</span></span></span> &#30340;&#25972;&#25968;&#34920;&#31034;&#31867;&#22411;&#12290;</li>
+</ul>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx23">
+<td>
+<ul>
+<li><code><b>?</b></code>&#65306;&#22797;&#21046;&#32463;&#36716;&#20041;&#23383;&#31526;&#65288;&#35265;<a href="cpp-utility-format-spec.html#.E6.A0.BC.E5.BC.8F.E5.8C.96.E7.BB.8F.E8.BD.AC.E4.B9.89.E5.AD.97.E7.AC.A6.E5.92.8C.E5.AD.97.E7.AC.A6.E4.B8.B2">&#19979;&#25991;</a>&#65289;&#21040;&#36755;&#20986;&#12290;</li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+</table>
+<p>&#21487;&#29992;&#30340; <span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span> &#34920;&#31034;&#31867;&#22411;&#26377;&#65306;</p>
+<ul>
+<li>&#26080;&#12289;<code><b>s</b></code>&#65306;&#22797;&#21046;&#25991;&#26412;&#34920;&#31034;&#65288;<code><b>true</b></code> &#25110; <code><b>false</b></code> &#25110;&#26412;&#22320;&#29615;&#22659;&#29305;&#23450;&#24418;&#24335;&#65289;&#21040;&#36755;&#20986;&#12290;</li>
+<li><code><b>b</b></code>&#12289;<code><b>B</b></code>&#12289;<code><b>c</b></code>&#12289;<code><b>d</b></code>&#12289;<code><b>o</b></code>&#12289;<code><b>x</b></code>&#12289;<code><b>X</b></code>&#65306;&#20197;&#20540; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">static_cast</span><span class="sy1">&lt;</span><span class="kw4">unsigned</span> <span class="kw4">char</span><span class="sy1">&gt;</span><span class="br0">(</span>value<span class="br0">)</span></span></span> &#20351;&#29992;&#25972;&#25968;&#34920;&#31034;&#31867;&#22411;&#12290;</li>
+</ul>
+<p>&#21487;&#29992;&#30340;&#28014;&#28857;&#25968;&#34920;&#31034;&#31867;&#22411;&#26377;&#65306;</p>
+<ul>
+<li><code><b>a</b></code>&#65306;&#22914;&#26524;&#26377;&#25351;&#23450;<i>&#31934;&#24230;</i>&#65292;&#37027;&#20040;&#22914;&#21516;&#36890;&#36807;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-to_chars.html"><span class="kw2637">std::<span class="me2">to_chars</span></span></a><span class="br0">(</span>first, last, value, std<span class="sy4">::</span><span class="me2">chars_format</span><span class="sy4">::</span><span class="me2">hex</span>, precision<span class="br0">)</span></span></span> &#20135;&#29983;&#36755;&#20986;&#65292;&#20854;&#20013; <span class="t-c"><span class="mw-geshi cpp source-cpp">precision</span></span> &#26159;&#25351;&#23450;&#30340;&#31934;&#24230;&#65292;&#21542;&#21017;&#22914;&#21516;&#36890;&#36807; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-to_chars.html"><span class="kw2637">std::<span class="me2">to_chars</span></span></a><span class="br0">(</span>first, last, value, std<span class="sy4">::</span><span class="me2">chars_format</span><span class="sy4">::</span><span class="me2">hex</span><span class="br0">)</span></span></span> &#20135;&#29983;&#36755;&#20986;&#12290;</li>
+<li><code><b>A</b></code>&#65306;&#21516; <code><b>a</b></code>&#65292;&#20294;&#23545; 9 &#20197;&#19978;&#30340;&#25968;&#23383;&#20351;&#29992;&#22823;&#20889;&#23383;&#27597;&#24182;&#29992; <code>P</code> &#25351;&#31034;&#25351;&#25968;&#12290;</li>
+<li><code><b>e</b></code>&#65306;&#22914;&#21516;&#36890;&#36807;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-to_chars.html"><span class="kw2637">std::<span class="me2">to_chars</span></span></a><span class="br0">(</span>first, last, value, std<span class="sy4">::</span><span class="me2">chars_format</span><span class="sy4">::</span><span class="me2">scientific</span>, precision<span class="br0">)</span></span></span> &#20135;&#29983;&#36755;&#20986;&#65292;&#20854;&#20013; <span class="t-c"><span class="mw-geshi cpp source-cpp">precision</span></span> &#26159;&#25351;&#23450;&#30340;&#31934;&#24230;&#65292;&#25110;&#32773;&#22312;&#26410;&#25351;&#23450;&#31934;&#24230;&#26102;&#26159; 6&#12290;</li>
+<li><code><b>E</b></code>&#65306;&#21516; <code><b>e</b></code>&#65292;&#20294;&#29992; <code>E</code> &#25351;&#31034;&#25351;&#25968;&#12290;</li>
+<li><code><b>f</b></code>&#12289;<code><b>F</b></code>&#65306;&#22914;&#21516;&#36890;&#36807;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-to_chars.html"><span class="kw2637">std::<span class="me2">to_chars</span></span></a><span class="br0">(</span>first, last, value, std<span class="sy4">::</span><span class="me2">chars_format</span><span class="sy4">::</span><span class="me2">fixed</span>, precision<span class="br0">)</span></span></span> &#20135;&#29983;&#36755;&#20986;&#65292;&#20854;&#20013; <span class="t-c"><span class="mw-geshi cpp source-cpp">precision</span></span> &#26159;&#25351;&#23450;&#30340;&#31934;&#24230;&#65292;&#25110;&#32773;&#22312;&#26410;&#25351;&#23450;&#31934;&#24230;&#26102;&#26159; 6&#12290;</li>
+<li><code><b>g</b></code>&#65306;&#22914;&#21516;&#36890;&#36807;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-to_chars.html"><span class="kw2637">std::<span class="me2">to_chars</span></span></a><span class="br0">(</span>first, last, value, std<span class="sy4">::</span><span class="me2">chars_format</span><span class="sy4">::</span><span class="me2">general</span>, precision<span class="br0">)</span></span></span> &#20135;&#29983;&#36755;&#20986;&#65292;&#20854;&#20013; <span class="t-c"><span class="mw-geshi cpp source-cpp">precision</span></span> &#26159;&#25351;&#23450;&#30340;&#31934;&#24230;&#65292;&#25110;&#32773;&#22312;&#26410;&#25351;&#23450;&#31934;&#24230;&#26102;&#26159; 6&#12290;</li>
+<li><code><b>G</b></code>&#65306;&#21516; <code><b>g</b></code>&#65292;&#20294;&#29992; <code>E</code> &#25351;&#31034;&#25351;&#25968;&#12290;</li>
+<li>&#26080;&#65306;&#22914;&#26524;&#26377;&#25351;&#23450;<i>&#31934;&#24230;</i>&#65292;&#37027;&#20040;&#22914;&#21516;&#36890;&#36807;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-to_chars.html"><span class="kw2637">std::<span class="me2">to_chars</span></span></a><span class="br0">(</span>first, last, value, std<span class="sy4">::</span><span class="me2">chars_format</span><span class="sy4">::</span><span class="me2">general</span>, precision<span class="br0">)</span></span></span> &#20135;&#29983;&#36755;&#20986;&#65292;&#20854;&#20013; <span class="t-c"><span class="mw-geshi cpp source-cpp">precision</span></span> &#20026;&#25351;&#23450;&#30340;&#31934;&#24230;&#65307;&#21542;&#21017;&#22914;&#21516;&#36890;&#36807;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-to_chars.html"><span class="kw2637">std::<span class="me2">to_chars</span></span></a><span class="br0">(</span>first, last, value<span class="br0">)</span></span></span> &#20135;&#29983;&#36755;&#20986;&#12290;</li>
+</ul>
+<p>&#23545;&#20110;&#23567;&#20889;&#34920;&#31034;&#31867;&#22411;&#65292;&#20998;&#21035;&#26684;&#24335;&#21270;&#26080;&#31351;&#22823;&#21644; NaN &#20026; <code>inf</code> &#19982; <code>nan</code>&#12290; &#23545;&#20110;&#22823;&#20889;&#34920;&#31034;&#31867;&#22411;&#65292;&#20998;&#21035;&#26684;&#24335;&#21270;&#26080;&#31351;&#22823;&#21644; NaN &#20026; <code>INF</code> &#19982; <code>NAN</code>&#12290;</p>
+<p>&#21487;&#29992;&#30340;&#25351;&#38024;&#34920;&#31034;&#31867;&#22411;&#65288;&#20063;&#29992;&#20110; <span class="t-lc"><a href="cpp-types-nullptr_t.html">std::nullptr_t</a></span>&#65289;&#26377;&#65306;</p>
+<ul>
+<li>&#26080;&#12289;<code><b>p</b></code>&#65306;&#22914;&#26524;&#23450;&#20041;&#20102; <span class="t-lc"><a href="cpp-types-integer.html">std::uintptr_t</a></span>&#65292;&#37027;&#20040;&#22914;&#21516;&#36890;&#36807;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-to_chars.html"><span class="kw2637">std::<span class="me2">to_chars</span></span></a><span class="br0">(</span>first, last, <span class="kw1">reinterpret_cast</span><span class="sy1">&lt;</span><a href="cpp-types-integer.html"><span class="kw140">std::<span class="me2">uintptr_t</span></span></a><span class="sy1">&gt;</span><span class="br0">(</span>value<span class="br0">)</span>, <span class="nu0">16</span><span class="br0">)</span></span></span> &#20135;&#29983;&#36755;&#20986;&#65292;&#24182;&#28155;&#21152;&#21069;&#32512; <code>0x</code> &#21040;&#36755;&#20986;&#65307;&#21542;&#21017;&#36755;&#20986;&#30001;&#23454;&#29616;&#23450;&#20041;&#12290;</li>
+</ul>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx26">
+<td>
+<ul>
+<li><code><b>P</b></code>&#65306;&#19982; <code><b>p</b></code> &#30456;&#21516;&#65292;&#20294; 9 &#20197;&#19978;&#30340;&#25968;&#20301;&#20250;&#20197;&#22823;&#20889;&#23383;&#27597;&#34920;&#31034;&#65292;&#24182;&#19988;&#24213;&#21069;&#32512;&#21464;&#20026; <code>0X</code>&#12290;</li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+</table>
+<p><br /></p>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx23">
+<td>
+<h3><span class="mw-headline" id=".E6.A0.BC.E5.BC.8F.E5.8C.96.E7.BB.8F.E8.BD.AC.E4.B9.89.E5.AD.97.E7.AC.A6.E5.92.8C.E5.AD.97.E7.AC.A6.E4.B8.B2">&#26684;&#24335;&#21270;&#32463;&#36716;&#20041;&#23383;&#31526;&#21644;&#23383;&#31526;&#20018;</span></h3>
+<p>&#23383;&#31526;&#25110;&#23383;&#31526;&#20018;&#21487;&#20197;&#22312;&#26684;&#24335;&#21270;&#26102;&#36827;&#34892;<i>&#36716;&#20041;</i>&#8202;&#65279;&#65292;&#36866;&#21512;&#29992;&#20110;&#35843;&#35797;&#25110;&#35760;&#24405;&#26085;&#24535;&#12290;</p>
+<p>&#36716;&#20041;&#36890;&#36807;&#20197;&#19979;&#26041;&#24335;&#36827;&#34892;&#65306;</p>
+<ul>
+<li>&#23545;&#20110;&#27599;&#20010;&#33391;&#26500;&#30340;&#32534;&#30721;&#20102;&#23383;&#31526; <i>C</i> &#30340;&#20195;&#30721;&#21333;&#20803;&#24207;&#21015;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>&#22914;&#26524; <i>C</i> &#26159;&#19979;&#34920;&#20013;&#30340;&#23383;&#31526;&#20043;&#19968;&#65292;&#37027;&#20040;&#20351;&#29992;&#23545;&#24212;&#30340;&#36716;&#20041;&#24207;&#21015;&#65306;</li>
+</ul>
+</dd>
+</dl>
+<table class="wikitable">
+<tr>
+<th>&#23383;&#31526;</th>
+<th>&#36716;&#20041;&#24207;&#21015;</th>
+<th>&#27880;&#35299;</th>
+</tr>
+<tr>
+<td>&#27178;&#21521;&#21046;&#34920;&#65288;ASCII &#32534;&#30721;&#20013;&#26159;&#23383;&#33410; 0x09&#65289;</td>
+<td><code><b>\t</b></code></td>
+<td></td>
+</tr>
+<tr>
+<td>&#25442;&#34892;&#65288;ASCII &#32534;&#30721;&#20013;&#26159;&#23383;&#33410; 0x0a&#65289;</td>
+<td><code><b>\n</b></code></td>
+<td></td>
+</tr>
+<tr>
+<td>&#22238;&#36710;&#65288;ASCII &#32534;&#30721;&#20013;&#26159;&#23383;&#33410; 0x0d&#65289;</td>
+<td><code><b>\r</b></code></td>
+<td></td>
+</tr>
+<tr>
+<td>&#21452;&#24341;&#21495;&#65288;ASCII &#32534;&#30721;&#20013;&#26159;&#23383;&#33410; 0x22&#65289;</td>
+<td><code><b>\&quot;</b></code></td>
+<td>&#21482;&#20250;&#22312;&#36755;&#20986;&#26159;&#29992;&#21452;&#24341;&#21495;&#21253;&#22260;&#30340;&#23383;&#31526;&#20018;&#26102;&#20351;&#29992;</td>
+</tr>
+<tr>
+<td>&#21333;&#24341;&#21495;&#65288;ASCII &#32534;&#30721;&#20013;&#26159;&#23383;&#33410; 0x27&#65289;</td>
+<td><code><b>\&#39;</b></code></td>
+<td>&#21482;&#20250;&#22312;&#36755;&#20986;&#26159;&#29992;&#21333;&#24341;&#21495;&#21253;&#22260;&#30340;&#23383;&#31526;&#20018;&#26102;&#20351;&#29992;</td>
+</tr>
+<tr>
+<td>&#21453;&#26012;&#26464;&#65288;ASCII &#32534;&#30721;&#20013;&#26159;&#23383;&#33410; 0x5c&#65289;</td>
+<td><code><b>\\</b></code></td>
+<td></td>
+</tr>
+</table>
+<dl>
+<dd>
+<ul>
+<li>&#21542;&#21017;&#65292;&#22914;&#26524; <i>C</i> &#19981;&#26159;&#31354;&#26684;&#23383;&#31526;&#65288;ASCII &#32534;&#30721;&#20013;&#26159;&#23383;&#33410; 0x20&#65289;&#65292;&#24182;&#19988;&#35201;&#20040;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>&#20851;&#32852;&#30340;&#23383;&#31526;&#32534;&#30721;&#26159; Unicode &#32534;&#30721;&#65292;&#24182;&#19988;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li><i>C</i> &#23545;&#24212;&#30340; Unicode &#26631;&#37327;&#20855;&#26377;&#30340; Unicode &#23646;&#24615; <a rel="nofollow" class="external text" href="https://www.unicode.org/reports/tr44/#General_Category_Values"><code>General_Category</code></a> &#26159; <code>Separator</code> (<code>Z</code>) &#25110; <code>Other</code> (<code>C</code>) &#20004;&#20010;&#32452;&#20013;&#30340;&#26576;&#20010;&#20540;&#65292;&#25110;&#32773;</li>
+<li><i>C</i> &#27809;&#26377;&#32039;&#25509;&#22312;&#38750;&#36716;&#20041;&#23383;&#31526;&#20043;&#21518;&#65292;&#24182;&#19988; <i>C</i> &#23545;&#24212;&#30340; Unicode &#26631;&#37327;&#20855;&#26377;&#30340; Unicode &#23646;&#24615; <code>Grapheme_Extend=Yes</code>&#65292;&#35201;&#20040;</li>
+</ul>
+</dd>
+</dl>
+<ul>
+<li>&#20851;&#32852;&#30340;&#23383;&#31526;&#32534;&#30721;&#19981;&#26159; Unicode &#32534;&#30721;&#65292;&#24182;&#19988; <i>C</i> &#26159;&#30001;&#23454;&#29616;&#23450;&#20041;&#30340;&#19981;&#21487;&#25171;&#21360;&#23383;&#31526;&#38598;&#21512;&#20013;&#30340;&#23383;&#31526;&#65292;</li>
+</ul>
+</dd>
+<dd>&#37027;&#20040;&#36716;&#20041;&#24207;&#21015;&#26159; <code><b>\u{</b></code><i>&#21313;&#20845;&#36827;&#21046;&#25968;&#20301;&#36716;&#20041;&#24207;&#21015;</i>&#8202;&#65279;<code><b>}</b></code>&#65292;&#20854;&#20013;<i>&#21313;&#20845;&#36827;&#21046;&#25968;&#20301;&#36716;&#20041;&#24207;&#21015;</i>&#8202;&#65279;&#26159; <i>C</i> &#20351;&#29992;&#23567;&#20889;&#21313;&#20845;&#36827;&#21046;&#25968;&#20301;&#30340;&#26368;&#30701;&#21313;&#20845;&#36827;&#21046;&#34920;&#31034;&#12290;</dd>
+</dl>
+<ul>
+<li>&#21542;&#21017;&#65292;<i>C</i> &#25353;&#21407;&#26679;&#22797;&#21046;&#12290;</li>
+</ul>
+</dd>
+</dl>
+<ul>
+<li>&#26410;&#25351;&#23450;&#20195;&#30721;&#21333;&#20803;&#24207;&#21015;&#26159;&#31227;&#20301;&#24207;&#21015;&#26102;&#23545;&#36755;&#20986;&#21644;&#21518;&#32493;&#23545;&#23383;&#31526;&#20018;&#30340;&#35299;&#30721;&#36896;&#25104;&#30340;&#24433;&#21709;&#12290;</li>
+<li>&#27599;&#20010;&#20854;&#20182;&#20195;&#30721;&#21333;&#20803;&#65288;&#21363;&#22312;&#38750;&#33391;&#26500;&#20195;&#30721;&#21333;&#20803;&#24207;&#21015;&#20013;&#30340;&#20195;&#30721;&#21333;&#20803;&#65289;&#37117;&#20250;&#26367;&#25442;&#25104; <code><b>\x{</b></code><i>&#21313;&#20845;&#36827;&#21046;&#25968;&#20301;&#36716;&#20041;&#24207;&#21015;</i>&#8202;&#65279;<code><b>}</b></code>&#65292;&#20854;&#20013;<i>&#21313;&#20845;&#36827;&#21046;&#25968;&#20301;&#36716;&#20041;&#24207;&#21015;</i>&#8202;&#65279;&#26159;&#20195;&#30721;&#21333;&#20803;&#20351;&#29992;&#23567;&#20889;&#21313;&#20845;&#36827;&#21046;&#25968;&#20301;&#30340;&#26368;&#30701;&#21313;&#20845;&#36827;&#21046;&#34920;&#31034;&#12290;</li>
+</ul>
+<p>&#23383;&#31526;&#20018;&#30340;&#36716;&#20041;&#23383;&#31526;&#20018;&#34920;&#31034;&#20250;&#36890;&#36807;&#20197;&#19978;&#36848;&#26041;&#24335;&#23545;&#23383;&#31526;&#20018;&#20013;&#30340;&#20195;&#30721;&#21333;&#20803;&#24207;&#21015;&#36827;&#34892;&#36716;&#20041;&#26469;&#26500;&#36896;&#65292;&#24182;&#19988;&#29992;&#21452;&#24341;&#21495;&#21253;&#22260;&#32467;&#26524;&#12290;</p>
+<p>&#23383;&#31526;&#30340;&#36716;&#20041;&#34920;&#31034;&#20250;&#36890;&#36807;&#20197;&#19978;&#36848;&#26041;&#24335;&#23545;&#23427;&#36827;&#34892;&#36716;&#20041;&#26469;&#26500;&#36896;&#65292;&#24182;&#19988;&#29992;&#21333;&#24341;&#21495;&#21253;&#22260;&#32467;&#26524;&#12290;</p>
+<div class="t-example">
+<p><a rel="nofollow" class="external text" href="https://godbolt.org/z/WxhTs6b69">Compiler Explorer demo</a>:</p>
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;print&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-println.html"><span class="kw3364">std::<span class="me2">println</span></span></a><span class="br0">(</span><span class="st0">&quot;[{:?}]&quot;</span>, <span class="st0">&quot;h<span class="es1">\t</span>llo&quot;</span><span class="br0">)</span><span class="sy4">;</span>             <span class="co1">// &#25171;&#21360;: [&quot;h\tllo&quot;]</span>
+    <a href="cpp-io-println.html"><span class="kw3364">std::<span class="me2">println</span></span></a><span class="br0">(</span><span class="st0">&quot;[{:?}]&quot;</span>, <span class="st0">&quot;&#1057;&#1087;&#1072;&#1089;&#1080;&#1073;&#1086;, &#1042;&#1080;&#1082;&#1090;&#1086;&#1088; &hearts;!&quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#25171;&#21360;: [&quot;&#1057;&#1087;&#1072;&#1089;&#1080;&#1073;&#1086;, &#1042;&#1080;&#1082;&#1090;&#1086;&#1088; &hearts;!&quot;]</span>
+    <a href="cpp-io-println.html"><span class="kw3364">std::<span class="me2">println</span></span></a><span class="br0">(</span><span class="st0">&quot;[{:?}] [{:?}]&quot;</span>, <span class="st0">&#39;<span class="es1">\&#39;</span>&#39;</span>, <span class="st0">&#39;&quot;&#39;</span><span class="br0">)</span><span class="sy4">;</span>     <span class="co1">// &#25171;&#21360;: [&#39;\&#39;&#39;, &#39;&quot;&#39;]</span>
+ 
+    <span class="co1">// &#20197;&#19979;&#31034;&#20363;&#20551;&#23450;&#20351;&#29992; UTF-8 &#32534;&#30721;</span>
+    <a href="cpp-io-println.html"><span class="kw3364">std::<span class="me2">println</span></span></a><span class="br0">(</span><span class="st0">&quot;[{:?}]&quot;</span>, <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="br0">(</span><span class="st0">&quot;<span class="es5">\0</span> <span class="es1">\n</span> <span class="es1">\t</span> <span class="es2">\x02</span> <span class="es2">\x1b</span>&quot;</span>, <span class="nu0">9</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+                                             <span class="co1">// &#25171;&#21360;: [&quot;\u{0} \n \t \u{2} \u{1b}&quot;]</span>
+    <a href="cpp-io-println.html"><span class="kw3364">std::<span class="me2">println</span></span></a><span class="br0">(</span><span class="st0">&quot;[{:?}]&quot;</span>, <span class="st0">&quot;<span class="es2">\xc3</span><span class="es2">\x28</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span>      <span class="co1">// &#26080;&#25928; UTF-8</span>
+                                             <span class="co1">// &#25171;&#21360;: [&quot;\x{c3}(&quot;]</span>
+    <a href="cpp-io-println.html"><span class="kw3364">std::<span class="me2">println</span></span></a><span class="br0">(</span><span class="st0">&quot;[{:?}]&quot;</span>, <span class="st0">&quot;<span class="es3">\u0301</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span>        <span class="co1">// &#25171;&#21360;: [&quot;\u{301}&quot;]</span>
+    <a href="cpp-io-println.html"><span class="kw3364">std::<span class="me2">println</span></span></a><span class="br0">(</span><span class="st0">&quot;[{:?}]&quot;</span>, <span class="st0">&quot;<span class="es1">\\</span><span class="es3">\u0301</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span>      <span class="co1">// &#25171;&#21360;: [&quot;\\\u{301}&quot;]</span>
+    <a href="cpp-io-println.html"><span class="kw3364">std::<span class="me2">println</span></span></a><span class="br0">(</span><span class="st0">&quot;[{:?}]&quot;</span>, <span class="st0">&quot;e<span class="es3">\u0301</span><span class="es3">\u0323</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#25171;&#21360;: [&quot;&#7865;&#769;&quot;]</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#22823;&#22810;&#25968;&#24773;&#20917;&#19979;&#65292;&#36825;&#20010;&#35821;&#27861;&#19982;&#32769;&#24335;&#30340; <code><b>%</b></code> &#26684;&#24335;&#21270;&#31867;&#20284;&#65292;&#28155;&#21152;&#20102; <code><b>{}</b></code> &#24182;&#29992; <code><b>:</b></code> &#21462;&#20195; <code><b>%</b></code>&#12290;&#20363;&#22914;&#65292;<span class="mw-geshi cpp source-cpp"><span class="st0">&#39;%03.2f&#39;</span></span> &#21487;&#34987;&#32763;&#35793;&#25104; <span class="mw-geshi cpp source-cpp"><span class="st0">&#39;{:03.2f}&#39;</span></span>&#12290;</p>
+<table class="wikitable">
+<tr>
+<th><a href="cpp-utility-feature_test.html">&#21151;&#33021;&#29305;&#24615;&#27979;&#35797;</a>&#23439;</th>
+<th><abbr title="&#37319;&#32435;&#35813;&#29305;&#24615;&#30340;&#24180;/&#26376;&#12290;&#27599;&#20010;&#20540;&#19979;&#38754;&#30340;&#38142;&#25509;&#25351;&#21521;&#32534;&#35793;&#26399;&#25903;&#25345;&#39029;&#38754;&#20013;&#32473;&#23450;&#21151;&#33021;&#29305;&#24615;&#30340;&#26465;&#30446;&#12290;">&#20540;</abbr></th>
+<th><abbr title="&#24341;&#20837;&#35813;&#29305;&#24615;&#30340;&#26631;&#20934;&#65307;DR &#24847;&#20026;&#38024;&#23545;&#35813;&#20462;&#35746;&#29256;&#30340;&#32570;&#38519;&#25253;&#21578;">&#26631;&#20934;</abbr></th>
+<th>&#21151;&#33021;&#29305;&#24615;</th>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lib_format_uchar"><code>__cpp_lib_format_uchar</code></a></td>
+<td><a href="cpp-compiler_support-20.html#cpp_lib_format_uchar_202311L"><code>202311L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++20)</span><br />
+<span class="t-mark" style="white-space: nowrap;">(DR)</span></td>
+<td>&#26684;&#24335;&#21270;&#32534;&#30721;&#21333;&#20803;&#20026;&#26080;&#31526;&#21495;&#25972;&#25968;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue3721">LWG 3721</a></td>
+<td>C++20</td>
+<td>&#26631;&#20934;&#26684;&#24335;&#35828;&#26126;&#20013;&#19981;&#20801;&#35768;&#25351;&#23450;&#22495;&#23485;&#20026;&#38646;</td>
+<td>&#21487;&#20197;&#36890;&#36807;&#26367;&#25442;&#22495;&#25351;&#23450;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://wg21.link/P2909R4">P2909R4</a></td>
+<td>C++20</td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw4">char</span></span> &#25110; <span class="mw-geshi cpp source-cpp"><span class="kw4">wchar_t</span></span> &#21487;&#33021;&#34987;&#26684;&#24335;&#21270;&#20026;&#33539;&#22260;&#22806;&#30340;&#26080;&#31526;&#21495;&#25972;&#25968;&#20540;</td>
+<td>&#22312;&#36825;&#31181;&#26684;&#24335;&#21270;&#21069;&#23558;&#32534;&#30721;&#21333;&#20803;&#36716;&#25442;&#20026;&#23545;&#24212;&#30340;&#26080;&#31526;&#21495;&#31867;&#22411;</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>lambda &#34920;&#36798;&#24335; (C++11 &#36215;)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_language_lambda skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">lambda &#34920;&#36798;&#24335; <span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-language.html">language</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<p>&#26500;&#36896;<a href="https://en.wikipedia.org/wiki/Closure_(computer_science)" class="extiw" title="enwiki:Closure (computer science)">&#38381;&#21253;</a>&#65288;&#33021;&#22815;&#25429;&#33719;&#20316;&#29992;&#22495;&#20013;&#30340;&#21464;&#37327;&#30340;&#26080;&#21517;&#20989;&#25968;&#23545;&#35937;&#65289;&#12290;</p>
+<h3><span class="mw-headline" id=".E8.AF.AD.E6.B3.95">&#35821;&#27861;</span></h3>
+<h4><span class="mw-headline" id=".E6.B2.A1.E6.9C.89.E6.98.BE.E5.BC.8F.E6.A8.A1.E6.9D.BF.E5.BD.A2.E5.8F.82.E7.9A.84_lambda_.E8.A1.A8.E8.BE.BE.E5.BC.8F.EF.BC.88.E5.8F.AF.E4.BB.A5.E4.B8.8D.E6.B3.9B.E5.9E.8B.EF.BC.89">&#27809;&#26377;&#26174;&#24335;&#27169;&#26495;&#24418;&#21442;&#30340; lambda &#34920;&#36798;&#24335;&#65288;&#21487;&#20197;&#19981;&#27867;&#22411;&#65289;</span></h4>
+<table class="t-sdsc-begin">
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><code><b>[</b></code><span class="t-spar">&#25429;&#33719;</span>&#8202;&#65279;<code><b>]</b></code> <span class="t-spar">&#21069;&#23646;&#24615;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <code><b>(</b></code><span class="t-spar">&#24418;&#21442;&#21015;&#34920;</span>&#8202;&#65279;<code><b>)</b></code> <span class="t-spar">&#35828;&#26126;&#31526;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#24322;&#24120;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span><br />
+<span class="t-spar">&#21518;&#23646;&#24615;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#23614;&#38543;&#31867;&#22411;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#32422;&#26463;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#32422;&#23450;&#35828;&#26126;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <code><b>{</b></code> <span class="t-spar">&#20989;&#25968;&#20307;</span> <code><b>}</b></code></td>
+<td>(1)</td>
+<td class="t-sdsc-nopad"></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><code><b>[</b></code><span class="t-spar">&#25429;&#33719;</span>&#8202;&#65279;<code><b>] {</b></code> <span class="t-spar">&#20989;&#25968;&#20307;</span> <code><b>}</b></code></td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-until-cxx23" style="white-space: nowrap;">(C++23 &#21069;)</span></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><code><b>[</b></code><span class="t-spar">&#25429;&#33719;</span>&#8202;&#65279;<code><b>]</b></code> <span class="t-spar">&#21069;&#23646;&#24615;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#23614;&#38543;&#31867;&#22411;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#32422;&#23450;&#35828;&#26126;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <code><b>{</b></code> <span class="t-spar">&#20989;&#25968;&#20307;</span> <code><b>}</b></code></td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><code><b>[</b></code><span class="t-spar">&#25429;&#33719;</span>&#8202;&#65279;<code><b>]</b></code> <span class="t-spar">&#21069;&#23646;&#24615;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#24322;&#24120;</span><br />
+<span class="t-spar">&#21518;&#23646;&#24615;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#23614;&#38543;&#31867;&#22411;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#32422;&#23450;&#35828;&#26126;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <code><b>{</b></code> <span class="t-spar">&#20989;&#25968;&#20307;</span> <code><b>}</b></code></td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><code><b>[</b></code><span class="t-spar">&#25429;&#33719;</span>&#8202;&#65279;<code><b>]</b></code> <span class="t-spar">&#21069;&#23646;&#24615;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#35828;&#26126;&#31526;</span> <span class="t-spar">&#24322;&#24120;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span><br />
+<span class="t-spar">&#21518;&#23646;&#24615;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#23614;&#38543;&#31867;&#22411;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#32422;&#23450;&#35828;&#26126;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <code><b>{</b></code> <span class="t-spar">&#20989;&#25968;&#20307;</span> <code><b>}</b></code></td>
+<td>(4)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+</table>
+<h4><span class="mw-headline" id=".E6.9C.89.E6.98.BE.E5.BC.8F.E6.A8.A1.E6.9D.BF.E5.BD.A2.E5.8F.82.E7.9A.84_lambda_.E8.A1.A8.E8.BE.BE.E5.BC.8F.EF.BC.88.E5.BF.85.E7.84.B6.E6.B3.9B.E5.9E.8B.EF.BC.89_.28C.2B.2B20_.E8.B5.B7.29">&#26377;&#26174;&#24335;&#27169;&#26495;&#24418;&#21442;&#30340; lambda &#34920;&#36798;&#24335;&#65288;&#24517;&#28982;&#27867;&#22411;&#65289; <span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></span></h4>
+<table class="t-sdsc-begin">
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><code><b>[</b></code><span class="t-spar">&#25429;&#33719;</span>&#8202;&#65279;<code><b>] &lt;</b></code><span class="t-spar">&#27169;&#26495;&#24418;&#21442;</span>&#8202;&#65279;<code><b>&gt;</b></code> <span class="t-spar">&#27169;&#26495;&#32422;&#26463;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#21069;&#23646;&#24615;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <code><b>(</b></code><span class="t-spar">&#24418;&#21442;&#21015;&#34920;</span>&#8202;&#65279;<code><b>)</b></code> <span class="t-spar">&#35828;&#26126;&#31526;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span><br />
+<span class="t-spar">&#24322;&#24120;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#21518;&#23646;&#24615;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#23614;&#38543;&#31867;&#22411;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#32422;&#26463;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#32422;&#23450;&#35828;&#26126;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <code><b>{</b></code> <span class="t-spar">&#20989;&#25968;&#20307;</span> <code><b>}</b></code></td>
+<td>(1)</td>
+<td class="t-sdsc-nopad"></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><code><b>[</b></code><span class="t-spar">&#25429;&#33719;</span>&#8202;&#65279;<code><b>] &lt;</b></code><span class="t-spar">&#27169;&#26495;&#24418;&#21442;</span>&#8202;&#65279;<code><b>&gt;</b></code> <span class="t-spar">&#27169;&#26495;&#32422;&#26463;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <code><b>{</b></code> <span class="t-spar">&#20989;&#25968;&#20307;</span> <code><b>}</b></code></td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-until-cxx23" style="white-space: nowrap;">(C++23 &#21069;)</span></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><code><b>[</b></code><span class="t-spar">&#25429;&#33719;</span>&#8202;&#65279;<code><b>] &lt;</b></code><span class="t-spar">&#27169;&#26495;&#24418;&#21442;</span>&#8202;&#65279;<code><b>&gt;</b></code> <span class="t-spar">&#27169;&#26495;&#32422;&#26463;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span><br />
+<span class="t-spar">&#21069;&#23646;&#24615;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#23614;&#38543;&#31867;&#22411;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#32422;&#23450;&#35828;&#26126;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <code><b>{</b></code> <span class="t-spar">&#20989;&#25968;&#20307;</span> <code><b>}</b></code></td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><code><b>[</b></code><span class="t-spar">&#25429;&#33719;</span>&#8202;&#65279;<code><b>] &lt;</b></code><span class="t-spar">&#27169;&#26495;&#24418;&#21442;</span>&#8202;&#65279;<code><b>&gt;</b></code> <span class="t-spar">&#27169;&#26495;&#32422;&#26463;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#21069;&#23646;&#24615;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#24322;&#24120;</span><br />
+<span class="t-spar">&#21518;&#23646;&#24615;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#23614;&#38543;&#31867;&#22411;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#32422;&#23450;&#35828;&#26126;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <code><b>{</b></code> <span class="t-spar">&#20989;&#25968;&#20307;</span> <code><b>}</b></code></td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><code><b>[</b></code><span class="t-spar">&#25429;&#33719;</span>&#8202;&#65279;<code><b>] &lt;</b></code><span class="t-spar">&#27169;&#26495;&#24418;&#21442;</span>&#8202;&#65279;<code><b>&gt;</b></code> <span class="t-spar">&#27169;&#26495;&#32422;&#26463;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#21069;&#23646;&#24615;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#35828;&#26126;&#31526;</span> <span class="t-spar">&#24322;&#24120;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span><br />
+<span class="t-spar">&#21518;&#23646;&#24615;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#23614;&#38543;&#31867;&#22411;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <span class="t-spar">&#32422;&#23450;&#35828;&#26126;</span>&#8202;&#65279;<span class="t-mark" style="white-space: nowrap;">(&#21487;&#36873;)</span> <code><b>{</b></code> <span class="t-spar">&#20989;&#25968;&#20307;</span> <code><b>}</b></code></td>
+<td>(4)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#24102;&#24418;&#21442;&#21015;&#34920;&#30340; lambda &#34920;&#36798;&#24335;&#12290;</div>
+<div class="t-li1"><span class="t-li">2-4)</span> &#19981;&#24102;&#24418;&#21442;&#21015;&#34920;&#30340; lambda &#34920;&#36798;&#24335;&#12290;</div>
+<div class="t-li2"><span class="t-li">2)</span> &#26368;&#31616;&#24418;&#24335;&#65292;&#26080;&#27861;&#24212;&#29992;<span class="t-spar">&#21518;&#23646;&#24615;</span>&#12290;</div>
+<div class="t-li2"><span class="t-li">3,4)</span> &#21482;&#26377;&#22312;&#26377;&#20986;&#29616;<span class="t-spar">&#35828;&#26126;&#31526;</span>&#8202;&#65279;&#25110;<span class="t-spar">&#24322;&#24120;</span>&#8202;&#65279;&#30340;&#24773;&#20917;&#19979;&#25165;&#33021;&#24212;&#29992;<span class="t-spar">&#21518;&#23646;&#24615;</span>&#12290;</div>
+<h3><span class="mw-headline" id=".E8.A7.A3.E9.87.8A">&#35299;&#37322;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td><span class="t-spar">&#25429;&#33719;</span></td>
+<td>-</td>
+<td>&#25351;&#23450;&#35201;&#34987;<a href="cpp-language-lambda.html#lambda_.E6.8D.95.E8.8E.B7">&#25429;&#33719;</a>&#30340;&#23454;&#20307;&#12290;</td>
+</tr>
+<tr class="t-par">
+<td><span class="t-spar">&#27169;&#26495;&#24418;&#21442;</span></td>
+<td>-</td>
+<td>&#38750;&#31354;&#30340;<a href="cpp-language-template_parameters.html">&#27169;&#26495;&#24418;&#21442;</a>&#21015;&#34920;&#65292;&#29992;&#20110;&#20026;&#27867;&#22411; lambda &#25552;&#20379;&#21508;&#27169;&#26495;&#24418;&#21442;&#30340;&#21517;&#23383;&#65288;&#35265;&#19979;&#25991;&#30340; <code>&#38381;&#21253;&#31867;&#22411;::operator()</code>&#65289;&#12290;</td>
+</tr>
+<tr class="t-par">
+<td><span class="t-spar">&#27169;&#26495;&#32422;&#26463;</span></td>
+<td>-</td>
+<td>&#21521;<span class="t-spar">&#27169;&#26495;&#24418;&#21442;</span>&#8202;&#65279;&#28155;&#21152;<a href="cpp-language-constraints.html">&#32422;&#26463;&#12290;</a>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx23">
+<td>
+<p>&#22914;&#26524;<span class="t-spar">&#27169;&#26495;&#32422;&#26463;</span>&#8202;&#65279;&#20197;&#23646;&#24615;&#35828;&#26126;&#31526;&#24207;&#21015;&#32467;&#23614;&#65292;&#37027;&#20040;&#35813;&#24207;&#21015;&#20013;&#30340;&#23646;&#24615;&#20250;&#34987;&#35270;&#20026;<span class="t-spar">&#21069;&#23646;&#24615;</span>&#8202;&#65279;&#20013;&#30340;&#23646;&#24615;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr class="t-par">
+<td><span class="t-spar">&#21069;&#23646;&#24615;</span></td>
+<td>-</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span> &#36866;&#29992;&#20110;&#38381;&#21253;&#31867;&#22411;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#30340;<a href="cpp-language-attributes.html">&#23646;&#24615;&#35828;&#26126;&#31526;&#24207;&#21015;</a>&#65288;&#22240;&#27492;&#21487;&#20197;&#20351;&#29992; <code>[[<a href="cpp-language-attributes-noreturn.html">noreturn</a>]]</code> &#23646;&#24615;&#65289;&#12290;</td>
+</tr>
+<tr class="t-par">
+<td><span class="t-spar">&#24418;&#21442;&#21015;&#34920;</span></td>
+<td>-</td>
+<td>&#38381;&#21253;&#31867;&#22411;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#30340;<a href="cpp-language-function.html#.E5.BD.A2.E5.8F.82.E5.88.97.E8.A1.A8">&#24418;&#21442;&#21015;&#34920;</a>&#12290;
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx23">
+<td>
+<p>&#23427;&#21487;&#20197;&#26377;&#19968;&#20010;<a href="cpp-language-function.html#.E5.BD.A2.E5.8F.82.E5.88.97.E8.A1.A8">&#26174;&#24335;&#23545;&#35937;&#24418;&#21442;</a>&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr class="t-par">
+<td><span class="t-spar">&#35828;&#26126;&#31526;</span></td>
+<td>-</td>
+<td>&#21487;&#21253;&#21547;&#20197;&#19979;&#35828;&#26126;&#31526;&#30340;&#24207;&#21015;&#65292;&#27599;&#20010;&#35828;&#26126;&#31526;&#22312;&#24207;&#21015;&#20013;&#26368;&#22810;&#20801;&#35768;&#20986;&#29616;&#19968;&#27425;&#12290;
+<table class="wikitable">
+<tr>
+<th>&#35828;&#26126;&#31526;</th>
+<th>&#25928;&#26524;</th>
+</tr>
+<tr>
+<td><span class="mw-geshi cpp source-cpp">mutable</span></td>
+<td>&#20801;&#35768;<span class="t-spar">&#20989;&#25968;&#20307;</span>&#8202;&#65279;&#20462;&#25913;&#22797;&#21046;&#25429;&#33719;&#30340;&#23545;&#35937;&#65292;&#20197;&#21450;&#35843;&#29992;&#23427;&#20204;&#30340;&#38750; const &#25104;&#21592;&#20989;&#25968;&#12290;
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx23">
+<td>
+<ul>
+<li>&#23384;&#22312;&#26174;&#24335;&#23545;&#35937;&#24418;&#21442;&#26102;&#19981;&#33021;&#20351;&#29992;&#12290;</li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span></span><br />
+<span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+<td>&#26174;&#24335;&#25351;&#23450; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#20026; <a href="cpp-language-constexpr.html#constexpr_.E5.87.BD.E6.95.B0">constexpr &#20989;&#25968;</a>&#12290;
+<ul>
+<li>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span>&#28385;&#36275;&#38024;&#23545; constexpr &#20989;&#25968;&#30340;&#25152;&#26377;&#35201;&#27714;&#65292;&#37027;&#20040;&#21363;&#20351;&#27809;&#26377;&#25351;&#23450; <span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span></span>&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#20063;&#20250;&#26159; constexpr &#30340;&#12290;</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><span class="mw-geshi cpp source-cpp">consteval</span><br />
+<span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+<td>&#25351;&#23450; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#20026;<a href="cpp-language-consteval.html">&#31435;&#21363;&#20989;&#25968;</a>&#12290;
+<ul>
+<li>&#19981;&#33021;&#21516;&#26102;&#25351;&#23450; <span class="mw-geshi cpp source-cpp">consteval</span> &#21644; <span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span></span>&#12290;</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw4">static</span></span><br />
+<span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+<td>&#25351;&#23450; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#20026;<a href="cpp-language-static.html#.E9.9D.99.E6.80.81.E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#38745;&#24577;&#25104;&#21592;&#20989;&#25968;</a>&#12290;
+<ul>
+<li>&#19981;&#33021;&#21516;&#26102;&#25351;&#23450; <span class="mw-geshi cpp source-cpp"><span class="kw4">static</span></span> &#21644; <span class="mw-geshi cpp source-cpp">mutable</span>&#12290;</li>
+<li><span class="t-spar">&#25429;&#33719;</span>&#8202;&#65279;&#19981;&#20026;&#31354;&#65292;&#25110;&#32773;&#23384;&#22312;&#26174;&#24335;&#23545;&#35937;&#24418;&#21442;&#26102;&#19981;&#33021;&#20351;&#29992;&#12290;</li>
+</ul>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr class="t-par">
+<td><span class="t-spar">&#24322;&#24120;</span></td>
+<td>-</td>
+<td>&#20026;&#38381;&#21253;&#31867;&#22411;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#25552;&#20379;<span class="t-rev-inl t-until-cxx20"><span><a href="cpp-language-except_spec.html">&#21160;&#24577;&#24322;&#24120;&#35828;&#26126;</a>&#25110;</span><span><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#21069;)</span></span></span> <a href="cpp-language-noexcept_spec.html">noexcept &#35828;&#26126;&#31526;</a>&#12290;</td>
+</tr>
+<tr class="t-par">
+<td><span class="t-spar">&#21518;&#23646;&#24615;</span></td>
+<td>-</td>
+<td>&#36866;&#29992;&#20110;&#38381;&#21253;&#31867;&#22411;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#30340;&#31867;&#22411;&#30340;<a href="cpp-language-attributes.html">&#23646;&#24615;&#35828;&#26126;&#24207;&#21015;</a>&#65288;&#22240;&#27492;&#19981;&#33021;&#20351;&#29992; <code>[[<a href="cpp-language-attributes-noreturn.html">noreturn</a>]]</code> &#23646;&#24615;&#65289;&#12290;</td>
+</tr>
+<tr class="t-par">
+<td><span class="t-spar">&#23614;&#38543;&#31867;&#22411;</span></td>
+<td>-</td>
+<td><code><b>-&gt;</b></code> <span class="t-spar">&#36820;&#22238;&#31867;&#22411;</span>&#65292;&#20854;&#20013;<span class="t-spar">&#36820;&#22238;&#31867;&#22411;</span>&#8202;&#65279;&#25351;&#23450;&#36820;&#22238;&#31867;&#22411;&#12290;</td>
+</tr>
+<tr class="t-par">
+<td><span class="t-spar">&#32422;&#26463;</span></td>
+<td>-</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span> &#21521;&#38381;&#21253;&#31867;&#22411;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#28155;&#21152;<a href="cpp-language-constraints.html">&#32422;&#26463;</a>&#12290;</td>
+</tr>
+<tr class="t-par">
+<td><span class="t-spar">&#32422;&#23450;&#35828;&#26126;</span></td>
+<td>-</td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span> &#38381;&#21253;&#31867;&#22411;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#30340;<a href="cpp-language-function.html#.E5.87.BD.E6.95.B0.E7.BA.A6.E5.AE.9A.E8.AF.B4.E6.98.8E.E7.AC.A6.E5.88.97">&#20989;&#25968;&#32422;&#23450;&#35828;&#26126;&#31526;&#21015;</a>&#34920;&#12290;</td>
+</tr>
+<tr class="t-par">
+<td><span class="t-spar">&#20989;&#25968;&#20307;</span></td>
+<td>-</td>
+<td>lambda &#34920;&#36798;&#24335;&#30340;&#20989;&#25968;&#20307;&#12290;</td>
+</tr>
+</table>
+<p><br /></p>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx14">
+<td>
+<p>&#24403;&#20197; <a href="cpp-language-auto.html"><code>auto</code></a> &#20026;&#24418;&#21442;&#31867;&#22411;<span class="t-rev-inl t-since-cxx20"><span>&#25110;&#26174;&#24335;&#25552;&#20379;&#27169;&#26495;&#24418;&#21442;&#21015;&#34920;</span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></span></span>&#26102;&#65292;&#35813; lambda &#26159;<i>&#27867;&#22411; lambda</i>&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14 &#36215;)</span></td>
+</tr>
+</table>
+<p>&#21464;&#37327; <span class="t-c"><span class="mw-geshi cpp source-cpp">__func__</span></span> &#22312;<span class="t-spar">&#20989;&#25968;&#20307;</span>&#8202;&#65279;&#30340;&#24320;&#22836;&#38544;&#24335;&#23450;&#20041;&#65292;&#23427;&#30340;&#35821;&#20041;&#21487;&#20197;&#21442;&#32771;<a href="cpp-language-function.html#func">&#36825;&#37324;</a>&#12290;</p>
+<h3><span class="mw-headline" id=".E9.97.AD.E5.8C.85.E7.B1.BB.E5.9E.8B">&#38381;&#21253;&#31867;&#22411;</span></h3>
+<p>lambda &#34920;&#36798;&#24335;&#26159;&#32431;&#21491;&#20540;&#34920;&#36798;&#24335;&#65292;&#23427;&#30340;&#31867;&#22411;&#26159;&#29420;&#26377;&#30340;&#26080;&#21517;&#38750;<a href="cpp-language-union.html">&#32852;&#21512;&#20307;</a>&#38750;<a href="cpp-language-aggregate_initialization.html">&#32858;&#21512;&#20307;</a>&#31867;&#31867;&#22411;&#65292;&#34987;&#31216;&#20026;<i>&#38381;&#21253;&#31867;&#22411;</i>&#65292;&#23427;&#65288;&#23545;&#20110;<a href="cpp-language-adl.html">&#23454;&#21442;&#20381;&#36182;&#26597;&#25214;</a>&#32780;&#35328;&#65289;&#22768;&#26126;&#20110;&#21547;&#26377;&#35813; lambda &#34920;&#36798;&#24335;&#30340;&#26368;&#23567;&#22359;&#20316;&#29992;&#22495;&#12289;&#31867;&#20316;&#29992;&#22495;&#25110;&#21629;&#21517;&#31354;&#38388;&#20316;&#29992;&#22495;&#12290;</p>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx20">
+<td>
+<p>&#24403;&#19988;&#20165;&#24403;<span class="t-spar">&#25429;&#33719;</span>&#8202;&#65279;&#20026;&#31354;&#26102;&#65292;&#38381;&#21253;&#31867;&#22411;&#26159;<a href="cpp-language-template_parameters.html#.E6.A8.A1.E6.9D.BF.E9.9D.9E.E7.B1.BB.E5.9E.8B.E5.BD.A2.E5.8F.82">&#32467;&#26500;&#21270;</a>&#31867;&#22411;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+</table>
+<p>&#38381;&#21253;&#31867;&#22411;&#26377;&#19979;&#21015;&#25104;&#21592;&#65292;&#23427;&#20204;&#19981;&#33021;<span class="t-rev-inl t-since-cxx14"><span>&#34987;<a href="cpp-language-function_template.html#.E6.98.BE.E5.BC.8F.E5.AE.9E.E4.BE.8B.E5.8C.96">&#26174;&#24335;&#23454;&#20363;&#21270;</a>&#65292;&#34987;<a href="cpp-language-template_specialization.html">&#26174;&#24335;&#29305;&#21270;</a>&#65292;&#25110;</span><span><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14 &#36215;)</span></span></span>&#22312;<a href="cpp-language-friend.html">&#21451;&#20803;&#22768;&#26126;</a>&#20013;&#25351;&#21517;&#65306;</p>
+<p><span id=".E9.97.AD.E5.8C.85.E7.B1.BB.E5.9E.8B.E5.87.BD.E6.95.B0.E8.B0.83.E7.94.A8.E8.BF.90.E7.AE.97.E7.AC.A6"></span></p>
+<div class="t-member">
+<h2><span class="mw-headline" id=".E9.97.AD.E5.8C.85.E7.B1.BB.E5.9E.8B::operator.28.29.28.E5.BD.A2.E5.8F.82.29"><span style="font-size:0.8em; line-height:125%">&#38381;&#21253;&#31867;&#22411;::</span>operator()(<span class="t-spar">&#24418;&#21442;</span>)</span></h2>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp">&#36820;&#22238;&#31867;&#22411; operator<span class="br0">(</span><span class="br0">)</span><span class="br0">(</span>&#24418;&#21442;<span class="br0">)</span> <span class="br0">{</span> &#20989;&#25968;&#20307; <span class="br0">}</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark" style="white-space: nowrap;">(static &#21644; const &#21487;&#33021;&#20250;&#20986;&#29616;&#65292;&#35265;&#19979;&#25991;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx14">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span>&#27169;&#26495;&#24418;&#21442;<span class="sy1">&gt;</span><br />
+&#36820;&#22238;&#31867;&#22411; operator<span class="br0">(</span><span class="br0">)</span><span class="br0">(</span>&#24418;&#21442;<span class="br0">)</span> <span class="br0">{</span> &#20989;&#25968;&#20307; <span class="br0">}</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14 &#36215;)</span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#27867;&#22411; lambda&#65292;static &#21644; const &#21487;&#33021;&#20250;&#20986;&#29616;&#65292;&#35265;&#19979;&#25991;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#24403;&#34987;&#35843;&#29992;&#26102;&#65292;&#25191;&#34892; lambda &#34920;&#36798;&#24335;&#30340;&#20989;&#25968;&#20307;&#12290;&#24403;&#35775;&#38382;&#21464;&#37327;&#26102;&#65292;&#35775;&#38382;&#30340;&#26159;&#23427;&#34987;&#25429;&#33719;&#30340;&#21103;&#26412;&#65288;&#23545;&#20110;&#25353;&#22797;&#21046;&#25429;&#33719;&#30340;&#23454;&#20307;&#65289;&#25110;&#21407;&#23545;&#35937;&#65288;&#23545;&#20110;&#25353;&#24341;&#29992;&#25429;&#33719;&#30340;&#23454;&#20307;&#65289;&#12290;</p>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#30340;&#24418;&#21442;&#21015;&#34920;&#22312;&#25552;&#20379;&#20102;<span class="t-spar">&#24418;&#21442;&#21015;&#34920;</span>&#8202;&#65279;&#26102;&#26159;&#35813;&#24418;&#21442;&#21015;&#34920;&#65292;&#21542;&#21017;&#20026;&#31354;&#12290;</p>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#30340;&#36820;&#22238;&#31867;&#22411;&#26159;<span class="t-spar">&#23614;&#38543;&#31867;&#22411;</span>&#8202;&#65279;&#20013;&#25351;&#23450;&#30340;&#31867;&#22411;&#12290;</p>
+<p>&#22914;&#26524;&#27809;&#26377;&#25552;&#20379;<span class="t-spar">&#23614;&#38543;&#31867;&#22411;</span>&#65292;&#37027;&#20040; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#30340;&#36820;&#22238;&#31867;&#22411;&#20250;&#34987;&#33258;&#21160;<a href="cpp-language-function.html#.E8.BF.94.E5.9B.9E.E7.B1.BB.E5.9E.8B.E6.8E.A8.E5.AF.BC">&#25512;&#23548;</a>&#12290;<sup id="cite_ref-1" class="reference"><a href="cpp-language-lambda.html#cite_note-1">[1]</a></sup></p>
+<p>&#38500;&#38750; lambda &#30340;&#35828;&#26126;&#31526;&#20013;&#20351;&#29992;&#20102;&#20851;&#38190;&#35789; <span class="mw-geshi cpp source-cpp">mutable</span><span class="t-rev-inl t-since-cxx23"><span>&#65292;&#25110;&#32773;&#23384;&#22312;&#26174;&#24335;&#23545;&#35937;&#24418;&#21442;</span><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></span></span>&#65292;&#21542;&#21017; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#30340; cv &#38480;&#23450;&#31526;&#37117;&#20250;&#26159; <span class="mw-geshi cpp source-cpp"><span class="kw4">const</span></span>&#65292;&#24182;&#19988;&#26080;&#27861;&#20174;&#36825;&#20010; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#30340;&#20869;&#37096;&#20462;&#25913;&#25353;&#22797;&#21046;&#25429;&#33719;&#30340;&#23545;&#35937;&#12290;<span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#22987;&#32456;&#38750;&#34394;&#65292;&#24182;&#19988;&#19981;&#33021;&#21253;&#21547; <span class="mw-geshi cpp source-cpp"><span class="kw4">volatile</span></span> &#38480;&#23450;&#31526;&#12290;</p>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx17">
+<td>
+<p>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#28385;&#36275;&#38024;&#23545; <a href="cpp-language-constexpr.html">constexpr &#20989;&#25968;</a>&#30340;&#35201;&#27714;&#65292;&#37027;&#20040;&#23427;&#22987;&#32456;&#26159; constexpr &#30340;&#12290;&#22914;&#26524;&#22312; lambda &#30340;&#35828;&#26126;&#31526;&#20013;&#20351;&#29992;&#20102;&#20851;&#38190;&#35789; <span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span></span>&#65292;&#37027;&#20040;&#23427;&#20063;&#26159; constexpr &#30340;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-rev t-since-cxx20">
+<td>
+<p>&#22914;&#26524;&#22312; lambda &#30340;&#35828;&#26126;&#31526;&#20013;&#20351;&#29992;&#20102;&#20851;&#38190;&#35789; <span class="mw-geshi cpp source-cpp">consteval</span>&#65292;&#37027;&#20040; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#26159;<a href="cpp-language-consteval.html">&#31435;&#21363;&#20989;&#25968;</a>&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-rev t-since-cxx23">
+<td>
+<p>&#22914;&#26524;&#22312; lambda &#30340;&#35828;&#26126;&#31526;&#20013;&#20351;&#29992;&#20102;&#20851;&#38190;&#35789; <span class="mw-geshi cpp source-cpp"><span class="kw4">static</span></span>&#65292;&#37027;&#20040; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#26159;<a href="cpp-language-static.html#.E9.9D.99.E6.80.81.E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#38745;&#24577;&#25104;&#21592;&#20989;&#25968;</a>&#12290;</p>
+<p>&#22914;&#26524;<span class="t-spar">&#24418;&#21442;&#21015;&#34920;</span>&#8202;&#65279;&#26377;&#19968;&#20010;&#26174;&#24335;&#23545;&#35937;&#24418;&#21442;&#65292;&#37027;&#20040; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#26159;<a href="cpp-language-member_functions.html#.E6.98.BE.E5.BC.8F.E5.AF.B9.E8.B1.A1.E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#26174;&#24335;&#23545;&#35937;&#25104;&#21592;&#20989;&#25968;</a>&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+</table>
+<p><br /></p>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx14">
+<td>
+<p>&#23545;&#20110;<span class="t-spar">&#24418;&#21442;</span>&#8202;&#65279;&#20013;&#27599;&#20010;&#31867;&#22411;&#25351;&#23450;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw4">auto</span></span> &#30340;&#24418;&#21442;&#65292;&#20197;&#23427;&#20204;&#30340;&#20986;&#29616;&#39034;&#24207;&#21521;<span class="t-spar">&#27169;&#26495;&#24418;&#21442;</span>&#8202;&#65279;&#20013;&#28155;&#21152;&#19968;&#20010;&#34394;&#35774;&#30340;&#27169;&#26495;&#24418;&#21442;&#12290;&#24403;&#34394;&#35774;&#30340;&#27169;&#26495;&#24418;&#21442;&#25152;&#23545;&#24212;&#30340;<span class="t-spar">&#24418;&#21442;</span>&#8202;&#65279;&#20013;&#30340;&#20989;&#25968;&#24418;&#21442;&#26159;&#20989;&#25968;&#24418;&#21442;&#21253;&#26102;&#65292;&#23427;&#21487;&#20197;&#26159;<a href="cpp-language-parameter_pack.html" class="mw-redirect">&#24418;&#21442;&#21253;</a>&#12290;</p>
+<div style="text-align: left; width:45em; overflow-x: hidden;" dir="ltr" class="mw-geshi">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co1">// &#27867;&#22411; lambda&#65292;operator() &#26159;&#26377;&#20004;&#20010;&#24418;&#21442;&#30340;&#27169;&#26495;</span>
+<span class="kw4">auto</span> glambda <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">auto</span> a, <span class="kw4">auto</span><span class="sy3">&amp;&amp;</span> b<span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> a <span class="sy1">&lt;</span> b<span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+<span class="kw4">bool</span> b <span class="sy1">=</span> glambda<span class="br0">(</span><span class="nu0">3</span>, <span class="nu16">3.14</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// ok</span>
+ 
+<span class="co1">// &#27867;&#22411; lambda&#65292;operator() &#26159;&#26377;&#19968;&#20010;&#24418;&#21442;&#30340;&#27169;&#26495;</span>
+<span class="kw4">auto</span> vglambda <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">auto</span> printer<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">return</span> <span class="br0">[</span><span class="sy1">=</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">auto</span><span class="sy3">&amp;&amp;</span>... <span class="me1">ts</span><span class="br0">)</span> <span class="co1">// &#27867;&#22411; lambda&#65292;ts &#26159;&#24418;&#21442;&#21253;</span>
+    <span class="br0">{</span> 
+        printer<span class="br0">(</span><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>decltype<span class="br0">(</span>ts<span class="br0">)</span><span class="sy1">&gt;</span><span class="br0">(</span>ts<span class="br0">)</span>...<span class="br0">)</span><span class="sy4">;</span>
+        <span class="co1">// &#38646;&#20803; lambda &#65288;&#19981;&#25509;&#21463;&#24418;&#21442;&#65289;</span>
+        <span class="kw1">return</span> <span class="br0">[</span><span class="sy1">=</span><span class="br0">]</span> <span class="br0">{</span> printer<span class="br0">(</span>ts...<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">auto</span> p <span class="sy1">=</span> vglambda<span class="br0">(</span><span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">auto</span> v1, <span class="kw4">auto</span> v2, <span class="kw4">auto</span> v3<span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> v1 <span class="sy1">&lt;&lt;</span> v2 <span class="sy1">&lt;&lt;</span> v3<span class="sy4">;</span>
+<span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+<span class="kw4">auto</span> q <span class="sy1">=</span> p<span class="br0">(</span><span class="nu0">1</span>, <span class="st0">&#39;a&#39;</span>, <span class="nu16">3.14</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#36755;&#20986; 1a3.14</span>
+q<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>                      <span class="co1">// &#36755;&#20986; 1a3.14</span></pre></div>
+</div>
+</td>
+<td><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14 &#36215;)</span></td>
+</tr>
+</table>
+<p><br /></p>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx20">
+<td>
+<p>&#22914;&#26524; lambda &#23450;&#20041;&#20351;&#29992;&#20102;&#26174;&#24335;&#30340;&#27169;&#26495;&#24418;&#21442;&#21015;&#34920;&#65292;&#35813;&#21015;&#34920;&#20250;&#29992;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span>&#12290;&#23545;&#20110;<span class="t-spar">&#24418;&#21442;</span>&#8202;&#65279;&#20013;&#30340;&#27599;&#20010;&#31867;&#22411;&#25351;&#23450;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw4">auto</span></span> &#30340;&#24418;&#21442;&#65292;&#37117;&#20250;&#21521;&#27169;&#26495;&#24418;&#21442;&#21015;&#34920;&#36861;&#21152;&#19968;&#20010;&#34394;&#35774;&#30340;&#27169;&#26495;&#24418;&#21442;&#65306;</p>
+<div style="text-align: left; width:45em" dir="ltr" class="mw-geshi">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co1">// &#27867;&#22411; lambda&#65292;operator() &#26159;&#19968;&#20010;&#25317;&#26377;&#20004;&#20010;&#65288;&#27169;&#26495;&#65289;&#24418;&#21442;&#30340;&#27169;&#26495;</span>
+<span class="kw4">auto</span> glambda <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="sy1">&lt;</span><span class="kw1">class</span> T<span class="sy1">&gt;</span><span class="br0">(</span>T a, <span class="kw4">auto</span><span class="sy3">&amp;&amp;</span> b<span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> a <span class="sy1">&lt;</span> b<span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="co1">// &#27867;&#22411; lambda&#65292;operator() &#26159;&#19968;&#20010;&#25317;&#26377;&#19968;&#20010;&#24418;&#21442;&#21253;&#30340;&#27169;&#26495;</span>
+<span class="kw4">auto</span> f <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="sy1">&lt;</span><span class="kw1">typename</span>... <span class="me1">Ts</span><span class="sy1">&gt;</span><span class="br0">(</span>Ts<span class="sy3">&amp;&amp;</span>... <span class="me1">ts</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">return</span> foo<span class="br0">(</span><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Ts<span class="sy1">&gt;</span><span class="br0">(</span>ts<span class="br0">)</span>...<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+</table>
+<p>lambda &#34920;&#36798;&#24335;&#19978;&#30340;&#24322;&#24120;&#35828;&#26126;<span class="t-spar">&#24322;&#24120;</span>&#8202;&#65279;&#24212;&#29992;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span>&#12290;</p>
+<p>&#23545;&#20110;<a href="cpp-language-lookup.html">&#21517;&#23383;&#26597;&#25214;</a>&#12289;&#30830;&#23450; <a href="cpp-language-this.html"><span class="t-c"><span class="mw-geshi cpp source-cpp">this</span></span> &#25351;&#38024;</a>&#30340;&#31867;&#22411;&#21644;&#20540;&#20197;&#21450;&#23545;&#20110;&#35775;&#38382;&#38750;&#38745;&#24577;&#31867;&#25104;&#21592;&#32780;&#35328;&#65292;&#38381;&#21253;&#31867;&#22411;&#30340;&#20989;&#25968;&#35843;&#29992;&#36816;&#31639;&#31526;&#30340;&#20989;&#25968;&#20307;&#34987;&#35748;&#20026;&#22788;&#20110; lambda &#34920;&#36798;&#24335;&#30340;&#35821;&#22659;&#20013;&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">struct</span> X
+<span class="br0">{</span>
+    <span class="kw4">int</span> x, y<span class="sy4">;</span>
+    <span class="kw4">int</span> operator<span class="br0">(</span><span class="br0">)</span><span class="br0">(</span><span class="kw4">int</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">void</span> f<span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="co1">// &#19979;&#21015; lambda &#30340;&#35821;&#22659;&#26159;&#25104;&#21592;&#20989;&#25968; X::f</span>
+        <span class="br0">[</span><span class="sy1">=</span><span class="br0">]</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">-</span><span class="sy1">&gt;</span> <span class="kw4">int</span>
+        <span class="br0">{</span>
+            <span class="kw1">return</span> operator<span class="br0">(</span><span class="br0">)</span><span class="br0">(</span>this<span class="sy2">-</span><span class="sy1">&gt;</span>x <span class="sy2">+</span> y<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// X::operator()(this-&gt;x + (*this).y)</span>
+                                            <span class="co1">// this &#25317;&#26377;&#31867;&#22411; X*</span>
+        <span class="br0">}</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+<h3><span class="mw-headline" id=".E6.82.AC.E5.9E.82.E5.BC.95.E7.94.A8">&#24748;&#22402;&#24341;&#29992;</span></h3>
+<p>&#22914;&#26524;&#25353;&#24341;&#29992;&#38544;&#24335;&#25110;&#26174;&#24335;&#25429;&#33719;&#38750;&#24341;&#29992;&#23454;&#20307;&#65292;&#32780;&#22312;&#35813;&#23454;&#20307;&#30340;&#29983;&#23384;&#26399;&#32467;&#26463;&#20043;&#21518;&#35843;&#29992;&#38381;&#21253;&#23545;&#35937;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span>&#65292;&#37027;&#20040;&#20250;&#21457;&#29983;&#26410;&#23450;&#20041;&#34892;&#20026;&#12290;C++ &#30340;&#38381;&#21253;&#24182;&#19981;&#24310;&#38271;&#25353;&#24341;&#29992;&#25429;&#33719;&#30340;&#23545;&#35937;&#30340;&#29983;&#23384;&#26399;&#12290;</p>
+<p>&#36825;&#21516;&#26679;&#36866;&#29992;&#20110;&#36890;&#36807; <code><b>this</b></code> &#25429;&#33719;&#30340;&#24403;&#21069; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#23545;&#35937;&#30340;&#29983;&#23384;&#26399;&#12290;</p>
+</div>
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="cpp-language-lambda.html#cite_ref-1">&uarr;</a></span> <span class="reference-text">&#23613;&#31649;&#20989;&#25968;&#36820;&#22238;&#31867;&#22411;&#25512;&#23548;&#22312; C++14 &#20013;&#24341;&#20837;&#65292;&#20294;&#26159; C++11 &#20013;&#24050;&#32463;&#21487;&#20197;&#20351;&#29992;&#30456;&#24212;&#35268;&#21017;&#25512;&#23548; lambda &#36820;&#22238;&#31867;&#22411;&#12290;</span></li>
+</ol>
+<div class="t-member">
+<h2><span class="mw-headline" id=".E9.97.AD.E5.8C.85.E7.B1.BB.E5.9E.8B::operator_.E8.BF.94.E5.9B.9E.E7.B1.BB.E5.9E.8B.28.2A.29.28.E5.BD.A2.E5.8F.82.29.28.29"><span style="font-size:0.8em; line-height:125%">&#38381;&#21253;&#31867;&#22411;::</span>operator <span class="t-spar">&#36820;&#22238;&#31867;&#22411;</span>(*)(<span class="t-spar">&#24418;&#21442;</span>)()</span></h2>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl-h">
+<td>
+<div>&#26080;&#25429;&#33719;&#30340;&#38750;&#27867;&#22411; lambda</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+<tbody class="t-dcl-rev">
+<tr class="t-dcl t-until-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">using</span> F <span class="sy1">=</span> &#36820;&#22238;&#31867;&#22411;<span class="br0">(</span><span class="sy2">*</span><span class="br0">)</span><span class="br0">(</span>&#24418;&#21442;<span class="br0">)</span><span class="sy4">;</span><br />
+operator F<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-until-cxx17" style="white-space: nowrap;">(C++17 &#21069;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">using</span> F <span class="sy1">=</span> &#36820;&#22238;&#31867;&#22411;<span class="br0">(</span><span class="sy2">*</span><span class="br0">)</span><span class="br0">(</span>&#24418;&#21442;<span class="br0">)</span><span class="sy4">;</span><br />
+<span class="kw4">constexpr</span> operator F<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="t-dcl-h">
+<td>
+<div>&#26080;&#25429;&#33719;&#30340;&#27867;&#22411; lambda</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+<tbody class="t-dcl-rev">
+<tr class="t-dcl t-since-cxx14 t-until-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span>&#27169;&#26495;&#24418;&#21442;<span class="sy1">&gt;</span> <span class="kw1">using</span> fptr_t <span class="sy1">=</span> <span class="coMULTI">/* &#35265;&#19979;&#25991; */</span><span class="sy4">;</span><br /></span>
+<p><span class="kw1">template</span><span class="sy1">&lt;</span>&#27169;&#26495;&#24418;&#21442;<span class="sy1">&gt;</span><br /></p>
+operator fptr_t<span class="sy1">&lt;</span>&#27169;&#26495;&#24418;&#21442;<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14 &#36215;)</span><br />
+<span class="t-mark-rev t-until-cxx17" style="white-space: nowrap;">(C++17 &#21069;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span>&#27169;&#26495;&#24418;&#21442;<span class="sy1">&gt;</span> <span class="kw1">using</span> fptr_t <span class="sy1">=</span> <span class="coMULTI">/* &#35265;&#19979;&#25991; */</span><span class="sy4">;</span><br /></span>
+<p><span class="kw1">template</span><span class="sy1">&lt;</span>&#27169;&#26495;&#24418;&#21442;<span class="sy1">&gt;</span><br /></p>
+<span class="kw4">constexpr</span> operator fptr_t<span class="sy1">&lt;</span>&#27169;&#26495;&#24418;&#21442;<span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#21482;&#26377;&#22312; lambda &#34920;&#36798;&#24335;&#27809;&#26377;<span class="t-spar">&#25429;&#33719;</span>&#8202;&#65279;<span class="t-rev-inl t-since-cxx23"><span>&#19988;&#27809;&#26377;&#26174;&#24335;&#23545;&#35937;&#24418;&#21442;</span><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></span></span>&#26102;&#25165;&#23450;&#20041;&#36825;&#20010;<a href="cpp-language-cast_operator.html">&#29992;&#25143;&#23450;&#20041;&#36716;&#25442;&#20989;&#25968;</a>&#12290;&#23427;&#26159;&#38381;&#21253;&#23545;&#35937;&#30340;&#20844;&#24320;&#12289;<span class="t-rev-inl t-since-cxx17"><span>constexpr&#12289;</span><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></span></span>&#38750;&#34394;&#12289;&#38750;&#26174;&#24335;&#12289;const noexcept &#25104;&#21592;&#20989;&#25968;&#12290;</p>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx20">
+<td>
+<p>&#22914;&#26524;&#20989;&#25968;&#35843;&#29992;&#36816;&#31639;&#31526;&#65288;&#25110;&#23545;&#20110;&#27867;&#22411; lambda &#30340;&#20989;&#25968;&#35843;&#29992;&#36816;&#31639;&#31526;&#29305;&#21270;&#65289;&#26159;&#31435;&#21363;&#20989;&#25968;&#65292;&#37027;&#20040;&#27492;&#20989;&#25968;&#26159;<a href="cpp-language-consteval.html">&#31435;&#21363;&#20989;&#25968;</a>&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+</table>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx14">
+<td>
+<p>&#27867;&#22411;&#26080;&#25429;&#33719; lambda &#25317;&#26377;&#19968;&#20010;&#29992;&#25143;&#23450;&#20041;&#30340;&#36716;&#25442;&#20989;&#25968;&#27169;&#26495;&#65292;&#23427;&#20855;&#26377;&#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#27169;&#26495;&#30456;&#21516;&#30340;&#34394;&#35774;&#27169;&#26495;&#24418;&#21442;&#21015;&#34920;&#12290;</p>
+<div style="text-align: left; width:45em" dir="ltr" class="mw-geshi">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw4">void</span> f1<span class="br0">(</span><span class="kw4">int</span> <span class="br0">(</span><span class="sy2">*</span><span class="br0">)</span><span class="br0">(</span><span class="kw4">int</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+<span class="kw4">void</span> f2<span class="br0">(</span><span class="kw4">char</span> <span class="br0">(</span><span class="sy2">*</span><span class="br0">)</span><span class="br0">(</span><span class="kw4">int</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+<span class="kw4">void</span> h<span class="br0">(</span><span class="kw4">int</span> <span class="br0">(</span><span class="sy2">*</span><span class="br0">)</span><span class="br0">(</span><span class="kw4">int</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>  <span class="co1">// #1</span>
+<span class="kw4">void</span> h<span class="br0">(</span><span class="kw4">char</span> <span class="br0">(</span><span class="sy2">*</span><span class="br0">)</span><span class="br0">(</span><span class="kw4">int</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span> <span class="co1">// #2</span>
+ 
+<span class="kw4">auto</span> glambda <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">auto</span> a<span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> a<span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+f1<span class="br0">(</span>glambda<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK</span>
+f2<span class="br0">(</span>glambda<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#38169;&#35823;&#65306;&#19981;&#21487;&#36716;&#25442;</span>
+h<span class="br0">(</span>glambda<span class="br0">)</span><span class="sy4">;</span>  <span class="co1">// OK&#65306;&#35843;&#29992; #1&#65292;&#22240;&#20026; #2 &#19981;&#21487;&#36716;&#25442;</span>
+ 
+<span class="kw4">int</span><span class="sy3">&amp;</span> <span class="br0">(</span><span class="sy2">*</span>fpi<span class="br0">)</span><span class="br0">(</span><span class="kw4">int</span><span class="sy2">*</span><span class="br0">)</span> <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">auto</span><span class="sy2">*</span> a<span class="br0">)</span> <span class="sy2">-</span><span class="sy1">&gt;</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> <span class="br0">{</span> <span class="kw1">return</span> <span class="sy2">*</span>a<span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span> <span class="co1">// OK</span></pre></div>
+</div>
+</td>
+<td><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14 &#36215;)</span></td>
+</tr>
+</table>
+<p><br /></p>
+<table class="t-rev-begin">
+<tr class="t-rev t-until-cxx14">
+<td>
+<p>&#36825;&#20010;&#36716;&#25442;&#20989;&#25968;&#36820;&#22238;&#19968;&#20010;&#25351;&#21521;&#20855;&#26377; C++ <a href="cpp-language-language_linkage.html">&#35821;&#35328;&#36830;&#25509;</a>&#30340;&#20989;&#25968;&#30340;&#25351;&#38024;&#65292;&#35843;&#29992;&#35813;&#20989;&#25968;&#30340;&#25928;&#26524;&#19982;&#22312;&#40664;&#35748;&#26500;&#36896;&#30340;&#38381;&#21253;&#31867;&#22411;&#23454;&#20363;&#19978;&#35843;&#29992;&#38381;&#21253;&#31867;&#22411;&#30340;&#20989;&#25968;&#35843;&#29992;&#36816;&#31639;&#31526;&#30340;&#25928;&#26524;&#30456;&#21516;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-until-cxx14" style="white-space: nowrap;">(C++14 &#21069;)</span></td>
+</tr>
+<tr class="t-rev t-since-cxx14 t-until-cxx23">
+<td>
+<p>&#36825;&#20010;&#36716;&#25442;&#20989;&#25968;&#65288;&#27169;&#26495;&#65289;&#36820;&#22238;&#19968;&#20010;&#25351;&#21521;&#20855;&#26377; C++ <a href="cpp-language-language_linkage.html">&#35821;&#35328;&#36830;&#25509;</a>&#30340;&#20989;&#25968;&#30340;&#25351;&#38024;&#65292;&#35843;&#29992;&#35813;&#20989;&#25968;&#30340;&#25928;&#26524;&#19982;&#19979;&#21015;&#25928;&#26524;&#30456;&#21516;&#65306;</p>
+<ul>
+<li>&#23545;&#20110;&#38750;&#27867;&#22411; lambda&#65292;&#22312;&#40664;&#35748;&#26500;&#36896;&#30340;&#38381;&#21253;&#31867;&#22411;&#23454;&#20363;&#19978;&#35843;&#29992;&#38381;&#21253;&#31867;&#22411;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span>&#12290;</li>
+<li>&#23545;&#20110;&#27867;&#22411; lambda&#65292;&#22312;&#40664;&#35748;&#26500;&#36896;&#30340;&#38381;&#21253;&#31867;&#22411;&#23454;&#20363;&#19978;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#27169;&#26495;&#30340;&#27867;&#22411; lambda &#23545;&#24212;&#29305;&#21270;&#12290;</li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14 &#36215;)</span><br />
+<span class="t-mark-rev t-until-cxx23" style="white-space: nowrap;">(C++23 &#21069;)</span></td>
+</tr>
+<tr class="t-rev t-since-cxx23">
+<td>
+<p>&#36825;&#20010;&#36716;&#25442;&#20989;&#25968;&#65288;&#27169;&#26495;&#65289;&#65306;</p>
+<ul>
+<li>&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#26159;&#38745;&#24577;&#30340;&#24773;&#20917;&#19979;&#36820;&#22238;&#19968;&#20010;&#25351;&#21521;&#20855;&#26377; C++ <a href="cpp-language-language_linkage.html">&#35821;&#35328;&#36830;&#25509;</a>&#30340;&#35813; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#30340;&#25351;&#38024;&#12290;</li>
+<li>&#21542;&#21017;&#36820;&#22238;&#19968;&#20010;&#25351;&#21521;&#20855;&#26377; C++ <a href="cpp-language-language_linkage.html">&#35821;&#35328;&#36830;&#25509;</a>&#30340;&#20989;&#25968;&#30340;&#25351;&#38024;&#65292;&#35843;&#29992;&#35813;&#20989;&#25968;&#30340;&#25928;&#26524;&#19982;&#19979;&#21015;&#25928;&#26524;&#30456;&#21516;&#65306;
+<ul>
+<li>&#23545;&#20110;&#38750;&#27867;&#22411; lambda&#65292;&#22312;&#40664;&#35748;&#26500;&#36896;&#30340;&#38381;&#21253;&#31867;&#22411;&#23454;&#20363;&#19978;&#35843;&#29992;&#38381;&#21253;&#31867;&#22411;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span>&#12290;</li>
+<li>&#23545;&#20110;&#27867;&#22411; lambda&#65292;&#22312;&#40664;&#35748;&#26500;&#36896;&#30340;&#38381;&#21253;&#31867;&#22411;&#23454;&#20363;&#19978;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#27169;&#26495;&#30340;&#27867;&#22411; lambda &#23545;&#24212;&#29305;&#21270;&#12290;</li>
+</ul>
+</li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+</table>
+<p><br /></p>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx17">
+<td>
+<p>&#22914;&#26524;&#20989;&#25968;&#35843;&#29992;&#36816;&#31639;&#31526;&#65288;&#25110;&#23545;&#20110;&#27867;&#22411; lambda &#26159;&#23427;&#30340;&#29305;&#21270;&#65289;&#26159; constexpr &#30340;&#65292;&#37027;&#20040;&#27492;&#20989;&#25968;&#20063;&#26159; constexpr &#30340;&#12290;</p>
+<div style="text-align: left; width:45em; overflow-x: hidden;" dir="ltr" class="mw-geshi">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw4">auto</span> Fwd <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">int</span><span class="br0">(</span><span class="sy2">*</span>fp<span class="br0">)</span><span class="br0">(</span><span class="kw4">int</span><span class="br0">)</span>, <span class="kw4">auto</span> a<span class="br0">)</span><span class="br0">{</span> <span class="kw1">return</span> fp<span class="br0">(</span>a<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+<span class="kw4">auto</span> C <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">auto</span> a<span class="br0">)</span><span class="br0">{</span> <span class="kw1">return</span> a<span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+static_assert<span class="br0">(</span>Fwd<span class="br0">(</span>C, <span class="nu0">3</span><span class="br0">)</span> <span class="sy1">==</span> <span class="nu0">3</span><span class="br0">)</span><span class="sy4">;</span>  <span class="co1">// OK</span>
+ 
+<span class="kw4">auto</span> NC <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">auto</span> a<span class="br0">)</span><span class="br0">{</span> <span class="kw4">static</span> <span class="kw4">int</span> s<span class="sy4">;</span> <span class="kw1">return</span> a<span class="sy4">;</span><span class="br0">}</span><span class="sy4">;</span>
+static_assert<span class="br0">(</span>Fwd<span class="br0">(</span>NC, <span class="nu0">3</span><span class="br0">)</span> <span class="sy1">==</span> <span class="nu0">3</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#38169;&#35823;&#65306;&#22240;&#20026; static s &#32780;&#19981;&#33021;&#20026; constexpr &#30340;&#29305;&#21270;</span></pre></div>
+</div>
+<p>&#22914;&#26524;&#38381;&#21253;&#23545;&#35937;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#20855;&#26377;&#26080;&#25243;&#20986;&#24322;&#24120;&#35828;&#26126;&#65292;&#37027;&#20040;&#27492;&#20989;&#25968;&#36820;&#22238;&#30340;&#25351;&#38024;&#20855;&#26377;&#25351;&#21521; noexcept &#20989;&#25968;&#30340;&#25351;&#38024;&#31867;&#22411;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+</table>
+</div>
+<div class="t-member">
+<h2><span class="mw-headline" id=".E9.97.AD.E5.8C.85.E7.B1.BB.E5.9E.8B::.E9.97.AD.E5.8C.85.E7.B1.BB.E5.9E.8B.28.29"><span style="font-size:0.8em; line-height:125%">&#38381;&#21253;&#31867;&#22411;::</span>&#38381;&#21253;&#31867;&#22411;()</span></h2>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp">&#38381;&#21253;&#31867;&#22411;<span class="br0">(</span><span class="br0">)</span> <span class="sy1">=</span> <span class="kw1">default</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20165;&#24403;&#26410;&#25351;&#23450;&#20219;&#20309;&#25429;&#33719;&#26102;)</span></td>
+</tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi cpp source-cpp">&#38381;&#21253;&#31867;&#22411;<span class="br0">(</span><span class="kw4">const</span> &#38381;&#21253;&#31867;&#22411;<span class="sy3">&amp;</span><span class="br0">)</span> <span class="sy1">=</span> <span class="kw1">default</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi cpp source-cpp">&#38381;&#21253;&#31867;&#22411;<span class="br0">(</span>&#38381;&#21253;&#31867;&#22411;<span class="sy3">&amp;&amp;</span><span class="br0">)</span> <span class="sy1">=</span> <span class="kw1">default</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="t-rev-begin">
+<tr class="t-rev t-until-cxx20">
+<td>
+<p>&#38381;&#21253;&#31867;&#22411;&#38750;<a href="cpp-named_req-DefaultConstructible.html"><span style="font-style:italic">&#21487;&#40664;&#35748;&#26500;&#36896;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(DefaultConstructible)</span></a> &#12290;&#38381;&#21253;&#31867;&#22411;&#27809;&#26377;&#40664;&#35748;&#26500;&#36896;&#20989;&#25968;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#21069;)</span></td>
+</tr>
+<tr class="t-rev t-since-cxx20">
+<td>
+<p>&#22914;&#26524;&#27809;&#26377;&#25351;&#23450;<span class="t-spar">&#25429;&#33719;</span>&#65292;&#37027;&#20040;&#38381;&#21253;&#31867;&#22411;&#25317;&#26377;&#39044;&#32622;&#30340;&#40664;&#35748;&#26500;&#36896;&#20989;&#25968;&#12290;&#21542;&#21017;&#65292;&#23427;&#27809;&#26377;&#40664;&#35748;&#26500;&#36896;&#20989;&#25968;&#65288;&#36825;&#21253;&#21547;&#26377;<span class="t-spar">&#40664;&#35748;&#25429;&#33719;&#31526;</span>&#8202;&#65279;&#30340;&#24773;&#20917;&#65292;&#21363;&#20351;&#23427;&#23454;&#38469;&#19978;&#27809;&#26377;&#25429;&#33719;&#20219;&#20309;&#21464;&#37327;&#65289;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+</table>
+<p>&#22797;&#21046;&#26500;&#36896;&#20989;&#25968;&#19982;&#31227;&#21160;&#26500;&#36896;&#20989;&#25968;&#22768;&#26126;&#20026;&#39044;&#32622;&#65292;&#24182;&#21487;&#33021;&#25353;&#29031;<a href="cpp-language-copy_constructor.html">&#22797;&#21046;&#26500;&#36896;&#20989;&#25968;</a>&#19982;<a href="cpp-language-move_constructor.html">&#31227;&#21160;&#26500;&#36896;&#20989;&#25968;</a>&#30340;&#36890;&#24120;&#35268;&#21017;&#38544;&#24335;&#23450;&#20041;&#12290;</p>
+</div>
+<div class="t-member">
+<h2><span class="mw-headline" id=".E9.97.AD.E5.8C.85.E7.B1.BB.E5.9E.8B::operator.3D.28const_.E9.97.AD.E5.8C.85.E7.B1.BB.E5.9E.8B.26.29"><span style="font-size:0.8em; line-height:125%">&#38381;&#21253;&#31867;&#22411;::</span>operator=(const &#38381;&#21253;&#31867;&#22411;&amp;)</span></h2>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-until-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp">&#38381;&#21253;&#31867;&#22411;<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span><span class="kw4">const</span> &#38381;&#21253;&#31867;&#22411;<span class="sy3">&amp;</span><span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#21069;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp">&#38381;&#21253;&#31867;&#22411;<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span><span class="kw4">const</span> &#38381;&#21253;&#31867;&#22411;<span class="sy3">&amp;</span><span class="br0">)</span> <span class="sy1">=</span> <span class="kw1">default</span><span class="sy4">;</span><br />
+&#38381;&#21253;&#31867;&#22411;<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span>&#38381;&#21253;&#31867;&#22411;<span class="sy3">&amp;&amp;</span><span class="br0">)</span> <span class="sy1">=</span> <span class="kw1">default</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20165;&#24403;&#26410;&#25351;&#23450;&#20219;&#20309;&#25429;&#33719;&#26102;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp">&#38381;&#21253;&#31867;&#22411;<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span><span class="kw4">const</span> &#38381;&#21253;&#31867;&#22411;<span class="sy3">&amp;</span><span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span><br />
+<span class="t-mark" style="white-space: nowrap;">(&#20854;&#20182;&#24773;&#20917;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="t-rev-begin">
+<tr class="t-rev t-until-cxx20">
+<td>
+<p>&#22797;&#21046;&#36171;&#20540;&#36816;&#31639;&#31526;&#34987;&#23450;&#20041;&#20026;&#24323;&#32622;&#30340;&#65288;&#19988;&#26410;&#22768;&#26126;&#31227;&#21160;&#36171;&#20540;&#36816;&#31639;&#31526;&#65289;&#12290;&#38381;&#21253;&#31867;&#22411;&#19981;<a href="cpp-named_req-CopyAssignable.html"><span style="font-style:italic">&#21487;&#22797;&#21046;&#36171;&#20540;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(CopyAssignable)</span></a> &#12290;</p>
+</td>
+<td><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#21069;)</span></td>
+</tr>
+<tr class="t-rev t-since-cxx20">
+<td>
+<p>&#22914;&#26524;&#27809;&#26377;&#25351;&#23450; <span class="t-spar">&#25429;&#33719;</span>&#65292;&#37027;&#20040;&#38381;&#21253;&#31867;&#22411;&#25317;&#26377;&#39044;&#32622;&#30340;&#22797;&#21046;&#36171;&#20540;&#36816;&#31639;&#31526;&#21644;&#39044;&#32622;&#30340;&#31227;&#21160;&#36171;&#20540;&#36816;&#31639;&#31526;&#12290;&#21542;&#21017;&#65292;&#23427;&#25317;&#26377;&#24323;&#32622;&#30340;&#22797;&#21046;&#36171;&#20540;&#36816;&#31639;&#31526;&#65288;&#36825;&#21253;&#21547;&#26377;<span class="t-spar">&#40664;&#35748;&#25429;&#33719;&#31526;</span>&#8202;&#65279;&#30340;&#24773;&#20917;&#65292;&#21363;&#20351;&#23427;&#23454;&#38469;&#19978;&#27809;&#26377;&#25429;&#33719;&#20219;&#20309;&#21464;&#37327;&#65289;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+</table>
+</div>
+<div class="t-member">
+<h2><span class="mw-headline" id=".E9.97.AD.E5.8C.85.E7.B1.BB.E5.9E.8B::.7E.E9.97.AD.E5.8C.85.E7.B1.BB.E5.9E.8B.28.29"><span style="font-size:0.8em; line-height:125%">&#38381;&#21253;&#31867;&#22411;::</span>~&#38381;&#21253;&#31867;&#22411;()</span></h2>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi cpp source-cpp">~&#38381;&#21253;&#31867;&#22411;<span class="br0">(</span><span class="br0">)</span> <span class="sy1">=</span> <span class="kw1">default</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#26512;&#26500;&#20989;&#25968;&#26159;&#38544;&#24335;&#22768;&#26126;&#30340;&#12290;</p>
+</div>
+<div class="t-member">
+<h2><span class="mw-headline" id=".E9.97.AD.E5.8C.85.E7.B1.BB.E5.9E.8B::.E6.8D.95.E8.8E.B7"><span style="font-size:0.8em; line-height:125%">&#38381;&#21253;&#31867;&#22411;::</span><span class="t-spar">&#25429;&#33719;</span></span></h2>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi cpp source-cpp">T1 a<span class="sy4">;</span><br /></span>
+<p>T2 b<span class="sy4">;</span><br /></p>
+...</div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#22914;&#26524; lambda &#34920;&#36798;&#24335;&#25353;&#22797;&#21046;&#65288;&#38544;&#24335;&#22320;&#20197;&#25429;&#33719;&#23376;&#21477; <code><b>[=]</b></code> &#25110;&#26174;&#24335;&#22320;&#20197;&#19981;&#21547;&#23383;&#31526; &amp; &#30340;&#25429;&#33719;&#31526;&#65292;&#20363;&#22914; <code><b>[a, b, c]</b></code>&#65289;&#25429;&#33719;&#20102;&#20219;&#20309;&#20869;&#23481;&#65292;&#37027;&#20040;&#38381;&#21253;&#31867;&#22411;&#21253;&#21547;&#20445;&#26377;&#25152;&#26377;&#34987;&#22914;&#27492;&#25429;&#33719;&#30340;&#23454;&#20307;&#30340;&#21103;&#26412;&#30340;&#26080;&#21517;&#38750;&#38745;&#24577;&#25968;&#25454;&#25104;&#21592;&#65292;&#23427;&#20204;&#20197;&#26410;&#25351;&#26126;&#30340;&#39034;&#24207;&#22768;&#26126;&#12290;</p>
+<p>&#22914;&#26524;&#25968;&#25454;&#25104;&#21592;&#23545;&#24212;&#30340;&#25429;&#33719;&#31526;&#27809;&#26377;&#21021;&#22987;&#21270;&#22120;&#65292;&#37027;&#20040;&#23427;&#20204;&#22312;&#27714;&#20540; lambda &#34920;&#36798;&#24335;&#26102;&#34987;<a href="cpp-language-direct_initialization.html">&#30452;&#25509;&#21021;&#22987;&#21270;</a>&#12290;&#22914;&#26524;&#26377;&#21021;&#22987;&#21270;&#22120;&#65292;&#37027;&#20040;&#25353;&#23427;&#30340;&#21021;&#22987;&#21270;&#22120;&#30340;&#35201;&#27714;&#21021;&#22987;&#21270;&#65288;&#21487;&#20026;&#22797;&#21046;&#25110;&#30452;&#25509;&#21021;&#22987;&#21270;&#65289;&#12290;&#22914;&#26524;&#25429;&#33719;&#20102;&#25968;&#32452;&#65292;&#37027;&#20040;&#21508;&#25968;&#32452;&#20803;&#32032;&#20197;&#19979;&#26631;&#36882;&#22686;&#39034;&#24207;&#30452;&#25509;&#21021;&#22987;&#21270;&#12290;&#21021;&#22987;&#21270;&#21508;&#25968;&#25454;&#25104;&#21592;&#25152;&#29992;&#30340;&#39034;&#24207;&#26159;&#23427;&#20204;&#30340;&#22768;&#26126;&#39034;&#24207;&#65288;&#21363;&#26410;&#25351;&#26126;&#65289;&#12290;</p>
+<p>&#27599;&#20010;&#25968;&#25454;&#25104;&#21592;&#30340;&#31867;&#22411;&#26159;&#23427;&#23545;&#24212;&#30340;&#34987;&#25429;&#33719;&#23454;&#20307;&#30340;&#31867;&#22411;&#65292;&#38500;&#38750;&#23454;&#20307;&#25317;&#26377;&#24341;&#29992;&#31867;&#22411;&#65288;&#27492;&#26102;&#21040;&#20989;&#25968;&#30340;&#24341;&#29992;&#34987;&#25429;&#33719;&#20026;&#21040;&#34987;&#24341;&#29992;&#20989;&#25968;&#30340;&#24038;&#20540;&#24341;&#29992;&#65292;&#32780;&#21040;&#23545;&#35937;&#30340;&#24341;&#29992;&#34987;&#25429;&#33719;&#20026;&#34987;&#24341;&#29992;&#23545;&#35937;&#30340;&#21103;&#26412;&#65289;&#12290;</p>
+<p>&#23545;&#20110;&#25353;&#24341;&#29992;&#25429;&#33719;&#65288;&#20197;<span class="t-spar">&#40664;&#35748;&#25429;&#33719;&#31526;</span> <code><b>[&amp;]</b></code> &#25110;&#20351;&#29992;&#20102;&#23383;&#31526; &amp;&#65292;&#20363;&#22914; <code><b>[&amp;a, &amp;b, &amp;c]</b></code>&#65289;&#30340;&#23454;&#20307;&#65292;&#38381;&#21253;&#31867;&#22411;&#20013;&#26159;&#21542;&#22768;&#26126;&#39069;&#22806;&#30340;&#25968;&#25454;&#25104;&#21592;&#26159;&#26410;&#25351;&#26126;&#30340;<span class="t-rev-inl t-since-cxx17"><span>&#65292;&#20294;&#20219;&#20309;&#36825;&#31181;&#38468;&#21152;&#25104;&#21592;&#24517;&#39035;&#28385;&#36275;<a href="cpp-named_req-LiteralType.html"><span style="font-style:italic">&#23383;&#38754;&#31867;&#22411;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(LiteralType)</span></a></span> <span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></span></span>&#12290;</p>
+</div>
+<p><br /></p>
+<table class="t-rev-begin">
+<tr class="t-rev t-until-cxx20">
+<td>
+<p><span id=".E4.B8.8D.E6.B1.82.E5.80.BC.E8.AF.AD.E5.A2.83.E4.B8.AD.E7.9A.84_lambda"></span> &#19981;&#20801;&#35768;&#22312;<a href="cpp-language-expressions.html#.E4.B8.8D.E6.B1.82.E5.80.BC.E8.A1.A8.E8.BE.BE.E5.BC.8F">&#19981;&#27714;&#20540;&#34920;&#36798;&#24335;</a>&#12289;<a href="cpp-language-template_parameters.html">&#27169;&#26495;&#23454;&#21442;</a>&#12289;<a href="cpp-language-type_alias.html">&#21035;&#21517;&#22768;&#26126;</a>&#12289;<a href="cpp-language-typedef.html">typedef &#22768;&#26126;</a>&#65292;&#20197;&#21450;&#20989;&#25968;&#65288;&#25110;&#20989;&#25968;&#27169;&#26495;&#65289;&#22768;&#26126;&#20013;&#38500;&#20102;&#20989;&#25968;&#20307;&#21644;&#20989;&#25968;&#30340;<a href="cpp-language-default_arguments.html">&#40664;&#35748;&#23454;&#21442;</a>&#20197;&#22806;&#30340;&#20219;&#20309;&#20301;&#32622;&#20013;&#20986;&#29616; lambda &#34920;&#36798;&#24335;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-until-cxx20" style="white-space: nowrap;">(C++20 &#21069;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id="lambda_.E6.8D.95.E8.8E.B7">lambda &#25429;&#33719;</span></h3>
+<p><span class="t-spar">&#25429;&#33719;</span>&#8202;&#65279;&#23450;&#20041;&#20102;&#21487;&#20197;&#20174; lambda &#20989;&#25968;&#20307;&#20043;&#20869;&#35775;&#38382;&#30340;&#22806;&#37096;&#21464;&#37327;&#12290;&#23427;&#30340;&#35821;&#27861;&#23450;&#20041;&#22914;&#19979;&#65306;</p>
+<table class="t-sdsc-begin">
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><span class="t-spar">&#40664;&#35748;&#25429;&#33719;&#31526;</span></td>
+<td>(1)</td>
+<td class="t-sdsc-nopad"></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><span class="t-spar">&#25429;&#33719;&#31526;&#21015;&#34920;</span></td>
+<td>(2)</td>
+<td class="t-sdsc-nopad"></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><span class="t-spar">&#40664;&#35748;&#25429;&#33719;&#31526;</span> <code><b>,</b></code> <span class="t-spar">&#25429;&#33719;&#31526;&#21015;&#34920;</span></td>
+<td>(3)</td>
+<td class="t-sdsc-nopad"></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+</table>
+<table class="t-par-begin">
+<tr class="t-par">
+<td><span class="t-spar">&#40664;&#35748;&#25429;&#33719;&#31526;</span></td>
+<td>-</td>
+<td><code><b>&amp;</b></code> &#21644; <code><b>=</b></code> &#20043;&#19968;</td>
+</tr>
+<tr class="t-par">
+<td><span class="t-spar">&#25429;&#33719;&#31526;&#21015;&#34920;</span></td>
+<td>-</td>
+<td>&#36887;&#21495;&#20998;&#38548;&#30340;<span class="t-spar">&#25429;&#33719;&#31526;</span>&#8202;&#65279;&#21015;&#34920;</td>
+</tr>
+</table>
+<p><br />
+<span class="t-spar">&#25429;&#33719;&#31526;</span>&#8202;&#65279;&#30340;&#35821;&#27861;&#23450;&#20041;&#22914;&#19979;&#65306;</p>
+<table class="t-sdsc-begin">
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><span class="t-spar">&#26631;&#35782;&#31526;</span></td>
+<td>(1)</td>
+<td class="t-sdsc-nopad"></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><span class="t-spar">&#26631;&#35782;&#31526;</span> <code><b>...</b></code></td>
+<td>(2)</td>
+<td class="t-sdsc-nopad"></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><span class="t-spar">&#26631;&#35782;&#31526;</span> <span class="t-spar">&#21021;&#22987;&#21270;&#22120;</span></td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14 &#36215;)</span></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><code><b>&amp;</b></code> <span class="t-spar">&#26631;&#35782;&#31526;</span></td>
+<td>(4)</td>
+<td class="t-sdsc-nopad"></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><code><b>&amp;</b></code> <span class="t-spar">&#26631;&#35782;&#31526;</span> <code><b>...</b></code></td>
+<td>(5)</td>
+<td class="t-sdsc-nopad"></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><code><b>&amp;</b></code> <span class="t-spar">&#26631;&#35782;&#31526;</span> <span class="t-spar">&#21021;&#22987;&#21270;&#22120;</span></td>
+<td>(6)</td>
+<td><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14 &#36215;)</span></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><code><b>this</b></code></td>
+<td>(7)</td>
+<td class="t-sdsc-nopad"></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><code><b>*this</b></code></td>
+<td>(8)</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><code><b>...</b></code> <span class="t-spar">&#26631;&#35782;&#31526;</span> <span class="t-spar">&#21021;&#22987;&#21270;&#22120;</span></td>
+<td>(9)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td><code><b>&amp;</b></code> <code><b>...</b></code> <span class="t-spar">&#26631;&#35782;&#31526;</span> <span class="t-spar">&#21021;&#22987;&#21270;&#22120;</span></td>
+<td>(10)</td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#31616;&#21333;&#30340;&#25353;&#22797;&#21046;&#25429;&#33719;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#20316;&#20026;<a href="cpp-language-parameter_pack.html" class="mw-redirect">&#21253;&#23637;&#24320;</a>&#30340;&#31616;&#21333;&#30340;&#25353;&#22797;&#21046;&#25429;&#33719;</div>
+<div class="t-li1"><span class="t-li">3)</span> &#24102;<a href="cpp-language-initialization.html">&#21021;&#22987;&#21270;&#22120;</a>&#30340;&#25353;&#22797;&#21046;&#25429;&#33719;</div>
+<div class="t-li1"><span class="t-li">4)</span> &#31616;&#21333;&#30340;&#25353;&#24341;&#29992;&#25429;&#33719;</div>
+<div class="t-li1"><span class="t-li">5)</span> &#20316;&#20026;<a href="cpp-language-parameter_pack.html" class="mw-redirect">&#21253;&#23637;&#24320;</a>&#30340;&#31616;&#21333;&#30340;&#25353;&#24341;&#29992;&#25429;&#33719;</div>
+<div class="t-li1"><span class="t-li">6)</span> &#24102;&#21021;&#22987;&#21270;&#22120;&#30340;&#25353;&#24341;&#29992;&#25429;&#33719;</div>
+<div class="t-li1"><span class="t-li">7)</span> &#24403;&#21069;&#23545;&#35937;&#30340;&#31616;&#21333;&#30340;&#25353;&#24341;&#29992;&#25429;&#33719;</div>
+<div class="t-li1"><span class="t-li">8)</span> &#24403;&#21069;&#23545;&#35937;&#30340;&#31616;&#21333;&#30340;&#25353;&#22797;&#21046;&#25429;&#33719;</div>
+<div class="t-li1"><span class="t-li">9)</span> &#21021;&#22987;&#21270;&#22120;&#20026;&#21253;&#23637;&#24320;&#30340;&#25353;&#22797;&#21046;&#25429;&#33719;</div>
+<div class="t-li1"><span class="t-li">10)</span> &#21021;&#22987;&#21270;&#22120;&#20026;&#21253;&#23637;&#24320;&#30340;&#25353;&#24341;&#29992;&#25429;&#33719;</div>
+<p>&#24403;<span class="t-spar">&#40664;&#35748;&#25429;&#33719;&#31526;</span>&#8202;&#65279;&#26159; <code><b>&amp;</b></code> &#26102;&#65292;&#21518;&#32487;&#30340;&#31616;&#21333;&#25429;&#33719;&#31526;&#19981;&#33021;&#20197; <code><b>&amp;</b></code> &#24320;&#22987;&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">struct</span> S2 <span class="br0">{</span> <span class="kw4">void</span> f<span class="br0">(</span><span class="kw4">int</span> i<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+<span class="kw4">void</span> S2<span class="sy4">::</span><span class="me2">f</span><span class="br0">(</span><span class="kw4">int</span> i<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="br0">[</span><span class="sy3">&amp;</span><span class="br0">]</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>          <span class="co1">// OK&#65306;&#40664;&#35748;&#25353;&#24341;&#29992;&#25429;&#33719;</span>
+    <span class="br0">[</span><span class="sy3">&amp;</span>, i<span class="br0">]</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>       <span class="co1">// OK&#65306;&#25353;&#24341;&#29992;&#25429;&#33719;&#65292;&#20294; i &#25353;&#20540;&#25429;&#33719;</span>
+    <span class="br0">[</span><span class="sy3">&amp;</span>, <span class="sy3">&amp;</span>i<span class="br0">]</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>      <span class="co1">// &#38169;&#35823;&#65306;&#25353;&#24341;&#29992;&#25429;&#33719;&#20026;&#40664;&#35748;&#26102;&#30340;&#25353;&#24341;&#29992;&#25429;&#33719;</span>
+    <span class="br0">[</span><span class="sy3">&amp;</span>, this<span class="br0">]</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>    <span class="co1">// OK&#65306;&#31561;&#20215;&#20110; [&amp;]</span>
+    <span class="br0">[</span><span class="sy3">&amp;</span>, this, i<span class="br0">]</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span> <span class="co1">// OK&#65306;&#31561;&#20215;&#20110; [&amp;, i]</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#24403;<span class="t-spar">&#40664;&#35748;&#25429;&#33719;&#31526;</span>&#8202;&#65279;&#26159; <code><b>=</b></code> &#26102;&#65292;&#21518;&#32487;&#30340;&#31616;&#21333;&#25429;&#33719;&#31526;&#24517;&#39035;&#20197; <code><b>&amp;</b></code>&#12289;<span class="t-rev-inl t-since-cxx17"><span><code><b>*this</b></code></span><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></span></span>&#12289;<span class="t-rev-inl t-since-cxx20"><span><code><b>this</b></code></span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></span></span> &#20043;&#19968;&#24320;&#22987;&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">struct</span> S2 <span class="br0">{</span> <span class="kw4">void</span> f<span class="br0">(</span><span class="kw4">int</span> i<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+<span class="kw4">void</span> S2<span class="sy4">::</span><span class="me2">f</span><span class="br0">(</span><span class="kw4">int</span> i<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="br0">[</span><span class="sy1">=</span><span class="br0">]</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>        <span class="co1">// OK&#65306;&#40664;&#35748;&#25353;&#22797;&#21046;&#25429;&#33719;</span>
+    <span class="br0">[</span><span class="sy1">=</span>, <span class="sy3">&amp;</span>i<span class="br0">]</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>    <span class="co1">// OK&#65306;&#25353;&#22797;&#21046;&#25429;&#33719;&#65292;&#20294; i &#25353;&#24341;&#29992;&#25429;&#33719;</span>
+    <span class="br0">[</span><span class="sy1">=</span>, <span class="sy2">*</span>this<span class="br0">]</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span> <span class="co1">// C++17 &#21069;&#65306;&#38169;&#35823;&#65306;&#26080;&#25928;&#35821;&#27861;</span>
+                   <span class="co1">// C++17 &#36215;&#65306;OK&#65306;&#25353;&#22797;&#21046;&#25429;&#33719;&#22806;&#22260;&#30340; S2</span>
+    <span class="br0">[</span><span class="sy1">=</span>, this<span class="br0">]</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>  <span class="co1">// C++20 &#21069;&#65306;&#38169;&#35823;&#65306;= &#20026;&#40664;&#35748;&#26102;&#30340; this</span>
+                   <span class="co1">// C++20 &#36215;&#65306;OK&#65306;&#21516; [=]</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#20219;&#20309;&#25429;&#33719;&#31526;&#21482;&#21487;&#20197;&#20986;&#29616;&#19968;&#27425;&#65292;&#24182;&#19988;&#21517;&#23383;&#19981;&#33021;&#19982;&#20219;&#20309;&#24418;&#21442;&#21517;&#30456;&#21516;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">struct</span> S2 <span class="br0">{</span> <span class="kw4">void</span> f<span class="br0">(</span><span class="kw4">int</span> i<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+<span class="kw4">void</span> S2<span class="sy4">::</span><span class="me2">f</span><span class="br0">(</span><span class="kw4">int</span> i<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="br0">[</span>i, i<span class="br0">]</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>        <span class="co1">// &#38169;&#35823;&#65306;i &#37325;&#22797;</span>
+    <span class="br0">[</span>this, <span class="sy2">*</span>this<span class="br0">]</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span> <span class="co1">// &#38169;&#35823;&#65306;&quot;this&quot; &#37325;&#22797;&#65288;C++17&#65289;</span>
+ 
+    <span class="br0">[</span>i<span class="br0">]</span> <span class="br0">(</span><span class="kw4">int</span> i<span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>   <span class="co1">// &#38169;&#35823;&#65306;&#24418;&#21442;&#21644;&#25429;&#33719;&#30340;&#21517;&#23383;&#30456;&#21516;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#22914;&#26524;&#21464;&#37327;&#28385;&#36275;&#19979;&#21015;&#26465;&#20214;&#20043;&#19968;&#65292;&#37027;&#20040; lambda &#34920;&#36798;&#24335;&#22312;&#20351;&#29992;&#23427;&#21069;&#19981;&#38656;&#35201;&#20808;&#25429;&#33719;&#65306;</p>
+<ul>
+<li>&#35813;&#21464;&#37327;&#26159;&#38750;&#23616;&#37096;&#21464;&#37327;&#65292;&#25110;&#20855;&#26377;&#38745;&#24577;&#25110;&#32447;&#31243;&#23616;&#37096;<a href="cpp-language-storage_duration.html">&#23384;&#20648;&#26399;</a>&#65288;&#27492;&#26102;&#26080;&#27861;&#25429;&#33719;&#35813;&#21464;&#37327;&#65289;&#12290;</li>
+<li>&#35813;&#21464;&#37327;&#26159;&#20197;<a href="cpp-language-constant_expression.html#.E5.B8.B8.E9.87.8F.E8.A1.A8.E8.BE.BE.E5.BC.8F">&#24120;&#37327;&#34920;&#36798;&#24335;</a>&#21021;&#22987;&#21270;&#30340;&#24341;&#29992;&#12290;</li>
+</ul>
+<p>&#22914;&#26524;&#21464;&#37327;&#28385;&#36275;&#19979;&#21015;&#26465;&#20214;&#20043;&#19968;&#65292;&#37027;&#20040; lambda &#34920;&#36798;&#24335;&#22312;&#35835;&#21462;&#23427;&#30340;&#20540;&#21069;&#19981;&#38656;&#35201;&#20808;&#25429;&#33719;&#65306;</p>
+<ul>
+<li>&#35813;&#21464;&#37327;&#20855;&#26377; const &#32780;&#38750; volatile &#30340;&#25972;&#22411;&#25110;&#26522;&#20030;&#31867;&#22411;&#65292;&#24182;&#24050;&#32463;&#29992;<a href="cpp-language-constant_expression.html#.E5.B8.B8.E9.87.8F.E8.A1.A8.E8.BE.BE.E5.BC.8F">&#24120;&#37327;&#34920;&#36798;&#24335;</a>&#21021;&#22987;&#21270;&#12290;</li>
+<li>&#35813;&#21464;&#37327;&#26159; constexpr &#30340;&#19988;&#27809;&#26377; mutable &#25104;&#21592;&#12290;</li>
+</ul>
+<p>&#24403;&#20986;&#29616;&#20219;&#19968;<span class="t-spar">&#40664;&#35748;&#25429;&#33719;&#31526;</span>&#8202;&#65279;&#26102;&#65292;&#37117;&#33021;&#38544;&#24335;&#25429;&#33719;&#24403;&#21069;&#23545;&#35937;&#65288;<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span>&#65289;&#12290;&#22914;&#26524;&#38544;&#24335;&#25429;&#33719;&#23427;&#65292;&#37027;&#20040;&#20250;&#22987;&#32456;&#25353;&#24341;&#29992;&#25429;&#33719;&#65292;&#21363;&#20351;<span class="t-spar">&#40664;&#35748;&#25429;&#33719;&#31526;</span>&#8202;&#65279;&#26159; <code><b>=</b></code>&#12290;<span class="t-rev-inl t-since-cxx20"><span>&#24403;<span class="t-spar">&#40664;&#35748;&#25429;&#33719;&#31526;</span>&#8202;&#65279;&#26159; <code><b>=</b></code> &#26102;&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#30340;&#38544;&#24335;&#25429;&#33719;&#34987;&#24323;&#29992;&#12290;</span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></span></span></p>
+<p>&#21482;&#26377;&#28385;&#36275;&#20197;&#19979;&#26465;&#20214;&#30340; lambda &#34920;&#36798;&#24335;&#33021;&#25317;&#26377;<span class="t-spar">&#40664;&#35748;&#25429;&#33719;&#31526;</span>&#8202;&#65279;&#25110;&#26080;&#21021;&#22987;&#21270;&#22120;&#30340;<span class="t-spar">&#25429;&#33719;&#31526;</span>&#65306;</p>
+<ul>
+<li>&#23427;&#30340;&#26368;&#20869;&#23618;<a href="cpp-language-scope.html">&#22806;&#22260;&#20316;&#29992;&#22495;</a>&#26159;<a href="cpp-language-scope.html#.E5.9D.97.E4.BD.9C.E7.94.A8.E5.9F.9F">&#22359;&#20316;&#29992;&#22495;</a>&#12290;</li>
+<li>&#23427;&#22312;<a href="cpp-language-data_members.html#.E6.88.90.E5.91.98.E5.88.9D.E5.A7.8B.E5.8C.96">&#40664;&#35748;&#25104;&#21592;&#21021;&#22987;&#21270;&#22120;</a>&#20013;&#20986;&#29616;&#65292;&#24182;&#19988;&#23427;&#30340;&#26368;&#20869;&#23618;&#22806;&#22260;&#20316;&#29992;&#22495;&#26159;<a href="cpp-language-scope.html#.E7.B1.BB.E4.BD.9C.E7.94.A8.E5.9F.9F">&#31867;&#20316;&#29992;&#22495;</a>&#12290;</li>
+</ul>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx26">
+<td>
+<ul>
+<li>&#23427;&#22312;<a href="cpp-language-contracts.html">&#32422;&#23450;&#26029;&#35328;</a>&#20013;&#20986;&#29616;&#65292;&#24182;&#19988;&#23427;&#30340;&#26368;&#20869;&#23618;&#22806;&#22260;&#20316;&#29992;&#22495;&#26159;&#23545;&#24212;&#30340;<a href="cpp-language-scope.html#.E7.BA.A6.E5.AE.9A.E6.96.AD.E8.A8.80.E4.BD.9C.E7.94.A8.E5.9F.9F">&#32422;&#23450;&#26029;&#35328;&#20316;&#29992;&#22495;</a>&#12290;</li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+</table>
+<p>&#23545;&#20110;&#36825;&#31181; lambda &#34920;&#36798;&#24335;&#65292;&#23427;&#30340;<i>&#21487;&#36798;&#20316;&#29992;&#22495;&#8202;&#65279;</i>&#23450;&#20041;&#20026;&#23427;&#26368;&#20869;&#23618;&#30340;&#22806;&#22260;&#20989;&#25968;&#65288;&#21450;&#23427;&#30340;&#24418;&#21442;&#65289;&#20869;&#65288;&#21253;&#21547;&#33258;&#36523;&#65289;&#30340;&#22806;&#22260;&#20316;&#29992;&#22495;&#30340;&#38598;&#21512;&#12290;&#36825;&#20854;&#20013;&#21253;&#21547;&#21508;&#20010;&#23884;&#22871;&#30340;&#22359;&#20316;&#29992;&#22495;&#65292;&#20197;&#21450;&#24403;&#27492; lambda &#20026;&#23884;&#22871;&#30340; lambda &#26102;&#20063;&#21253;&#21547;&#23427;&#30340;&#21508;&#20010;&#22806;&#22260; lambda &#30340;&#20316;&#29992;&#22495;&#12290;</p>
+<p>&#65288;&#38500;&#20102; <code><b>this</b></code> &#25429;&#33719;&#31526;&#20043;&#22806;&#30340;&#65289;&#20219;&#20309;&#26080;&#21021;&#22987;&#21270;&#22120;&#30340;&#25429;&#33719;&#31526;&#20013;&#30340;<span class="t-spar">&#26631;&#35782;&#31526;</span>&#8202;&#65279;&#65292;&#37117;&#20351;&#29992;&#36890;&#24120;&#30340;<a href="cpp-language-lookup.html">&#26080;&#38480;&#23450;&#21517;&#23383;&#26597;&#25214;</a>&#22312; lambda &#30340;<i>&#21487;&#36798;&#20316;&#29992;&#22495;&#8202;&#65279;</i>&#20013;&#26597;&#25214;&#12290;&#26597;&#25214;&#32467;&#26524;&#24517;&#39035;&#26159;&#22312;&#21487;&#36798;&#20316;&#29992;&#22495;&#20013;&#22768;&#26126;&#30340;&#19988;&#20855;&#26377;&#33258;&#21160;&#23384;&#20648;&#26399;&#30340;<a href="cpp-language-object.html">&#21464;&#37327;</a><span class="t-rev-inl t-since-cxx20"><span>&#65292;&#25110;&#23545;&#24212;&#21464;&#37327;&#28385;&#36275;&#36825;&#31181;&#35201;&#27714;&#30340;<a href="cpp-language-structured_binding.html">&#32467;&#26500;&#21270;&#32465;&#23450;</a></span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></span></span>&#12290;&#35813;&#23454;&#20307;&#34987;<i>&#26174;&#24335;&#25429;&#33719;</i>&#12290;</p>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx14">
+<td>
+<p>&#24102;&#26377;&#21021;&#22987;&#21270;&#22120;&#30340;&#25429;&#33719;&#31526;&#65288;&#31216;&#20026;<i>&#21021;&#22987;&#21270;&#25429;&#33719;&#31526;</i>&#65289;&#65292;&#20854;&#34892;&#20026;&#22914;&#21516;&#22768;&#26126;&#24182;&#26174;&#24335;&#25429;&#33719;&#20197; <a href="cpp-language-auto.html">auto</a> &#31867;&#22411;&#35828;&#26126;&#31526;&#22768;&#26126;&#24182;&#25317;&#26377;&#30456;&#21516;&#21021;&#22987;&#21270;&#22120;&#30340;&#21464;&#37327;&#65292;&#35813;&#21464;&#37327;&#30340;&#20316;&#29992;&#22495;&#26159; lambda &#34920;&#36798;&#24335;&#20307;&#65288;&#21363;&#19981;&#22312;&#21021;&#22987;&#21270;&#22120;&#30340;&#20316;&#29992;&#22495;&#20869;&#65289;&#65292;&#20294;&#65306;</p>
+<ul>
+<li>&#22914;&#26524;&#25353;&#22797;&#21046;&#25429;&#33719;&#65292;&#21017;&#22240;&#32780;&#24341;&#20837;&#30340;&#38381;&#21253;&#23545;&#35937;&#30340;&#38750;&#38745;&#24577;&#25968;&#25454;&#25104;&#21592;&#21644;&#35813;&#21464;&#37327;&#23558;&#34987;&#35270;&#20026;&#24341;&#29992;&#21516;&#19968;&#23545;&#35937;&#65307;
+<ul>
+<li>&#25442;&#35328;&#20043;&#65292;&#28304;&#21464;&#37327;&#24182;&#19981;&#23454;&#38469;&#23384;&#22312;&#65292;&#32780;&#32463;&#30001; <span class="mw-geshi cpp source-cpp"><span class="kw4">auto</span></span> &#30340;&#31867;&#22411;&#25512;&#23548;&#21644;&#21021;&#22987;&#21270;&#22343;&#24212;&#29992;&#21040;&#35813;&#38750;&#38745;&#24577;&#25968;&#25454;&#25104;&#21592;&#65307;</li>
+</ul>
+</li>
+<li>&#22914;&#26524;&#25353;&#24341;&#29992;&#25429;&#33719;&#65292;&#37027;&#20040;&#24341;&#29992;&#21464;&#37327;&#30340;&#29983;&#23384;&#26399;&#22312;&#38381;&#21253;&#23545;&#35937;&#30340;&#29983;&#23384;&#26399;&#32467;&#26463;&#26102;&#32467;&#26463;&#12290;</li>
+</ul>
+<p>&#36825;&#21487;&#20197;&#29992;&#20110;&#65292;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">x <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>x<span class="br0">)</span></span></span> &#36825;&#26679;&#30340;&#25429;&#33719;&#31526;&#25429;&#33719;&#20165;&#21487;&#31227;&#21160;&#30340;&#31867;&#22411;&#12290;</p>
+<p>&#36825;&#20063;&#20351;&#24471;&#36890;&#36807; const &#24341;&#29992;&#36827;&#34892;&#25429;&#33719;&#25104;&#20026;&#21487;&#33021;&#65292;&#27604;&#22914;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy3">&amp;</span>cr <span class="sy1">=</span> <a href="cpp-utility-as_const.html"><span class="kw1124">std::<span class="me2">as_const</span></span></a><span class="br0">(</span>x<span class="br0">)</span></span></span> &#25110;&#31867;&#20284;&#30340;&#26041;&#24335;&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw4">int</span> x <span class="sy1">=</span> <span class="nu0">4</span><span class="sy4">;</span>
+ 
+<span class="kw4">auto</span> y <span class="sy1">=</span> <span class="br0">[</span><span class="sy3">&amp;</span>r <span class="sy1">=</span> x, x <span class="sy1">=</span> x <span class="sy2">+</span> <span class="nu0">1</span><span class="br0">]</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">-</span><span class="sy1">&gt;</span> <span class="kw4">int</span>
+<span class="br0">{</span>
+    r <span class="sy2">+</span><span class="sy1">=</span> <span class="nu0">2</span><span class="sy4">;</span>
+    <span class="kw1">return</span> x <span class="sy2">*</span> x<span class="sy4">;</span>
+<span class="br0">}</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#26356;&#26032; ::x &#21040; 6 &#24182;&#21021;&#22987;&#21270; y &#20026; 25&#12290;</span></pre></div>
+</div>
+</td>
+<td><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14 &#36215;)</span></td>
+</tr>
+</table>
+<p>&#22914;&#26524;<span class="t-spar">&#25429;&#33719;</span>&#8202;&#65279;&#20855;&#26377;<span class="t-spar">&#40664;&#35748;&#25429;&#33719;&#31526;</span>&#65292;&#19988;&#26410;&#26174;&#24335;&#65288;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">this</span></span> &#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span>&#65289;&#25429;&#33719;&#23427;&#30340;&#22806;&#22260;&#23545;&#35937;&#65292;&#25110;&#20219;&#20309;&#22312; lambda &#20307;&#20869;<a href="cpp-language-definition.html#ODR_.E4.BD.BF.E7.94.A8">&#21487; ODR &#20351;&#29992;</a>&#30340;&#33258;&#21160;&#23384;&#20648;&#26399;&#21464;&#37327;<span class="t-rev-inl t-since-cxx20"><span>&#65292;&#25110;&#23545;&#24212;&#21464;&#37327;&#25317;&#26377;&#33258;&#21160;&#23384;&#20648;&#26399;&#30340;<a href="cpp-language-structured_binding.html">&#32467;&#26500;&#21270;&#32465;&#23450;</a></span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></span></span>&#65292;&#21017;&#22914;&#26524;<a href="cpp-language-expressions.html#.E6.BD.9C.E5.9C.A8.E6.B1.82.E5.80.BC.E8.A1.A8.E8.BE.BE.E5.BC.8F">&#28508;&#22312;&#27714;&#20540;</a>&#30340;&#34920;&#36798;&#24335;&#20869;&#30340;&#34920;&#36798;&#24335;&#65288;&#21253;&#25324;&#22312;&#20351;&#29992;&#38750;&#38745;&#24577;&#31867;&#25104;&#21592;&#21069;&#28155;&#21152;&#30340;&#38544;&#24335; <span class="t-c"><span class="mw-geshi cpp source-cpp">this<span class="sy2">-</span><span class="sy1">&gt;</span></span></span>&#65289;&#25351;&#21517;&#20102;&#35813;&#23454;&#20307;&#65292;&#21017;&#25429;&#33719;&#21015;&#34920;<i>&#38544;&#24335;</i>&#25429;&#33719;&#35813;&#23454;&#20307;&#12290;</p>
+<p>&#23601;&#30830;&#23450;&#38544;&#24335;&#25429;&#33719;&#30340;&#30446;&#30340;&#32780;&#35328;&#65292;&#26631;&#20934;&#35748;&#20026; <a href="cpp-language-typeid.html"><code>typeid</code></a> &#20915;&#19981;&#20351;&#20854;&#25805;&#20316;&#25968;&#19981;&#27714;&#20540;&#12290;</p>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx17">
+<td>
+<p>&#21363;&#20351;&#23454;&#20307;&#20165;&#22312; lambda &#20989;&#25968;&#20307;&#30340;<a href="cpp-language-if.html#constexpr_if">&#33293;&#24323;&#35821;&#21477;</a>&#20869;&#34987;&#25351;&#21517;&#65292;&#23427;&#20204;&#20063;&#21487;&#33021;&#34987;&#38544;&#24335;&#25429;&#33719;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+</table>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw4">void</span> f<span class="br0">(</span><span class="kw4">int</span>, <span class="kw4">const</span> <span class="kw4">int</span> <span class="br0">(</span><span class="sy3">&amp;</span><span class="br0">)</span><span class="br0">[</span><span class="nu0">2</span><span class="br0">]</span> <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>   <span class="co1">// #1</span>
+<span class="kw4">void</span> f<span class="br0">(</span><span class="kw4">const</span> <span class="kw4">int</span><span class="sy3">&amp;</span>, <span class="kw4">const</span> <span class="kw4">int</span> <span class="br0">(</span><span class="sy3">&amp;</span><span class="br0">)</span><span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span> <span class="co1">// #2</span>
+ 
+<span class="kw1">struct</span> NoncopyableLiteralType
+<span class="br0">{</span>
+    <span class="kw4">constexpr</span> <span class="kw1">explicit</span> NoncopyableLiteralType<span class="br0">(</span><span class="kw4">int</span> n<span class="br0">)</span> <span class="sy4">:</span> n_<span class="br0">(</span>n<span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+    NoncopyableLiteralType<span class="br0">(</span><span class="kw4">const</span> NoncopyableLiteralType<span class="sy3">&amp;</span><span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span>
+ 
+    <span class="kw4">int</span> n_<span class="sy4">;</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">void</span> test<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">const</span> <span class="kw4">int</span> x <span class="sy1">=</span> <span class="nu0">17</span><span class="sy4">;</span>
+ 
+    <span class="kw4">auto</span> l0 <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="br0">{</span> f<span class="br0">(</span>x<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>           <span class="co1">// OK&#65306;&#35843;&#29992; #1&#65292;&#19981;&#25429;&#33719; x</span>
+    <span class="kw4">auto</span> g0 <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">auto</span> a<span class="br0">)</span> <span class="br0">{</span> f<span class="br0">(</span>x<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>  <span class="co1">// &#21516;&#19978;</span>
+ 
+    <span class="kw4">auto</span> l1 <span class="sy1">=</span> <span class="br0">[</span><span class="sy1">=</span><span class="br0">]</span><span class="br0">{</span> f<span class="br0">(</span>x<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>          <span class="co1">// OK&#65306;&#65288;P0588R1 &#36215;&#65289;&#25429;&#33719; x &#24182;&#35843;&#29992; #1</span>
+                                     <span class="co1">// &#25429;&#33719;&#33021;&#34987;&#20248;&#21270;&#25481;</span>
+    <span class="kw4">auto</span> g1 <span class="sy1">=</span> <span class="br0">[</span><span class="sy1">=</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">auto</span> a<span class="br0">)</span> <span class="br0">{</span> f<span class="br0">(</span>x<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span> <span class="co1">// &#21516;&#19978;</span>
+ 
+    <span class="kw4">auto</span> ltid <span class="sy1">=</span> <span class="br0">[</span><span class="sy1">=</span><span class="br0">]</span><span class="br0">{</span> <span class="kw1">typeid</span><span class="br0">(</span>x<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>   <span class="co1">// OK&#65306;&#65288;P0588R1 &#36215;&#65289;&#25429;&#33719; x</span>
+                                     <span class="co1">// &#23613;&#31649;&#19981;&#27714;&#20540; x</span>
+                                     <span class="co1">// &#25429;&#33719;&#33021;&#34987;&#20248;&#21270;&#25481;</span>
+ 
+    <span class="kw4">auto</span> g2 <span class="sy1">=</span> <span class="br0">[</span><span class="sy1">=</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">auto</span> a<span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw4">int</span> selector<span class="br0">[</span>sizeof<span class="br0">(</span>a<span class="br0">)</span> <span class="sy1">==</span> <span class="nu0">1</span> <span class="sy4">?</span> <span class="nu0">1</span> <span class="sy4">:</span> <span class="nu0">2</span><span class="br0">]</span> <span class="sy1">=</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+        f<span class="br0">(</span>x, selector<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK&#65306;&#25429;&#33719; x</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="kw4">auto</span> g3 <span class="sy1">=</span> <span class="br0">[</span><span class="sy1">=</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">auto</span> a<span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw1">typeid</span><span class="br0">(</span>a <span class="sy2">+</span> x<span class="br0">)</span><span class="sy4">;</span>  <span class="co1">// &#25429;&#33719; x &#32780;&#19981;&#31649; a + x &#26159;&#21542;&#20026;&#19981;&#27714;&#20540;&#25805;&#20316;&#25968;</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="kw4">constexpr</span> NoncopyableLiteralType w<span class="br0">{</span><span class="nu0">42</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw4">auto</span> l4 <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="br0">{</span> <span class="kw1">return</span> w.<span class="me1">n_</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>      <span class="co1">// OK&#65306;&#19981; ODR &#20351;&#29992; w&#65292;&#25429;&#33719;&#26159;&#19981;&#24517;&#35201;&#30340;</span>
+    <span class="co1">// auto l5 = [=]{ return w.n_; };  // &#38169;&#35823;&#65306;&#38656;&#35201;&#25353;&#22797;&#21046;&#25429;&#33719; w</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#22914;&#26524; lambda &#20307; <a href="cpp-language-definition.html#ODR_.E4.BD.BF.E7.94.A8">ODR &#20351;&#29992;</a>&#20102;&#25353;&#22797;&#21046;&#25429;&#33719;&#30340;&#23454;&#20307;&#65292;&#37027;&#20040;&#23427;&#35775;&#38382;&#30340;&#26159;&#38381;&#21253;&#31867;&#22411;&#30340;&#25104;&#21592;&#12290;&#22914;&#26524;&#23427;&#26410; ODR &#20351;&#29992;&#35813;&#23454;&#20307;&#65292;&#37027;&#20040;&#35775;&#38382;&#30340;&#26159;&#21407;&#23545;&#35937;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw4">void</span> f<span class="br0">(</span><span class="kw4">const</span> <span class="kw4">int</span><span class="sy2">*</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="kw4">void</span> g<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">const</span> <span class="kw4">int</span> N <span class="sy1">=</span> <span class="nu0">10</span><span class="sy4">;</span>
+    <span class="br0">[</span><span class="sy1">=</span><span class="br0">]</span>
+    <span class="br0">{</span> 
+        <span class="kw4">int</span> arr<span class="br0">[</span>N<span class="br0">]</span><span class="sy4">;</span> <span class="co1">// &#38750; ODR &#20351;&#29992;&#65306;&#25351;&#20195; g &#30340; const int N</span>
+        f<span class="br0">(</span><span class="sy3">&amp;</span>N<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// ODR &#20351;&#29992;&#65306;&#23548;&#33268; N &#34987;&#65288;&#20197;&#22797;&#21046;&#65289;&#25429;&#33719;</span>
+               <span class="co1">// &amp;N &#26159;&#38381;&#21253;&#23545;&#35937;&#30340;&#25104;&#21592; N &#30340;&#22320;&#22336;&#65292;&#32780;&#38750; g &#20013;&#30340; N</span>
+    <span class="br0">}</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#22914;&#26524; lambda ODR &#20351;&#29992;&#20102;&#25353;&#24341;&#29992;&#25429;&#33719;&#30340;&#24341;&#29992;&#65292;&#37027;&#20040;&#23427;&#20351;&#29992;&#21407;&#24341;&#29992;&#25152;&#25351;&#20195;&#30340;&#23545;&#35937;&#65292;&#32780;&#38750;&#34987;&#25429;&#33719;&#30340;&#24341;&#29992;&#33258;&#36523;&#65306;</p>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+ 
+<span class="kw4">auto</span> make_function<span class="br0">(</span><span class="kw4">int</span><span class="sy3">&amp;</span> x<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">return</span> <span class="br0">[</span><span class="sy3">&amp;</span><span class="br0">]</span> <span class="br0">{</span> <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> x <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">int</span> i <span class="sy1">=</span> <span class="nu0">3</span><span class="sy4">;</span>
+    <span class="kw4">auto</span> f <span class="sy1">=</span> make_function<span class="br0">(</span>i<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// f &#20013;&#23545; x &#30340;&#20351;&#29992;&#30452;&#25509;&#32465;&#23450;&#21040; i</span>
+    i <span class="sy1">=</span> <span class="nu0">5</span><span class="sy4">;</span>
+    f<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK&#65306;&#25171;&#21360; 5</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<p>&#22312;&#24102;<span class="t-spar">&#40664;&#35748;&#25429;&#33719;&#31526;</span> <code><b>=</b></code> &#30340; lambda &#20307;&#20869;&#65292;&#20219;&#20309;&#21487;&#25429;&#33719;&#23454;&#20307;&#30340;&#31867;&#22411;&#37117;&#22914;&#21516;&#23427;&#34987;&#25429;&#33719;&#19968;&#26679;&#65288;&#20174;&#32780;&#22312; lambda &#38750; <span class="mw-geshi cpp source-cpp">mutable</span> &#26102;&#36890;&#24120;&#20250;&#21152;&#19978; const &#38480;&#23450;&#65289;&#65292;&#21363;&#20351;&#35813;&#23454;&#20307;&#22312;&#19981;&#27714;&#20540;&#25805;&#20316;&#25968;&#20013;&#19988;&#26410;&#34987;&#25429;&#33719;&#65288;&#20363;&#22914;&#22312; <a href="cpp-language-decltype.html"><code>decltype</code></a> &#20013;&#65289;&#20063;&#26159;&#22914;&#27492;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw4">void</span> f3<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">float</span> x, <span class="sy3">&amp;</span>r <span class="sy1">=</span> x<span class="sy4">;</span>
+    <span class="br0">[</span><span class="sy1">=</span><span class="br0">]</span>
+    <span class="br0">{</span> <span class="co1">// x &#21644; r &#26410;&#34987;&#25429;&#33719;&#65288;&#22312; decltype &#30340;&#25805;&#20316;&#25968;&#20013;&#20986;&#29616;&#24182;&#19981;&#26159; ODR &#20351;&#29992;&#65289;</span>
+        decltype<span class="br0">(</span>x<span class="br0">)</span> y1<span class="sy4">;</span>        <span class="co1">// y1 &#25317;&#26377; float &#31867;&#22411;</span>
+        decltype<span class="br0">(</span><span class="br0">(</span>x<span class="br0">)</span><span class="br0">)</span> y2 <span class="sy1">=</span> y1<span class="sy4">;</span> <span class="co1">// y2 &#25317;&#26377; float const&amp; &#31867;&#22411;&#65292;&#22240;&#20026;&#27492; lambda</span>
+                               <span class="co1">// &#38750; mutable &#19988; x &#26159;&#24038;&#20540;</span>
+        decltype<span class="br0">(</span>r<span class="br0">)</span> r1 <span class="sy1">=</span> y1<span class="sy4">;</span>   <span class="co1">// r1 &#25317;&#26377; float&amp; &#31867;&#22411;&#65288;&#19981;&#32771;&#34385;&#21464;&#25442;&#65289;</span>
+        decltype<span class="br0">(</span><span class="br0">(</span>r<span class="br0">)</span><span class="br0">)</span> r2 <span class="sy1">=</span> y2<span class="sy4">;</span> <span class="co1">// r2 &#25317;&#26377; float const&amp; &#31867;&#22411;</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>lambda&#65288;&#38544;&#24335;&#25110;&#26174;&#24335;&#65289;&#25429;&#33719;&#30340;&#20219;&#20309;&#23454;&#20307;&#22343;&#34987;&#35813; lambda &#34920;&#36798;&#24335; ODR &#20351;&#29992;&#65288;&#22240;&#27492;&#23884;&#22871;&#30340; lambda &#30340;&#38544;&#24335;&#25429;&#33719;&#23558;&#35302;&#21457;&#23427;&#30340;&#22806;&#22260; lambda &#30340;&#38544;&#24335;&#25429;&#33719;&#65289;&#12290;</p>
+<p>&#25152;&#26377;&#38544;&#24335;&#25429;&#33719;&#30340;&#21464;&#37327;&#24517;&#39035;&#24050;&#22312; lambda &#30340;<i>&#21487;&#36798;&#20316;&#29992;&#22495;&#8202;&#65279;</i>&#20013;&#22768;&#26126;&#12290;</p>
+<p>&#22914;&#26524; lambda&#65288;&#20197; <code><b>this</b></code> &#25110; <code><b>*this</b></code>&#65289;&#25429;&#33719;&#20102;&#23427;&#30340;&#22806;&#22260;&#23545;&#35937;&#65292;&#37027;&#20040;&#35201;&#20040;&#23427;&#30340;&#26368;&#25509;&#36817;&#30340;&#22806;&#22260;&#20989;&#25968;&#24517;&#39035;&#26159;&#38750;&#38745;&#24577;&#25104;&#21592;&#20989;&#25968;&#65292;&#35201;&#20040;&#35813; lambda &#24517;&#39035;&#22788;&#20110;&#26576;&#20010;<a href="cpp-language-data_members.html#.E6.88.90.E5.91.98.E5.88.9D.E5.A7.8B.E5.8C.96">&#40664;&#35748;&#25104;&#21592;&#21021;&#22987;&#21270;&#22120;</a>&#20013;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">struct</span> s2
+<span class="br0">{</span>
+    <span class="kw4">double</span> ohseven <span class="sy1">=</span> <span class="nu18">.007</span><span class="sy4">;</span>
+    <span class="kw4">auto</span> f<span class="br0">(</span><span class="br0">)</span> <span class="co1">// &#20197;&#19979;&#20004;&#20010; lambda &#30340;&#26368;&#25509;&#36817;&#22806;&#22260;&#20989;&#25968;</span>
+    <span class="br0">{</span>
+        <span class="kw1">return</span> <span class="br0">[</span>this<span class="br0">]</span>      <span class="co1">// &#25353;&#24341;&#29992;&#25429;&#33719;&#22806;&#22260;&#30340; s2</span>
+        <span class="br0">{</span>
+            <span class="kw1">return</span> <span class="br0">[</span><span class="sy2">*</span>this<span class="br0">]</span> <span class="co1">// &#25353;&#22797;&#21046;&#25429;&#33719;&#22806;&#22260;&#30340; s2&#65288;C++17&#65289;</span>
+            <span class="br0">{</span>
+                <span class="kw1">return</span> ohseven<span class="sy4">;</span>&emsp;<span class="co1">// OK</span>
+            <span class="br0">}</span>
+        <span class="br0">}</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw4">auto</span> g<span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw1">return</span> <span class="br0">[</span><span class="br0">]</span> <span class="co1">// &#26080;&#25429;&#33719;</span>
+        <span class="br0">{</span>
+            <span class="kw1">return</span> <span class="br0">[</span><span class="sy2">*</span>this<span class="br0">]</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>&emsp;<span class="co1">// &#38169;&#35823;&#65306;*this &#26410;&#34987;&#22806;&#23618; lambda &#34920;&#36798;&#24335;&#25152;&#25429;&#33719;</span>
+        <span class="br0">}</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+<p>&#22914;&#26524; lambda &#34920;&#36798;&#24335;<span class="t-rev-inl t-since-cxx14"><span>&#65288;&#25110;&#27867;&#22411; lambda &#30340;&#20989;&#25968;&#35843;&#29992;&#36816;&#31639;&#31526;&#30340;&#19968;&#20010;&#29305;&#21270;&#65289;</span><span><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14 &#36215;)</span></span></span> ODR &#20351;&#29992;&#20102; <span class="t-c"><span class="mw-geshi cpp source-cpp">this</span></span> &#25110;&#20219;&#20309;&#20855;&#26377;&#33258;&#21160;&#23384;&#20648;&#26399;&#30340;&#21464;&#37327;&#65292;&#37027;&#20040;&#23427;&#24517;&#39035;&#34987;&#35813; lambda &#34920;&#36798;&#24335;&#25152;&#25429;&#33719;&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw4">void</span> f1<span class="br0">(</span><span class="kw4">int</span> i<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">int</span> <span class="kw4">const</span> N <span class="sy1">=</span> <span class="nu0">20</span><span class="sy4">;</span>
+    <span class="kw4">auto</span> m1 <span class="sy1">=</span> <span class="br0">[</span><span class="sy1">=</span><span class="br0">]</span>
+    <span class="br0">{</span>
+        <span class="kw4">int</span> <span class="kw4">const</span> M <span class="sy1">=</span> <span class="nu0">30</span><span class="sy4">;</span>
+        <span class="kw4">auto</span> m2 <span class="sy1">=</span> <span class="br0">[</span>i<span class="br0">]</span>
+        <span class="br0">{</span>
+            <span class="kw4">int</span> x<span class="br0">[</span>N<span class="br0">]</span><span class="br0">[</span>M<span class="br0">]</span><span class="sy4">;</span> <span class="co1">// N &#19982; M &#26410;&#34987; ODR &#20351;&#29992;&#65288;&#23427;&#20204;&#21487;&#20197;&#19981;&#34987;&#25429;&#33719;&#65289;</span>
+            x<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span><span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span> <span class="sy1">=</span> i<span class="sy4">;</span> <span class="co1">// i &#34987; m2 &#26174;&#24335;&#25429;&#33719;&#65292;&#24182;&#34987; m1 &#38544;&#24335;&#25429;&#33719;</span>
+        <span class="br0">}</span><span class="sy4">;</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="kw1">struct</span> s1 <span class="co1">// f1() &#20013;&#30340;&#23616;&#37096;&#31867;</span>
+    <span class="br0">{</span>
+        <span class="kw4">int</span> f<span class="sy4">;</span>
+        <span class="kw4">void</span> work<span class="br0">(</span><span class="kw4">int</span> n<span class="br0">)</span> <span class="co1">// &#38750;&#38745;&#24577;&#25104;&#21592;&#20989;&#25968;</span>
+        <span class="br0">{</span>
+            <span class="kw4">int</span> m <span class="sy1">=</span> n <span class="sy2">*</span> n<span class="sy4">;</span>
+            <span class="kw4">int</span> j <span class="sy1">=</span> <span class="nu0">40</span><span class="sy4">;</span>
+            <span class="kw4">auto</span> m3 <span class="sy1">=</span> <span class="br0">[</span>this, m<span class="br0">]</span>
+            <span class="br0">{</span>
+                <span class="kw4">auto</span> m4 <span class="sy1">=</span> <span class="br0">[</span><span class="sy3">&amp;</span>, j<span class="br0">]</span> <span class="co1">// &#38169;&#35823;&#65306;j &#26410;&#34987; m3 &#25429;&#33719;</span>
+                <span class="br0">{</span>
+                    <span class="kw4">int</span> x <span class="sy1">=</span> n<span class="sy4">;</span> <span class="co1">// &#38169;&#35823;&#65306;n &#34987; m4 &#38544;&#24335;&#25429;&#33719;&#65292;&#20294;&#26410;&#34987; m3 &#25429;&#33719;</span>
+                    x <span class="sy2">+</span><span class="sy1">=</span> m<span class="sy4">;</span>    <span class="co1">// OK&#65306;m &#34987; m4 &#25429;&#33719;&#65292;&#19988;&#34987; m3 &#26174;&#24335;&#25429;&#33719;</span>
+                    x <span class="sy2">+</span><span class="sy1">=</span> i<span class="sy4">;</span>    <span class="co1">// &#38169;&#35823;&#65306;i &#22312;&#21487;&#36798;&#20316;&#29992;&#22495;&#20043;&#22806;&#65288;&#35813;&#20316;&#29992;&#22495;&#22312; work() &#32467;&#26463;&#65289;</span>
+                    x <span class="sy2">+</span><span class="sy1">=</span> f<span class="sy4">;</span>    <span class="co1">// OK&#65306;this &#34987; m4 &#38544;&#24335;&#25429;&#33719;&#65292;&#19988;&#34987; m3 &#26174;&#24335;&#25429;&#33719;</span>
+                <span class="br0">}</span><span class="sy4">;</span>
+            <span class="br0">}</span><span class="sy4">;</span>
+        <span class="br0">}</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#20197;&#19981;&#24102;&#26377;&#21021;&#22987;&#21270;&#22120;&#30340;&#25429;&#33719;&#31526;&#26080;&#27861;&#26174;&#24335;&#25429;&#33719;&#31867;&#25104;&#21592;&#65288;&#22914;&#19978;&#25552;&#21450;&#65292;<span class="t-spar">&#25429;&#33719;&#31526;&#21015;&#34920;</span>&#8202;&#65279;&#20013;&#21482;&#33021;&#26377;<a href="cpp-language-object.html">&#21464;&#37327;</a>&#65289;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">class</span> S
+<span class="br0">{</span>
+    <span class="kw4">int</span> x <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span>
+ 
+    <span class="kw4">void</span> f<span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw4">int</span> i <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span>
+    <span class="co1">//  auto l1 = [i, x] { use(i, x); };    // &#38169;&#35823;&#65306;x &#19981;&#26159;&#21464;&#37327;</span>
+        <span class="kw4">auto</span> l2 <span class="sy1">=</span> <span class="br0">[</span>i, x <span class="sy1">=</span> x<span class="br0">]</span> <span class="br0">{</span> use<span class="br0">(</span>i, x<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>  <span class="co1">// OK&#65292;&#22797;&#21046;&#25429;&#33719;</span>
+        i <span class="sy1">=</span> <span class="nu0">1</span><span class="sy4">;</span> x <span class="sy1">=</span> <span class="nu0">1</span><span class="sy4">;</span> l2<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#35843;&#29992; use(0, 0)</span>
+        <span class="kw4">auto</span> l3 <span class="sy1">=</span> <span class="br0">[</span>i, <span class="sy3">&amp;</span>x <span class="sy1">=</span> x<span class="br0">]</span> <span class="br0">{</span> use<span class="br0">(</span>i, x<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span> <span class="co1">// OK&#65292;&#24341;&#29992;&#25429;&#33719;</span>
+        i <span class="sy1">=</span> <span class="nu0">2</span><span class="sy4">;</span> x <span class="sy1">=</span> <span class="nu0">2</span><span class="sy4">;</span> l3<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#35843;&#29992; use(1, 2)</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+<p>&#24403; lambda &#29992;&#38544;&#24335;&#30340;&#25353;&#22797;&#21046;&#25429;&#33719;&#25429;&#33719;&#20102;&#26576;&#20010;&#25104;&#21592;&#26102;&#65292;&#23427;&#24182;&#19981;&#20135;&#29983;&#35813;&#25104;&#21592;&#21464;&#37327;&#30340;&#21103;&#26412;&#65306;&#23545;&#25104;&#21592;&#21464;&#37327; <code>m</code> &#30340;&#20351;&#29992;&#34987;&#22788;&#29702;&#25104;&#34920;&#36798;&#24335; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span><span class="sy2">*</span>this<span class="br0">)</span>.<span class="me1">m</span></span></span>&#65292;&#32780; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#22987;&#32456;&#34987;&#38544;&#24335;&#25353;&#24341;&#29992;&#25429;&#33719;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">class</span> S
+<span class="br0">{</span>
+    <span class="kw4">int</span> x <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span>
+ 
+    <span class="kw4">void</span> f<span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw4">int</span> i <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span>
+ 
+        <span class="kw4">auto</span> l1 <span class="sy1">=</span> <span class="br0">[</span><span class="sy1">=</span><span class="br0">]</span> <span class="br0">{</span> use<span class="br0">(</span>i, x<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span> <span class="co1">// &#25429;&#33719; i &#30340;&#21103;&#26412;&#21644; this &#25351;&#38024;&#30340;&#21103;&#26412;</span>
+        i <span class="sy1">=</span> <span class="nu0">1</span><span class="sy4">;</span> x <span class="sy1">=</span> <span class="nu0">1</span><span class="sy4">;</span> l1<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>           <span class="co1">// &#35843;&#29992; use(0, 1)&#65292;&#22914;&#21516; i &#25353;&#22797;&#21046;&#32780; x &#25353;&#24341;&#29992;&#25429;&#33719;</span>
+ 
+        <span class="kw4">auto</span> l2 <span class="sy1">=</span> <span class="br0">[</span>i, this<span class="br0">]</span> <span class="br0">{</span> use<span class="br0">(</span>i, x<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span> <span class="co1">// &#21516;&#19978;&#65292;&#25913;&#20026;&#26174;&#24335;&#25429;&#33719;</span>
+        i <span class="sy1">=</span> <span class="nu0">2</span><span class="sy4">;</span> x <span class="sy1">=</span> <span class="nu0">2</span><span class="sy4">;</span> l2<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>           <span class="co1">// &#35843;&#29992; use(1, 2)&#65292;&#22914;&#21516; i &#25353;&#22797;&#21046;&#32780; x &#25353;&#24341;&#29992;&#25429;&#33719;</span>
+ 
+        <span class="kw4">auto</span> l3 <span class="sy1">=</span> <span class="br0">[</span><span class="sy3">&amp;</span><span class="br0">]</span> <span class="br0">{</span> use<span class="br0">(</span>i, x<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span> <span class="co1">// &#25353;&#24341;&#29992;&#25429;&#33719; i&#65292;&#24182;&#25429;&#33719; this &#25351;&#38024;&#30340;&#21103;&#26412;</span>
+        i <span class="sy1">=</span> <span class="nu0">3</span><span class="sy4">;</span> x <span class="sy1">=</span> <span class="nu0">2</span><span class="sy4">;</span> l3<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>           <span class="co1">// &#35843;&#29992; use(3, 2)&#65292;&#22914;&#21516; i &#19982; x &#22343;&#25353;&#24341;&#29992;&#25429;&#33719;</span>
+ 
+        <span class="kw4">auto</span> l4 <span class="sy1">=</span> <span class="br0">[</span>i, <span class="sy2">*</span>this<span class="br0">]</span> <span class="br0">{</span> use<span class="br0">(</span>i, x<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span> <span class="co1">// &#21046;&#36896; *this &#30340;&#21103;&#26412;&#65292;&#21253;&#21547; x &#30340;&#21103;&#26412;</span>
+        i <span class="sy1">=</span> <span class="nu0">4</span><span class="sy4">;</span> x <span class="sy1">=</span> <span class="nu0">4</span><span class="sy4">;</span> l4<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>           <span class="co1">// &#35843;&#29992; use(3, 2)&#65292;&#22914;&#21516; i &#19982; x &#22343;&#25353;&#22797;&#21046;&#25429;&#33719;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+<p>&#22914;&#26524; lambda &#34920;&#36798;&#24335;&#22312;<a href="cpp-language-default_arguments.html">&#40664;&#35748;&#23454;&#21442;</a>&#20013;&#20986;&#29616;&#65292;&#37027;&#20040;&#23427;&#19981;&#33021;&#26174;&#24335;&#25110;&#38544;&#24335;&#25429;&#33719;&#20219;&#20309;&#20869;&#23481;<span class="t-rev-inl t-since-cxx14"><span>&#65292;&#38500;&#38750;&#25152;&#26377;&#25429;&#33719;&#37117;&#24102;&#26377;&#21021;&#22987;&#21270;&#22120;&#65292;&#24182;&#28385;&#36275;&#21487;&#20197;&#22312;&#40664;&#35748;&#23454;&#21442;&#20013;&#20986;&#29616;&#30340;&#34920;&#36798;&#24335;&#30340;&#32422;&#26463;&#26465;&#20214;</span><span><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14 &#36215;)</span></span></span>&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw4">void</span> f2<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">int</span> i <span class="sy1">=</span> <span class="nu0">1</span><span class="sy4">;</span>
+ 
+    <span class="kw4">void</span> g1<span class="br0">(</span> <span class="kw4">int</span> <span class="sy1">=</span> <span class="br0">[</span>i<span class="br0">]</span> <span class="br0">{</span> <span class="kw1">return</span> i<span class="sy4">;</span> <span class="br0">}</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#38169;&#35823;&#65306;&#26377;&#25429;&#33719;&#20869;&#23481;</span>
+    <span class="kw4">void</span> g2<span class="br0">(</span> <span class="kw4">int</span> <span class="sy1">=</span> <span class="br0">[</span>i<span class="br0">]</span> <span class="br0">{</span> <span class="kw1">return</span> <span class="nu0">0</span><span class="sy4">;</span> <span class="br0">}</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#38169;&#35823;&#65306;&#26377;&#25429;&#33719;&#20869;&#23481;</span>
+    <span class="kw4">void</span> g3<span class="br0">(</span> <span class="kw4">int</span> <span class="sy1">=</span> <span class="br0">[</span><span class="sy1">=</span><span class="br0">]</span> <span class="br0">{</span> <span class="kw1">return</span> i<span class="sy4">;</span> <span class="br0">}</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#38169;&#35823;&#65306;&#26377;&#25429;&#33719;&#20869;&#23481;</span>
+ 
+    <span class="kw4">void</span> g4<span class="br0">(</span> <span class="kw4">int</span> <span class="sy1">=</span> <span class="br0">[</span><span class="sy1">=</span><span class="br0">]</span> <span class="br0">{</span> <span class="kw1">return</span> <span class="nu0">0</span><span class="sy4">;</span> <span class="br0">}</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">)</span><span class="sy4">;</span>       <span class="co1">// OK&#65306;&#26080;&#25429;&#33719;</span>
+    <span class="kw4">void</span> g5<span class="br0">(</span> <span class="kw4">int</span> <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span> <span class="br0">{</span> <span class="kw1">return</span> sizeof i<span class="sy4">;</span> <span class="br0">}</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK&#65306;&#26080;&#25429;&#33719;</span>
+ 
+    <span class="co1">// C++14</span>
+    <span class="kw4">void</span> g6<span class="br0">(</span> <span class="kw4">int</span> <span class="sy1">=</span> <span class="br0">[</span>x <span class="sy1">=</span> <span class="nu0">1</span><span class="br0">]</span> <span class="br0">{</span> <span class="kw1">return</span> x<span class="sy4">;</span> <span class="br0">}</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">)</span><span class="sy4">;</span> <span class="co1">// OK&#65306;1 &#21487;&#20197;&#22312;&#40664;&#35748;&#23454;&#21442;&#20013;&#20986;&#29616;</span>
+    <span class="kw4">void</span> g7<span class="br0">(</span> <span class="kw4">int</span> <span class="sy1">=</span> <span class="br0">[</span>x <span class="sy1">=</span> i<span class="br0">]</span> <span class="br0">{</span> <span class="kw1">return</span> x<span class="sy4">;</span> <span class="br0">}</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#38169;&#35823;&#65306;i &#19981;&#33021;&#22312;&#40664;&#35748;&#23454;&#21442;&#20013;&#20986;&#29616;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#19981;&#33021;&#25429;&#33719;<a href="cpp-language-union.html">&#21311;&#21517;&#32852;&#21512;&#20307;</a>&#30340;&#25104;&#21592;&#12290;&#21482;&#33021;&#20197;&#22797;&#21046;&#25429;&#33719;<a href="cpp-language-bit_field.html">&#20301;&#22495;</a>&#12290;</p>
+<p>&#22914;&#26524;&#23884;&#22871;&#30340; lambda <code>m2</code> &#25429;&#33719;&#20102;&#20063;&#34987;&#23427;&#30340;&#30452;&#25509;&#22806;&#22260; lambda <code>m1</code> &#25152;&#25429;&#33719;&#30340;&#23454;&#20307;&#65292;&#37027;&#20040;&#20197;&#22914;&#19979;&#26041;&#24335;&#23558; <code>m2</code> &#30340;&#25429;&#33719;&#36827;&#34892;&#21464;&#25442;&#65306;</p>
+<ul>
+<li>&#22914;&#26524;&#22806;&#22260; lambda <code>m1</code> &#25353;&#22797;&#21046;&#25429;&#33719;&#65292;&#37027;&#20040; <code>m2</code> &#25429;&#33719; <code>m1</code> &#30340;&#38381;&#21253;&#31867;&#22411;&#30340;&#38750;&#38745;&#24577;&#25968;&#25454;&#25104;&#21592;&#65292;&#32780;&#38750;&#21407;&#21464;&#37327;&#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span>&#65307;&#22914;&#26524; <code>m1</code> &#38750; <code>mutable</code>&#65292;&#37027;&#20040;&#35748;&#20026;&#35813;&#38750;&#38745;&#24577;&#25968;&#25454;&#25104;&#21592;&#26377; const &#38480;&#23450;&#12290;</li>
+<li>&#22914;&#26524;&#22806;&#22260; lambda <code>m1</code> &#25353;&#24341;&#29992;&#25429;&#33719;&#65292;&#37027;&#20040; <code>m2</code> &#25429;&#33719;&#21407;&#21464;&#37327;&#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span>&#12290;</li>
+</ul>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">int</span> a <span class="sy1">=</span> <span class="nu0">1</span>, b <span class="sy1">=</span> <span class="nu0">1</span>, c <span class="sy1">=</span> <span class="nu0">1</span><span class="sy4">;</span>
+ 
+    <span class="kw4">auto</span> m1 <span class="sy1">=</span> <span class="br0">[</span>a, <span class="sy3">&amp;</span>b, <span class="sy3">&amp;</span>c<span class="br0">]</span><span class="br0">(</span><span class="br0">)</span> mutable
+    <span class="br0">{</span>
+        <span class="kw4">auto</span> m2 <span class="sy1">=</span> <span class="br0">[</span>a, b, <span class="sy3">&amp;</span>c<span class="br0">]</span><span class="br0">(</span><span class="br0">)</span> mutable
+        <span class="br0">{</span>
+            <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> a <span class="sy1">&lt;&lt;</span> b <span class="sy1">&lt;&lt;</span> c <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+            a <span class="sy1">=</span> <span class="nu0">4</span><span class="sy4">;</span> b <span class="sy1">=</span> <span class="nu0">4</span><span class="sy4">;</span> c <span class="sy1">=</span> <span class="nu0">4</span><span class="sy4">;</span>
+        <span class="br0">}</span><span class="sy4">;</span>
+        a <span class="sy1">=</span> <span class="nu0">3</span><span class="sy4">;</span> b <span class="sy1">=</span> <span class="nu0">3</span><span class="sy4">;</span> c <span class="sy1">=</span> <span class="nu0">3</span><span class="sy4">;</span>
+        m2<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+ 
+    a <span class="sy1">=</span> <span class="nu0">2</span><span class="sy4">;</span> b <span class="sy1">=</span> <span class="nu0">2</span><span class="sy4">;</span> c <span class="sy1">=</span> <span class="nu0">2</span><span class="sy4">;</span>
+ 
+    m1<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>                             <span class="co1">// &#35843;&#29992; m2() &#24182;&#25171;&#21360; 123</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> a <span class="sy1">&lt;&lt;</span> b <span class="sy1">&lt;&lt;</span> c <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span> <span class="co1">// &#25171;&#21360; 234</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx23">
+<td>
+<p>&#22914;&#26524; lambda &#26377;&#25429;&#33719;&#65292;&#37027;&#20040;&#20989;&#25968;&#35843;&#29992;&#34920;&#36798;&#24335;&#30340;&#26174;&#24335;&#23545;&#35937;&#24418;&#21442;&#65288;&#22914;&#26524;&#23384;&#22312;&#65289;&#30340;&#31867;&#22411;&#21482;&#33021;&#26159;&#20197;&#19979;&#20043;&#19968;&#65306;</p>
+<ul>
+<li>&#38381;&#21253;&#31867;&#22411;&#12290;</li>
+<li>&#20844;&#24320;&#19988;&#26080;&#27495;&#20041;&#22320;&#20174;&#38381;&#21253;&#31867;&#22411;&#27966;&#29983;&#30340;&#31867;&#31867;&#22411;&#12290;</li>
+<li>&#21040;&#21487;&#26377; cv &#38480;&#23450;&#24615;&#30340;&#36825;&#31181;&#31867;&#22411;&#30340;&#24341;&#29992;&#31867;&#22411;&#12290;</li>
+</ul>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">struct</span> C 
+<span class="br0">{</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">typename</span> T<span class="sy1">&gt;</span>
+    C<span class="br0">(</span>T<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">void</span> func<span class="br0">(</span><span class="kw4">int</span> i<span class="br0">)</span> 
+<span class="br0">{</span>
+    <span class="kw4">int</span> x <span class="sy1">=</span> <span class="br0">[</span><span class="sy1">=</span><span class="br0">]</span><span class="br0">(</span>this <span class="kw4">auto</span><span class="sy3">&amp;&amp;</span><span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> i<span class="sy4">;</span> <span class="br0">}</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>  <span class="co1">// OK</span>
+    <span class="kw4">int</span> y <span class="sy1">=</span> <span class="br0">[</span><span class="sy1">=</span><span class="br0">]</span><span class="br0">(</span>this C<span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> i<span class="sy4">;</span> <span class="br0">}</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>       <span class="co1">// &#38169;&#35823;</span>
+    <span class="kw4">int</span> z <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span>this C<span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> <span class="nu0">42</span><span class="sy4">;</span> <span class="br0">}</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>       <span class="co1">// OK</span>
+ 
+    <span class="kw4">auto</span> lambda <span class="sy1">=</span> <span class="br0">[</span>n <span class="sy1">=</span> <span class="nu0">42</span><span class="br0">]</span> <span class="br0">(</span>this <span class="kw4">auto</span> self<span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> n<span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw1">using</span> Closure <span class="sy1">=</span> decltype<span class="br0">(</span>lambda<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">struct</span> D <span class="sy4">:</span> <span class="kw1">private</span> Closure <span class="br0">{</span>
+        D<span class="br0">(</span>Closure l<span class="br0">)</span> <span class="sy4">:</span> Closure<span class="br0">(</span>l<span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+        <span class="kw1">using</span> Closure<span class="sy4">::</span><span class="me2">operator</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+        <span class="kw1">friend</span> Closure<span class="sy4">;</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+    D<span class="br0">{</span>lambda<span class="br0">}</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#38169;&#35823;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<table class="wikitable">
+<tr>
+<th>&#21151;&#33021;&#29305;&#24615;&#27979;&#35797;&#23439;</th>
+<th><abbr title="&#37319;&#32435;&#35813;&#29305;&#24615;&#30340;&#24180;/&#26376;&#12290;&#27599;&#20010;&#20540;&#19979;&#38754;&#30340;&#38142;&#25509;&#25351;&#21521;&#32534;&#35793;&#26399;&#25903;&#25345;&#39029;&#38754;&#20013;&#32473;&#23450;&#21151;&#33021;&#29305;&#24615;&#30340;&#26465;&#30446;&#12290;">&#20540;</abbr></th>
+<th><abbr title="&#24341;&#20837;&#35813;&#29305;&#24615;&#30340;&#26631;&#20934;&#65307;DR &#24847;&#20026;&#38024;&#23545;&#35813;&#20462;&#35746;&#29256;&#30340;&#32570;&#38519;&#25253;&#21578;">&#26631;&#20934;</abbr></th>
+<th>&#21151;&#33021;&#29305;&#24615;</th>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lambdas"><code>__cpp_lambdas</code></a></td>
+<td><a href="cpp-compiler_support-11.html#cpp_lambdas_200907L"><code>200907L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++11)</span></td>
+<td>lambda &#34920;&#36798;&#24335;</td>
+</tr>
+<tr>
+<td rowspan="2"><a href="cpp-feature_test.html#cpp_generic_lambdas"><code>__cpp_generic_lambdas</code></a></td>
+<td><a href="cpp-compiler_support-14.html#cpp_generic_lambdas_201304L"><code>201304L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++14)</span></td>
+<td>&#27867;&#22411; lambda &#34920;&#36798;&#24335;</td>
+</tr>
+<tr>
+<td><a href="cpp-compiler_support-20.html#cpp_generic_lambdas_201707L"><code>201707L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++20)</span></td>
+<td>&#27867;&#22411; lambda &#34920;&#36798;&#24335;&#30340;&#26174;&#24335;&#27169;&#26495;&#24418;&#21442;&#21015;&#34920;</td>
+</tr>
+<tr>
+<td rowspan="2"><a href="cpp-feature_test.html#cpp_init_captures"><code>__cpp_init_captures</code></a></td>
+<td><a href="cpp-compiler_support-14.html#cpp_init_captures_201304L"><code>201304L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++14)</span></td>
+<td>lambda &#21021;&#22987;&#21270;&#25429;&#33719;</td>
+</tr>
+<tr>
+<td><a href="cpp-compiler_support-20.html#cpp_init_captures_201803L"><code>201803L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++20)</span></td>
+<td>&#20801;&#35768; lambda &#21021;&#22987;&#21270;&#25429;&#33719;&#20013;&#30340;&#21253;&#23637;&#24320;</td>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_capture_star_this"><code>__cpp_capture_star_this</code></a></td>
+<td><a href="cpp-compiler_support-17.html#cpp_capture_star_this_201603L"><code>201603L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++17)</span></td>
+<td>&#25353;&#20540;&#25429;&#33719; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span>&#65292;&#22914; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">[</span><span class="sy1">=</span>, <span class="sy2">*</span>this<span class="br0">]</span></span></span></td>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_constexpr"><code>__cpp_constexpr</code></a></td>
+<td><a href="cpp-compiler_support-17.html#cpp_constexpr_201603L"><code>201603L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++17)</span></td>
+<td>constexpr &#30340; lambda</td>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_static_call_operator"><code>__cpp_static_call_operator</code></a></td>
+<td><a href="cpp-compiler_support-23.html#cpp_static_call_operator_202207L"><code>202207L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++23)</span></td>
+<td>&#26080;&#25429;&#33719; lambda &#30340;&#38745;&#24577; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span></td>
+</tr>
+</table>
+<p>&#32570;&#38519;&#25253;&#21578; <a rel="nofollow" class="external text" href="https://wg21.link/P0588R1">P0588R1</a> &#31245;&#24494;&#26356;&#25913;&#20102;&#38544;&#24335; lambda &#25429;&#33719;&#30340;&#35268;&#21017;&#12290;&#21040; 2023-10 &#20026;&#27490;&#65292;&#19968;&#20123;&#20027;&#35201;&#23454;&#29616;&#27809;&#26377;&#23436;&#20840;&#23454;&#29616;&#35813;&#32570;&#38519;&#25253;&#21578;&#65292;&#20174;&#32780;&#26377;&#26102;&#20173;&#22312;&#20351;&#29992;&#26816;&#27979; <a href="cpp-language-definition.html#ODR_.E4.BD.BF.E7.94.A8">ODR &#20351;&#29992;</a>&#30340;&#26087;&#35268;&#21017;&#12290;</p>
+<div style="margin-left:0px">
+<table class="mw-collapsible mw-collapsed" style="background: transparent; text-align: left; border: 1px solid silver; margin: 0.2em auto auto; width:100%; clear: both; padding: 1px;">
+<tr>
+<th style="background: #F0F2F5; font-size:87%; padding:0.2em 0.3em; text-align:center;"><span style="font-size:115%">P0588R1 &#21069;&#30340;&#26087;&#35268;&#21017;</span></th>
+</tr>
+<tr>
+<td style="border: solid 1px silver; padding: 8px; background: white;">
+<p>&#22914;&#26524;<span class="t-spar">&#25429;&#33719;</span>&#8202;&#65279;&#20855;&#26377;<span class="t-spar">&#40664;&#35748;&#25429;&#33719;&#31526;</span>&#65292;&#19988;&#26410;&#26174;&#24335;&#65288;&#20197; <code><b>this</b></code> &#25110; <code><b>*this</b></code>&#65289;&#25429;&#33719;&#23427;&#30340;&#22806;&#22260;&#23545;&#35937;&#65292;&#25110;&#20219;&#20309;&#22312; lambda &#20307;&#20869;<a href="cpp-language-definition.html#ODR_.E4.BD.BF.E7.94.A8">&#21487; ODR &#20351;&#29992;</a>&#30340;&#33258;&#21160;&#23384;&#20648;&#26399;&#21464;&#37327;<span class="t-rev-inl t-since-cxx20"><span>&#65292;&#25110;&#23545;&#24212;&#21464;&#37327;&#25317;&#26377;&#33258;&#21160;&#23384;&#20648;&#26399;&#30340;<a href="cpp-language-structured_binding.html">&#32467;&#26500;&#21270;&#32465;&#23450;</a></span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></span></span>&#65292;&#37027;&#20040;&#22312;&#23454;&#20307;&#31526;&#21512;&#19979;&#21015;&#26465;&#20214;&#26102;&#25429;&#33719;&#21015;&#34920;&#20250;<i>&#38544;&#24335;&#8202;&#65279;</i>&#25429;&#33719;&#35813;&#23454;&#20307;&#65306;</p>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx14">
+<td>
+<ul>
+<li>&#20026;&#20381;&#36182;&#27867;&#22411; lambda &#27169;&#26495;&#24418;&#21442;&#30340;&#34920;&#36798;&#24335;&#20043;&#20869;&#30340;<a href="cpp-language-expressions.html#.E6.BD.9C.E5.9C.A8.E6.B1.82.E5.80.BC.E8.A1.A8.E8.BE.BE.E5.BC.8F">&#28508;&#22312;&#27714;&#20540;</a>&#34920;&#36798;&#24335;&#20013;&#25152;&#25351;&#21517;&#65292;&#25110;</li>
+</ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx14" style="white-space: nowrap;">(C++14 &#36215;)</span></td>
+</tr>
+</table>
+<ul>
+<li>&#34987; lambda &#20989;&#25968;&#20307; <a href="cpp-language-definition.html#ODR_.E4.BD.BF.E7.94.A8">ODR &#20351;&#29992;</a>&#12290;</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<p>&#27492;&#31034;&#20363;&#28436;&#31034;&#22914;&#20309;&#20256;&#36882; lambda &#32473;&#27867;&#22411;&#31639;&#27861;&#65292;&#20197;&#21450; lambda &#34920;&#36798;&#24335;&#25152;&#20135;&#29983;&#30340;&#23545;&#35937;&#33021;&#22914;&#20309;&#23384;&#20648;&#20110; <span class="t-lc"><a href="cpp-utility-functional-function.html">std::function</a></span> &#23545;&#35937;&#12290;</p>
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;algorithm&gt;</span>
+<span class="co2">#include &lt;functional&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;vector&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-container-vector.html"><span class="kw1272">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span> c<span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">2</span>, <span class="nu0">3</span>, <span class="nu0">4</span>, <span class="nu0">5</span>, <span class="nu0">6</span>, <span class="nu0">7</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw4">int</span> x <span class="sy1">=</span> <span class="nu0">5</span><span class="sy4">;</span>
+    c.<span class="me1">erase</span><span class="br0">(</span><a href="cpp-algorithm-remove.html"><span class="kw1596">std::<span class="me2">remove_if</span></span></a><span class="br0">(</span>c.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, c.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>, <span class="br0">[</span>x<span class="br0">]</span><span class="br0">(</span><span class="kw4">int</span> n<span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> n <span class="sy1">&lt;</span> x<span class="sy4">;</span> <span class="br0">}</span><span class="br0">)</span>, c.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;c: &quot;</span><span class="sy4">;</span>
+    <a href="cpp-algorithm-for_each.html"><span class="kw1572">std::<span class="me2">for_each</span></span></a><span class="br0">(</span>c.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, c.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>, <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">int</span> i<span class="br0">)</span> <span class="br0">{</span> <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> i <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span><span class="sy4">;</span> <span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#38381;&#21253;&#30340;&#31867;&#22411;&#19981;&#33021;&#34987;&#25351;&#21517;&#65292;&#20294;&#21487;&#29992; auto &#25552;&#21450;</span>
+    <span class="co1">// C++14 &#36215;&#65292;lambda &#21487;&#20197;&#26377;&#40664;&#35748;&#23454;&#21442;</span>
+    <span class="kw4">auto</span> func1 <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">int</span> i <span class="sy1">=</span> <span class="nu0">6</span><span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> i <span class="sy2">+</span> <span class="nu0">4</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;func1: &quot;</span> <span class="sy1">&lt;&lt;</span> func1<span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#19982;&#25152;&#26377;&#21487;&#35843;&#29992;&#23545;&#35937;&#30456;&#21516;&#65292;&#38381;&#21253;&#33021;&#21487;&#20197;&#34987;&#25429;&#33719;&#21040; std::function &#20043;&#20013;</span>
+    <span class="co1">// &#65288;&#36825;&#21487;&#33021;&#24102;&#26469;&#19981;&#24517;&#35201;&#30340;&#24320;&#38144;&#65289;</span>
+    <a href="cpp-utility-functional-function.html"><span class="kw1064">std::<span class="me2">function</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="br0">(</span><span class="kw4">int</span><span class="br0">)</span><span class="sy1">&gt;</span> func2 <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">int</span> i<span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> i <span class="sy2">+</span> <span class="nu0">4</span><span class="sy4">;</span> <span class="br0">}</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;func2: &quot;</span> <span class="sy1">&lt;&lt;</span> func2<span class="br0">(</span><span class="nu0">6</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="kw4">constexpr</span> <span class="kw4">int</span> fib_max <span class="br0">{</span><span class="nu0">8</span><span class="br0">}</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#27169;&#20223;&#36882;&#24402; lambda &#35843;&#29992;&#65306;<span class="es1">\n</span>&#26000;&#27874;&#37027;&#22865;&#25968;&#65306;&quot;</span><span class="sy4">;</span>
+    <span class="kw4">auto</span> nth_fibonacci <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">int</span> n<span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-utility-functional-function.html"><span class="kw1064">std::<span class="me2">function</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="br0">(</span><span class="kw4">int</span>, <span class="kw4">int</span>, <span class="kw4">int</span><span class="br0">)</span><span class="sy1">&gt;</span> fib <span class="sy1">=</span> <span class="br0">[</span><span class="sy3">&amp;</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">int</span> n, <span class="kw4">int</span> a, <span class="kw4">int</span> b<span class="br0">)</span>
+        <span class="br0">{</span>
+            <span class="kw1">return</span> n <span class="sy4">?</span> fib<span class="br0">(</span>n <span class="sy2">-</span> <span class="nu0">1</span>, a <span class="sy2">+</span> b, a<span class="br0">)</span> <span class="sy4">:</span> b<span class="sy4">;</span>
+        <span class="br0">}</span><span class="sy4">;</span>
+        <span class="kw1">return</span> fib<span class="br0">(</span>n, <span class="nu0">0</span>, <span class="nu0">1</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> i<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span><span class="sy4">;</span> i <span class="sy1">&lt;=</span> fib_max<span class="sy4">;</span> <span class="sy2">++</span>i<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> nth_fibonacci<span class="br0">(</span>i<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="br0">(</span>i <span class="sy1">&lt;</span> fib_max <span class="sy4">?</span> <span class="st0">&quot;, &quot;</span> <span class="sy4">:</span> <span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#21478;&#19968;&#31181; lambda &#36882;&#24402;&#26041;&#26696;&#65306;<span class="es1">\n</span>&#26000;&#27874;&#37027;&#22865;&#25968;&#65306;&quot;</span><span class="sy4">;</span>
+    <span class="kw4">auto</span> nth_fibonacci2 <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">auto</span> self, <span class="kw4">int</span> n, <span class="kw4">int</span> a <span class="sy1">=</span> <span class="nu0">0</span>, <span class="kw4">int</span> b <span class="sy1">=</span> <span class="nu0">1</span><span class="br0">)</span> <span class="sy2">-</span><span class="sy1">&gt;</span> <span class="kw4">int</span>
+    <span class="br0">{</span>
+        <span class="kw1">return</span> n <span class="sy4">?</span> self<span class="br0">(</span>self, n <span class="sy2">-</span> <span class="nu0">1</span>, a <span class="sy2">+</span> b, a<span class="br0">)</span> <span class="sy4">:</span> b<span class="sy4">;</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> i<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span><span class="sy4">;</span> i <span class="sy1">&lt;=</span> fib_max<span class="sy4">;</span> <span class="sy2">++</span>i<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> nth_fibonacci2<span class="br0">(</span>nth_fibonacci2, i<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="br0">(</span>i <span class="sy1">&lt;</span> fib_max <span class="sy4">?</span> <span class="st0">&quot;, &quot;</span> <span class="sy4">:</span> <span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+<span class="co2">#ifdef __cpp_explicit_this_parameter</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;C++23 &#30340; lambda &#36882;&#24402;&#26041;&#26696;&#65306;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    <span class="kw4">auto</span> nth_fibonacci3 <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span>this <span class="kw4">auto</span> self, <span class="kw4">int</span> n, <span class="kw4">int</span> a <span class="sy1">=</span> <span class="nu0">0</span>, <span class="kw4">int</span> b <span class="sy1">=</span> <span class="nu0">1</span><span class="br0">)</span> <span class="sy2">-</span><span class="sy1">&gt;</span> <span class="kw4">int</span>
+    <span class="br0">{</span>
+         <span class="kw1">return</span> n <span class="sy4">?</span> self<span class="br0">(</span>n <span class="sy2">-</span> <span class="nu0">1</span>, a <span class="sy2">+</span> b, a<span class="br0">)</span> <span class="sy4">:</span> b<span class="sy4">;</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> i<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span><span class="sy4">;</span> i <span class="sy1">&lt;=</span> fib_max<span class="sy4">;</span> <span class="sy2">++</span>i<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> nth_fibonacci3<span class="br0">(</span>i<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="br0">(</span>i <span class="sy1">&lt;</span> fib_max <span class="sy4">?</span> <span class="st0">&quot;, &quot;</span> <span class="sy4">:</span> <span class="st0">&quot;<span class="es1">\n</span>&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="co2">#endif</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">c: 5 6 7
+func1: 10
+func2: 10
+&#27169;&#20223;&#36882;&#24402; lambda &#35843;&#29992;&#65306;
+&#26000;&#27874;&#37027;&#22865;&#25968;&#65306;0, 1, 1, 2, 3, 5, 8, 13
+&#21478;&#19968;&#31181; lambda &#36882;&#24402;&#26041;&#26696;&#65306;
+&#26000;&#27874;&#37027;&#22865;&#25968;&#65306;0, 1, 1, 2, 3, 5, 8, 13</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/974.html">CWG 974</a></td>
+<td>C++11</td>
+<td>lambda &#34920;&#36798;&#24335;&#30340;&#24418;&#21442;&#21015;&#34920;&#20013;&#19981;&#33021;&#26377;&#40664;&#35748;&#23454;&#21442;</td>
+<td>&#21487;&#20197;&#26377;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/1048.html">CWG 1048</a><br />
+(<a rel="nofollow" class="external text" href="https://wg21.link/N3638">N3638</a>)</td>
+<td>C++11</td>
+<td>&#21482;&#33021;&#23545;&#20165;&#21253;&#21547;&#19968;&#20010; <span class="mw-geshi cpp source-cpp"><span class="kw1">return</span></span> &#35821;&#21477;&#30340; lambda &#20307;&#25512;&#23548;&#36820;&#22238;&#31867;&#22411;</td>
+<td>&#25913;&#36827;&#36820;&#22238;&#31867;&#22411;&#25512;&#23548;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/1249.html">CWG 1249</a></td>
+<td>C++11</td>
+<td>&#19981;&#26126;&#30830;&#22806;&#22260;&#38750; mutable &#30340; lambda &#25152;&#25429;&#33719;&#30340;&#25104;&#21592;&#26159;&#21542;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw4">const</span></span></td>
+<td>&#35748;&#20026;&#23427;&#20026; <span class="mw-geshi cpp source-cpp"><span class="kw4">const</span></span></td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/1557.html">CWG 1557</a></td>
+<td>C++11</td>
+<td>&#26410;&#25351;&#23450;&#38381;&#21253;&#31867;&#22411;&#30340;&#36716;&#25442;&#20989;&#25968;&#30340;&#36820;&#22238;&#20989;&#25968;&#31867;&#22411;&#30340;&#35821;&#35328;&#38142;&#25509;</td>
+<td>&#23427;&#20855;&#26377; C++ &#35821;&#35328;&#38142;&#25509;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/1607.html">CWG 1607</a></td>
+<td>C++11</td>
+<td>lambda &#34920;&#36798;&#24335;&#21487;&#20197;&#22312;&#20989;&#25968;&#21644;&#20989;&#25968;&#27169;&#26495;&#31614;&#21517;&#20013;&#20986;&#29616;</td>
+<td>&#24050;&#31105;&#27490;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/1612.html">CWG 1612</a></td>
+<td>C++11</td>
+<td>&#21487;&#20197;&#25429;&#33719;&#21311;&#21517;&#32852;&#21512;&#20307;&#30340;&#25104;&#21592;</td>
+<td>&#24050;&#31105;&#27490;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/1722.html">CWG 1722</a></td>
+<td>C++11</td>
+<td>&#26080;&#25429;&#33719;&#30340; lambda &#30340;&#36716;&#25442;&#20989;&#25968;&#30340;&#24322;&#24120;&#35828;&#26126;&#26410;&#25351;&#26126;</td>
+<td>&#36716;&#25442;&#20989;&#25968;&#20026; noexcept</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/1772.html">CWG 1772</a></td>
+<td>C++11</td>
+<td>lambda &#20307;&#20869; <span class="t-c"><span class="mw-geshi cpp source-cpp">__func__</span></span> &#30340;&#35821;&#20041;&#19981;&#26126;&#30830;</td>
+<td>&#23427;&#25351;&#20195;&#38381;&#21253;&#31867;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span></td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/1780.html">CWG 1780</a></td>
+<td>C++14</td>
+<td>&#19981;&#26126;&#30830;&#27867;&#22411; lambda &#30340;&#38381;&#21253;&#31867;&#22411;&#30340;&#25104;&#21592;&#26159;&#21542;&#21487;&#20197;&#34987;&#26174;&#24335;&#23454;&#20363;&#21270;&#25110;&#34987;&#26174;&#24335;&#29305;&#21270;</td>
+<td>&#20004;&#32773;&#37117;&#19981;&#20801;&#35768;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/1891.html">CWG 1891</a></td>
+<td>C++11</td>
+<td>&#38381;&#21253;&#24102;&#26377;&#24323;&#32622;&#30340;&#40664;&#35748;&#26500;&#36896;&#20989;&#25968;&#21644;&#38544;&#21547;&#30340;&#22797;&#21046;/&#31227;&#21160;&#26500;&#36896;&#20989;&#25968;</td>
+<td>&#26080;&#40664;&#35748;&#21450;&#39044;&#32622;&#30340;&#22797;&#21046;/&#31227;&#21160;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/1937.html">CWG 1937</a></td>
+<td>C++11</td>
+<td>&#26410;&#25351;&#26126;&#35843;&#29992;&#36716;&#25442;&#20989;&#25968;&#30340;&#36820;&#22238;&#20540;&#30340;&#25928;&#26524;&#19982;&#35843;&#29992;&#21738;&#20010;&#23545;&#35937;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#30456;&#21516;</td>
+<td>&#19982;&#35843;&#29992;&#40664;&#35748;&#26500;&#36896;&#30340;&#38381;&#21253;&#31867;&#22411;<br />
+&#23454;&#20363;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#30456;&#21516;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/1973.html">CWG 1973</a></td>
+<td>C++11</td>
+<td>&#38381;&#21253;&#31867;&#22411;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span></span> &#30340;&#24418;&#21442;&#21015;&#34920;&#21487;&#20197;&#25351;&#20195;<span class="t-spar">&#23614;&#38543;&#31867;&#22411;</span>&#8202;&#65279;&#20013;&#30340;&#24418;&#21442;&#21015;&#34920;</td>
+<td>&#21482;&#33021;&#25351;&#20195;<span class="t-spar">&#24418;&#21442;&#21015;&#34920;</span></td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/2011.html">CWG 2011</a></td>
+<td>C++11</td>
+<td>&#23545;&#20110;&#25353;&#24341;&#29992;&#25429;&#33719;&#30340;&#24341;&#29992;&#65292;&#26410;&#25351;&#26126;&#35813;&#25429;&#33719;&#31526;&#30340;&#26631;&#35782;&#31526;&#34920;&#31034;&#30340;&#26159;&#21738;&#20010;&#23454;&#20307;</td>
+<td>&#34920;&#31034;&#30340;&#26159;&#21407;&#26469;&#24341;&#29992;&#30340;&#23454;&#20307;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/2095.html">CWG 2095</a></td>
+<td>C++11</td>
+<td>&#25353;&#22797;&#21046;&#25429;&#33719;&#21040;&#20989;&#25968;&#30340;&#21491;&#20540;&#24341;&#29992;&#30340;&#34892;&#20026;&#19981;&#26126;&#30830;</td>
+<td>&#20351;&#20043;&#26126;&#30830;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/2211.html">CWG 2211</a></td>
+<td>C++11</td>
+<td>&#26410;&#25351;&#26126;&#25429;&#33719;&#19982;&#24418;&#21442;&#30340;&#21517;&#23383;&#30456;&#21516;&#26102;&#30340;&#34892;&#20026;</td>
+<td>&#27492;&#26102;&#31243;&#24207;&#38750;&#33391;&#26500;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/2358.html">CWG 2358</a></td>
+<td>C++14</td>
+<td>&#22312;&#40664;&#35748;&#23454;&#21442;&#20013;&#30340; lambda &#34920;&#36798;&#24335;&#19981;&#33021;&#26377;&#20219;&#20309;&#25429;&#33719;&#65292;<br />
+&#21363;&#20351;&#23427;&#20204;&#37117;&#34987;&#21487;&#20197;&#22312;&#40664;&#35748;&#23454;&#21442;&#20869;&#20986;&#29616;&#30340;&#34920;&#36798;&#24335;&#21021;&#22987;&#21270;</td>
+<td>&#36825;&#31181;&#24102;&#25429;&#33719;&#30340; lambda &#34920;&#36798;&#24335;<br />
+&#21487;&#20197;&#22312;&#40664;&#35748;&#23454;&#21442;&#20013;&#20986;&#29616;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/2509.html">CWG 2509</a></td>
+<td>C++17</td>
+<td>&#35828;&#26126;&#31526;&#24207;&#21015;&#37324;&#27599;&#20010;&#22768;&#26126;&#31526;&#21487;&#20197;&#22810;&#27425;&#20986;&#29616;</td>
+<td>&#21482;&#33021;&#21508;&#20986;&#29616;&#26368;&#22810;&#19968;&#27425;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/2561.html">CWG 2561</a></td>
+<td>C++23</td>
+<td>&#26377;&#26174;&#24335;&#23545;&#35937;&#24418;&#21442;&#30340; lambda &#34920;&#36798;&#24335;&#21487;&#33021;&#25317;&#26377;&#21040;&#19981;&#24819;&#35201;&#30340;&#20989;&#25968;&#25351;&#38024;&#31867;&#22411;&#30340;&#36716;&#25442;&#20989;&#25968;</td>
+<td>&#27809;&#26377;&#36825;&#31181;&#36716;&#25442;&#20989;&#25968;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/2881.html">CWG 2881</a></td>
+<td>C++23</td>
+<td>&#26377;&#26174;&#24335;&#23545;&#35937;&#24418;&#21442;&#30340; <span class="mw-geshi cpp source-cpp">operator<span class="br0">(</span><span class="br0">)</span></span> &#33021;&#23545;&#32487;&#25215;&#38750;&#20844;&#24320;&#25110;&#26377;&#27495;&#20041;&#30340;&#27966;&#29983;&#31867;&#23454;&#20363;&#21270;</td>
+<td>&#20351;&#20043;&#38750;&#33391;&#26500;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://wg21.link/P0588R1">P0588R1</a></td>
+<td>C++11</td>
+<td>&#38544;&#24335; lambda &#25429;&#33719;&#30340;&#35268;&#21017;&#26816;&#27979; ODR &#20351;&#29992;</td>
+<td>&#31616;&#21270;&#20102;&#35268;&#21017;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td><a href="cpp-language-auto.html"><code>auto</code> &#35828;&#26126;&#31526;</a><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></td>
+<td>&#25351;&#23450;&#20174;&#34920;&#36798;&#24335;&#25512;&#23548;&#30340;&#31867;&#22411;</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-functional-function.html"><span class="t-lines"><span>function</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20219;&#24847;&#21487;&#22797;&#21046;&#26500;&#36896;&#30340;&#21487;&#35843;&#29992;&#23545;&#35937;&#30340;&#21487;&#22797;&#21046;&#21253;&#35013;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-functional-move_only_function.html"><span class="t-lines"><span>move_only_function</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#20219;&#24847;&#21487;&#35843;&#29992;&#23545;&#35937;&#30340;&#20165;&#31227;&#21160;&#21253;&#35013;&#65292;&#25903;&#25345;&#32473;&#23450;&#35843;&#29992;&#31614;&#21517;&#20013;&#30340;&#38480;&#23450;&#31526;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.A4.96.E9.83.A8.E9.93.BE.E6.8E.A5">&#22806;&#37096;&#38142;&#25509;</span></h3>
+<table style="border-top:solid 1px;border-bottom:none;border-left:none;border-right:none;">
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Nested_function" class="extiw" title="enwiki:Nested function">&#23884;&#22871;&#20989;&#25968;</a> - &#19968;&#20010;&#20989;&#25968;&#23450;&#20041;&#20110;&#21478;&#19968;&#20010;&#65288;<i>&#22806;&#22260;</i>&#65289;&#20989;&#25968;&#20043;&#20869;&#12290;</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>nullptr_t</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_types_nullptr_t skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">nullptr_t</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-types.html">types</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-stddef.html"><tt>&lt;stddef.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-c23">
+<td>
+<div><span class="mw-geshi c source-c"><span class="kw1">typedef</span> typeof<span class="br0">(</span>nullptr<span class="br0">)</span> nullptr_t<span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-c23" style="white-space: nowrap;">(C23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>nullptr_t</code> &#26159;&#39044;&#23450;&#20041;&#31354;&#25351;&#38024;&#24120;&#37327; <a href="c-language-nullptr.html"><tt>nullptr</tt></a> &#30340;&#31867;&#22411;&#12290;&#23427;&#26159;&#33258;&#36523;&#24182;&#38750;&#25351;&#38024;&#31867;&#22411;&#30340;&#21333;&#29420;&#31867;&#22411;&#12290;&#23427;&#33021;<a href="c-language-conversion.html">&#38544;&#24335;&#36716;&#25442;&#21040;</a>&#20219;&#20309;&#25351;&#38024;&#31867;&#22411;&#25110; <span class="mw-geshi c source-c">bool</span>&#65292;&#32780;&#32467;&#26524;&#20998;&#21035;&#20026;&#35813;&#31867;&#22411;&#30340;&#31354;&#25351;&#38024;&#20540;&#25110; <span class="t-c"><span class="mw-geshi c source-c"><span class="kw2">false</span></span></span>&#12290;&#38500;&#20102; <code>nullptr_t</code> &#33258;&#36523;&#65292;&#27809;&#26377;&#20854;&#20182;&#31867;&#22411;&#33021;&#36716;&#25442;&#25110;&#26174;&#24335;&#36716;&#22411;&#25104; <code>nullptr_t</code>&#12290;</p>
+<p><span class="t-c"><span class="mw-geshi c source-c"><span class="kw4">sizeof</span><span class="br0">(</span>nullptr_t<span class="br0">)</span></span></span> &#19982; <span class="t-c"><span class="mw-geshi c source-c">alignof<span class="br0">(</span>nullptr_t<span class="br0">)</span></span></span> &#20998;&#21035;&#31561;&#20110; <span class="t-c"><span class="mw-geshi c source-c"><span class="kw4">sizeof</span><span class="br0">(</span><span class="kw4">void</span><span class="sy2">*</span><span class="br0">)</span></span></span> &#19982; <span class="t-c"><span class="mw-geshi c source-c">alignof<span class="br0">(</span><span class="kw4">void</span><span class="sy2">*</span><span class="br0">)</span></span></span>&#12290;</p>
+<p><code>nullptr_t</code> &#20165;&#26377;&#19968;&#20010;&#21512;&#27861;&#20540;&#65292;&#21363; <span class="t-c"><span class="mw-geshi c source-c">nullptr</span></span>&#12290;<span class="t-c"><span class="mw-geshi c source-c">nullptr</span></span> &#30340;&#23545;&#35937;&#34920;&#31034;&#19982; <span class="t-c"><span class="mw-geshi c source-c"><span class="br0">(</span><span class="kw4">void</span><span class="sy2">*</span><span class="br0">)</span><span class="nu0">0</span></span></span> &#30340;&#30456;&#21516;&#12290;&#33509;<a href="c-language-conversion.html#.E5.B7.A6.E5.80.BC.E8.BD.AC.E6.8D.A2">&#24038;&#20540;&#36716;&#25442;</a>&#20135;&#29983;&#25317;&#26377;&#19981;&#21516;&#23545;&#35937;&#34920;&#31034;&#30340; <code>nullptr_t</code> &#20540;&#65292;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<p>&#28436;&#31034; <code>nullptr_t</code> &#20026;&#21333;&#29420;&#30340;&#31867;&#22411;&#12290;</p>
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#include &lt;stddef.h&gt;</span>
+<span class="co2">#include &lt;stdio.h&gt;</span>
+ 
+<span class="co2">#define DETECT_NULL_POINTER_CONSTANT(e) \
+    _Generic(e,                         \
+        void* : puts(&quot;void*&quot;),          \
+        nullptr_t : puts(&quot;nullptr_t&quot;),  \
+        default : puts(&quot;other&quot;)         \
+    )</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    DETECT_NULL_POINTER_CONSTANT<span class="br0">(</span><span class="br0">(</span><span class="br0">(</span><span class="kw4">void</span><span class="sy2">*</span><span class="br0">)</span><span class="nu0">0</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    DETECT_NULL_POINTER_CONSTANT<span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="sy4">;</span>
+    DETECT_NULL_POINTER_CONSTANT<span class="br0">(</span>nullptr<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">void*
+other
+nullptr_t</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-23">
+<ul>
+<li>C23 &#26631;&#20934;&#65288;ISO/IEC 9899:2024&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.21.2 The nullptr_t type &#65288;&#31532; 315-316 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-types-NULL.html"><span class="t-lines"><span>NULL</span></span></a></div>
+</div>
+</td>
+<td>&#23454;&#29616;&#23450;&#20041;&#30340;&#31354;&#25351;&#38024;&#24120;&#37327;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#23439;&#24120;&#37327;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>nullptr_t</span></span>&nbsp;&#30340; <span><span><a href="cpp-types-nullptr_t.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::flat_multimap&lt;Key,T,Compare,KeyContainer,MappedContainer&gt;::insert_range</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_container_flat_multimap_insert_range skin-cppreference2 action-view cpp-page-template cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::flat_multimap&lt;Key,T,Compare,KeyContainer,MappedContainer&gt;::</span>insert_range</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-container.html">container</a>&lrm; | <a href="cpp-container-flat_multimap.html">flat multimap</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<div class="t-page-template" style="">
+<p></p>
+</div>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <a href="cpp-ranges-to.html"><span class="kw100">container-compatible-range</span></a><span class="sy1">&lt;</span>value_type<span class="sy1">&gt;</span> R <span class="sy1">&gt;</span><br />
+<span class="kw4">void</span> insert_range<span class="br0">(</span> R<span class="sy3">&amp;&amp;</span> rg <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#21521;&#21508;&#24213;&#23618;&#23481;&#22120; <a href="cpp-container-flat_multimap.html#.E6.88.90.E5.91.98.E5.AF.B9.E8.B1.A1"><code><i>c</i></code></a> &#20013;&#25554;&#20837;&#33539;&#22260; <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> &#20013;&#27599;&#20010;&#20803;&#32032;&#30340;&#21103;&#26412;&#65292;&#22914;&#21516;&#20197;&#22914;&#19979;&#20195;&#30721;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">for</span> <span class="br0">(</span><span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> e <span class="sy4">:</span> rg<span class="br0">)</span>
+<span class="br0">{</span>
+    c.<span class="me1">keys</span>.<span class="me1">insert</span><span class="br0">(</span>c.<span class="me1">keys</span>.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>, e.<span class="me1">first</span><span class="br0">)</span><span class="sy4">;</span>
+    c.<span class="me1">values</span>.<span class="me1">insert</span><span class="br0">(</span>c.<span class="me1">values</span>.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>, e.<span class="me1">second</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#28982;&#21518;&#65292;&#25353; <span class="t-lc">value_comp()</span> &#23545;&#26032;&#25554;&#20837;&#20803;&#32032;&#30340;&#33539;&#22260;&#25490;&#24207;&#12290; &#25226;&#25152;&#24471;&#26377;&#24207;&#33539;&#22260;&#21644;&#26082;&#23384;&#20803;&#32032;&#30340;&#26377;&#24207;&#33539;&#22260;&#21512;&#24182;&#20026;&#19968;&#20010;&#26377;&#24207;&#33539;&#22260;&#12290;</p>
+<p>&#33539;&#22260; <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> &#20013;&#30340;&#27599;&#20010;&#20803;&#32032;&#22343;&#24688;&#22909;&#32972;&#35299;&#24341;&#29992;&#19968;&#27425;&#12290; &#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> &#19982;&#23481;&#22120;&#37325;&#21472;&#65292;&#21017;&#20854;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#36845;&#20195;&#22120;&#22833;&#25928;&#19978;&#30340;&#20449;&#24687;&#22797;&#21046;&#33258;<a href="https://zh.cppreference.com/w/Template:cpp/container/note_iterator_invalidation" title="Template:cpp/container/note iterator invalidation">&#27492;&#22788;</a></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>rg</td>
+<td>-</td>
+<td><a href="cpp-ranges-to.html#.E5.AE.B9.E5.99.A8.E5.85.BC.E5.AE.B9.E8.8C.83.E5.9B.B4">&#23481;&#22120;&#20860;&#23481;&#33539;&#22260;</a>&#65292;&#21363;&#20854;&#20803;&#32032;&#21487;&#20197;&#36716;&#25442;&#20026; <code>T</code> &#30340; <a href="cpp-ranges-input_range.html"><code>input_range</code></a></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp">N <span class="sy2">+</span> M&middot;log<span class="br0">(</span>M<span class="br0">)</span></span></span>&#65292;&#20854;&#20013; <code>N</code> &#20026;&#25805;&#20316;&#21069;&#30340; <span class="t-lc">size()</span> &#32780; <code>M</code> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-iterator-ranges-distance.html"><span class="kw3142">ranges::<span class="me2">distance</span></span></a><span class="br0">(</span>rg<span class="br0">)</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#30001;&#20110; <code>insert_range</code> &#36827;&#34892;&#21407;&#20301;&#24402;&#24182;&#25805;&#20316;&#65292;&#36825;&#21487;&#33021;&#20250;&#20998;&#37197;&#20869;&#23384;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;flat_map&gt;</span>
+<span class="co2">#include &lt;utility&gt;</span>
+ 
+<span class="kw4">void</span> println<span class="br0">(</span><span class="kw4">auto</span>, <span class="kw4">auto</span> <span class="kw4">const</span><span class="sy3">&amp;</span> container<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> <span class="br0">[</span>key, value<span class="br0">]</span> <span class="sy4">:</span> container<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;{&#39;</span> <span class="sy1">&lt;&lt;</span> key <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;,&#39;</span> <span class="sy1">&lt;&lt;</span> value <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;}&#39;</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">auto</span> container <span class="sy1">=</span> <a href="cpp-container-flat_multimap.html"><span class="kw3330">std::<span class="me2">flat_multimap</span></span></a><span class="br0">{</span><a href="cpp-utility-pair.html"><span class="kw1099">std::<span class="me2">pair</span></span></a><span class="br0">{</span><span class="nu0">1</span>, <span class="nu0">11</span><span class="br0">}</span>, <span class="br0">{</span><span class="nu0">3</span>, <span class="nu0">33</span><span class="br0">}</span>, <span class="br0">{</span><span class="nu0">2</span>, <span class="nu0">22</span><span class="br0">}</span>, <span class="br0">{</span><span class="nu0">4</span>, <span class="nu0">44</span><span class="br0">}</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw4">const</span> <span class="kw4">auto</span> rg <span class="sy1">=</span> <span class="br0">{</span><a href="cpp-utility-pair.html"><span class="kw1099">std::<span class="me2">pair</span></span></a><span class="br0">{</span><span class="sy2">-</span><span class="nu0">1</span>, <span class="sy2">-</span><span class="nu0">11</span><span class="br0">}</span>, <span class="br0">{</span><span class="nu0">3</span>, <span class="sy2">-</span><span class="nu0">33</span><span class="br0">}</span>, <span class="br0">{</span><span class="sy2">-</span><span class="nu0">2</span>, <span class="sy2">-</span><span class="nu0">22</span><span class="br0">}</span><span class="br0">}</span><span class="sy4">;</span>
+<span class="co2">#ifdef __cpp_lib_containers_ranges</span>
+    container.<span class="me1">insert_range</span><span class="br0">(</span>rg<span class="br0">)</span><span class="sy4">;</span>
+<span class="co2">#else</span>
+    container.<span class="me1">insert</span><span class="br0">(</span>rg.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, rg.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="co2">#endif</span>
+    println<span class="br0">(</span><span class="st0">&quot;{}&quot;</span>, container<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">{-2,-22} {-1,-11} {1,11} {2,22} {3,33} {3,-33} {4,44}</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-flat_multimap-insert.html"><span class="t-lines"><span>insert</span></span></a></div>
+</div>
+</td>
+<td>&#25554;&#20837;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

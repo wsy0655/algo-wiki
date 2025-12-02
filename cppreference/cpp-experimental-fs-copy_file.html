@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::experimental::filesystem::copy_file</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_experimental_fs_copy_file skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::experimental::filesystem::</span>copy_file</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-experimental.html">experimental</a>&lrm; | <a href="cpp-experimental-fs.html">fs</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-experimental-filesystem.html">&lt;experimental/filesystem&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-fs_ts">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> copy_file<span class="br0">(</span> <span class="kw4">const</span> path<span class="sy3">&amp;</span> from, <span class="kw4">const</span> path<span class="sy3">&amp;</span> to <span class="br0">)</span><span class="sy4">;</span><br />
+<span class="kw4">bool</span> copy_file<span class="br0">(</span> <span class="kw4">const</span> path<span class="sy3">&amp;</span> from, <span class="kw4">const</span> path<span class="sy3">&amp;</span> to, error_code<span class="sy3">&amp;</span> ec <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-fs-ts t-mark-ts" style="white-space: nowrap;">(&#25991;&#20214;&#31995;&#32479; TS)</span></td>
+</tr>
+<tr class="t-dcl t-since-fs_ts">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> copy_file<span class="br0">(</span> <span class="kw4">const</span> path<span class="sy3">&amp;</span> from, <span class="kw4">const</span> path<span class="sy3">&amp;</span> to, copy_options options <span class="br0">)</span><span class="sy4">;</span><br />
+<span class="kw4">bool</span> copy_file<span class="br0">(</span> <span class="kw4">const</span> path<span class="sy3">&amp;</span> from, <span class="kw4">const</span> path<span class="sy3">&amp;</span> to, copy_options options, error_code<span class="sy3">&amp;</span> ec <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-fs-ts t-mark-ts" style="white-space: nowrap;">(&#25991;&#20214;&#31995;&#32479; TS)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="t-li1"><span class="t-li">1)</span> &#40664;&#35748;&#24773;&#20917;&#65292;&#31561;&#20215;&#20110; <span class="t-v">(2)</span> &#20013;&#20197; <code>copy_options::none</code> &#29992;&#20316; <span class="t-c"><span class="mw-geshi cpp source-cpp">options</span></span>&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp">from</span></span> &#22797;&#21046;&#21333;&#20010;&#25991;&#20214;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">to</span></span>&#65292;&#20351;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">options</span></span> &#25152;&#25351;&#23450;&#30340;&#22797;&#21046;&#36873;&#39033;&#12290;&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">options</span></span> &#20013;&#32473;&#20986;&#30340;&#20219;&#20309; <a href="cpp-experimental-fs-copy_options.html">copy_options</a> &#36873;&#39033;&#32452;&#20013;&#26377;&#22810;&#20110;&#19968;&#20010;&#36873;&#39033;&#65292;&#21017;&#20854;&#34892;&#20026;&#26410;&#23450;&#20041;&#65288;&#21363;&#20351;&#19982; <code>copy_file</code> &#26080;&#20851;&#30340;&#36873;&#39033;&#32452;&#20063;&#26159;&#22914;&#27492;&#65289;&#12290;</div>
+<ul>
+<li>&#22914;&#26524;&#30446;&#26631;&#25991;&#20214;&#19981;&#23384;&#22312;&#65292;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>&#22797;&#21046; <span class="t-c"><span class="mw-geshi cpp source-cpp">from</span></span> &#35299;&#26512;&#21040;&#30340;&#25991;&#20214;&#30340;&#20869;&#23481;&#21644;&#23646;&#24615;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">to</span></span> &#25152;&#35299;&#26512;&#21040;&#30340;&#25991;&#20214;&#65288;&#36319;&#38543;&#31526;&#21495;&#38142;&#25509;&#65289;&#12290;</li>
+</ul>
+</dd>
+</dl>
+<ul>
+<li>&#21542;&#21017;&#65292;&#22914;&#26524;&#30446;&#26631;&#25991;&#20214;&#24050;&#32463;&#23384;&#22312;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">to</span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp">from</span></span> &#25353; <a href="cpp-experimental-fs-equivalent.html"><tt>equivalent(from, to)</tt></a> &#30830;&#23450;&#20026;&#30456;&#21516;&#65292;&#21017;&#25253;&#21578;&#38169;&#35823;&#12290;</li>
+<li>&#21542;&#21017;&#65292;&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">options</span></span> &#20013;&#26410;&#35774;&#32622;&#20219;&#20309; <code>copy_file</code> &#25511;&#21046;&#36873;&#39033;&#65292;&#21017;&#25253;&#21578;&#38169;&#35823;&#12290;</li>
+<li>&#21542;&#21017;&#65292;&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">options</span></span> &#20013;&#35774;&#32622;&#20102; <code>copy_options::skip_existing</code>&#65292;&#21017;&#19981;&#20570;&#20219;&#20309;&#20107;&#12290;</li>
+<li>&#21542;&#21017;&#65292;&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">options</span></span> &#20013;&#35774;&#32622;&#20102; <code>copy_options::overwrite_existing</code>&#65292;&#21017;&#22797;&#21046; <span class="t-c"><span class="mw-geshi cpp source-cpp">from</span></span> &#25152;&#35299;&#26512;&#21040;&#30340;&#25991;&#20214;&#30340;&#20869;&#23481;&#21644;&#23646;&#24615;&#32473; <span class="t-c"><span class="mw-geshi cpp source-cpp">to</span></span> &#25152;&#35299;&#26512;&#21040;&#30340;&#25991;&#20214;&#12290;</li>
+<li>&#21542;&#21017;&#65292;&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">options</span></span> &#20013;&#35774;&#32622;&#20102; <code>copy_options::update_existing</code>&#65292;&#21017;&#20165;&#24403; <span class="t-c"><span class="mw-geshi cpp source-cpp">from</span></span> &#27604; <span class="t-c"><span class="mw-geshi cpp source-cpp">to</span></span> &#26356;&#26032;&#26102;&#25165;&#22797;&#21046;&#25991;&#20214;&#65292;&#22914; <a href="cpp-experimental-fs-last_write_time.html"><tt>last_write_time()</tt></a> &#25152;&#23450;&#20041;&#12290;</li>
+</ul>
+</dd>
+</dl>
+<p>&#24403;&#21457;&#29983;&#38169;&#35823;&#26102;&#65292;&#26080;&#25243;&#20986;&#37325;&#36733;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>from</td>
+<td>-</td>
+<td>&#21040;&#28304;&#25991;&#20214;&#30340;&#36335;&#24452;</td>
+</tr>
+<tr class="t-par">
+<td>to</td>
+<td>-</td>
+<td>&#21040;&#30446;&#26631;&#25991;&#20214;&#30340;&#36335;&#24452;</td>
+</tr>
+<tr class="t-par">
+<td>ec</td>
+<td>-</td>
+<td>&#29992;&#20110;&#26080;&#25243;&#20986;&#37325;&#36733;&#20013;&#25253;&#21578;&#38169;&#35823;&#30340;&#36755;&#20986;&#24418;&#21442;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#22914;&#26524;&#22797;&#21046;&#20102;&#25991;&#20214;&#21017;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#21542;&#21017;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+&#19981;&#25509;&#21463; <span class="t-c"><span class="mw-geshi cpp source-cpp">error_code<span class="sy3">&amp;</span></span></span> &#24418;&#21442;&#30340;&#37325;&#36733;&#65292;&#22312;&#21457;&#29983;&#24213;&#23618; OS API &#38169;&#35823;&#26102;&#25243;&#20986; <a href="cpp-experimental-fs-filesystem_error.html">filesystem_error</a>&#65292;&#23427;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">from</span></span> &#20026;&#31532;&#19968;&#23454;&#21442;&#65292;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">to</span></span> &#20026;&#31532;&#20108;&#23454;&#21442;&#65292;&#24182;&#20197; OS &#38169;&#35823;&#30721;&#20026;&#38169;&#35823;&#30721;&#23454;&#21442;&#26500;&#36896;&#12290;&#22914;&#26524;&#20869;&#23384;&#20998;&#37197;&#22833;&#36133;&#65292;&#21017;&#21487;&#25243;&#20986; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-new-bad_alloc.html"><span class="kw696">std::<span class="me2">bad_alloc</span></span></a></span></span>&#12290;&#25509;&#21463; <span class="t-c"><span class="mw-geshi cpp source-cpp">error_code<span class="sy3">&amp;</span></span></span> &#24418;&#21442;&#30340;&#37325;&#36733;&#65292;&#24403; OS API &#35843;&#29992;&#22833;&#36133;&#26102;&#23558;&#20043;&#35774;&#32622;&#20026; OS API &#38169;&#35823;&#30721;&#65292;&#32780;&#26410;&#21457;&#29983;&#38169;&#35823;&#26102;&#25191;&#34892; <span class="t-c"><span class="mw-geshi cpp source-cpp">ec.<span class="me1">clear</span><span class="br0">(</span><span class="br0">)</span></span></span>&#12290;&#27492;&#37325;&#36733;&#20855;&#26377;
+<div class="t-noexcept-inline"><a href="cpp-language-noexcept_spec.html"><tt>noexcept</tt></a> &#35268;&#23450;&#65306;&nbsp;&nbsp;
+<div class="t-noexcept-box"><span class="t-cc"><span class="mw-geshi cpp source-cpp"><span class="kw1">noexcept</span></span></span></div>
+&nbsp;&nbsp;</div>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#20989;&#25968;&#28041;&#21450;&#33267;&#23569;&#19968;&#27425;&#23545; <a href="cpp-experimental-fs-status.html"><tt>status(to)</tt></a> &#30340;&#30452;&#25509;&#25110;&#38388;&#25509;&#35843;&#29992;&#65288;&#26082;&#29992;&#20110;&#30830;&#23450;&#25991;&#20214;&#26159;&#21542;&#23384;&#22312;&#65292;&#20063;&#29992;&#20110; <code>copy_options::update_existing</code> &#36873;&#39033;&#26102;&#33719;&#21462;&#26368;&#21518;&#20889;&#20837;&#26102;&#38388;&#65289;&#12290;</p>
+<p>&#24403;&#29992; <code>copy_file</code> &#22797;&#21046;&#30446;&#24405;&#26102;&#20250;&#25253;&#38169;&#65306;&#24212;&#24403;&#20026;&#27492;&#20351;&#29992; <a href="cpp-experimental-fs-copy.html"><tt>copy</tt></a>&#12290;</p>
+<p><code>copy_file</code> &#20250;&#36319;&#38543;&#31526;&#21495;&#38142;&#25509;&#65306;&#24212;&#24403;&#20026;&#27492;&#20351;&#29992; <a href="cpp-experimental-fs-copy_symlink.html"><tt>copy_symlink</tt></a> &#25110;&#20197; <code>copy_options::copy_symlinks</code> &#35843;&#29992; <a href="cpp-experimental-fs-copy.html"><tt>copy</tt></a>&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;experimental/filesystem&gt;</span>
+<span class="co2">#include &lt;fstream&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="kw1">namespace</span> fs <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">experimental</span><span class="sy4">::</span><span class="me2">filesystem</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    fs<span class="sy4">::</span><span class="me2">create_directory</span><span class="br0">(</span><span class="st0">&quot;sandbox&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-basic_ofstream.html"><span class="kw1737">std::<span class="me2">ofstream</span></span></a><span class="br0">(</span><span class="st0">&quot;sandbox/file1.txt&quot;</span><span class="br0">)</span>.<span class="me1">put</span><span class="br0">(</span><span class="st0">&#39;a&#39;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    fs<span class="sy4">::</span><span class="me2">copy_file</span><span class="br0">(</span><span class="st0">&quot;sandbox/file1.txt&quot;</span>, <span class="st0">&quot;sandbox/file2.txt&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#29616;&#22312; sandbox &#20013;&#26377;&#20004;&#20010;&#25991;&#20214;&#65306;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;file1.txt holds : &quot;</span>
+              <span class="sy1">&lt;&lt;</span> <a href="cpp-io-basic_ifstream.html"><span class="kw1736">std::<span class="me2">ifstream</span></span></a><span class="br0">(</span><span class="st0">&quot;sandbox/file1.txt&quot;</span><span class="br0">)</span>.<span class="me1">rdbuf</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;file2.txt holds : &quot;</span>
+              <span class="sy1">&lt;&lt;</span> <a href="cpp-io-basic_ifstream.html"><span class="kw1736">std::<span class="me2">ifstream</span></span></a><span class="br0">(</span><span class="st0">&quot;sandbox/file2.txt&quot;</span><span class="br0">)</span>.<span class="me1">rdbuf</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#22797;&#21046;&#30446;&#24405;&#22833;&#36133;</span>
+    fs<span class="sy4">::</span><span class="me2">create_directory</span><span class="br0">(</span><span class="st0">&quot;sandbox/abc&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">try</span>
+    <span class="br0">{</span>
+        fs<span class="sy4">::</span><span class="me2">copy_file</span><span class="br0">(</span><span class="st0">&quot;sandbox/abc&quot;</span>, <span class="st0">&quot;sandbox/def&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">catch</span> <span class="br0">(</span>fs<span class="sy4">::</span><span class="me2">filesystem_error</span><span class="sy3">&amp;</span> e<span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;Could not copy sandbox/abc: &quot;</span> <span class="sy1">&lt;&lt;</span> e.<span class="me1">what</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    fs<span class="sy4">::</span><span class="me2">remove_all</span><span class="br0">(</span><span class="st0">&quot;sandbox&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">file1.txt holds : a
+file2.txt holds : a
+Could not copy sandbox/abc: copy_file: Is a directory: &quot;sandbox/abc&quot;, &quot;sandbox/def&quot;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-experimental-fs-copy_options.html"><span class="t-lines"><span>copy_options</span></span></a></div>
+</div>
+</td>
+<td>&#25351;&#23450;&#22797;&#21046;&#25805;&#20316;&#30340;&#35821;&#20041;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#26522;&#20030;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-experimental-fs-copy_symlink.html"><span class="t-lines"><span>copy_symlink</span></span></a></div>
+</div>
+</td>
+<td>&#22797;&#21046;&#19968;&#20010;&#31526;&#21495;&#38142;&#25509;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-experimental-fs-copy.html"><span class="t-lines"><span>copy</span></span></a></div>
+</div>
+</td>
+<td>&#22797;&#21046;&#25991;&#20214;&#25110;&#30446;&#24405;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

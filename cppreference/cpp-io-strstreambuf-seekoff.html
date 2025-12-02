@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::strstreambuf::seekoff</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_io_strstreambuf_seekoff skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::strstreambuf::</span>seekoff</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-io.html">io</a>&lrm; | <a href="cpp-io-strstreambuf.html">strstreambuf</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-until-cxx26">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">protected</span><span class="sy4">:</span><br /></span>
+<p><span class="kw1">virtual</span> pos_type seekoff<span class="br0">(</span> off_type off,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ios_base<span class="sy4">::</span><span class="me2">seekdir</span> way,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ios_base<span class="sy4">::</span><span class="me2">openmode</span> which <span class="sy1">=</span> ios_base<span class="sy4">::</span><span class="me2">in</span> <span class="sy3">|</span> ios_base<span class="sy4">::</span><span class="me2">out</span> <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++98 &#24323;&#29992;)</span><br />
+<span class="t-mark-rev t-until-cxx26" style="white-space: nowrap;">(C++26 &#31227;&#38500;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#22312;&#21487;&#33021;&#26102;&#37325;&#23547;&#20301; <span class="t-lc"><a href="cpp-io-basic_streambuf-gptr.html">std::basic_streambuf::gptr</a></span> &#21644;/&#25110; <span class="t-lc"><a href="cpp-io-basic_streambuf-pptr.html">std::basic_streambuf::pptr</a></span> &#21040;&#23545;&#24212;&#36317;&#32531;&#20914;&#30340;&#33719;&#21462;&#21644;/&#25110;&#25918;&#32622;&#21306;&#36215;&#22987;&#12289;&#32467;&#23614;&#25110;&#24403;&#21069;&#20301;&#32622;&#20934;&#30830; <span class="t-c"><span class="mw-geshi cpp source-cpp">off</span></span> &#20010;&#23383;&#31526;&#30340;&#20301;&#32622;&#12290;</p>
+<ul>
+<li>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">which</span></span> &#21253;&#21547; <span class="t-c"><span class="mw-geshi cpp source-cpp">ios_base<span class="sy4">::</span><span class="me2">in</span></span></span> &#24182;&#19988;&#27492;&#32531;&#20914;&#20026;&#35835;&#21462;&#25171;&#24320;&#65292;&#37027;&#20040;&#20197;&#21518;&#36848;&#26041;&#24335;&#37325;&#23547;&#20301;&#33719;&#21462;&#21306;&#20869;&#30340;&#35835;&#25351;&#38024; <span class="t-lc"><a href="cpp-io-basic_streambuf-gptr.html">std::basic_streambuf::gptr</a></span>&#12290;</li>
+<li>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">which</span></span> &#21253;&#21547; <span class="t-c"><span class="mw-geshi cpp source-cpp">ios_base<span class="sy4">::</span><span class="me2">out</span></span></span> &#24182;&#19988;&#27492;&#32531;&#20914;&#20026;&#20889;&#20837;&#25171;&#24320;&#65292;&#37027;&#20040;&#20197;&#21518;&#36848;&#26041;&#24335;&#37325;&#23450;&#20301;&#25918;&#32622;&#21306;&#20869;&#30340;&#20889;&#25351;&#38024; <span class="t-lc"><a href="cpp-io-basic_streambuf-pptr.html">std::basic_streambuf::pptr</a></span>&#12290;</li>
+<li>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">which</span></span> &#21253;&#21547; <span class="t-c"><span class="mw-geshi cpp source-cpp">ios_base<span class="sy4">::</span><span class="me2">in</span></span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp">ios_base<span class="sy4">::</span><span class="me2">out</span></span></span> &#20004;&#32773;&#24182;&#19988;&#27492;&#32531;&#20914;&#20026;&#35835;&#21644;&#20889;&#25171;&#24320;&#65292;&#32780;&#19988; <span class="t-c"><span class="mw-geshi cpp source-cpp">way</span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp">ios_base<span class="sy4">::</span><span class="me2">beg</span></span></span> &#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp">ios_base<span class="sy4">::</span><span class="me2">end</span></span></span>&#65292;&#37027;&#20040;&#20197;&#21518;&#36848;&#26041;&#24335;&#37325;&#23547;&#20301;&#35835;&#21644;&#20889;&#25351;&#38024;&#12290;</li>
+<li>&#21542;&#21017;&#65292;&#27492;&#20989;&#25968;&#22833;&#36133;&#12290;</li>
+</ul>
+<p>&#22914;&#26524;&#37325;&#23547;&#20301;&#20102;&#25351;&#38024;&#65288;<code>gptr</code> &#25110; <code>pptr</code> &#25110;&#20004;&#32773;&#65289;&#65292;&#37027;&#20040;&#23427;&#20250;&#25353;&#19979;&#21015;&#26041;&#24335;&#36827;&#34892;&#65306;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#22914;&#26524;&#35201;&#37325;&#23547;&#20301;&#30340;&#25351;&#38024;&#26159;&#31354;&#25351;&#38024;&#19988;&#26032;&#20559;&#31227; <code>newoff</code> &#38750;&#38646;&#65292;&#37027;&#20040;&#20989;&#25968;&#22833;&#36133;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#30830;&#23450; <code>off_type</code> &#31867;&#22411;&#30340;&#26032;&#25351;&#38024;&#20559;&#31227; <span class="t-c"><span class="mw-geshi cpp source-cpp">newoff</span></span>&#65306;</div>
+<div class="t-li2"><span class="t-li">a)</span> &#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">way <span class="sy1">==</span> ios_base<span class="sy4">::</span><span class="me2">beg</span></span></span>&#65292;&#37027;&#20040; <span class="t-c"><span class="mw-geshi cpp source-cpp">newoff</span></span> &#20026;&#38646;</div>
+<div class="t-li2"><span class="t-li">b)</span> &#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">way <span class="sy1">==</span> ios_base<span class="sy4">::</span><span class="me2">cur</span></span></span>&#65292;&#37027;&#20040; <span class="t-c"><span class="mw-geshi cpp source-cpp">newoff</span></span> &#26159;&#25351;&#38024;&#30340;&#24403;&#21069;&#20301;&#32622;&#65288;<span class="t-c"><span class="mw-geshi cpp source-cpp">gptr<span class="br0">(</span><span class="br0">)</span> <span class="sy2">-</span> eback<span class="br0">(</span><span class="br0">)</span></span></span> &#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp">pptr<span class="br0">(</span><span class="br0">)</span> <span class="sy2">-</span> pbase<span class="br0">(</span><span class="br0">)</span></span></span>&#65289;</div>
+<div class="t-li2"><span class="t-li">c)</span> &#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">way <span class="sy1">==</span> ios_base<span class="sy4">::</span><span class="me2">end</span></span></span>&#65292;&#37027;&#20040; <span class="t-c"><span class="mw-geshi cpp source-cpp">newoff</span></span> &#26159;&#32531;&#20914;&#21306;&#30340;&#25972;&#20010;&#24050;&#21021;&#22987;&#21270;&#37096;&#20998;&#30340;&#38271;&#24230;&#65288;&#20351;&#29992;&#36807;&#20998;&#37197;&#26102;&#23601;&#26159;&#39640;&#27700;&#20301;&#25351;&#38024;&#20943;&#36215;&#22987;&#25351;&#38024;&#65289;</div>
+<div class="t-li1"><span class="t-li">3)</span> &#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">newoff <span class="sy2">+</span> off</span></span> &#20026;&#36127;&#25110;&#22312;&#32531;&#20914;&#21306;&#30340;&#24050;&#21021;&#22987;&#21270;&#37096;&#20998;&#22806;&#65292;&#37027;&#20040;&#20989;&#25968;&#22833;&#36133;</div>
+<div class="t-li1"><span class="t-li">4)</span> &#21542;&#21017;&#65292;&#22914;&#21516;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">gptr<span class="br0">(</span><span class="br0">)</span> <span class="sy1">=</span> eback<span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> newoff <span class="sy2">+</span> off</span></span> &#25110; <span class="t-c"><span class="mw-geshi cpp source-cpp">pptr<span class="br0">(</span><span class="br0">)</span> <span class="sy1">=</span> pbase<span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> newoff <span class="sy2">+</span> off</span></span> &#36171;&#20540;&#25351;&#38024;&#12290;</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>off</td>
+<td>-</td>
+<td>&#35774;&#32622;&#19979;&#19968;&#20301;&#32622;&#25351;&#38024;&#21040;&#30340;&#30456;&#23545;&#20301;&#32622;</td>
+</tr>
+<tr class="t-par">
+<td>way</td>
+<td>-</td>
+<td>&#23450;&#20041;&#24212;&#29992;&#20559;&#31227;&#21040;&#30340;&#22522;&#20301;&#32622;&#12290;&#23427;&#21487;&#20197;&#26159;&#19979;&#21015;&#24120;&#37327;&#20043;&#19968;&#65306;
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#24120;&#37327;</td>
+<td>&#35299;&#37322;</td>
+</tr>
+<tr class="t-dsc">
+<td><a href="cpp-io-ios_base-seekdir.html"><tt>beg</tt></a></td>
+<td>&#27969;&#30340;&#24320;&#22987;</td>
+</tr>
+<tr class="t-dsc">
+<td><a href="cpp-io-ios_base-seekdir.html"><tt>end</tt></a></td>
+<td>&#27969;&#30340;&#32467;&#23614;</td>
+</tr>
+<tr class="t-dsc">
+<td><a href="cpp-io-ios_base-seekdir.html"><tt>cur</tt></a></td>
+<td>&#27969;&#20301;&#32622;&#25351;&#31034;&#22120;&#30340;&#24403;&#21069;&#20301;&#32622;</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr class="t-par">
+<td>which</td>
+<td>-</td>
+<td>&#23450;&#20041;&#20250;&#24433;&#21709;&#21040;&#30340;&#36755;&#20837;&#21644;/&#25110;&#36755;&#20986;&#24207;&#21015;&#12290;&#23427;&#21487;&#20197;&#26159;&#19979;&#21015;&#24120;&#37327;&#20043;&#19968;&#25110;&#23427;&#20204;&#30340;&#32452;&#21512;&#65306;
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#24120;&#37327;</td>
+<td>&#35299;&#37322;</td>
+</tr>
+<tr class="t-dsc">
+<td><a href="cpp-io-ios_base-openmode.html"><tt>in</tt></a></td>
+<td>&#24433;&#21709;&#36755;&#20837;&#24207;&#21015;</td>
+</tr>
+<tr class="t-dsc">
+<td><a href="cpp-io-ios_base-openmode.html"><tt>out</tt></a></td>
+<td>&#24433;&#21709;&#36755;&#20986;&#24207;&#21015;</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#25104;&#21151;&#26102;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp">pos_type<span class="br0">(</span>newoff<span class="br0">)</span></span></span>&#65292;&#22833;&#36133;&#26102;&#25110; pos_type &#26080;&#27861;&#34920;&#31034;&#32467;&#26524;&#27969;&#20301;&#32622;&#26102;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp">pos_type<span class="br0">(</span>off_type<span class="br0">(</span><span class="sy2">-</span><span class="nu0">1</span><span class="br0">)</span><span class="br0">)</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;strstream&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-basic_stringstream.html"><span class="kw1741">std::<span class="me2">stringstream</span></span></a> ss<span class="br0">(</span><span class="st0">&quot;123&quot;</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#20837;/&#20986;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#20889;&#20837;&#20301;&#32622; = &quot;</span> <span class="sy1">&lt;&lt;</span> ss.<span class="me1">tellp</span><span class="br0">(</span><span class="br0">)</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; &#35835;&#21462;&#20301;&#32622; = &quot;</span> <span class="sy1">&lt;&lt;</span> ss.<span class="me1">tellg</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#20004;&#20010;&#25351;&#38024;&#32477;&#23545;&#23547;&#20301;</span>
+    ss.<span class="me1">rdbuf</span><span class="br0">(</span><span class="br0">)</span><span class="sy2">-</span><span class="sy1">&gt;</span>pubseekoff<span class="br0">(</span><span class="nu0">1</span>, <a href="cpp-io-ios_base-seekdir.html"><span class="kw1707">std::<span class="me2">ios_base</span><span class="sy4">::</span><span class="me2">beg</span></span></a><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#37117;&#21069;&#31227; 1</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#20889;&#20837;&#20301;&#32622; = &quot;</span> <span class="sy1">&lt;&lt;</span> ss.<span class="me1">tellp</span><span class="br0">(</span><span class="br0">)</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; &#35835;&#21462;&#20301;&#32622; = &quot;</span> <span class="sy1">&lt;&lt;</span> ss.<span class="me1">tellg</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#35797;&#22270;&#20174;&#24403;&#21069;&#20301;&#32622;&#21069;&#31227;&#20004;&#20010;&#25351;&#38024; 1</span>
+    <span class="kw1">if</span> <span class="br0">(</span><span class="sy2">-</span><span class="nu0">1</span> <span class="sy1">==</span> ss.<span class="me1">rdbuf</span><span class="br0">(</span><span class="br0">)</span><span class="sy2">-</span><span class="sy1">&gt;</span>pubseekoff<span class="br0">(</span><span class="nu0">1</span>, <a href="cpp-io-ios_base-seekdir.html"><span class="kw1708">std::<span class="me2">ios_base</span><span class="sy4">::</span><span class="me2">cur</span></span></a><span class="br0">)</span><span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#20174;&#24403;&#21069;&#20301;&#32622;&#21069;&#31227;&#20004;&#20010;&#25351;&#38024;&#22833;&#36133;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#20889;&#20837;&#20301;&#32622; = &quot;</span> <span class="sy1">&lt;&lt;</span> ss.<span class="me1">tellp</span><span class="br0">(</span><span class="br0">)</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; &#35835;&#21462;&#20301;&#32622; = &quot;</span> <span class="sy1">&lt;&lt;</span> ss.<span class="me1">tellg</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#21069;&#31227;&#20889;&#25351;&#38024; 1 &#65292;&#20294;&#19981;&#21069;&#31227;&#35835;&#25351;&#38024;</span>
+    <span class="co1">// &#20063;&#21487;&#20197;&#35843;&#29992; ss.seekp(1, std::ios_base::cur);</span>
+    ss.<span class="me1">rdbuf</span><span class="br0">(</span><span class="br0">)</span><span class="sy2">-</span><span class="sy1">&gt;</span>pubseekoff<span class="br0">(</span><span class="nu0">1</span>, <a href="cpp-io-ios_base-seekdir.html"><span class="kw1708">std::<span class="me2">ios_base</span><span class="sy4">::</span><span class="me2">cur</span></span></a>, <a href="cpp-io-ios_base-openmode.html"><span class="kw1679">std::<span class="me2">ios_base</span><span class="sy4">::</span><span class="me2">out</span></span></a><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#20889;&#20837;&#20301;&#32622; = &quot;</span> <span class="sy1">&lt;&lt;</span> ss.<span class="me1">tellp</span><span class="br0">(</span><span class="br0">)</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; &#35835;&#21462;&#20301;&#32622; = &quot;</span> <span class="sy1">&lt;&lt;</span> ss.<span class="me1">tellg</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    ss <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;a&#39;</span><span class="sy4">;</span> <span class="co1">// &#22312;&#20889;&#20837;&#20301;&#32622;&#20889;&#20837;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#22312;&#20889;&#20837;&#20301;&#32622;&#20889;&#20837; &#39;a&#39;&#65292;&#29616;&#22312;&#32531;&#20914;&#21306;&#26159; &quot;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a>.<span class="me1">write</span><span class="br0">(</span>a, sizeof a<span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#39;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+ 
+    <span class="kw4">char</span> ch<span class="sy4">;</span>
+    ss <span class="sy1">&gt;&gt;</span> ch<span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#22312;&#35835;&#21462;&#20301;&#32622;&#35835;&#21462;&#21040;&#20102; &#39;&quot;</span> <span class="sy1">&lt;&lt;</span> ch <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#39;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#20889;&#20837;&#20301;&#32622; = 0 &#35835;&#21462;&#20301;&#32622; = 0
+&#20889;&#20837;&#20301;&#32622; = 1 &#35835;&#21462;&#20301;&#32622; = 1
+&#20174;&#24403;&#21069;&#20301;&#32622;&#21069;&#31227;&#20004;&#20010;&#25351;&#38024;&#22833;&#36133;
+&#20889;&#20837;&#20301;&#32622; = 1 &#35835;&#21462;&#20301;&#32622; = 1
+&#20889;&#20837;&#20301;&#32622; = 2 &#35835;&#21462;&#20301;&#32622; = 1
+&#22312;&#20889;&#20837;&#20301;&#32622;&#20889;&#20837; &#39;a&#39;&#65292;&#29616;&#22312;&#32531;&#20914;&#21306;&#26159; 12a
+&#22312;&#35835;&#21462;&#20301;&#32622;&#35835;&#21462;&#21040;&#20102; &#39;2&#39;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue55">LWG 55</a></td>
+<td>C++98</td>
+<td><code>seekoff</code> &#22312;&#22833;&#36133;&#26102;&#36820;&#22238;&#20102;&#26410;&#23450;&#20041;&#30340;&#26080;&#25928;&#27969;&#20301;&#32622;</td>
+<td>&#22833;&#36133;&#26102;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp">pos_type<span class="br0">(</span>off_type<span class="br0">(</span><span class="sy2">-</span><span class="nu0">1</span><span class="br0">)</span><span class="br0">)</span></span></span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-strstreambuf-seekpos.html"><span class="t-lines"><span>seekpos</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#29992;&#32477;&#23545;&#23547;&#22336;&#37325;&#23547;&#20301;&#36755;&#20837;&#24207;&#21015;&#12289;&#36755;&#20986;&#24207;&#21015;&#25110;&#20004;&#32773;&#20013;&#30340;&#19979;&#19968;&#20301;&#32622;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-pubseekoff.html"><span class="t-lines"><span>seekoff</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#29992;&#30456;&#23545;&#23547;&#22336;&#37325;&#23450;&#20301;&#36755;&#20837;&#24207;&#21015;&#12289;&#36755;&#20986;&#24207;&#21015;&#25110;&#20004;&#32773;&#20013;&#30340;&#19979;&#19968;&#20301;&#32622;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_stringbuf-seekoff.html"><span class="t-lines"><span>seekoff</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#29992;&#30456;&#23545;&#23547;&#22336;&#65292;&#37325;&#23450;&#20301;&#36755;&#20837;&#24207;&#21015;&#12289;&#36755;&#20986;&#24207;&#21015;&#25110;&#20004;&#32773;&#20013;&#30340;&#19979;&#19968;&#20301;&#32622;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_stringbuf&lt;CharT,Traits,Allocator&gt;</code> &#30340;&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_filebuf-seekoff.html"><span class="t-lines"><span>seekoff</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#29992;&#30456;&#23545;&#23547;&#22336;&#37325;&#23547;&#20301;&#25991;&#20214;&#20301;&#32622;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_filebuf&lt;CharT,Traits&gt;</code> &#30340;&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

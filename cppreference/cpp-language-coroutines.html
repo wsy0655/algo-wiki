@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>&#21327;&#31243; (C++20)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_language_coroutines skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">&#21327;&#31243; <span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-language.html">language</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<p>&#21327;&#31243;&#26159;&#33021;&#26242;&#20572;&#25191;&#34892;&#20197;&#22312;&#20043;&#21518;&#24674;&#22797;&#30340;&#20989;&#25968;&#12290;&#21327;&#31243;&#26159;&#26080;&#26632;&#30340;&#65306;&#23427;&#20204;&#36890;&#36807;&#36820;&#22238;&#21040;&#35843;&#29992;&#26041;&#26242;&#20572;&#25191;&#34892;&#65292;&#24182;&#19988;&#24674;&#22797;&#25191;&#34892;&#25152;&#38656;&#30340;&#25968;&#25454;&#19982;&#26632;&#20998;&#31163;&#23384;&#20648;&#12290;&#36825;&#26679;&#23601;&#21487;&#20197;&#32534;&#20889;&#24322;&#27493;&#25191;&#34892;&#30340;&#39034;&#24207;&#20195;&#30721;&#65288;&#20363;&#22914;&#19981;&#20351;&#29992;&#26174;&#24335;&#30340;&#22238;&#35843;&#26469;&#22788;&#29702;&#38750;&#38459;&#22622;&#36755;&#20837;/&#36755;&#20986;&#65289;&#65292;&#36824;&#25903;&#25345;&#20316;&#29992;&#20110;&#24816;&#24615;&#35745;&#31639;&#30340;&#26080;&#38480;&#24207;&#21015;&#19978;&#30340;&#31639;&#27861;&#21450;&#20854;&#20182;&#29992;&#36884;&#12290;</p>
+<p>&#23450;&#20041;&#20013;&#21253;&#21547;&#20102;&#20197;&#19979;&#20043;&#19968;&#30340;&#20989;&#25968;&#26159;&#21327;&#31243;&#65306;</p>
+<ul>
+<li><span class="mw-geshi cpp source-cpp">co_await</span> &#34920;&#36798;&#24335;&mdash;&mdash;&#29992;&#20110;&#26242;&#20572;&#25191;&#34892;&#65292;&#30452;&#21040;&#24674;&#22797;&#65306;</li>
+</ul>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1">task<span class="sy1">&lt;&gt;</span> tcp_echo_server<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">char</span> data<span class="br0">[</span><span class="nu0">1024</span><span class="br0">]</span><span class="sy4">;</span>
+    <span class="kw1">while</span> <span class="br0">(</span><span class="kw2">true</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> n <span class="sy1">=</span> co_await socket.<span class="me1">async_read_some</span><span class="br0">(</span>buffer<span class="br0">(</span>data<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+        co_await async_write<span class="br0">(</span>socket, buffer<span class="br0">(</span>data, n<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+</div>
+<ul>
+<li><span class="mw-geshi cpp source-cpp">co_yield</span> &#34920;&#36798;&#24335;&mdash;&mdash;&#29992;&#20110;&#26242;&#20572;&#25191;&#34892;&#24182;&#36820;&#22238;&#19968;&#20010;&#20540;&#65306;</li>
+</ul>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1">generator<span class="sy1">&lt;</span><span class="kw4">unsigned</span> <span class="kw4">int</span><span class="sy1">&gt;</span> iota<span class="br0">(</span><span class="kw4">unsigned</span> <span class="kw4">int</span> n <span class="sy1">=</span> <span class="nu0">0</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">while</span> <span class="br0">(</span><span class="kw2">true</span><span class="br0">)</span>
+        co_yield n<span class="sy2">++</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<ul>
+<li><span class="mw-geshi cpp source-cpp">co_return</span> &#35821;&#21477;&mdash;&mdash;&#29992;&#20110;&#23436;&#25104;&#25191;&#34892;&#24182;&#36820;&#22238;&#19968;&#20010;&#20540;&#65306;</li>
+</ul>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1">lazy<span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span> f<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    co_return <span class="nu0">7</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#27599;&#20010;&#21327;&#31243;&#24517;&#39035;&#20855;&#26377;&#33021;&#22815;&#28385;&#36275;&#19968;&#32452;&#35201;&#27714;&#30340;&#36820;&#22238;&#31867;&#22411;&#65292;&#22914;&#19979;&#25152;&#36848;&#12290;</p>
+<h3><span class="mw-headline" id=".E9.99.90.E5.88.B6">&#38480;&#21046;</span></h3>
+<p>&#21327;&#31243;&#19981;&#33021;&#20351;&#29992;<a href="cpp-language-variadic_arguments.html">&#21464;&#38271;&#23454;&#21442;</a>&#65292;&#26222;&#36890;&#30340; <a href="cpp-language-return.html">return</a> &#35821;&#21477;&#65292;&#25110;<a href="cpp-language-function.html">&#21344;&#20301;&#31526;&#36820;&#22238;&#31867;&#22411;</a>&#65288;<a href="cpp-language-auto.html"><code>auto</code></a> &#25110; <a href="cpp-language-constraints.html#.E6.A6.82.E5.BF.B5">&#27010;&#24565;</a>&#65289;&#12290;</p>
+<p><a href="cpp-language-consteval.html">consteval &#20989;&#25968;</a>&#12289;<a href="cpp-language-constexpr.html">constexpr &#20989;&#25968;</a>&#12289;<a href="cpp-language-constructor.html">&#26500;&#36896;&#20989;&#25968;</a>&#12289;<a href="cpp-language-destructor.html">&#26512;&#26500;&#20989;&#25968;</a>&#21450; <a href="cpp-language-main_function.html"><code>main</code> &#20989;&#25968;</a> &#19981;&#33021;&#26159;&#21327;&#31243;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.89.A7.E8.A1.8C">&#25191;&#34892;</span></h3>
+<p>&#27599;&#20010;&#21327;&#31243;&#37117;&#19982;&#19979;&#21015;&#23545;&#35937;&#20851;&#32852;&#65306;</p>
+<ul>
+<li><i>&#25215;&#35834;&#23545;&#35937;</i>&#65292;&#22312;&#21327;&#31243;&#20869;&#37096;&#25805;&#32437;&#12290;&#21327;&#31243;&#36890;&#36807;&#27492;&#23545;&#35937;&#25552;&#20132;&#20854;&#32467;&#26524;&#25110;&#24322;&#24120;&#12290;&#25215;&#35834;&#23545;&#35937;&#21644; <span class="t-lc"><a href="cpp-thread-promise.html">std::promise</a></span> &#27809;&#26377;&#20219;&#20309;&#20851;&#31995;&#12290;</li>
+<li><i>&#21327;&#31243;&#21477;&#26564;</i>&#65292;&#22312;&#21327;&#31243;&#22806;&#37096;&#25805;&#32437;&#12290;&#36825;&#26159;&#29992;&#20110;&#24674;&#22797;&#21327;&#31243;&#25191;&#34892;&#25110;&#38144;&#27585;&#21327;&#31243;&#24103;&#30340;&#19981;&#24102;&#25152;&#26377;&#26435;&#21477;&#26564;&#12290;</li>
+<li><i>&#21327;&#31243;&#29366;&#24577;</i>&#65292;&#19968;&#20010;&#21160;&#24577;&#23384;&#20648;&#20998;&#37197;&#65288;&#38500;&#38750;&#20248;&#21270;&#25481;&#20854;&#20998;&#37197;&#65289;&#30340;&#20869;&#37096;&#23545;&#35937;&#65292;&#20854;&#21253;&#21547;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>&#25215;&#35834;&#23545;&#35937;</li>
+<li>&#21508;&#20010;&#24418;&#21442;&#65288;&#20840;&#37096;&#25353;&#20540;&#22797;&#21046;&#65289;</li>
+<li>&#24403;&#21069;&#26242;&#20572;&#28857;&#30340;&#26576;&#31181;&#34920;&#31034;&#65292;&#20351;&#24471;&#31243;&#24207;&#22312;&#24674;&#22797;&#26102;&#30693;&#26195;&#35201;&#20174;&#20309;&#22788;&#32487;&#32493;&#65292;&#38144;&#27585;&#26102;&#30693;&#26195;&#26377;&#21738;&#20123;&#23616;&#37096;&#21464;&#37327;&#22312;&#20316;&#29992;&#22495;&#20869;</li>
+<li>&#29983;&#23384;&#26399;&#36328;&#36807;&#24403;&#21069;&#26242;&#20572;&#28857;&#30340;&#23616;&#37096;&#21464;&#37327;&#21644;&#20020;&#26102;&#37327;</li>
+</ul>
+</dd>
+</dl>
+<p>&#24403;&#21327;&#31243;&#24320;&#22987;&#25191;&#34892;&#26102;&#65292;&#36827;&#34892;&#19979;&#21015;&#25805;&#20316;&#65306;</p>
+<ul>
+<li>&#29992; <span class="t-lc"><a href="cpp-memory-new-operator_new.html">operator new</a></span> <a href="cpp-language-coroutines.html#.E5.8A.A8.E6.80.81.E5.88.86.E9.85.8D">&#20998;&#37197;</a>&#21327;&#31243;&#29366;&#24577;&#23545;&#35937;&#12290;</li>
+<li>&#23558;&#25152;&#26377;&#20989;&#25968;&#24418;&#21442;&#22797;&#21046;&#21040;&#21327;&#31243;&#29366;&#24577;&#20013;&#65306;&#25353;&#20540;&#20256;&#36882;&#30340;&#24418;&#21442;&#34987;&#31227;&#21160;&#25110;&#22797;&#21046;&#65292;&#25353;&#24341;&#29992;&#20256;&#36882;&#30340;&#24418;&#21442;&#20445;&#25345;&#20026;&#24341;&#29992;&#65288;&#22240;&#27492;&#65292;&#22914;&#26524;&#22312;&#34987;&#25351;&#20195;&#23545;&#35937;&#30340;&#29983;&#23384;&#26399;&#32467;&#26463;&#21518;&#24674;&#22797;&#21327;&#31243;&#65292;&#23427;&#21487;&#33021;&#21464;&#25104;&#24748;&#22402;&#24341;&#29992;&mdash;&mdash;&#21442;&#35265;&#19979;&#38754;&#30340;&#31034;&#20363;&#65289;&#12290;</li>
+<li>&#35843;&#29992;&#25215;&#35834;&#23545;&#35937;&#30340;&#26500;&#36896;&#20989;&#25968;&#12290;&#22914;&#26524;&#25215;&#35834;&#31867;&#22411;&#25317;&#26377;&#25509;&#25910;&#25152;&#26377;&#21327;&#31243;&#24418;&#21442;&#30340;&#26500;&#36896;&#20989;&#25968;&#65292;&#37027;&#20040;&#20197;&#22797;&#21046;&#21518;&#30340;&#21327;&#31243;&#23454;&#21442;&#35843;&#29992;&#35813;&#26500;&#36896;&#20989;&#25968;&#12290;&#21542;&#21017;&#35843;&#29992;&#20854;&#40664;&#35748;&#26500;&#36896;&#20989;&#25968;&#12290;</li>
+<li>&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">promise.<span class="me1">get_return_object</span><span class="br0">(</span><span class="br0">)</span></span></span> &#24182;&#23558;&#32467;&#26524;&#20445;&#23384;&#22312;&#23616;&#37096;&#21464;&#37327;&#20013;&#12290;&#35813;&#35843;&#29992;&#30340;&#32467;&#26524;&#23558;&#22312;&#21327;&#31243;&#39318;&#27425;&#26242;&#20572;&#26102;&#36820;&#22238;&#32473;&#35843;&#29992;&#26041;&#12290;&#33267;&#27492;&#24182;&#21253;&#21547;&#36825;&#20010;&#27493;&#39588;&#20026;&#27490;&#65292;&#20219;&#20309;&#25243;&#20986;&#30340;&#24322;&#24120;&#22343;&#20256;&#25773;&#22238;&#35843;&#29992;&#26041;&#65292;&#32780;&#38750;&#32622;&#20110;&#25215;&#35834;&#20013;&#12290;</li>
+<li>&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">promise.<span class="me1">initial_suspend</span><span class="br0">(</span><span class="br0">)</span></span></span> &#24182; <span class="mw-geshi cpp source-cpp">co_await</span> &#23427;&#30340;&#32467;&#26524;&#12290;&#20856;&#22411;&#30340;&#25215;&#35834;&#31867;&#22411; <code>Promise</code> &#35201;&#20040;&#65288;&#23545;&#20110;&#24816;&#24615;&#21551;&#21160;&#30340;&#21327;&#31243;&#65289;&#36820;&#22238;<a href="cpp-coroutine-suspend_always.html"><tt>std::suspend_always</tt></a>&#65292;&#35201;&#20040;&#65288;&#23545;&#20110;&#24613;&#20999;&#21551;&#21160;&#30340;&#21327;&#31243;&#65289;&#36820;&#22238;<a href="cpp-coroutine-suspend_never.html"><tt>std::suspend_never</tt></a>&#12290;</li>
+<li>&#24403; <span class="t-c"><span class="mw-geshi cpp source-cpp">co_await promise.<span class="me1">initial_suspend</span><span class="br0">(</span><span class="br0">)</span></span></span> &#24674;&#22797;&#26102;&#65292;&#24320;&#22987;&#21327;&#31243;&#20307;&#30340;&#25191;&#34892;&#12290;</li>
+</ul>
+<p>&#19968;&#20123;&#24418;&#21442;&#20250;&#24748;&#22402;&#30340;&#20363;&#23376;:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;coroutine&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+ 
+<span class="kw1">struct</span> promise<span class="sy4">;</span>
+ 
+<span class="kw1">struct</span> coroutine <span class="sy4">:</span> <a href="cpp-coroutine-coroutine_handle.html"><span class="kw3206">std::<span class="me2">coroutine_handle</span></span></a><span class="sy1">&lt;</span>promise<span class="sy1">&gt;</span>
+<span class="br0">{</span>
+    <span class="kw1">using</span> promise_type <span class="sy1">=</span> <span class="sy4">::</span><span class="me2">promise</span><span class="sy4">;</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw1">struct</span> promise
+<span class="br0">{</span>
+    coroutine get_return_object<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> <span class="br0">{</span>coroutine<span class="sy4">::</span><span class="me2">from_promise</span><span class="br0">(</span><span class="sy2">*</span>this<span class="br0">)</span><span class="br0">}</span><span class="sy4">;</span> <span class="br0">}</span>
+    <a href="cpp-coroutine-suspend_always.html"><span class="kw3258">std::<span class="me2">suspend_always</span></span></a> initial_suspend<span class="br0">(</span><span class="br0">)</span> <span class="kw1">noexcept</span> <span class="br0">{</span> <span class="kw1">return</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span> <span class="br0">}</span>
+    <a href="cpp-coroutine-suspend_always.html"><span class="kw3258">std::<span class="me2">suspend_always</span></span></a> final_suspend<span class="br0">(</span><span class="br0">)</span> <span class="kw1">noexcept</span> <span class="br0">{</span> <span class="kw1">return</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span> <span class="br0">}</span>
+    <span class="kw4">void</span> return_void<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+    <span class="kw4">void</span> unhandled_exception<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw1">struct</span> S
+<span class="br0">{</span>
+    <span class="kw4">int</span> i<span class="sy4">;</span>
+    coroutine f<span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> i<span class="sy4">;</span>
+        co_return<span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">void</span> bad1<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    coroutine h <span class="sy1">=</span> S<span class="br0">{</span><span class="nu0">0</span><span class="br0">}</span>.<span class="me1">f</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="co1">// S{0} &#34987;&#38144;&#27585;</span>
+    h.<span class="me1">resume</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#21327;&#31243;&#24674;&#22797;&#24182;&#25191;&#34892;&#20102; std::cout &lt;&lt; i&#65292;&#36825;&#22312;&#37322;&#25918;&#20043;&#21518;&#20351;&#29992;&#20102; S::i</span>
+    h.<span class="me1">destroy</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+coroutine bad2<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    S s<span class="br0">{</span><span class="nu0">0</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw1">return</span> s.<span class="me1">f</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#36820;&#22238;&#30340;&#21327;&#31243;&#19981;&#33021;&#34987;&#24674;&#22797;&#25191;&#34892;&#65292;&#21542;&#21017;&#20250;&#23548;&#33268;&#37322;&#25918;&#21518;&#20351;&#29992;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">void</span> bad3<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    coroutine h <span class="sy1">=</span> <span class="br0">[</span>i <span class="sy1">=</span> <span class="nu0">0</span><span class="br0">]</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">-</span><span class="sy1">&gt;</span> coroutine <span class="co1">// &#19968;&#20010; lambda&#65292;&#21516;&#26102;&#20063;&#26159;&#20010;&#21327;&#31243;</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> i<span class="sy4">;</span>
+        co_return<span class="sy4">;</span>
+    <span class="br0">}</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#31435;&#21363;&#35843;&#29992;</span>
+    <span class="co1">// lambda &#34987;&#38144;&#27585;</span>
+    h.<span class="me1">resume</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#37322;&#25918;&#21518;&#20351;&#29992;&#20102; (&#21311;&#21517; lambda &#31867;&#22411;)::i</span>
+    h.<span class="me1">destroy</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">void</span> good<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    coroutine h <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">int</span> i<span class="br0">)</span> <span class="sy2">-</span><span class="sy1">&gt;</span> coroutine <span class="co1">// i &#26159;&#19968;&#20010;&#21327;&#31243;&#24418;&#21442;</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> i<span class="sy4">;</span>
+        co_return<span class="sy4">;</span>
+    <span class="br0">}</span><span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="co1">// lambda &#34987;&#38144;&#27585;</span>
+    h.<span class="me1">resume</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#27809;&#26377;&#38382;&#39064;&#65292;i &#24050;&#32463;&#20316;&#20026;&#25353;&#20540;&#20256;&#36882;&#30340;&#24418;&#21442;&#34987;&#22797;&#21046;&#21040;&#21327;&#31243;&#24103;&#20013;</span>
+    h.<span class="me1">destroy</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#24403;&#21327;&#31243;&#25269;&#36798;&#26242;&#20572;&#28857;&#26102;&#65306;</p>
+<ul>
+<li>&#23558;&#20808;&#21069;&#33719;&#24471;&#30340;&#36820;&#22238;&#23545;&#35937;&#36820;&#22238;&#32473;&#35843;&#29992;&#26041;/&#24674;&#22797;&#26041;&#65292;&#22914;&#26524;&#38656;&#35201;&#23601;&#20808;&#38544;&#24335;&#36716;&#25442;&#21040;&#21327;&#31243;&#30340;&#36820;&#22238;&#31867;&#22411;&#12290;</li>
+</ul>
+<p>&#24403;&#21327;&#31243;&#25269;&#36798; <span class="mw-geshi cpp source-cpp">co_return</span> &#35821;&#21477;&#26102;&#65292;&#36827;&#34892;&#19979;&#21015;&#25805;&#20316;&#65306;</p>
+<ul>
+<li>&#23545;&#19979;&#21015;&#24773;&#24418;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">promise.<span class="me1">return_void</span><span class="br0">(</span><span class="br0">)</span></span></span></li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">co_return<span class="sy4">;</span></span></span></li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">co_return expr<span class="sy4">;</span></span></span>&#65292;&#20854;&#20013; <span class="t-c"><span class="mw-geshi cpp source-cpp">expr</span></span> &#20855;&#26377; <span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span> &#31867;&#22411;</li>
+</ul>
+</dd>
+</dl>
+<ul>
+<li>&#25110;&#23545;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">co_return expr<span class="sy4">;</span></span></span>&#65292;&#20854;&#20013; <span class="t-c"><span class="mw-geshi cpp source-cpp">expr</span></span> &#20855;&#26377;&#38750; <span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span> &#31867;&#22411;&#26102;&#65292;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">promise.<span class="me1">return_value</span><span class="br0">(</span>expr<span class="br0">)</span></span></span></li>
+<li>&#20197;&#21019;&#24314;&#39034;&#24207;&#30340;&#36870;&#24207;&#38144;&#27585;&#25152;&#26377;&#20855;&#26377;&#33258;&#21160;&#23384;&#20648;&#26399;&#30340;&#21464;&#37327;&#12290;</li>
+<li>&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">promise.<span class="me1">final_suspend</span><span class="br0">(</span><span class="br0">)</span></span></span> &#24182; <span class="mw-geshi cpp source-cpp">co_await</span> &#23427;&#30340;&#32467;&#26524;&#12290;</li>
+</ul>
+<p>&#25511;&#21046;&#27969;&#20986;&#21327;&#31243;&#30340;&#32467;&#23614;&#65292;&#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">co_return<span class="sy4">;</span></span></span>&#65292;&#20294;&#22914;&#26524;&#22312; <code>Promise</code> &#30340;&#20316;&#29992;&#22495;&#20013;&#27809;&#26377;&#25214;&#21040; <code>return_void</code> &#30340;&#22768;&#26126;&#65292;&#37027;&#20040;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;&#20989;&#25968;&#20307;&#20013;&#27809;&#26377;&#20219;&#20309;&#19968;&#20010;&#23450;&#20041;&#20851;&#38190;&#35789;&#30340;&#20989;&#25968;&#19981;&#26159;&#21327;&#31243;&#65292;&#26080;&#35770;&#20854;&#36820;&#22238;&#31867;&#22411;&#20026;&#20309;&#65292;&#24182;&#19988;&#22914;&#26524;&#36820;&#22238;&#31867;&#22411;&#19981;&#26159;&#65288;&#21487;&#26377; cv &#38480;&#23450;&#30340;&#65289; <span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span>&#65292;&#37027;&#20040;&#25511;&#21046;&#27969;&#20986;&#32467;&#23614;&#23548;&#33268;&#26410;&#23450;&#20041;&#34892;&#20026;&#12290;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co1">// &#20551;&#23450; task &#20026;&#26576;&#31181;&#21327;&#31243;&#20219;&#21153;&#31867;&#22411;</span>
+task<span class="sy1">&lt;</span><span class="kw4">void</span><span class="sy1">&gt;</span> f<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="co1">// &#19981;&#26159;&#21327;&#31243;&#65292;&#26410;&#23450;&#20041;&#34892;&#20026;</span>
+<span class="br0">}</span>
+ 
+task<span class="sy1">&lt;</span><span class="kw4">void</span><span class="sy1">&gt;</span> g<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    co_return<span class="sy4">;</span>  <span class="co1">// OK</span>
+<span class="br0">}</span>
+ 
+task<span class="sy1">&lt;</span><span class="kw4">void</span><span class="sy1">&gt;</span> h<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    co_await g<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="co1">// OK, &#38544;&#24335; co_return;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#22914;&#26524;&#21327;&#31243;&#22240;&#26410;&#25429;&#33719;&#30340;&#24322;&#24120;&#32467;&#26463;&#65292;&#37027;&#20040;&#36827;&#34892;&#19979;&#21015;&#25805;&#20316;&#65306;</p>
+<ul>
+<li>&#25429;&#33719;&#24322;&#24120;&#24182;&#22312;&#22788;&#29702;&#22359;&#20869;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">promise.<span class="me1">unhandled_exception</span><span class="br0">(</span><span class="br0">)</span></span></span>&#12290;</li>
+<li>&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">promise.<span class="me1">final_suspend</span><span class="br0">(</span><span class="br0">)</span></span></span> &#24182; <span class="mw-geshi cpp source-cpp">co_await</span> &#23427;&#30340;&#32467;&#26524;&#65288;&#20363;&#22914;&#65292;&#24674;&#22797;&#26576;&#20010;&#32487;&#32493;&#25110;&#21457;&#24067;&#26576;&#20010;&#32467;&#26524;&#65289;&#12290;&#27492;&#26102;&#24320;&#22987;&#24674;&#22797;&#21327;&#31243;&#26159;&#26410;&#23450;&#20041;&#34892;&#20026;&#12290;</li>
+</ul>
+<p>&#24403;&#32463;&#30001; <span class="mw-geshi cpp source-cpp">co_return</span> &#25110;&#26410;&#25429;&#33719;&#24322;&#24120;&#32780;&#32456;&#27490;&#21327;&#31243;&#23548;&#33268;&#21327;&#31243;&#29366;&#24577;&#34987;&#38144;&#27585;&#65292;&#25110;&#36890;&#36807;&#23427;&#30340;&#21477;&#26564;&#38144;&#27585;&#23427;&#26102;&#65292;&#36827;&#34892;&#19979;&#21015;&#25805;&#20316;&#65306;</p>
+<ul>
+<li>&#35843;&#29992;&#25215;&#35834;&#23545;&#35937;&#30340;&#26512;&#26500;&#20989;&#25968;&#12290;</li>
+<li>&#35843;&#29992;&#21508;&#20010;&#20989;&#25968;&#24418;&#21442;&#21103;&#26412;&#30340;&#26512;&#26500;&#20989;&#25968;&#12290;</li>
+<li>&#35843;&#29992; <span class="t-lc"><a href="cpp-memory-new-operator_delete.html">operator delete</a></span> &#20197;&#37322;&#25918;&#21327;&#31243;&#29366;&#24577;&#25152;&#29992;&#30340;&#20869;&#23384;&#12290;</li>
+<li>&#36716;&#31227;&#25191;&#34892;&#22238;&#21040;&#35843;&#29992;&#26041;/&#24674;&#22797;&#26041;&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E5.8A.A8.E6.80.81.E5.88.86.E9.85.8D">&#21160;&#24577;&#20998;&#37197;</span></h3>
+<p>&#21327;&#31243;&#29366;&#24577;&#36890;&#36807;&#38750;&#25968;&#32452;&#24418;&#24335; <span class="t-lc"><a href="cpp-memory-new-operator_new.html">operator new</a></span> &#21160;&#24577;&#20998;&#37197;&#12290;</p>
+<p>&#22914;&#26524;&#25215;&#35834;&#31867;&#22411; <code>Promise</code> &#23450;&#20041;&#20102;&#31867;&#32423;&#21035;&#30340;&#26367;&#20195;&#20989;&#25968;&#65292;&#37027;&#20040;&#20250;&#20351;&#29992;&#23427;&#65292;&#21542;&#21017;&#20250;&#20351;&#29992;&#20840;&#23616;&#30340; <span class="t-lc"><a href="cpp-memory-new-operator_new.html">operator new</a></span>&#12290;</p>
+<p>&#22914;&#26524;&#25215;&#35834;&#31867;&#22411; <code>Promise</code> &#23450;&#20041;&#20102;&#25509;&#25910;&#39069;&#22806;&#24418;&#21442;&#30340; <a href="cpp-memory-new-operator_new.html"><tt>operator new</tt></a> &#30340;&#24067;&#32622;&#24418;&#24335;&#65292;&#19988;&#23427;&#20204;&#25152;&#21305;&#37197;&#30340;&#23454;&#21442;&#21015;&#34920;&#20013;&#30340;&#31532;&#19968;&#23454;&#21442;&#26159;&#35201;&#27714;&#30340;&#22823;&#23567;&#65288;<span class="t-lc"><a href="cpp-types-size_t.html">std::size_t</a></span> &#31867;&#22411;&#65289;&#65292;&#32780;&#20854;&#20313;&#21017;&#26159;&#21508;&#20010;&#21327;&#31243;&#20989;&#25968;&#23454;&#21442;&#65292;&#37027;&#20040;&#23558;&#36825;&#20123;&#23454;&#21442;&#20256;&#36882;&#32473; <span class="t-lc"><a href="cpp-memory-new-operator_new.html">operator new</a></span>&#65288;&#36825;&#20351;&#24471;&#33021;&#23545;&#21327;&#31243;&#20351;&#29992;<a href="cpp-memory-uses_allocator.html#.E4.BD.BF.E7.94.A8.E5.88.86.E9.85.8D.E5.99.A8.E6.9E.84.E9.80.A0">&#21069;&#23548;&#20998;&#37197;&#22120;&#32422;&#23450;</a>&#65289;</p>
+<p>&#20197;&#19979;&#24773;&#20917;&#19979;&#65292;&#21487;&#20197;&#20248;&#21270;&#25481;&#23545; <span class="t-lc"><a href="cpp-memory-new-operator_new.html">operator new</a></span> &#30340;&#35843;&#29992;&#65288;&#21363;&#20351;&#20351;&#29992;&#20102;&#33258;&#23450;&#20041;&#20998;&#37197;&#22120;&#65289;&#65306;</p>
+<ul>
+<li>&#21327;&#31243;&#29366;&#24577;&#30340;&#29983;&#23384;&#26399;&#20005;&#26684;&#20869;&#23884;&#20110;&#35843;&#29992;&#26041;&#30340;&#29983;&#23384;&#26399;&#65292;&#19988;</li>
+<li>&#21327;&#31243;&#24103;&#30340;&#22823;&#23567;&#22312;&#35843;&#29992;&#28857;&#24050;&#30693;</li>
+</ul>
+<p>&#27492;&#26102;&#21327;&#31243;&#29366;&#24577;&#23884;&#20837;&#35843;&#29992;&#26041;&#30340;&#26632;&#24103;&#65288;&#22914;&#26524;&#35843;&#29992;&#26041;&#26159;&#26222;&#36890;&#20989;&#25968;&#65289;&#25110;&#21327;&#31243;&#29366;&#24577;&#65288;&#22914;&#26524;&#35843;&#29992;&#26041;&#26159;&#21327;&#31243;&#65289;&#20043;&#20013;&#12290;</p>
+<p>&#22914;&#26524;&#20998;&#37197;&#22833;&#36133;&#65292;&#37027;&#20040;&#21327;&#31243;&#25243;&#20986; <span class="t-lc"><a href="cpp-memory-new-bad_alloc.html">std::bad_alloc</a></span>&#65292;&#38500;&#38750;&#25215;&#35834;&#31867;&#22411; <code>Promise</code> &#31867;&#22411;&#23450;&#20041;&#20102;&#25104;&#21592;&#20989;&#25968; <span class="mw-geshi cpp source-cpp">Promise<span class="sy4">::</span><span class="me2">get_return_object_on_allocation_failure</span><span class="br0">(</span><span class="br0">)</span></span>&#12290;&#22914;&#26524;&#23450;&#20041;&#20102;&#35813;&#25104;&#21592;&#20989;&#25968;&#65292;&#37027;&#20040;&#20351;&#29992; <span class="t-lc"><a href="cpp-memory-new-operator_new.html">operator new</a></span> &#30340;&#19981;&#25243;&#20986;&#24418;&#24335;&#36827;&#34892;&#20998;&#37197;&#65292;&#32780;&#22312;&#20998;&#37197;&#22833;&#36133;&#26102;&#65292;&#21327;&#31243;&#20250;&#31435;&#21363;&#23558;&#20174; <span class="mw-geshi cpp source-cpp">Promise<span class="sy4">::</span><span class="me2">get_return_object_on_allocation_failure</span><span class="br0">(</span><span class="br0">)</span></span> &#33719;&#24471;&#30340;&#23545;&#35937;&#36820;&#22238;&#32473;&#35843;&#29992;&#26041;&#65292;&#20363;&#22914;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw1">struct</span> Coroutine<span class="sy4">::</span><span class="me2">promise_type</span>
+<span class="br0">{</span>
+    <span class="coMULTI">/* ... */</span>
+ 
+    <span class="co1">// &#30830;&#20445;&#20351;&#29992;&#19981;&#25243;&#20986; operator-new</span>
+    <span class="kw4">static</span> Coroutine get_return_object_on_allocation_failure<span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-cerr.html"><span class="kw1764">std::<span class="me2">cerr</span></span></a> <span class="sy1">&lt;&lt;</span> __func__ <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+        <span class="kw1">throw</span> <a href="cpp-memory-new-bad_alloc.html"><span class="kw696">std::<span class="me2">bad_alloc</span></span></a><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#25110;&#32773;&#36820;&#22238; Coroutine(nullptr);</span>
+    <span class="br0">}</span>
+ 
+    <span class="co1">// &#33258;&#23450;&#20041;&#37325;&#36733;&#19981;&#25243;&#20986; new</span>
+    <span class="kw4">void</span><span class="sy2">*</span> <a href="cpp-memory-new-operator_new.html"><span class="kw690">operator new</span></a><span class="br0">(</span><a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a> n<span class="br0">)</span> <span class="kw1">noexcept</span>
+    <span class="br0">{</span>
+        <span class="kw1">if</span> <span class="br0">(</span><span class="kw4">void</span><span class="sy2">*</span> mem <span class="sy1">=</span> <a href="cpp-memory-c-malloc.html"><span class="kw761">std::<span class="me2">malloc</span></span></a><span class="br0">(</span>n<span class="br0">)</span><span class="br0">)</span>
+            <span class="kw1">return</span> mem<span class="sy4">;</span>
+        <span class="kw1">return</span> nullptr<span class="sy4">;</span> <span class="co1">// &#20998;&#37197;&#22833;&#36133;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span></pre></div>
+</div>
+<h3><span class="mw-headline" id=".E6.89.BF.E8.AF.BA">&#25215;&#35834;</span></h3>
+<p>&#32534;&#35793;&#22120;&#29992; <span class="t-lc">std::coroutine_traits</span> &#20174;&#21327;&#31243;&#30340;&#36820;&#22238;&#31867;&#22411;&#30830;&#23450;&#25215;&#35834;&#31867;&#22411; <code>Promise</code>&#12290;</p>
+<p>&#27491;&#24335;&#32780;&#35328;&#65292;</p>
+<ul>
+<li>&#20196; <code>R</code> &#19982; <code>Args...</code> &#20998;&#21035;&#20195;&#34920;&#21327;&#31243;&#30340;&#36820;&#22238;&#31867;&#22411;&#19982;&#24418;&#21442;&#31867;&#22411;&#21015;&#34920;&#65292;</li>
+<li>&#22914;&#26524;&#21327;&#31243;&#34987;&#23450;&#20041;&#20026;&#38750;&#38745;&#24577;&#25104;&#21592;&#20989;&#25968;&#65292;&#37027;&#20040;&#20196; <code>ClassT</code> &#20195;&#34920;&#21327;&#31243;&#25152;&#23646;&#30340;&#31867;&#65292;</li>
+<li>&#22914;&#26524;&#21327;&#31243;&#34987;&#23450;&#20041;&#20026;&#38750;&#38745;&#24577;&#25104;&#21592;&#20989;&#25968;&#65292;&#37027;&#20040;&#20196; <span class="t-spar">cv</span> &#20195;&#34920;&#21327;&#31243;&#30340;<a href="cpp-language-function.html">&#20989;&#25968;&#22768;&#26126;</a>&#30340; cv &#38480;&#23450;&#65292;</li>
+</ul>
+<p>&#20197;&#22914;&#19979;&#26041;&#24335;&#30830;&#23450;&#23427;&#30340;&#25215;&#35834;&#31867;&#22411; <code>Promise</code>&#65306;</p>
+<ul>
+<li><span class="mw-geshi cpp source-cpp"><a href="cpp-coroutine-coroutine_traits.html"><span class="kw3207">std::<span class="me2">coroutine_traits</span></span></a><span class="sy1">&lt;</span>R, Args...<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">promise_type</span></span>&#65292;&#22914;&#26524;&#21327;&#31243;&#26410;&#34987;&#23450;&#20041;&#20026;<a href="cpp-language-member_functions.html">&#38544;&#24335;&#23545;&#35937;&#25104;&#21592;&#20989;&#25968;</a>&#65292;</li>
+<li><span class="mw-geshi cpp source-cpp"><a href="cpp-coroutine-coroutine_traits.html"><span class="kw3207">std::<span class="me2">coroutine_traits</span></span></a><span class="sy1">&lt;</span>R,</span><code>&nbsp;</code><span class="t-spar">cv</span><code>&nbsp;</code><span class="mw-geshi cpp source-cpp">ClassT<span class="sy3">&amp;</span>, Args...<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">promise_type</span></span>&#65292;&#22914;&#26524;&#21327;&#31243;&#34987;&#23450;&#20041;&#20026;&#38750;&#21491;&#20540;&#24341;&#29992;&#38480;&#23450;&#30340;&#38544;&#24335;&#23545;&#35937;&#25104;&#21592;&#20989;&#25968;&#65292;</li>
+<li><span class="mw-geshi cpp source-cpp"><a href="cpp-coroutine-coroutine_traits.html"><span class="kw3207">std::<span class="me2">coroutine_traits</span></span></a><span class="sy1">&lt;</span>R,</span><code>&nbsp;</code><span class="t-spar">cv</span><code>&nbsp;</code><span class="mw-geshi cpp source-cpp">ClassT<span class="sy3">&amp;&amp;</span>, Args...<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">promise_type</span></span>&#65292;&#22914;&#26524;&#21327;&#31243;&#34987;&#23450;&#20041;&#20026;&#21491;&#20540;&#24341;&#29992;&#38480;&#23450;&#30340;&#38544;&#24335;&#23545;&#35937;&#25104;&#21592;&#20989;&#25968;&#12290;</li>
+</ul>
+<p>&#20363;&#22914;&#65306;</p>
+<table class="wikitable">
+<tr>
+<th>&#22914;&#26524;&#23450;&#20041;&#21327;&#31243;&#20026;</th>
+<th>&#37027;&#20040;&#23427;&#30340;&#25215;&#35834;&#31867;&#22411; <code>Promise</code> &#26159;</th>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">task<span class="sy1">&lt;</span><span class="kw4">void</span><span class="sy1">&gt;</span> foo<span class="br0">(</span><span class="kw4">int</span> x<span class="br0">)</span><span class="sy4">;</span></span></span></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-coroutine-coroutine_traits.html"><span class="kw3207">std::<span class="me2">coroutine_traits</span></span></a><span class="sy1">&lt;</span>task<span class="sy1">&lt;</span><span class="kw4">void</span><span class="sy1">&gt;</span>, <span class="kw4">int</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">promise_type</span></span></td>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">task<span class="sy1">&lt;</span><span class="kw4">void</span><span class="sy1">&gt;</span> Bar<span class="sy4">::</span><span class="me2">foo</span><span class="br0">(</span><span class="kw4">int</span> x<span class="br0">)</span> <span class="kw4">const</span><span class="sy4">;</span></span></span></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-coroutine-coroutine_traits.html"><span class="kw3207">std::<span class="me2">coroutine_traits</span></span></a><span class="sy1">&lt;</span>task<span class="sy1">&lt;</span><span class="kw4">void</span><span class="sy1">&gt;</span>, <span class="kw4">const</span> Bar<span class="sy3">&amp;</span>, <span class="kw4">int</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">promise_type</span></span>&nbsp;</td>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">task<span class="sy1">&lt;</span><span class="kw4">void</span><span class="sy1">&gt;</span> Bar<span class="sy4">::</span><span class="me2">foo</span><span class="br0">(</span><span class="kw4">int</span> x<span class="br0">)</span> <span class="sy3">&amp;&amp;</span><span class="sy4">;</span></span></span></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-coroutine-coroutine_traits.html"><span class="kw3207">std::<span class="me2">coroutine_traits</span></span></a><span class="sy1">&lt;</span>task<span class="sy1">&lt;</span><span class="kw4">void</span><span class="sy1">&gt;</span>, Bar<span class="sy3">&amp;&amp;</span>, <span class="kw4">int</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">promise_type</span></span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id="co_await"><span class="mw-geshi cpp source-cpp">co_await</span></span></h3>
+<p><span id="co_await"></span> &#19968;&#20803;&#36816;&#31639;&#31526; <span class="mw-geshi cpp source-cpp">co_await</span> &#26242;&#20572;&#21327;&#31243;&#24182;&#23558;&#25511;&#21046;&#36820;&#22238;&#32473;&#35843;&#29992;&#26041;&#12290;</p>
+<table class="t-sdsc-begin">
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td class="t-sdsc-nopad"><code><b>co_await</b></code> <span class="t-spar">&#34920;&#36798;&#24335;</span></td>
+<td class="t-sdsc-nopad"></td>
+<td class="t-sdsc-nopad"></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+</table>
+<p><span class="mw-geshi cpp source-cpp">co_await</span> &#34920;&#36798;&#24335;&#21482;&#33021;&#22312;&#24120;&#35268;<a href="cpp-language-function.html#.E5.87.BD.E6.95.B0.E5.AE.9A.E4.B9.89">&#20989;&#25968;&#20307;</a>&#65288;&#21253;&#25324; <a href="cpp-language-lambda.html">lambda &#34920;&#36798;&#24335;</a>&#30340;&#20989;&#25968;&#20307;&#65289;&#37324;&#38754;&#30340;<a href="cpp-language-expressions.html#.E6.BD.9C.E5.9C.A8.E6.B1.82.E5.80.BC.E8.A1.A8.E8.BE.BE.E5.BC.8F">&#28508;&#22312;&#27714;&#20540;</a>&#34920;&#36798;&#24335;&#20013;&#20986;&#29616;&#65292;&#24182;&#19988;&#19981;&#33021;&#22312;&#20197;&#19979;&#20301;&#32622;&#20986;&#29616;&#65306;</p>
+<ul>
+<li><a href="cpp-language-catch.html">&#22788;&#29702;&#22359;</a>&#20013;&#65292;</li>
+<li><a href="cpp-language-declarations.html">&#22768;&#26126;</a>&#35821;&#21477;&#20013;&#65292;&#20294;&#21487;&#20197;&#22312;&#35813;&#22768;&#26126;&#35821;&#21477;&#30340;&#21021;&#22987;&#21270;&#24335;&#20013;&#20986;&#29616;&#65292;</li>
+<li><span class="t-spar">&#21021;&#22987;&#21270;&#35821;&#21477;</span>&#8202;&#65279;&#30340;<a href="cpp-language-declarations.html#.E7.AE.80.E5.8D.95.E5.A3.B0.E6.98.8E">&#31616;&#21333;&#22768;&#26126;</a>&#20013;&#65288;&#35265; <a href="cpp-language-if.html"><code>if</code></a>&#12289;<a href="cpp-language-switch.html"><code>switch</code></a>&#12289;<a href="cpp-language-for.html"><code>for</code></a> &#20197;&#21450;<a href="cpp-language-range-for.html">&#33539;&#22260; <span class="mw-geshi cpp source-cpp"><span class="kw1">for</span></span></a>&#65289;&#65292;&#20294;&#21487;&#20197;&#22312;&#35813;<span class="t-spar">&#21021;&#22987;&#21270;&#35821;&#21477;</span>&#8202;&#65279;&#30340;&#21021;&#22987;&#21270;&#24335;&#20013;&#20986;&#29616;&#65292;</li>
+<li><a href="cpp-language-default_arguments.html">&#40664;&#35748;&#23454;&#21442;</a>&#20013;</li>
+<li>&#20855;&#26377;&#38745;&#24577;&#25110;&#32447;&#31243;<a href="cpp-language-storage_duration.html">&#23384;&#20648;&#26399;</a>&#30340;&#22359;&#20316;&#29992;&#22495;&#21464;&#37327;&#30340;&#21021;&#22987;&#21270;&#24335;&#20013;&#12290;</li>
+</ul>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx26">
+<td>
+<p><span class="mw-geshi cpp source-cpp">co_await</span> &#34920;&#36798;&#24335;&#19981;&#21487;&#20197;&#26159;<a href="cpp-language-contracts.html">&#22865;&#32422;&#26029;&#35328;</a>&#30340;&#35859;&#35789;&#30340;<a href="cpp-language-expressions.html#.E6.BD.9C.E5.9C.A8.E6.B1.82.E5.80.BC.E8.A1.A8.E8.BE.BE.E5.BC.8F">&#28508;&#22312;&#27714;&#20540;</a>&#30340;&#23376;&#34920;&#36798;&#24335;&#12290;</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+</table>
+<p>&#39318;&#20808;&#65292;&#20197;&#19979;&#21015;&#26041;&#24335;&#23558;<span class="t-spar">&#34920;&#36798;&#24335;</span>&#8202;&#65279;&#36716;&#25442;&#25104;&#21487;&#31561;&#24453;&#20307;&#65306;</p>
+<ul>
+<li>&#22914;&#26524;<span class="t-spar">&#34920;&#36798;&#24335;</span>&#8202;&#65279;&#30001;&#21021;&#22987;&#26242;&#20572;&#28857;&#12289;&#26368;&#32456;&#26242;&#20572;&#28857;&#25110; yield &#34920;&#36798;&#24335;&#25152;&#20135;&#29983;&#65292;&#37027;&#20040;&#21487;&#31561;&#24453;&#20307;&#26159;<span class="t-spar">&#34920;&#36798;&#24335;</span>&#8202;&#65279;&#26412;&#36523;&#12290;</li>
+<li>&#21542;&#21017;&#65292;&#22914;&#26524;&#24403;&#21069;&#21327;&#31243;&#30340;&#25215;&#35834;&#31867;&#22411; <code>Promise</code> &#25317;&#26377;&#25104;&#21592;&#20989;&#25968; <code>await_transform</code>&#65292;&#37027;&#20040;&#21487;&#31561;&#24453;&#20307;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp">promise.<span class="me1">await_transform</span><span class="br0">(</span>&#34920;&#36798;&#24335;<span class="br0">)</span></span></span>&#12290;</li>
+<li>&#21542;&#21017;&#65292;&#21487;&#31561;&#24453;&#20307;&#26159;<span class="t-spar">&#34920;&#36798;&#24335;</span>&#8202;&#65279;&#26412;&#36523;&#12290;</li>
+</ul>
+<p>&#28982;&#21518;&#20197;&#19979;&#21015;&#26041;&#24335;&#33719;&#24471;&#31561;&#24453;&#22120;&#23545;&#35937;&#65306;</p>
+<ul>
+<li>&#22914;&#26524;&#38024;&#23545; <span class="mw-geshi cpp source-cpp">operator co_await</span> &#30340;&#37325;&#36733;&#20915;&#35758;&#32473;&#20986;&#21333;&#20010;&#26368;&#20339;&#37325;&#36733;&#65292;&#37027;&#20040;&#31561;&#24453;&#22120;&#26159;&#35813;&#35843;&#29992;&#30340;&#32467;&#26524;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>&#23545;&#20110;&#25104;&#21592;&#37325;&#36733;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">awaitable.<span class="me1">operator</span> co_await<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span></span></span>&#65292;</li>
+<li>&#23545;&#20110;&#38750;&#25104;&#21592;&#37325;&#36733;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">operator co_await<span class="br0">(</span><span class="kw1">static_cast</span><span class="sy1">&lt;</span>Awaitable<span class="sy3">&amp;&amp;</span><span class="sy1">&gt;</span><span class="br0">(</span>awaitable<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span></span></span>.</li>
+</ul>
+</dd>
+</dl>
+<ul>
+<li>&#21542;&#21017;&#65292;&#22914;&#26524;&#37325;&#36733;&#20915;&#35758;&#25214;&#19981;&#21040; <span class="mw-geshi cpp source-cpp">operator co_await</span>&#65292;&#37027;&#20040;&#31561;&#24453;&#22120;&#26159;&#21487;&#31561;&#24453;&#20307;&#26412;&#36523;&#12290;</li>
+<li>&#21542;&#21017;&#65292;&#22914;&#26524;&#37325;&#36733;&#20915;&#35758;&#26377;&#27495;&#20041;&#65292;&#37027;&#20040;&#31243;&#24207;&#38750;&#33391;&#26500;&#12290;</li>
+</ul>
+<p>&#22914;&#26524;&#19978;&#36848;&#34920;&#36798;&#24335;&#20026;<a href="cpp-language-value_category.html#.E7.BA.AF.E5.8F.B3.E5.80.BC">&#32431;&#21491;&#20540;</a>&#65292;&#37027;&#20040;&#31561;&#24453;&#22120;&#23545;&#35937;&#26159;&#20174;&#23427;<a href="cpp-language-implicit_conversion.html#.E4.B8.B4.E6.97.B6.E9.87.8F.E5.AE.9E.E8.B4.A8.E5.8C.96">&#23454;&#36136;&#21270;</a>&#30340;&#20020;&#26102;&#37327;&#12290;&#21542;&#21017;&#65292;&#22914;&#26524;&#19978;&#36848;&#34920;&#36798;&#24335;&#20026;<a href="cpp-language-value_category.html#.E6.B3.9B.E5.B7.A6.E5.80.BC">&#27867;&#24038;&#20540;</a>&#65292;&#37027;&#20040;&#31561;&#24453;&#22120;&#23545;&#35937;&#26159;&#23427;&#25152;&#25351;&#20195;&#30340;&#23545;&#35937;&#12290;</p>
+<p>&#28982;&#21518;&#65292;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">awaiter.<span class="me1">await_ready</span><span class="br0">(</span><span class="br0">)</span></span></span>&#65288;&#36825;&#26159;&#24403;&#24050;&#30693;&#32467;&#26524;&#23601;&#32490;&#25110;&#21487;&#20197;&#21516;&#27493;&#23436;&#25104;&#26102;&#65292;&#29992;&#20197;&#36991;&#20813;&#26242;&#20572;&#24320;&#38144;&#30340;&#24555;&#25463;&#26041;&#24335;&#65289;&#12290;&#22914;&#26524;&#32467;&#26524;&#25353;&#35821;&#22659;&#36716;&#25442;&#21040; <span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span> &#30340;&#32467;&#26524;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#65292;&#37027;&#20040;&#65306;</p>
+<dl>
+<dd>&#26242;&#20572;&#21327;&#31243;&#65288;&#20197;&#21508;&#23616;&#37096;&#21464;&#37327;&#21644;&#24403;&#21069;&#26242;&#20572;&#28857;&#22635;&#20805;&#20854;&#21327;&#31243;&#29366;&#24577;&#65289;&#12290;</dd>
+<dd>&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">awaiter.<span class="me1">await_suspend</span><span class="br0">(</span>handle<span class="br0">)</span></span></span>&#65292;&#20854;&#20013; <span class="t-c"><span class="mw-geshi cpp source-cpp">handle</span></span> &#26159;&#34920;&#31034;&#24403;&#21069;&#21327;&#31243;&#30340;&#21327;&#31243;&#21477;&#26564;&#12290;&#36825;&#20010;&#20989;&#25968;&#20869;&#37096;&#21487;&#20197;&#36890;&#36807;&#36825;&#20010;&#21477;&#26564;&#35266;&#23519;&#26242;&#20572;&#21327;&#31243;&#30340;&#29366;&#24577;&#65292;&#32780;&#19988;&#27492;&#20989;&#25968;&#36127;&#36131;&#35843;&#24230;&#23427;&#20197;&#22312;&#26576;&#20010;&#25191;&#34892;&#22120;&#19978;&#24674;&#22797;&#65292;&#25110;&#23558;&#20854;&#38144;&#27585;&#65288;&#24182;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span> &#24403;&#20570;&#35843;&#24230;&#65289;
+<ul>
+<li>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">await_suspend</span></span> &#36820;&#22238; <span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span>&#65292;&#37027;&#20040;&#31435;&#21363;&#23558;&#25511;&#21046;&#36820;&#22238;&#32473;&#24403;&#21069;&#21327;&#31243;&#30340;&#35843;&#29992;&#26041;/&#24674;&#22797;&#26041;&#65288;&#27492;&#21327;&#31243;&#20445;&#25345;&#26242;&#20572;&#65289;&#65292;&#21542;&#21017;</li>
+<li>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">await_suspend</span></span> &#36820;&#22238; <span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span>&#65292;&#37027;&#20040;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>&#20540;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span> &#26102;&#23558;&#25511;&#21046;&#36820;&#22238;&#32473;&#24403;&#21069;&#21327;&#31243;&#30340;&#35843;&#29992;&#26041;/&#24674;&#22797;&#26041;</li>
+<li>&#20540;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span> &#26102;&#24674;&#22797;&#24403;&#21069;&#21327;&#31243;&#12290;</li>
+</ul>
+</dd>
+</dl>
+<ul>
+<li>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">await_suspend</span></span> &#36820;&#22238;&#26576;&#20010;&#20854;&#20182;&#21327;&#31243;&#30340;&#21327;&#31243;&#21477;&#26564;&#65292;&#37027;&#20040;&#65288;&#36890;&#36807;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">handle.<span class="me1">resume</span><span class="br0">(</span><span class="br0">)</span></span></span>&#65289;&#24674;&#22797;&#35813;&#21477;&#26564;&#65288;&#27880;&#24847;&#36825;&#21487;&#20197;&#36830;&#38145;&#36827;&#34892;&#65292;&#24182;&#26368;&#32456;&#23548;&#33268;&#24403;&#21069;&#21327;&#31243;&#24674;&#22797;&#65289;&#12290;</li>
+<li>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">await_suspend</span></span> &#25243;&#20986;&#24322;&#24120;&#65292;&#37027;&#20040;&#25429;&#33719;&#35813;&#24322;&#24120;&#65292;&#24674;&#22797;&#21327;&#31243;&#65292;&#24182;&#31435;&#21363;&#37325;&#25243;&#24322;&#24120;&#12290;</li>
+</ul>
+</dd>
+</dl>
+<p>&#26368;&#21518;&#65292;&#24403;&#21327;&#31243;&#37325;&#26032;&#33719;&#24471;&#25511;&#21046;&#26102;&#65288;&#26080;&#35770;&#21327;&#31243;&#26159;&#21542;&#34987;&#26242;&#20572;&#36807;&#65289;&#65292;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">awaiter.<span class="me1">await_resume</span><span class="br0">(</span><span class="br0">)</span></span></span>&#65292;&#23427;&#30340;&#32467;&#26524;&#23601;&#26159;&#25972;&#20010; <span class="t-c"><span class="mw-geshi cpp source-cpp">co_await expr</span></span> &#34920;&#36798;&#24335;&#30340;&#32467;&#26524;&#12290;</p>
+<p>&#22914;&#26524;&#21327;&#31243;&#22312; <span class="mw-geshi cpp source-cpp">co_await</span> &#34920;&#36798;&#24335;&#20013;&#26242;&#20572;&#32780;&#22312;&#21518;&#26469;&#24674;&#22797;&#65292;&#37027;&#20040;&#24674;&#22797;&#28857;&#22788;&#20110;&#32039;&#25509;&#23545; <span class="t-c"><span class="mw-geshi cpp source-cpp">awaiter.<span class="me1">await_resume</span><span class="br0">(</span><span class="br0">)</span></span></span> &#30340;&#35843;&#29992;&#20043;&#21069;&#12290;</p>
+<p>&#27880;&#24847;&#65292;&#21327;&#31243;&#22312;&#36827;&#20837; <span class="t-c"><span class="mw-geshi cpp source-cpp">awaiter.<span class="me1">await_suspend</span><span class="br0">(</span><span class="br0">)</span></span></span> &#21069;&#24050;&#32463;&#23436;&#20840;&#26242;&#20572;&#12290;&#22312; <span class="mw-geshi cpp source-cpp">await_suspend<span class="br0">(</span><span class="br0">)</span></span> &#20989;&#25968;&#36820;&#22238;&#21069;&#65292;&#21487;&#20197;&#23558;&#20854;&#21477;&#26564;&#20849;&#20139;&#32473;&#21478;&#19968;&#32447;&#31243;&#24182;&#24674;&#22797;&#25191;&#34892;&#12290;&#65288;&#35201;&#27880;&#24847;&#65292;&#40664;&#35748;&#30340;&#20869;&#23384;&#23433;&#20840;&#24615;&#35268;&#21017;&#20173;&#36866;&#29992;&#65292;&#22240;&#27492;&#22914;&#26524;&#19981;&#21152;&#38145;&#22320;&#36328;&#32447;&#31243;&#20849;&#20139;&#21327;&#31243;&#21477;&#26564;&#65292;&#37027;&#20040;&#20854;&#31561;&#24453;&#22120;&#33267;&#23569;&#24212;&#24403;&#20351;&#29992;<a href="cpp-atomic-memory_order.html#.E9.87.8A.E6.94.BE.E6.93.8D.E4.BD.9C">&#37322;&#25918;&#35821;&#20041;</a>&#65292;&#32780;&#19988;&#24674;&#22797;&#26041;&#33267;&#23569;&#24212;&#24403;&#20351;&#29992;<a href="cpp-atomic-memory_order.html#.E8.8E.B7.E5.BE.97.E6.93.8D.E4.BD.9C">&#33719;&#24471;&#35821;&#20041;</a>&#12290;&#65289;&#20363;&#22914;&#65292;&#21487;&#20197;&#23558;&#21327;&#31243;&#21477;&#26564;&#25918;&#20837;&#22238;&#35843;&#20869;&#37096;&#65292;&#23558;&#23427;&#35843;&#24230;&#25104;&#22312;&#24322;&#27493;&#36755;&#20837;/&#36755;&#20986;&#25805;&#20316;&#23436;&#25104;&#26102;&#22312;&#32447;&#31243;&#27744;&#19978;&#36816;&#34892;&#31561;&#12290;&#27492;&#26102;&#22240;&#20026;&#24403;&#21069;&#21327;&#31243;&#21487;&#33021;&#24050;&#34987;&#24674;&#22797;&#65292;&#20174;&#32780;&#25191;&#34892;&#20102;&#31561;&#24453;&#22120;&#23545;&#35937;&#30340;&#26512;&#26500;&#20989;&#25968;&#65292;&#21516;&#26102;&#30001;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">await_suspend<span class="br0">(</span><span class="br0">)</span></span></span> &#22312;&#24403;&#21069;&#32447;&#31243;&#19978;&#25345;&#32493;&#25191;&#34892;&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">await_suspend<span class="br0">(</span><span class="br0">)</span></span></span> &#24212;&#35813;&#25226; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#24403;&#20316;&#24050;&#34987;&#38144;&#27585;&#24182;&#19988;&#22312;&#21477;&#26564;&#34987;&#21457;&#24067;&#21040;&#20854;&#20182;&#32447;&#31243;&#21518;&#19981;&#20877;&#35775;&#38382;&#23427;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;coroutine&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;stdexcept&gt;</span>
+<span class="co2">#include &lt;thread&gt;</span>
+ 
+<span class="kw4">auto</span> switch_to_new_thread<span class="br0">(</span><a href="cpp-thread-jthread.html"><span class="kw3237">std::<span class="me2">jthread</span></span></a><span class="sy3">&amp;</span> out<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">struct</span> awaitable
+    <span class="br0">{</span>
+        <a href="cpp-thread-jthread.html"><span class="kw3237">std::<span class="me2">jthread</span></span></a><span class="sy2">*</span> p_out<span class="sy4">;</span>
+        <span class="kw4">bool</span> await_ready<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> <span class="kw2">false</span><span class="sy4">;</span> <span class="br0">}</span>
+        <span class="kw4">void</span> await_suspend<span class="br0">(</span><a href="cpp-coroutine-coroutine_handle.html"><span class="kw3206">std::<span class="me2">coroutine_handle</span></span></a><span class="sy1">&lt;&gt;</span> h<span class="br0">)</span>
+        <span class="br0">{</span>
+            <a href="cpp-thread-jthread.html"><span class="kw3237">std::<span class="me2">jthread</span></span></a><span class="sy3">&amp;</span> out <span class="sy1">=</span> <span class="sy2">*</span>p_out<span class="sy4">;</span>
+            <span class="kw1">if</span> <span class="br0">(</span>out.<span class="me1">joinable</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+                <span class="kw1">throw</span> <a href="cpp-error-runtime_error.html"><span class="kw772">std::<span class="me2">runtime_error</span></span></a><span class="br0">(</span><span class="st0">&quot;jthread &#36755;&#20986;&#21442;&#25968;&#38750;&#31354;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+            out <span class="sy1">=</span> <a href="cpp-thread-jthread.html"><span class="kw3237">std::<span class="me2">jthread</span></span></a><span class="br0">(</span><span class="br0">[</span>h<span class="br0">]</span> <span class="br0">{</span> h.<span class="me1">resume</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+            <span class="co1">// &#28508;&#22312;&#30340;&#26410;&#23450;&#20041;&#34892;&#20026;&#65306;&#35775;&#38382;&#28508;&#22312;&#34987;&#38144;&#27585;&#30340; *this</span>
+            <span class="co1">// std::cout &lt;&lt; &quot;&#26032;&#32447;&#31243; ID&#65306;&quot; &lt;&lt; p_out-&gt;get_id() &lt;&lt; &#39;\n&#39;;</span>
+            <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#26032;&#32447;&#31243; ID&#65306;&quot;</span> <span class="sy1">&lt;&lt;</span> out.<span class="me1">get_id</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span> <span class="co1">// &#36825;&#26679;&#27809;&#38382;&#39064;</span>
+        <span class="br0">}</span>
+        <span class="kw4">void</span> await_resume<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+    <span class="kw1">return</span> awaitable<span class="br0">{</span><span class="sy3">&amp;</span>out<span class="br0">}</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw1">struct</span> task
+<span class="br0">{</span>
+    <span class="kw1">struct</span> promise_type
+    <span class="br0">{</span>
+        task get_return_object<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span> <span class="br0">}</span>
+        <a href="cpp-coroutine-suspend_never.html"><span class="kw3259">std::<span class="me2">suspend_never</span></span></a> initial_suspend<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span> <span class="br0">}</span>
+        <a href="cpp-coroutine-suspend_never.html"><span class="kw3259">std::<span class="me2">suspend_never</span></span></a> final_suspend<span class="br0">(</span><span class="br0">)</span> <span class="kw1">noexcept</span> <span class="br0">{</span> <span class="kw1">return</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span> <span class="br0">}</span>
+        <span class="kw4">void</span> return_void<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+        <span class="kw4">void</span> unhandled_exception<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+task resuming_on_new_thread<span class="br0">(</span><a href="cpp-thread-jthread.html"><span class="kw3237">std::<span class="me2">jthread</span></span></a><span class="sy3">&amp;</span> out<span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#21327;&#31243;&#24320;&#22987;&#65292;&#32447;&#31243; ID&#65306;&quot;</span> <span class="sy1">&lt;&lt;</span> <a href="cpp-thread-get_id.html"><span class="kw2152">std::<span class="me2">this_thread</span><span class="sy4">::</span><span class="me2">get_id</span></span></a><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    co_await switch_to_new_thread<span class="br0">(</span>out<span class="br0">)</span><span class="sy4">;</span>
+    <span class="co1">// &#31561;&#24453;&#22120;&#22312;&#27492;&#38144;&#27585;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#21327;&#31243;&#24674;&#22797;&#65292;&#32447;&#31243; ID&#65306;&quot;</span> <span class="sy1">&lt;&lt;</span> <a href="cpp-thread-get_id.html"><span class="kw2152">std::<span class="me2">this_thread</span><span class="sy4">::</span><span class="me2">get_id</span></span></a><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-thread-jthread.html"><span class="kw3237">std::<span class="me2">jthread</span></span></a> out<span class="sy4">;</span>
+    resuming_on_new_thread<span class="br0">(</span>out<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#21327;&#31243;&#24320;&#22987;&#65292;&#32447;&#31243; ID&#65306;139972277602112
+&#26032;&#32447;&#31243; ID&#65306;139972267284224
+&#21327;&#31243;&#24674;&#22797;&#65292;&#32447;&#31243; ID&#65306;139972267284224</pre></div>
+</div>
+</div>
+<p>&#27880;&#24847;&#65306;&#31561;&#24453;&#22120;&#23545;&#35937;&#26159;&#21327;&#31243;&#29366;&#24577;&#30340;&#19968;&#37096;&#20998;&#65288;&#20316;&#20026;&#29983;&#23384;&#26399;&#36328;&#36807;&#26242;&#20572;&#28857;&#30340;&#20020;&#26102;&#37327;&#65289;&#65292;&#24182;&#19988;&#22312; <span class="mw-geshi cpp source-cpp">co_await</span> &#34920;&#36798;&#24335;&#32467;&#26463;&#21069;&#38144;&#27585;&#12290;&#21487;&#20197;&#29992;&#23427;&#32500;&#25252;&#26576;&#20123;&#24322;&#27493;&#36755;&#20837;/&#36755;&#20986; API &#25152;&#35201;&#27714;&#30340;&#27599;&#25805;&#20316;&#20869;&#29366;&#24577;&#65292;&#32780;&#26080;&#38656;&#29992;&#21040;&#39069;&#22806;&#30340;&#22534;&#20998;&#37197;&#12290;</p>
+<p>&#26631;&#20934;&#24211;&#23450;&#20041;&#20102;&#20004;&#20010;&#24179;&#20961;&#30340;&#21487;&#31561;&#24453;&#20307;&#65306;<a href="cpp-coroutine-suspend_always.html"><tt>std::suspend_always</tt></a> &#21450; <a href="cpp-coroutine-suspend_never.html"><tt>std::suspend_never</tt></a>&#12290;</p>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#31034;&#20363;</td>
+</tr>
+</table>
+<div style="margin-left:0px">
+<table class="mw-collapsible mw-collapsed" style="background: transparent; text-align: left; border: 1px solid silver; margin: 0.2em auto auto; width:100%; clear: both; padding: 1px;">
+<tr>
+<th style="background: #F0F2F5; font-size:87%; padding:0.2em 0.3em; text-align:center;"><span style="font-size:115%">&#28436;&#31034; <span class="mw-geshi cpp source-cpp">promise_type<span class="sy4">::</span><span class="me2">await_transform</span></span> &#21644;&#19968;&#20010;&#25552;&#20379;&#31561;&#24453;&#22120;&#30340;&#31243;&#24207;</span></th>
+</tr>
+<tr>
+<td style="border: solid 1px silver; padding: 8px; background: white;">
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B_2">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;cassert&gt;</span>
+<span class="co2">#include &lt;coroutine&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+ 
+<span class="kw1">struct</span> tunable_coro
+<span class="br0">{</span>
+    <span class="co1">// &#19968;&#31181;&#31561;&#24453;&#22120;&#65292;&#20854; &quot;&#23601;&#32490;&#29366;&#24577;&quot; &#30001;&#26500;&#36896;&#20989;&#25968;&#21442;&#25968;&#20915;&#23450;&#12290;</span>
+    <span class="kw1">class</span> tunable_awaiter
+    <span class="br0">{</span>
+        <span class="kw4">bool</span> ready_<span class="sy4">;</span>
+    <span class="kw1">public</span><span class="sy4">:</span>
+        <span class="kw1">explicit</span><span class="br0">(</span><span class="kw2">false</span><span class="br0">)</span> tunable_awaiter<span class="br0">(</span><span class="kw4">bool</span> ready<span class="br0">)</span> <span class="sy4">:</span> ready_<span class="br0">{</span>ready<span class="br0">}</span> <span class="br0">{</span><span class="br0">}</span>
+        <span class="co1">// &#19977;&#20010;&#26631;&#20934;&#31561;&#24453;&#22120;&#25509;&#21475;&#20989;&#25968;&#65306;</span>
+        <span class="kw4">bool</span> await_ready<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span> <span class="br0">{</span> <span class="kw1">return</span> ready_<span class="sy4">;</span> <span class="br0">}</span>
+        <span class="kw4">static</span> <span class="kw4">void</span> await_suspend<span class="br0">(</span><a href="cpp-coroutine-coroutine_handle.html"><span class="kw3206">std::<span class="me2">coroutine_handle</span></span></a><span class="sy1">&lt;&gt;</span><span class="br0">)</span> <span class="kw1">noexcept</span> <span class="br0">{</span><span class="br0">}</span>
+        <span class="kw4">static</span> <span class="kw4">void</span> await_resume<span class="br0">(</span><span class="br0">)</span> <span class="kw1">noexcept</span> <span class="br0">{</span><span class="br0">}</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+ 
+    <span class="kw1">struct</span> promise_type
+    <span class="br0">{</span>
+        <span class="kw1">using</span> coro_handle <span class="sy1">=</span> <a href="cpp-coroutine-coroutine_handle.html"><span class="kw3206">std::<span class="me2">coroutine_handle</span></span></a><span class="sy1">&lt;</span>promise_type<span class="sy1">&gt;</span><span class="sy4">;</span>
+        <span class="kw4">auto</span> get_return_object<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> coro_handle<span class="sy4">::</span><span class="me2">from_promise</span><span class="br0">(</span><span class="sy2">*</span>this<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span>
+        <span class="kw4">static</span> <span class="kw4">auto</span> initial_suspend<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> <a href="cpp-coroutine-suspend_always.html"><span class="kw3258">std::<span class="me2">suspend_always</span></span></a><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span>
+        <span class="kw4">static</span> <span class="kw4">auto</span> final_suspend<span class="br0">(</span><span class="br0">)</span> <span class="kw1">noexcept</span> <span class="br0">{</span> <span class="kw1">return</span> <a href="cpp-coroutine-suspend_always.html"><span class="kw3258">std::<span class="me2">suspend_always</span></span></a><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span>
+        <span class="kw4">static</span> <span class="kw4">void</span> return_void<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+        <span class="kw4">static</span> <span class="kw4">void</span> unhandled_exception<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> <a href="cpp-error-terminate.html"><span class="kw785">std::<span class="me2">terminate</span></span></a><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span>
+        <span class="co1">// &#19968;&#20010;&#29992;&#25143;&#25552;&#20379;&#30340;&#21464;&#25442;&#20989;&#25968;&#65292;&#36820;&#22238;&#33258;&#23450;&#20041;&#31561;&#24453;&#22120;&#65306;</span>
+        <span class="kw4">auto</span> await_transform<span class="br0">(</span><a href="cpp-coroutine-suspend_always.html"><span class="kw3258">std::<span class="me2">suspend_always</span></span></a><span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> tunable_awaiter<span class="br0">(</span><span class="sy3">!</span>ready_<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span>
+        <span class="kw4">void</span> disable_suspension<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> ready_ <span class="sy1">=</span> <span class="kw2">false</span><span class="sy4">;</span> <span class="br0">}</span>
+    <span class="kw1">private</span><span class="sy4">:</span>
+        <span class="kw4">bool</span> ready_<span class="br0">{</span><span class="kw2">true</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+ 
+    tunable_coro<span class="br0">(</span>promise_type<span class="sy4">::</span><span class="me2">coro_handle</span> h<span class="br0">)</span> <span class="sy4">:</span> handle_<span class="br0">(</span>h<span class="br0">)</span> <span class="br0">{</span> <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span>h<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span>
+ 
+    <span class="co1">// &#20026;&#31616;&#21270;&#36215;&#35265;&#65292;&#23558;&#22235;&#20010;&#29305;&#27530;&#20989;&#25968;&#22768;&#26126;&#20026;&#24323;&#32622;&#65306;</span>
+    tunable_coro<span class="br0">(</span>tunable_coro <span class="kw4">const</span><span class="sy3">&amp;</span><span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span>
+    tunable_coro<span class="br0">(</span>tunable_coro<span class="sy3">&amp;&amp;</span><span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span>
+    tunable_coro<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span>tunable_coro <span class="kw4">const</span><span class="sy3">&amp;</span><span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span>
+    tunable_coro<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">(</span>tunable_coro<span class="sy3">&amp;&amp;</span><span class="br0">)</span> <span class="sy1">=</span> delete<span class="sy4">;</span>
+ 
+    ~tunable_coro<span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw1">if</span> <span class="br0">(</span>handle_<span class="br0">)</span>
+            handle_.<span class="me1">destroy</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw4">void</span> disable_suspension<span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span>
+    <span class="br0">{</span>
+        <span class="kw1">if</span> <span class="br0">(</span>handle_.<span class="me1">done</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+            <span class="kw1">return</span><span class="sy4">;</span>
+        handle_.<span class="me1">promise</span><span class="br0">(</span><span class="br0">)</span>.<span class="me1">disable_suspension</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+        handle_<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw4">bool</span> operator<span class="br0">(</span><span class="br0">)</span><span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw1">if</span> <span class="br0">(</span><span class="sy3">!</span>handle_.<span class="me1">done</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+            handle_<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+        <span class="kw1">return</span> <span class="sy3">!</span>handle_.<span class="me1">done</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="kw1">private</span><span class="sy4">:</span>
+    promise_type<span class="sy4">::</span><span class="me2">coro_handle</span> handle_<span class="sy4">;</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+tunable_coro generate<span class="br0">(</span><span class="kw4">int</span> n<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> i<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span> i <span class="sy3">!</span><span class="sy1">=</span> n<span class="sy4">;</span> <span class="sy2">++</span>i<span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> i <span class="sy1">&lt;&lt;</span> <span class="st0">&#39; &#39;</span><span class="sy4">;</span>
+        <span class="co1">// &#20256;&#36882;&#32473; co_await &#30340;&#31561;&#24453;&#22120;&#20250;&#20132;&#32473; promise_type::await_transform&#65292;</span>
+        <span class="co1">// &#23427;&#32473;&#20986;&#30340;&#26159;&#23548;&#33268;&#36215;&#22987;&#26242;&#20572;&#30340; tunable_awaiter&#65288;&#27599;&#27425;&#24490;&#29615;&#22343;&#36820;&#22238;&#21040; main&#65289;&#65292;</span>
+        <span class="co1">// &#20294;&#32463;&#36807;&#19968;&#27425;&#23545; disable_suspension &#30340;&#35843;&#29992;&#21518;&#19981;&#20877;&#21457;&#29983;&#26242;&#20572;&#65292;</span>
+        <span class="co1">// &#32780;&#24490;&#29615;&#21040;&#32467;&#23614;&#37117;&#19981;&#20877;&#36820;&#22238;&#21040; main()&#12290;</span>
+        co_await <a href="cpp-coroutine-suspend_always.html"><span class="kw3258">std::<span class="me2">suspend_always</span></span></a><span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">auto</span> coro <span class="sy1">=</span> generate<span class="br0">(</span><span class="nu0">8</span><span class="br0">)</span><span class="sy4">;</span>
+    coro<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#20165;&#21457;&#20986;&#19968;&#20010;&#39318;&#20803;&#32032; == 0</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> k<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span> k <span class="sy1">&lt;</span> <span class="nu0">4</span><span class="sy4">;</span> <span class="sy2">++</span>k<span class="br0">)</span>
+    <span class="br0">{</span>
+        coro<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#21457;&#20986; 1 2 3 4&#65292;&#27599;&#27425;&#36845;&#20195;&#19968;&#20010;&#20803;&#32032;</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;: &quot;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    coro.<span class="me1">disable_suspension</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    coro<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#19968;&#27425;&#24615;&#21457;&#20986;&#21097;&#20313;&#30340;&#25968; 5 6 7</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">0 1 : 2 : 3 : 4 : 5 6 7</pre></div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<h3><span class="mw-headline" id="co_yield"><span class="mw-geshi cpp source-cpp">co_yield</span></span></h3>
+<p><code>co_yield</code> &#34920;&#36798;&#24335;&#21521;&#35843;&#29992;&#26041;&#36820;&#22238;&#19968;&#20010;&#20540;&#24182;&#26242;&#20572;&#24403;&#21069;&#21327;&#31243;&#65306;&#23427;&#26159;&#21487;&#24674;&#22797;&#29983;&#25104;&#22120;&#20989;&#25968;&#30340;&#24120;&#29992;&#26500;&#24314;&#22359;&#12290;</p>
+<table class="t-sdsc-begin">
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td class="t-sdsc-nopad"><code><b>co_yield</b></code> <span class="t-spar">&#34920;&#36798;&#24335;</span></td>
+<td class="t-sdsc-nopad"></td>
+<td class="t-sdsc-nopad"></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td class="t-sdsc-nopad"><code><b>co_yield</b></code> <span class="t-spar">&#33457;&#25324;&#21495;&#21021;&#22987;&#21270;&#24335;&#21015;&#34920;</span></td>
+<td class="t-sdsc-nopad"></td>
+<td class="t-sdsc-nopad"></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+</table>
+<p>&#31561;&#20215;&#20110;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1">co_await promise.<span class="me1">yield_value</span><span class="br0">(</span>&#34920;&#36798;&#24335;<span class="br0">)</span></pre></div>
+</div>
+<p>&#20856;&#22411;&#30340;&#29983;&#25104;&#22120;&#30340; <code>yield_value</code> &#20250;&#23558;&#20854;&#23454;&#21442;&#23384;&#20648;&#65288;&#22797;&#21046;/&#31227;&#21160;&#25110;&#20165;&#23384;&#20648;&#23427;&#30340;&#22320;&#22336;&#65292;&#22240;&#20026;&#23454;&#21442;&#30340;&#29983;&#23384;&#26399;&#36328;&#36807; <code>co_await</code> &#20869;&#30340;&#26242;&#20572;&#28857;&#65289;&#21040;&#29983;&#25104;&#22120;&#23545;&#35937;&#20013;&#24182;&#36820;&#22238; <a href="cpp-coroutine-suspend_always.html"><tt>std::suspend_always</tt></a>&#65292;&#23558;&#25511;&#21046;&#36716;&#31227;&#32473;&#35843;&#29992;&#26041;/&#24674;&#22797;&#26041;&#12290;</p>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;coroutine&gt;</span>
+<span class="co2">#include &lt;cstdint&gt;</span>
+<span class="co2">#include &lt;exception&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+ 
+<span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">typename</span> T<span class="sy1">&gt;</span>
+<span class="kw1">struct</span> Generator
+<span class="br0">{</span>
+    <span class="co1">// &#31867;&#21517; &#39;Generator&#39; &#21482;&#26159;&#25105;&#20204;&#30340;&#36873;&#25321;&#65292;&#20351;&#29992;&#21327;&#31243;&#39764;&#27861;&#19981;&#20381;&#36182;&#23427;&#12290;</span>
+    <span class="co1">// &#32534;&#35793;&#22120;&#36890;&#36807;&#20851;&#38190;&#35789; &#39;co_yield&#39; &#30340;&#23384;&#22312;&#35782;&#21035;&#21327;&#31243;&#12290;</span>
+    <span class="co1">// &#20320;&#21487;&#20197;&#20351;&#29992; &#39;MyGenerator&#39;&#65288;&#25110;&#32773;&#20219;&#20309;&#21035;&#30340;&#21517;&#23383;&#65289;&#20316;&#20026;&#26367;&#20195;&#65292;&#21482;&#35201;&#22312;&#31867;&#20013;&#21253;&#25324;&#20102;</span>
+    <span class="co1">// &#25317;&#26377; &#39;MyGenerator get_return_object()&#39; &#26041;&#27861;&#30340;&#23884;&#22871; struct promise_type&#12290;</span>
+    <span class="co1">// &#65288;&#27880;&#24847;&#65306;&#22312;&#37325;&#21629;&#21517;&#26102;&#65292;&#20320;&#36824;&#38656;&#35201;&#35843;&#25972;&#26500;&#36896;&#20989;&#25968;/&#26512;&#26500;&#20989;&#25968;&#30340;&#22768;&#26126;&#12290;&#65289;</span>
+ 
+    <span class="kw1">struct</span> promise_type<span class="sy4">;</span>
+    <span class="kw1">using</span> handle_type <span class="sy1">=</span> <a href="cpp-coroutine-coroutine_handle.html"><span class="kw3206">std::<span class="me2">coroutine_handle</span></span></a><span class="sy1">&lt;</span>promise_type<span class="sy1">&gt;</span><span class="sy4">;</span>
+ 
+    <span class="kw1">struct</span> promise_type <span class="co1">// &#24517;&#35201;</span>
+    <span class="br0">{</span>
+        T value_<span class="sy4">;</span>
+        <a href="cpp-error-exception_ptr.html"><span class="kw778">std::<span class="me2">exception_ptr</span></span></a> exception_<span class="sy4">;</span>
+ 
+        Generator get_return_object<span class="br0">(</span><span class="br0">)</span>
+        <span class="br0">{</span>
+            <span class="kw1">return</span> Generator<span class="br0">(</span>handle_type<span class="sy4">::</span><span class="me2">from_promise</span><span class="br0">(</span><span class="sy2">*</span>this<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+        <span class="br0">}</span>
+        <a href="cpp-coroutine-suspend_always.html"><span class="kw3258">std::<span class="me2">suspend_always</span></span></a> initial_suspend<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> <span class="kw1">return</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span> <span class="br0">}</span>
+        <a href="cpp-coroutine-suspend_always.html"><span class="kw3258">std::<span class="me2">suspend_always</span></span></a> final_suspend<span class="br0">(</span><span class="br0">)</span> <span class="kw1">noexcept</span> <span class="br0">{</span> <span class="kw1">return</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span> <span class="br0">}</span>
+        <span class="kw4">void</span> unhandled_exception<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> exception_ <span class="sy1">=</span> <a href="cpp-error-current_exception.html"><span class="kw780">std::<span class="me2">current_exception</span></span></a><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span> <span class="co1">// &#20445;&#23384;&#24322;&#24120;</span>
+ 
+        <span class="kw1">template</span> <span class="sy1">&lt;</span><a href="cpp-concepts-convertible_to.html"><span class="kw2935">std::<span class="me2">convertible_to</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> From<span class="sy1">&gt;</span> <span class="co1">// C++20 &#27010;&#24565;</span>
+        <a href="cpp-coroutine-suspend_always.html"><span class="kw3258">std::<span class="me2">suspend_always</span></span></a> yield_value<span class="br0">(</span>From<span class="sy3">&amp;&amp;</span> from<span class="br0">)</span>
+        <span class="br0">{</span>
+            value_ <span class="sy1">=</span> <a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>From<span class="sy1">&gt;</span><span class="br0">(</span>from<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#22312;&#25215;&#35834;&#20013;&#32531;&#23384;&#32467;&#26524;</span>
+            <span class="kw1">return</span> <span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+        <span class="br0">}</span>
+        <span class="kw4">void</span> return_void<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+ 
+    handle_type h_<span class="sy4">;</span>
+ 
+    Generator<span class="br0">(</span>handle_type h<span class="br0">)</span> <span class="sy4">:</span> h_<span class="br0">(</span>h<span class="br0">)</span> <span class="br0">{</span><span class="br0">}</span>
+    ~Generator<span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span> h_.<span class="me1">destroy</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span>
+    <span class="kw1">explicit</span> operator <span class="kw4">bool</span><span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        fill<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#33719;&#30693;&#21327;&#31243;&#26159;&#32467;&#26463;&#20102;&#36824;&#26159;&#20173;&#33021;&#36890;&#36807; C++ getter&#65288;&#19979;&#25991;&#30340; operator()&#65289;</span>
+                <span class="co1">// &#33719;&#24471;&#19979;&#19968;&#20010;&#29983;&#25104;&#20540;&#30340;&#21807;&#19968;&#21487;&#38752;&#26041;&#24335;&#65292;&#26159;&#25191;&#34892;/&#24674;&#22797;&#21327;&#31243;&#21040;&#19979;&#19968;&#20010; co_yield &#33410;&#28857;</span>
+                <span class="co1">// &#65288;&#25110;&#35753;&#25191;&#34892;&#27969;&#25269;&#36798;&#32467;&#23614;&#65289;&#12290;</span>
+                <span class="co1">// &#25105;&#20204;&#22312;&#25215;&#35834;&#20013;&#23384;&#20648;/&#32531;&#23384;&#20102;&#25191;&#34892;&#32467;&#26524;&#65292;&#20351;&#24471; getter&#65288;&#19979;&#25991;&#30340; operator()&#65289;</span>
+                <span class="co1">// &#21487;&#20197;&#33719;&#24471;&#36825;&#19968;&#32467;&#26524;&#32780;&#19981;&#25191;&#34892;&#21327;&#31243;&#12290;</span>
+        <span class="kw1">return</span> <span class="sy3">!</span>h_.<span class="me1">done</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    T operator<span class="br0">(</span><span class="br0">)</span><span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        fill<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+        full_ <span class="sy1">=</span> <span class="kw2">false</span><span class="sy4">;</span><span class="co1">// &#25105;&#20204;&#23558;&#31227;&#21160;&#36208;&#20808;&#21069;&#32531;&#23384;&#30340;&#32467;&#26524;&#26469;&#37325;&#26032;&#32622;&#31354;&#25215;&#35834;</span>
+        <span class="kw1">return</span> std<span class="sy4">::</span><span class="me2">move</span><span class="br0">(</span>h_.<span class="me1">promise</span><span class="br0">(</span><span class="br0">)</span>.<span class="me1">value_</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+<span class="kw1">private</span><span class="sy4">:</span>
+    <span class="kw4">bool</span> full_ <span class="sy1">=</span> <span class="kw2">false</span><span class="sy4">;</span>
+ 
+    <span class="kw4">void</span> fill<span class="br0">(</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw1">if</span> <span class="br0">(</span><span class="sy3">!</span>full_<span class="br0">)</span>
+        <span class="br0">{</span>
+            h_<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+            <span class="kw1">if</span> <span class="br0">(</span>h_.<span class="me1">promise</span><span class="br0">(</span><span class="br0">)</span>.<span class="me1">exception_</span><span class="br0">)</span>
+                <a href="cpp-error-rethrow_exception.html"><span class="kw781">std::<span class="me2">rethrow_exception</span></span></a><span class="br0">(</span>h_.<span class="me1">promise</span><span class="br0">(</span><span class="br0">)</span>.<span class="me1">exception_</span><span class="br0">)</span><span class="sy4">;</span>
+            <span class="co1">// &#22312;&#35843;&#29992;&#19978;&#19979;&#25991;&#20013;&#20256;&#25773;&#21327;&#31243;&#24322;&#24120;</span>
+ 
+            full_ <span class="sy1">=</span> <span class="kw2">true</span><span class="sy4">;</span>
+        <span class="br0">}</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+Generator<span class="sy1">&lt;</span>uint64_t<span class="sy1">&gt;</span>
+fibonacci_sequence<span class="br0">(</span><span class="kw4">unsigned</span> n<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">if</span> <span class="br0">(</span>n <span class="sy1">==</span> <span class="nu0">0</span><span class="br0">)</span>
+        co_return<span class="sy4">;</span>
+ 
+    <span class="kw1">if</span> <span class="br0">(</span>n <span class="sy1">&gt;</span> <span class="nu0">94</span><span class="br0">)</span>
+        <span class="kw1">throw</span> <a href="cpp-error-runtime_error.html"><span class="kw772">std::<span class="me2">runtime_error</span></span></a><span class="br0">(</span><span class="st0">&quot;&#26000;&#27874;&#37027;&#22865;&#24207;&#21015;&#36807;&#22823;&#65292;&#20803;&#32032;&#23558;&#20250;&#28322;&#20986;&#12290;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    co_yield <span class="nu0">0</span><span class="sy4">;</span>
+ 
+    <span class="kw1">if</span> <span class="br0">(</span>n <span class="sy1">==</span> <span class="nu0">1</span><span class="br0">)</span>
+        co_return<span class="sy4">;</span>
+ 
+    co_yield <span class="nu0">1</span><span class="sy4">;</span>
+ 
+    <span class="kw1">if</span> <span class="br0">(</span>n <span class="sy1">==</span> <span class="nu0">2</span><span class="br0">)</span>
+        co_return<span class="sy4">;</span>
+ 
+    uint64_t a <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span>
+    uint64_t b <span class="sy1">=</span> <span class="nu0">1</span><span class="sy4">;</span>
+ 
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">unsigned</span> i <span class="sy1">=</span> <span class="nu0">2</span><span class="sy4">;</span> i <span class="sy1">&lt;</span> n<span class="sy4">;</span> i<span class="sy2">++</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        uint64_t s <span class="sy1">=</span> a <span class="sy2">+</span> b<span class="sy4">;</span>
+        co_yield s<span class="sy4">;</span>
+        a <span class="sy1">=</span> b<span class="sy4">;</span>
+        b <span class="sy1">=</span> s<span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">try</span>
+    <span class="br0">{</span>
+        <span class="kw4">auto</span> gen <span class="sy1">=</span> fibonacci_sequence<span class="br0">(</span><span class="nu0">10</span><span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#26368;&#22823;&#20540;94&#65292;&#36991;&#20813; uint64_t &#28322;&#20986;</span>
+ 
+        <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> j <span class="sy1">=</span> <span class="nu0">0</span><span class="sy4">;</span> gen<span class="sy4">;</span> j<span class="sy2">++</span><span class="br0">)</span>
+            <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;fib(&quot;</span> <span class="sy1">&lt;&lt;</span> j <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;)=&quot;</span> <span class="sy1">&lt;&lt;</span> gen<span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">catch</span> <span class="br0">(</span><span class="kw4">const</span> <a href="cpp-error-exception.html"><span class="kw766">std::<span class="me2">exception</span></span></a><span class="sy3">&amp;</span> ex<span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-cerr.html"><span class="kw1764">std::<span class="me2">cerr</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#21457;&#29983;&#20102;&#24322;&#24120;&#65306;&quot;</span> <span class="sy1">&lt;&lt;</span> ex.<span class="me1">what</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">catch</span> <span class="br0">(</span>...<span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-cerr.html"><span class="kw1764">std::<span class="me2">cerr</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;&#26410;&#30693;&#24322;&#24120;&#12290;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">fib(0)=0
+fib(1)=1
+fib(2)=1
+fib(3)=2
+fib(4)=3
+fib(5)=5
+fib(6)=8
+fib(7)=13
+fib(8)=21
+fib(9)=34</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<table class="wikitable">
+<tr>
+<th><a href="cpp-utility-feature_test.html">&#21151;&#33021;&#29305;&#24615;&#27979;&#35797;</a>&#23439;</th>
+<th><abbr title="&#37319;&#32435;&#35813;&#29305;&#24615;&#30340;&#24180;/&#26376;&#12290;&#27599;&#20010;&#20540;&#19979;&#38754;&#30340;&#38142;&#25509;&#25351;&#21521;&#32534;&#35793;&#26399;&#25903;&#25345;&#39029;&#38754;&#20013;&#32473;&#23450;&#21151;&#33021;&#29305;&#24615;&#30340;&#26465;&#30446;&#12290;">&#20540;</abbr></th>
+<th><abbr title="&#24341;&#20837;&#35813;&#29305;&#24615;&#30340;&#26631;&#20934;&#65307;DR &#24847;&#20026;&#38024;&#23545;&#35813;&#20462;&#35746;&#29256;&#30340;&#32570;&#38519;&#25253;&#21578;">&#26631;&#20934;</abbr></th>
+<th>&#21151;&#33021;&#29305;&#24615;</th>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_impl_coroutine"><code>__cpp_impl_coroutine</code></a></td>
+<td><a href="cpp-compiler_support-20.html#cpp_impl_coroutine_201902L"><code>201902L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++20)</span></td>
+<td><a href="cpp-language-coroutines.html#top">&#21327;&#31243;</a>&#65288;&#32534;&#35793;&#22120;&#25903;&#25345;&#65289;</td>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lib_coroutine"><code>__cpp_lib_coroutine</code></a></td>
+<td><a href="cpp-compiler_support-20.html#cpp_lib_coroutine_201902L"><code>201902L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++20)</span></td>
+<td><a href="cpp-coroutine.html">&#21327;&#31243;</a>&#65288;&#24211;&#25903;&#25345;&#65289;</td>
+</tr>
+<tr>
+<td><a href="cpp-feature_test.html#cpp_lib_generator"><code>__cpp_lib_generator</code></a></td>
+<td><a href="cpp-compiler_support-23.html#cpp_lib_generator_202207L"><code>202207L</code></a></td>
+<td><span class="t-mark" style="white-space: nowrap;">(C++23)</span></td>
+<td><span class="t-lc">std::generator</span>: &#36866;&#29992;&#20110;&#33539;&#22260;&#30340;&#21516;&#27493;&#21327;&#31243;&#29983;&#25104;&#22120;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.85.B3.E9.94.AE.E8.AF.8D">&#20851;&#38190;&#35789;</span></h3>
+<p><a href="cpp-keyword-co_await.html"><tt>co_await</tt></a>, <a href="cpp-keyword-co_return.html"><tt>co_return</tt></a>, <a href="cpp-keyword-co_yield.html"><tt>co_yield</tt></a></p>
+<h3><span class="mw-headline" id=".E5.BA.93.E6.94.AF.E6.8C.81">&#24211;&#25903;&#25345;</span></h3>
+<p><a href="cpp-coroutine.html">&#21327;&#31243;&#25903;&#25345;&#24211;</a>&#23450;&#20041;&#25968;&#20010;&#31867;&#22411;&#65292;&#25552;&#20379;&#21327;&#31243;&#30340;&#32534;&#35793;&#19982;&#36816;&#34892;&#26102;&#25903;&#25345;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/2556.html">CWG 2556</a></td>
+<td>C++20</td>
+<td>&#38750;&#27861;&#30340; <code>return_void</code> &#20250;&#23548;&#33268;&#25511;&#21046;&#27969;&#20986;&#21327;&#31243;&#30340;&#32467;&#23614;&#30340;&#34892;&#20026;&#26410;&#23450;&#20041;</td>
+<td>&#27492;&#26102;&#31243;&#24207;&#38750;&#33391;&#26500;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/2668.html">CWG 2668</a></td>
+<td>C++20</td>
+<td><span class="mw-geshi cpp source-cpp">co_await</span> &#19981;&#33021;&#22312; lambda &#34920;&#36798;&#24335;&#20013;&#20986;&#29616;</td>
+<td>&#21487;&#20197;&#20986;&#29616;</td>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/CWG/issues/2754.html">CWG 2754</a></td>
+<td>C++23</td>
+<td>&#23545;&#26174;&#24335;&#23545;&#35937;&#25104;&#21592;&#20989;&#25968;&#26500;&#36896;&#25215;&#35834;&#23545;&#35937;&#26102;&#20250;&#21462; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span></td>
+<td>&#27492;&#26102;&#19981;&#20250;&#21462; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-coroutine-generator.html"><span class="t-lines"><span>generator</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#34920;&#31034;&#21516;&#27493;<strong class="selflink">&#21327;&#31243;</strong>&#29983;&#25104;&#22120;&#30340; <a href="cpp-ranges-view.html"><code>view</code></a><br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.A4.96.E9.83.A8.E9.93.BE.E6.8E.A5">&#22806;&#37096;&#38142;&#25509;</span></h3>
+<table style="border-top:solid 1px;border-bottom:none;border-left:none;border-right:none;">
+<tr style="vertical-align:top;">
+<td>1.&nbsp;</td>
+<td>Lewis Baker, 2017-2022 - <a rel="nofollow" class="external text" href="https://lewissbaker.github.io/">&#38750;&#23545;&#31216;&#36716;&#31227;</a></td>
+</tr>
+<tr style="vertical-align:top;">
+<td>2.&nbsp;</td>
+<td>David Mazi&egrave;res, 2021 - <a rel="nofollow" class="external text" href="https://www.scs.stanford.edu/~dm/blog/c++-coroutines.html">C++20 &#21327;&#31243;&#25945;&#31243;</a></td>
+</tr>
+<tr style="vertical-align:top;">
+<td>3.&nbsp;</td>
+<td>&#35768;&#20256;&#22855; &amp; &#31041;&#23431; &amp; &#38889;&#22426;, 2021 - <a rel="nofollow" class="external text" href="https://zhuanlan.zhihu.com/p/497224333">C++20 &#21327;&#31243;&#21407;&#29702;&#21644;&#24212;&#29992;</a></td>
+</tr>
+<tr style="vertical-align:top;">
+<td>4.&nbsp;</td>
+<td>Simon Tatham, 2023 - <a rel="nofollow" class="external text" href="https://www.chiark.greenend.org.uk/~sgtatham/quasiblog/coroutines-c++20/">&#32534;&#20889;&#33258;&#23450;&#20041;&#30340; C++20 &#21327;&#31243;&#31995;&#32479;</a></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

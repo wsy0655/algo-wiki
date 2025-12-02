@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::thread::~thread</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_thread_thread_thread skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::thread::</span>~thread</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-thread.html">thread</a>&lrm; | <a href="cpp-thread-thread.html">thread</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl t-since-cxx11">
+<td>
+<div><span class="mw-geshi cpp source-cpp">~thread<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#38144;&#27585;&#32447;&#31243;&#23545;&#35937;&#12290;</p>
+<p>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#25317;&#26377;&#20851;&#32852;&#32447;&#31243;&#65288;<span class="t-c"><span class="mw-geshi cpp source-cpp">joinable<span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> <span class="kw2">true</span></span></span>&#65289;&#65292;&#21017;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-error-terminate.html"><span class="kw785">std::<span class="me2">terminate</span></span></a><span class="br0">(</span><span class="br0">)</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#22312;&#19979;&#21015;&#25805;&#20316;&#21518;&#32447;&#31243;&#23545;&#35937;&#26080;&#20851;&#32852;&#30340;&#32447;&#31243;&#65288;&#20174;&#32780;&#21487;&#23433;&#20840;&#38144;&#27585;&#65289;</p>
+<ul>
+<li>&#34987;&#40664;&#35748;&#26500;&#36896;</li>
+<li>&#34987;&#31227;&#21160;</li>
+<li>&#24050;&#35843;&#29992; <span class="t-lc"><a href="cpp-thread-thread-join.html">join()</a></span></li>
+<li>&#24050;&#35843;&#29992; <span class="t-lc"><a href="cpp-thread-thread-detach.html">detach()</a></span></li>
+</ul>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;thread&gt;</span>
+<span class="kw1">using</span> <span class="kw1">namespace</span> std<span class="sy4">::</span><span class="me2">chrono_literals</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">auto</span> bleah <span class="sy1">=</span> <a href="cpp-thread-thread.html"><span class="kw2150">std::<span class="me2">thread</span></span></a><span class="br0">{</span><span class="br0">[</span><span class="br0">]</span><span class="br0">{</span> <a href="cpp-thread-sleep_for.html"><span class="kw2153">std::<span class="me2">this_thread</span><span class="sy4">::</span><span class="me2">sleep_for</span></span></a><span class="br0">(</span>13ms<span class="br0">)</span><span class="sy4">;</span> <span class="br0">}</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="br0">}</span>   <span class="co1">// ~thread &#35843;&#29992; std::terminate()</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">terminate called without an active exception</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div t-dsc-member-nobold-div">
+<div><a href="cpp-thread-jthread-~jthread.html"><span class="t-lines"><span>(&#26512;&#26500;&#20989;&#25968;)</span></span></a></div>
+</div>
+</td>
+<td>&#22914;&#26524;&#32447;&#31243;&#21487;&#21512;&#24182;&#65292;&#37027;&#20040;&#35831;&#27714;&#20572;&#27490;&#28982;&#21518;&#21512;&#24182;&#27492;&#32447;&#31243;&#12290;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::jthread</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

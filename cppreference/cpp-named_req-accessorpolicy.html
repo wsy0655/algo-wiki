@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>C++ &#20855;&#21517;&#35201;&#27714;&#65306;&#35775;&#38382;&#22120;&#31574;&#30053; (AccessorPolicy) (C++23 &#36215;)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_named_req_AccessorPolicy skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">C++ &#20855;&#21517;&#35201;&#27714;&#65306;</span><span style="font-style:italic">&#35775;&#38382;&#22120;&#31574;&#30053;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(AccessorPolicy)</span> <span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-named_req.html">named req</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<p><strong class="selflink"><span style="font-style:italic">&#35775;&#38382;&#22120;&#31574;&#30053;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(AccessorPolicy)</span></strong> &#23450;&#20041;&#20102;&#20174;&#32473;&#23450;&#30340;&#25351;&#21521;&#20803;&#32032;&#30340;&#25968;&#25454;&#25226;&#26564;&#21644;&#19968;&#20010;&#32034;&#24341;&#65292;&#22914;&#20309;&#35775;&#38382;&#20803;&#32032;&#12290;&#23427;&#34987;&#29992;&#20316; <span class="mw-geshi cpp source-cpp"><a href="cpp-container-mdspan.html"><span class="kw3333">std::<span class="me2">mdspan</span></span></a></span> &#30340;&#19968;&#39033;&#31574;&#30053;&#65292;&#20197;&#25351;&#23450;&#22914;&#20309;&#20351;&#29992;&#24213;&#23618;&#19968;&#32500;&#32034;&#24341;&#35775;&#38382;&#20803;&#32032;&#30340;&#24341;&#29992;&#12290;</p>
+<h3><span class="mw-headline" id=".E8.A6.81.E6.B1.82">&#35201;&#27714;</span></h3>
+<p>&#22914;&#26524;&#31867;&#22411; <code>A</code> &#23454;&#29616;&#20102; <a href="cpp-concepts-copyable.html"><code>copyable</code></a>&#65292;&#24182;&#19988;&#20197;&#19979;&#21508;&#39033;&#22343;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#37027;&#20040;&#23427;&#28385;&#36275;<span style="font-style:italic">&#35775;&#38382;&#22120;&#31574;&#30053;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(AccessorPolicy)</span> &#65306;</p>
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_move_constructible.html"><span class="kw550">std::<span class="me2">is_nothrow_move_constructible_v</span></span></a><span class="sy1">&lt;</span>A<span class="sy1">&gt;</span></span></span></li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_move_assignable.html"><span class="kw568">std::<span class="me2">is_nothrow_move_assignable_v</span></span></a><span class="sy1">&lt;</span>A<span class="sy1">&gt;</span></span></span></li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_swappable.html"><span class="kw580">std::<span class="me2">is_nothrow_swappable_v</span></span></a><span class="sy1">&lt;</span>A<span class="sy1">&gt;</span></span></span></li>
+</ul>
+<p>&#32780;&#19988;&#65292;&#32473;&#23450;&#19979;&#21015;&#31867;&#22411;&#21644;&#20540;&#65292;&#19979;&#34920;&#20013;&#23637;&#31034;&#30340;&#21508;&#34920;&#36798;&#24335;&#22343;&#26377;&#25928;&#24182;&#20855;&#26377;&#25351;&#23450;&#30340;&#35821;&#20041;&#65306;</p>
+<h4><span class="mw-headline" id=".E5.87.A1.E4.BE.8B">&#20961;&#20363;</span></h4>
+<table class="t-dsc-begin">
+<tr class="t-dsc-hitem">
+<td>&#31867;&#22411;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>A</code></td>
+<td>&#35775;&#38382;&#22120;&#31574;&#30053;&#31867;&#22411;</td>
+</tr>
+<tr class="t-dsc">
+<td><code>OP</code></td>
+<td>&#20559;&#31227;&#31574;&#30053;&#31867;&#22411;</td>
+</tr>
+<tr class="t-dsc-hitem">
+<td>&#20540;</td>
+<td>&#23450;&#20041;</td>
+</tr>
+<tr class="t-dsc">
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">a</span></span></td>
+<td>&#65288;&#21487;&#26377; const &#38480;&#23450;&#30340;&#65289;<code>A</code> &#31867;&#22411;&#30340;&#20540;</td>
+</tr>
+<tr class="t-dsc">
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">p</span></span></td>
+<td>&#65288;&#21487;&#26377; const &#38480;&#23450;&#30340;&#65289;<code>A::data_handle_type</code> &#31867;&#22411;&#30340;&#20540;</td>
+</tr>
+<tr class="t-dsc">
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span>, <span class="t-c"><span class="mw-geshi cpp source-cpp">j</span></span>, <span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span></td>
+<td><span class="mw-geshi cpp source-cpp"><a href="cpp-types-size_t.html"><span class="kw107">std::<span class="me2">size_t</span></span></a></span> &#31867;&#22411;&#30340;&#20540;</td>
+</tr>
+</table>
+<h4><span class="mw-headline" id=".E6.88.90.E5.91.98.E7.B1.BB.E5.9E.8B">&#25104;&#21592;&#31867;&#22411;</span></h4>
+<table class="wikitable">
+<tr>
+<th>&#31867;&#22411;</th>
+<th>&#23450;&#20041;</th>
+<th>&#35201;&#27714;</th>
+</tr>
+<tr>
+<td><code>A::element_type</code></td>
+<td>&#26410;&#25351;&#23450;</td>
+<td>
+<ul>
+<li>&#24182;&#38750;&#25277;&#35937;&#31867;&#31867;&#22411;&#30340;&#23436;&#25972;&#23545;&#35937;&#31867;&#22411;</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>A::data_handle_type</code></td>
+<td>&#26410;&#25351;&#23450;<sup id="cite_ref-1" class="reference"><a href="cpp-named_req-AccessorPolicy.html#cite_note-1">[1]</a></sup></td>
+<td>
+<ul>
+<li>&#23454;&#29616; <a href="cpp-concepts-copyable.html"><code>copyable</code></a></li>
+<li>&#19979;&#21015;&#20540;&#37117;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_move_constructible.html"><span class="kw550">std::<span class="me2">is_nothrow_move_constructible_v</span></span></a></span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; &nbsp; <span class="sy1">&lt;</span><span class="kw1">typename</span> A<span class="sy4">::</span><span class="me2">data_handle_type</span><span class="sy1">&gt;</span></span></span></li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_move_assignable.html"><span class="kw568">std::<span class="me2">is_nothrow_move_assignable_v</span></span></a></span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; &nbsp; <span class="sy1">&lt;</span><span class="kw1">typename</span> A<span class="sy4">::</span><span class="me2">data_handle_type</span><span class="sy1">&gt;</span></span></span></li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_swappable.html"><span class="kw580">std::<span class="me2">is_nothrow_swappable_v</span></span></a></span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; &nbsp; <span class="sy1">&lt;</span><span class="kw1">typename</span> A<span class="sy4">::</span><span class="me2">data_handle_type</span><span class="sy1">&gt;</span></span></span></li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+<tr>
+<td><code>A::reference</code></td>
+<td>&#26410;&#25351;&#23450;<sup id="cite_ref-2" class="reference"><a href="cpp-named_req-AccessorPolicy.html#cite_note-2">[2]</a></sup></td>
+<td>
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-concepts-common_reference_with.html"><span class="kw2936">std::<span class="me2">common_reference_with</span></span></a><span class="sy1">&lt;</span><span class="kw1">typename</span> A<span class="sy4">::</span><span class="me2">reference</span><span class="sy3">&amp;&amp;</span>,</span><br />
+<span class="mw-geshi cpp source-cpp">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw1">typename</span> A<span class="sy4">::</span><span class="me2">element_type</span><span class="sy3">&amp;</span><span class="sy1">&gt;</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span></li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>A::offset_policy</code></td>
+<td><code>OP</code></td>
+<td>
+<ul>
+<li>&#28385;&#36275;<span style="font-style:italic">&#35775;&#38382;&#22120;&#31574;&#30053;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(AccessorPolicy)</span> &#30340;&#35201;&#27714;</li>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-concepts-constructible_from.html"><span class="kw2946">std::<span class="me2">constructible_from</span></span></a><span class="sy1">&lt;</span>OP, <span class="kw4">const</span> A<span class="sy3">&amp;</span><span class="sy1">&gt;</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span></li>
+<li><span class="mw-geshi cpp source-cpp"><span class="kw1">typename</span> OP&#8203;<span class="sy4">::</span>&#8203;element_type</span> &#21644; <span class="mw-geshi cpp source-cpp"><span class="kw1">typename</span> A&#8203;<span class="sy4">::</span>&#8203;element_type</span> &#26159;&#21516;&#19968;&#31867;&#22411;</li>
+</ul>
+</td>
+</tr>
+</table>
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="cpp-named_req-AccessorPolicy.html#cite_ref-1">&uarr;</a></span> <span class="reference-text">&#19981;&#38656;&#35201;&#26159; <span class="mw-geshi cpp source-cpp">element_type<span class="sy2">*</span></span>&#12290;</span></li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="cpp-named_req-AccessorPolicy.html#cite_ref-2">&uarr;</a></span> <span class="reference-text">&#19981;&#38656;&#35201;&#26159; <span class="mw-geshi cpp source-cpp">element_type<span class="sy3">&amp;</span></span>&#12290;</span></li>
+</ol>
+<h4><span class="mw-headline" id=".E6.88.90.E5.91.98.E5.87.BD.E6.95.B0">&#25104;&#21592;&#20989;&#25968;</span></h4>
+<table class="wikitable">
+<tr>
+<th>&#34920;&#36798;&#24335;</th>
+<th>&#36820;&#22238;&#31867;&#22411;</th>
+<th>&#35821;&#20041;</th>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">a.<span class="me1">access</span><span class="br0">(</span>p, i<span class="br0">)</span></span></span></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw1">typename</span> A<span class="sy4">::</span><span class="me2">reference</span></span></td>
+<td>
+<ul>
+<li>&#35813;&#34920;&#36798;&#24335;<a href="cpp-concepts.html#.E7.9B.B8.E7.AD.89.E6.80.A7.E4.BF.9D.E6.8C.81">&#20445;&#25345;&#30456;&#31561;&#24615;</a>&#12290;</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">a.<span class="me1">offset</span><span class="br0">(</span>p, i<span class="br0">)</span></span></span></td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw1">typename</span> A<span class="sy4">::</span><span class="me2">offset_policy</span></span><br />
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><span class="mw-geshi cpp source-cpp"><span class="sy4">::</span><span class="me2">data_handle_type</span></span></td>
+<td>
+<ul>
+<li>&#20540; <span class="t-c"><span class="mw-geshi cpp source-cpp">q</span></span>&#65292;&#20351;&#24471;&#20196; <span class="t-c"><span class="mw-geshi cpp source-cpp">b</span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">A<span class="sy4">::</span><span class="me2">offset_policy</span><span class="br0">(</span>a<span class="br0">)</span></span></span>&#65292;&#24182;&#19988;&#23545;&#20110;&#28385;&#36275; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">&#8203;<span class="nu0">0</span>&#8203;</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span><code>)</code> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp">p</span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp">a</span></span> &#30340;&#21487;&#35775;&#38382;&#33539;&#22260;&#65288;&#35265;&#19979;&#25991;&#65289;&#30340;&#20219;&#24847;&#25972;&#25968; <span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span>&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li><code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">&#8203;<span class="nu0">0</span>&#8203;</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">n <span class="sy2">-</span> i</span></span><code>)</code> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp">q</span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp">b</span></span> &#30340;&#21487;&#35775;&#38382;&#33539;&#22260;&#65307;&#24182;&#19988;</li>
+<li>&#23545;&#20110;&#33539;&#22260; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">&#8203;<span class="nu0">0</span>&#8203;</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">n <span class="sy2">-</span> i</span></span><code>)</code> &#20013;&#30340;&#27599;&#20010; <span class="t-c"><span class="mw-geshi cpp source-cpp">j</span></span>&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">b.<span class="me1">access</span><span class="br0">(</span>q, j<span class="br0">)</span></span></span> &#25552;&#20379;&#21040;&#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">a.<span class="me1">access</span><span class="br0">(</span>p, i <span class="sy2">+</span> j<span class="br0">)</span></span></span> &#30456;&#21516;&#20803;&#32032;&#30340;&#35775;&#38382;&#12290;</li>
+</ul>
+</dd>
+</dl>
+<ul>
+<li>&#35813;&#34920;&#36798;&#24335;<a href="cpp-concepts.html#.E7.9B.B8.E7.AD.89.E6.80.A7.E4.BF.9D.E6.8C.81">&#20445;&#25345;&#30456;&#31561;&#24615;</a>&#12290;</li>
+</ul>
+</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.AF.E8.AE.BF.E9.97.AE.E8.8C.83.E5.9B.B4">&#21487;&#35775;&#38382;&#33539;&#22260;</span></h3>
+<p>&#23545;&#20110;&#32034;&#24341;&#33539;&#22260; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">&#8203;<span class="nu0">0</span>&#8203;</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">N</span></span><code>)</code>&#65292;&#22914;&#26524;&#35775;&#38382;&#22120;&#30340;&#25104;&#21592;&#20989;&#25968; <span class="t-c"><span class="mw-geshi cpp source-cpp">access</span></span> &#23545;&#33539;&#22260;&#20013;&#30340;&#27599;&#20010;&#32034;&#24341;&#20135;&#29983;&#30340;&#20803;&#32032;&#24341;&#29992;&#37117;&#26377;&#25928;&#65292;&#37027;&#20040;&#23427;&#26159;&#32473;&#23450;&#25968;&#25454;&#25226;&#26564;&#21644;&#35775;&#38382;&#22120;&#30340;<i>&#21487;&#35775;&#38382;&#33539;&#22260;</i>&#12290;</p>
+<h3><span class="mw-headline" id=".E6.A0.87.E5.87.86.E5.BA.93">&#26631;&#20934;&#24211;</span></h3>
+<p>&#19979;&#21015;&#26631;&#20934;&#24211;&#31867;&#22411;&#28385;&#36275;<span style="font-style:italic">&#35775;&#38382;&#22120;&#31574;&#30053;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(AccessorPolicy)</span> &#65306;</p>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-container-mdspan-default_accessor.html"><span class="t-lines"><span>default_accessor</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23)</span></span></span></div>
+</div>
+</td>
+<td>&#25351;&#31034;&#32034;&#24341;&#35775;&#38382; <code>mdspan</code> &#20803;&#32032;&#30340;&#26041;&#24335;&#30340;&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="https://zh.cppreference.com/mwiki/index.php?title=cpp/container/mdspan/aligned_accessor&amp;action=edit&amp;redlink=1" class="new" title="cpp/container/mdspan/aligned accessor&#65288;&#39029;&#38754;&#19981;&#23384;&#22312;&#65289;"><span class="t-lines"><span>aligned_accessor</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26)</span></span></span></div>
+</div>
+</td>
+<td>&#25552;&#20379;&#25353;&#23545;&#40784;&#35775;&#38382; <code>mdspan</code> &#25104;&#21592;&#30340;&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc-header">
+<td colspan="2">
+<div>&#22312;&#21629;&#21517;&#31354;&#38388; <code>std::linalg</code> &#23450;&#20041;</div>
+</td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="https://zh.cppreference.com/mwiki/index.php?title=cpp/numeric/linalg/scaled_accessor&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/linalg/scaled accessor&#65288;&#39029;&#38754;&#19981;&#23384;&#22312;&#65289;"><span class="t-lines"><span>scaled_accessor</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26)</span></span></span></div>
+</div>
+</td>
+<td><span class="t-lc">std::mdspan</span> &#35775;&#38382;&#22120;&#31574;&#30053;&#65292;&#20854;&#24341;&#29992;&#34920;&#31034;&#19968;&#20010;&#22266;&#23450;&#32553;&#25918;&#22240;&#25968;&#21644;&#20854;&#23884;&#22871; <span class="t-lc">std::mdspan</span> &#35775;&#38382;&#22120;&#30340;&#24341;&#29992;&#30340;&#20056;&#31215;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="https://zh.cppreference.com/mwiki/index.php?title=cpp/numeric/linalg/conjugated_accessor&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/linalg/conjugated accessor&#65288;&#39029;&#38754;&#19981;&#23384;&#22312;&#65289;"><span class="t-lines"><span>conjugated_accessor</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26)</span></span></span></div>
+</div>
+</td>
+<td><span class="t-lc">std::mdspan</span> &#35775;&#38382;&#22120;&#31574;&#30053;&#65292;&#20854;&#24341;&#29992;&#20195;&#34920;&#30340;&#26159;&#20854;&#23884;&#22871; <span class="t-lc">std::mdspan</span> &#35775;&#38382;&#22120;&#30340;&#24341;&#29992;&#30340;&#22797;&#20849;&#36717;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::erase_if (std::flat_multimap)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_container_flat_multimap_erase_if skin-cppreference2 action-view cpp-page-template cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>erase_if <span style="font-size:0.8em; line-height:125%">(std::flat_multimap)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-container.html">container</a>&lrm; | <a href="cpp-container-flat_multimap.html">flat multimap</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<div class="t-page-template" style="">
+<p></p>
+</div>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-flat_map.html">&lt;flat_map&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Key, <span class="kw1">class</span> T, <span class="kw1">class</span> Compare, <span class="kw1">class</span> KeyContainer, <span class="kw1">class</span> MappedContainer,<br /></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">class</span> Pred <span class="sy1">&gt;</span><br />
+<a href="cpp-container-flat_multimap.html"><span class="kw3330">std::<span class="me2">flat_multimap</span></span></a><span class="sy1">&lt;</span>Key, T, Compare, KeyContainer, MappedContainer<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">size_type</span><br />
+&nbsp; &nbsp; erase_if<span class="br0">(</span> <a href="cpp-container-flat_multimap.html"><span class="kw3330">std::<span class="me2">flat_multimap</span></span></a><span class="sy1">&lt;</span>Key, T, Compare, KeyContainer, MappedContainer<span class="sy1">&gt;</span><span class="sy3">&amp;</span> c,<br /></p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Pred pred <span class="br0">)</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp">c</span></span> &#20013;&#25830;&#38500;&#25152;&#26377;&#28385;&#36275;&#35859;&#35789; <span class="t-c"><span class="mw-geshi cpp source-cpp">pred</span></span> &#30340;&#20803;&#32032;&#12290;</p>
+<p>&#24403;&#34920;&#36798;&#24335; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span><span class="br0">(</span>pred<span class="br0">(</span><a href="cpp-utility-pair.html"><span class="kw1099">std::<span class="me2">pair</span></span></a><span class="sy1">&lt;</span><span class="kw4">const</span> Key<span class="sy3">&amp;</span>, <span class="kw4">const</span> T<span class="sy3">&amp;</span><span class="sy1">&gt;</span><span class="br0">(</span>e<span class="br0">)</span><span class="br0">)</span><span class="br0">)</span></span></span> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span> &#26102;&#28385;&#36275;&#35859;&#35789; <span class="t-c"><span class="mw-geshi cpp source-cpp">pred</span></span>&#65292;&#20854;&#20013; <code>e</code> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">c</span></span> &#20013;&#30340;&#26576;&#20010;&#20803;&#32032;&#12290;</p>
+<p><code>Key</code> &#21644; <code>T</code> &#24517;&#39035;<a href="cpp-named_req-MoveAssignable.html"><span style="font-style:italic">&#21487;&#31227;&#21160;&#36171;&#20540;</span> <span style="font-family: Georgia, &#39;DejaVu Serif&#39;, serif; font-style:italic">(MoveAssignable)</span></a> &#65292;&#21542;&#21017;&#65292;&#20854;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>c</td>
+<td>-</td>
+<td>&#35201;&#20174;&#20013;&#25830;&#38500;&#30340;&#23481;&#22120;&#36866;&#37197;&#22120;</td>
+</tr>
+<tr class="t-par">
+<td>pred</td>
+<td>-</td>
+<td>&#33509;&#24212;&#35813;&#25830;&#38500;&#20803;&#32032;&#21017;&#23545;&#23427;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span> &#30340;&#35859;&#35789;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#25830;&#38500;&#30340;&#20803;&#32032;&#25968;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.A4.8D.E6.9D.82.E5.BA.A6">&#22797;&#26434;&#24230;</span></h3>
+<p>&#24688;&#22909; <span class="t-c"><span class="mw-geshi cpp source-cpp">c.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span></span></span> &#27425;&#36816;&#29992;&#35859;&#35789; <span class="t-c"><span class="mw-geshi cpp source-cpp">pred</span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<p>&#22914;&#26524; <code>erase_if</code> &#25243;&#20986;&#24322;&#24120;&#65292;<span class="t-c"><span class="mw-geshi cpp source-cpp">c</span></span> &#20445;&#30041;&#22788;&#20110;&#26377;&#25928;&#20294;&#26410;&#25351;&#26126;&#30340;&#65288;&#21487;&#33021;&#20026;&#31354;&#65289;&#29366;&#24577;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#27492;&#31639;&#27861;<i>&#31283;&#23450;</i>&#65292;&#21363;&#19981;&#25913;&#21464;&#26410;&#34987;&#21024;&#38500;&#30340;&#20803;&#32032;&#20043;&#38388;&#30340;&#39034;&#24207;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;flat_map&gt;</span>
+ 
+<span class="kw4">void</span> println<span class="br0">(</span><span class="kw4">auto</span> rem, <span class="kw4">auto</span> <span class="kw4">const</span><span class="sy3">&amp;</span> container<span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> rem <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;{&#39;</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">char</span> sep<span class="br0">[</span><span class="br0">]</span><span class="br0">{</span><span class="nu0">0</span>, <span class="st0">&#39; &#39;</span>, <span class="nu0">0</span><span class="br0">}</span><span class="sy4">;</span> <span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> <span class="br0">[</span>key, value<span class="br0">]</span> <span class="sy4">:</span> container<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> sep <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;{&#39;</span> <span class="sy1">&lt;&lt;</span> key <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;, &quot;</span> <span class="sy1">&lt;&lt;</span> value <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;}&#39;</span>, <span class="sy2">*</span>sep <span class="sy1">=</span> <span class="st0">&#39;,&#39;</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;}<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-container-flat_multimap.html"><span class="kw3330">std::<span class="me2">flat_multimap</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span>, <span class="kw4">char</span><span class="sy1">&gt;</span> data
+    <span class="br0">{</span>
+        <span class="br0">{</span><span class="nu0">1</span>, <span class="st0">&#39;a&#39;</span><span class="br0">}</span>, <span class="br0">{</span><span class="nu0">2</span>, <span class="st0">&#39;b&#39;</span><span class="br0">}</span>, <span class="br0">{</span><span class="nu0">3</span>, <span class="st0">&#39;c&#39;</span><span class="br0">}</span>, <span class="br0">{</span><span class="nu0">4</span>, <span class="st0">&#39;d&#39;</span><span class="br0">}</span>,
+        <span class="br0">{</span><span class="nu0">5</span>, <span class="st0">&#39;e&#39;</span><span class="br0">}</span>, <span class="br0">{</span><span class="nu0">4</span>, <span class="st0">&#39;f&#39;</span><span class="br0">}</span>, <span class="br0">{</span><span class="nu0">5</span>, <span class="st0">&#39;g&#39;</span><span class="br0">}</span>, <span class="br0">{</span><span class="nu0">5</span>, <span class="st0">&#39;g&#39;</span><span class="br0">}</span>,
+    <span class="br0">}</span><span class="sy4">;</span>
+    println<span class="br0">(</span><span class="st0">&quot;&#36215;&#21021;:<span class="es1">\n</span>&quot;</span>, data<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw4">const</span> <span class="kw4">auto</span> count <span class="sy1">=</span> <a href="cpp-container-vector-erase2.html"><span class="kw3215">std::<span class="me2">erase_if</span></span></a><span class="br0">(</span>data, <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">const</span> <span class="kw4">auto</span><span class="sy3">&amp;</span> item<span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="kw4">auto</span> <span class="kw4">const</span><span class="sy3">&amp;</span> <span class="br0">[</span>key, value<span class="br0">]</span> <span class="sy1">=</span> item<span class="sy4">;</span>
+        <span class="kw1">return</span> <span class="br0">(</span>key <span class="sy3">&amp;</span> <span class="nu0">1</span><span class="br0">)</span> <span class="sy1">==</span> <span class="nu0">1</span><span class="sy4">;</span>
+    <span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    println<span class="br0">(</span><span class="st0">&quot;&#25830;&#38500;&#22855;&#25968;&#38190;&#39033;:<span class="es1">\n</span>&quot;</span>, data<span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> count <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; &#39033;&#34987;&#31227;&#38500;&#12290;<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#36215;&#21021;:
+{{1, a}, {2, b}, {3, c}, {4, d}, {4, f}, {5, e}, {5, g}, {5, g}}
+Erase items with odd keys:
+{{2, b}, {4, d}, {4, f}}
+5 &#39033;&#34987;&#31227;&#38500;&#12290;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-remove.html"><span class="t-lines"><span>remove</span><span>remove_if</span></span></a></div>
+</div>
+</td>
+<td>&#31227;&#38500;&#28385;&#36275;&#29305;&#23450;&#26465;&#20214;&#30340;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-algorithm-ranges-remove.html"><span class="t-lines"><span>ranges::remove</span><span>ranges::remove_if</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span><span><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20)</span></span></span></div>
+</div>
+</td>
+<td>&#31227;&#38500;&#28385;&#36275;&#29305;&#23450;&#26465;&#20214;&#30340;&#20803;&#32032;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31639;&#27861;&#20989;&#25968;&#23545;&#35937;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

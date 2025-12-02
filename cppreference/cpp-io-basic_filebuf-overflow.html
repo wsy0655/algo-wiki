@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::basic_filebuf&lt;CharT,Traits&gt;::overflow</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_io_basic_filebuf_overflow skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::basic_filebuf&lt;CharT,Traits&gt;::</span>overflow</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-io.html">io</a>&lrm; | <a href="cpp-io-basic_filebuf.html">basic filebuf</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">protected</span><span class="sy4">:</span><br />
+<span class="kw1">virtual</span> int_type overflow<span class="br0">(</span> int_type ch <span class="sy1">=</span> Traits<span class="sy4">::</span><span class="me2">eof</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#20174;&#25918;&#32622;&#21306;&#20889;&#19968;&#20123;&#25968;&#25454;&#21040;&#20851;&#32852;&#23383;&#31526;&#24207;&#21015;&#65288;&#21040;&#25991;&#20214;&#65289;&#12290;</p>
+<p>&#34892;&#20026;&#31867;&#20284;&#22522;&#31867;&#29256;&#26412; <span class="t-lc"><a href="cpp-io-basic_streambuf-overflow.html">std::basic_streambuf::overflow()</a></span>&#65292;&#20294;&ldquo;&#28040;&#32791;&#23383;&#31526;&rdquo;&#30340;&#34892;&#20026;&#23450;&#20041;&#22914;&#19979;&#65306;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#39318;&#20808;&#65292;&#20351;&#29992;&#25152;&#28024;&#26579;&#26412;&#22320;&#29615;&#22659;&#30340; <span class="t-lc"><a href="cpp-locale-codecvt-out.html">std::codecvt::out</a></span> &#25226;&#36825;&#20123;&#23383;&#31526;&#36716;&#25442;&#20026;&#22806;&#37096;&#65288;&#21487;&#33021;&#22810;&#23383;&#33410;&#65289;&#34920;&#31034;&#65292;&#24182;&#23384;&#20648;&#20110;&#20020;&#26102;&#32531;&#20914;&#21306;&#65292;&#22914;&#19979;&#65306;&#65288;<span class="t-c"><span class="mw-geshi cpp source-cpp">XSIZE</span></span> &#26159;&#26410;&#25351;&#26126;&#30340;&#32531;&#20914;&#21306;&#22823;&#23567;&#65289;
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="kw4">const</span> <a href="cpp-locale-codecvt.html"><span class="kw1943">std::<span class="me2">codecvt</span></span></a><span class="sy1">&lt;</span>CharT, <span class="kw4">char</span>, <span class="kw1">typename</span> Traits<span class="sy4">::</span><span class="me2">state_type</span><span class="sy1">&gt;</span><span class="sy3">&amp;</span> a_codecvt <span class="sy1">=</span>
+    <a href="cpp-locale-use_facet.html"><span class="kw1901">std::<span class="me2">use_facet</span></span></a><span class="sy1">&lt;</span><a href="cpp-locale-codecvt.html"><span class="kw1943">std::<span class="me2">codecvt</span></span></a><span class="sy1">&lt;</span>CharT, <span class="kw4">char</span>, <span class="kw1">typename</span> Traits<span class="sy4">::</span><span class="me2">state_type</span><span class="sy1">&gt;&gt;</span><span class="br0">(</span>getloc<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="kw1">typename</span> Traits<span class="sy4">::</span><span class="me2">state_type</span> state<span class="sy4">;</span>
+CharT<span class="sy2">*</span> end<span class="sy4">;</span>
+<span class="kw4">char</span> xbuf<span class="br0">[</span>XSIZE<span class="br0">]</span><span class="sy4">;</span>
+<span class="kw4">char</span><span class="sy2">*</span> xbuf_end<span class="sy4">;</span>
+<a href="cpp-locale-codecvt_base.html"><span class="kw1920">std::<span class="me2">codecvt_base</span><span class="sy4">::</span><span class="me2">result</span></span></a> r <span class="sy1">=</span>
+    a_codecvt.<span class="me1">out</span><span class="br0">(</span>state, pbase<span class="br0">(</span><span class="br0">)</span>, pptr<span class="br0">(</span><span class="br0">)</span>, end, xbuf, xbuf <span class="sy2">+</span> XSIZE, xbuf_end<span class="br0">)</span><span class="sy4">;</span></pre></div>
+</div>
+</div>
+<div class="t-li1"><span class="t-li">2)</span> &#28982;&#21518;&#65292;&#23558;&#32531;&#20914;&#21306;&#20013;&#25152;&#26377;&#23436;&#20840;&#36716;&#25442;&#30340;&#23383;&#31526;&#20889;&#20837;&#25991;&#20214;&#12290;&#27491;&#24335;&#32780;&#35328;&#65292;&#22522;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp">r</span></span> &#30340;&#20540;&#23454;&#26045;&#20197;&#19979;&#27493;&#39588;&#65306;
+<table class="wikitable" style="text-align: center;">
+<tr>
+<th><span style="font-weight: normal;"><span class="t-c"><span class="mw-geshi cpp source-cpp">r</span></span></span></th>
+<th>&#25805;&#20316;</th>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-locale-codecvt_base.html"><span class="kw1921">std::<span class="me2">codecvt_base</span><span class="sy4">::</span><span class="me2">ok</span></span></a></span></span></td>
+<td>&#23558; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">xbuf</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">xbuf_end</span></span><code>)</code> &#20013;&#30340;&#23383;&#31526;&#36755;&#20986;&#21040;&#25991;&#20214;&#65292;&#24182;&#19988;&#22312;&#36755;&#20986;&#22833;&#36133;&#26102;&#22833;&#36133;&#12290;&#27492;&#26102;&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">pbase<span class="br0">(</span><span class="br0">)</span> <span class="sy3">!</span><span class="sy1">=</span> pptr<span class="br0">(</span><span class="br0">)</span></span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp">pbase<span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> end</span></span> &#37117;&#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65288;&#24847;&#21619;&#30528; <span class="t-c"><span class="mw-geshi cpp source-cpp">xbuf</span></span> &#21363;&#20351;&#23545;&#20110;&#19968;&#20010;&#22806;&#37096;&#23383;&#31526;&#20063;&#19981;&#22815;&#22823;&#65289;&#65292;&#37027;&#20040;&#22686;&#21152; <span class="t-c"><span class="mw-geshi cpp source-cpp">XSIZE</span></span> &#24182;&#20174;&#22836;&#24320;&#22987;&#37325;&#35797;&#12290;</td>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-locale-codecvt_base.html"><span class="kw1922">std::<span class="me2">codecvt_base</span><span class="sy4">::</span><span class="me2">partial</span></span></a></span></span></td>
+<td>&#23558; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">xbuf</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">xbuf_end</span></span><code>)</code> &#20013;&#32463;&#36716;&#25442;&#30340;&#22806;&#37096;&#23383;&#31526;&#36755;&#20986;&#21040;&#25991;&#20214;&#65292;&#28982;&#21518;&#20197; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">end</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">pptr<span class="br0">(</span><span class="br0">)</span></span></span><code>)</code> &#20013;&#21097;&#20313;&#26410;&#36716;&#25442;&#30340;&#20869;&#37096;&#23383;&#31526;&#37325;&#22797;&#20043;&#12290;&#22914;&#26524;&#36755;&#20986;&#22833;&#36133;&#65292;&#37027;&#20040;&#30452;&#25509;&#22833;&#36133;&#65288;&#19981;&#37325;&#22797;&#65289;&#12290;</td>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-locale-codecvt_base.html"><span class="kw1924">std::<span class="me2">codecvt_base</span><span class="sy4">::</span><span class="me2">noconv</span></span></a></span></span></td>
+<td>&#23558; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">pbase<span class="br0">(</span><span class="br0">)</span></span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">pptr<span class="br0">(</span><span class="br0">)</span></span></span><code>)</code> &#20013;&#30340;&#23383;&#31526;&#36755;&#20986;&#21040;&#25991;&#20214;&#12290;</td>
+</tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-locale-codecvt_base.html"><span class="kw1923">std::<span class="me2">codecvt_base</span><span class="sy4">::</span><span class="me2">error</span></span></a></span></span></td>
+<td>&#30452;&#25509;&#22833;&#36133;&#12290;</td>
+</tr>
+</table>
+</div>
+<div class="t-li1"><span class="t-li"></span> &#22914;&#26524;&#20851;&#32852;&#30340;&#25991;&#20214;&#27809;&#26377;&#25171;&#24320;&#65288;<span class="t-lc"><a href="cpp-io-basic_filebuf-is_open.html">is_open()</a></span> &#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#65289;&#65292;&#37027;&#20040;&#36755;&#20986;&#22987;&#32456;&#20250;&#22833;&#36133;&#12290;</div>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx26">
+<td>
+<div class="t-li1"><span class="t-li">3)</span> &#24314;&#31435;&#19968;&#20010;<a href="cpp-language-as_if.html">&#21487;&#35266;&#23519;&#26816;&#26597;&#28857;</a>&#12290;</div>
+</td>
+<td><span class="t-mark-rev t-since-cxx26" style="white-space: nowrap;">(C++26 &#36215;)</span></td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>ch</td>
+<td>-</td>
+<td>&#35201;&#22312;&#25918;&#32622;&#21306;&#23384;&#20648;&#30340;&#23383;&#31526;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#22312;&#25351;&#31034;&#25104;&#21151;&#26102;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp">Traits<span class="sy4">::</span><span class="me2">not_eof</span><span class="br0">(</span>c<span class="br0">)</span></span></span> &#25110;&#22312;&#25351;&#31034;&#22833;&#36133;&#26102;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp">Traits<span class="sy4">::</span><span class="me2">eof</span><span class="br0">(</span><span class="br0">)</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">a_codecvt.<span class="me1">always_noconv</span><span class="br0">(</span><span class="br0">)</span></span></span> &#20250;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#37027;&#20040;&#21487;&#20197;&#36339;&#36807;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">a_codecvt.<span class="me1">out</span><span class="br0">(</span><span class="br0">)</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#26242;&#26080;&#31034;&#20363;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-overflow.html"><span class="t-lines"><span>overflow</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#20174;&#25918;&#32622;&#21306;&#20889;&#20837;&#23383;&#31526;&#21040;&#20851;&#32852;&#30340;&#36755;&#20986;&#24207;&#21015;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_filebuf-underflow.html"><span class="t-lines"><span>underflow</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#20174;&#20851;&#32852;&#25991;&#20214;&#35835;&#21462;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

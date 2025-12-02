@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::experimental::ranges::ForwardIterator</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_experimental_ranges_iterator_ForwardIterator skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::experimental::ranges::</span>ForwardIterator</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-experimental.html">experimental</a>&lrm; | <a href="cpp-experimental-ranges.html">ranges</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-experimental-ranges-iterator.html">&lt;experimental/ranges/iterator&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-ranges">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> I <span class="sy1">&gt;</span><br /></span>
+<p>concept <span class="kw4">bool</span> ForwardIterator <span class="sy1">=</span><br />
+&nbsp; &nbsp; InputIterator<span class="sy1">&lt;</span>I<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; DerivedFrom<span class="sy1">&lt;</span>ranges<span class="sy4">::</span><span class="me2">iterator_category_t</span><span class="sy1">&lt;</span>I<span class="sy1">&gt;</span>, ranges<span class="sy4">::</span><span class="me2">forward_iterator_tag</span><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; Incrementable<span class="sy1">&lt;</span>I<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br /></p>
+&nbsp; &nbsp; Sentinel<span class="sy1">&lt;</span>I, I<span class="sy1">&gt;</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-ranges-ts t-mark-ts" style="white-space: nowrap;">(&#33539;&#22260; TS)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#27010;&#24565; <code>ForwardIterator&lt;I&gt;</code> &#32454;&#21270; <a href="cpp-experimental-ranges-iterator-InputIterator.html"><code>InputIterator</code></a>&#65292;&#28155;&#21152;&#30456;&#31561;&#27604;&#36739;&#21644;&#22810;&#36255;&#20445;&#35777;&#12290;</p>
+<p><code>==</code> &#23545;&#20110;&#21521;&#21069;&#36845;&#20195;&#22120;&#30340;&#23450;&#20041;&#22495;&#26159;&#21516;&#19968;&#24213;&#23618;&#24207;&#21015;&#19978;&#30340;&#36845;&#20195;&#22120;&#30340;&#23450;&#20041;&#22495;&#65292;&#20294;&#20540;&#21021;&#22987;&#21270;&#30340;&#21516;&#31867;&#22411;&#36845;&#20195;&#22120;&#21487;&#20197;&#24444;&#27492;&#27604;&#36739;&#65292;&#24182;&#24212;&#24403;&#27604;&#36739;&#30456;&#31561;&#12290;</p>
+<p>&#22312; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">s</span></span><code>)</code> &#19968;&#30452;&#20195;&#34920;&#33539;&#22260;&#26102;&#65292;&#20174;&#25351;&#21521;&#33539;&#22260; <code>[i, s)</code> &#20013;&#30340;&#21521;&#21069;&#36845;&#20195;&#22120;&#33719;&#24471;&#30340;&#25351;&#38024;&#21644;&#24341;&#29992;&#24517;&#39035;&#20445;&#25345;&#21512;&#27861;&#12290;</p>
+<p>&#20196; <code>a</code> &#19982; <code>b</code> &#20026;&#20004;&#20010; <code>I</code> &#31867;&#22411;&#30340;&#21487;&#35299;&#24341;&#29992;&#36845;&#20195;&#22120;&#12290;<code>ForwardIterator&lt;I&gt;</code> &#20165;&#33509;&#31526;&#21512;&#19979;&#21015;&#26465;&#20214;&#25165;&#24471;&#21040;&#28385;&#36275;&#65306;</p>
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp">a <span class="sy1">==</span> b</span></span> &#34164;&#21547; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">++</span>a <span class="sy1">==</span> <span class="sy2">++</span>b</span></span>&#65307;&#19988;</li>
+<li>&#34920;&#36798;&#24335; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">(</span><span class="br0">[</span><span class="br0">]</span><span class="br0">(</span>X x<span class="br0">)</span><span class="br0">{</span><span class="sy2">++</span>x<span class="sy4">;</span><span class="br0">}</span><span class="br0">(</span>a<span class="br0">)</span>, <span class="sy2">*</span>a<span class="br0">)</span></span></span> &#31561;&#20215;&#20110; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>a</span></span>&#65292;&#21363;&#33258;&#22686; <code>a</code> &#30340;&#21103;&#26412;&#22312;&#35299;&#24341;&#29992; <code>a</code></li>
+</ul>
+<p>&#36825;&#34987;&#31216;&#20026;<i>&#22810;&#36255;&#20445;&#35777;</i>&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#21521;&#21069;&#36845;&#20195;&#22120;&#19981;&#33021;&ldquo;&#36142;&#34255;&rdquo;&#65306;&#23427;&#19981;&#33021;&#36820;&#22238;&#21040;&#20854;&#33258;&#36523;&#20869;&#23545;&#35937;&#30340;&#24341;&#29992;&#65292;&#22240;&#20026;&#21521;&#21069;&#36845;&#20195;&#22120;&#30340;&#26512;&#26500;&#20250;&#20351;&#36825;&#31181;&#24341;&#29992;&#22833;&#25928;&#12290;</p>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

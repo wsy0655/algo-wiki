@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::holds_alternative</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_utility_variant_holds_alternative skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>holds_alternative</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-utility.html">utility</a>&lrm; | <a href="cpp-utility-variant.html">variant</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-variant.html">&lt;variant&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T, <span class="kw1">class</span>... <span class="me1">Types</span> <span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> <span class="kw4">bool</span> holds_alternative<span class="br0">(</span> <span class="kw4">const</span> <a href="cpp-utility-variant.html"><span class="kw1088">std::<span class="me2">variant</span></span></a><span class="sy1">&lt;</span>Types...<span class="sy1">&gt;</span><span class="sy3">&amp;</span> v <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#26816;&#26597;&#21464;&#20307; <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> &#26159;&#21542;&#20445;&#26377;&#21487;&#36873;&#39033; <code>T</code>&#12290;&#33509; <code>T</code> &#19981;&#22312; <code>Types...</code> &#20013;&#24688;&#22909;&#20986;&#29616;&#19968;&#27425;&#65292;&#21017;&#27492;&#35843;&#29992;&#38750;&#33391;&#26500;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>v</td>
+<td>-</td>
+<td>&#35201;&#26816;&#39564;&#30340;&#21464;&#20307;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#33509;&#21464;&#20307;&#24403;&#21069;&#20445;&#26377;&#21487;&#36873;&#39033; <code>T</code> &#21017;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;&#21542;&#21017;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+<span class="co2">#include &lt;variant&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-utility-variant.html"><span class="kw1088">std::<span class="me2">variant</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span>, <a href="cpp-string-basic_string.html"><span class="kw1232">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span> v <span class="sy1">=</span> <span class="st0">&quot;abc&quot;</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span>not std<span class="sy4">::</span><span class="me2">holds_alternative</span><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span><span class="br0">(</span>v<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-error-assert.html"><span class="kw776">assert</span></a><span class="br0">(</span>std<span class="sy4">::</span><span class="me2">holds_alternative</span><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1232">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span><span class="br0">(</span>v<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-variant-index.html"><span class="t-lines"><span>index</span></span></a></div>
+</div>
+</td>
+<td>&#36820;&#22238; <code>variant</code> &#25152;&#20445;&#26377;&#21487;&#36873;&#39033;&#30340;&#38646;&#22522;&#32034;&#24341;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-variant-get.html"><span class="t-lines"><span>std::get<span class="t-dsc-small">(std::variant)</span></span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17" style="white-space: nowrap;">(C++17)</span></span></span></div>
+</div>
+</td>
+<td>&#20197;&#32473;&#23450;&#32034;&#24341;&#25110;&#31867;&#22411;&#65288;&#22914;&#26524;&#31867;&#22411;&#21807;&#19968;&#65289;&#35835;&#21462; <code>variant</code> &#30340;&#20540;&#65292;&#38169;&#35823;&#26102;&#25243;&#20986;&#24322;&#24120;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

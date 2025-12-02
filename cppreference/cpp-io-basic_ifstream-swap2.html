@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::swap(std::basic_ifstream)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_io_basic_ifstream_swap2 skin-cppreference2 action-view cpp-page-template cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>swap<span style="font-size:0.8em; line-height:125%">(std::basic_ifstream)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-io.html">io</a>&lrm; | <a href="cpp-io-basic_ifstream.html">basic ifstream</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<div class="t-page-template" style="">
+<p></p>
+</div>
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> CharT, <span class="kw1">class</span> Traits <span class="sy1">&gt;</span><br />
+<span class="kw4">void</span> swap<span class="br0">(</span> basic_ifstream<span class="sy1">&lt;</span>CharT, Traits<span class="sy1">&gt;</span><span class="sy3">&amp;</span> lhs, basic_ifstream<span class="sy1">&lt;</span>CharT, Traits<span class="sy1">&gt;</span><span class="sy3">&amp;</span> rhs <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-io-basic_ifstream.html"><span class="kw1722">std::<span class="me2">basic_ifstream</span></span></a></span></span> &#29305;&#21270; <span class="t-lc"><a href="cpp-algorithm-swap.html">std::swap</a></span> &#31639;&#27861;&#12290;&#20132;&#25442; <span class="t-c"><span class="mw-geshi cpp source-cpp">lhs</span></span> &#19982; <span class="t-c"><span class="mw-geshi cpp source-cpp">rhs</span></span> &#30340;&#29366;&#24577;&#12290;&#30456;&#24403;&#20110;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">lhs.<span class="me1">swap</span><span class="br0">(</span>rhs<span class="br0">)</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>lhs, rhs</td>
+<td>-</td>
+<td>&#35201;&#20132;&#25442;&#29366;&#24577;&#30340;&#27969;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#65288;&#26080;&#65289;</p>
+<h3><span class="mw-headline" id=".E5.BC.82.E5.B8.B8">&#24322;&#24120;</span></h3>
+<p>&#21487;&#33021;&#20250;&#25243;&#20986;&#30001;&#23454;&#29616;&#23450;&#20041;&#30340;&#24322;&#24120;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;fstream&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+ 
+<span class="kw4">bool</span> create_stream<span class="br0">(</span><a href="cpp-io-basic_ifstream.html"><span class="kw1736">std::<span class="me2">ifstream</span></span></a><span class="sy3">&amp;</span> fs<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">try</span>
+    <span class="br0">{</span>
+        <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a> some_name <span class="sy1">=</span> <span class="st0">&quot;/tmp/test_file.txt&quot;</span><span class="sy4">;</span>
+        <a href="cpp-io-ios_base-openmode.html"><span class="kw1675">std::<span class="me2">ios_base</span><span class="sy4">::</span><span class="me2">openmode</span></span></a> some_flags <span class="sy1">=</span> fs.<span class="me1">trunc</span><span class="sy4">;</span> <span class="co1">// | &#20854;&#20182;&#26631;&#24535;</span>
+ 
+        <span class="kw1">if</span> <span class="br0">(</span><a href="cpp-io-basic_ifstream.html"><span class="kw1736">std::<span class="me2">ifstream</span></span></a> ts<span class="br0">{</span>some_name, some_flags<span class="br0">}</span><span class="sy4">;</span> ts.<span class="me1">is_open</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+        <span class="br0">{</span>
+            <a href="cpp-algorithm-swap.html"><span class="kw1603">std::<span class="me2">swap</span></span></a><span class="br0">(</span>ts, fs<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// &#27969;&#23545;&#35937;&#19981;&#21487;&#22797;&#21046; =&gt; swap</span>
+            <span class="kw1">return</span> <span class="kw2">true</span><span class="sy4">;</span>
+        <span class="br0">}</span>
+    <span class="br0">}</span>
+    <span class="kw1">catch</span> <span class="br0">(</span>...<span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;Exception!<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">return</span> <span class="kw2">false</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">if</span> <span class="br0">(</span><a href="cpp-io-basic_ifstream.html"><span class="kw1736">std::<span class="me2">ifstream</span></span></a> fs<span class="sy4">;</span> create_stream<span class="br0">(</span>fs<span class="br0">)</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <span class="co1">// &#20351;&#29992;&#27969; fs</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_ifstream-swap.html"><span class="t-lines"><span>swap</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#20132;&#25442;&#20004;&#20010;&#25991;&#20214;&#27969;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

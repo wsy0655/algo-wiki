@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::assignable_from</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_concepts_assignable_from skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>assignable_from</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-concepts.html">concepts</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-concepts.html">&lt;concepts&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> LHS, <span class="kw1">class</span> RHS <span class="sy1">&gt;</span><br /></span>
+<p>concept assignable_from <span class="sy1">=</span><br />
+&nbsp; &nbsp; <a href="cpp-types-is_lvalue_reference.html"><span class="kw472">std::<span class="me2">is_lvalue_reference_v</span></span></a><span class="sy1">&lt;</span>LHS<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; <a href="cpp-concepts-common_reference_with.html"><span class="kw2936">std::<span class="me2">common_reference_with</span></span></a><span class="sy1">&lt;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw4">const</span> <a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>LHS<span class="sy1">&gt;</span><span class="sy3">&amp;</span>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw4">const</span> <a href="cpp-types-remove_reference.html"><span class="kw610">std::<span class="me2">remove_reference_t</span></span></a><span class="sy1">&lt;</span>RHS<span class="sy1">&gt;</span><span class="sy3">&amp;</span><span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; requires<span class="br0">(</span>LHS lhs, RHS<span class="sy3">&amp;&amp;</span> rhs<span class="br0">)</span> <span class="br0">{</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">{</span> lhs <span class="sy1">=</span> <a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>RHS<span class="sy1">&gt;</span><span class="br0">(</span>rhs<span class="br0">)</span> <span class="br0">}</span> <span class="sy2">-</span><span class="sy1">&gt;</span> <a href="cpp-concepts-same_as.html"><span class="kw2933">std::<span class="me2">same_as</span></span></a><span class="sy1">&lt;</span>LHS<span class="sy1">&gt;</span><span class="sy4">;</span><br /></p>
+&nbsp; &nbsp; <span class="br0">}</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#27010;&#24565; <code>assignable_from&lt;LHS, RHS&gt;</code> &#25351;&#23450;&#33021;&#36171;&#20540;&#31867;&#22411;&#21644;&#20540;&#31867;&#21035;&#30001; <code>RHS</code> &#32534;&#30721;&#30340;&#34920;&#36798;&#24335;&#32473;&#31867;&#22411;&#20026; <code>LHS</code> &#25152;&#25351;&#23450;&#30340;&#24038;&#20540;&#34920;&#36798;&#24335;&#12290;</p>
+<h3><span class="mw-headline" id=".E8.AF.AD.E4.B9.89.E8.A6.81.E6.B1.82">&#35821;&#20041;&#35201;&#27714;</span></h3>
+<p>&#32473;&#23450;</p>
+<ul>
+<li><code>lhs</code>&#65292;&#25351;&#20195;&#23545;&#35937; <code>lcopy</code> &#30340;&#24038;&#20540;&#65292;&#20351;&#24471; <span class="t-c"><span class="mw-geshi cpp source-cpp">decltype<span class="br0">(</span><span class="br0">(</span>lhs<span class="br0">)</span><span class="br0">)</span></span></span> &#20026; <code>LHS</code>&#65292;</li>
+<li><code>rhs</code>&#65292;&#20351;&#24471; <span class="t-c"><span class="mw-geshi cpp source-cpp">decltype<span class="br0">(</span><span class="br0">(</span>rhs<span class="br0">)</span><span class="br0">)</span></span></span> &#20026; <code>RHS</code> &#30340;&#34920;&#36798;&#24335;&#65292;</li>
+<li><code>rcopy</code>&#65292;&#31561;&#20110; <code>rhs</code> &#30340;&#21333;&#29420;&#23545;&#35937;&#65292;</li>
+</ul>
+<p><code>assignable_from&lt;LHS, RHS&gt;</code> &#20165;&#24403;&#31526;&#21512;&#19979;&#21015;&#26465;&#20214;&#26102;&#24471;&#21040;&#23454;&#29616;</p>
+<ul>
+<li><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-memory-addressof.html"><span class="kw759">std::<span class="me2">addressof</span></span></a><span class="br0">(</span>lhs <span class="sy1">=</span> rhs<span class="br0">)</span> <span class="sy1">==</span> <a href="cpp-memory-addressof.html"><span class="kw759">std::<span class="me2">addressof</span></span></a><span class="br0">(</span>lcopy<span class="br0">)</span></span></span>&#65288;&#21363;&#36171;&#20540;&#34920;&#36798;&#24335;&#29983;&#25104;&#25351;&#20195;&#24038;&#25805;&#20316;&#25968;&#30340;&#24038;&#20540;&#65289;&#65307;</li>
+<li>&#27714;&#20540; <span class="t-c"><span class="mw-geshi cpp source-cpp">lhs <span class="sy1">=</span> rhs</span></span> &#21518;&#65306;
+<ul>
+<li><code>lhs</code> &#31561;&#20110; <code>rcopy</code>&#65292;&#38500;&#38750; <code>rhs</code> &#26159;&#25351;&#20195; <code>lcopy</code> &#30340;&#38750; const &#20129;&#20540;&#65288;&#21363;&#36171;&#20540;&#20026;&#33258;&#31227;&#21160;&#36171;&#20540;&#65289;&#65292;</li>
+<li>&#33509; <code>rhs</code> &#26159;&#27867;&#24038;&#20540;&#65307;
+<ul>
+<li>&#33509;&#23427;&#26159;&#38750; const &#20129;&#20540;&#65292;&#21017;&#20854;&#25152;&#25351;&#20195;&#30340;&#23545;&#35937;&#22312;&#21512;&#27861;&#20294;&#26410;&#25351;&#23450;&#30340;&#29366;&#24577;&#65307;</li>
+<li>&#21542;&#21017;&#65292;&#19981;&#20462;&#25913;&#20854;&#25152;&#25351;&#20195;&#30340;&#23545;&#35937;&#65307;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3><span class="mw-headline" id=".E7.9B.B8.E7.AD.89.E6.80.A7.E4.BF.9D.E6.8C.81">&#30456;&#31561;&#24615;&#20445;&#25345;</span></h3>
+<p>&#26631;&#20934;&#24211;&#27010;&#24565;&#30340; <a href="cpp-language-requires.html"><span class="mw-geshi cpp source-cpp">requires</span> &#34920;&#36798;&#24335;</a>&#20013;&#22768;&#26126;&#30340;&#34920;&#36798;&#24335;&#37117;&#35201;&#27714;<a href="cpp-concepts.html#.E7.9B.B8.E7.AD.89.E6.80.A7.E4.BF.9D.E6.8C.81">&#20445;&#25345;&#30456;&#31561;&#24615;</a>&#65288;&#38500;&#38750;&#21478;&#22806;&#35828;&#26126;&#65289;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#36171;&#20540;&#19981;&#24517;&#20026;&#20840;&#20989;&#25968;&#12290;&#20855;&#20307;&#26469;&#35828;&#65292;&#33509;&#36171;&#20540;&#32473;&#26576;&#23545;&#35937; <code>x</code> &#21487;&#33021;&#23548;&#33268;&#20462;&#25913;&#26576;&#20854;&#20182;&#23545;&#35937; <code>y</code>&#65292;&#21017; <span class="t-c"><span class="mw-geshi cpp source-cpp">x <span class="sy1">=</span> y</span></span> &#21487;&#33021;&#19981;&#22312; <code><b>=</b></code> &#30340;&#23450;&#20041;&#22495;&#20013;&#12290;&#33509;&#24038;&#25805;&#20316;&#25968;&#30452;&#25509;&#25110;&#38388;&#25509;&#21344;&#26377;&#21491;&#25805;&#20316;&#25968;&#65288;&#20363;&#22914;&#29992;&#25351;&#21521;&#22522;&#20110;&#32467;&#28857;&#30340;&#25968;&#25454;&#32467;&#26500;&#20013;&#30340;&#32467;&#28857;&#30340;&#26234;&#33021;&#25351;&#38024;&#65292;&#25110;&#29992;&#31867;&#20284; <span class="mw-geshi cpp source-cpp"><a href="cpp-container-vector.html"><span class="kw1272">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><a href="cpp-utility-any.html"><span class="kw1073">std::<span class="me2">any</span></span></a><span class="sy1">&gt;</span></span> &#30340;&#26500;&#36896;&#65289;&#65292;&#21017;&#36825;&#24120;&#21457;&#29983;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;atomic&gt;</span>
+<span class="co2">#include &lt;concepts&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="co1">// &#26222;&#36890;&#30340;&#22522;&#26412;&#29992;&#27861;&#65292;&#26816;&#26597;&#24038;&#20540;&#24341;&#29992;&#36171;&#20540;</span>
+    static_assert<span class="br0">(</span><a href="cpp-types-is_assignable.html"><span class="kw552">std::<span class="me2">is_assignable_v</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy3">&amp;</span>, <span class="kw4">int</span><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">assignable_from</span><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy3">&amp;</span>, <span class="kw4">int</span><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    static_assert<span class="br0">(</span><a href="cpp-types-is_assignable.html"><span class="kw552">std::<span class="me2">is_assignable_v</span></span></a><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy3">&amp;</span>, <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">assignable_from</span><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy3">&amp;</span>, <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#22522;&#30784;&#31867;&#22411;&#19981;&#25903;&#25345;&#21521;&#21491;&#20540;&#36171;&#20540;</span>
+    static_assert<span class="br0">(</span><span class="sy3">!</span><a href="cpp-types-is_assignable.html"><span class="kw552">std::<span class="me2">is_assignable_v</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span>, <span class="kw4">int</span><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span><span class="sy3">!</span>std<span class="sy4">::</span><span class="me2">assignable_from</span><span class="sy1">&lt;</span><span class="kw4">int</span>, <span class="kw4">int</span><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// std::assignable_from &#24182;&#19981;&#25509;&#21463;&#20840;&#37096;&#30340;&#26377;&#25928;&#36171;&#20540;&#34920;&#36798;&#24335;&#65306;</span>
+ 
+    <span class="co1">// &#21491;&#20540;&#24341;&#29992;&#36171;&#20540;</span>
+    static_assert<span class="br0">(</span><a href="cpp-types-is_assignable.html"><span class="kw552">std::<span class="me2">is_assignable_v</span></span></a><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy3">&amp;&amp;</span>, <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span><span class="sy3">!</span>std<span class="sy4">::</span><span class="me2">assignable_from</span><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy3">&amp;&amp;</span>, <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// &#21491;&#20540;&#36171;&#20540;</span>
+    static_assert<span class="br0">(</span><a href="cpp-types-is_assignable.html"><span class="kw552">std::<span class="me2">is_assignable_v</span></span></a><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a>, <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span><span class="sy3">!</span>std<span class="sy4">::</span><span class="me2">assignable_from</span><span class="sy1">&lt;</span><a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a>, <a href="cpp-string-basic_string.html"><span class="kw1233">std::<span class="me2">string</span></span></a><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// std::atomic::operator= &#25353;&#20540;&#36820;&#22238;</span>
+    static_assert<span class="br0">(</span><a href="cpp-types-is_assignable.html"><span class="kw552">std::<span class="me2">is_assignable_v</span></span></a><span class="sy1">&lt;</span><a href="cpp-atomic-atomic.html"><span class="kw2070">std::<span class="me2">atomic</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span><span class="sy3">&amp;</span>, <span class="kw4">int</span><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span><span class="sy3">!</span>std<span class="sy4">::</span><span class="me2">assignable_from</span><span class="sy1">&lt;</span><a href="cpp-atomic-atomic.html"><span class="kw2070">std::<span class="me2">atomic</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span><span class="sy3">&amp;</span>, <span class="kw4">int</span><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-c++23">
+<ul>
+<li>C++23 &#26631;&#20934;&#65288;ISO/IEC 14882:2024&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>18.4.8 Concept <code>assignable_from</code> [concept.assignable]</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c++20">
+<ul>
+<li>C++20 &#26631;&#20934;&#65288;ISO/IEC 14882:2020&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>18.4.8 Concept <code>assignable_from</code> [concept.assignable]</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-types-is_assignable.html"><span class="t-lines"><span>is_assignable</span><span>is_trivially_assignable</span><span>is_nothrow_assignable</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#31867;&#22411;&#26159;&#21542;&#26377;&#38024;&#23545;&#29305;&#23450;&#23454;&#21442;&#30340;&#36171;&#20540;&#36816;&#31639;&#31526;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

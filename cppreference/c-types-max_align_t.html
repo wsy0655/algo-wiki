@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>max_align_t</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_types_max_align_t skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">max_align_t</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-types.html">types</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-stddef.html"><tt>&lt;stddef.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-c11">
+<td>
+<div><span class="mw-geshi c source-c"><span class="kw1">typedef</span> <span class="coMULTI">/* &#30001;&#23454;&#29616;&#23450;&#20041; */</span> max_align_t<span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-c11" style="white-space: nowrap;">(C11 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>max_align_t</code> &#26159;&#23545;&#40784;&#35201;&#27714;&#33267;&#23569;&#21644;&#20854;&#20182;&#20219;&#20309;&#19968;&#31181;&#26631;&#37327;&#31867;&#22411;&#19968;&#26679;&#20005;&#26684;&#65288;&#19968;&#26679;&#22823;&#65289;&#30340;&#31867;&#22411;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#22914; <span class="t-lc"><a href="c-memory-malloc.html">malloc</a></span> &#36825;&#26679;&#30340;&#20998;&#37197;&#20989;&#25968;&#25152;&#36820;&#22238;&#30340;&#25351;&#38024;&#26159;&#20026;&#20219;&#24847;&#23545;&#35937;&#23545;&#40784;&#30340;&#65292;&#36825;&#34920;&#31034;&#23427;&#20204;&#33267;&#23569;&#21644; <code>max_align_t</code> &#19968;&#26679;&#20005;&#26684;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#include &lt;inttypes.h&gt;</span>
+<span class="co2">#include &lt;stdalign.h&gt;</span>
+<span class="co2">#include &lt;stddef.h&gt;</span>
+<span class="co2">#include &lt;stdint.h&gt;</span>
+<span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#include &lt;stdlib.h&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="c-types-size_t.html"><span class="kw100">size_t</span></a> a <span class="sy1">=</span> alignof<span class="br0">(</span>max_align_t<span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;max_align_t &#30340;&#23545;&#40784;&#26159; %zu (%#zx)<span class="es1">\n</span>&quot;</span>, a, a<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="kw4">void</span> <span class="sy2">*</span>p <span class="sy1">=</span> <a href="c-memory-malloc.html"><span class="kw402">malloc</span></a><span class="br0">(</span><span class="nu0">123</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;&#20174; malloc(123) &#33719;&#24471;&#30340;&#22320;&#22336;&#20026; %#&quot;</span> <a href="c-types-integer.html"><span class="kw244">PRIxPTR</span></a><span class="st0">&quot;<span class="es1">\n</span>&quot;</span>,
+            <span class="br0">(</span><a href="c-types-integer.html"><span class="kw132">uintptr_t</span></a><span class="br0">)</span>p<span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-memory-free.html"><span class="kw405">free</span></a><span class="br0">(</span>p<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">max_align_t &#30340;&#23545;&#40784;&#26159; 16 (0x10)
+&#20174; malloc(123) &#33719;&#24471;&#30340;&#22320;&#22336;&#20026; 0x1fa67010</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.19 Common definitions &lt;stddef.h&gt; &#65288;&#31532; 211 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.19 Common definitions &lt;stddef.h&gt; &#65288;&#31532; 288 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>max_align_t</span></span>&nbsp;&#30340; <span><span><a href="cpp-types-max_align_t.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

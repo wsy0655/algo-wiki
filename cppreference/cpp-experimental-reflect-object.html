@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::experimental::reflect::Object</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_experimental_reflect_Object skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::experimental::reflect::</span>Object</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-experimental.html">experimental</a>&lrm; | <a href="cpp-experimental-reflect.html">reflect</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-experimental-reflect.html">&lt;experimental/reflect&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-reflection_ts">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T <span class="sy1">&gt;</span><br />
+concept <span class="kw4">bool</span> Object <span class="sy1">=</span> <span class="coMULTI">/* &#35265;&#19979;&#25991; */</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-reflection-ts t-mark-ts" style="white-space: nowrap;">(&#21453;&#23556; TS)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>Object</code> &#27010;&#24565;&#24403;&#19988;&#20165;&#24403; <code>T</code> &#20026;&#20803;&#23545;&#35937;&#31867;&#22411;&#25165;&#24471;&#21040;&#28385;&#36275;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include&lt;experimental/reflect&gt;</span>
+ 
+<span class="kw1">namespace</span> reflect <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">experimental</span><span class="sy4">::</span><span class="me2">reflect</span><span class="sy4">;</span>
+ 
+<span class="kw1">template</span><span class="sy1">&lt;</span>reflect<span class="sy4">::</span><span class="me2">Object</span> M<span class="sy1">&gt;</span>
+<span class="kw1">struct</span> meta_t <span class="br0">{</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span>reflect<span class="sy4">::</span><span class="me2">Object</span> M1<span class="sy1">&gt;</span>
+    <span class="kw1">friend</span> <span class="kw4">constexpr</span> operator<span class="sy1">==</span><span class="br0">(</span>meta_t, meta_t<span class="sy1">&lt;</span>M1<span class="sy1">&gt;</span><span class="br0">)</span> <span class="kw1">noexcept</span>
+    <span class="br0">{</span>
+        <span class="kw1">return</span> reflect<span class="sy4">::</span><span class="me2">reflects_same_v</span><span class="sy1">&lt;</span>M, M1<span class="sy1">&gt;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">template</span><span class="sy1">&lt;</span>reflect<span class="sy4">::</span><span class="me2">Object</span> M1<span class="sy1">&gt;</span>
+    <span class="kw1">friend</span> <span class="kw4">constexpr</span> operator<span class="sy3">!</span><span class="sy1">=</span><span class="br0">(</span>meta_t, meta_t<span class="sy1">&lt;</span>M1<span class="sy1">&gt;</span><span class="br0">)</span> <span class="kw1">noexcept</span>
+    <span class="br0">{</span>
+        <span class="kw1">return</span> <span class="sy3">!</span>reflect<span class="sy4">::</span><span class="me2">reflects_same_v</span><span class="sy1">&lt;</span>M, M1<span class="sy1">&gt;</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw1">template</span><span class="sy1">&lt;</span>reflect<span class="sy4">::</span><span class="me2">Object</span> M<span class="sy1">&gt;</span>
+<span class="kw4">constexpr</span> meta_t<span class="sy1">&lt;</span>M<span class="sy1">&gt;</span> meta<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    static_assert<span class="br0">(</span>meta<span class="sy1">&lt;</span>reflexpr<span class="br0">(</span><span class="kw4">int</span><span class="br0">)</span><span class="sy1">&gt;</span> <span class="sy1">==</span> meta<span class="sy1">&lt;</span>reflexpr<span class="br0">(</span><span class="kw4">signed</span> <span class="kw4">int</span><span class="br0">)</span><span class="sy1">&gt;</span>, <span class="st0">&quot;&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="co1">// meta&lt;int&gt;; // &#38169;&#35823;&#65306;int &#19981;&#26159;&#20803;&#23545;&#35937;&#31867;&#22411;</span>
+<span class="br0">}</span></pre></div>
+</div>
+</div>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

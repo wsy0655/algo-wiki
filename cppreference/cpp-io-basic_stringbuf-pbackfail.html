@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::basic_stringbuf&lt;CharT,Traits,Allocator&gt;::pbackfail</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_io_basic_stringbuf_pbackfail skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::basic_stringbuf&lt;CharT,Traits,Allocator&gt;::</span>pbackfail</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-io.html">io</a>&lrm; | <a href="cpp-io-basic_stringbuf.html">basic stringbuf</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">protected</span><span class="sy4">:</span><br />
+<span class="kw1">virtual</span> int_type pbackfail<span class="br0">(</span> int_type c <span class="sy1">=</span> Traits<span class="sy4">::</span><span class="me2">eof</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">)</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#27492;&#21463;&#20445;&#25252;&#34394;&#20989;&#25968;&#20026;&#20844;&#24320;&#20989;&#25968; <a href="cpp-io-basic_streambuf-sungetc.html"><tt>basic_streambuf::sungetc</tt></a> &#21644; <a href="cpp-io-basic_streambuf-sputbackc.html"><tt>basic_streambuf::sputbackc</tt></a> &#25152;&#35843;&#29992;&#65288;&#36716;&#32780;&#20026; <a href="cpp-io-basic_istream-unget.html"><tt>basic_istream::unget</tt></a> &#21644; <a href="cpp-io-basic_istream-putback.html"><tt>basic_istream::putback</tt></a> &#25152;&#35843;&#29992;&#65289;&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#35843;&#29992;&#26041;&#35201;&#27714;&#33719;&#21462;&#21306;&#21518;&#22791;&#19968;&#20010;&#23383;&#31526;&#65288;&#20197;&#26080;&#23454;&#21442;&#25110;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">Traits<span class="sy4">::</span><span class="me2">eof</span><span class="br0">(</span><span class="br0">)</span></span></span> &#20026;&#23454;&#21442;&#35843;&#29992; <code>pbackfail()</code>&#65289;</div>
+<div class="t-li2"><span class="t-li">a)</span> &#39318;&#20808;&#65292;&#26816;&#26597;&#26159;&#21542;&#26377;&#22238;&#25918;&#20301;&#32622;&#65292;&#32780;&#33509;&#30830;&#23454;&#26080;&#22238;&#25918;&#20301;&#32622;&#21017;&#22833;&#36133;&#65288; stringbuf &#26080;&#37325;&#35835;&#29992;&#30340;&#22806;&#37096;&#23383;&#31526;&#24207;&#21015;&#65289;</div>
+<div class="t-li2"><span class="t-li">b)</span> &#33509;&#35843;&#29992;&#26041;&#38169;&#35823;&#32780;&#22238;&#25918;&#20301;&#32622;&#23454;&#38469;&#19978;&#21487;&#29992;&#65292;&#21017;&#31616;&#21333;&#22320;&#33258;&#20943; <a href="cpp-io-basic_streambuf-gptr.html"><tt>basic_streambuf::gptr()</tt></a>&#65292;&#20363;&#22914;&#20197;&#35843;&#29992; <span class="t-c"><span class="mw-geshi cpp source-cpp">gbump<span class="br0">(</span><span class="sy2">-</span><span class="nu0">1</span><span class="br0">)</span></span></span>&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#35843;&#29992;&#26041;&#35797;&#22270;&#22238;&#25918;&#30340;&#23383;&#31526;&#24322;&#20110;&#20043;&#21069;&#21462;&#24471;&#32773;&#65288;&#20197;&#35201;&#38656;&#35201;&#25918;&#22238;&#30340;&#23383;&#31526;&#35843;&#29992; <code>pbackfail()</code>&#65289;&#65292;&#35813;&#24773;&#20917;&#19979;</div>
+<div class="t-li2"><span class="t-li">a)</span> &#39318;&#20808;&#65292;&#26816;&#26597;&#26159;&#21542;&#26377;&#22238;&#25918;&#20301;&#32622;&#65292;&#33509;&#26080;&#21017;&#22833;&#36133;&#12290;</div>
+<div class="t-li2"><span class="t-li">b)</span> &#28982;&#21518;&#26816;&#26597;&#20250;&#25918;&#20301;&#32622;&#20013;&#26377;&#20160;&#20040;&#23383;&#31526;&#12290;&#33509;&#20854;&#22788;&#20445;&#26377;&#30340;&#23383;&#31526;&#24050;&#31561;&#20110; <code>c</code>&#65292;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">Traits<span class="sy4">::</span><span class="me2">eq</span><span class="br0">(</span>to_char_type<span class="br0">(</span>c<span class="br0">)</span>, gptr<span class="br0">(</span><span class="br0">)</span><span class="br0">[</span><span class="sy2">-</span><span class="nu0">1</span><span class="br0">]</span><span class="br0">)</span></span></span> &#30830;&#23450;&#65292;&#21017;&#31616;&#21333;&#22320;&#33258;&#20943; <a href="cpp-io-basic_streambuf-gptr.html"><tt>basic_streambuf::gptr()</tt></a>&#12290;</div>
+<div class="t-li2"><span class="t-li">c)</span> &#21542;&#21017;&#65292;&#33509;&#32531;&#20914;&#21306;&#20165;&#20026;&#35835;&#21462;&#25171;&#24320;&#65292;&#21017;&#22833;&#36133;&#12290;</div>
+<div class="t-li2"><span class="t-li">d)</span> &#21542;&#21017;&#65292;&#33509;&#32531;&#20914;&#21306;&#20026;&#20889;&#20837;&#25171;&#24320;&#65288; <span class="t-c"><span class="mw-geshi cpp source-cpp">mode <span class="sy3">&amp;&amp;</span> <a href="cpp-io-ios_base-openmode.html"><span class="kw1679">std::<span class="me2">ios_base</span><span class="sy4">::</span><span class="me2">out</span></span></a></span></span> &#38750;&#38646;&#65289;&#65292;&#21017;&#33258;&#20943; <a href="cpp-io-basic_streambuf-gptr.html"><tt>basic_streambuf::gptr()</tt></a> &#24182;&#20889;&#20837; <code>c</code> &#21040;&#35843;&#25972;&#21518;&#30340; gptr() &#25152;&#25351;&#21521;&#30340;&#20301;&#32622;&#12290;</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>c</td>
+<td>-</td>
+<td>&#35201;&#36820;&#22238;&#30340;&#23383;&#31526;&#65292;&#25110;&#33509;&#35201;&#27714;&#25351;&#31034;&#33719;&#21462;&#21306;&#30340;&#21518;&#22791;&#21017;&#20026; Traits::eof()</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#25104;&#21151;&#26102;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">c</span></span>&#65292;&#38500;&#38750; <code>c</code> &#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">Traits<span class="sy4">::</span><span class="me2">eof</span><span class="br0">(</span><span class="br0">)</span></span></span>&#65292;&#35813;&#24773;&#20917;&#19979;&#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp">Traits<span class="sy4">::</span><span class="me2">not_eof</span><span class="br0">(</span>c<span class="br0">)</span></span></span>&#12290;</p>
+<p>&#22833;&#36133;&#26102;&#20026; <span class="t-c"><span class="mw-geshi cpp source-cpp">Traits<span class="sy4">::</span><span class="me2">eof</span><span class="br0">(</span><span class="br0">)</span></span></span>&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#26242;&#26080;&#31034;&#20363;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-pbackfail.html"><span class="t-lines"><span>pbackfail</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-cmark">[&#34394;]</span></span></span></div>
+</div>
+</td>
+<td>&#23558;&#23383;&#31526;&#25918;&#22238;&#36755;&#20837;&#24207;&#21015;&#65292;&#21487;&#33021;&#20462;&#25913;&#36755;&#20837;&#24207;&#21015;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#34394;&#21463;&#20445;&#25252;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-sungetc.html"><span class="t-lines"><span>sungetc</span></span></a></div>
+</div>
+</td>
+<td>&#22238;&#31227;&#19968;&#20301;&#36755;&#20986;&#24207;&#21015;&#20013;&#30340;&#19979;&#19968;&#20301;&#32622;&#25351;&#38024;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_streambuf-sputbackc.html"><span class="t-lines"><span>sputbackc</span></span></a></div>
+</div>
+</td>
+<td>&#22312;&#36755;&#20837;&#24207;&#21015;&#20013;&#25918;&#22238;&#19968;&#20010;&#23383;&#31526;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_streambuf&lt;CharT,Traits&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_istream-unget.html"><span class="t-lines"><span>unget</span></span></a></div>
+</div>
+</td>
+<td>&#25764;&#38144;&#19978;&#19968;&#20010;&#23383;&#31526;&#30340;&#25552;&#21462;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_istream&lt;CharT,Traits&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-io-basic_istream-putback.html"><span class="t-lines"><span>putback</span></span></a></div>
+</div>
+</td>
+<td>&#24448;&#36755;&#20837;&#27969;&#20013;&#25918;&#32622;&#19968;&#20010;&#23383;&#31526;<br />
+<span class="t-mark" style="white-space: nowrap;">(<code>std::basic_istream&lt;CharT,Traits&gt;</code> &#30340;&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

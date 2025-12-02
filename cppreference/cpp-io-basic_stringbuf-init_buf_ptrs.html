@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::basic_stringbuf&lt;CharT,Traits,Allocator&gt;::init_buf_ptrs</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_io_basic_stringbuf_init_buf_ptrs skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::basic_stringbuf&lt;CharT,Traits,Allocator&gt;::</span><i>init_buf_ptrs</i></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-io.html">io</a>&lrm; | <a href="cpp-io-basic_stringbuf.html">basic stringbuf</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span> init_buf_ptrs<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark t-mark-expos" style="white-space: nowrap;">(<span title="&#27492;&#23450;&#20041;&#20165;&#29992;&#20110;&#23637;&#31034;&#12290;&#23454;&#29616;&#19981;&#38656;&#35201;&#36890;&#36807;&#36825;&#31181;&#26041;&#24335;&#23450;&#20041;&#23454;&#20307;&#12290;&#27492;&#23454;&#20307;&#30340;&#21517;&#23383;&#26410;&#25351;&#23450;&#12290;">&#20165;&#29992;&#20110;&#38416;&#36848;*</span>)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#26681;&#25454; <span class="t-c"><span class="mw-geshi cpp source-cpp">mode</span></span>&#65292;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">buf</span></span> &#21021;&#22987;&#21270;&#36755;&#20837;&#21644;&#36755;&#20986;&#24207;&#21015;&#12290;<span class="t-c"><span class="mw-geshi cpp source-cpp">buf</span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp">mode</span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#30340; <a href="cpp-io-basic_stringbuf.html#.E4.BB.85.E7.94.A8.E4.BA.8E.E9.98.90.E8.BF.B0.E7.9A.84.E6.88.90.E5.91.98">&#20165;&#29992;&#20110;&#38416;&#36848;&#30340;&#25968;&#25454;&#25104;&#21592;</a>&#12290;</p>
+<p>&#22312;&#27492;&#20989;&#25968;&#36820;&#22238;&#21518;&#31435;&#21363;&#28385;&#36275;&#20197;&#19979;&#26465;&#20214;&#65306;</p>
+<ul>
+<li>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">mode</span></span> &#20013;&#35774;&#32622;&#20102; <span class="t-lc"><a href="cpp-io-ios_base-openmode.html">std::ios_base::out</a></span>&#65292;&#37027;&#20040; <a href="cpp-io-basic_streambuf-pptr.html"><tt>pbase()</tt></a> &#25351;&#21521; <span class="t-c"><span class="mw-geshi cpp source-cpp">buf.<span class="me1">front</span><span class="br0">(</span><span class="br0">)</span></span></span> &#19988; <span class="t-c"><span class="mw-geshi cpp source-cpp">epptr<span class="br0">(</span><span class="br0">)</span> <span class="sy1">&gt;=</span> pbase<span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> buf.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65307;
+<ul>
+<li>&#21478;&#22806;&#65292;&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">mode</span></span> &#20013;&#35774;&#32622;&#20102; <span class="t-lc"><a href="cpp-io-ios_base-openmode.html">std::ios_base::ate</a></span>&#65292;&#37027;&#20040; <span class="t-c"><span class="mw-geshi cpp source-cpp">pptr<span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> pbase<span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> buf.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#65292;</li>
+<li>&#21542;&#21017; <span class="t-c"><span class="mw-geshi cpp source-cpp">pptr<span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> pbase<span class="br0">(</span><span class="br0">)</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#12290;</li>
+</ul>
+</li>
+<li>&#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp">mode</span></span> &#20013;&#35774;&#32622;&#20102; <span class="t-lc"><a href="cpp-io-ios_base-openmode.html">std::ios_base::in</a></span>&#65292;&#37027;&#20040; <a href="cpp-io-basic_streambuf-gptr.html"><tt>eback()</tt></a> &#25351;&#21521; <span class="t-c"><span class="mw-geshi cpp source-cpp">buf.<span class="me1">front</span><span class="br0">(</span><span class="br0">)</span></span></span> &#19988; <span class="t-c"><span class="mw-geshi cpp source-cpp">gptr<span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> eback<span class="br0">(</span><span class="br0">)</span> <span class="sy3">&amp;&amp;</span> egptr<span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> eback<span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> buf.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#32771;&#34385;&#21040;&#25928;&#29575;&#21407;&#22240;&#65292;&#27969;&#32531;&#20914;&#21306;&#25805;&#20316;&#21487;&#33021;&#20250;&#36829;&#32972;&#23553;&#35013;&#22312; <code>std::basic_stringbuf</code> &#20013;&#30340; <span class="t-c"><span class="mw-geshi cpp source-cpp">buf</span></span> &#30340;&#19981;&#21464;&#24335;&#65292;&#20363;&#22914;&#20889;&#20837;&#33539;&#22260; <code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">buf.<span class="me1">data</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> buf.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span></span></span><code>,&nbsp;</code><span class="t-c"><span class="mw-geshi cpp source-cpp">buf.<span class="me1">data</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> buf.<span class="me1">capacity</span><span class="br0">(</span><span class="br0">)</span></span></span><code>)</code> &#20013;&#30340;&#23383;&#31526;&#12290;</p>
+<p>&#25152;&#26377;&#20174; <span class="t-c"><span class="mw-geshi cpp source-cpp">buf</span></span> &#20013;&#33719;&#21462; <span class="t-lc"><a href="cpp-string-basic_string.html">std::basic_string</a></span> &#30340;&#25805;&#20316;&#37117;&#20250;&#30830;&#20445;&#36820;&#22238;&#20540;&#20013;&#25345;&#26377;&#30340; <span class="t-lc"><a href="cpp-string-basic_string.html">std::basic_string</a></span> &#30340;&#19981;&#21464;&#24335;&#19981;&#20250;&#34987;&#36829;&#32972;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.BC.BA.E9.99.B7.E6.8A.A5.E5.91.8A">&#32570;&#38519;&#25253;&#21578;</span></h3>
+<p>&#19979;&#21015;&#26356;&#25913;&#34892;&#20026;&#30340;&#32570;&#38519;&#25253;&#21578;&#36861;&#28335;&#22320;&#24212;&#29992;&#20110;&#20197;&#21069;&#20986;&#29256;&#30340; C++ &#26631;&#20934;&#12290;</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>&#32570;&#38519;&#25253;&#21578;</th>
+<th>&#24212;&#29992;&#20110;</th>
+<th>&#20986;&#29256;&#26102;&#30340;&#34892;&#20026;</th>
+<th>&#27491;&#30830;&#34892;&#20026;</th>
+</tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue1448">LWG 1448</a></td>
+<td>C++98</td>
+<td><code><i>init_buf_ptrs</i>()</code> &#23545;&#20110;&#21516;&#26102;&#26159;&#36755;&#20837;&#27969;&#21644;&#36755;&#20986;&#27969;&#30340;&#27969;<br />
+&#20250;&#20351; <span class="t-c"><span class="mw-geshi cpp source-cpp">pptr<span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> pbase<span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> buf.<span class="me1">data</span><span class="br0">(</span><span class="br0">)</span></span></span></td>
+<td>&#23545;&#20110;&#21518;&#38468;&#27969;&#20250;&#20351;<br />
+<span class="t-c"><span class="mw-geshi cpp source-cpp">pptr<span class="br0">(</span><span class="br0">)</span> <span class="sy1">==</span> pbase<span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> buf.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span></span></span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

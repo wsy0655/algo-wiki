@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::floating_point</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_concepts_floating_point skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::</span>floating_point</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-concepts.html">concepts</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-concepts.html">&lt;concepts&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T <span class="sy1">&gt;</span><br />
+concept floating_point <span class="sy1">=</span> <a href="cpp-types-is_floating_point.html"><span class="kw466">std::<span class="me2">is_floating_point_v</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-cxx20" style="white-space: nowrap;">(C++20 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#27010;&#24565; <span class="t-c"><span class="mw-geshi cpp source-cpp">floating_point<span class="sy1">&lt;</span>T<span class="sy1">&gt;</span></span></span> &#24403;&#19988;&#20165;&#24403; <code>T</code> &#20026;&#28014;&#28857;&#25968;&#31867;&#22411;&#26102;&#24471;&#21040;&#28385;&#36275;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;concepts&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;type_traits&gt;</span>
+ 
+<span class="kw4">constexpr</span> std<span class="sy4">::</span><span class="me2">floating_point</span> <span class="kw4">auto</span> x2<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">floating_point</span> <span class="kw4">auto</span> x<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">return</span> x <span class="sy2">+</span> x<span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">constexpr</span> <a href="cpp-concepts-integral.html"><span class="kw2938">std::<span class="me2">integral</span></span></a> <span class="kw4">auto</span> x2<span class="br0">(</span><a href="cpp-concepts-integral.html"><span class="kw2938">std::<span class="me2">integral</span></span></a> <span class="kw4">auto</span> x<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">return</span> x <span class="sy1">&lt;&lt;</span> <span class="nu0">1</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">constexpr</span> <span class="kw4">auto</span> d <span class="sy1">=</span> x2<span class="br0">(</span><span class="nu16">1.1</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span><a href="cpp-types-is_same.html"><span class="kw592">std::<span class="me2">is_same_v</span></span></a><span class="sy1">&lt;</span><span class="kw4">double</span> <span class="kw4">const</span>, decltype<span class="br0">(</span>d<span class="br0">)</span><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> d <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="kw4">constexpr</span> <span class="kw4">auto</span> f <span class="sy1">=</span> x2<span class="br0">(</span><span class="nu17">2.2f</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span><a href="cpp-types-is_same.html"><span class="kw592">std::<span class="me2">is_same_v</span></span></a><span class="sy1">&lt;</span><span class="kw4">float</span> <span class="kw4">const</span>, decltype<span class="br0">(</span>f<span class="br0">)</span><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> f <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+ 
+    <span class="kw4">constexpr</span> <span class="kw4">auto</span> i <span class="sy1">=</span> x2<span class="br0">(</span><span class="nu0">444</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span><a href="cpp-types-is_same.html"><span class="kw592">std::<span class="me2">is_same_v</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span> <span class="kw4">const</span>, decltype<span class="br0">(</span>i<span class="br0">)</span><span class="sy1">&gt;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> i <span class="sy1">&lt;&lt;</span> <span class="st0">&#39;<span class="es1">\n</span>&#39;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">2.2
+4.4
+888</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-c++23">
+<ul>
+<li>C++23 &#26631;&#20934;&#65288;ISO/IEC 14882:2024&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>18.4.7 Arithmetic concepts [concepts.arithmetic]</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c++20">
+<ul>
+<li>C++20 &#26631;&#20934;&#65288;ISO/IEC 14882:2020&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>18.4.7 Arithmetic concepts [concepts.arithmetic]</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-types-is_floating_point.html"><span class="t-lines"><span>is_floating_point</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#31867;&#22411;&#26159;&#21542;&#20026;&#28014;&#28857;&#25968;&#31867;&#22411;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#31867;&#27169;&#26495;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

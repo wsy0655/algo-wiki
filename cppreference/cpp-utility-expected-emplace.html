@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::expected&lt;T,E&gt;::emplace</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_utility_expected_emplace skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::expected&lt;T,E&gt;::</span>emplace</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-utility.html">utility</a>&lrm; | <a href="cpp-utility-expected.html">expected</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dcl-h">
+<td>
+<div>&#20027;&#27169;&#26495;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span>... <span class="me1">Args</span> <span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> T<span class="sy3">&amp;</span> emplace<span class="br0">(</span> Args<span class="sy3">&amp;&amp;</span>... <span class="me1">args</span> <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(1)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> U, <span class="kw1">class</span>... <span class="me1">Args</span> <span class="sy1">&gt;</span><br />
+<span class="kw4">constexpr</span> T<span class="sy3">&amp;</span> emplace<span class="br0">(</span> <a href="cpp-utility-initializer_list.html"><span class="kw962">std::<span class="me2">initializer_list</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span> il, Args<span class="sy3">&amp;&amp;</span>... <span class="me1">args</span> <span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(2)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-h">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span> &#37096;&#20998;&#29305;&#21270;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx23">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="kw4">void</span> emplace<span class="br0">(</span><span class="br0">)</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div>
+</td>
+<td>(3)</td>
+<td><span class="t-mark-rev t-since-cxx23" style="white-space: nowrap;">(C++23 &#36215;)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#22312;&#21407;&#22320;&#26500;&#36896;&#19968;&#20010;&#39044;&#26399;&#20540;&#12290;&#35843;&#29992;&#21518;&#65292;<a href="cpp-utility-expected-operator_bool.html"><code>has_value()</code></a> &#36820;&#22238; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>&#12290;</p>
+<div class="t-li1"><span class="t-li">1)</span> &#38144;&#27585;&#21253;&#21547;&#30340;&#20540;&#65292;&#28982;&#21518;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span>args<span class="br0">)</span>...</span></span> <a href="cpp-language-direct_initialization.html">&#30452;&#25509;&#21021;&#22987;&#21270;</a> <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#20013;&#21253;&#21547;&#30340;&#39044;&#26399;&#20540;&#12290;</div>
+<div class="t-li1"><span class="t-li"></span> &#27492;&#37325;&#36733;&#21482;&#26377;&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_constructible.html"><span class="kw532">std::<span class="me2">is_nothrow_constructible_v</span></span></a><span class="sy1">&lt;</span>T, Args...<span class="sy1">&gt;</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span> &#26102;&#25165;&#20250;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#12290;</div>
+<div class="t-li1"><span class="t-li">2)</span> &#38144;&#27585;&#21253;&#21547;&#30340;&#20540;&#65292;&#28982;&#21518;&#20197; <span class="t-c"><span class="mw-geshi cpp source-cpp">il</span></span> &#21644; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span>args<span class="br0">)</span>...</span></span> &#30452;&#25509;&#21021;&#22987;&#21270; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#20013;&#21253;&#21547;&#30340;&#39044;&#26399;&#20540;&#12290;</div>
+<div class="t-li1"><span class="t-li"></span> &#27492;&#37325;&#36733;&#21482;&#26377;&#22312; <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="cpp-types-is_constructible.html"><span class="kw532">std::<span class="me2">is_nothrow_constructible_v</span></span></a><span class="sy1">&lt;</span>T, <a href="cpp-utility-initializer_list.html"><span class="kw962">std::<span class="me2">initializer_list</span></span></a><span class="sy1">&lt;</span>U<span class="sy1">&gt;</span><span class="sy3">&amp;</span>, Args...<span class="sy1">&gt;</span></span></span> &#26159; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span> &#26102;&#25165;&#20250;&#21442;&#19982;&#37325;&#36733;&#20915;&#35758;&#12290;</div>
+<div class="t-li1"><span class="t-li">3)</span> &#22914;&#26524; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span> &#21253;&#21547;&#19968;&#20010;&#38750;&#39044;&#26399;&#20540;&#65292;&#23601;&#38144;&#27585;&#35813;&#20540;&#12290;</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>args</td>
+<td>-</td>
+<td>&#20256;&#36882;&#32473;&#26500;&#36896;&#20989;&#25968;&#30340;&#23454;&#21442;</td>
+</tr>
+<tr class="t-par">
+<td>il</td>
+<td>-</td>
+<td>&#20256;&#36882;&#32473;&#26500;&#36896;&#20989;&#25968;&#30340;&#21021;&#22987;&#21270;&#24335;&#21015;&#34920;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<div class="t-li1"><span class="t-li">1)</span> <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span><a href="cpp-memory-construct_at.html"><span class="kw3205">std::<span class="me2">construct_at</span></span></a><span class="br0">(</span><a href="cpp-memory-addressof.html"><span class="kw759">std::<span class="me2">addressof</span></span></a><span class="br0">(</span></span><a href="cpp-utility-expected.html#.E6.95.B0.E6.8D.AE.E6.88.90.E5.91.98"><code><i>val</i></code></a><span class="mw-geshi cpp source-cpp"><span class="br0">)</span>, <a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span>args<span class="br0">)</span>...<span class="br0">)</span></span></span></div>
+<div class="t-li1"><span class="t-li">2)</span> <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span><a href="cpp-memory-construct_at.html"><span class="kw3205">std::<span class="me2">construct_at</span></span></a><span class="br0">(</span><a href="cpp-memory-addressof.html"><span class="kw759">std::<span class="me2">addressof</span></span></a><span class="br0">(</span></span><a href="cpp-utility-expected.html#.E6.95.B0.E6.8D.AE.E6.88.90.E5.91.98"><code><i>val</i></code></a><span class="mw-geshi cpp source-cpp"><span class="br0">)</span>, il, <a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span>args<span class="br0">)</span>...<span class="br0">)</span></span></span></div>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p>&#22914;&#26524; <code>T</code> &#30340;&#26500;&#36896;&#26159;&#28508;&#22312;&#25243;&#20986;&#30340;&#65292;&#37027;&#20040;&#21487;&#20197;&#25913;&#29992; <a href="cpp-utility-expected-operator=.html"><code>operator=</code></a>&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style="">
+<tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">&#26412;&#33410;&#26410;&#23436;&#25104;<br />
+&#21407;&#22240;&#65306;&#26242;&#26080;&#31034;&#20363;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="cpp-utility-expected-operator=.html"><span class="t-lines"><span>operator=</span></span></a></div>
+</div>
+</td>
+<td>&#36171;&#20540;&#20869;&#23481;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20844;&#24320;&#25104;&#21592;&#20989;&#25968;)</span></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

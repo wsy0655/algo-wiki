@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>sizeof... &#36816;&#31639;&#31526; (C++11 &#36215;)</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_language_sizeof skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><code>sizeof...</code> &#36816;&#31639;&#31526; <span class="t-mark-rev t-since-cxx11" style="white-space: nowrap;">(C++11 &#36215;)</span></h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-language.html">language</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<p><br /></p>
+<p>&#26597;&#35810;<a href="cpp-language-pack.html">&#21253;</a>&#20013;&#30340;&#20803;&#32032;&#25968;&#37327;&#12290;</p>
+<h3><span class="mw-headline" id=".E8.AF.AD.E6.B3.95">&#35821;&#27861;</span></h3>
+<table class="t-sdsc-begin">
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+<tr class="t-sdsc">
+<td class="t-sdsc-nopad"><code><b>sizeof...(</b></code> <span class="t-spar">&#21253;</span> <code><b>)</b></code></td>
+<td class="t-sdsc-nopad"></td>
+<td class="t-sdsc-nopad"></td>
+</tr>
+<tr>
+<td colspan="10" class="t-sdsc-sep"></td>
+</tr>
+</table>
+<p>&#36820;&#22238; <span class="t-lc"><a href="cpp-types-size_t.html">std::size_t</a></span> &#31867;&#22411;&#30340;&#24120;&#37327;&#12290;</p>
+<h3><span class="mw-headline" id=".E8.A7.A3.E9.87.8A">&#35299;&#37322;</span></h3>
+<p>&#36820;&#22238;<a href="cpp-language-pack.html">&#21253;</a>&#20013;&#30340;&#20803;&#32032;&#25968;&#37327;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.85.B3.E9.94.AE.E8.AF.8D">&#20851;&#38190;&#35789;</span></h3>
+<p><a href="cpp-keyword-sizeof.html"><tt>sizeof</tt></a></p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="cpp source-cpp">
+<pre class="de1"><span class="co2">#include &lt;array&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;type_traits&gt;</span>
+ 
+<span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">typename</span>... <span class="me1">Ts</span><span class="sy1">&gt;</span>
+<span class="kw4">constexpr</span> <span class="kw4">auto</span> make_array<span class="br0">(</span>Ts<span class="sy3">&amp;&amp;</span>... <span class="me1">ts</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">using</span> CT <span class="sy1">=</span> <a href="cpp-types-common_type.html"><span class="kw639">std::<span class="me2">common_type_t</span></span></a><span class="sy1">&lt;</span>Ts...<span class="sy1">&gt;</span><span class="sy4">;</span>
+    <span class="kw1">return</span> <a href="cpp-container-array.html"><span class="kw1271">std::<span class="me2">array</span></span></a><span class="sy1">&lt;</span>CT, sizeof...<span class="br0">(</span>Ts<span class="br0">)</span><span class="sy1">&gt;</span><span class="br0">{</span><a href="cpp-utility-forward.html"><span class="kw1120">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>CT<span class="sy1">&gt;</span><span class="br0">(</span>ts<span class="br0">)</span>...<span class="br0">}</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="cpp-container-array.html"><span class="kw1271">std::<span class="me2">array</span></span></a><span class="sy1">&lt;</span><span class="kw4">double</span>, 4ul<span class="sy1">&gt;</span> arr <span class="sy1">=</span> make_array<span class="br0">(</span><span class="nu0">1</span>, <span class="nu17">2.71f</span>, <span class="nu16">3.14</span>, <span class="st0">&#39;*&#39;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;arr = { &quot;</span><span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">auto</span> s<span class="br0">{</span>arr.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span><span class="br0">}</span><span class="sy4">;</span> <span class="kw4">double</span> elem <span class="sy4">:</span> arr<span class="br0">)</span>
+        <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> elem <span class="sy1">&lt;&lt;</span> <span class="br0">(</span><span class="sy2">--</span>s <span class="sy4">?</span> <span class="st0">&quot;, &quot;</span> <span class="sy4">:</span> <span class="st0">&quot; &quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="cpp-io-cout.html"><span class="kw1762">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;}<span class="es1">\n</span>&quot;</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">arr = { 1, 2.71, 3.14, 42 }</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<ul>
+<li><a href="cpp-language-sizeof.html">sizeof</a></li>
+</ul>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

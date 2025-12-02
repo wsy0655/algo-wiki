@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>isupper</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_string_byte_isupper skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading">isupper</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="c.html">c</a>&lrm; | <a href="c-string.html">string</a>&lrm; | <a href="c-string-byte.html">byte</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="c-header-ctype.html"><tt>&lt;ctype.h&gt;</tt></a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad">
+<div><span class="mw-geshi c source-c"><span class="kw4">int</span> isupper<span class="br0">(</span> <span class="kw4">int</span> ch <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td class="t-dcl-nopad"></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#26681;&#25454;&#24403;&#21069; C &#26412;&#22320;&#29615;&#22659;&#26816;&#26597;&#32473;&#23450;&#23383;&#31526;&#26159;&#21542;&#20026;&#22823;&#20889;&#23383;&#27597;&#12290;&#22312;&#40664;&#35748; <code>&quot;C&quot;</code> &#26412;&#22320;&#29615;&#22659;&#20013;&#65292;<code>isupper</code> &#20165;&#23545;&#22823;&#20889;&#25289;&#19969;&#23383;&#27597;&#65288;<code>ABCDEFGHIJKLMNOPQRSTUVWXYZ</code>&#65289;&#36820;&#22238;&#38750;&#38646;&#20540;&#12290;</p>
+<p>&#33509; <code>isupper</code>&#36820;&#22238;&#38750;&#38646;&#65292;&#21017;&#20445;&#35777; <span class="t-lc"><a href="c-string-byte-iscntrl.html">iscntrl</a></span>&#12289;<span class="t-lc"><a href="c-string-byte-isdigit.html">isdigit</a></span>&#12289;<span class="t-lc"><a href="c-string-byte-ispunct.html">ispunct</a></span> &#21450; <span class="t-lc"><a href="c-string-byte-isspace.html">isspace</a></span> &#22312;&#21516;&#19968; C &#26412;&#22320;&#29615;&#22659;&#20013;&#23545;&#21516;&#19968;&#23383;&#31526;&#36820;&#22238;&#38646;&#12290;</p>
+<p>&#33509; <span class="t-c"><span class="mw-geshi c source-c">ch</span></span> &#30340;&#20540;&#19981;&#33021;&#34920;&#31034;&#20026; <span class="mw-geshi c source-c"><span class="kw4">unsigned</span> <span class="kw4">char</span></span> &#19988;&#19981;&#31561;&#20110; <span class="t-c"><span class="mw-geshi c source-c"><a href="c-io.html"><span class="kw888">EOF</span></a></span></span>&#65292;&#21017;&#34892;&#20026;&#26410;&#23450;&#20041;&#12290;</p>
+<h3><span class="mw-headline" id=".E5.8F.82.E6.95.B0">&#21442;&#25968;</span></h3>
+<table class="t-par-begin">
+<tr class="t-par">
+<td>ch</td>
+<td>-</td>
+<td>&#35201;&#20998;&#31867;&#30340;&#23383;&#31526;</td>
+</tr>
+</table>
+<h3><span class="mw-headline" id=".E8.BF.94.E5.9B.9E.E5.80.BC">&#36820;&#22238;&#20540;</span></h3>
+<p>&#33509;&#23383;&#31526;&#20026;&#22823;&#20889;&#23383;&#27597;&#21017;&#20026;&#38750;&#38646;&#20540;&#65292;&#21542;&#21017;&#20026;&#38646;&#12290;</p>
+<h3><span class="mw-headline" id=".E7.A4.BA.E4.BE.8B">&#31034;&#20363;</span></h3>
+<div class="t-example">
+<div class="t-example-live-link"></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c">
+<pre class="de1"><span class="co2">#include &lt;ctype.h&gt;</span>
+<span class="co2">#include &lt;locale.h&gt;</span>
+<span class="co2">#include &lt;stdio.h&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">void</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">unsigned</span> <span class="kw4">char</span> c <span class="sy1">=</span> <span class="st0">&#39;<span class="es2">\xc6</span>&#39;</span><span class="sy4">;</span> <span class="co1">// ISO-8859-1&#30340; &#23383;&#27597; &AElig; </span>
+    <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;&#22312;&#40664;&#35748;&#30340; C &#26412;&#22320;&#29615;&#22659;&#20013;&#65292;<span class="es1">\\</span>xc6 %s&#26159;&#22823;&#20889;&#23383;&#27597;<span class="es1">\n</span>&quot;</span>,
+           isupper<span class="br0">(</span>c<span class="br0">)</span> <span class="sy4">?</span> <span class="st0">&quot;&quot;</span> <span class="sy4">:</span> <span class="st0">&quot;&#19981;&quot;</span> <span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-locale-setlocale.html"><span class="kw900">setlocale</span></a><span class="br0">(</span><a href="c-locale-LC_categories.html"><span class="kw903">LC_ALL</span></a>, <span class="st0">&quot;en_GB.iso88591&quot;</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="c-io-fprintf.html"><span class="kw850">printf</span></a><span class="br0">(</span><span class="st0">&quot;&#22312; ISO-8859-1 &#26412;&#22320;&#29615;&#22659;&#20013;&#65292;<span class="es1">\\</span>xc6 %s&#26159;&#22823;&#20889;&#23383;&#27597;<span class="es1">\n</span>&quot;</span>,
+           isupper<span class="br0">(</span>c<span class="br0">)</span> <span class="sy4">?</span> <span class="st0">&quot;&quot;</span> <span class="sy4">:</span> <span class="st0">&quot;&#19981;&quot;</span> <span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div>
+</div>
+<p>&#21487;&#33021;&#30340;&#36755;&#20986;&#65306;</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="text source-text">
+<pre class="de1">&#22312;&#40664;&#35748;&#30340; C &#26412;&#22320;&#29615;&#22659;&#20013;&#65292;\xc6 &#19981;&#26159;&#22823;&#20889;&#23383;&#27597;
+&#22312; ISO-8859-1 &#26412;&#22320;&#29615;&#22659;&#20013;&#65292;\xc6 &#26159;&#22823;&#20889;&#23383;&#27597;</pre></div>
+</div>
+</div>
+<h3><span class="mw-headline" id=".E5.BC.95.E7.94.A8">&#24341;&#29992;</span></h3>
+<div class="t-ref-std-23">
+<ul>
+<li>C23 &#26631;&#20934;&#65288;ISO/IEC 9899:2024&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.4.1.11 The isupper function &#65288;&#31532; TBD &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-17">
+<ul>
+<li>C17 &#26631;&#20934;&#65288;ISO/IEC 9899:2018&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.4.1.11 The isupper function &#65288;&#31532; 147 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-11">
+<ul>
+<li>C11 &#26631;&#20934;&#65288;ISO/IEC 9899:2011&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.4.1.11 The isupper function &#65288;&#31532; 203 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c99">
+<ul>
+<li>C99 &#26631;&#20934;&#65288;ISO/IEC 9899:1999&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>7.4.1.11 The isupper function &#65288;&#31532; 184 &#39029;&#65289;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="t-ref-std-c89">
+<ul>
+<li>C89/C90 &#26631;&#20934;&#65288;ISO/IEC 9899:1990&#65289;&#65306;</li>
+</ul>
+<dl>
+<dd>
+<ul>
+<li>4.3.1.10 The isupper function</li>
+</ul>
+</dd>
+</dl>
+</div>
+<h3><span class="mw-headline" id=".E5.8F.82.E9.98.85">&#21442;&#38405;</span></h3>
+<table class="t-dsc-begin">
+<tr class="t-dsc">
+<td>
+<div class="t-dsc-member-div">
+<div><a href="c-string-wide-iswupper.html"><span class="t-lines"><span>iswupper</span></span></a></div>
+<div><span class="t-lines"><span><span class="t-mark-rev t-since-c95" style="white-space: nowrap;">(C95)</span></span></span></div>
+</div>
+</td>
+<td>&#26816;&#26597;&#23485;&#23383;&#31526;&#26159;&#21542;&#20026;&#22823;&#20889;<br />
+<span class="t-mark" style="white-space: nowrap;">(&#20989;&#25968;)</span></td>
+</tr>
+<tr class="t-dsc">
+<td colspan="2">
+<div class="t-dsc-see"><span class="t-dsc-see-tt"><span>isupper</span></span>&nbsp;&#30340; <span><span><a href="cpp-string-byte-isupper.html">C++ &#25991;&#26723;</a></span></span></div>
+</td>
+</tr>
+</table>
+<table class="wikitable" style="font-size:85%; text-align:center;">
+<tr>
+<th colspan="3">ASCII &#20540;</th>
+<th rowspan="2">&#23383;&#31526;</th>
+<th rowspan="2" style="font-size:85%">
+<p><a href="c-string-byte-iscntrl.html"><tt>iscntrl</tt></a><br />
+<a href="c-string-wide-iswcntrl.html"><tt>iswcntrl</tt></a></p>
+</th>
+<th rowspan="2" style="font-size:85%">
+<p><a href="c-string-byte-isprint.html"><tt>isprint</tt></a><br />
+<a href="c-string-wide-iswprint.html"><tt>iswprint</tt></a></p>
+</th>
+<th rowspan="2" style="font-size:85%">
+<p><a href="c-string-byte-isspace.html"><tt>isspace</tt></a><br />
+<a href="c-string-wide-iswspace.html"><tt>iswspace</tt></a></p>
+</th>
+<th rowspan="2" style="font-size:85%">
+<p><a href="c-string-byte-isblank.html"><tt>isblank</tt></a><br />
+<a href="c-string-wide-iswblank.html"><tt>iswblank</tt></a></p>
+</th>
+<th rowspan="2" style="font-size:85%">
+<p><a href="c-string-byte-isgraph.html"><tt>isgraph</tt></a><br />
+<a href="c-string-wide-iswgraph.html"><tt>iswgraph</tt></a></p>
+</th>
+<th rowspan="2" style="font-size:85%">
+<p><a href="c-string-byte-ispunct.html"><tt>ispunct</tt></a><br />
+<a href="c-string-wide-iswpunct.html"><tt>iswpunct</tt></a></p>
+</th>
+<th rowspan="2" style="font-size:85%">
+<p><a href="c-string-byte-isalnum.html"><tt>isalnum</tt></a><br />
+<a href="c-string-wide-iswalnum.html"><tt>iswalnum</tt></a></p>
+</th>
+<th rowspan="2" style="font-size:85%">
+<p><a href="c-string-byte-isalpha.html"><tt>isalpha</tt></a><br />
+<a href="c-string-wide-iswalpha.html"><tt>iswalpha</tt></a></p>
+</th>
+<th rowspan="2" style="font-size:85%">
+<p><strong class="selflink"><tt>isupper</tt></strong><br />
+<a href="c-string-wide-iswupper.html"><tt>iswupper</tt></a></p>
+</th>
+<th rowspan="2" style="font-size:85%">
+<p><a href="c-string-byte-islower.html"><tt>islower</tt></a><br />
+<a href="c-string-wide-iswlower.html"><tt>iswlower</tt></a></p>
+</th>
+<th rowspan="2" style="font-size:85%">
+<p><a href="c-string-byte-isdigit.html"><tt>isdigit</tt></a><br />
+<a href="c-string-wide-iswdigit.html"><tt>iswdigit</tt></a></p>
+</th>
+<th rowspan="2" style="font-size:85%">
+<p><a href="c-string-byte-isxdigit.html"><tt>isxdigit</tt></a><br />
+<a href="c-string-wide-iswxdigit.html"><tt>iswxdigit</tt></a></p>
+</th>
+</tr>
+<tr>
+<th>&#21313;&#36827;&#21046;</th>
+<th>&#21313;&#20845;&#36827;&#21046;</th>
+<th>&#20843;&#36827;&#21046;</th>
+</tr>
+<tr>
+<td>0&ndash;8</td>
+<td><code>\x0</code>&ndash;<code>\x8</code></td>
+<td><code>\0</code>&ndash;<code>\10</code></td>
+<td>&#25511;&#21046;&#30721; (<code>NUL</code> &#31561;)</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+</tr>
+<tr>
+<td>9</td>
+<td><code>\x9</code></td>
+<td><code>\11</code></td>
+<td>&#21046;&#34920;&#31526; (<code>\t</code>)</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+</tr>
+<tr>
+<td>10&ndash;13</td>
+<td><code>\xA</code>&ndash;<code>\xD</code></td>
+<td><code>\12</code>&ndash;<code>\15</code></td>
+<td>&#31354;&#30333;&#31526; (<code>\n</code>, <code>\v</code>, <code>\f</code>, <code>\r</code>)</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+</tr>
+<tr>
+<td>14&ndash;31</td>
+<td><code>\xE</code>&ndash;<code>\x1F</code></td>
+<td><code>\16</code>&ndash;<code>\37</code></td>
+<td>&#25511;&#21046;&#30721;</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+</tr>
+<tr>
+<td>32</td>
+<td><code>\x20</code></td>
+<td><code>\40</code></td>
+<td>&#31354;&#26684;</td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+</tr>
+<tr>
+<td>33&ndash;47</td>
+<td><code>\x21</code>&ndash;<code>\x2F</code></td>
+<td><code>\41</code>&ndash;<code>\57</code></td>
+<td><code>!&quot;#$%&amp;&#39;()*+,-./</code></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+</tr>
+<tr>
+<td>48&ndash;57</td>
+<td><code>\x30</code>&ndash;<code>\x39</code></td>
+<td><code>\60</code>&ndash;<code>\71</code></td>
+<td><code>0123456789</code></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+</tr>
+<tr>
+<td>58&ndash;64</td>
+<td><code>\x3A</code>&ndash;<code>\x40</code></td>
+<td><code>\72</code>&ndash;<code>\100</code></td>
+<td><code>:;&lt;=&gt;?@</code></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+</tr>
+<tr>
+<td>65&ndash;70</td>
+<td><code>\x41</code>&ndash;<code>\x46</code></td>
+<td><code>\101</code>&ndash;<code>\106</code></td>
+<td><code>ABCDEF</code></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+</tr>
+<tr>
+<td>71&ndash;90</td>
+<td><code>\x47</code>&ndash;<code>\x5A</code></td>
+<td><code>\107</code>&ndash;<code>\132</code></td>
+<td><code>GHIJKLMNOP</code><br />
+<code>QRSTUVWXYZ</code></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+</tr>
+<tr>
+<td>91&ndash;96</td>
+<td><code>\x5B</code>&ndash;<code>\x60</code></td>
+<td><code>\133</code>&ndash;<code>\140</code></td>
+<td><code>[\]^_`</code></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+</tr>
+<tr>
+<td>97&ndash;102</td>
+<td><code>\x61</code>&ndash;<code>\x66</code></td>
+<td><code>\141</code>&ndash;<code>\146</code></td>
+<td><code>abcdef</code></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+</tr>
+<tr>
+<td>103&ndash;122</td>
+<td><code>\x67</code>&ndash;<code>\x7A</code></td>
+<td><code>\147</code>&ndash;<code>\172</code></td>
+<td><code>ghijklmnop</code><br />
+<code>qrstuvwxyz</code></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+</tr>
+<tr>
+<td>123&ndash;126</td>
+<td><code>\x7B</code>&ndash;<code>\x7E</code></td>
+<td><code>\173</code>&ndash;<code>\176</code></td>
+<td><code>{|}~</code></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+</tr>
+<tr>
+<td>127</td>
+<td><code>\x7F</code></td>
+<td><code>\177</code></td>
+<td>&#36864;&#26684;&#31526; (<code>DEL</code>)</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes"><b><code>&ne;0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+<td style="background:#ff9090; color:black; vertical-align: middle; text-align: center;" class="table-no"><b><code>0</code></b></td>
+</tr>
+</table>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

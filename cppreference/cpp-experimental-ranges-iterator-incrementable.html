@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>std::experimental::ranges::Incrementable</title>
+<link rel="stylesheet" href="ext.css" />
+<link rel="stylesheet" href="site_modules.css" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_experimental_ranges_iterator_Incrementable skin-cppreference2 action-view cpp-navbar">
+<div id="cpp-content-base">
+<div id="content"><a id="top"></a>
+<h1 id="firstHeading" class="firstHeading"><span style="font-size:0.8em; line-height:125%">std::experimental::ranges::</span>Incrementable</h1>
+<div id="bodyContent">
+<div id="contentSub"><span class="subpages">&lt; <a href="cpp.html">cpp</a>&lrm; | <a href="cpp-experimental.html">experimental</a>&lrm; | <a href="cpp-experimental-ranges.html">ranges</a></span></div>
+<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr" xml:lang="zh">
+<table class="t-dcl-begin">
+<tbody>
+<tr class="t-dsc-header">
+<td>
+<div>&#22312;&#26631;&#22836; <code><a href="cpp-header-experimental-ranges-iterator.html">&lt;experimental/ranges/iterator&gt;</a></code> &#23450;&#20041;</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-ranges">
+<td>
+<div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> I <span class="sy1">&gt;</span><br /></span>
+<p>concept <span class="kw4">bool</span> Incrementable <span class="sy1">=</span><br />
+&nbsp; &nbsp; Regular<span class="sy1">&lt;</span>I<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; WeaklyIncrementable<span class="sy1">&lt;</span>I<span class="sy1">&gt;</span> <span class="sy3">&amp;&amp;</span><br />
+&nbsp; &nbsp; requires<span class="br0">(</span>I i<span class="br0">)</span> <span class="br0">{</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">{</span> i<span class="sy2">++</span> <span class="br0">}</span> <span class="sy2">-</span><span class="sy1">&gt;</span> Same<span class="sy1">&lt;</span>I<span class="sy1">&gt;</span><span class="sy3">&amp;&amp;</span><span class="sy4">;</span><br /></p>
+&nbsp; &nbsp; <span class="br0">}</span><span class="sy4">;</span></div>
+</td>
+<td class="t-dcl-nopad"></td>
+<td><span class="t-mark-rev t-since-ranges-ts t-mark-ts" style="white-space: nowrap;">(&#33539;&#22260; TS)</span></td>
+</tr>
+<tr class="t-dcl-sep">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#27010;&#24565; <code>Incrementable&lt;I&gt;</code> &#25351;&#23450;&#33021;&#65288;&#29992;&#21069;&#21644;&#21518;&#33258;&#22686;&#36816;&#31639;&#31526;&#65289;&#33258;&#22686;&#30340;&#31867;&#22411;&#19978;&#30340;&#35201;&#27714;&#12290;&#35201;&#27714;&#33258;&#22686;&#36816;&#31639;&#65288;&#21253;&#25324; <a href="cpp-experimental-ranges-iterator-WeaklyIncrementable.html"><code>WeaklyIncrementable</code></a> &#25152;&#35201;&#27714;&#32773;&#65289;&#20445;&#25345;&#30456;&#31561;&#24615;&#65292;&#24182;&#35201;&#27714;&#35813;&#31867;&#22411;&#20026; <a href="cpp-experimental-ranges-concepts-EqualityComparable.html"><code>EqualityComparable</code></a>&#12290;</p>
+<p>&#20196; <code>a</code> &#19982; <code>b</code> &#20026; <code>I</code> &#31867;&#22411;&#30340;&#21487;&#33258;&#22686;&#23545;&#35937;&#12290;<code>Incrementable&lt;I&gt;</code> &#20165;&#33509;&#19979;&#21015;&#26465;&#20214;&#25104;&#31435;&#25165;&#24471;&#21040;&#28385;&#36275;&#65306;</p>
+<ul>
+<li>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span><span class="br0">(</span>a <span class="sy1">==</span> b<span class="br0">)</span></span></span> &#21017; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span><span class="br0">(</span>a<span class="sy2">++</span> <span class="sy1">==</span> b<span class="br0">)</span></span></span>&#12290;</li>
+<li>&#33509; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span><span class="br0">(</span>a <span class="sy1">==</span> b<span class="br0">)</span></span></span> &#21017; <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span><span class="br0">(</span><span class="kw4">void</span><span class="br0">(</span>a<span class="sy2">++</span><span class="br0">)</span>, a<span class="br0">)</span> <span class="sy1">==</span> <span class="sy2">++</span>b<span class="br0">)</span></span></span>&#12290;</li>
+</ul>
+<h3><span class="mw-headline" id=".E7.9B.B8.E7.AD.89.E6.80.A7.E4.BF.9D.E6.8C.81">&#30456;&#31561;&#24615;&#20445;&#25345;</span></h3>
+<p>&#33509;&#34920;&#36798;&#24335;&#23545;&#32473;&#23450;&#30340;&#30456;&#31561;&#36755;&#20837;&#20135;&#29983;&#30456;&#31561;&#36755;&#20986;&#65292;&#21017;&#23427;<i>&#20445;&#25345;&#30456;&#31561;&#24615;</i>&#12290;</p>
+<ul>
+<li>&#34920;&#36798;&#24335;&#30340;&#36755;&#20837;&#30001;&#20854;&#25805;&#20316;&#25968;&#32452;&#25104;&#12290;</li>
+<li>&#34920;&#36798;&#24335;&#30340;&#36755;&#20986;&#30001;&#20854;&#32467;&#26524;&#21644;&#34920;&#36798;&#24335;&#25152;&#20462;&#25913;&#30340;&#25152;&#26377;&#25805;&#20316;&#25968;&#65288;&#33509;&#23384;&#22312;&#65289;&#32452;&#25104;&#12290;</li>
+</ul>
+<p>&#27599;&#20010;&#35201;&#27714;&#20445;&#25345;&#30456;&#31561;&#24615;&#30340;&#34920;&#36798;&#24335;&#36824;&#36827;&#19968;&#27493;&#35201;&#27714;&#26159;<i>&#31283;&#23450;</i>&#30340;&#65306;&#20197;&#30456;&#21516;&#36755;&#20837;&#23545;&#35937;&#23545;&#36825;&#31181;&#34920;&#36798;&#24335;&#36827;&#34892;&#20004;&#27425;&#27714;&#20540;&#24517;&#39035;&#25317;&#26377;&#30456;&#31561;&#30340;&#36755;&#20986;&#65292;&#32780;&#26080;&#20219;&#20309;&#23545;&#36825;&#20123;&#36755;&#20837;&#23545;&#35937;&#30340;&#26174;&#24335;&#20013;&#38388;&#20462;&#25913;&#12290;</p>
+<p>&#38500;&#38750;&#21478;&#22806;&#25552;&#37266;&#65292;&#27599;&#20010;&#29992;&#20110; <i>requires &#34920;&#36798;&#24335;</i>&#20013;&#30340;&#34920;&#36798;&#24335;&#37117;&#35201;&#27714;&#20445;&#25345;&#30456;&#31561;&#24615;&#19988;&#31283;&#23450;&#65292;&#32780;&#34920;&#36798;&#24335;&#30340;&#27714;&#20540;&#24517;&#39035;&#21482;&#20462;&#25913;&#20854;&#38750; const &#25805;&#20316;&#25968;&#12290;&#24517;&#39035;&#19981;&#20462;&#25913;&#24120;&#36816;&#31639;&#25968;&#12290;</p>
+<h3><span class="mw-headline" id=".E6.B3.A8.E8.A7.A3">&#27880;&#35299;</span></h3>
+<p><code>a</code> &#31561;&#20110; <code>b</code> &#30340;&#35201;&#27714;&#34164;&#21547; <code>++a</code> &#31561;&#20110; <code>++b</code>&#65292;&#36825;&#20801;&#35768;&#23558; <code>Incrementable</code> &#31867;&#22411;&#29992;&#20110;&#22810;&#36255;&#31639;&#27861;&#12290;</p>
+</div>
+<div class="visualClear"></div>
+</div>
+</div>
+</div>
+</body>
+</html>
